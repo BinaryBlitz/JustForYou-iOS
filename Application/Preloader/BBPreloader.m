@@ -8,15 +8,14 @@
 
 #import "BBPreloader.h"
 
-#import "BBTestAssembly.h"
-#import "BBTestModuleInput.h"
-
+#import "BBTabbarAssembly.h"
+#import "BBTabbarModuleInput.h"
 
 @interface BBPreloader ()
 
 @property (weak, nonatomic) UIWindow *window;
 
-@property (nonatomic) id<BBTestModuleInput> testModule;
+@property (nonatomic) id<BBTabbarModuleInput> tabbarModule;
 
 @end
 
@@ -26,16 +25,19 @@
     self = [super init];
     if (self) {
         self.window = window;
-        [self.testModule presentInWindow:window];
+        [self.tabbarModule presentInWindow:window];
     }
     return self;
 }
 
 # pragma mark - Lazy Load
 
-- (id<BBTestModuleInput>) testModule {
-    if (!_testModule) {
-        _testModule = [BBTestAssembly createModule];
+- (id<BBTabbarModuleInput>) tabbarModule {
+    if (!_tabbarModule) {
+        _tabbarModule = [BBTabbarAssembly createModule];
     }
-    return _testModule;
-}@end
+    return _tabbarModule;
+}
+
+
+@end

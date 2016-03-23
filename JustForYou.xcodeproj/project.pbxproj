@@ -20,13 +20,24 @@
 		4D4B9B637D27FA55DD90E942 /* BBTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7328278FD76F506BA1FD1E79 /* BBTestViewController.m */; };
 		96187D143F1BA98339B290DD /* BBTestPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0DA98BCF076DDEE32615BC /* BBTestPresenter.m */; };
 		B62392975B04EFC9DB1B444B /* BBTestRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 17305A3DA111F5C66D51836D /* BBTestRouter.m */; };
+		B8D388A271DA2C6B1AA0DE2B /* BBTabbarAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FD7BD19D92361B78A26F9F /* BBTabbarAssembly.m */; };
+		D4F1646A6B7F8EF39D607719 /* BBTabbarPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4BE778D1859B7D6ECAC861 /* BBTabbarPresenter.m */; };
+		D4F3ECEFF8C2C762C45A63E2 /* BBTabbarRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E16F8AE08C4EDDC9D6EEC10 /* BBTabbarRouter.m */; };
+		D76D973745BFA25EF7348DC8 /* BBTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779AEF644CA95757C37459F1 /* BBTabbarViewController.m */; };
+		E9527CCB8B6FAD0C4E96F108 /* BBTabbarInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F144C805EE3AC51D99FCFDA /* BBTabbarInteractor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08C266A5F6CEB36ED74B4A91 /* BBTabbarViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarViewInput.h; sourceTree = "<group>"; };
+		0A61EF4B6172EAE96A54E7BE /* BBTabbarInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarInteractorInput.h; sourceTree = "<group>"; };
+		0D57CA40624BF251DDD1221E /* BBTabbarRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarRouterInput.h; sourceTree = "<group>"; };
 		0DA0EC6E0D0CD42B167760C0 /* BBTestAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTestAssembly.m; sourceTree = "<group>"; };
+		0F144C805EE3AC51D99FCFDA /* BBTabbarInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTabbarInteractor.m; sourceTree = "<group>"; };
 		17305A3DA111F5C66D51836D /* BBTestRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTestRouter.m; sourceTree = "<group>"; };
 		1B0515B7C58C3965444E2ACB /* BBTestRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestRouter.h; sourceTree = "<group>"; };
+		1B7480272E0D400E3981B91A /* BBTabbarModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarModuleInput.h; sourceTree = "<group>"; };
 		210AF3DD46A1874881C76F17 /* Pods-JustForYou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.debug.xcconfig"; sourceTree = "<group>"; };
+		38738C4613A14E46EAA779BB /* BBTabbarInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarInteractor.h; sourceTree = "<group>"; };
 		3A1AB26C1C9D8F6B0070E065 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,21 +51,31 @@
 		3A1AB2861C9D98B70070E065 /* BBPreloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPreloader.h; sourceTree = "<group>"; };
 		3A1AB2871C9D98B70070E065 /* BBPreloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreloader.m; sourceTree = "<group>"; };
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A868E4A898B7033819EE3F7 /* BBTabbarAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarAssembly.h; sourceTree = "<group>"; };
+		3E16F8AE08C4EDDC9D6EEC10 /* BBTabbarRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTabbarRouter.m; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		47EDB7173B7BDAD4C63A09D7 /* BBTestPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestPresenter.h; sourceTree = "<group>"; };
 		53D3984551BB7C53BF279945 /* BBTestModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestModuleInput.h; sourceTree = "<group>"; };
+		6AE06E17F3BFAE9FCE88CF51 /* BBTabbarPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarPresenter.h; sourceTree = "<group>"; };
 		6B43BDADEC39C5FD818E7410 /* BBTestInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTestInteractor.m; sourceTree = "<group>"; };
 		72769222422C27926C4009AB /* BBTestViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestViewInput.h; sourceTree = "<group>"; };
 		7328278FD76F506BA1FD1E79 /* BBTestViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTestViewController.m; sourceTree = "<group>"; };
+		779AEF644CA95757C37459F1 /* BBTabbarViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTabbarViewController.m; sourceTree = "<group>"; };
 		7DF79BBF996635B2E65F0754 /* BBTestViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestViewController.h; sourceTree = "<group>"; };
 		8A0DA98BCF076DDEE32615BC /* BBTestPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTestPresenter.m; sourceTree = "<group>"; };
+		99183C0BB95FC217BF793B6B /* BBTabbarViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarViewOutput.h; sourceTree = "<group>"; };
 		99E35A88B69EA933491E223D /* BBTestInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestInteractorInput.h; sourceTree = "<group>"; };
+		99FD7BD19D92361B78A26F9F /* BBTabbarAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTabbarAssembly.m; sourceTree = "<group>"; };
 		A1D569B76752F07389DCC730 /* BBTestViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestViewOutput.h; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC4BE778D1859B7D6ECAC861 /* BBTabbarPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBTabbarPresenter.m; sourceTree = "<group>"; };
 		C393C490621928B10B9B188A /* BBTestAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestAssembly.h; sourceTree = "<group>"; };
 		C3C157BE70B9057D297ADEE4 /* BBTestInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestInteractorOutput.h; sourceTree = "<group>"; };
 		C510D3AE44432923123DB6BA /* BBTestInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestInteractor.h; sourceTree = "<group>"; };
+		D63EC79F5396CE6C9FCD0133 /* BBTabbarInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarInteractorOutput.h; sourceTree = "<group>"; };
 		E65DD5DE90BF2B39AFFD6AB0 /* BBTestRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTestRouterInput.h; sourceTree = "<group>"; };
+		F7F6FD30FA354E991F4F4733 /* BBTabbarRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarRouter.h; sourceTree = "<group>"; };
+		FA7C32A6353DE7B21A182FA5 /* BBTabbarViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBTabbarViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +106,16 @@
 				A613B663F642C98586B33722 /* libPods-JustForYou.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3568BA1618E58B872E515E7B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0D57CA40624BF251DDD1221E /* BBTabbarRouterInput.h */,
+				F7F6FD30FA354E991F4F4733 /* BBTabbarRouter.h */,
+				3E16F8AE08C4EDDC9D6EEC10 /* BBTabbarRouter.m */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		3A1AB26B1C9D8F6B0070E065 /* Application */ = {
@@ -123,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				AC000CE44108F093256C850C /* Test */,
+				B8C9CFBFE050D8A00B42E7ED /* Tabbar */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -175,6 +207,17 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		51995419BD5E0B905CBAA75B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0A61EF4B6172EAE96A54E7BE /* BBTabbarInteractorInput.h */,
+				D63EC79F5396CE6C9FCD0133 /* BBTabbarInteractorOutput.h */,
+				38738C4613A14E46EAA779BB /* BBTabbarInteractor.h */,
+				0F144C805EE3AC51D99FCFDA /* BBTabbarInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		5B23A5451F68D7E6AE817041 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +249,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9F960D4B6BB7BF25CA339F10 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1B7480272E0D400E3981B91A /* BBTabbarModuleInput.h */,
+				6AE06E17F3BFAE9FCE88CF51 /* BBTabbarPresenter.h */,
+				AC4BE778D1859B7D6ECAC861 /* BBTabbarPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		AC000CE44108F093256C850C /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +278,38 @@
 				0DA0EC6E0D0CD42B167760C0 /* BBTestAssembly.m */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		B8C9CFBFE050D8A00B42E7ED /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				BD38DBFD02C0ED2536CE601C /* Assembly */,
+				C9E1068B07414F3448AF1AFD /* View */,
+				9F960D4B6BB7BF25CA339F10 /* Presenter */,
+				51995419BD5E0B905CBAA75B /* Interactor */,
+				3568BA1618E58B872E515E7B /* Router */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		BD38DBFD02C0ED2536CE601C /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A868E4A898B7033819EE3F7 /* BBTabbarAssembly.h */,
+				99FD7BD19D92361B78A26F9F /* BBTabbarAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C9E1068B07414F3448AF1AFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08C266A5F6CEB36ED74B4A91 /* BBTabbarViewInput.h */,
+				99183C0BB95FC217BF793B6B /* BBTabbarViewOutput.h */,
+				FA7C32A6353DE7B21A182FA5 /* BBTabbarViewController.h */,
+				779AEF644CA95757C37459F1 /* BBTabbarViewController.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +444,11 @@
 				96187D143F1BA98339B290DD /* BBTestPresenter.m in Sources */,
 				200F85E70C36A50D4C3C7EFF /* BBTestInteractor.m in Sources */,
 				B62392975B04EFC9DB1B444B /* BBTestRouter.m in Sources */,
+				B8D388A271DA2C6B1AA0DE2B /* BBTabbarAssembly.m in Sources */,
+				D76D973745BFA25EF7348DC8 /* BBTabbarViewController.m in Sources */,
+				D4F1646A6B7F8EF39D607719 /* BBTabbarPresenter.m in Sources */,
+				E9527CCB8B6FAD0C4E96F108 /* BBTabbarInteractor.m in Sources */,
+				D4F3ECEFF8C2C762C45A63E2 /* BBTabbarRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
