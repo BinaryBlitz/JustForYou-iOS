@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339" y="313"/>
+            <point key="canvasLocation" x="981" y="999"/>
         </scene>
         <!--Tabbar View Controller-->
         <scene sceneID="KvF-1I-ag9">
@@ -34,12 +34,72 @@
                     <view key="view" contentMode="scaleToFill" id="nCs-gp-bUU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxG-qe-Yln" customClass="BBContainerView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="BxG-tu-2kX" kind="embed" id="VVH-ug-hVE"/>
+                                </connections>
+                            </containerView>
+                            <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONR-8k-Za0" customClass="BBTabBar">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Программы" id="pZM-rZ-m7z"/>
+                                    <tabBarItem title="Заказы" id="uVu-el-sjh"/>
+                                    <tabBarItem title="Профиль" id="yr8-2Z-RyW"/>
+                                    <tabBarItem title="Поддержка" id="seu-CO-Eaf"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O2T-kc-4vd" firstAttribute="top" secondItem="ONR-8k-Za0" secondAttribute="bottom" id="1wf-eM-ctk"/>
+                            <constraint firstItem="ONR-8k-Za0" firstAttribute="top" secondItem="jxG-qe-Yln" secondAttribute="bottom" id="6c7-Uh-AfN"/>
+                            <constraint firstAttribute="trailing" secondItem="ONR-8k-Za0" secondAttribute="trailing" id="LjB-QL-OJc"/>
+                            <constraint firstAttribute="trailing" secondItem="jxG-qe-Yln" secondAttribute="trailing" id="W2n-eP-Yc4"/>
+                            <constraint firstItem="jxG-qe-Yln" firstAttribute="leading" secondItem="nCs-gp-bUU" secondAttribute="leading" id="Z8W-m5-niX"/>
+                            <constraint firstItem="ONR-8k-Za0" firstAttribute="leading" secondItem="nCs-gp-bUU" secondAttribute="leading" id="aM2-Yz-4GH"/>
+                            <constraint firstItem="jxG-qe-Yln" firstAttribute="top" secondItem="nCs-gp-bUU" secondAttribute="top" id="wN2-B4-6mI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="jxG-qe-Yln" id="GRi-GC-NsS"/>
+                        <outlet property="tabbar" destination="ONR-8k-Za0" id="xPg-14-EM0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORY-9k-QPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="439" y="321"/>
+        </scene>
+        <!--Navigation View Controller-->
+        <scene sceneID="W5I-Ag-BTR">
+            <objects>
+                <navigationController storyboardIdentifier="BBNavigationViewController" id="fhw-M8-0vW" customClass="BBNavigationViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NvV-Me-yFE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-3G-ezp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="321"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="X0J-0D-of9">
+            <objects>
+                <viewController id="BxG-tu-2kX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZkI-bu-4SJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="18d-8q-pZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189" y="303.5"/>
         </scene>
     </scenes>
 </document>

@@ -9,6 +9,16 @@
 #import "BBTabbarViewController.h"
 
 #import "BBTabbarViewOutput.h"
+#import "BBContainerView.h"
+#import "BBTabBar.h"
+
+@interface BBTabbarViewController()
+
+@property (weak, nonatomic) IBOutlet BBContainerView *containerView;
+@property (weak, nonatomic) IBOutlet BBTabBar *tabbar;
+
+
+@end
 
 @implementation BBTabbarViewController
 
@@ -23,7 +33,11 @@
 #pragma mark - Методы BBTabbarViewInput
 
 - (void)setupInitialState {
-	// В этом методе происходит настройка параметров view, зависящих от ее жизненого цикла (создание элементов, анимации и пр.)
+    
+    [self.tabbar setSelectedItem:[self.tabbar.items objectAtIndex:TabbarItemPrograms]];
+    
+    id initialView = [self.output needInitialViewForContainer];
+    [self.containerView displayView:initialView];
 }
 
 @end

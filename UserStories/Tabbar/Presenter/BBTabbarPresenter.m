@@ -12,6 +12,15 @@
 #import "BBTabbarInteractorInput.h"
 #import "BBTabbarRouterInput.h"
 
+#import "BBNavigationAssembly.h"
+#import "BBNavigationModuleInput.h"
+
+@interface BBTabbarPresenter()
+
+@property (nonatomic) id<BBNavigationModuleInput> navigationModule;
+
+@end
+
 @implementation BBTabbarPresenter
 
 #pragma mark - Методы BBTabbarModuleInput
@@ -30,6 +39,20 @@
 	[self.view setupInitialState];
 }
 
+- (id)needInitialViewForContainer {
+    return [self.navigationModule currentView];
+}
+
 #pragma mark - Методы BBTabbarInteractorOutput
+
+
+#pragma mark - Lazy Load
+
+- (id<BBNavigationModuleInput>) navigationModule {
+    if (!_navigationModule) {
+        _navigationModule = [BBNavigationAssembly createModule];
+    }
+    return _navigationModule;
+}
 
 @end

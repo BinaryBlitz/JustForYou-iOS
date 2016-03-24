@@ -10,11 +10,6 @@
 
 @protocol BBTabbarModuleInput;
 
-/**
- @author tercteberc
-
- Tabbar module
- */
 @interface BBTabbarAssembly : NSObject
 
 + (id <BBTabbarModuleInput>)createModule;
