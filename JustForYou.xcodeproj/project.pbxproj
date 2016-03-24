@@ -121,13 +121,13 @@
 		3A1AB26B1C9D8F6B0070E065 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */,
 				3A1AB2811C9D917A0070E065 /* PrefixHeader.pch */,
 				3A1AB26C1C9D8F6B0070E065 /* AppDelegate.h */,
 				3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */,
 				3A1AB2821C9D97800070E065 /* Preloader */,
 				3A1AB27C1C9D91450070E065 /* Helpers */,
 				3A1AB26F1C9D8F6B0070E065 /* Storyboards */,
-				3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */,
 			);
 			path = Application;
 			sourceTree = "<group>";
