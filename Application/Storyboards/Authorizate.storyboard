@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Registration View Controller-->
+        <scene sceneID="Tw0-Vj-ruj">
+            <objects>
+                <viewController storyboardIdentifier="BBRegistrationViewController" id="LSa-PL-5em" customClass="BBRegistrationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FB3-dA-Cn3"/>
+                        <viewControllerLayoutGuide type="bottom" id="2hz-FR-7rT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9rr-Fi-fOb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-fI-mtG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="hPV-kb-F8F"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.94901960784313721" green="0.44705882352941173" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="Vgf-yL-Np2">
+                                        <barButtonItem key="rightBarButtonItem" title="Продолжить" id="6hQ-Xc-Rpu">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDC-KR-W51">
+                                <rect key="frame" x="110" y="81" width="100" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjI-yX-2Sc">
+                                        <rect key="frame" x="8" y="29" width="84" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="wqi-zR-jJW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.44705882349999998" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7R2-HA-HxB"/>
+                                    <constraint firstAttribute="trailing" secondItem="vjI-yX-2Sc" secondAttribute="trailing" constant="8" id="Ggo-9e-P46"/>
+                                    <constraint firstItem="vjI-yX-2Sc" firstAttribute="top" secondItem="kDC-KR-W51" secondAttribute="top" constant="29" id="LtM-yT-XIY"/>
+                                    <constraint firstItem="vjI-yX-2Sc" firstAttribute="leading" secondItem="kDC-KR-W51" secondAttribute="leading" constant="8" id="RYO-ZO-0u3"/>
+                                    <constraint firstAttribute="height" constant="100" id="vfY-Ly-t1y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kDC-KR-W51" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="5O8-2V-TiI"/>
+                            <constraint firstItem="eDT-fI-mtG" firstAttribute="leading" secondItem="9rr-Fi-fOb" secondAttribute="leading" id="Bcc-HE-bem"/>
+                            <constraint firstAttribute="trailing" secondItem="eDT-fI-mtG" secondAttribute="trailing" id="pz2-Hq-Qys"/>
+                            <constraint firstItem="eDT-fI-mtG" firstAttribute="top" secondItem="9rr-Fi-fOb" secondAttribute="top" id="qfA-qi-8wx"/>
+                            <constraint firstItem="kDC-KR-W51" firstAttribute="top" secondItem="eDT-fI-mtG" secondAttribute="bottom" constant="17" id="tcs-Tz-yUf"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="youView" destination="kDC-KR-W51" id="wrd-ro-mEh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8vD-lh-YMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="-462"/>
+        </scene>
+    </scenes>
+</document>

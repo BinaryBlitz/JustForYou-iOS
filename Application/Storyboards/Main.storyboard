@@ -85,12 +85,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-3G-ezp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="321"/>
+            <point key="canvasLocation" x="-494" y="-89"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X0J-0D-of9">
             <objects>
                 <viewController id="BxG-tu-2kX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nXi-Kj-rZf"/>
+                        <viewControllerLayoutGuide type="bottom" id="9zQ-ff-Pb7"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZkI-bu-4SJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
