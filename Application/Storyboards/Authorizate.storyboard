@@ -27,6 +27,9 @@
                                     <navigationItem id="Vgf-yL-Np2">
                                         <barButtonItem key="rightBarButtonItem" title="Продолжить" id="6hQ-Xc-Rpu">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="nextButtonAction:" destination="LSa-PL-5em" id="lQL-ap-ovS"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -95,6 +98,9 @@
                                 <state key="normal" title="Выслать повторно">
                                     <color key="titleColor" red="0.35686274509803922" green="0.6588235294117647" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendAgainActionButton:" destination="LSa-PL-5em" eventType="touchUpInside" id="nTf-7X-nAz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vD-lh-YMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="376" y="-462"/>
+            <point key="canvasLocation" x="201" y="-503"/>
         </scene>
     </scenes>
 </document>

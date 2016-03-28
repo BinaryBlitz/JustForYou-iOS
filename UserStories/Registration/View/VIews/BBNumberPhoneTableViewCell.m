@@ -8,17 +8,26 @@
 
 #import "BBNumberPhoneTableViewCell.h"
 
+@interface BBNumberPhoneTableViewCell() <UITextFieldDelegate>
+
+@end
+
 @implementation BBNumberPhoneTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.numberTextField.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)textFieldDidBeginEditing:(id)sender {
+    
 }
 
 @end

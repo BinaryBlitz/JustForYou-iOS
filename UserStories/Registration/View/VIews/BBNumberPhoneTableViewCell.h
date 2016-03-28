@@ -10,4 +10,6 @@
 
 @interface BBNumberPhoneTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UITextField *numberTextField;
+
 @end

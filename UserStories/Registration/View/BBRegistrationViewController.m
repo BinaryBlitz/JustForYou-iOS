@@ -49,6 +49,14 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
     
 }
 
+- (IBAction)sendAgainActionButton:(id)sender {
+    
+}
+
+- (IBAction)nextButtonAction:(id)sender {
+    
+}
+
 #pragma mark - UITableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -76,6 +84,5 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
     self.youView.layer.masksToBounds = YES;
     [self.youView.layer setCornerRadius:CGRectGetHeight(self.youView.frame)/2];
 }
-
 
 @end
