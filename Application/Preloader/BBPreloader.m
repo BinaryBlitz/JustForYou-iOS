@@ -11,9 +11,6 @@
 #import "BBTabbarAssembly.h"
 #import "BBTabbarModuleInput.h"
 
-#import "BBRegistrationAssembly.h"
-#import "BBRegistrationModuleInput.h"
-
 #import "BBAuthorizationAssembly.h"
 #import "BBAuthorizationModuleInput.h"
 

@@ -12,6 +12,6 @@
 
 @interface BBNavigationInteractor : NSObject <BBNavigationInteractorInput>
 
-@property (nonatomic, weak) id<BBNavigationInteractorOutput> output;
+@property (weak, nonatomic) id<BBNavigationInteractorOutput> output;
 
 @end

@@ -14,6 +14,6 @@
 
 @interface BBTabbarViewController : UIViewController <BBTabbarViewInput>
 
-@property (nonatomic, weak) id<BBTabbarViewOutput> output;
+@property (weak, nonatomic) id<BBTabbarViewOutput> output;
 
 @end

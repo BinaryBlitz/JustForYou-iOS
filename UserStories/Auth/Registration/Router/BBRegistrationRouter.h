@@ -12,6 +12,6 @@
 
 @interface BBRegistrationRouter : NSObject <BBRegistrationRouterInput>
 
-@property (nonatomic,weak) BBRegistrationPresenter *presenter;
+@property (weak, nonatomic) BBRegistrationPresenter *presenter;
 
 @end

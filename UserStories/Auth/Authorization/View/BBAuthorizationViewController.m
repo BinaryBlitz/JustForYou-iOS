@@ -56,7 +56,7 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
 }
 
 - (IBAction)nextButtonAction:(id)sender {
-    
+    [self.output nextButtonDidPress];
 }
 
 #pragma mark - UITableView

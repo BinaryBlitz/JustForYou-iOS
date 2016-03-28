@@ -12,6 +12,6 @@
 
 @interface BBTabbarRouter : NSObject <BBTabbarRouterInput>
 
-@property (nonatomic,weak) BBTabbarPresenter *presenter;
+@property (weak, nonatomic) BBTabbarPresenter *presenter;
 
 @end

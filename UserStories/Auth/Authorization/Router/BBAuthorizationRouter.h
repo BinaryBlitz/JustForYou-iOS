@@ -12,6 +12,6 @@
 
 @interface BBAuthorizationRouter : NSObject <BBAuthorizationRouterInput>
 
-@property (nonatomic,weak) BBAuthorizationPresenter *presenter;
+@property (weak, nonatomic) BBAuthorizationPresenter *presenter;
 
 @end

@@ -12,8 +12,11 @@
 #import "BBRegistrationInteractorInput.h"
 #import "BBRegistrationRouterInput.h"
 
+#import "BBAuthorizationModuleInput.h"
+
 @interface BBRegistrationPresenter()
 
+@property (weak, nonatomic) id<BBAuthorizationModuleInput> authModule;
 
 @end
 
@@ -22,6 +25,10 @@
 #pragma mark - Методы BBRegistrationModuleInput
 
 - (void)configureModule {
+    
+}
+
+- (void)presentWithView:(id)viewController {
     
 }
 

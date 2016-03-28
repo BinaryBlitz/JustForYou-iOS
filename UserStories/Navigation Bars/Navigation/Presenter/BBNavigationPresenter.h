@@ -16,8 +16,8 @@
 
 @interface BBNavigationPresenter : NSObject <BBNavigationModuleInput, BBNavigationViewOutput, BBNavigationInteractorOutput>
 
-@property (nonatomic, strong) id<BBNavigationViewInput> view;
-@property (nonatomic, strong) id<BBNavigationInteractorInput> interactor;
-@property (nonatomic, strong) id<BBNavigationRouterInput> router;
+@property (strong, nonatomic) id<BBNavigationViewInput> view;
+@property (strong, nonatomic) id<BBNavigationInteractorInput> interactor;
+@property (strong, nonatomic) id<BBNavigationRouterInput> router;
 
 @end

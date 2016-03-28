@@ -16,8 +16,8 @@
 
 @interface BBTabbarPresenter : NSObject <BBTabbarModuleInput, BBTabbarViewOutput, BBTabbarInteractorOutput>
 
-@property (nonatomic, strong) id<BBTabbarViewInput> view;
-@property (nonatomic, strong) id<BBTabbarInteractorInput> interactor;
-@property (nonatomic, strong) id<BBTabbarRouterInput> router;
+@property (strong, nonatomic) id<BBTabbarViewInput> view;
+@property (strong, nonatomic) id<BBTabbarInteractorInput> interactor;
+@property (strong, nonatomic) id<BBTabbarRouterInput> router;
 
 @end

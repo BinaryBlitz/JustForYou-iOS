@@ -12,6 +12,6 @@
 
 @interface BBNavigationRouter : NSObject <BBNavigationRouterInput>
 
-@property (nonatomic,weak) BBNavigationPresenter *presenter;
+@property (weak, nonatomic) BBNavigationPresenter *presenter;
 
 @end

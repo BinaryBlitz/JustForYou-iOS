@@ -12,6 +12,15 @@
 #import "BBAuthorizationInteractorInput.h"
 #import "BBAuthorizationRouterInput.h"
 
+#import "BBRegistrationAssembly.h"
+#import "BBRegistrationModuleInput.h"
+
+@interface BBAuthorizationPresenter()
+
+@property (strong, nonatomic) id<BBRegistrationModuleInput> registModule;
+
+@end
+
 @implementation BBAuthorizationPresenter
 
 #pragma mark - Методы BBAuthorizationModuleInput
@@ -31,6 +40,24 @@
 	[self.view setupInitialState];
 }
 
+- (void)nextButtonDidPress {
+    
+}
+
+- (void)sendAgainButtonDidPress {
+    
+}
+
 #pragma mark - Методы BBAuthorizationInteractorOutput
+
+
+#pragma mark - Lazy Load
+
+- (id<BBRegistrationModuleInput>) registModule {
+    if (_registModule) {
+        _registModule = [BBRegistrationAssembly createModule];
+    }
+    return _registModule;
+}
 
 @end

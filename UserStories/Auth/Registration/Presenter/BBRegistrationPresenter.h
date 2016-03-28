@@ -16,8 +16,8 @@
 
 @interface BBRegistrationPresenter : NSObject <BBRegistrationModuleInput, BBRegistrationViewOutput, BBRegistrationInteractorOutput>
 
-@property (nonatomic, strong) id<BBRegistrationViewInput> view;
-@property (nonatomic, strong) id<BBRegistrationInteractorInput> interactor;
-@property (nonatomic, strong) id<BBRegistrationRouterInput> router;
+@property (strong, nonatomic) id<BBRegistrationViewInput> view;
+@property (strong, nonatomic) id<BBRegistrationInteractorInput> interactor;
+@property (strong, nonatomic) id<BBRegistrationRouterInput> router;
 
 @end

@@ -305,11 +305,11 @@
 		3A1348301CA9A7BE007A83ED /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A1348311CA9A7BE007A83ED /* BBAuthorizationViewController.h */,
-				3A1348321CA9A7BE007A83ED /* BBAuthorizationViewController.m */,
+				3A1348351CA9A7BE007A83ED /* VIews */,
 				3A1348331CA9A7BE007A83ED /* BBAuthorizationViewInput.h */,
 				3A1348341CA9A7BE007A83ED /* BBAuthorizationViewOutput.h */,
-				3A1348351CA9A7BE007A83ED /* VIews */,
+				3A1348311CA9A7BE007A83ED /* BBAuthorizationViewController.h */,
+				3A1348321CA9A7BE007A83ED /* BBAuthorizationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";

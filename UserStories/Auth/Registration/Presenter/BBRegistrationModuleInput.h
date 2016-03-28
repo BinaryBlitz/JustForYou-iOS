@@ -12,4 +12,6 @@
 
 - (void)configureModule;
 
+- (void)presentWithView:(id)viewController;
+
 @end

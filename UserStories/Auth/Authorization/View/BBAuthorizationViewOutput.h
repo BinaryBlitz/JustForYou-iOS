@@ -12,4 +12,8 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)nextButtonDidPress;
+
+- (void)sendAgainButtonDidPress;
+
 @end
