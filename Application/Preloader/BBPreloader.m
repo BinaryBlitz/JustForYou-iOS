@@ -14,6 +14,9 @@
 #import "BBRegistrationAssembly.h"
 #import "BBRegistrationModuleInput.h"
 
+#import "BBAuthorizationAssembly.h"
+#import "BBAuthorizationModuleInput.h"
+
 #import "BBUserService.h"
 
 @interface BBPreloader ()
@@ -21,7 +24,7 @@
 @property (weak, nonatomic) UIWindow *window;
 
 @property (nonatomic) id<BBTabbarModuleInput> tabbarModule;
-@property (nonatomic) id<BBRegistrationModuleInput> registrationModule;
+@property (nonatomic) id<BBAuthorizationModuleInput> authorizationModule;
 
 @end
 
@@ -34,7 +37,7 @@
         if ([[BBUserService sharedService] currentUser]) {
             [self.tabbarModule presentInWindow:window];
         } else {
-            [self.registrationModule presentInWindow:window];
+            [self.authorizationModule presentInWindow:window];
         }
     }
     return self;
@@ -49,11 +52,11 @@
     return _tabbarModule;
 }
 
-- (id<BBRegistrationModuleInput>) registrationModule {
-    if (!_registrationModule) {
-        _registrationModule = [BBRegistrationAssembly createModule];
+- (id<BBAuthorizationModuleInput>) authorizationModule {
+    if (!_authorizationModule) {
+        _authorizationModule = [BBAuthorizationAssembly createModule];
     }
-    return _registrationModule;
+    return _authorizationModule;
 }
 
 @end

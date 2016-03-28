@@ -38,7 +38,7 @@
 }
 
 + (BBAuthorizationViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authorizate" bundle:nil];
     BBAuthorizationViewController * vc = (BBAuthorizationViewController *)[sb instantiateViewControllerWithIdentifier:@"BBAuthorizationViewController"];
     return vc;
 }

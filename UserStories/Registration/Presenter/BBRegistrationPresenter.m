@@ -25,10 +25,6 @@
     
 }
 
-- (void)presentInWindow:(UIWindow *)window {
-    [self.router presentFromWindow:window];
-}
-
 #pragma mark - Методы BBRegistrationViewOutput
 
 - (void)didTriggerViewReadyEvent {

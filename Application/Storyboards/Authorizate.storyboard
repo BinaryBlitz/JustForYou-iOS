@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Registration View Controller-->
+        <!--Authorization View Controller-->
         <scene sceneID="Tw0-Vj-ruj">
             <objects>
-                <viewController storyboardIdentifier="BBRegistrationViewController" id="LSa-PL-5em" customClass="BBRegistrationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BBAuthorizationViewController" id="LSa-PL-5em" customClass="BBAuthorizationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FB3-dA-Cn3"/>
                         <viewControllerLayoutGuide type="bottom" id="2hz-FR-7rT"/>
@@ -131,7 +131,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vD-lh-YMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="-503"/>
+            <point key="canvasLocation" x="82" y="-495"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="gP6-uS-1It">
+            <objects>
+                <viewController storyboardIdentifier="BBRegistrationViewController" id="pm3-b1-8NQ" customClass="BBRegistrationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HL6-4L-yyY"/>
+                        <viewControllerLayoutGuide type="bottom" id="GCc-dI-zh6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kkQ-pG-yrK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWJ-BC-afR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-376" y="-495"/>
         </scene>
     </scenes>
 </document>

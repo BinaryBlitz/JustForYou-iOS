@@ -12,6 +12,4 @@
 
 - (void)configureModule;
 
-- (void)presentInWindow:(UIWindow *)window;
-
 @end

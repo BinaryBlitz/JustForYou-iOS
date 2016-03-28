@@ -17,8 +17,13 @@
 #pragma mark - Методы BBAuthorizationModuleInput
 
 - (void)configureModule {
-    // Стартовая конфигурация модуля, не привязанная к состоянию view
+    
 }
+
+- (void)presentInWindow:(UIWindow *)window {
+    [self.router presentFromWindow:window];
+}
+
 
 #pragma mark - Методы BBAuthorizationViewOutput
 
