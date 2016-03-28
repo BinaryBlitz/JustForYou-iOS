@@ -11,6 +11,6 @@
 
 @protocol BBRegistrationRouterInput <NSObject>
 
-- (void)presentFromWindow:(UIWindow *)window;
+- (void)presentFromView:(id)view withNavigationView:(id)navigationView;
 
 @end

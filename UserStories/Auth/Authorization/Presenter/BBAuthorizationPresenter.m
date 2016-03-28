@@ -15,9 +15,12 @@
 #import "BBRegistrationAssembly.h"
 #import "BBRegistrationModuleInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBAuthorizationPresenter()
 
 @property (strong, nonatomic) id<BBRegistrationModuleInput> registModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
@@ -29,10 +32,14 @@
     
 }
 
-- (void)presentInWindow:(UIWindow *)window {
-    [self.router presentFromWindow:window];
+- (id)currentViewWithModule:(id)module {
+    self.navigModule = module;
+    return self.view;
 }
 
+- (id)currentView {
+    return self.view;
+}
 
 #pragma mark - Методы BBAuthorizationViewOutput
 
@@ -41,7 +48,7 @@
 }
 
 - (void)nextButtonDidPress {
-    
+    [self.registModule presentWithAuthModule:self andNavigModule:self.navigModule];
 }
 
 - (void)sendAgainButtonDidPress {
@@ -54,7 +61,7 @@
 #pragma mark - Lazy Load
 
 - (id<BBRegistrationModuleInput>) registModule {
-    if (_registModule) {
+    if (!_registModule) {
         _registModule = [BBRegistrationAssembly createModule];
     }
     return _registModule;

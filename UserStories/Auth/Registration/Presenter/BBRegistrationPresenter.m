@@ -14,9 +14,12 @@
 
 #import "BBAuthorizationModuleInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBRegistrationPresenter()
 
 @property (weak, nonatomic) id<BBAuthorizationModuleInput> authModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
@@ -28,8 +31,10 @@
     
 }
 
-- (void)presentWithView:(id)viewController {
-    
+- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule {
+    self.authModule = module;
+    self.navigModule = navigModule;
+    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBRegistrationViewOutput

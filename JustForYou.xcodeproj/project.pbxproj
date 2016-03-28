@@ -50,10 +50,29 @@
 		3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2741C9D8F6B0070E065 /* main.m */; };
 		3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB27E1C9D91450070E065 /* HelpQueue.m */; };
 		3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2871C9D98B70070E065 /* BBPreloader.m */; };
+		4E4A77CB7EE4C39741EF64AA /* BBBlocksRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F95DD498DD44F4403B997C10 /* BBBlocksRouter.m */; };
+		65042B08500ABE4FC3915E3A /* BBOrdersRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFD6B87C4CA628A2746AD75 /* BBOrdersRouter.m */; };
+		6A85A75F6F2AD7928A9183D2 /* BBOrdersAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = D5279B2E9978F73DBC09E058 /* BBOrdersAssembly.m */; };
+		882EBFA9A068FEB881D4A324 /* BBOrdersInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F614C669F7703FDBFD5655C1 /* BBOrdersInteractor.m */; };
+		C4BF2D8640272D1EB78DB27E /* BBBlocksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B62B85C7CC5BB4B74A4BE9 /* BBBlocksViewController.m */; };
+		D935AF751B60ED9A9BA8AF44 /* BBBlocksAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47CA74D57AAE32321403E /* BBBlocksAssembly.m */; };
+		E23F18E67AEC6B3ECFD11775 /* BBOrdersPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B920D1505D7FF0E179658ECE /* BBOrdersPresenter.m */; };
+		ECC969E56A136B1B26E76E42 /* BBBlocksInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E6A75904CA1FE3F2D92C2A /* BBBlocksInteractor.m */; };
+		EED90E275016ED60171A051C /* BBOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4BEC8D3334A72715CF9A3 /* BBOrdersViewController.m */; };
+		FEAB0BA7503674F1DC94C47A /* BBBlocksPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 204DA2E0C144D86FE91C1AD9 /* BBBlocksPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11E6A75904CA1FE3F2D92C2A /* BBBlocksInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBBlocksInteractor.m; sourceTree = "<group>"; };
+		1BA6CA11A8C7D9D6E35C1EA9 /* BBOrdersViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewOutput.h; sourceTree = "<group>"; };
+		1E8238376F49399DB542B9DD /* BBOrdersInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractor.h; sourceTree = "<group>"; };
+		1F36CEB9A1740597EB0F5913 /* BBBlocksInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractor.h; sourceTree = "<group>"; };
+		204DA2E0C144D86FE91C1AD9 /* BBBlocksPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBBlocksPresenter.m; sourceTree = "<group>"; };
 		210AF3DD46A1874881C76F17 /* Pods-JustForYou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.debug.xcconfig"; sourceTree = "<group>"; };
+		216DAB3C4F1E584348583781 /* BBBlocksInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractorInput.h; sourceTree = "<group>"; };
+		284D100DB8CD216CE94FA176 /* BBBlocksViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewController.h; sourceTree = "<group>"; };
+		28CD1F8941859AD0BF30EAE0 /* BBOrdersPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersPresenter.h; sourceTree = "<group>"; };
+		2A3088701C2E5674199D466B /* BBOrdersInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractorOutput.h; sourceTree = "<group>"; };
 		3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorizate.storyboard; sourceTree = "<group>"; };
 		3A1347531CA6B643007A83ED /* BBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUserService.h; sourceTree = "<group>"; };
 		3A1347541CA6B643007A83ED /* BBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUserService.m; sourceTree = "<group>"; };
@@ -165,7 +184,30 @@
 		3A1AB2871C9D98B70070E065 /* BBPreloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreloader.m; sourceTree = "<group>"; };
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
+		52A272A90F941C54CD6F563B /* BBBlocksModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksModuleInput.h; sourceTree = "<group>"; };
+		64848583690E4CC77BA191C9 /* BBBlocksViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewInput.h; sourceTree = "<group>"; };
+		6D9C1D9B4B32A8D7C00AA783 /* BBBlocksRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksRouterInput.h; sourceTree = "<group>"; };
+		6DAE3CE49D9593E389EF3C95 /* BBBlocksAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksAssembly.h; sourceTree = "<group>"; };
+		7763F1BB2C80CDFC2BC1EC32 /* BBOrdersRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersRouter.h; sourceTree = "<group>"; };
+		7BB47CA74D57AAE32321403E /* BBBlocksAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBBlocksAssembly.m; sourceTree = "<group>"; };
+		832DF9F5C91E4D0107AB4DD4 /* BBOrdersViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewController.h; sourceTree = "<group>"; };
+		8CF65709E0094543D43209EE /* BBOrdersModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersModuleInput.h; sourceTree = "<group>"; };
+		8EF4BEC8D3334A72715CF9A3 /* BBOrdersViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBOrdersViewController.m; sourceTree = "<group>"; };
+		9DBCB2F803278B04C54F5437 /* BBBlocksRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksRouter.h; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B08A3F34AD9D1D6C703C1F6D /* BBOrdersAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersAssembly.h; sourceTree = "<group>"; };
+		B3A10F1902317DE1275FBA89 /* BBOrdersViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewInput.h; sourceTree = "<group>"; };
+		B7F9C974FB7B3AA2A7A49478 /* BBOrdersInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractorInput.h; sourceTree = "<group>"; };
+		B920D1505D7FF0E179658ECE /* BBOrdersPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBOrdersPresenter.m; sourceTree = "<group>"; };
+		BAFD6B87C4CA628A2746AD75 /* BBOrdersRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBOrdersRouter.m; sourceTree = "<group>"; };
+		C0B62B85C7CC5BB4B74A4BE9 /* BBBlocksViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBBlocksViewController.m; sourceTree = "<group>"; };
+		CDB74040E9B00CDF05A4FECB /* BBBlocksViewOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewOutput.h; sourceTree = "<group>"; };
+		CDE4A36F6E7B73078E2716FE /* BBOrdersRouterInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBOrdersRouterInput.h; sourceTree = "<group>"; };
+		D5279B2E9978F73DBC09E058 /* BBOrdersAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBOrdersAssembly.m; sourceTree = "<group>"; };
+		E23329557C5EA6B57E668E04 /* BBBlocksPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksPresenter.h; sourceTree = "<group>"; };
+		F2F8DC581594C459DD301897 /* BBBlocksInteractorOutput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractorOutput.h; sourceTree = "<group>"; };
+		F614C669F7703FDBFD5655C1 /* BBOrdersInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBOrdersInteractor.m; sourceTree = "<group>"; };
+		F95DD498DD44F4403B997C10 /* BBBlocksRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBBlocksRouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +222,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01797B91E4F5D86E118718E2 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				B3664FEAB646F585FECDDB66 /* Assembly */,
+				423C5B635B1B40A69578C340 /* Presenter */,
+				4E15A4E77415DF546DB74775 /* View */,
+				B543429F5E9626B107E54D42 /* Interactor */,
+				1573D6B15058CD32CA990989 /* Router */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		1573D6B15058CD32CA990989 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4A36F6E7B73078E2716FE /* BBOrdersRouterInput.h */,
+				7763F1BB2C80CDFC2BC1EC32 /* BBOrdersRouter.h */,
+				BAFD6B87C4CA628A2746AD75 /* BBOrdersRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		1F94A1FB1291D9AAD2535E32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,10 +417,10 @@
 		3A1348421CA9A7BE007A83ED /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A1348431CA9A7BE007A83ED /* BBRegistrationInteractor.h */,
-				3A1348441CA9A7BE007A83ED /* BBRegistrationInteractor.m */,
 				3A1348451CA9A7BE007A83ED /* BBRegistrationInteractorInput.h */,
 				3A1348461CA9A7BE007A83ED /* BBRegistrationInteractorOutput.h */,
+				3A1348431CA9A7BE007A83ED /* BBRegistrationInteractor.h */,
+				3A1348441CA9A7BE007A83ED /* BBRegistrationInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -374,9 +438,9 @@
 		3A13484B1CA9A7BE007A83ED /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A13484E1CA9A7BE007A83ED /* BBRegistrationRouterInput.h */,
 				3A13484C1CA9A7BE007A83ED /* BBRegistrationRouter.h */,
 				3A13484D1CA9A7BE007A83ED /* BBRegistrationRouter.m */,
-				3A13484E1CA9A7BE007A83ED /* BBRegistrationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -395,6 +459,8 @@
 		3A1348541CA9A7BE007A83ED /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F37D19E3F14269C708A3A1B4 /* Blocks */,
+				01797B91E4F5D86E118718E2 /* Orders */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -412,10 +478,10 @@
 			isa = PBXGroup;
 			children = (
 				3A1348571CA9A7BE007A83ED /* Assembly */,
-				3A13485A1CA9A7BE007A83ED /* Interactor */,
 				3A13485F1CA9A7BE007A83ED /* Presenter */,
-				3A1348631CA9A7BE007A83ED /* Router */,
 				3A1348671CA9A7BE007A83ED /* View */,
+				3A13485A1CA9A7BE007A83ED /* Interactor */,
+				3A1348631CA9A7BE007A83ED /* Router */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -453,9 +519,9 @@
 		3A1348631CA9A7BE007A83ED /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A1348661CA9A7BE007A83ED /* BBNavigationRouterInput.h */,
 				3A1348641CA9A7BE007A83ED /* BBNavigationRouter.h */,
 				3A1348651CA9A7BE007A83ED /* BBNavigationRouter.m */,
-				3A1348661CA9A7BE007A83ED /* BBNavigationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -682,6 +748,49 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		41D63B2F20A7F010167DECF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64848583690E4CC77BA191C9 /* BBBlocksViewInput.h */,
+				CDB74040E9B00CDF05A4FECB /* BBBlocksViewOutput.h */,
+				284D100DB8CD216CE94FA176 /* BBBlocksViewController.h */,
+				C0B62B85C7CC5BB4B74A4BE9 /* BBBlocksViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		423C5B635B1B40A69578C340 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8CF65709E0094543D43209EE /* BBOrdersModuleInput.h */,
+				28CD1F8941859AD0BF30EAE0 /* BBOrdersPresenter.h */,
+				B920D1505D7FF0E179658ECE /* BBOrdersPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4E15A4E77415DF546DB74775 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3A10F1902317DE1275FBA89 /* BBOrdersViewInput.h */,
+				1BA6CA11A8C7D9D6E35C1EA9 /* BBOrdersViewOutput.h */,
+				832DF9F5C91E4D0107AB4DD4 /* BBOrdersViewController.h */,
+				8EF4BEC8D3334A72715CF9A3 /* BBOrdersViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A582D5D53ED278CF48908A2 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				216DAB3C4F1E584348583781 /* BBBlocksInteractorInput.h */,
+				F2F8DC581594C459DD301897 /* BBBlocksInteractorOutput.h */,
+				1F36CEB9A1740597EB0F5913 /* BBBlocksInteractor.h */,
+				11E6A75904CA1FE3F2D92C2A /* BBBlocksInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		9A97758BB14ED787FF652F5D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +798,67 @@
 				3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A11B386C5F1829EF77B86A36 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				52A272A90F941C54CD6F563B /* BBBlocksModuleInput.h */,
+				E23329557C5EA6B57E668E04 /* BBBlocksPresenter.h */,
+				204DA2E0C144D86FE91C1AD9 /* BBBlocksPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B3664FEAB646F585FECDDB66 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				B08A3F34AD9D1D6C703C1F6D /* BBOrdersAssembly.h */,
+				D5279B2E9978F73DBC09E058 /* BBOrdersAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		B543429F5E9626B107E54D42 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9C974FB7B3AA2A7A49478 /* BBOrdersInteractorInput.h */,
+				2A3088701C2E5674199D466B /* BBOrdersInteractorOutput.h */,
+				1E8238376F49399DB542B9DD /* BBOrdersInteractor.h */,
+				F614C669F7703FDBFD5655C1 /* BBOrdersInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		BBD864D9141B682191270721 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6D9C1D9B4B32A8D7C00AA783 /* BBBlocksRouterInput.h */,
+				9DBCB2F803278B04C54F5437 /* BBBlocksRouter.h */,
+				F95DD498DD44F4403B997C10 /* BBBlocksRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F37D19E3F14269C708A3A1B4 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				F9212EF2FB7D33C93AA56513 /* Assembly */,
+				A11B386C5F1829EF77B86A36 /* Presenter */,
+				41D63B2F20A7F010167DECF1 /* View */,
+				7A582D5D53ED278CF48908A2 /* Interactor */,
+				BBD864D9141B682191270721 /* Router */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		F9212EF2FB7D33C93AA56513 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				6DAE3CE49D9593E389EF3C95 /* BBBlocksAssembly.h */,
+				7BB47CA74D57AAE32321403E /* BBBlocksAssembly.m */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -853,6 +1023,16 @@
 				3A1348B51CA9A7BE007A83ED /* BBTabbarViewController.m in Sources */,
 				3A1348A81CA9A7BE007A83ED /* BBRegistrationInteractor.m in Sources */,
 				3A1348BB1CA9A7BE007A83ED /* BBTestRouter.m in Sources */,
+				D935AF751B60ED9A9BA8AF44 /* BBBlocksAssembly.m in Sources */,
+				C4BF2D8640272D1EB78DB27E /* BBBlocksViewController.m in Sources */,
+				FEAB0BA7503674F1DC94C47A /* BBBlocksPresenter.m in Sources */,
+				ECC969E56A136B1B26E76E42 /* BBBlocksInteractor.m in Sources */,
+				4E4A77CB7EE4C39741EF64AA /* BBBlocksRouter.m in Sources */,
+				6A85A75F6F2AD7928A9183D2 /* BBOrdersAssembly.m in Sources */,
+				EED90E275016ED60171A051C /* BBOrdersViewController.m in Sources */,
+				E23F18E67AEC6B3ECFD11775 /* BBOrdersPresenter.m in Sources */,
+				882EBFA9A068FEB881D4A324 /* BBOrdersInteractor.m in Sources */,
+				65042B08500ABE4FC3915E3A /* BBOrdersRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

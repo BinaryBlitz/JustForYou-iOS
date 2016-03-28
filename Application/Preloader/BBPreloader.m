@@ -11,8 +11,8 @@
 #import "BBTabbarAssembly.h"
 #import "BBTabbarModuleInput.h"
 
-#import "BBAuthorizationAssembly.h"
-#import "BBAuthorizationModuleInput.h"
+#import "BBNavigationAssembly.h"
+#import "BBNavigationModuleInput.h"
 
 #import "BBUserService.h"
 
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) UIWindow *window;
 
 @property (nonatomic) id<BBTabbarModuleInput> tabbarModule;
-@property (nonatomic) id<BBAuthorizationModuleInput> authorizationModule;
+@property (nonatomic) id<BBNavigationModuleInput> navigationModule;
 
 @end
 
@@ -34,7 +34,7 @@
         if ([[BBUserService sharedService] currentUser]) {
             [self.tabbarModule presentInWindow:window];
         } else {
-            [self.authorizationModule presentInWindow:window];
+            [self.navigationModule presentInWindow:window];
         }
     }
     return self;
@@ -49,11 +49,11 @@
     return _tabbarModule;
 }
 
-- (id<BBAuthorizationModuleInput>) authorizationModule {
-    if (!_authorizationModule) {
-        _authorizationModule = [BBAuthorizationAssembly createModule];
+- (id<BBNavigationModuleInput>) navigationModule {
+    if (!_navigationModule) {
+        _navigationModule = [BBNavigationAssembly createModule];
     }
-    return _authorizationModule;
+    return _navigationModule;
 }
 
 @end

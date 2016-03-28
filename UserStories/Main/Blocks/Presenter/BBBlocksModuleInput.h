@@ -1,5 +1,5 @@
 //
-//  BBAuthorizationModuleInput.h
+//  BBBlocksModuleInput.h
 //  JustForYou
 //
 //  Created by tercteberc on 28/03/2016.
@@ -8,12 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol BBAuthorizationModuleInput <NSObject>
+@protocol BBBlocksModuleInput <NSObject>
 
 - (void)configureModule;
-
-- (id)currentViewWithModule:(id)module;
-- (id)currentView;
-
 
 @end

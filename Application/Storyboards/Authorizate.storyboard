@@ -17,23 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-fI-mtG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="hPV-kb-F8F"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.94901960784313721" green="0.44705882352941173" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="Vgf-yL-Np2">
-                                        <barButtonItem key="rightBarButtonItem" title="Продолжить" id="6hQ-Xc-Rpu">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="nextButtonAction:" destination="LSa-PL-5em" id="lQL-ap-ovS"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDC-KR-W51">
                                 <rect key="frame" x="110" y="81" width="100" height="100"/>
                                 <subviews>
@@ -102,6 +85,23 @@
                                     <action selector="sendAgainActionButton:" destination="LSa-PL-5em" eventType="touchUpInside" id="nTf-7X-nAz"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-fI-mtG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="hPV-kb-F8F"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.94901960784313721" green="0.44705882352941173" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="Vgf-yL-Np2">
+                                        <barButtonItem key="rightBarButtonItem" title="Продолжить" id="6hQ-Xc-Rpu">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="nextButtonAction:" destination="LSa-PL-5em" id="lQL-ap-ovS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -144,13 +144,37 @@
                     <view key="view" contentMode="scaleToFill" id="kkQ-pG-yrK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUm-yf-piQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="k7n-oo-aW0"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.94901960780000005" green="0.44705882349999998" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="XaD-gP-5pr">
+                                        <barButtonItem key="rightBarButtonItem" title="Продолжить" id="t4z-wr-dDK">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="nextButtonAction:" destination="LSa-PL-5em" id="kDK-Bk-36v"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fUm-yf-piQ" firstAttribute="leading" secondItem="kkQ-pG-yrK" secondAttribute="leading" id="kdy-g1-s0n"/>
+                            <constraint firstItem="fUm-yf-piQ" firstAttribute="top" secondItem="kkQ-pG-yrK" secondAttribute="top" id="rEv-Zm-Hjq"/>
+                            <constraint firstAttribute="trailing" secondItem="fUm-yf-piQ" secondAttribute="trailing" id="yZf-38-LAc"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWJ-BC-afR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-376" y="-495"/>
+            <point key="canvasLocation" x="-296" y="-495"/>
         </scene>
     </scenes>
 </document>

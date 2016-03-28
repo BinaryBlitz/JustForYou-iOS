@@ -12,6 +12,6 @@
 
 - (void)configureModule;
 
-- (void)presentWithView:(id)viewController;
+- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule;
 
 @end

@@ -1,20 +1,16 @@
 //
-//  BBNavigationRouterInput.h
+//  BBOrdersRouterInput.h
 //  JustForYou
 //
-//  Created by tercteberc on 24/03/2016.
+//  Created by tercteberc on 28/03/2016.
 //  Copyright 2016 Binary Blitz. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol BBNavigationRouterInput <NSObject>
+@protocol BBOrdersRouterInput <NSObject>
 
 - (void)presentFromWindow:(UIWindow *)window;
-
-- (void)rootVC:(id)view;
-
-- (void)pushViewController:(id)view;
 
 @end
