@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @protocol BBTabbarViewInput <NSObject>
 
 - (void)setupInitialState;
+
+- (void)loadContentWithNavigationController:(id)navigetionView and:(BBLoadModule) keyLoad;
 
 @end

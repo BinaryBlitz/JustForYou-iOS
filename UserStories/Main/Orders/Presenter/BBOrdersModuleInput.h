@@ -12,4 +12,6 @@
 
 - (void)configureModule;
 
+- (id)currentViewWithModule:(id)module;
+
 @end

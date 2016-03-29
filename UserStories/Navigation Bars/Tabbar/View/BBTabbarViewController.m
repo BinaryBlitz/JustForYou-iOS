@@ -36,8 +36,11 @@
     
     [self.tabbar setSelectedItem:[self.tabbar.items objectAtIndex:TabbarItemPrograms]];
     
-    id initialView = [self.output needInitialViewForContainer];
-    [self.containerView displayView:initialView];
+    [self.output needInitialViewForContainer];
+}
+
+- (void)loadContentWithNavigationController:(id)navigetionView and:(BBLoadModule) keyLoad {
+    [self.containerView displayView:navigetionView];
 }
 
 @end

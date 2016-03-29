@@ -14,6 +14,6 @@
 
 - (void)presentInWindow:(UIWindow *)window;
 
-- (id)currentView;
+- (id)currentViewWithLoadModule:(BBLoadModule) loadModule;
 
 @end

@@ -34,7 +34,7 @@
 - (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule {
     self.authModule = module;
     self.navigModule = navigModule;
-    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentView]];
+    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentViewWithLoadModule:BBRegistrationModule]];
 }
 
 #pragma mark - Методы BBRegistrationViewOutput

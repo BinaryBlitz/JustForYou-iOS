@@ -12,18 +12,26 @@
 #import "BBOrdersInteractorInput.h"
 #import "BBOrdersRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBOrdersPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
 @implementation BBOrdersPresenter
 
-#pragma mark - Методы BBOrdersModuleInput
+#pragma mark - Методы BBBlocksModuleInput
 
 - (void)configureModule {
     
 }
 
+- (id)currentViewWithModule:(id)module {
+    self.navigModule = module;
+    return self.view;
+}
 #pragma mark - Методы BBOrdersViewOutput
 
 - (void)didTriggerViewReadyEvent {

@@ -49,6 +49,7 @@
 		3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2741C9D8F6B0070E065 /* main.m */; };
 		3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB27E1C9D91450070E065 /* HelpQueue.m */; };
 		3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2871C9D98B70070E065 /* BBPreloader.m */; };
+		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		4E4A77CB7EE4C39741EF64AA /* BBBlocksRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F95DD498DD44F4403B997C10 /* BBBlocksRouter.m */; };
 		65042B08500ABE4FC3915E3A /* BBOrdersRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFD6B87C4CA628A2746AD75 /* BBOrdersRouter.m */; };
 		6A85A75F6F2AD7928A9183D2 /* BBOrdersAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = D5279B2E9978F73DBC09E058 /* BBOrdersAssembly.m */; };
@@ -179,6 +180,8 @@
 		3A1AB2861C9D98B70070E065 /* BBPreloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPreloader.h; sourceTree = "<group>"; };
 		3A1AB2871C9D98B70070E065 /* BBPreloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreloader.m; sourceTree = "<group>"; };
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
+		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		3FCD5A39100AD6F651B4A608 /* BBProfileViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBProfileViewController.m; sourceTree = "<group>"; };
 		453853A2F8BFAFA6839D27F4 /* BBSupportViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBSupportViewInput.h; sourceTree = "<group>"; };
@@ -247,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				B3664FEAB646F585FECDDB66 /* Assembly */,
-				423C5B635B1B40A69578C340 /* Presenter */,
 				4E15A4E77415DF546DB74775 /* View */,
+				423C5B635B1B40A69578C340 /* Presenter */,
 				B543429F5E9626B107E54D42 /* Interactor */,
 				1573D6B15058CD32CA990989 /* Router */,
 			);
@@ -634,11 +637,11 @@
 		3A13487D1CA9A7BE007A83ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A1348821CA9A7BE007A83ED /* Views */,
 				3A1348801CA9A7BE007A83ED /* BBTabbarViewInput.h */,
 				3A1348811CA9A7BE007A83ED /* BBTabbarViewOutput.h */,
 				3A13487E1CA9A7BE007A83ED /* BBTabbarViewController.h */,
 				3A13487F1CA9A7BE007A83ED /* BBTabbarViewController.m */,
-				3A1348821CA9A7BE007A83ED /* Views */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -692,6 +695,8 @@
 			children = (
 				3A1AB27D1C9D91450070E065 /* HelpQueue.h */,
 				3A1AB27E1C9D91450070E065 /* HelpQueue.m */,
+				3AC988601CAB14940069DE52 /* BBConstantAndColor.h */,
+				3AC988611CAB14940069DE52 /* BBConstantAndColor.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -918,8 +923,8 @@
 			isa = PBXGroup;
 			children = (
 				F9212EF2FB7D33C93AA56513 /* Assembly */,
-				A11B386C5F1829EF77B86A36 /* Presenter */,
 				41D63B2F20A7F010167DECF1 /* View */,
+				A11B386C5F1829EF77B86A36 /* Presenter */,
 				7A582D5D53ED278CF48908A2 /* Interactor */,
 				BBD864D9141B682191270721 /* Router */,
 			);
@@ -1115,6 +1120,7 @@
 				65042B08500ABE4FC3915E3A /* BBOrdersRouter.m in Sources */,
 				80B9E1B4B4C956345BEEB782 /* BBProfileAssembly.m in Sources */,
 				6FF4EF96E29EB1B9DFA18E40 /* BBProfileViewController.m in Sources */,
+				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
 				B049B011765B1871D37A96C5 /* BBProfilePresenter.m in Sources */,
 				8B2E2E9E75CC8A71F4F4E6EA /* BBProfileInteractor.m in Sources */,
 				A83CE25550515DF743586ED8 /* BBProfileRouter.m in Sources */,

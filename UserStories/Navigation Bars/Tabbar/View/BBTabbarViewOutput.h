@@ -12,6 +12,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
-- (id)needInitialViewForContainer;
+- (void)needInitialViewForContainer;
 
 @end

@@ -15,9 +15,19 @@
 #import "BBAuthorizationAssembly.h"
 #import "BBAuthorizationModuleInput.h"
 
+#import "BBBlocksAssembly.h"
+#import "BBBlocksModuleInput.h"
+
+#import "BBOrdersAssembly.h"
+#import "BBOrdersModuleInput.h"
+
 @interface BBNavigationPresenter()
 
 @property (strong, nonatomic) id<BBAuthorizationModuleInput> authModule;
+@property (strong, nonatomic) id<BBBlocksModuleInput> blockModule;
+@property (strong, nonatomic) id<BBOrdersModuleInput> orderModule;
+
+@property (nonatomic) BBLoadModule loadModule;
 
 @end
 
@@ -26,22 +36,29 @@
 #pragma mark - Методы BBNavigationModuleInput
 
 - (void)configureModule {
-    
+    self.loadModule = BBRegistrationModule;
 }
 
-- (id)currentView {
+- (id)currentViewWithLoadModule:(BBLoadModule) loadModule {
+    self.loadModule = loadModule;
     return self.view;
 }
 
 - (void)presentInWindow:(UIWindow *)window {
     [self.router presentFromWindow:window];
-    [self.router rootVC:[self.authModule currentViewWithModule:self]];
 }
 
 #pragma mark - Методы BBNavigationViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+    if (self.loadModule == BBRegistrationModule) {
+        [self.router rootVC:[self.authModule currentViewWithModule:self]];
+    } else if (self.loadModule == BBLoadBlockModule) {
+        [self.router rootVC:[self.blockModule currentViewWithModule:self]];
+    } else {
+        [self.router rootVC:[self.orderModule currentViewWithModule:self]];
+    }
 }
 
 #pragma mark - Методы BBNavigationInteractorOutput
@@ -53,6 +70,20 @@
         _authModule = [BBAuthorizationAssembly createModule];
     }
     return _authModule;
+}
+
+- (id<BBBlocksModuleInput>) blockModule {
+    if (!_blockModule) {
+        _blockModule = [BBBlocksAssembly createModule];
+    }
+    return _blockModule;
+}
+
+- (id<BBOrdersModuleInput>) orderModule {
+    if (!_orderModule) {
+        _orderModule = [BBOrdersAssembly createModule];
+    }
+    return _orderModule;
 }
 
 @end

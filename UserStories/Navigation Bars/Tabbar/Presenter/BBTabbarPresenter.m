@@ -26,7 +26,7 @@
 #pragma mark - Методы BBTabbarModuleInput
 
 - (void)configureModule {
-    // Стартовая конфигурация модуля, не привязанная к состоянию view
+    
 }
 
 - (void)presentInWindow:(UIWindow *)window {
@@ -39,8 +39,8 @@
 	[self.view setupInitialState];
 }
 
-- (id)needInitialViewForContainer {
-    return [self.navigationModule currentView];
+- (void)needInitialViewForContainer {
+    [self.view loadContentWithNavigationController:[self.navigationModule currentViewWithLoadModule:BBLoadBlockModule] and:BBLoadBlockModule];
 }
 
 #pragma mark - Методы BBTabbarInteractorOutput
