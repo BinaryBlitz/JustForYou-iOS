@@ -35,13 +35,13 @@
 
 - (void)presentInWindow:(UIWindow *)window {
     [self.router presentFromWindow:window];
+    [self.router rootVC:[self.authModule currentViewWithModule:self]];
 }
 
 #pragma mark - Методы BBNavigationViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-    [self.router rootVC:[self.authModule currentViewWithModule:self]];
 }
 
 #pragma mark - Методы BBNavigationInteractorOutput

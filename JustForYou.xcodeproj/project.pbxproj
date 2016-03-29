@@ -520,8 +520,8 @@
 			isa = PBXGroup;
 			children = (
 				3A1348571CA9A7BE007A83ED /* Assembly */,
-				3A13485F1CA9A7BE007A83ED /* Presenter */,
 				3A1348671CA9A7BE007A83ED /* View */,
+				3A13485F1CA9A7BE007A83ED /* Presenter */,
 				3A13485A1CA9A7BE007A83ED /* Interactor */,
 				3A1348631CA9A7BE007A83ED /* Router */,
 			);
@@ -583,10 +583,10 @@
 			isa = PBXGroup;
 			children = (
 				3A13486D1CA9A7BE007A83ED /* Assembly */,
-				3A1348701CA9A7BE007A83ED /* Interactor */,
-				3A1348751CA9A7BE007A83ED /* Presenter */,
-				3A1348791CA9A7BE007A83ED /* Router */,
 				3A13487D1CA9A7BE007A83ED /* View */,
+				3A1348751CA9A7BE007A83ED /* Presenter */,
+				3A1348701CA9A7BE007A83ED /* Interactor */,
+				3A1348791CA9A7BE007A83ED /* Router */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -634,10 +634,10 @@
 		3A13487D1CA9A7BE007A83ED /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A13487E1CA9A7BE007A83ED /* BBTabbarViewController.h */,
-				3A13487F1CA9A7BE007A83ED /* BBTabbarViewController.m */,
 				3A1348801CA9A7BE007A83ED /* BBTabbarViewInput.h */,
 				3A1348811CA9A7BE007A83ED /* BBTabbarViewOutput.h */,
+				3A13487E1CA9A7BE007A83ED /* BBTabbarViewController.h */,
+				3A13487F1CA9A7BE007A83ED /* BBTabbarViewController.m */,
 				3A1348821CA9A7BE007A83ED /* Views */,
 			);
 			path = View;
