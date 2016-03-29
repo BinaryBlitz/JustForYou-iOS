@@ -15,3 +15,12 @@ typedef enum : NSUInteger {
     BBLoadOrdersModule
 }BBLoadModule;
 
+
+// Кнопочки в таббаре
+typedef enum : NSUInteger {
+    BBTabbarItemPrograms,
+    BBTabbarItemOrders,
+    BBTabbarItemProfile,
+    BBTabbarItemSupport
+} BBTabbarItem;
+

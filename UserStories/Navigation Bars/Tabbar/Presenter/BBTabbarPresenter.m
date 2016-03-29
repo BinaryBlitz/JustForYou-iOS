@@ -43,6 +43,24 @@
     [self.view loadContentWithNavigationController:[self.navigationModule currentViewWithLoadModule:BBLoadBlockModule] and:BBLoadBlockModule];
 }
 
+
+- (void)didPressItemPrograms {
+    
+}
+
+- (void)didPressItemOrders {
+    
+}
+
+- (void)didPressItemProfile {
+    
+}
+
+- (void)didPressItemSupport {
+    
+}
+
+
 #pragma mark - Методы BBTabbarInteractorOutput
 
 
@@ -54,5 +72,7 @@
     }
     return _navigationModule;
 }
+
+
 
 @end

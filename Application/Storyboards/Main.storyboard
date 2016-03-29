@@ -74,10 +74,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuF-Fj-bM6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ajC-Bk-rmT"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.94901960780000005" green="0.44705882349999998" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="hLH-TF-4Wu"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ecl-7f-ZKQ" firstAttribute="centerY" secondItem="7Bd-nR-xpi" secondAttribute="centerY" id="3x1-73-Wrs"/>
+                            <constraint firstItem="fuF-Fj-bM6" firstAttribute="leading" secondItem="7Bd-nR-xpi" secondAttribute="leading" id="EtD-F3-3Yj"/>
+                            <constraint firstItem="fuF-Fj-bM6" firstAttribute="top" secondItem="7Bd-nR-xpi" secondAttribute="top" id="Tcb-dj-Eez"/>
+                            <constraint firstAttribute="trailing" secondItem="fuF-Fj-bM6" secondAttribute="trailing" id="VtN-Uh-CIt"/>
                             <constraint firstItem="Ecl-7f-ZKQ" firstAttribute="centerX" secondItem="7Bd-nR-xpi" secondAttribute="centerX" id="gTB-PD-shm"/>
                         </constraints>
                     </view>

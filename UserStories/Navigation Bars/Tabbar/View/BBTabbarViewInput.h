@@ -16,4 +16,6 @@
 
 - (void)loadContentWithNavigationController:(id)navigetionView and:(BBLoadModule) keyLoad;
 
+- (void)displayView:(id)view;
+
 @end

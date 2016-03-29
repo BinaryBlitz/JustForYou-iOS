@@ -14,4 +14,14 @@
 
 - (void)needInitialViewForContainer;
 
+#pragma mark - TabBarItems
+
+- (void)didPressItemPrograms;
+
+- (void)didPressItemOrders;
+
+- (void)didPressItemProfile;
+
+- (void)didPressItemSupport;
+
 @end

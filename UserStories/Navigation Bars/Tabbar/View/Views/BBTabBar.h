@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger {
-    TabbarItemPrograms,
-    TabbarItemOrders,
-    TabbarItemProfile,
-    TabbarItemSupport
-} BBTabbarItem;
+@protocol BBTabbarDelegate;
 
-@interface BBTabBar : UITabBar
+@interface BBTabBar : UITabBar <UITabBarDelegate>
+
+@property (weak, nonatomic) id <BBTabbarDelegate> tabbarDelegate;
+
+@end
+
+
+@protocol BBTabbarDelegate <NSObject>
+@optional
+
+- (void)tabBar:(BBTabBar *)tabBar didPressItem:(BBTabbarItem)item;
 
 @end

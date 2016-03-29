@@ -10,5 +10,13 @@
 
 @implementation BBTabBar
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if ([self.tabbarDelegate respondsToSelector:@selector(tabBar:didPressItem:)])
+    {
+        NSInteger itemNumber = [tabBar.items indexOfObject:item];
+        [self.tabbarDelegate tabBar:self didPressItem:itemNumber];
+    }
+}
 
 @end
