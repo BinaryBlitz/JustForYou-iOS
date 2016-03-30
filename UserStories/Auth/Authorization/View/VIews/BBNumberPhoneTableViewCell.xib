@@ -31,9 +31,6 @@
                         <rect key="frame" x="59" y="7" width="253" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
-                        <connections>
-                            <action selector="textFieldDidBeginEditing:" destination="KGk-i7-Jjw" eventType="editingChanged" id="92c-hM-VGS"/>
-                        </connections>
                     </textField>
                 </subviews>
                 <constraints>

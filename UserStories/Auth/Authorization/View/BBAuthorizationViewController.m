@@ -44,10 +44,20 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
 #pragma mark - Методы BBAuthorizationViewInput
 
 - (void)setupInitialState {
-	
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    [self createBarButtonItem];
 }
+
+
+- (void)createBarButtonItem {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:@selector(nextButtonAction)];
+    item.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
 
 #pragma mark - Actions
 
@@ -55,9 +65,10 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
     
 }
 
-- (IBAction)nextButtonAction:(id)sender {
+- (void)nextButtonAction {
     [self.output nextButtonDidPress];
 }
+
 
 #pragma mark - UITableView
 

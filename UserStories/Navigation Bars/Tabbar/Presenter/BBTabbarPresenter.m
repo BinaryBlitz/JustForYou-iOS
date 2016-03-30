@@ -29,6 +29,10 @@
     
 }
 
+- (id)currentView {
+    return self.view;
+}
+
 - (void)presentInWindow:(UIWindow *)window {
     [self.router presentFromWindow:window];
 }

@@ -24,3 +24,8 @@ typedef enum : NSUInteger {
     BBTabbarItemSupport
 } BBTabbarItem;
 
+
+typedef enum : NSUInteger {
+    BBLeftOrientationBarButtonItem,
+    BBRightOrientationBarButtonItem
+}BBOrientetionBarButtonItem;

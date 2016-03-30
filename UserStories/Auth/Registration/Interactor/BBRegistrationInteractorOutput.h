@@ -10,4 +10,6 @@
 
 @protocol BBRegistrationInteractorOutput <NSObject>
 
+- (void)userSuccessfullySaved;
+
 @end

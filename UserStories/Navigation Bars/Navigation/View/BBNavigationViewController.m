@@ -10,6 +10,10 @@
 
 #import "BBNavigationViewOutput.h"
 
+@interface BBNavigationViewController() <UINavigationControllerDelegate>
+
+@end
+
 @implementation BBNavigationViewController
 
 #pragma mark - Методы жизненного цикла
@@ -23,7 +27,12 @@
 #pragma mark - Методы BBNavigationViewInput
 
 - (void)setupInitialState {
-	// В этом методе происходит настройка параметров view, зависящих от ее жизненого цикла (создание элементов, анимации и пр.)
+	self.delegate = self;
 }
+
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
 
 @end

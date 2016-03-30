@@ -26,9 +26,33 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+#pragma mark - Actions
+
+
+- (void)nextButtonAction {
+    [self.output nextButtonDidTap];
+}
+
 #pragma mark - Методы BBRegistrationViewInput
 
 - (void)setupInitialState {
-    
+    [self createBarButtonItem];
 }
+
+
+- (void)createBarButtonItem {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:@selector(nextButtonAction)];
+    item.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (BBUser *)userWithTextFields {
+    BBUser *user = nil;
+    
+    return user;
+}
+
 @end

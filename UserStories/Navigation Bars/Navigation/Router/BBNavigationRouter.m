@@ -21,7 +21,7 @@
 
 - (void)rootVC:(id)view {
     UINavigationController *nc = (UINavigationController *)self.presenter.view;
-    nc.navigationBarHidden = YES;
+//    nc.navigationBarHidden = YES;
     nc.viewControllers = @[view];
 }
 

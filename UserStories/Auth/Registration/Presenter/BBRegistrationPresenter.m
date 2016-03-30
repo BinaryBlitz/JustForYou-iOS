@@ -43,6 +43,14 @@
 	[self.view setupInitialState];
 }
 
+- (void)nextButtonDidTap {
+    [self.interactor saveUser:[self.view userWithTextFields]];
+}
+
 #pragma mark - Методы BBRegistrationInteractorOutput
+
+- (void)userSuccessfullySaved {
+    [self.navigModule userRegistrationFulfilled];
+}
 
 @end

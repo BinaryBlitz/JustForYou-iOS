@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDC-KR-W51">
-                                <rect key="frame" x="110" y="81" width="100" height="100"/>
+                                <rect key="frame" x="110" y="37" width="100" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjI-yX-2Sc">
                                         <rect key="frame" x="8" y="29" width="84" height="42"/>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите ваш номер телефона:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DG-gc-S8q">
-                                <rect key="frame" x="34" y="212" width="253" height="21"/>
+                                <rect key="frame" x="34" y="168" width="253" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="253" id="Qa4-v0-0vF"/>
                                     <constraint firstAttribute="height" constant="21" id="c4b-7E-cZI"/>
@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kFE-aJ-f1u">
-                                <rect key="frame" x="0.0" y="241" width="320" height="88"/>
+                                <rect key="frame" x="0.0" y="197" width="320" height="88"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="5a6-J5-Q1i"/>
@@ -62,7 +62,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Код подтверждения отправлен в SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djo-FW-qep">
-                                <rect key="frame" x="50" y="334" width="221" height="15"/>
+                                <rect key="frame" x="50" y="290" width="221" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="221" id="HBC-zA-uvw"/>
                                     <constraint firstAttribute="height" constant="15" id="dtP-Gw-ivi"/>
@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-1P-FE7" customClass="BBUnderlineButton">
-                                <rect key="frame" x="95" y="349" width="131" height="14"/>
+                                <rect key="frame" x="95" y="305" width="131" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="2Ou-61-8yD"/>
                                     <constraint firstAttribute="width" constant="131" id="6XP-Ih-917"/>
@@ -85,37 +85,17 @@
                                     <action selector="sendAgainActionButton:" destination="LSa-PL-5em" eventType="touchUpInside" id="nTf-7X-nAz"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-fI-mtG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="hPV-kb-F8F"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.94901960784313721" green="0.44705882352941173" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="Vgf-yL-Np2">
-                                        <barButtonItem key="rightBarButtonItem" title="Продолжить" id="6hQ-Xc-Rpu">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="nextButtonAction:" destination="LSa-PL-5em" id="lQL-ap-ovS"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4DG-gc-S8q" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="35u-iS-i1J"/>
                             <constraint firstItem="kDC-KR-W51" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="5O8-2V-TiI"/>
                             <constraint firstAttribute="trailing" secondItem="kFE-aJ-f1u" secondAttribute="trailing" id="8Lu-Dq-1Jb"/>
-                            <constraint firstItem="eDT-fI-mtG" firstAttribute="leading" secondItem="9rr-Fi-fOb" secondAttribute="leading" id="Bcc-HE-bem"/>
                             <constraint firstItem="djo-FW-qep" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="FP7-Ax-jj3"/>
                             <constraint firstItem="9Uj-1P-FE7" firstAttribute="top" secondItem="djo-FW-qep" secondAttribute="bottom" id="HF8-D3-oRv"/>
                             <constraint firstItem="kFE-aJ-f1u" firstAttribute="top" secondItem="4DG-gc-S8q" secondAttribute="bottom" constant="8" id="P0z-aT-fKL"/>
-                            <constraint firstAttribute="trailing" secondItem="eDT-fI-mtG" secondAttribute="trailing" id="pz2-Hq-Qys"/>
-                            <constraint firstItem="eDT-fI-mtG" firstAttribute="top" secondItem="9rr-Fi-fOb" secondAttribute="top" id="qfA-qi-8wx"/>
+                            <constraint firstItem="kDC-KR-W51" firstAttribute="top" secondItem="FB3-dA-Cn3" secondAttribute="bottom" constant="17" id="m6L-Bf-dRf"/>
                             <constraint firstItem="kFE-aJ-f1u" firstAttribute="leading" secondItem="9rr-Fi-fOb" secondAttribute="leading" id="sK9-Mm-tWS"/>
-                            <constraint firstItem="kDC-KR-W51" firstAttribute="top" secondItem="eDT-fI-mtG" secondAttribute="bottom" constant="17" id="tcs-Tz-yUf"/>
                             <constraint firstItem="4DG-gc-S8q" firstAttribute="top" secondItem="kDC-KR-W51" secondAttribute="bottom" constant="31" id="vgW-Gn-wDo"/>
                             <constraint firstItem="9Uj-1P-FE7" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="zgW-8p-OeL"/>
                             <constraint firstItem="djo-FW-qep" firstAttribute="top" secondItem="kFE-aJ-f1u" secondAttribute="bottom" constant="5" id="zrp-Z2-I3f"/>
@@ -144,31 +124,7 @@
                     <view key="view" contentMode="scaleToFill" id="kkQ-pG-yrK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUm-yf-piQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="k7n-oo-aW0"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.94901960780000005" green="0.44705882349999998" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="XaD-gP-5pr">
-                                        <barButtonItem key="rightBarButtonItem" title="Продолжить" id="t4z-wr-dDK">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="nextButtonAction:" destination="LSa-PL-5em" id="kDK-Bk-36v"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fUm-yf-piQ" firstAttribute="leading" secondItem="kkQ-pG-yrK" secondAttribute="leading" id="kdy-g1-s0n"/>
-                            <constraint firstItem="fUm-yf-piQ" firstAttribute="top" secondItem="kkQ-pG-yrK" secondAttribute="top" id="rEv-Zm-Hjq"/>
-                            <constraint firstAttribute="trailing" secondItem="fUm-yf-piQ" secondAttribute="trailing" id="yZf-38-LAc"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>

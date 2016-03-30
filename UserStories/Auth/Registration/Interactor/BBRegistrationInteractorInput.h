@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBUser;
 @protocol BBRegistrationInteractorInput <NSObject>
+
+- (void)saveUser:(BBUser *)user;
 
 @end

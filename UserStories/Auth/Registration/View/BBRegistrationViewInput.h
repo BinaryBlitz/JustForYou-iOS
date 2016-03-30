@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBUser;
+
 @protocol BBRegistrationViewInput <NSObject>
 
 - (void)setupInitialState;
+
+- (BBUser *)userWithTextFields;
 
 @end

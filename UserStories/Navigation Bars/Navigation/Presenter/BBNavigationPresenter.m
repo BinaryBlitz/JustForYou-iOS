@@ -32,6 +32,7 @@
 @end
 
 @implementation BBNavigationPresenter
+@synthesize output;
 
 #pragma mark - Методы BBNavigationModuleInput
 
@@ -46,6 +47,11 @@
 
 - (void)presentInWindow:(UIWindow *)window {
     [self.router presentFromWindow:window];
+}
+
+- (void)userRegistrationFulfilled {
+    [self.output userRegistrationFulfilledWithView:self.view];
+//    [self.output userRegistrationFulfilled];
 }
 
 #pragma mark - Методы BBNavigationViewOutput

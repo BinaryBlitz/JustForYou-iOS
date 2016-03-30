@@ -12,6 +12,8 @@
 
 - (void)configureModule;
 
+- (id)currentView;
+
 - (void)presentInWindow:(UIWindow *)window;
 
 @end

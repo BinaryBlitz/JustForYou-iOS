@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBNavigationModuleOutput.h"
+
 @protocol BBNavigationModuleInput <NSObject>
 
 - (void)configureModule;
@@ -15,5 +17,10 @@
 - (void)presentInWindow:(UIWindow *)window;
 
 - (id)currentViewWithLoadModule:(BBLoadModule) loadModule;
+
+- (void)userRegistrationFulfilled;
+
+
+@property (strong, nonatomic) id<BBNavigationModuleOutput> output;
 
 @end
