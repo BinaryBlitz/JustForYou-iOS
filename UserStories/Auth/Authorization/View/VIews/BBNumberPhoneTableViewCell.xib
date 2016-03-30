@@ -30,7 +30,7 @@
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="номер вашего телефона" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZ5-DW-qOf">
                         <rect key="frame" x="59" y="7" width="253" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                         <connections>
                             <action selector="textFieldDidBeginEditing:" destination="KGk-i7-Jjw" eventType="editingChanged" id="92c-hM-VGS"/>
                         </connections>

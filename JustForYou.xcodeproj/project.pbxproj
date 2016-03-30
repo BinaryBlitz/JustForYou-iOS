@@ -50,6 +50,7 @@
 		3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB27E1C9D91450070E065 /* HelpQueue.m */; };
 		3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2871C9D98B70070E065 /* BBPreloader.m */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
+		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		4E4A77CB7EE4C39741EF64AA /* BBBlocksRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F95DD498DD44F4403B997C10 /* BBBlocksRouter.m */; };
 		65042B08500ABE4FC3915E3A /* BBOrdersRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFD6B87C4CA628A2746AD75 /* BBOrdersRouter.m */; };
 		6A85A75F6F2AD7928A9183D2 /* BBOrdersAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = D5279B2E9978F73DBC09E058 /* BBOrdersAssembly.m */; };
@@ -182,6 +183,8 @@
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
+		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
+		3AC988681CAB20410069DE52 /* BBValidationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBValidationService.m; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		3FCD5A39100AD6F651B4A608 /* BBProfileViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBProfileViewController.m; sourceTree = "<group>"; };
 		453853A2F8BFAFA6839D27F4 /* BBSupportViewInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBSupportViewInput.h; sourceTree = "<group>"; };
@@ -309,24 +312,10 @@
 			isa = PBXGroup;
 			children = (
 				3A1347521CA6B634007A83ED /* UserService */,
-				3A1347301CA5DFAD007A83ED /* ServerAPIService */,
-				3A1347311CA5DFAD007A83ED /* Transport */,
+				3AC988631CAB1FD80069DE52 /* Validation */,
+				3AC988641CAB201A0069DE52 /* REST API */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		3A1347301CA5DFAD007A83ED /* ServerAPIService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ServerAPIService;
-			sourceTree = "<group>";
-		};
-		3A1347311CA5DFAD007A83ED /* Transport */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Transport;
 			sourceTree = "<group>";
 		};
 		3A1347521CA6B634007A83ED /* UserService */ = {
@@ -732,6 +721,38 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3AC988631CAB1FD80069DE52 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				3AC988671CAB20410069DE52 /* BBValidationService.h */,
+				3AC988681CAB20410069DE52 /* BBValidationService.m */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		3AC988641CAB201A0069DE52 /* REST API */ = {
+			isa = PBXGroup;
+			children = (
+				3AC988651CAB201A0069DE52 /* ServerAPIService */,
+				3AC988661CAB201A0069DE52 /* Transport */,
+			);
+			path = "REST API";
+			sourceTree = "<group>";
+		};
+		3AC988651CAB201A0069DE52 /* ServerAPIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServerAPIService;
+			sourceTree = "<group>";
+		};
+		3AC988661CAB201A0069DE52 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transport;
+			sourceTree = "<group>";
+		};
 		41D63B2F20A7F010167DECF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1099,6 +1120,7 @@
 				3A1348A71CA9A7BE007A83ED /* BBRegistrationAssembly.m in Sources */,
 				3A1348A01CA9A7BE007A83ED /* BBAuthorizationRouter.m in Sources */,
 				3A1348B11CA9A7BE007A83ED /* BBTabbarAssembly.m in Sources */,
+				3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */,
 				3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3A1348B01CA9A7BE007A83ED /* BBNavigationViewController.m in Sources */,

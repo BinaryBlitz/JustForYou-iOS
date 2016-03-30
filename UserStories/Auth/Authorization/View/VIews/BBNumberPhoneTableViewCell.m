@@ -8,6 +8,8 @@
 
 #import "BBNumberPhoneTableViewCell.h"
 
+#import "BBValidationService.h"
+
 @interface BBNumberPhoneTableViewCell() <UITextFieldDelegate>
 
 @end
@@ -22,12 +24,23 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
 }
 
 - (IBAction)textFieldDidBeginEditing:(id)sender {
     
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    NSString* totalString = [NSString stringWithFormat:@"%@%@",textField.text,string];
+
+    if (range.length == 1) {
+        textField.text = [BBValidationService validateNumberPhoneWithNumber:totalString deleteLastChar:YES];
+    } else {
+        textField.text = [BBValidationService validateNumberPhoneWithNumber:totalString deleteLastChar:NO];
+    }
+    return NO;
 }
 
 @end

@@ -31,11 +31,11 @@
     self = [super init];
     if (self) {
         self.window = window;
-//        if ([[BBUserService sharedService] currentUser]) {
+        if ([[BBUserService sharedService] currentUser]) {
             [self.tabbarModule presentInWindow:window];
-//        } else {
-//            [self.navigationModule presentInWindow:window];
-//        }
+        } else {
+            [self.navigationModule presentInWindow:window];
+        }
     }
     return self;
 }
