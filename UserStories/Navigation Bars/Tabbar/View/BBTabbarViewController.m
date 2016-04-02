@@ -12,7 +12,7 @@
 
 #import "BBTabBar.h"
 
-@interface BBTabbarViewController() <BBTabbarDelegate>
+@interface BBTabbarViewController() /*<BBTabbarDelegate>*/
 
 @end
 
@@ -39,25 +39,31 @@
 
 - (void)setItemsBar:(NSArray *)items {
     self.viewControllers = items;
-    self.tabBar.items[0].title = @"Программы";
-    self.tabBar.items[1].title = @"Заказы";
-    self.tabBar.items[2].title = @"Профиль";
-    self.tabBar.items[3].title = @"Поддержка";
+    self.tabBar.items[0].image = [UIImage imageNamed:@"Home.pdf"];
+    self.tabBar.items[1].image = [UIImage imageNamed:@"Home.pdf"];
+    self.tabBar.items[2].image = [UIImage imageNamed:@"Home.pdf"];
+    self.tabBar.items[3].image = [UIImage imageNamed:@"Home.pdf"];
+    
+# warning delete
+//    self.tabBar.items[0].title = @"Программы";
+//    self.tabBar.items[1].title = @"Заказы";
+//    self.tabBar.items[2].title = @"Профиль";
+//    self.tabBar.items[3].title = @"Поддержка";
 }
 
-#pragma mark - UITabbarDelegate
-
-- (void)tabBar:(BBTabBar *)tabBar didPressItem:(BBTabbarItem)item
-{
-    if (item == BBTabbarItemPrograms) {
-        [self.output didPressItemPrograms];
-    } else if (item == BBTabbarItemOrders) {
-        [self.output didPressItemOrders];
-    }  else if (item == BBTabbarItemProfile) {
-        [self.output didPressItemProfile];
-    }  else if (item == BBTabbarItemSupport) {
-        [self.output didPressItemSupport];
-    }
-}
+//#pragma mark - UITabbarDelegate
+//
+//- (void)tabBar:(BBTabBar *)tabBar didPressItem:(BBTabbarItem)item
+//{
+//    if (item == BBTabbarItemPrograms) {
+//        [self.output didPressItemPrograms];
+//    } else if (item == BBTabbarItemOrders) {
+//        [self.output didPressItemOrders];
+//    }  else if (item == BBTabbarItemProfile) {
+//        [self.output didPressItemProfile];
+//    }  else if (item == BBTabbarItemSupport) {
+//        [self.output didPressItemSupport];
+//    }
+//}
 
 @end

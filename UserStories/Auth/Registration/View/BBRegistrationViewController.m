@@ -12,9 +12,28 @@
 
 #import "BBUnderlineButton.h"
 
-@interface BBRegistrationViewController()
+#import "BBTextTableViewCell.h"
+
+typedef enum : NSUInteger {
+    kNameTextFiledCell,
+    kSubnameTextFiledCell,
+    kEmailTextFiledCell
+}kTextFiledCell;
+
+@interface BBRegistrationViewController() <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) BBTextTableViewCell *nameCell;
+@property (weak, nonatomic) BBTextTableViewCell *subnameCell;
+@property (weak, nonatomic) BBTextTableViewCell *emailCell;
 
 @end
+
+#pragma mark - Constants
+
+static NSInteger numberOfRows = 3;
+static NSString *kIdentifireTextFieldCell = @"textFieldCell";
 
 @implementation BBRegistrationViewController
 
@@ -23,6 +42,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
+    [self registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
 }
 
@@ -36,6 +56,7 @@
 #pragma mark - Методы BBRegistrationViewInput
 
 - (void)setupInitialState {
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self createBarButtonItem];
 }
 
@@ -51,8 +72,40 @@
 
 - (BBUser *)userWithTextFields {
     BBUser *user = nil;
-    
+    user.name = [self.nameCell getTextFromTextField];
+    user.subname = [self.subnameCell getTextFromTextField];
+    user.email = [self.emailCell getTextFromTextField];
     return user;
 }
+
+
+#pragma mark - Methods TableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return numberOfRows;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireTextFieldCell];
+    if (indexPath.row == kNameTextFiledCell) {
+        self.nameCell = textCell;
+        [textCell setPlaceholderInTextField:@"Введите имя"];
+    } else if (indexPath.row == kSubnameTextFiledCell) {
+        self.subnameCell = textCell;
+        [textCell setPlaceholderInTextField:@"Введите фамилию"];
+    } else {
+        self.emailCell = textCell;
+        [textCell setPlaceholderInTextField:@"Введите E-mail"];
+    }
+    return textCell;
+}
+
+
+- (void) registrateIdentifireCell {
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBTextTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireTextFieldCell];
+    
+}
+
+
 
 @end

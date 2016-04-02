@@ -31,3 +31,12 @@ typedef enum : NSUInteger {
     BBLeftOrientationBarButtonItem,
     BBRightOrientationBarButtonItem
 }BBOrientetionBarButtonItem;
+
+
+@interface BBConstantAndColor : NSObject
+
++ (UIColor *)applicationOrangeColor;
+
++ (UIColor *)applicationDarkColor;
+
+@end

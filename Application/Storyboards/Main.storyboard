@@ -16,7 +16,19 @@
                     <view key="view" contentMode="scaleToFill" id="7Bd-nR-xpi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-3K-AcV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jkj-Xd-xce" firstAttribute="top" secondItem="aCi-3K-AcV" secondAttribute="bottom" id="L5H-A1-Oi5"/>
+                            <constraint firstItem="aCi-3K-AcV" firstAttribute="leading" secondItem="7Bd-nR-xpi" secondAttribute="leading" id="Tco-UE-SrV"/>
+                            <constraint firstItem="aCi-3K-AcV" firstAttribute="top" secondItem="7Bd-nR-xpi" secondAttribute="top" id="qJk-hT-CPN"/>
+                            <constraint firstAttribute="trailing" secondItem="aCi-3K-AcV" secondAttribute="trailing" id="yvc-fn-wci"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wIK-jQ-Z6R"/>
                 </viewController>
@@ -46,10 +58,12 @@
         <scene sceneID="Avh-Eu-Kyv">
             <objects>
                 <tabBarController storyboardIdentifier="BBTabbarViewController" id="dTC-7A-lJv" customClass="BBTabbarViewController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="itm-XE-L9N" customClass="BBTabBar">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="itm-XE-L9N" customClass="BBTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.1803921568627451" green="0.22745098039215686" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwY-Wr-3qF" userLabel="First Responder" sceneMemberID="firstResponder"/>

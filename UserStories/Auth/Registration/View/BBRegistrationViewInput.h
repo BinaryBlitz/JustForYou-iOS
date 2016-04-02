@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class BBUser;
+#import "BBUser.h"
 
 @protocol BBRegistrationViewInput <NSObject>
 

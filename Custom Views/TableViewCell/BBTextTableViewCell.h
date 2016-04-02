@@ -10,6 +10,8 @@
 
 @interface BBTextTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+- (void)setPlaceholderInTextField:(NSString *)placeholder;
+
+- (NSString *)getTextFromTextField;
 
 @end

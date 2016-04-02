@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol BBTabbarDelegate;
+//@protocol BBTabbarDelegate;
 
 @interface BBTabBar : UITabBar <UITabBarDelegate>
 
-@property (weak, nonatomic) id <BBTabbarDelegate> tabbarDelegate;
+//@property (weak, nonatomic) id <BBTabbarDelegate> tabbarDelegate;
 
 @end
 
-
-@protocol BBTabbarDelegate <NSObject>
-@optional
-
-- (void)tabBar:(BBTabBar *)tabBar didPressItem:(BBTabbarItem)item;
-
-@end
+//
+//@protocol BBTabbarDelegate <NSObject>
+//@optional
+//
+//- (void)tabBar:(BBTabBar *)tabBar didPressItem:(BBTabbarItem)item;
+//
+//@end

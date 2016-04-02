@@ -10,6 +10,8 @@
 
 @interface BBTextTableViewCell() <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 @end
 
 @implementation BBTextTableViewCell
@@ -24,6 +26,14 @@
 
 }
 
+#pragma mark - Methods TextField
 
+- (void)setPlaceholderInTextField:(NSString *)placeholder {
+    self.textField.placeholder = placeholder;
+}
+
+- (NSString *)getTextFromTextField {
+    return self.textField.text;
+}
 
 @end
