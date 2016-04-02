@@ -45,17 +45,19 @@
 - (void)userRegistrationFulfilled {
     UIViewController *vc = [self.tabbarModule currentView];
     __weak typeof(self)weakSelf = self;
-    
+//    self.window.backgroundColor = [UIColor lightGrayColor];
     HQDispatchToMainQueue(^{
-        [UIView transitionWithView:self.window
-                          duration:0.5f
-                           options:UIViewAnimationOptionShowHideTransitionViews
-                        animations:^{
-                            weakSelf.window.rootViewController = vc;
-                        }
-                        completion:nil];
+//        [UIView transitionWithView:weakSelf.window.rootViewController.view
+//                          duration:0.7f
+//                           options:UIViewAnimationOptionTransitionNone
+//                        animations:^{
+//                            weakSelf.window.rootViewController = vc;
+//                        }
+//                        completion:nil];
+//
+        
+        [weakSelf.window setRootViewController:vc];
     });
-
 }
 
 - (void)userRegistrationFulfilledWithView:(id)view {
@@ -64,12 +66,18 @@
     __weak typeof(self)weakSelf = self;
     
     HQDispatchToMainQueue(^{
-        [UIView animateWithDuration:0.5f
+        [UIView animateWithDuration:0.0f
                               delay:0
-                            options:UIViewAnimationOptionTransitionCrossDissolve
+                            options:UIViewAnimationOptionCurveLinear
                          animations:^{
                         weakSelf.window.rootViewController = vc;
         } completion:nil];
+
+//        [UIView transitionFromView:view
+//                            toView:[self.tabbarModule currentView]
+//                          duration:0.5f
+//                           options:UIViewAnimationOptionTransitionCrossDissolve
+//                        completion:nil];
     });
 }
 

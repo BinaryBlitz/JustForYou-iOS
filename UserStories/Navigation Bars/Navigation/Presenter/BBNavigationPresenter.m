@@ -45,13 +45,19 @@
     return self.view;
 }
 
+- (void)pushViewControllerWithView:(id)view {
+    [self.router pushViewController:view];
+}
+
 - (void)presentInWindow:(UIWindow *)window {
     [self.router presentFromWindow:window];
 }
 
+#warning delete after test
+
 - (void)userRegistrationFulfilled {
-    [self.output userRegistrationFulfilledWithView:self.view];
-//    [self.output userRegistrationFulfilled];
+//    [self.output userRegistrationFulfilledWithView:[self.view currentView]];
+    [self.output userRegistrationFulfilled];
 }
 
 #pragma mark - Методы BBNavigationViewOutput

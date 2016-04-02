@@ -12,7 +12,9 @@
 typedef enum : NSUInteger {
     BBRegistrationModule,
     BBLoadBlockModule,
-    BBLoadOrdersModule
+    BBLoadOrdersModule,
+    BBLoadProfileModule,
+    BBLoadSupportModule
 }BBLoadModule;
 
 

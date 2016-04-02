@@ -20,6 +20,8 @@
 
 - (void)userRegistrationFulfilled;
 
+- (void)pushViewControllerWithView:(id)view;
+
 
 @property (strong, nonatomic) id<BBNavigationModuleOutput> output;
 

@@ -14,8 +14,7 @@
 
 - (void)setupInitialState;
 
-- (void)loadContentWithNavigationController:(id)navigetionView and:(BBLoadModule) keyLoad;
+- (void)setItemsBar:(NSArray *)items;
 
-- (void)displayView:(id)view;
 
 @end

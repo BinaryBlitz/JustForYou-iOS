@@ -15,9 +15,22 @@
 #import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
 
+#import "BBBlocksAssembly.h"
+#import "BBBlocksModuleInput.h"
+
 @interface BBTabbarPresenter()
 
-@property (nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (nonatomic) id<BBNavigationModuleInput> navigationBlockModule;
+@property (nonatomic) id<BBNavigationModuleInput> navigationOrderModule;
+@property (nonatomic) id<BBNavigationModuleInput> navigationProfileModule;
+@property (nonatomic) id<BBNavigationModuleInput> navigationSupportModule;
+
+
+#warning delete
+@property (nonatomic) id<BBBlocksModuleInput> blockModule;
+
+@property (strong, nonatomic) NSMutableArray *arrayMainModules;
+
 
 @end
 
@@ -26,7 +39,12 @@
 #pragma mark - Методы BBTabbarModuleInput
 
 - (void)configureModule {
-    
+    self.arrayMainModules = [NSMutableArray array];
+    [self.arrayMainModules addObject:[self.navigationBlockModule currentViewWithLoadModule:BBLoadBlockModule]];
+    [self.arrayMainModules addObject:[self.navigationOrderModule currentViewWithLoadModule:BBLoadOrdersModule]];
+    [self.arrayMainModules addObject:[self.navigationProfileModule currentViewWithLoadModule:BBLoadProfileModule]];
+    [self.arrayMainModules addObject:[self.navigationSupportModule currentViewWithLoadModule:BBLoadSupportModule]];
+    [self.view setItemsBar:self.arrayMainModules];
 }
 
 - (id)currentView {
@@ -41,10 +59,11 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-}
-
-- (void)needInitialViewForContainer {
-    [self.view loadContentWithNavigationController:[self.navigationModule currentViewWithLoadModule:BBLoadBlockModule] and:BBLoadBlockModule];
+//    [self.arrayMainModules addObject:[self.navigationBlockModule currentViewWithLoadModule:BBLoadBlockModule]];
+//    [self.arrayMainModules addObject:[self.navigationOrderModule currentViewWithLoadModule:BBLoadOrdersModule]];
+//    [self.arrayMainModules addObject:[self.navigationProfileModule currentViewWithLoadModule:BBLoadProfileModule]];
+//    [self.arrayMainModules addObject:[self.navigationSupportModule currentViewWithLoadModule:BBLoadSupportModule]];
+//    [self.view setItemsBar:self.arrayMainModules];
 }
 
 
@@ -70,13 +89,43 @@
 
 #pragma mark - Lazy Load
 
-- (id<BBNavigationModuleInput>) navigationModule {
-    if (!_navigationModule) {
-        _navigationModule = [BBNavigationAssembly createModule];
+- (id<BBNavigationModuleInput>) navigationBlockModule {
+    if (!_navigationBlockModule) {
+        _navigationBlockModule = [BBNavigationAssembly createModule];
     }
-    return _navigationModule;
+    return _navigationBlockModule;
 }
 
+- (id<BBNavigationModuleInput>) navigationOrderModule {
+    if (!_navigationOrderModule) {
+        _navigationOrderModule = [BBNavigationAssembly createModule];
+    }
+    return _navigationOrderModule;
+}
+
+- (id<BBNavigationModuleInput>) navigationProfileModule {
+    if (!_navigationProfileModule) {
+        _navigationProfileModule = [BBNavigationAssembly createModule];
+    }
+    return _navigationProfileModule;
+}
+
+- (id<BBNavigationModuleInput>) navigationSupportModule {
+    if (!_navigationSupportModule) {
+        _navigationSupportModule = [BBNavigationAssembly createModule];
+    }
+    return _navigationSupportModule;
+}
+
+
+#warning DELETE
+
+- (id<BBBlocksModuleInput>) blockModule {
+    if (!_blockModule) {
+        _blockModule = [BBBlocksAssembly createModule];
+    }
+    return _blockModule;
+}
 
 
 @end

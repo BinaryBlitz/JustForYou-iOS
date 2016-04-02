@@ -12,4 +12,6 @@
 
 - (void)setupInitialState;
 
+- (id)currentView;
+
 @end

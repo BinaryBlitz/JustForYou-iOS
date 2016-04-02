@@ -40,7 +40,6 @@
 		3A1348B31CA9A7BE007A83ED /* BBTabbarPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1348781CA9A7BE007A83ED /* BBTabbarPresenter.m */; };
 		3A1348B41CA9A7BE007A83ED /* BBTabbarRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13487B1CA9A7BE007A83ED /* BBTabbarRouter.m */; };
 		3A1348B51CA9A7BE007A83ED /* BBTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13487F1CA9A7BE007A83ED /* BBTabbarViewController.m */; };
-		3A1348B61CA9A7BE007A83ED /* BBContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1348841CA9A7BE007A83ED /* BBContainerView.m */; };
 		3A1348B71CA9A7BE007A83ED /* BBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1348861CA9A7BE007A83ED /* BBTabBar.m */; };
 		3A1AB2761C9D8F6B0070E065 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */; };
 		3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */; };
@@ -164,8 +163,6 @@
 		3A13487F1CA9A7BE007A83ED /* BBTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTabbarViewController.m; sourceTree = "<group>"; };
 		3A1348801CA9A7BE007A83ED /* BBTabbarViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabbarViewInput.h; sourceTree = "<group>"; };
 		3A1348811CA9A7BE007A83ED /* BBTabbarViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabbarViewOutput.h; sourceTree = "<group>"; };
-		3A1348831CA9A7BE007A83ED /* BBContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBContainerView.h; sourceTree = "<group>"; };
-		3A1348841CA9A7BE007A83ED /* BBContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBContainerView.m; sourceTree = "<group>"; };
 		3A1348851CA9A7BE007A83ED /* BBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabBar.h; sourceTree = "<group>"; };
 		3A1348861CA9A7BE007A83ED /* BBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTabBar.m; sourceTree = "<group>"; };
 		3A1AB26C1C9D8F6B0070E065 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -641,8 +638,6 @@
 		3A1348821CA9A7BE007A83ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A1348831CA9A7BE007A83ED /* BBContainerView.h */,
-				3A1348841CA9A7BE007A83ED /* BBContainerView.m */,
 				3A1348851CA9A7BE007A83ED /* BBTabBar.h */,
 				3A1348861CA9A7BE007A83ED /* BBTabBar.m */,
 			);
@@ -1108,7 +1103,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A1348B61CA9A7BE007A83ED /* BBContainerView.m in Sources */,
 				3A1348AE1CA9A7BE007A83ED /* BBNavigationPresenter.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
 				3A1348AC1CA9A7BE007A83ED /* BBNavigationAssembly.m in Sources */,

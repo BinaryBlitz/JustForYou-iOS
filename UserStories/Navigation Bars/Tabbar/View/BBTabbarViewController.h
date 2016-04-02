@@ -12,7 +12,7 @@
 
 @protocol BBTabbarViewOutput;
 
-@interface BBTabbarViewController : UIViewController <BBTabbarViewInput>
+@interface BBTabbarViewController : UITabBarController <BBTabbarViewInput>
 
 @property (weak, nonatomic) id<BBTabbarViewOutput> output;
 

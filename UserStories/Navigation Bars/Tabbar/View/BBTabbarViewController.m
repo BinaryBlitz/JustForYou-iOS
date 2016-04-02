@@ -9,14 +9,10 @@
 #import "BBTabbarViewController.h"
 
 #import "BBTabbarViewOutput.h"
-#import "BBContainerView.h"
+
 #import "BBTabBar.h"
 
 @interface BBTabbarViewController() <BBTabbarDelegate>
-
-@property (weak, nonatomic) IBOutlet BBContainerView *containerView;
-@property (weak, nonatomic) IBOutlet BBTabBar *tabbar;
-
 
 @end
 
@@ -30,22 +26,23 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+}
+
 #pragma mark - Методы BBTabbarViewInput
 
 - (void)setupInitialState {
     
-    self.tabbar.tabbarDelegate = self;
-    [self.tabbar setSelectedItem:[self.tabbar.items objectAtIndex:BBTabbarItemPrograms]];
-    
-    [self.output needInitialViewForContainer];
 }
 
-- (void)loadContentWithNavigationController:(id)navigetionView and:(BBLoadModule) keyLoad {
-    [self.containerView displayView:navigetionView];
-}
 
-- (void)displayView:(id)view {
-    [self.containerView displayView:view];
+- (void)setItemsBar:(NSArray *)items {
+    self.viewControllers = items;
+    self.tabBar.items[0].title = @"Программы";
+    self.tabBar.items[1].title = @"Заказы";
+    self.tabBar.items[2].title = @"Профиль";
+    self.tabBar.items[3].title = @"Поддержка";
 }
 
 #pragma mark - UITabbarDelegate

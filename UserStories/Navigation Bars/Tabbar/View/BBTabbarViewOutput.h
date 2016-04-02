@@ -12,7 +12,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
-- (void)needInitialViewForContainer;
 
 #pragma mark - TabBarItems
 
