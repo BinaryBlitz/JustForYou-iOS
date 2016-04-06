@@ -31,7 +31,7 @@
             <connections>
                 <outlet property="textField" destination="boW-MX-fe2" id="c48-qY-NZv"/>
             </connections>
-            <point key="canvasLocation" x="336" y="108"/>
+            <point key="canvasLocation" x="78" y="109"/>
         </tableViewCell>
     </objects>
 </document>

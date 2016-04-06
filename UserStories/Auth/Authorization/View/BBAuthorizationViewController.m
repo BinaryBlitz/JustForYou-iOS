@@ -88,7 +88,6 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
 
 - (void) registrateIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:@"BBNumberPhoneTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireNumberCell];
-    
 }
 
 #pragma mark - Layout Views

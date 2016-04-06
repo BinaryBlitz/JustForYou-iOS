@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - Typedef Key
+
 // Для старта с нужного контроллера
 typedef enum : NSUInteger {
     BBRegistrationModule,
@@ -32,11 +34,19 @@ typedef enum : NSUInteger {
     BBRightOrientationBarButtonItem
 }BBOrientetionBarButtonItem;
 
+#pragma mark - interface class
 
 @interface BBConstantAndColor : NSObject
+
++ (UIColor *)colorForR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b alpha:(CGFloat)alpha;
 
 + (UIColor *)applicationOrangeColor;
 
 + (UIColor *)applicationDarkColor;
 
 @end
+
+#pragma mark - Constant
+
+static CGFloat bottomOffsetForBlockTableView = 13.0f;
+

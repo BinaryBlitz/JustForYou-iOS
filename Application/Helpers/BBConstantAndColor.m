@@ -11,7 +11,7 @@
 @implementation BBConstantAndColor
 
 + (UIColor *)applicationOrangeColor {
-    return [self colorForR:242.0f G:114.0f B:65.0f alpha:1.0f];
+    return [self colorForR:255.0f G:87.0f B:34.0f alpha:1.0f];
 }
 
 + (UIColor *)applicationDarkColor {
@@ -20,7 +20,7 @@
 
 
 + (UIColor *)colorForR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b alpha:(CGFloat)alpha {
-    return [UIColor colorWithRed:r/256.0f green:g/256.0f blue:b/256.0f alpha:alpha];
+    return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:alpha];
 }
 
 @end

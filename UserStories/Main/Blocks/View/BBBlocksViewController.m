@@ -10,9 +10,16 @@
 
 #import "BBBlocksViewOutput.h"
 
-@interface BBBlocksViewController()
+#import "BBBlockTableViewCell.h"
+
+@interface BBBlocksViewController() <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
+
+static NSString *kIdentifireBlockCell = @"blockCell";
+
+static CGFloat correlationCoefficientForCell = 1.12f;
 
 @implementation BBBlocksViewController
 
@@ -21,13 +28,35 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
+    [self registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
 }
 
 #pragma mark - Методы BBBlocksViewInput
 
 - (void)setupInitialState {
-	
+    [self.tableView setContentInset:UIEdgeInsetsMake(bottomOffsetForBlockTableView, 0, 0, 0)];
 }
+
+#pragma mark - TableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (CGRectGetWidth(self.tableView.frame) / correlationCoefficientForCell);
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBBlockTableViewCell *blockCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireBlockCell];
+    
+    return blockCell;
+}
+
+- (void) registrateIdentifireCell {
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBBlockTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireBlockCell];
+}
+
 
 @end
