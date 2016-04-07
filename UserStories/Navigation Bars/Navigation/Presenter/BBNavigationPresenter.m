@@ -45,6 +45,10 @@
     return self.view;
 }
 
+- (id)currentView {
+    return self.view;
+}
+
 - (void)pushViewControllerWithView:(id)view {
     [self.router pushViewController:view];
 }

@@ -10,7 +10,7 @@
 
 NSString* const kEmail = @"kEmail";
 NSString* const kUserName = @"kUserName";
-NSString* const kUserSubname = @"kUserSubname";
+NSString* const kUserSurname = @"kUserSurname";
 
 @implementation BBUser
 
@@ -19,7 +19,7 @@ NSString* const kUserSubname = @"kUserSubname";
     if (self) {
         self.email = [JSONObj valueForKey:@"email"];
         self.name = [JSONObj valueForKey:@"name"];
-        self.subname = [JSONObj valueForKey:@"subname"];
+        self.surname = [JSONObj valueForKey:@"surname"];
     }
     return self;
 }
@@ -29,7 +29,7 @@ NSString* const kUserSubname = @"kUserSubname";
     if (self) {
         self.email = [coder decodeObjectForKey:kEmail];
         self.name = [coder decodeObjectForKey:kUserName];
-        self.subname = [coder decodeObjectForKey:kUserSubname];
+        self.surname = [coder decodeObjectForKey:kUserSurname];
     }
     return self;
 }
@@ -37,7 +37,7 @@ NSString* const kUserSubname = @"kUserSubname";
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.email forKey:kEmail];
     [aCoder encodeObject:self.name forKey:kUserName];
-    [aCoder encodeObject:self.subname forKey:kUserSubname];
+    [aCoder encodeObject:self.surname forKey:kUserSurname];
 }
 
 

@@ -14,9 +14,15 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBProgramsAssembly.h"
+#import "BBProgramsModuleInput.h"
+
+
 @interface BBBlocksPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBProgramsModuleInput> programsModule;
+
 
 @end
 
@@ -39,6 +45,19 @@
 	[self.view setupInitialState];
 }
 
+- (void)didSelectRow {
+    
+}
+
 #pragma mark - Методы BBBlocksInteractorOutput
+
+#pragma mark - Lazy Load
+
+- (id<BBProgramsModuleInput>) programsModule {
+    if (!_programsModule) {
+        _programsModule = [BBProgramsAssembly createModule];
+    }
+    return _programsModule;
+}
 
 @end

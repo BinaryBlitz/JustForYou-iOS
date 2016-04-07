@@ -12,11 +12,10 @@
 
 #pragma mark - BBProgramsRouterInput
 
-- (void)presentFromWindow:(UIWindow *)window {
+
+- (void)pushView:(id)view withNavigationController:(UINavigationController *)nc {
     HQDispatchToMainQueue(^{
-        [window setRootViewController:(UIViewController *)self.presenter.view];
-        [window makeKeyAndVisible];
+        [nc pushViewController:view animated:YES];
     });
 }
-
 @end

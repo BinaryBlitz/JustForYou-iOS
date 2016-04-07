@@ -25,7 +25,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) BBTextTableViewCell *nameCell;
-@property (weak, nonatomic) BBTextTableViewCell *subnameCell;
+@property (weak, nonatomic) BBTextTableViewCell *surnameCell;
 @property (weak, nonatomic) BBTextTableViewCell *emailCell;
 
 @end
@@ -73,7 +73,7 @@ static NSString *kIdentifireTextFieldCell = @"textFieldCell";
 - (BBUser *)userWithTextFields {
     BBUser *user = nil;
     user.name = [self.nameCell getTextFromTextField];
-    user.subname = [self.subnameCell getTextFromTextField];
+    user.surname = [self.surnameCell getTextFromTextField];
     user.email = [self.emailCell getTextFromTextField];
     return user;
 }
@@ -91,7 +91,7 @@ static NSString *kIdentifireTextFieldCell = @"textFieldCell";
         self.nameCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите имя"];
     } else if (indexPath.row == kSubnameTextFiledCell) {
-        self.subnameCell = textCell;
+        self.surnameCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите фамилию"];
     } else {
         self.emailCell = textCell;

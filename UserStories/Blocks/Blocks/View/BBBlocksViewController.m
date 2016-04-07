@@ -40,6 +40,10 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 
 #pragma mark - TableView
 
+- (void) registrateIdentifireCell {
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBBlockTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireBlockCell];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
@@ -54,8 +58,8 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     return blockCell;
 }
 
-- (void) registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBBlockTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireBlockCell];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.output didSelectRow];
 }
 
 

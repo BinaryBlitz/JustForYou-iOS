@@ -12,11 +12,13 @@
 
 @protocol BBNavigationModuleInput <NSObject>
 
+- (id)currentViewWithLoadModule:(BBLoadModule) loadModule;
+
+- (id)currentView;
+
 - (void)configureModule;
 
 - (void)presentInWindow:(UIWindow *)window;
-
-- (id)currentViewWithLoadModule:(BBLoadModule) loadModule;
 
 - (void)userRegistrationFulfilled;
 

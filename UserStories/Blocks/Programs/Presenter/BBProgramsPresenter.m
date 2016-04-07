@@ -12,7 +12,12 @@
 #import "BBProgramsInteractorInput.h"
 #import "BBProgramsRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
+
 @interface BBProgramsPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
@@ -22,6 +27,11 @@
 
 - (void)configureModule {
     
+}
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule {
+    self.navigModule = navigationModule;
+    [self.router pushView:self.view withNavigationController:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBProgramsViewOutput

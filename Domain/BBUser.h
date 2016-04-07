@@ -11,7 +11,7 @@
 @interface BBUser : NSObject
 
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *subname;
+@property (strong, nonatomic) NSString *surname;
 @property (strong, nonatomic) NSString *email;
 
 

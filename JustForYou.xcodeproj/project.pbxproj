@@ -626,10 +626,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698AEB1CB68E6E004E857D /* Assembly */,
-				3A698AEE1CB68E6E004E857D /* Interactor */,
-				3A698AF31CB68E6E004E857D /* Presenter */,
-				3A698AF71CB68E6E004E857D /* Router */,
 				3A698AFB1CB68E6E004E857D /* View */,
+				3A698AF31CB68E6E004E857D /* Presenter */,
+				3A698AEE1CB68E6E004E857D /* Interactor */,
+				3A698AF71CB68E6E004E857D /* Router */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -667,9 +667,9 @@
 		3A698AF71CB68E6E004E857D /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A698AFA1CB68E6E004E857D /* BBBlocksRouterInput.h */,
 				3A698AF81CB68E6E004E857D /* BBBlocksRouter.h */,
 				3A698AF91CB68E6E004E857D /* BBBlocksRouter.m */,
-				3A698AFA1CB68E6E004E857D /* BBBlocksRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -677,10 +677,10 @@
 		3A698AFB1CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698AFC1CB68E6E004E857D /* BBBlocksViewController.h */,
-				3A698AFD1CB68E6E004E857D /* BBBlocksViewController.m */,
 				3A698AFE1CB68E6E004E857D /* BBBlocksViewInput.h */,
 				3A698AFF1CB68E6E004E857D /* BBBlocksViewOutput.h */,
+				3A698AFC1CB68E6E004E857D /* BBBlocksViewController.h */,
+				3A698AFD1CB68E6E004E857D /* BBBlocksViewController.m */,
 				3A698B001CB68E6E004E857D /* VIews */,
 			);
 			path = View;
@@ -763,10 +763,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698B1B1CB68E6E004E857D /* Assembly */,
-				3A698B1E1CB68E6E004E857D /* Interactor */,
-				3A698B231CB68E6E004E857D /* Presenter */,
-				3A698B271CB68E6E004E857D /* Router */,
 				3A698B2B1CB68E6E004E857D /* View */,
+				3A698B231CB68E6E004E857D /* Presenter */,
+				3A698B1E1CB68E6E004E857D /* Interactor */,
+				3A698B271CB68E6E004E857D /* Router */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -804,9 +804,9 @@
 		3A698B271CB68E6E004E857D /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A698B2A1CB68E6E004E857D /* BBProgramsRouterInput.h */,
 				3A698B281CB68E6E004E857D /* BBProgramsRouter.h */,
 				3A698B291CB68E6E004E857D /* BBProgramsRouter.m */,
-				3A698B2A1CB68E6E004E857D /* BBProgramsRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -835,10 +835,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698B321CB68E6E004E857D /* Assembly */,
-				3A698B351CB68E6E004E857D /* Interactor */,
-				3A698B3A1CB68E6E004E857D /* Presenter */,
-				3A698B3F1CB68E6E004E857D /* Router */,
 				3A698B431CB68E6E004E857D /* View */,
+				3A698B3A1CB68E6E004E857D /* Presenter */,
+				3A698B351CB68E6E004E857D /* Interactor */,
+				3A698B3F1CB68E6E004E857D /* Router */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -877,9 +877,9 @@
 		3A698B3F1CB68E6E004E857D /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A698B421CB68E6E004E857D /* BBNavigationRouterInput.h */,
 				3A698B401CB68E6E004E857D /* BBNavigationRouter.h */,
 				3A698B411CB68E6E004E857D /* BBNavigationRouter.m */,
-				3A698B421CB68E6E004E857D /* BBNavigationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
