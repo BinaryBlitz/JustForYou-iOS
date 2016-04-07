@@ -39,16 +39,15 @@
 
 - (void)setItemsBar:(NSArray *)items {
     self.viewControllers = items;
-    self.tabBar.items[0].image = [UIImage imageNamed:@"Home.pdf"];
-    self.tabBar.items[1].image = [UIImage imageNamed:@"Home.pdf"];
-    self.tabBar.items[2].image = [UIImage imageNamed:@"Home.pdf"];
-    self.tabBar.items[3].image = [UIImage imageNamed:@"Home.pdf"];
+    self.tabBar.items[0].image = [UIImage imageNamed:@"home"];
+    self.tabBar.items[1].image = [UIImage imageNamed:@"home"];
+    self.tabBar.items[2].image = [UIImage imageNamed:@"orders"];
+    self.tabBar.items[3].image = [UIImage imageNamed:@"profile"];
     
-# warning delete
-//    self.tabBar.items[0].title = @"Программы";
-//    self.tabBar.items[1].title = @"Заказы";
-//    self.tabBar.items[2].title = @"Профиль";
-//    self.tabBar.items[3].title = @"Поддержка";
+    self.tabBar.items[0].title = @"Программы";
+    self.tabBar.items[1].title = @"Заказы";
+    self.tabBar.items[2].title = @"Профиль";
+    self.tabBar.items[3].title = @"Поддержка";
 }
 
 //#pragma mark - UITabbarDelegate

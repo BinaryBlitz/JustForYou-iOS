@@ -8,7 +8,7 @@
 
 #import "BBTabBar.h"
 
-static NSInteger topInset = 8; // custom inset for icons in tabbar
+static NSInteger topInset = 10; // custom inset for icons in tabbar
 static NSInteger sideInset = 10;
 
 @interface BBTabBar()
@@ -71,7 +71,7 @@ static NSInteger sideInset = 10;
         item = self.items[i];
         icon = item.image;
         [item setImage:[icon imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        item.imageInsets = UIEdgeInsetsMake(topInset, 0, -topInset, 0);
+        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, topInset, sideInset);
 //        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, -topInset, -sideInset);
     }
 }
