@@ -26,9 +26,6 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-}
 
 #pragma mark - Методы BBTabbarViewInput
 

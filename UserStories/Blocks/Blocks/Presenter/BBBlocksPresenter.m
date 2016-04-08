@@ -46,7 +46,7 @@
 }
 
 - (void)didSelectRow {
-    
+    [self.programsModule pushModuleWithNavigationModule:self.navigModule];
 }
 
 #pragma mark - Методы BBBlocksInteractorOutput

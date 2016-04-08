@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Text-Bold.otf">
+            <string>SFUIText-Bold</string>
+        </mutableArray>
+        <mutableArray key="SF-UI-Text-Light.otf">
+            <string>SFUIText-Light</string>
+        </mutableArray>
+        <mutableArray key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </mutableArray>
+        <mutableArray key="SF-UI-Text-Semibold.otf">
+            <string>SFUIText-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBProgramView">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="h2Q-dO-zHP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBProgramView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="325"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehH-pO-iVz">
+                    <rect key="frame" x="30" y="30" width="340" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="E3N-P8-A0s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-7Q-WYp">
+                    <rect key="frame" x="30" y="90" width="28.5" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="503-RX-bHA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="12"/>
+                    <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nx-3Y-8fu">
+                    <rect key="frame" x="30" y="121" width="340" height="1"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="sOO-uk-8J0"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Самый комфотрный путь там ла ла ла" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdl-8T-XDl">
+                    <rect key="frame" x="30" y="135" width="340" height="83"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="83" id="0xl-g8-mbK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
+                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVE-Ye-tWt">
+                    <rect key="frame" x="30" y="245" width="340" height="51"/>
+                    <string key="text">Много много описания для все этого говна в этой программе, просто оооооочень много буковок что аж не влезает все в этот несяастный сраный лейбл который должен расставить многоточие</string>
+                    <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
+                    <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Iyv-7Q-WYp" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="0bq-oW-wci"/>
+                <constraint firstItem="6nx-3Y-8fu" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="3oL-tl-UdN"/>
+                <constraint firstItem="gdl-8T-XDl" firstAttribute="trailing" secondItem="6nx-3Y-8fu" secondAttribute="trailing" id="7zb-fr-llS"/>
+                <constraint firstItem="gdl-8T-XDl" firstAttribute="leading" secondItem="6nx-3Y-8fu" secondAttribute="leading" id="Dqn-RM-ODa"/>
+                <constraint firstItem="ehH-pO-iVz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="Ftx-nK-c5e"/>
+                <constraint firstItem="Iyv-7Q-WYp" firstAttribute="top" secondItem="ehH-pO-iVz" secondAttribute="bottom" constant="16" id="Glo-Ip-cvp"/>
+                <constraint firstItem="gdl-8T-XDl" firstAttribute="top" secondItem="6nx-3Y-8fu" secondAttribute="bottom" constant="13" id="NLa-sO-IsV"/>
+                <constraint firstItem="YVE-Ye-tWt" firstAttribute="top" secondItem="gdl-8T-XDl" secondAttribute="bottom" constant="27" id="Qdd-sY-OIl"/>
+                <constraint firstAttribute="bottom" secondItem="YVE-Ye-tWt" secondAttribute="bottom" constant="29" id="XVC-oo-IGG"/>
+                <constraint firstAttribute="trailing" secondItem="ehH-pO-iVz" secondAttribute="trailing" constant="30" id="XqR-I8-ej5"/>
+                <constraint firstItem="6nx-3Y-8fu" firstAttribute="top" secondItem="Iyv-7Q-WYp" secondAttribute="bottom" constant="16" id="cv7-Qn-s1j"/>
+                <constraint firstItem="ehH-pO-iVz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="eLJ-n9-qgD"/>
+                <constraint firstItem="YVE-Ye-tWt" firstAttribute="leading" secondItem="gdl-8T-XDl" secondAttribute="leading" id="gtS-Ck-RDd"/>
+                <constraint firstItem="6nx-3Y-8fu" firstAttribute="trailing" secondItem="ehH-pO-iVz" secondAttribute="trailing" id="u98-tl-mI1"/>
+                <constraint firstItem="YVE-Ye-tWt" firstAttribute="trailing" secondItem="gdl-8T-XDl" secondAttribute="trailing" id="x46-9h-eai"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="costProgram" destination="Iyv-7Q-WYp" id="TB0-lO-trU"/>
+                <outlet property="descriptionProgram" destination="YVE-Ye-tWt" id="Qvi-dd-07q"/>
+                <outlet property="nameProgram" destination="ehH-pO-iVz" id="YzB-5B-EUS"/>
+                <outlet property="shortDescription" destination="gdl-8T-XDl" id="KAN-yi-XxB"/>
+            </connections>
+            <point key="canvasLocation" x="353" y="238.5"/>
+        </view>
+    </objects>
+</document>

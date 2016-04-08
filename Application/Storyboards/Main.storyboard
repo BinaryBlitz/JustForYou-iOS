@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Blocks View Controller-->
@@ -46,20 +48,57 @@
         <!--Programs View Controller-->
         <scene sceneID="42n-59-sQa">
             <objects>
-                <viewController storyboardIdentifier="BBProgramsViewController" id="AA8-UO-QaK" customClass="BBProgramsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BBProgramsViewController" hidesBottomBarWhenPushed="YES" id="AA8-UO-QaK" customClass="BBProgramsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PSy-74-Qev"/>
                         <viewControllerLayoutGuide type="bottom" id="5Tw-8S-SAg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="muE-HD-jFe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basket" translatesAutoresizingMaskIntoConstraints="NO" id="UB9-KO-16j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UB9-KO-16j" secondAttribute="height" multiplier="3:2" id="EXp-0B-f2a"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-UG-aKh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8N2-UG-aKh" secondAttribute="height" multiplier="3:2" id="Vgs-dc-rG6"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-ll-crX">
+                                <rect key="frame" x="20" y="147" width="335" height="373"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QXZ-ll-crX" firstAttribute="height" secondItem="muE-HD-jFe" secondAttribute="height" multiplier="373:667" id="2f6-bn-EyS"/>
+                            <constraint firstAttribute="trailing" secondItem="UB9-KO-16j" secondAttribute="trailing" id="5OU-H6-GNu"/>
+                            <constraint firstItem="UB9-KO-16j" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" id="73e-v0-dyk"/>
+                            <constraint firstItem="8N2-UG-aKh" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" id="ReT-lD-OMO"/>
+                            <constraint firstItem="8N2-UG-aKh" firstAttribute="top" secondItem="muE-HD-jFe" secondAttribute="top" id="cJo-oq-npK"/>
+                            <constraint firstAttribute="trailing" secondItem="QXZ-ll-crX" secondAttribute="trailing" constant="20" id="gea-Pc-aNF"/>
+                            <constraint firstItem="QXZ-ll-crX" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" constant="20" id="isG-6M-Os8"/>
+                            <constraint firstItem="QXZ-ll-crX" firstAttribute="centerY" secondItem="muE-HD-jFe" secondAttribute="centerY" id="nKk-wF-hCx"/>
+                            <constraint firstItem="UB9-KO-16j" firstAttribute="top" secondItem="muE-HD-jFe" secondAttribute="top" id="q1i-RB-YZW"/>
+                            <constraint firstAttribute="trailing" secondItem="8N2-UG-aKh" secondAttribute="trailing" id="zop-cv-EAy"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="firstImageView" destination="UB9-KO-16j" id="K8Q-bJ-CuC"/>
+                        <outlet property="scrollView" destination="QXZ-ll-crX" id="jV1-K9-7Lf"/>
+                        <outlet property="secondImageView" destination="8N2-UG-aKh" id="zjf-M5-Cd4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnn-u3-Hks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="1044"/>
+            <point key="canvasLocation" x="1278.5" y="1027.5"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="W5I-Ag-BTR">
@@ -83,12 +122,11 @@
         <scene sceneID="Avh-Eu-Kyv">
             <objects>
                 <tabBarController storyboardIdentifier="BBTabbarViewController" id="dTC-7A-lJv" customClass="BBTabbarViewController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="itm-XE-L9N" customClass="BBTabBar">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="itm-XE-L9N" customClass="BBTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.1803921568627451" green="0.22745098039215686" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.18039215689999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwY-Wr-3qF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,4 +189,8 @@
             <point key="canvasLocation" x="451" y="3110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="basket" width="28" height="22"/>
+        <image name="home" width="47" height="41"/>
+    </resources>
 </document>

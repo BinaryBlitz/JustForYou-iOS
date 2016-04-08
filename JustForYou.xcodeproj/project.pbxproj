@@ -85,6 +85,8 @@
 		3A698BDA1CB68E6E004E857D /* BBSupportPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698B9C1CB68E6E004E857D /* BBSupportPresenter.m */; };
 		3A698BDB1CB68E6E004E857D /* BBSupportRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698B9F1CB68E6E004E857D /* BBSupportRouter.m */; };
 		3A698BDC1CB68E6E004E857D /* BBSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698BA31CB68E6E004E857D /* BBSupportViewController.m */; };
+		3A698BF31CB843D4004E857D /* BBProgramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698BF21CB843D4004E857D /* BBProgramView.m */; };
+		3A698BF71CB84457004E857D /* BBProgramView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A698BF61CB84457004E857D /* BBProgramView.xib */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887C1CAFF0D40069DE52 /* BBUnderlineButton.m */; };
@@ -294,6 +296,9 @@
 		3A698BA31CB68E6E004E857D /* BBSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSupportViewController.m; sourceTree = "<group>"; };
 		3A698BA41CB68E6E004E857D /* BBSupportViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSupportViewInput.h; sourceTree = "<group>"; };
 		3A698BA51CB68E6E004E857D /* BBSupportViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSupportViewOutput.h; sourceTree = "<group>"; };
+		3A698BF11CB843D4004E857D /* BBProgramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramView.h; sourceTree = "<group>"; };
+		3A698BF21CB843D4004E857D /* BBProgramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramView.m; sourceTree = "<group>"; };
+		3A698BF61CB84457004E857D /* BBProgramView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBProgramView.xib; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
@@ -814,10 +819,11 @@
 		3A698B2B1CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698B2C1CB68E6E004E857D /* BBProgramsViewController.h */,
-				3A698B2D1CB68E6E004E857D /* BBProgramsViewController.m */,
+				3A698BF01CB8438B004E857D /* Views */,
 				3A698B2E1CB68E6E004E857D /* BBProgramsViewInput.h */,
 				3A698B2F1CB68E6E004E857D /* BBProgramsViewOutput.h */,
+				3A698B2C1CB68E6E004E857D /* BBProgramsViewController.h */,
+				3A698B2D1CB68E6E004E857D /* BBProgramsViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,10 +893,10 @@
 		3A698B431CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698B441CB68E6E004E857D /* BBNavigationViewController.h */,
-				3A698B451CB68E6E004E857D /* BBNavigationViewController.m */,
 				3A698B461CB68E6E004E857D /* BBNavigationViewInput.h */,
 				3A698B471CB68E6E004E857D /* BBNavigationViewOutput.h */,
+				3A698B441CB68E6E004E857D /* BBNavigationViewController.h */,
+				3A698B451CB68E6E004E857D /* BBNavigationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -899,10 +905,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698B491CB68E6E004E857D /* Assembly */,
-				3A698B4C1CB68E6E004E857D /* Interactor */,
-				3A698B511CB68E6E004E857D /* Presenter */,
-				3A698B551CB68E6E004E857D /* Router */,
 				3A698B591CB68E6E004E857D /* View */,
+				3A698B511CB68E6E004E857D /* Presenter */,
+				3A698B4C1CB68E6E004E857D /* Interactor */,
+				3A698B551CB68E6E004E857D /* Router */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -950,10 +956,10 @@
 		3A698B591CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698B5A1CB68E6E004E857D /* BBTabbarViewController.h */,
-				3A698B5B1CB68E6E004E857D /* BBTabbarViewController.m */,
 				3A698B5C1CB68E6E004E857D /* BBTabbarViewInput.h */,
 				3A698B5D1CB68E6E004E857D /* BBTabbarViewOutput.h */,
+				3A698B5A1CB68E6E004E857D /* BBTabbarViewController.h */,
+				3A698B5B1CB68E6E004E857D /* BBTabbarViewController.m */,
 				3A698B5E1CB68E6E004E857D /* Views */,
 			);
 			path = View;
@@ -980,10 +986,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698B631CB68E6E004E857D /* Assembly */,
-				3A698B661CB68E6E004E857D /* Interactor */,
-				3A698B6B1CB68E6E004E857D /* Presenter */,
-				3A698B6F1CB68E6E004E857D /* Router */,
 				3A698B731CB68E6E004E857D /* View */,
+				3A698B6B1CB68E6E004E857D /* Presenter */,
+				3A698B661CB68E6E004E857D /* Interactor */,
+				3A698B6F1CB68E6E004E857D /* Router */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -1031,10 +1037,10 @@
 		3A698B731CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698B741CB68E6E004E857D /* BBOrdersViewController.h */,
-				3A698B751CB68E6E004E857D /* BBOrdersViewController.m */,
 				3A698B761CB68E6E004E857D /* BBOrdersViewInput.h */,
 				3A698B771CB68E6E004E857D /* BBOrdersViewOutput.h */,
+				3A698B741CB68E6E004E857D /* BBOrdersViewController.h */,
+				3A698B751CB68E6E004E857D /* BBOrdersViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1181,6 +1187,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3A698BF01CB8438B004E857D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A698BF11CB843D4004E857D /* BBProgramView.h */,
+				3A698BF21CB843D4004E857D /* BBProgramView.m */,
+				3A698BF61CB84457004E857D /* BBProgramView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3AC988631CAB1FD80069DE52 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1323,6 +1339,7 @@
 				3A698BB81CB68E6E004E857D /* BBBlockTableViewCell.xib in Resources */,
 				3A698AB31CB56F2F004E857D /* SF-UI-Text-RegularItalic.otf in Resources */,
 				3A698AB01CB56F2F004E857D /* SF-UI-Text-Medium.otf in Resources */,
+				3A698BF71CB84457004E857D /* BBProgramView.xib in Resources */,
 				3A698AB11CB56F2F004E857D /* SF-UI-Text-MediumItalic.otf in Resources */,
 				3A698AAD1CB56F2F004E857D /* SF-UI-Text-HeavyItalic.otf in Resources */,
 			);
@@ -1412,6 +1429,7 @@
 				3A698BD01CB68E6E004E857D /* BBOrdersPresenter.m in Sources */,
 				3A698BD51CB68E6E004E857D /* BBProfilePresenter.m in Sources */,
 				3A698BCB1CB68E6E004E857D /* BBTabbarRouter.m in Sources */,
+				3A698BF31CB843D4004E857D /* BBProgramView.m in Sources */,
 				3A698BD41CB68E6E004E857D /* BBProfileInteractor.m in Sources */,
 				3AC988851CAFF5530069DE52 /* BBTextTableViewCell.m in Sources */,
 				3A698BD91CB68E6E004E857D /* BBSupportInteractor.m in Sources */,

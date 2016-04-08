@@ -8,10 +8,11 @@
 
 #import "BBProgramsRouter.h"
 
+#import "BBProgramsViewController.h"
+
 @implementation BBProgramsRouter
 
 #pragma mark - BBProgramsRouterInput
-
 
 - (void)pushView:(id)view withNavigationController:(UINavigationController *)nc {
     HQDispatchToMainQueue(^{

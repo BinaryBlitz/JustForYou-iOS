@@ -24,6 +24,11 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+//- (void)viewDidAppear:(BOOL)animated {
+//    NSLog(@"Class = %@", [self.tabBarController class]);
+//    NSLog(@"ClassNavigation = %@", [self.navigationController class]);
+//}
+
 #pragma mark - Методы BBOrdersViewInput
 
 - (void)setupInitialState {

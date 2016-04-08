@@ -27,10 +27,11 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    
     [self registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
 }
+
 
 #pragma mark - Методы BBBlocksViewInput
 

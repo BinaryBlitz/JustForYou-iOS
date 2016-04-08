@@ -12,8 +12,6 @@
 
 @interface BBNavigationViewController() <UINavigationControllerDelegate>
 
-@property (strong, nonatomic) UIViewController *testView;
-
 @end
 
 @implementation BBNavigationViewController
@@ -22,12 +20,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    
 	[self.output didTriggerViewReadyEvent];
-}
-
-- (id)currentView {
-    return self.testView;
 }
 
 
@@ -38,7 +32,6 @@
 }
 
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    self.testView = viewController;
     viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
