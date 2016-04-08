@@ -71,7 +71,7 @@ static NSInteger sideInset = 10;
         item = self.items[i];
         icon = item.image;
         [item setImage:[icon imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, topInset, sideInset);
+//        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, topInset, sideInset);
 //        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, -topInset, -sideInset);
     }
 }
