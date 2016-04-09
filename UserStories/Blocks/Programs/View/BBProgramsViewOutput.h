@@ -12,4 +12,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)programDidTap;
+
 @end

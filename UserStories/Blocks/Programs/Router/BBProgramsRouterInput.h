@@ -11,6 +11,6 @@
 
 @protocol BBProgramsRouterInput <NSObject>
 
-- (void)pushView:(id)view withNavigationController:(UINavigationController *)nc;
+- (void)pushViewControllerWithNavigationController:(UINavigationController *)nc;
 
 @end

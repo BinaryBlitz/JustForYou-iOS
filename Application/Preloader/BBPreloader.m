@@ -31,6 +31,7 @@
     self = [super init];
     if (self) {
         self.window = window;
+        [self setCustomBackBarButtonImage];
 //        if ([[BBUserService sharedService] currentUser]) {
             [self.tabbarModule presentInWindow:window];
 //        } else {
@@ -109,6 +110,12 @@ UIViewAnimationOptionTransitionFlipFromTop     = 6 << 20,
 UIViewAnimationOptionTransitionFlipFromBottom  = 7 << 20,
  
 */
+
+- (void)setCustomBackBarButtonImage {
+    [[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+}
+
 # pragma mark - Lazy Load
 
 - (id<BBTabbarModuleInput>) tabbarModule {

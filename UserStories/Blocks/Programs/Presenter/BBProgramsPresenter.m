@@ -14,10 +14,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBCardProgramAssembly.h"
+#import "BBCardProgramModuleInput.h"
 
 @interface BBProgramsPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBCardProgramModuleInput> cardProgramModule;
 
 @end
 
@@ -31,7 +34,7 @@
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule {
     self.navigModule = navigationModule;
-    [self.router pushView:self.view withNavigationController:[self.navigModule currentView]];
+    [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBProgramsViewOutput
@@ -40,6 +43,20 @@
 	[self.view setupInitialState];
 }
 
+- (void)programDidTap {
+    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule];
+}
+
 #pragma mark - Методы BBProgramsInteractorOutput
+
+#pragma mark - Lazy Load
+
+- (id<BBCardProgramModuleInput>) cardProgramModule {
+    if (!_cardProgramModule) {
+        _cardProgramModule = [BBCardProgramAssembly createModule];
+    }
+    return _cardProgramModule;
+}
+
 
 @end

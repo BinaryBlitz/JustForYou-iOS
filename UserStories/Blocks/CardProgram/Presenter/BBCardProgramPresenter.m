@@ -12,7 +12,11 @@
 #import "BBCardProgramInteractorInput.h"
 #import "BBCardProgramRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBCardProgramPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
@@ -22,6 +26,11 @@
 
 - (void)configureModule {
     
+}
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule {
+    self.navigModule = navigationModule;
+    [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBCardProgramViewOutput

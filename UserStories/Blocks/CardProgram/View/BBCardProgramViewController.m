@@ -12,6 +12,9 @@
 
 @interface BBCardProgramViewController()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 @end
 
 @implementation BBCardProgramViewController

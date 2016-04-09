@@ -22,7 +22,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.preloader = [[BBPreloader alloc] initWithWindow:self.window];
-    
+
     return YES;
 }
 

@@ -25,8 +25,12 @@
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLayoutSubviews {
+#warning delete after test
+    
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
     BBProgramView *view = [[BBProgramView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testAction)];
+    [view addGestureRecognizer:gesture];
     [self.scrollView addSubview:view];
     
     BBProgramView *view2 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
@@ -42,11 +46,16 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)testAction {
+    [self.output programDidTap];
+}
+
 #pragma mark - Методы BBProgramsViewInput
 
 - (void)setupInitialState {
     self.scrollView.delegate = self;
     self.secondImageView.alpha = 0.0;
+
 }
 
 #pragma mark - ScrollViewDelegate
@@ -64,5 +73,6 @@
     NSLog(@"%f, часть какая то = %f", ratio, drob);
     self.secondImageView.alpha = drob;
 }
+
 
 @end

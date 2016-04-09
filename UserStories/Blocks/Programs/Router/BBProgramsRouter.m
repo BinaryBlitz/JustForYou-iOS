@@ -14,9 +14,11 @@
 
 #pragma mark - BBProgramsRouterInput
 
-- (void)pushView:(id)view withNavigationController:(UINavigationController *)nc {
+- (void)pushViewControllerWithNavigationController:(UINavigationController *)nc; {
+    UIViewController *vc = (UIViewController *)self.presenter.view;
     HQDispatchToMainQueue(^{
-        [nc pushViewController:view animated:YES];
+        [nc pushViewController:vc animated:YES];
     });
 }
+
 @end
