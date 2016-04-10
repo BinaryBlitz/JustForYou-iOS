@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BBHeaderTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emN-Ga-H1E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                    </imageView>
+                    <segmentedControl opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-Ne-rTT" customClass="BBSegmentedControl">
+                        <rect key="frame" x="0.0" y="207.5" width="375" height="43"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="IP2-Rp-oLv"/>
+                        </constraints>
+                        <segments>
+                            <segment title="ОПИСАНИЕ"/>
+                            <segment title="МЕНЮ"/>
+                        </segments>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="emN-Ga-H1E" secondAttribute="bottom" id="Fm6-ed-gZc"/>
+                    <constraint firstAttribute="bottom" secondItem="jWG-Ne-rTT" secondAttribute="bottom" id="OWG-7p-aPT"/>
+                    <constraint firstAttribute="trailing" secondItem="jWG-Ne-rTT" secondAttribute="trailing" id="WiO-tJ-dub"/>
+                    <constraint firstItem="emN-Ga-H1E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gpS-wa-mAa"/>
+                    <constraint firstItem="emN-Ga-H1E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lx2-zN-3cT"/>
+                    <constraint firstItem="jWG-Ne-rTT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mVI-dY-lfc"/>
+                    <constraint firstAttribute="trailing" secondItem="emN-Ga-H1E" secondAttribute="trailing" id="qTp-ZU-3uQ"/>
+                </constraints>
             </tableViewCellContentView>
+            <point key="canvasLocation" x="371.5" y="272"/>
         </tableViewCell>
     </objects>
 </document>
