@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBSegmentedControl.h"
+
 @interface BBHeaderTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet BBSegmentedControl *segmentedControl;
 
 @end

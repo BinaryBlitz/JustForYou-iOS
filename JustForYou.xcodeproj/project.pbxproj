@@ -656,11 +656,11 @@
 		3A698AFB1CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A698B001CB68E6E004E857D /* VIews */,
 				3A698AFE1CB68E6E004E857D /* BBBlocksViewInput.h */,
 				3A698AFF1CB68E6E004E857D /* BBBlocksViewOutput.h */,
 				3A698AFC1CB68E6E004E857D /* BBBlocksViewController.h */,
 				3A698AFD1CB68E6E004E857D /* BBBlocksViewController.m */,
-				3A698B001CB68E6E004E857D /* VIews */,
 			);
 			path = View;
 			sourceTree = "<group>";

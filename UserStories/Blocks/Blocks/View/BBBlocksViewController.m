@@ -28,7 +28,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-    [self registrateIdentifireCell];
+    [self _registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
 }
 
@@ -41,7 +41,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 
 #pragma mark - TableView
 
-- (void) registrateIdentifireCell {
+- (void) _registrateIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:@"BBBlockTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireBlockCell];
 }
 
