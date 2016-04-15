@@ -34,6 +34,12 @@ typedef enum : NSUInteger {
     BBRightOrientationBarButtonItem
 }BBOrientetionBarButtonItem;
 
+// Индекс SegmentedControl-а в карточке программы
+typedef enum : NSUInteger {
+    BBDescriptionSegmentedIndex,
+    BBMenuSegmentedIndex
+}BBCardProgramSegmentedIndex;
+
 #pragma mark - interface class
 
 @interface BBConstantAndColor : NSObject

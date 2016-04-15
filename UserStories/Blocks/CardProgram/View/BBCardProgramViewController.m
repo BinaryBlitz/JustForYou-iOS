@@ -11,15 +11,20 @@
 #import "BBCardProgramViewOutput.h"
 
 #import "BBHeaderTableViewCell.h"
+#import "BBDescriptionTableViewCell.h"
+#import "BBMenuTableViewCell.h"
 
-@interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource>
+@interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addInBasketButton;
+@property (nonatomic) BBCardProgramSegmentedIndex segmentedIndex;
 
 @end
 
 static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
+static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
+static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 
 @implementation BBCardProgramViewController
 
@@ -39,7 +44,7 @@ static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 #pragma mark - Методы BBCardProgramViewInput
 
 - (void)setupInitialState {
-    
+    self.segmentedIndex = BBDescriptionSegmentedIndex;
 }
 
 #pragma mark - Actions
@@ -54,6 +59,8 @@ static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 
 - (void) _registrateIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:@"BBHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:kHeaderCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBDescriptionTableViewCell" bundle:nil] forCellReuseIdentifier:kDescriptionCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBMenuTableViewCell" bundle:nil] forCellReuseIdentifier:kMenuCellIdentifire];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -70,15 +77,29 @@ static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         BBHeaderTableViewCell *headerCell = [self.tableView dequeueReusableCellWithIdentifier:kHeaderCellIdentifire];
+        headerCell.delegate = self;
+    
         cell = headerCell;
+    } else {
+        if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
+            BBDescriptionTableViewCell *descriptiomCell = [self.tableView dequeueReusableCellWithIdentifier:kDescriptionCellIdentifire];
+            cell = descriptiomCell;
+        } else {
+            BBMenuTableViewCell *menuCell = [self.tableView dequeueReusableCellWithIdentifier:kMenuCellIdentifire];
+            cell = menuCell;
+        }
     }
-    
-    
     return cell;
 }
 
+#pragma mark - Controls TableView
+
+- (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex {
+    self.segmentedIndex = segmentedIndex;
+    [self.tableView reloadData];
+}
 
 #pragma mark - Layout Views
 

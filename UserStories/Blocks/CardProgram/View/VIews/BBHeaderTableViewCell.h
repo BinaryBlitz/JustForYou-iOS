@@ -10,8 +10,20 @@
 
 #import "BBSegmentedControl.h"
 
+@protocol BBHeaderTableViewCellDelegate;
+
 @interface BBHeaderTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageProgram;
 @property (weak, nonatomic) IBOutlet BBSegmentedControl *segmentedControl;
+
+@property (strong, nonatomic) id<BBHeaderTableViewCellDelegate> delegate;
+
+@end
+
+@protocol BBHeaderTableViewCellDelegate <NSObject>
+@optional
+
+- (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex;
 
 @end

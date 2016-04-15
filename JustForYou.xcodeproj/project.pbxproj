@@ -84,6 +84,10 @@
 		3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887F1CAFF1830069DE52 /* BBContainerView.m */; };
 		3AC988851CAFF5530069DE52 /* BBTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988831CAFF5530069DE52 /* BBTextTableViewCell.m */; };
 		3AC988861CAFF5530069DE52 /* BBTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC988841CAFF5530069DE52 /* BBTextTableViewCell.xib */; };
+		3AE607831CC0CF91009E7961 /* BBDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE607811CC0CF91009E7961 /* BBDescriptionTableViewCell.m */; };
+		3AE607841CC0CF91009E7961 /* BBDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE607821CC0CF91009E7961 /* BBDescriptionTableViewCell.xib */; };
+		3AE607881CC0D953009E7961 /* BBMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */; };
+		3AE607891CC0D953009E7961 /* BBMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -294,6 +298,12 @@
 		3AC988821CAFF5530069DE52 /* BBTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextTableViewCell.h; sourceTree = "<group>"; };
 		3AC988831CAFF5530069DE52 /* BBTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextTableViewCell.m; sourceTree = "<group>"; };
 		3AC988841CAFF5530069DE52 /* BBTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBTextTableViewCell.xib; sourceTree = "<group>"; };
+		3AE607801CC0CF91009E7961 /* BBDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		3AE607811CC0CF91009E7961 /* BBDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDescriptionTableViewCell.m; sourceTree = "<group>"; };
+		3AE607821CC0CF91009E7961 /* BBDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		3AE607851CC0D953009E7961 /* BBMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMenuTableViewCell.h; sourceTree = "<group>"; };
+		3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMenuTableViewCell.m; sourceTree = "<group>"; };
+		3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuTableViewCell.xib; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -428,6 +438,12 @@
 				3A5B0BF01CB9563300ADCE2C /* BBHeaderTableViewCell.h */,
 				3A5B0BF11CB9563300ADCE2C /* BBHeaderTableViewCell.m */,
 				3A5B0BF21CB9563300ADCE2C /* BBHeaderTableViewCell.xib */,
+				3AE607801CC0CF91009E7961 /* BBDescriptionTableViewCell.h */,
+				3AE607811CC0CF91009E7961 /* BBDescriptionTableViewCell.m */,
+				3AE607821CC0CF91009E7961 /* BBDescriptionTableViewCell.xib */,
+				3AE607851CC0D953009E7961 /* BBMenuTableViewCell.h */,
+				3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */,
+				3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -1301,8 +1317,10 @@
 			files = (
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
+				3AE607891CC0D953009E7961 /* BBMenuTableViewCell.xib in Resources */,
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
 				3AC988861CAFF5530069DE52 /* BBTextTableViewCell.xib in Resources */,
+				3AE607841CC0CF91009E7961 /* BBDescriptionTableViewCell.xib in Resources */,
 				3A698BAC1CB68E6E004E857D /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
 				3A698BB81CB68E6E004E857D /* BBBlockTableViewCell.xib in Resources */,
@@ -1366,6 +1384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE607881CC0D953009E7961 /* BBMenuTableViewCell.m in Sources */,
 				3A698BCA1CB68E6E004E857D /* BBTabbarPresenter.m in Sources */,
 				3A698BC61CB68E6E004E857D /* BBNavigationRouter.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
@@ -1376,6 +1395,7 @@
 				3A698BD81CB68E6E004E857D /* BBSupportAssembly.m in Sources */,
 				3A698BD31CB68E6E004E857D /* BBProfileAssembly.m in Sources */,
 				3A698BB01CB68E6E004E857D /* BBRegistrationRouter.m in Sources */,
+				3AE607831CC0CF91009E7961 /* BBDescriptionTableViewCell.m in Sources */,
 				3A698BBA1CB68E6E004E857D /* BBCardProgramInteractor.m in Sources */,
 				3A698BC71CB68E6E004E857D /* BBNavigationViewController.m in Sources */,
 				3A698BBC1CB68E6E004E857D /* BBCardProgramRouter.m in Sources */,

@@ -23,5 +23,8 @@
 
 - (IBAction)segmentedControlAction:(id)sender {
     [self.segmentedControl setNeedsDisplay];
+    if ([self.delegate respondsToSelector:@selector(segmentedControlValueChange:)]) {
+        [self.delegate segmentedControlValueChange:self.segmentedControl.selectedSegmentIndex];
+    }
 }
 @end

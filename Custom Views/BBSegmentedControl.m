@@ -55,7 +55,7 @@ static CGFloat heightUnderLine = 1.f;
     CGContextSetLineWidth(context, heightUnderLine);
     CGContextSetStrokeColorWithColor(context, [BBConstantAndColor applicationOrangeColor].CGColor);
     
-    if (self.selectedSegmentIndex == 0) {
+    if (self.selectedSegmentIndex == BBDescriptionSegmentedIndex) {
         CGContextMoveToPoint(context, self.centerPointForFirstSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
         CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
     } else {

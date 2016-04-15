@@ -44,6 +44,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imageProgram" destination="emN-Ga-H1E" id="jMy-dH-Qe3"/>
                 <outlet property="segmentedControl" destination="jWG-Ne-rTT" id="nxa-WW-eD7"/>
             </connections>
             <point key="canvasLocation" x="371.5" y="272"/>
