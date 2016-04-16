@@ -20,6 +20,8 @@
 
 @end
 
+static CGFloat inset = 20.f;
+
 @implementation BBProgramsViewController
 
 #pragma mark - Методы жизненного цикла
@@ -28,15 +30,15 @@
 #warning delete after test
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
-    BBProgramView *view = [[BBProgramView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
+    BBProgramView *view = [[BBProgramView alloc] initWithFrame:CGRectMake(inset, 0, CGRectGetWidth(self.scrollView.frame) - (inset*2), CGRectGetHeight(self.scrollView.frame))];
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testAction)];
-    [view addGestureRecognizer:gesture];
+    [view addGestureRecognizer:gesture];    
     [self.scrollView addSubview:view];
     
-    BBProgramView *view2 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame), 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
+    BBProgramView *view2 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) + inset, 0, CGRectGetWidth(self.scrollView.frame) - (inset*2), CGRectGetHeight(self.scrollView.frame))];
     [self.scrollView addSubview:view2];
     
-    BBProgramView *view3 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) * 2, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
+    BBProgramView *view3 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) * 2 + inset, 0, CGRectGetWidth(self.scrollView.frame) - (inset*2), CGRectGetHeight(self.scrollView.frame))];
     [self.scrollView addSubview:view3];
     
 }

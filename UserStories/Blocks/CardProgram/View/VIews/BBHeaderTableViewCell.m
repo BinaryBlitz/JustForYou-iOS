@@ -27,4 +27,9 @@
         [self.delegate segmentedControlValueChange:self.segmentedControl.selectedSegmentIndex];
     }
 }
+
+- (void)drawRect:(CGRect)rect {
+    [self.contentView sendSubviewToBack:self.imageProgram];
+}
+
 @end

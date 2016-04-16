@@ -14,9 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emN-Ga-H1E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
-                    </imageView>
                     <segmentedControl opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-Ne-rTT" customClass="BBSegmentedControl">
                         <rect key="frame" x="0.0" y="207.5" width="375" height="43"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,11 +29,17 @@
                             <action selector="segmentedControlAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="bwR-HG-gHi"/>
                         </connections>
                     </segmentedControl>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emN-Ga-H1E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="249.5" id="HAO-wl-5Rn"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="emN-Ga-H1E" secondAttribute="bottom" id="Fm6-ed-gZc"/>
                     <constraint firstAttribute="bottom" secondItem="jWG-Ne-rTT" secondAttribute="bottom" id="OWG-7p-aPT"/>
                     <constraint firstAttribute="trailing" secondItem="jWG-Ne-rTT" secondAttribute="trailing" id="WiO-tJ-dub"/>
+                    <constraint firstAttribute="bottom" secondItem="emN-Ga-H1E" secondAttribute="bottom" id="ZPP-aj-iXV"/>
                     <constraint firstItem="emN-Ga-H1E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gpS-wa-mAa"/>
                     <constraint firstItem="emN-Ga-H1E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lx2-zN-3cT"/>
                     <constraint firstItem="jWG-Ne-rTT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mVI-dY-lfc"/>

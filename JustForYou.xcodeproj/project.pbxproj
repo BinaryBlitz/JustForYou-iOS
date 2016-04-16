@@ -88,6 +88,7 @@
 		3AE607841CC0CF91009E7961 /* BBDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE607821CC0CF91009E7961 /* BBDescriptionTableViewCell.xib */; };
 		3AE607881CC0D953009E7961 /* BBMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */; };
 		3AE607891CC0D953009E7961 /* BBMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */; };
+		3AE6078D1CC249F6009E7961 /* BBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6078C1CC249F6009E7961 /* BBGradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +305,8 @@
 		3AE607851CC0D953009E7961 /* BBMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMenuTableViewCell.h; sourceTree = "<group>"; };
 		3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMenuTableViewCell.m; sourceTree = "<group>"; };
 		3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuTableViewCell.xib; sourceTree = "<group>"; };
+		3AE6078B1CC249F6009E7961 /* BBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGradientView.h; sourceTree = "<group>"; };
+		3AE6078C1CC249F6009E7961 /* BBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGradientView.m; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -444,6 +447,8 @@
 				3AE607851CC0D953009E7961 /* BBMenuTableViewCell.h */,
 				3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */,
 				3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */,
+				3AE6078B1CC249F6009E7961 /* BBGradientView.h */,
+				3AE6078C1CC249F6009E7961 /* BBGradientView.m */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -1388,6 +1393,7 @@
 				3A698BCA1CB68E6E004E857D /* BBTabbarPresenter.m in Sources */,
 				3A698BC61CB68E6E004E857D /* BBNavigationRouter.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
+				3AE6078D1CC249F6009E7961 /* BBGradientView.m in Sources */,
 				3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */,
 				3A698BBB1CB68E6E004E857D /* BBCardProgramPresenter.m in Sources */,
 				3A698BB91CB68E6E004E857D /* BBCardProgramAssembly.m in Sources */,

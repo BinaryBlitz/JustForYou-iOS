@@ -17,7 +17,7 @@
 @end
 
 static CGFloat wightUnderLine = 41.f;
-static CGFloat heightUnderLine = 1.f;
+static CGFloat heightUnderLine = 2.f;
 
 @implementation BBSegmentedControl
 
@@ -56,11 +56,11 @@ static CGFloat heightUnderLine = 1.f;
     CGContextSetStrokeColorWithColor(context, [BBConstantAndColor applicationOrangeColor].CGColor);
     
     if (self.selectedSegmentIndex == BBDescriptionSegmentedIndex) {
-        CGContextMoveToPoint(context, self.centerPointForFirstSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-        CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextMoveToPoint(context, self.centerPointForFirstSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine*2);
+        CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine*2);
     } else {
-        CGContextMoveToPoint(context, self.centerPointForSecondSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-        CGContextAddLineToPoint(context, self.centerPointForSecondSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextMoveToPoint(context, self.centerPointForSecondSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine*2);
+        CGContextAddLineToPoint(context, self.centerPointForSecondSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine*2);
     }
     
     CGContextStrokePath(context);
