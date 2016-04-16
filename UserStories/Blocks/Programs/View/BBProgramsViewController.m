@@ -43,6 +43,7 @@ static CGFloat inset = 20.f;
     
 }
 
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[self.output didTriggerViewReadyEvent];

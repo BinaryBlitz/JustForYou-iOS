@@ -36,7 +36,7 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    
     [self _registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
 }
@@ -82,6 +82,7 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return 200;
 //}
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -114,6 +114,13 @@ UIViewAnimationOptionTransitionFlipFromBottom  = 7 << 20,
 - (void)setCustomBackBarButtonImage {
     [[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
+                       forBarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    
 }
 
 # pragma mark - Lazy Load
