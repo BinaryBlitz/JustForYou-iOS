@@ -8,9 +8,6 @@
 
 #import "BBTabBar.h"
 
-static NSInteger topInset = 10; // custom inset for icons in tabbar
-static NSInteger sideInset = 10;
-
 @interface BBTabBar()
 
 @property (nonatomic) NSInteger countItems;
@@ -18,21 +15,6 @@ static NSInteger sideInset = 10;
 @end
 
 @implementation BBTabBar
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-//    if ([self.tabbarDelegate respondsToSelector:@selector(tabBar:didPressItem:)]) {
-//        NSInteger itemNumber = [tabBar.items indexOfObject:item];
-//        [self.tabbarDelegate tabBar:self didPressItem:itemNumber];
-//    }
-}
-
-//-(instancetype)initWithCoder:(NSCoder *)aDecoder {
-//    self = [super initWithCoder:aDecoder];
-//    if (self) {
-//        self.delegate = self;
-//    }
-//    return self;
-//}
 
 -(void)layoutSubviews {
     [super layoutSubviews];
@@ -71,8 +53,6 @@ static NSInteger sideInset = 10;
         item = self.items[i];
         icon = item.image;
         [item setImage:[icon imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-//        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, topInset, sideInset);
-//        item.imageInsets = UIEdgeInsetsMake(topInset, sideInset, -topInset, -sideInset);
     }
 }
 

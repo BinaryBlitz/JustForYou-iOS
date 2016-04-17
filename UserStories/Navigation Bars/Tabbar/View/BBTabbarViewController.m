@@ -37,7 +37,7 @@
 - (void)setItemsBar:(NSArray *)items {
     self.viewControllers = items;
     self.tabBar.items[0].image = [UIImage imageNamed:@"home"];
-    self.tabBar.items[1].image = [UIImage imageNamed:@"home"];
+    self.tabBar.items[1].image = [UIImage imageNamed:@"support"];
     self.tabBar.items[2].image = [UIImage imageNamed:@"orders"];
     self.tabBar.items[3].image = [UIImage imageNamed:@"profile"];
     

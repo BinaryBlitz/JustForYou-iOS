@@ -43,22 +43,28 @@ static CGFloat inset = 20.f;
     
 }
 
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[self.output didTriggerViewReadyEvent];
 }
 
+#pragma mark - Actions
+
 - (void)testAction {
     [self.output programDidTap];
 }
+
+- (void)basketButtonAction {
+    
+}
+
 
 #pragma mark - Методы BBProgramsViewInput
 
 - (void)setupInitialState {
     self.scrollView.delegate = self;
     self.secondImageView.alpha = 0.0;
-
+    [self _createAndSetRightBarButton];
 }
 
 #pragma mark - ScrollViewDelegate
@@ -77,5 +83,11 @@ static CGFloat inset = 20.f;
     self.secondImageView.alpha = drob;
 }
 
+
+- (void)_createAndSetRightBarButton {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(basketButtonAction)];
+    
+    self.navigationItem.rightBarButtonItem = item;
+}
 
 @end

@@ -45,7 +45,6 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
     [super viewWillLayoutSubviews];
     
     [self _layoutBasketButton];
-    [self _setGradientInBasketView];
 }
 
 #pragma mark - Методы BBCardProgramViewInput
@@ -79,11 +78,6 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
     return 1;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 200;
-//}
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
@@ -110,7 +104,10 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 
 - (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex {
     self.segmentedIndex = segmentedIndex;
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
+    NSRange range = NSMakeRange(1, 1);
+    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:range];
+    [self.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - Layout Views
@@ -120,32 +117,5 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
     [self.addInBasketButton.layer setCornerRadius:CGRectGetHeight(self.addInBasketButton.frame)/2];
 }
 
-- (void)_setGradientInBasketView {
-    
-//    layer.shadowColor = UIColor.lightGrayColor().CGColor
-//    layer.shadowOpacity = 0.5
-//    layer.shadowRadius = 1.3
-//    layer.shadowOffset = CGSize()
-
-//    [self.addInBasketView.layer setMasksToBounds:NO];
-//    self.addInBasketView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-//    self.addInBasketView.layer.shadowOpacity = 0.5;
-//    self.addInBasketView.layer.shadowRadius = 1.3;
-//    self.addInBasketView.layer.shadowOffset = CGSizeMake(10, 40);
-    
-    
-//    self.gradientVIew.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-//    self.gradientVIew.layer.shadowOpacity = 0.5;
-//    self.gradientVIew.layer.shadowRadius = 1.3;
-//    self.gradientVIew.layer.shadowOffset = CGSizeMake(0, -10);
-    
-//    
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = self.gradientVIew.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:0 alpha:0] CGColor],
-//                                                (id)[[UIColor colorWithWhite:0.3 alpha:1] CGColor], nil];
-//    [self.gradientVIew.layer insertSublayer:gradient atIndex:0];
-//    self.addInBusketButtonView.layer.mask = gradient;
-}
 
 @end
