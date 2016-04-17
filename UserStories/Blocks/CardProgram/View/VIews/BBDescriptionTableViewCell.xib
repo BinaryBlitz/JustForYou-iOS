@@ -15,13 +15,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHG-HR-27s">
-                        <rect key="frame" x="8" y="25" width="304" height="25"/>
+                        <rect key="frame" x="20" y="25" width="280" height="25"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-62-Gbe">
-                        <rect key="frame" x="8" y="51" width="26.5" height="14.5"/>
+                        <rect key="frame" x="20" y="51" width="26.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="DY9-dx-MI0"/>
                         </constraints>
@@ -29,22 +29,22 @@
                         <color key="textColor" red="0.94901960780000005" green="0.44705882349999998" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="dvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcbdsdvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcb" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8V-Uz-Dap">
-                        <rect key="frame" x="8" y="85" width="304" height="114.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8V-Uz-Dap">
+                        <rect key="frame" x="20" y="85" width="280" height="114.5"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="VHG-HR-27s" secondAttribute="trailing" constant="8" id="3e9-NP-2R2"/>
-                    <constraint firstItem="J8V-Uz-Dap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="A7t-EL-PAN"/>
+                    <constraint firstAttribute="trailing" secondItem="VHG-HR-27s" secondAttribute="trailing" constant="20" id="3e9-NP-2R2"/>
+                    <constraint firstItem="J8V-Uz-Dap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="A7t-EL-PAN"/>
                     <constraint firstItem="J8V-Uz-Dap" firstAttribute="top" secondItem="xwO-62-Gbe" secondAttribute="bottom" constant="20" id="GLH-ju-RgU"/>
-                    <constraint firstItem="xwO-62-Gbe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="OiL-bF-wQr"/>
-                    <constraint firstItem="VHG-HR-27s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RbR-Te-4Hf"/>
+                    <constraint firstItem="xwO-62-Gbe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="OiL-bF-wQr"/>
+                    <constraint firstItem="VHG-HR-27s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="RbR-Te-4Hf"/>
                     <constraint firstAttribute="bottom" secondItem="J8V-Uz-Dap" secondAttribute="bottom" constant="8" id="dBE-Ub-q4S"/>
                     <constraint firstItem="xwO-62-Gbe" firstAttribute="top" secondItem="VHG-HR-27s" secondAttribute="bottom" constant="1" id="r7d-CY-hN0"/>
-                    <constraint firstAttribute="trailing" secondItem="J8V-Uz-Dap" secondAttribute="trailing" constant="8" id="uSs-rC-KWn"/>
+                    <constraint firstAttribute="trailing" secondItem="J8V-Uz-Dap" secondAttribute="trailing" constant="20" id="uSs-rC-KWn"/>
                     <constraint firstItem="VHG-HR-27s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="woe-G2-cJL"/>
                 </constraints>
             </tableViewCellContentView>

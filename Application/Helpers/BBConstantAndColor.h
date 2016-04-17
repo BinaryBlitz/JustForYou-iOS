@@ -40,6 +40,14 @@ typedef enum : NSUInteger {
     BBMenuSegmentedIndex
 }BBCardProgramSegmentedIndex;
 
+
+typedef enum : NSUInteger {
+    kModelIPhone4,
+    kModelIPhone5,
+    kModelIPhone6,
+    kModelIPhone6plus
+}kModelIPhone;
+
 #pragma mark - interface class
 
 @interface BBConstantAndColor : NSObject
@@ -49,6 +57,8 @@ typedef enum : NSUInteger {
 + (UIColor *)applicationOrangeColor;
 
 + (UIColor *)applicationDarkColor;
+
++ (kModelIPhone)modelDevice;
 
 @end
 

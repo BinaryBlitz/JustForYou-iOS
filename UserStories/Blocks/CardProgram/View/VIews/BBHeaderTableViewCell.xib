@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <segmentedControl opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-Ne-rTT" customClass="BBSegmentedControl">
-                        <rect key="frame" x="0.0" y="207.5" width="375" height="43"/>
+                        <rect key="frame" x="0.0" y="207" width="375" height="43"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="42" id="IP2-Rp-oLv"/>
@@ -32,14 +33,14 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emN-Ga-H1E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="249.5" id="HAO-wl-5Rn"/>
+                            <constraint firstAttribute="width" secondItem="emN-Ga-H1E" secondAttribute="height" multiplier="125:83" id="kBx-9P-FbA"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="jWG-Ne-rTT" secondAttribute="bottom" id="OWG-7p-aPT"/>
                     <constraint firstAttribute="trailing" secondItem="jWG-Ne-rTT" secondAttribute="trailing" id="WiO-tJ-dub"/>
-                    <constraint firstAttribute="bottom" secondItem="emN-Ga-H1E" secondAttribute="bottom" id="ZPP-aj-iXV"/>
+                    <constraint firstAttribute="bottom" secondItem="emN-Ga-H1E" secondAttribute="bottom" priority="999" id="ZPP-aj-iXV"/>
                     <constraint firstItem="emN-Ga-H1E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gpS-wa-mAa"/>
                     <constraint firstItem="emN-Ga-H1E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lx2-zN-3cT"/>
                     <constraint firstItem="jWG-Ne-rTT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mVI-dY-lfc"/>

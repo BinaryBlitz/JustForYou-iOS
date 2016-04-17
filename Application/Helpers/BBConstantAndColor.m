@@ -10,6 +10,8 @@
 
 @implementation BBConstantAndColor
 
+#pragma mark - Colors
+
 + (UIColor *)applicationOrangeColor {
     return [self colorForR:255.0f G:87.0f B:34.0f alpha:1.0f];
 }
@@ -22,5 +24,22 @@
 + (UIColor *)colorForR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:alpha];
 }
+
+
+#pragma mark - Constant
+
++ (kModelIPhone)modelDevice {
+    CGFloat heightDevice = [[UIScreen mainScreen] bounds].size.height;
+    if (heightDevice == 480) {
+        return kModelIPhone4;
+    } else if (heightDevice == 568) {
+        return kModelIPhone5;
+    } else if (heightDevice == 667) {
+        return kModelIPhone6;
+    } else {
+        return kModelIPhone6plus;
+    }
+}
+
 
 @end

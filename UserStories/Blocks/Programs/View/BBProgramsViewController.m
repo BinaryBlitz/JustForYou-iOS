@@ -18,9 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (nonatomic) CGFloat wightProgramView;
+@property (nonatomic) CGFloat insetfForView;
+
 @end
 
-static CGFloat inset = 20.f;
+static NSInteger countPage = 5;
 
 @implementation BBProgramsViewController
 
@@ -29,18 +32,16 @@ static CGFloat inset = 20.f;
 - (void)viewDidLayoutSubviews {
 #warning delete after test
     
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
-    BBProgramView *view = [[BBProgramView alloc] initWithFrame:CGRectMake(inset, 0, CGRectGetWidth(self.scrollView.frame) - (inset*2), CGRectGetHeight(self.scrollView.frame))];
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testAction)];
-    [view addGestureRecognizer:gesture];    
-    [self.scrollView addSubview:view];
-    
-    BBProgramView *view2 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) + inset, 0, CGRectGetWidth(self.scrollView.frame) - (inset*2), CGRectGetHeight(self.scrollView.frame))];
-    [self.scrollView addSubview:view2];
-    
-    BBProgramView *view3 = [[BBProgramView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.scrollView.frame) * 2 + inset, 0, CGRectGetWidth(self.scrollView.frame) - (inset*2), CGRectGetHeight(self.scrollView.frame))];
-    [self.scrollView addSubview:view3];
-    
+    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
+    for (int i = 0; i < countPage; i++) {
+        CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
+        
+        BBProgramView *view = [[BBProgramView alloc] init];
+        view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureProgramViewAction)];
+        [view addGestureRecognizer:gesture];
+        [self.scrollView addSubview:view];
+    }
 }
 
 - (void)viewDidLoad {
@@ -50,7 +51,7 @@ static CGFloat inset = 20.f;
 
 #pragma mark - Actions
 
-- (void)testAction {
+- (void)gestureProgramViewAction {
     [self.output programDidTap];
 }
 
@@ -64,7 +65,8 @@ static CGFloat inset = 20.f;
 - (void)setupInitialState {
     self.scrollView.delegate = self;
     self.secondImageView.alpha = 0.0;
-    [self _createAndSetRightBarButton];
+    [self _initRightBarButton];
+    [self _initWightProgramView];
 }
 
 #pragma mark - ScrollViewDelegate
@@ -83,11 +85,41 @@ static CGFloat inset = 20.f;
     self.secondImageView.alpha = drob;
 }
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGFloat kMaxIndex = countPage;
+    CGFloat targetX = scrollView.contentOffset.x + velocity.x;
+    CGFloat targetIndex = round(targetX / (self.wightProgramView + self.insetfForView));
 
-- (void)_createAndSetRightBarButton {
+    if (targetIndex < 0) {
+        targetIndex = 0;
+    }
+    if (targetIndex > kMaxIndex) {
+        targetIndex = kMaxIndex;
+    }
+    targetContentOffset->x = targetIndex * (self.wightProgramView + self.insetfForView);
+    
+}
+
+#pragma mark - Init Methods
+
+- (void)_initRightBarButton {
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(basketButtonAction)];
     
     self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)_initWightProgramView {
+    kModelIPhone model = [BBConstantAndColor modelDevice];
+    if (model == kModelIPhone4 || model == kModelIPhone5) {
+        self.wightProgramView = 256.0f;
+        self.insetfForView = 16.0f;
+    } else if (model == kModelIPhone6) {
+        self.wightProgramView = 300.0f;
+        self.insetfForView = 18.75f;
+    } else {
+        self.wightProgramView = 332.0f;
+        self.insetfForView = 20.5f;
+    }
 }
 
 @end

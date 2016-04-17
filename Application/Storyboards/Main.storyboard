@@ -70,10 +70,15 @@
                                     <constraint firstAttribute="width" secondItem="8N2-UG-aKh" secondAttribute="height" multiplier="3:2" id="Vgs-dc-rG6"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-ll-crX">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-ll-crX">
                                 <rect key="frame" x="0.0" y="147" width="375" height="373"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6xh-oz-5in">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.18039215689999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -85,7 +90,9 @@
                             <constraint firstAttribute="trailing" secondItem="QXZ-ll-crX" secondAttribute="trailing" id="gea-Pc-aNF"/>
                             <constraint firstItem="QXZ-ll-crX" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" id="isG-6M-Os8"/>
                             <constraint firstItem="QXZ-ll-crX" firstAttribute="centerY" secondItem="muE-HD-jFe" secondAttribute="centerY" id="nKk-wF-hCx"/>
+                            <constraint firstItem="5Tw-8S-SAg" firstAttribute="top" secondItem="6xh-oz-5in" secondAttribute="bottom" constant="20" id="nPf-zB-Kfp"/>
                             <constraint firstItem="UB9-KO-16j" firstAttribute="top" secondItem="muE-HD-jFe" secondAttribute="top" id="q1i-RB-YZW"/>
+                            <constraint firstItem="6xh-oz-5in" firstAttribute="centerX" secondItem="muE-HD-jFe" secondAttribute="centerX" id="tlk-8o-1tf"/>
                             <constraint firstAttribute="trailing" secondItem="8N2-UG-aKh" secondAttribute="trailing" id="zop-cv-EAy"/>
                         </constraints>
                     </view>

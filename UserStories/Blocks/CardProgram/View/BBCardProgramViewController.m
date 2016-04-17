@@ -51,8 +51,7 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 
 - (void)setupInitialState {
     self.segmentedIndex = BBDescriptionSegmentedIndex;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 44.f;
+    [self _settingTableView];
 }
 
 #pragma mark - Actions
@@ -90,7 +89,9 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
     } else {
         if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
             BBDescriptionTableViewCell *descriptiomCell = [self.tableView dequeueReusableCellWithIdentifier:kDescriptionCellIdentifire];
-            descriptiomCell.descriptionLabel.text = @"dvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcbdsdvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcbdvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcbdsdvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcbdvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcbdsdvabhsdbhsdbjhcbdsjhvdshjbjhdsbhdsbcjhdskcbdsjhbcjhdsbjhcb";
+            descriptiomCell.nameLabel.text = @"1300 ккал без мяса и птицы";
+            descriptiomCell.costLabel.text = @"5800 РУБ";
+            descriptiomCell.descriptionLabel.text = @"Самый комфортный путь к стройности для тех, кто предпочитает исключать из рациона мясо и птицу.\n\nПрограмма «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в качестве ";
             cell = descriptiomCell;
         } else {
             BBMenuTableViewCell *menuCell = [self.tableView dequeueReusableCellWithIdentifier:kMenuCellIdentifire];
@@ -98,6 +99,12 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
         }
     }
     return cell;
+}
+
+- (void)_settingTableView {
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.f;
 }
 
 #pragma mark - Controls TableView
