@@ -13,6 +13,8 @@
 #import "BBHeaderTableViewCell.h"
 #import "BBDescriptionTableViewCell.h"
 #import "BBMenuTableViewCell.h"
+#import "BBPartDayTableViewCell.h"
+#import "BBNumderDayTableViewCell.h"
 
 @interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate>
 
@@ -29,6 +31,8 @@
 static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
 static NSString *kMenuCellIdentifire = @"menuTableViewCell";
+static NSString *kPartDayCellIdentifire = @"partDayTableViewCell";
+static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
 
 @implementation BBCardProgramViewController
 
@@ -65,16 +69,31 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 #pragma mark - TableView
 
 - (void) _registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:kHeaderCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBDescriptionTableViewCell" bundle:nil] forCellReuseIdentifier:kDescriptionCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBMenuTableViewCell" bundle:nil] forCellReuseIdentifier:kMenuCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBHeaderTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kHeaderCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBDescriptionTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kDescriptionCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBMenuTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kMenuCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBPartDayTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kPartDayCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBNumderDayTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kNumberDayCellIdentifire];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    } else {
+        if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
+            return 1;
+        } else {
+            return 8;   
+        }
+    }
 }
 
 
@@ -94,8 +113,21 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
             descriptiomCell.descriptionLabel.text = @"Самый комфортный путь к стройности для тех, кто предпочитает исключать из рациона мясо и птицу.\n\nПрограмма «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в качестве ";
             cell = descriptiomCell;
         } else {
-            BBMenuTableViewCell *menuCell = [self.tableView dequeueReusableCellWithIdentifier:kMenuCellIdentifire];
-            cell = menuCell;
+            if (indexPath.row == 0) {
+                BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
+                cell = numberCell;
+            } else if (indexPath.row == 1 || indexPath.row == 5 ) {
+                BBPartDayTableViewCell *partCell = [self.tableView dequeueReusableCellWithIdentifier:kPartDayCellIdentifire];
+                if (indexPath.row == 1) {
+                    [partCell setPartOfDayWithKey:kMorningPartOfDay];
+                } else {
+                    [partCell setPartOfDayWithKey:kDayPartOfDay];
+                }
+                cell = partCell;
+            } else {
+                BBMenuTableViewCell *menuCell = [self.tableView dequeueReusableCellWithIdentifier:kMenuCellIdentifire];
+                cell = menuCell;
+            }
         }
     }
     return cell;
@@ -111,10 +143,19 @@ static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 
 - (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex {
     self.segmentedIndex = segmentedIndex;
+    [self _changeBackgroundTableView];
 //    [self.tableView reloadData];
     NSRange range = NSMakeRange(1, 1);
     NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:range];
     [self.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)_changeBackgroundTableView {
+    if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
+        self.tableView.backgroundColor = [UIColor whiteColor];
+    } else {
+        self.tableView.backgroundColor = [BBConstantAndColor colorForR:250 G:250 B:250 alpha:1.f];
+    }
 }
 
 #pragma mark - Layout Views

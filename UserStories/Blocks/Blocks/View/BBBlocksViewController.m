@@ -33,10 +33,17 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 }
 
 
+#pragma mark - Actions
+
+- (void)basketButtonAction {
+    
+}
+
 #pragma mark - Методы BBBlocksViewInput
 
 - (void)setupInitialState {
     [self.tableView setContentInset:UIEdgeInsetsMake(bottomOffsetForBlockTableView, 0, 0, 0)];
+    [self _initRightBarButton];
 }
 
 #pragma mark - TableView
@@ -63,5 +70,12 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     [self.output didSelectRow];
 }
 
+#pragma mark - Init Methods
+
+- (void)_initRightBarButton {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(basketButtonAction)];
+    
+    self.navigationItem.rightBarButtonItem = item;
+}
 
 @end

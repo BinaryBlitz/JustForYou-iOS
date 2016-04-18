@@ -10,4 +10,9 @@
 
 @interface BBMenuTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *myContentView;
+@property (weak, nonatomic) IBOutlet UILabel *menuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *caloriesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end

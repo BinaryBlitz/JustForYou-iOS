@@ -89,6 +89,10 @@
 		3AE607881CC0D953009E7961 /* BBMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */; };
 		3AE607891CC0D953009E7961 /* BBMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */; };
 		3AE6078D1CC249F6009E7961 /* BBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6078C1CC249F6009E7961 /* BBGradientView.m */; };
+		3AF1CE6F1CC501AB001D0B2C /* BBNumderDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE6D1CC501AB001D0B2C /* BBNumderDayTableViewCell.m */; };
+		3AF1CE701CC501AB001D0B2C /* BBNumderDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CE6E1CC501AB001D0B2C /* BBNumderDayTableViewCell.xib */; };
+		3AF1CE741CC501F3001D0B2C /* BBPartDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE721CC501F3001D0B2C /* BBPartDayTableViewCell.m */; };
+		3AF1CE751CC501F3001D0B2C /* BBPartDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CE731CC501F3001D0B2C /* BBPartDayTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +311,12 @@
 		3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuTableViewCell.xib; sourceTree = "<group>"; };
 		3AE6078B1CC249F6009E7961 /* BBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGradientView.h; sourceTree = "<group>"; };
 		3AE6078C1CC249F6009E7961 /* BBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGradientView.m; sourceTree = "<group>"; };
+		3AF1CE6C1CC501AB001D0B2C /* BBNumderDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNumderDayTableViewCell.h; sourceTree = "<group>"; };
+		3AF1CE6D1CC501AB001D0B2C /* BBNumderDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNumderDayTableViewCell.m; sourceTree = "<group>"; };
+		3AF1CE6E1CC501AB001D0B2C /* BBNumderDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNumderDayTableViewCell.xib; sourceTree = "<group>"; };
+		3AF1CE711CC501F3001D0B2C /* BBPartDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPartDayTableViewCell.h; sourceTree = "<group>"; };
+		3AF1CE721CC501F3001D0B2C /* BBPartDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPartDayTableViewCell.m; sourceTree = "<group>"; };
+		3AF1CE731CC501F3001D0B2C /* BBPartDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPartDayTableViewCell.xib; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -444,6 +454,12 @@
 				3AE607801CC0CF91009E7961 /* BBDescriptionTableViewCell.h */,
 				3AE607811CC0CF91009E7961 /* BBDescriptionTableViewCell.m */,
 				3AE607821CC0CF91009E7961 /* BBDescriptionTableViewCell.xib */,
+				3AF1CE6C1CC501AB001D0B2C /* BBNumderDayTableViewCell.h */,
+				3AF1CE6D1CC501AB001D0B2C /* BBNumderDayTableViewCell.m */,
+				3AF1CE6E1CC501AB001D0B2C /* BBNumderDayTableViewCell.xib */,
+				3AF1CE711CC501F3001D0B2C /* BBPartDayTableViewCell.h */,
+				3AF1CE721CC501F3001D0B2C /* BBPartDayTableViewCell.m */,
+				3AF1CE731CC501F3001D0B2C /* BBPartDayTableViewCell.xib */,
 				3AE607851CC0D953009E7961 /* BBMenuTableViewCell.h */,
 				3AE607861CC0D953009E7961 /* BBMenuTableViewCell.m */,
 				3AE607871CC0D953009E7961 /* BBMenuTableViewCell.xib */,
@@ -1329,6 +1345,8 @@
 				3A698BAC1CB68E6E004E857D /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
 				3A698BB81CB68E6E004E857D /* BBBlockTableViewCell.xib in Resources */,
+				3AF1CE751CC501F3001D0B2C /* BBPartDayTableViewCell.xib in Resources */,
+				3AF1CE701CC501AB001D0B2C /* BBNumderDayTableViewCell.xib in Resources */,
 				3A698BF71CB84457004E857D /* BBProgramView.xib in Resources */,
 				3A5B0BF41CB9563300ADCE2C /* BBHeaderTableViewCell.xib in Resources */,
 			);
@@ -1425,6 +1443,7 @@
 				3A698BF31CB843D4004E857D /* BBProgramView.m in Sources */,
 				3A698BD41CB68E6E004E857D /* BBProfileInteractor.m in Sources */,
 				3AC988851CAFF5530069DE52 /* BBTextTableViewCell.m in Sources */,
+				3AF1CE6F1CC501AB001D0B2C /* BBNumderDayTableViewCell.m in Sources */,
 				3A698BD91CB68E6E004E857D /* BBSupportInteractor.m in Sources */,
 				3A698BB41CB68E6E004E857D /* BBBlocksPresenter.m in Sources */,
 				3A698BA81CB68E6E004E857D /* BBAuthorizationPresenter.m in Sources */,
@@ -1459,6 +1478,7 @@
 				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
 				3A698BCF1CB68E6E004E857D /* BBOrdersInteractor.m in Sources */,
 				3A698BB21CB68E6E004E857D /* BBBlocksAssembly.m in Sources */,
+				3AF1CE741CC501F3001D0B2C /* BBPartDayTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

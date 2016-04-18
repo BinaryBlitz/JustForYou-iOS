@@ -88,10 +88,10 @@
                 <outlet property="nameBlock" destination="W2q-Qw-yFw" id="iln-Sd-PzL"/>
                 <outlet property="numberProgramInBlock" destination="Xjw-xs-2Gc" id="EXh-1J-he1"/>
             </connections>
-            <point key="canvasLocation" x="249.5" y="318.5"/>
+            <point key="canvasLocation" x="249" y="318"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="home" width="25" height="22"/>
+        <image name="home" width="24" height="21"/>
     </resources>
 </document>

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
@@ -65,6 +66,7 @@ static NSInteger countPage = 5;
 - (void)setupInitialState {
     self.scrollView.delegate = self;
     self.secondImageView.alpha = 0.0;
+    self.pageControl.numberOfPages = countPage;
     [self _initRightBarButton];
     [self _initWightProgramView];
 }
@@ -81,7 +83,7 @@ static NSInteger countPage = 5;
     double d, drob;
     drob = modf(ratio, &d);
     
-    NSLog(@"%f, часть какая то = %f", ratio, drob);
+//    NSLog(@"%f, часть какая то = %f", ratio, drob);
     self.secondImageView.alpha = drob;
 }
 
@@ -98,6 +100,13 @@ static NSInteger countPage = 5;
     }
     targetContentOffset->x = targetIndex * (self.wightProgramView + self.insetfForView);
     
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    NSInteger offsetLooping = 1;
+    int page = round((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + offsetLooping;
+    self.pageControl.currentPage = (page % countPage);
 }
 
 #pragma mark - Init Methods

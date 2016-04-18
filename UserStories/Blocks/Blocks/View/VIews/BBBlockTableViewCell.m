@@ -31,7 +31,6 @@ static CGFloat lineWight = 1.0f;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
