@@ -6,8 +6,11 @@
 target 'JustForYou' do
 
 pod 'Realm'
+
 pod 'Fabric'
 pod 'Crashlytics'
+
+pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
 
 end
 
