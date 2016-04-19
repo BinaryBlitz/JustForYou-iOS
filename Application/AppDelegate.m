@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "BBPreloader.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -22,7 +25,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.preloader = [[BBPreloader alloc] initWithWindow:self.window];
-
+    
+    [Fabric with:@[[Crashlytics class]]];
+    
     return YES;
 }
 

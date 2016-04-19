@@ -6,6 +6,8 @@
 target 'JustForYou' do
 
 pod 'Realm'
+pod 'Fabric'
+pod 'Crashlytics'
 
 end
 
