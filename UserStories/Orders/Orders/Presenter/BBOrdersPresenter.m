@@ -38,14 +38,14 @@
 	[self.view setupInitialState];
 }
 
-- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView
-                              previousLabel:(UILabel *)previousLabel
-                               currentLabel:(UILabel *)currentLabel
-                                  netxLabel:(UILabel *)nextLabel {
-    [self.interactor initCalendarManagerWithCalendarView:calendarView previousLabel:previousLabel currentLabel:currentLabel netxLabel:nextLabel];
+- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView {
+    [self.interactor initCalendarManagerWithCalendarView:calendarView];
 }
 
 #pragma mark - Методы BBOrdersInteractorOutput
 
+- (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
+    [self.view updateNameMonthPreviousName:previousName currentName:currentName nextName:nextName];
+}
 
 @end

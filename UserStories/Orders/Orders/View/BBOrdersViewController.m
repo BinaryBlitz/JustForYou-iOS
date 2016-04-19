@@ -16,8 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarView;
 
-@property (strong, nonatomic) JTCalendarManager *calendarManager;
-
 @property (strong, nonatomic) UIBarButtonItem *leftBarButton;
 @property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 
@@ -46,15 +44,24 @@
 #pragma mark - Методы BBOrdersViewInput
 
 - (void)setupInitialState {
-//    [self.output initCalendarManagerWithCalendarView:self.calendarView previousLabel: currentLabel:<#(UILabel *)#> netxLabel:<#(UILabel *)#>];
+    [self.output initCalendarManagerWithCalendarView:self.calendarView];
+    self.navigationItem.leftBarButtonItem = self.leftBarButton;
+    self.navigationItem.rightBarButtonItem = self.rightBarButton;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+
 }
 
-
+- (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
+    self.leftBarButton.title = previousName;
+    self.navigationItem.title = currentName;
+    self.rightBarButton.title = nextName;
+}
 #pragma mark - Lazy Load
 
 - (UIBarButtonItem *) leftBarButton {
     if (!_leftBarButton) {
         _leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(_leftBarButtonAction)];
+        _leftBarButton.tintColor = [BBConstantAndColor applicationGrayColor];
     }
     return _leftBarButton;
 }
@@ -62,6 +69,7 @@
 - (UIBarButtonItem *) rightBarButton {
     if (!_rightBarButton) {
         _rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(_rightBarButtonAction)];
+        _rightBarButton.tintColor = [BBConstantAndColor applicationGrayColor];
     }
     return _rightBarButton;
 }

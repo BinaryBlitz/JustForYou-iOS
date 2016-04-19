@@ -14,6 +14,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
-- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView previousLabel:(UILabel *)previousLabel currentLabel:(UILabel *)currentLabel netxLabel:(UILabel *)nextLabel;
+- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView;
 
 @end

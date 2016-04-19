@@ -58,6 +58,8 @@ typedef enum : NSUInteger {
 
 + (UIColor *)applicationDarkColor;
 
++ (UIColor *)applicationGrayColor;
+
 + (kModelIPhone)modelDevice;
 
 @end

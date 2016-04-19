@@ -10,4 +10,6 @@
 
 @protocol BBOrdersInteractorOutput <NSObject>
 
+- (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
+
 @end

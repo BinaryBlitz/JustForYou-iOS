@@ -14,4 +14,6 @@
 
 - (void)setupInitialState;
 
+- (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
+
 @end

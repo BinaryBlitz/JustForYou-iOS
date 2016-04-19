@@ -21,10 +21,7 @@
 
 #pragma mark - Методы BBOrdersInteractorInput
 
-- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView
-                              previousLabel:(UILabel *)previousLabel
-                               currentLabel:(UILabel *)currentLabel
-                                  netxLabel:(UILabel *)nextLabel {
+- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView {
     self.calendarView = calendarView;
     
     self.calendarManager.delegate = self;
@@ -35,7 +32,6 @@
     [self.calendarManager setContentView:self.calendarView];
     [self.calendarManager setDate:[NSDate date]];
     
-
 }
 
 #pragma mark - Calendar Delegate
@@ -59,6 +55,10 @@
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView {
     
+}
+
+- (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
+    [self.output nameMonthPreviousName:previousName currentName:currentName nextName:nextName];
 }
 
 #pragma mark - Lazy Load
