@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import <JTCalendar/JTCalendar.h>
+
 @protocol BBOrdersInteractorInput <NSObject>
+
+- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView previousLabel:(UILabel *)previousLabel currentLabel:(UILabel *)currentLabel netxLabel:(UILabel *)nextLabel;
 
 @end

@@ -93,6 +93,7 @@
 		3AF1CE701CC501AB001D0B2C /* BBNumderDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CE6E1CC501AB001D0B2C /* BBNumderDayTableViewCell.xib */; };
 		3AF1CE741CC501F3001D0B2C /* BBPartDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE721CC501F3001D0B2C /* BBPartDayTableViewCell.m */; };
 		3AF1CE751CC501F3001D0B2C /* BBPartDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CE731CC501F3001D0B2C /* BBPartDayTableViewCell.xib */; };
+		3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -317,6 +318,8 @@
 		3AF1CE711CC501F3001D0B2C /* BBPartDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPartDayTableViewCell.h; sourceTree = "<group>"; };
 		3AF1CE721CC501F3001D0B2C /* BBPartDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPartDayTableViewCell.m; sourceTree = "<group>"; };
 		3AF1CE731CC501F3001D0B2C /* BBPartDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPartDayTableViewCell.xib; sourceTree = "<group>"; };
+		3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
+		3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarService.m; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -353,6 +356,7 @@
 		3A13472F1CA5DFAD007A83ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3AF1CE781CC6BAD5001D0B2C /* Other Services */,
 				3A1347521CA6B634007A83ED /* UserService */,
 				3AC988631CAB1FD80069DE52 /* Validation */,
 				3AC988641CAB201A0069DE52 /* REST API */,
@@ -1018,10 +1022,10 @@
 		3A698B661CB68E6E004E857D /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A698B671CB68E6E004E857D /* BBOrdersInteractor.h */,
-				3A698B681CB68E6E004E857D /* BBOrdersInteractor.m */,
 				3A698B691CB68E6E004E857D /* BBOrdersInteractorInput.h */,
 				3A698B6A1CB68E6E004E857D /* BBOrdersInteractorOutput.h */,
+				3A698B671CB68E6E004E857D /* BBOrdersInteractor.h */,
+				3A698B681CB68E6E004E857D /* BBOrdersInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1265,6 +1269,23 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		3AF1CE781CC6BAD5001D0B2C /* Other Services */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1CE791CC6BAD5001D0B2C /* Calendar Service */,
+			);
+			path = "Other Services";
+			sourceTree = "<group>";
+		};
+		3AF1CE791CC6BAD5001D0B2C /* Calendar Service */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */,
+				3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */,
+			);
+			path = "Calendar Service";
+			sourceTree = "<group>";
+		};
 		9A97758BB14ED787FF652F5D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1435,6 +1456,7 @@
 				3A698BB01CB68E6E004E857D /* BBRegistrationRouter.m in Sources */,
 				3AE607831CC0CF91009E7961 /* BBDescriptionTableViewCell.m in Sources */,
 				3A698BBA1CB68E6E004E857D /* BBCardProgramInteractor.m in Sources */,
+				3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */,
 				3A698BC71CB68E6E004E857D /* BBNavigationViewController.m in Sources */,
 				3A698BBC1CB68E6E004E857D /* BBCardProgramRouter.m in Sources */,
 				3A698BD61CB68E6E004E857D /* BBProfileRouter.m in Sources */,

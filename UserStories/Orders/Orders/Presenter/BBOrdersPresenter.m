@@ -38,6 +38,14 @@
 	[self.view setupInitialState];
 }
 
+- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView
+                              previousLabel:(UILabel *)previousLabel
+                               currentLabel:(UILabel *)currentLabel
+                                  netxLabel:(UILabel *)nextLabel {
+    [self.interactor initCalendarManagerWithCalendarView:calendarView previousLabel:previousLabel currentLabel:currentLabel netxLabel:nextLabel];
+}
+
 #pragma mark - Методы BBOrdersInteractorOutput
+
 
 @end

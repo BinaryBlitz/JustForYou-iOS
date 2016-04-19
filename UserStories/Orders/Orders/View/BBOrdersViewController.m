@@ -10,7 +10,16 @@
 
 #import "BBOrdersViewOutput.h"
 
-@interface BBOrdersViewController()
+#import <JTCalendar/JTCalendar.h>
+
+@interface BBOrdersViewController() 
+
+@property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarView;
+
+@property (strong, nonatomic) JTCalendarManager *calendarManager;
+
+@property (strong, nonatomic) UIBarButtonItem *leftBarButton;
+@property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 
 @end
 
@@ -24,15 +33,37 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    NSLog(@"Class = %@", [self.tabBarController class]);
-//    NSLog(@"ClassNavigation = %@", [self.navigationController class]);
-//}
+#pragma mark - Actions 
+
+- (void)_leftBarButtonAction {
+    
+}
+
+- (void)_rightBarButtonAction {
+    
+}
 
 #pragma mark - Методы BBOrdersViewInput
 
 - (void)setupInitialState {
-	
+//    [self.output initCalendarManagerWithCalendarView:self.calendarView previousLabel: currentLabel:<#(UILabel *)#> netxLabel:<#(UILabel *)#>];
+}
+
+
+#pragma mark - Lazy Load
+
+- (UIBarButtonItem *) leftBarButton {
+    if (!_leftBarButton) {
+        _leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(_leftBarButtonAction)];
+    }
+    return _leftBarButton;
+}
+
+- (UIBarButtonItem *) rightBarButton {
+    if (!_rightBarButton) {
+        _rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(_rightBarButtonAction)];
+    }
+    return _rightBarButton;
 }
 
 @end

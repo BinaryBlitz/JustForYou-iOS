@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <JTCalendar/JTCalendar.h>
+
 @protocol BBOrdersViewInput <NSObject>
 
 - (void)setupInitialState;
