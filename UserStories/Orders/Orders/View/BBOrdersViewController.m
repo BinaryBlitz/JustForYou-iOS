@@ -10,7 +10,10 @@
 
 #import "BBOrdersViewOutput.h"
 
+#import "BBCalendarMenuView.h"
+
 #import <JTCalendar/JTCalendar.h>
+
 
 @interface BBOrdersViewController() 
 
@@ -18,6 +21,7 @@
 
 @property (strong, nonatomic) UIBarButtonItem *leftBarButton;
 @property (strong, nonatomic) UIBarButtonItem *rightBarButton;
+@property (strong, nonatomic) BBCalendarMenuView *calendarMenu;
 
 @end
 
@@ -45,18 +49,28 @@
 
 - (void)setupInitialState {
     [self.output initCalendarManagerWithCalendarView:self.calendarView];
-    self.navigationItem.leftBarButtonItem = self.leftBarButton;
-    self.navigationItem.rightBarButtonItem = self.rightBarButton;
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
-
+//    self.navigationItem.leftBarButtonItem = self.leftBarButton;
+//    self.navigationItem.rightBarButtonItem = self.rightBarButton;
+    
+    self.navigationItem.titleView = self.calendarMenu;
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
 }
 
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
-    self.leftBarButton.title = previousName;
-    self.navigationItem.title = currentName;
-    self.rightBarButton.title = nextName;
+//    self.leftBarButton.title = previousName;
+//    self.navigationItem.title = currentName;
+//    self.rightBarButton.title = nextName;
+    self.calendarMenu.titleLabel.text = currentName;
 }
 #pragma mark - Lazy Load
+
+- (BBCalendarMenuView *) calendarMenu {
+    if (!_calendarMenu) {
+        _calendarMenu = [[BBCalendarMenuView alloc] initWithFrame:CGRectMake(0,0,100,32)];
+    }
+    return _calendarMenu;
+}
 
 - (UIBarButtonItem *) leftBarButton {
     if (!_leftBarButton) {
