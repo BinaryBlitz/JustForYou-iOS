@@ -11,6 +11,7 @@
 #import "BBProfileViewOutput.h"
 
 #import "BBAccessoryTableViewCell.h"
+#import "BBProfileTableViewCell.h"
 
 @interface BBProfileViewController() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,7 @@
 @end
 
 static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
+static NSString *kProfileCellIdentifire = @"profileTableViewCell";
 static NSInteger numberOfRowsInSecondSection = 5;
 
 @implementation BBProfileViewController
@@ -41,13 +43,22 @@ static NSInteger numberOfRowsInSecondSection = 5;
 - (void)setupInitialState {
     [self _registerCellIdentifireInTableView];
     [self _initRightBarButton];
+    [self _setHeightCell];
     self.navigationItem.title = @"Программы";
 }
 
 #pragma mark - TableView Methods
 
 - (void)_registerCellIdentifireInTableView {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBAccessoryTableViewCell" bundle:nil] forCellReuseIdentifier:kAccessoryCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBAccessoryTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kAccessoryCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBProfileTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kProfileCellIdentifire];
+}
+
+- (void)_setHeightCell {
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -66,9 +77,9 @@ static NSInteger numberOfRowsInSecondSection = 5;
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-            accessoryCell.textLabel.text = @"История платежей";
-            cell = accessoryCell;
+            BBProfileTableViewCell *profileCell = [self.tableView dequeueReusableCellWithIdentifier:kProfileCellIdentifire];
+            
+            cell = profileCell;
         }
         if (indexPath.row == 1) {
             BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];

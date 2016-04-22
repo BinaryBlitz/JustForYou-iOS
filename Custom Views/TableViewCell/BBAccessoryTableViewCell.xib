@@ -25,7 +25,8 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="DRo-tK-9D9" secondAttribute="trailing" constant="19" id="4Vp-oF-o6r"/>
-                    <constraint firstItem="DRo-tK-9D9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ho2-NG-z3U"/>
+                    <constraint firstAttribute="bottom" secondItem="DRo-tK-9D9" secondAttribute="bottom" constant="15" id="IKJ-W1-jPJ"/>
+                    <constraint firstItem="DRo-tK-9D9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="cWF-Bn-Ovk"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
