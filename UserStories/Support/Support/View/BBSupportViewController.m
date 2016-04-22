@@ -10,7 +10,11 @@
 
 #import "BBSupportViewOutput.h"
 
+#import "BBDottedBorderButton.h"
+
 @interface BBSupportViewController()
+
+@property (weak, nonatomic) IBOutlet BBDottedBorderButton *feedbackButton;
 
 @end
 
@@ -24,10 +28,19 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+#pragma mark - Actions Mathods
+
+- (IBAction)feedbackButtonAction:(id)sender {
+    
+}
+
 #pragma mark - Методы BBSupportViewInput
 
 - (void)setupInitialState {
-	
+    
 }
+
+#pragma mark - Settings Methods
+
 
 @end

@@ -352,14 +352,46 @@
                         <viewControllerLayoutGuide type="bottom" id="U5S-gK-com"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3rQ-0a-daP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxF-Tf-Gyq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-La-8mA" customClass="BBDottedBorderButton">
+                                <rect key="frame" x="46.5" y="338" width="281" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="xlZ-B4-Ir3"/>
+                                </constraints>
+                                <state key="normal" title="Оставить отзыв">
+                                    <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="feedbackButtonAction:" destination="Bdd-6U-Fq1" eventType="touchUpInside" id="HhM-dy-u1G"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xxF-Tf-Gyq" firstAttribute="leading" secondItem="3rQ-0a-daP" secondAttribute="leading" id="6Jk-Bz-BtU"/>
+                            <constraint firstItem="tpq-La-8mA" firstAttribute="leading" secondItem="3rQ-0a-daP" secondAttribute="leading" constant="47" id="8Hv-Wb-w32"/>
+                            <constraint firstAttribute="trailing" secondItem="tpq-La-8mA" secondAttribute="trailing" constant="47" id="Iqf-Ag-ztC"/>
+                            <constraint firstAttribute="trailing" secondItem="xxF-Tf-Gyq" secondAttribute="trailing" id="VjF-M5-wYU"/>
+                            <constraint firstItem="tpq-La-8mA" firstAttribute="centerX" secondItem="3rQ-0a-daP" secondAttribute="centerX" id="iy1-DE-gcW"/>
+                            <constraint firstItem="tpq-La-8mA" firstAttribute="top" secondItem="xxF-Tf-Gyq" secondAttribute="bottom" constant="28" id="qte-0j-dgu"/>
+                            <constraint firstItem="xxF-Tf-Gyq" firstAttribute="top" secondItem="3rQ-0a-daP" secondAttribute="top" id="wNz-Uo-lCQ"/>
+                            <constraint firstItem="xxF-Tf-Gyq" firstAttribute="height" secondItem="3rQ-0a-daP" secondAttribute="height" multiplier="310:667" id="wpr-kX-LoB"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="feedbackButton" destination="tpq-La-8mA" id="1l9-5x-apw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTF-sw-hU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="2494"/>
+            <point key="canvasLocation" x="471.5" y="2493.5"/>
         </scene>
     </scenes>
     <resources>

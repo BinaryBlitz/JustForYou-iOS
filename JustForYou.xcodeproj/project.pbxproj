@@ -110,6 +110,7 @@
 		3AF1CF021CCAAA4D001D0B2C /* BBUniversalPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CEEA1CCAAA4D001D0B2C /* BBUniversalPresenter.m */; };
 		3AF1CF031CCAAA4D001D0B2C /* BBUniversalRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CEED1CCAAA4D001D0B2C /* BBUniversalRouter.m */; };
 		3AF1CF041CCAAA4D001D0B2C /* BBUniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CEF11CCAAA4D001D0B2C /* BBUniversalViewController.m */; };
+		3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CF061CCABCEB001D0B2C /* BBDottedBorderButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -377,6 +378,8 @@
 		3AF1CEF11CCAAA4D001D0B2C /* BBUniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUniversalViewController.m; sourceTree = "<group>"; };
 		3AF1CEF21CCAAA4D001D0B2C /* BBUniversalViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUniversalViewInput.h; sourceTree = "<group>"; };
 		3AF1CEF31CCAAA4D001D0B2C /* BBUniversalViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUniversalViewOutput.h; sourceTree = "<group>"; };
+		3AF1CF051CCABCEB001D0B2C /* BBDottedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDottedBorderButton.h; sourceTree = "<group>"; };
+		3AF1CF061CCABCEB001D0B2C /* BBDottedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDottedBorderButton.m; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1131,10 +1134,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698B911CB68E6E004E857D /* Assembly */,
-				3A698B941CB68E6E004E857D /* Interactor */,
-				3A698B991CB68E6E004E857D /* Presenter */,
-				3A698B9D1CB68E6E004E857D /* Router */,
 				3A698BA11CB68E6E004E857D /* View */,
+				3A698B991CB68E6E004E857D /* Presenter */,
+				3A698B941CB68E6E004E857D /* Interactor */,
+				3A698B9D1CB68E6E004E857D /* Router */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1182,10 +1185,10 @@
 		3A698BA11CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698BA21CB68E6E004E857D /* BBSupportViewController.h */,
-				3A698BA31CB68E6E004E857D /* BBSupportViewController.m */,
 				3A698BA41CB68E6E004E857D /* BBSupportViewInput.h */,
 				3A698BA51CB68E6E004E857D /* BBSupportViewOutput.h */,
+				3A698BA21CB68E6E004E857D /* BBSupportViewController.h */,
+				3A698BA31CB68E6E004E857D /* BBSupportViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1242,6 +1245,8 @@
 				3AC9887F1CAFF1830069DE52 /* BBContainerView.m */,
 				3A5B0BF51CBA35CD00ADCE2C /* BBSegmentedControl.h */,
 				3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */,
+				3AF1CF051CCABCEB001D0B2C /* BBDottedBorderButton.h */,
+				3AF1CF061CCABCEB001D0B2C /* BBDottedBorderButton.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -1676,6 +1681,7 @@
 				3AF1CEFD1CCAAA4D001D0B2C /* BBSettingsPresenter.m in Sources */,
 				3A698BBC1CB68E6E004E857D /* BBCardProgramRouter.m in Sources */,
 				3AF1CF041CCAAA4D001D0B2C /* BBUniversalViewController.m in Sources */,
+				3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */,
 				3AF1CEF51CCAAA4D001D0B2C /* BBProfileInteractor.m in Sources */,
 				3A5B0BF31CB9563300ADCE2C /* BBHeaderTableViewCell.m in Sources */,
 				3A698BDB1CB68E6E004E857D /* BBSupportRouter.m in Sources */,
