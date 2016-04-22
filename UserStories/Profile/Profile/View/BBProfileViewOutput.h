@@ -12,4 +12,8 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)settingsButtonDidTap;
+
+- (void)didSelectRowForTitle:(NSString *)title;
+
 @end

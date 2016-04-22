@@ -30,12 +30,12 @@ static CGFloat borderLineWight = 1.0f;
     contentViewFrame.origin.x = sideOffest;
     contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffest*2;
     self.contentView.frame = contentViewFrame;
+    UIView *backgroundView = [[UIView alloc] initWithFrame:contentViewFrame];
+    self.selectedBackgroundView = backgroundView;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 

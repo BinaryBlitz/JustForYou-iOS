@@ -30,4 +30,8 @@
 	
 }
 
+- (void)navigationTitle:(NSString *)title {
+    self.navigationItem.title = title;
+}
+
 @end

@@ -12,4 +12,6 @@
 
 - (void)setupInitialState;
 
+- (void)navigationTitle:(NSString *)title;
+
 @end

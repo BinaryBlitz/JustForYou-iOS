@@ -27,7 +27,7 @@
 #pragma mark - Методы BBSettingsViewInput
 
 - (void)setupInitialState {
-	
+	self.navigationItem.title = @"Настройки";
 }
 
 @end

@@ -12,7 +12,11 @@
 #import "BBSettingsInteractorInput.h"
 #import "BBSettingsRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBSettingsPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
@@ -22,6 +26,11 @@
 
 - (void)configureModule {
     
+}
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule {
+    self.navigModule = navigationModule;
+    [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBSettingsViewOutput

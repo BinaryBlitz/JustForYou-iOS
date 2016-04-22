@@ -14,9 +14,17 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBSettingsAssembly.h"
+#import "BBSettingsModuleInput.h"
+
+#import "BBUniversalAssembly.h"
+#import "BBUniversalModuleInput.h"
+
 @interface BBProfilePresenter()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBSettingsModuleInput> settingsModule;
+@property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
 
 @end
 
@@ -29,7 +37,7 @@
 }
 
 - (id)currentViewWithModule:(id)module {
-    self.navigModule = module;
+    self.navigationModule = module;
     return self.view;
 }
 
@@ -39,6 +47,30 @@
 	[self.view setupInitialState];
 }
 
+- (void)settingsButtonDidTap {
+    [self.settingsModule pushModuleWithNavigationModule:self.navigationModule];
+}
+
+- (void)didSelectRowForTitle:(NSString *)title {
+    [self.universalModule pushModuleWithNavigationModule:self.navigationModule navigationTitle:title];
+}
+
 #pragma mark - Методы BBProfileInteractorOutput
+
+#pragma mark - Lazy Load
+
+- (id<BBSettingsModuleInput>) settingsModule {
+    if (!_settingsModule) {
+        _settingsModule = [BBSettingsAssembly createModule];
+    }
+    return _settingsModule;
+}
+
+- (id<BBUniversalModuleInput>) universalModule {
+    if (!_universalModule) {
+        _universalModule = [BBUniversalAssembly createModule];
+    }
+    return _universalModule;
+}
 
 @end

@@ -12,7 +12,11 @@
 #import "BBUniversalInteractorInput.h"
 #import "BBUniversalRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBUniversalPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 
 @end
 
@@ -23,6 +27,13 @@
 - (void)configureModule {
     
 }
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule navigationTitle:(NSString *)title {
+    self.navigationModule = navigationModule;
+    [self.view navigationTitle:title];
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
 
 #pragma mark - Методы BBUniversalViewOutput
 

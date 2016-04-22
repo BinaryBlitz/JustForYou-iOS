@@ -35,7 +35,7 @@ static NSInteger numberOfRowsInSecondSection = 5;
 #pragma mark - Actions
 
 - (void)_settingsBarButtonAction {
-    
+    [self.output settingsButtonDidTap];
 }
 
 #pragma mark - Методы BBProfileViewInput
@@ -113,6 +113,12 @@ static NSInteger numberOfRowsInSecondSection = 5;
         cell = accessoryCell;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self.output didSelectRowForTitle:accessoryCell.textLabel.text];
 }
 
 #pragma mark - Settings Methods
