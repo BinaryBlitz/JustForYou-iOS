@@ -10,9 +10,14 @@
 
 #import "BBProfileViewOutput.h"
 
-@interface BBProfileViewController()
+#import "BBAccessoryTableViewCell.h"
+
+@interface BBProfileViewController() <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
+
+static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
 
 @implementation BBProfileViewController
 
@@ -27,7 +32,24 @@
 #pragma mark - Методы BBProfileViewInput
 
 - (void)setupInitialState {
-	
+    [self _registerCellIdentifireInTableView];
+}
+
+#pragma mark - TableView Methods
+
+- (void)_registerCellIdentifireInTableView {
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBAccessoryTableViewCell" bundle:nil] forCellReuseIdentifier:kAccessoryCellIdentifire];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell;
+    BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
+    cell = accessoryCell;
+    return cell;
 }
 
 @end

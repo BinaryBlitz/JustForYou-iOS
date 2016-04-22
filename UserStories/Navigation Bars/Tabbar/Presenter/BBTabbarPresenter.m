@@ -42,8 +42,8 @@
     self.arrayMainModules = [NSMutableArray array];
     [self.arrayMainModules addObject:[self.navigationBlockModule currentViewWithLoadModule:BBLoadBlockModule]];
     [self.arrayMainModules addObject:[self.navigationOrderModule currentViewWithLoadModule:BBLoadOrdersModule]];
-    [self.arrayMainModules addObject:[self.navigationProfileModule currentViewWithLoadModule:BBLoadProfileModule]];
     [self.arrayMainModules addObject:[self.navigationSupportModule currentViewWithLoadModule:BBLoadSupportModule]];
+    [self.arrayMainModules addObject:[self.navigationProfileModule currentViewWithLoadModule:BBLoadProfileModule]];
     [self.view setItemsBar:self.arrayMainModules];
 }
 

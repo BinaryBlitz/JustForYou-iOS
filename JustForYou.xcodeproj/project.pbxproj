@@ -96,6 +96,8 @@
 		3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */; };
 		3AF1CE931CC7EF4B001D0B2C /* BBCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE921CC7EF4B001D0B2C /* BBCalendarMenuView.m */; };
 		3AF1CE951CC7EF64001D0B2C /* BBCalendarMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CE941CC7EF64001D0B2C /* BBCalendarMenuView.xib */; };
+		3AF1CEA21CCA34DB001D0B2C /* BBAccessoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CEA01CCA34DB001D0B2C /* BBAccessoryTableViewCell.m */; };
+		3AF1CEA31CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CEA11CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -325,6 +327,9 @@
 		3AF1CE911CC7EF4B001D0B2C /* BBCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarMenuView.h; sourceTree = "<group>"; };
 		3AF1CE921CC7EF4B001D0B2C /* BBCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarMenuView.m; sourceTree = "<group>"; };
 		3AF1CE941CC7EF64001D0B2C /* BBCalendarMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarMenuView.xib; sourceTree = "<group>"; };
+		3AF1CE9F1CCA34DB001D0B2C /* BBAccessoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessoryTableViewCell.h; sourceTree = "<group>"; };
+		3AF1CEA01CCA34DB001D0B2C /* BBAccessoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessoryTableViewCell.m; sourceTree = "<group>"; };
+		3AF1CEA11CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAccessoryTableViewCell.xib; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -485,8 +490,8 @@
 				3A698AB81CB68E6E004E857D /* Auth */,
 				3A698AE91CB68E6E004E857D /* Blocks */,
 				3A698B611CB68E6E004E857D /* Orders */,
-				3A698B781CB68E6E004E857D /* Profile */,
 				3A698B8F1CB68E6E004E857D /* Support */,
+				3A698B781CB68E6E004E857D /* Profile */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -1130,10 +1135,10 @@
 		3A698B8A1CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698B8B1CB68E6E004E857D /* BBProfileViewController.h */,
-				3A698B8C1CB68E6E004E857D /* BBProfileViewController.m */,
 				3A698B8D1CB68E6E004E857D /* BBProfileViewInput.h */,
 				3A698B8E1CB68E6E004E857D /* BBProfileViewOutput.h */,
+				3A698B8B1CB68E6E004E857D /* BBProfileViewController.h */,
+				3A698B8C1CB68E6E004E857D /* BBProfileViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1271,6 +1276,9 @@
 				3AC988821CAFF5530069DE52 /* BBTextTableViewCell.h */,
 				3AC988831CAFF5530069DE52 /* BBTextTableViewCell.m */,
 				3AC988841CAFF5530069DE52 /* BBTextTableViewCell.xib */,
+				3AF1CE9F1CCA34DB001D0B2C /* BBAccessoryTableViewCell.h */,
+				3AF1CEA01CCA34DB001D0B2C /* BBAccessoryTableViewCell.m */,
+				3AF1CEA11CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1388,6 +1396,7 @@
 				3AF1CE951CC7EF64001D0B2C /* BBCalendarMenuView.xib in Resources */,
 				3A698BF71CB84457004E857D /* BBProgramView.xib in Resources */,
 				3A5B0BF41CB9563300ADCE2C /* BBHeaderTableViewCell.xib in Resources */,
+				3AF1CEA31CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1482,6 +1491,7 @@
 				3A1AB2761C9D8F6B0070E065 /* AppDelegate.m in Sources */,
 				3A698BAE1CB68E6E004E857D /* BBRegistrationInteractor.m in Sources */,
 				3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */,
+				3AF1CEA21CCA34DB001D0B2C /* BBAccessoryTableViewCell.m in Sources */,
 				3A698BB11CB68E6E004E857D /* BBRegistrationViewController.m in Sources */,
 				3A698BD71CB68E6E004E857D /* BBProfileViewController.m in Sources */,
 				3A698BAB1CB68E6E004E857D /* BBNumberPhoneTableViewCell.m in Sources */,

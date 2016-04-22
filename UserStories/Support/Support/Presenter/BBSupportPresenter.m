@@ -12,7 +12,11 @@
 #import "BBSupportInteractorInput.h"
 #import "BBSupportRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBSupportPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 
 @end
 
@@ -22,6 +26,11 @@
 
 - (void)configureModule {
     
+}
+
+- (id)currentViewWithModule:(id)module {
+    self.navigModule = module;
+    return self.view;
 }
 
 #pragma mark - Методы BBSupportViewOutput

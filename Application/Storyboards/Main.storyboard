@@ -244,14 +244,34 @@
                         <viewControllerLayoutGuide type="bottom" id="Q4K-bz-RUu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6bf-8V-KOc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vr2-bu-Dvv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vcX-EG-raa" id="wPh-BS-cOV"/>
+                                    <outlet property="delegate" destination="vcX-EG-raa" id="sLw-R0-kdH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vr2-bu-Dvv" firstAttribute="leading" secondItem="6bf-8V-KOc" secondAttribute="leading" id="1ng-lq-Jr0"/>
+                            <constraint firstItem="Q4K-bz-RUu" firstAttribute="top" secondItem="vr2-bu-Dvv" secondAttribute="bottom" id="Vv0-N2-gEW"/>
+                            <constraint firstAttribute="trailing" secondItem="vr2-bu-Dvv" secondAttribute="trailing" id="b4r-Ma-Vv8"/>
+                            <constraint firstItem="vr2-bu-Dvv" firstAttribute="top" secondItem="6bf-8V-KOc" secondAttribute="top" id="eEm-xd-97R"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="vr2-bu-Dvv" id="0aa-c0-I7m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiF-vD-iN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="2424"/>
+            <point key="canvasLocation" x="450.5" y="2423.5"/>
         </scene>
         <!--Orders View Controller-->
         <scene sceneID="Fyr-gA-54v">

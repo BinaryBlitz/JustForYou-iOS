@@ -21,11 +21,19 @@
 #import "BBOrdersAssembly.h"
 #import "BBOrdersModuleInput.h"
 
+#import "BBSupportAssembly.h"
+#import "BBSupportModuleInput.h"
+
+#import "BBProfileAssembly.h"
+#import "BBProfileModuleInput.h"
+
 @interface BBNavigationPresenter()
 
 @property (strong, nonatomic) id<BBAuthorizationModuleInput> authModule;
 @property (strong, nonatomic) id<BBBlocksModuleInput> blockModule;
 @property (strong, nonatomic) id<BBOrdersModuleInput> orderModule;
+@property (strong, nonatomic) id<BBSupportModuleInput> supportModule;
+@property (strong, nonatomic) id<BBProfileModuleInput> profileModule;
 
 @property (nonatomic) BBLoadModule loadModule;
 
@@ -72,8 +80,12 @@
         [self.router rootVC:[self.authModule currentViewWithModule:self]];
     } else if (self.loadModule == BBLoadBlockModule) {
         [self.router rootVC:[self.blockModule currentViewWithModule:self]];
-    } else {
+    } else if (self.loadModule == BBLoadOrdersModule) {
         [self.router rootVC:[self.orderModule currentViewWithModule:self]];
+    } else if (self.loadModule == BBLoadSupportModule) {
+        [self.router rootVC:[self.supportModule currentViewWithModule:self]];
+    } else {
+        [self.router rootVC:[self.profileModule currentViewWithModule:self]];
     }
 }
 
@@ -100,6 +112,20 @@
         _orderModule = [BBOrdersAssembly createModule];
     }
     return _orderModule;
+}
+
+- (id<BBSupportModuleInput>) supportModule {
+    if (!_supportModule) {
+        _supportModule = [BBSupportAssembly createModule];
+    }
+    return _supportModule;
+}
+
+- (id<BBProfileModuleInput>) profileModule {
+    if (!_profileModule) {
+        _profileModule = [BBProfileAssembly createModule];
+    }
+    return _profileModule;
 }
 
 @end
