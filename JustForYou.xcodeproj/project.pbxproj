@@ -98,6 +98,8 @@
 		3AF1CE951CC7EF64001D0B2C /* BBCalendarMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CE941CC7EF64001D0B2C /* BBCalendarMenuView.xib */; };
 		3AF1CEA21CCA34DB001D0B2C /* BBAccessoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CEA01CCA34DB001D0B2C /* BBAccessoryTableViewCell.m */; };
 		3AF1CEA31CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CEA11CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib */; };
+		3AF1CEAB1CCA900F001D0B2C /* BBProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CEA91CCA900F001D0B2C /* BBProfileTableViewCell.m */; };
+		3AF1CEAC1CCA900F001D0B2C /* BBProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1CEAA1CCA900F001D0B2C /* BBProfileTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -330,6 +332,9 @@
 		3AF1CE9F1CCA34DB001D0B2C /* BBAccessoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessoryTableViewCell.h; sourceTree = "<group>"; };
 		3AF1CEA01CCA34DB001D0B2C /* BBAccessoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessoryTableViewCell.m; sourceTree = "<group>"; };
 		3AF1CEA11CCA34DB001D0B2C /* BBAccessoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAccessoryTableViewCell.xib; sourceTree = "<group>"; };
+		3AF1CEA81CCA900F001D0B2C /* BBProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProfileTableViewCell.h; sourceTree = "<group>"; };
+		3AF1CEA91CCA900F001D0B2C /* BBProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProfileTableViewCell.m; sourceTree = "<group>"; };
+		3AF1CEAA1CCA900F001D0B2C /* BBProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBProfileTableViewCell.xib; sourceTree = "<group>"; };
 		3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.release.xcconfig"; sourceTree = "<group>"; };
 		A613B663F642C98586B33722 /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1135,6 +1140,7 @@
 		3A698B8A1CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3AF1CEA71CCA8FF2001D0B2C /* Views */,
 				3A698B8D1CB68E6E004E857D /* BBProfileViewInput.h */,
 				3A698B8E1CB68E6E004E857D /* BBProfileViewOutput.h */,
 				3A698B8B1CB68E6E004E857D /* BBProfileViewController.h */,
@@ -1310,6 +1316,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3AF1CEA71CCA8FF2001D0B2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1CEA81CCA900F001D0B2C /* BBProfileTableViewCell.h */,
+				3AF1CEA91CCA900F001D0B2C /* BBProfileTableViewCell.m */,
+				3AF1CEAA1CCA900F001D0B2C /* BBProfileTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9A97758BB14ED787FF652F5D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1385,6 +1401,7 @@
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
 				3AE607891CC0D953009E7961 /* BBMenuTableViewCell.xib in Resources */,
+				3AF1CEAC1CCA900F001D0B2C /* BBProfileTableViewCell.xib in Resources */,
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
 				3AC988861CAFF5530069DE52 /* BBTextTableViewCell.xib in Resources */,
 				3AE607841CC0CF91009E7961 /* BBDescriptionTableViewCell.xib in Resources */,
@@ -1499,6 +1516,7 @@
 				3A698BBE1CB68E6E004E857D /* BBProgramsAssembly.m in Sources */,
 				3A698BCC1CB68E6E004E857D /* BBTabbarViewController.m in Sources */,
 				3A698BC51CB68E6E004E857D /* BBNavigationPresenter.m in Sources */,
+				3AF1CEAB1CCA900F001D0B2C /* BBProfileTableViewCell.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3A698BD01CB68E6E004E857D /* BBOrdersPresenter.m in Sources */,
 				3A698BD51CB68E6E004E857D /* BBProfilePresenter.m in Sources */,

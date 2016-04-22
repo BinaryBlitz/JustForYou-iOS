@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
+    kNoneCornerRadius,
     kTopCornerRadius,
-    kBottomCornerRadius
+    kBottomCornerRadius,
+    kAllCornerRadius
 }BBKeyCornerRadius;
 
 @interface BBAccessoryTableViewCell : UITableViewCell
 
 @property (nonatomic) BOOL setRadius;
+@property (nonatomic) BBKeyCornerRadius kSideCornerRadius;
 
 @end
