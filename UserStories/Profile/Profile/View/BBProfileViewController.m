@@ -44,7 +44,7 @@ static NSInteger numberOfRowsInSecondSection = 5;
     [self _registerCellIdentifireInTableView];
     [self _initRightBarButton];
     [self _setHeightCell];
-    self.navigationItem.title = @"Программы";
+    self.navigationItem.title = @"Профиль";
 }
 
 #pragma mark - TableView Methods

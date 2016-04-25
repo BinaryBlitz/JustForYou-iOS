@@ -53,7 +53,7 @@
                 <outlet property="bonusesLabel" destination="Ksf-UX-zmW" id="luI-hY-Gbj"/>
                 <outlet property="nameLabel" destination="ZPh-0K-C52" id="chw-WK-WOQ"/>
             </connections>
-            <point key="canvasLocation" x="241.5" y="252"/>
+            <point key="canvasLocation" x="272.5" y="237"/>
         </tableViewCell>
     </objects>
     <resources>

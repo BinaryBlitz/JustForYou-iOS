@@ -8,9 +8,9 @@
 
 #import "BBDottedBorderButton.h"
 
-static CGFloat wightLine = 1.5f;
-static NSUInteger dashPattern = 3;
-static NSUInteger spacePattern = 4;
+static CGFloat wightLine = 1.0f;
+static NSUInteger dashPattern = 5;
+static NSUInteger spacePattern = 6;
 
 @implementation BBDottedBorderButton
 
@@ -19,13 +19,6 @@ static NSUInteger spacePattern = 4;
     
     self.cornerRadius = CGRectGetHeight(self.frame)/2;
     
-    self.borderType = BorderTypeDashed;
-    self.borderWidth = wightLine;
-    self.borderColor = [BBConstantAndColor applicationOrangeColor];
-    self.dashPattern = dashPattern;
-    self.spacePattern = spacePattern;
-    
-    [self drawDashedBorder];
 }
 
 - (void)drawDashedBorder {
@@ -78,5 +71,30 @@ static NSUInteger spacePattern = 4;
     self.layer.cornerRadius = cornerRadius;
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    if (highlighted) {
+        self.borderColor = [UIColor lightGrayColor];
+    } else {
+        self.borderColor = [BBConstantAndColor applicationOrangeColor];
+    }
+    [self drawDashedBorder];
+}
+
+- (void)drawRect:(CGRect)rect {
+    
+    self.borderType = BorderTypeDashed;
+    self.borderWidth = wightLine;
+    self.dashPattern = dashPattern;
+    self.spacePattern = spacePattern;
+    
+    if (self.state == UIControlStateNormal) {
+        self.borderColor = [BBConstantAndColor applicationOrangeColor];
+    } else if (self.state == UIControlStateHighlighted) {
+        self.borderColor = [UIColor lightGrayColor];
+    }
+    
+    [self drawDashedBorder];
+}
 
 @end
