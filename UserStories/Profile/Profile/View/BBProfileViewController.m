@@ -117,8 +117,10 @@ static NSInteger numberOfRowsInSecondSection = 5;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
-    [self.output didSelectRowForTitle:accessoryCell.textLabel.text];
+    if (indexPath.row != 0) {
+        BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.output didSelectRowForTitle:accessoryCell.textLabel.text];
+    }
 }
 
 #pragma mark - Settings Methods

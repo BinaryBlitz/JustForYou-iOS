@@ -19,6 +19,12 @@ static NSUInteger spacePattern = 6;
     
     self.cornerRadius = CGRectGetHeight(self.frame)/2;
     
+    self.borderType = BorderTypeDashed;
+    self.borderWidth = wightLine;
+    self.dashPattern = dashPattern;
+    self.spacePattern = spacePattern;
+    
+    self.borderColor = [BBConstantAndColor applicationOrangeColor];
 }
 
 - (void)drawDashedBorder {
@@ -73,8 +79,9 @@ static NSUInteger spacePattern = 6;
 
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
+    
     if (highlighted) {
-        self.borderColor = [UIColor lightGrayColor];
+        self.borderColor = [BBConstantAndColor applicationOrangeColorWithAlpha:0.2f];
     } else {
         self.borderColor = [BBConstantAndColor applicationOrangeColor];
     }
@@ -82,18 +89,6 @@ static NSUInteger spacePattern = 6;
 }
 
 - (void)drawRect:(CGRect)rect {
-    
-    self.borderType = BorderTypeDashed;
-    self.borderWidth = wightLine;
-    self.dashPattern = dashPattern;
-    self.spacePattern = spacePattern;
-    
-    if (self.state == UIControlStateNormal) {
-        self.borderColor = [BBConstantAndColor applicationOrangeColor];
-    } else if (self.state == UIControlStateHighlighted) {
-        self.borderColor = [UIColor lightGrayColor];
-    }
-    
     [self drawDashedBorder];
 }
 

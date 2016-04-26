@@ -12,6 +12,10 @@
 
 #pragma mark - Colors
 
++ (UIColor *)applicationOrangeColorWithAlpha:(CGFloat)alpha {
+    return [self colorForR:255.0f G:87.0f B:34.0f alpha:alpha];
+}
+
 + (UIColor *)applicationOrangeColor {
     return [self colorForR:255.0f G:87.0f B:34.0f alpha:1.0f];
 }

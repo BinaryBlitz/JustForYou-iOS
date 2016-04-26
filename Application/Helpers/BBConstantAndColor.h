@@ -56,6 +56,8 @@ typedef enum : NSUInteger {
 
 + (UIColor *)applicationOrangeColor;
 
++ (UIColor *)applicationOrangeColorWithAlpha:(CGFloat)alpha;
+
 + (UIColor *)applicationDarkColor;
 
 + (UIColor *)applicationGrayColor;
