@@ -34,6 +34,14 @@
     
 }
 
+- (void)leftButtonDidTap {
+    [self.calendarView loadPreviousPageWithAnimation];
+}
+
+- (void)rightButtonDidTap {
+    [self.calendarView loadNextPageWithAnimation];
+}
+
 #pragma mark - Calendar Delegate
 
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView {

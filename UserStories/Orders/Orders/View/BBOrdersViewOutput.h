@@ -16,4 +16,7 @@
 
 - (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView;
 
+- (void)leftButtonDidTap;
+- (void)rightButtonDidTap;
+
 @end

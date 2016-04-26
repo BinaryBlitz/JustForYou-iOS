@@ -324,11 +324,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzJ-ls-HUa" customClass="BBDottedBorderButton">
+                                <rect key="frame" x="46" y="353" width="283" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="sYd-Xg-bIO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="+ НОВЫЙ ЗАКАЗ">
+                                    <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewOrderButtonAction:" destination="pAX-eg-hzW" eventType="touchUpInside" id="Q5P-Rs-svf"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="NzJ-ls-HUa" firstAttribute="leading" secondItem="WiY-Ye-cd4" secondAttribute="leading" constant="46" id="3ED-99-CVE"/>
                             <constraint firstItem="B0s-6I-l42" firstAttribute="leading" secondItem="WiY-Ye-cd4" secondAttribute="leading" id="DXm-4u-HQL"/>
                             <constraint firstItem="B0s-6I-l42" firstAttribute="top" secondItem="WiY-Ye-cd4" secondAttribute="top" id="JQ0-jG-ucH"/>
+                            <constraint firstAttribute="trailing" secondItem="NzJ-ls-HUa" secondAttribute="trailing" constant="46" id="ZoR-zG-2aW"/>
+                            <constraint firstItem="NzJ-ls-HUa" firstAttribute="top" secondItem="B0s-6I-l42" secondAttribute="bottom" constant="25" id="dn7-vU-mrR"/>
                             <constraint firstAttribute="trailing" secondItem="B0s-6I-l42" secondAttribute="trailing" id="hJv-kJ-sII"/>
                             <constraint firstItem="B0s-6I-l42" firstAttribute="height" secondItem="WiY-Ye-cd4" secondAttribute="height" multiplier="328:667" id="u6M-K4-TmK"/>
                         </constraints>
@@ -336,6 +352,7 @@
                     <navigationItem key="navigationItem" id="aBL-7w-KFp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addNewOrderButton" destination="NzJ-ls-HUa" id="Fqw-df-hZP"/>
                         <outlet property="calendarView" destination="B0s-6I-l42" id="Kcj-f9-nrd"/>
                     </connections>
                 </viewController>
@@ -355,7 +372,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KY4-Va-dnC">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KY4-Va-dnC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdw-3Y-URv">

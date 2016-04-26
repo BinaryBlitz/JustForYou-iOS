@@ -25,4 +25,14 @@
     self.contentView.frame = self.bounds;
 }
 
+- (IBAction)leftButtonAction:(id)sender {
+    [self.delegate leftButtonDidTap];
+}
+
+
+- (IBAction)rightButtonAction:(id)sender {
+    [self.delegate rightButtonDidTap];
+}
+
+
 @end
