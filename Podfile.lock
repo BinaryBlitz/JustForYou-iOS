@@ -3,9 +3,9 @@ PODS:
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
   - JTCalendar (2.1.5)
-  - Realm (0.98.8):
-    - Realm/Headers (= 0.98.8)
-  - Realm/Headers (0.98.8)
+  - Realm (0.99.1):
+    - Realm/Headers (= 0.99.1)
+  - Realm/Headers (0.99.1)
 
 DEPENDENCIES:
   - Crashlytics
@@ -19,14 +19,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   JTCalendar:
-    :commit: 08abe366eb2fa3c76f3bd1c4aaa07441238e3ef8
+    :commit: 656e4b5529af8df1a823b2fdc8d0e669e9e92588
     :git: https://github.com/tercteberc/JTCalendar.git
 
 SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   JTCalendar: 57a4420f12d10c93c3b28da96803e7043d1c9281
-  Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
+  Realm: 522a0cc8e1f8755ee56d7dc16ca0fc380d045766
 
 PODFILE CHECKSUM: 6ebb21f1b7deb7973dd54177d880f0298e6a1475
 
