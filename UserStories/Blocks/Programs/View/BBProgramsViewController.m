@@ -22,6 +22,8 @@
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
 
+@property (nonatomic) CGFloat currentPage;
+
 @end
 
 static NSInteger countPage = 5;
@@ -47,6 +49,7 @@ static NSInteger countPage = 5;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    
 	[self.output didTriggerViewReadyEvent];
 }
 
@@ -87,9 +90,12 @@ static NSInteger countPage = 5;
     self.secondImageView.alpha = drob;
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset {
+    
     CGFloat kMaxIndex = countPage;
-    CGFloat targetX = scrollView.contentOffset.x + velocity.x;
+    CGFloat targetX = scrollView.contentOffset.x + velocity.x * 120;
     CGFloat targetIndex = round(targetX / (self.wightProgramView + self.insetfForView));
 
     if (targetIndex < 0) {
@@ -99,8 +105,10 @@ static NSInteger countPage = 5;
         targetIndex = kMaxIndex;
     }
     targetContentOffset->x = targetIndex * (self.wightProgramView + self.insetfForView);
-    
 }
+
+
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = self.scrollView.frame.size.width;
@@ -108,6 +116,8 @@ static NSInteger countPage = 5;
     int page = round((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + offsetLooping;
     self.pageControl.currentPage = (page % countPage);
 }
+
+
 
 #pragma mark - Init Methods
 

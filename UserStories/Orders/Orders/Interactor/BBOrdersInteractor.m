@@ -68,16 +68,17 @@
         dayView.textLabel.textColor = [UIColor blackColor];
     }
     
-    if([self _haveEventForDay:dayView.date] && ![self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        dayView.circleView.hidden = NO;
-        dayView.dotView.hidden = YES;
-        dayView.circleView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
-        UIView *dot = dayView.dots[0];
-        UIView *dot2 = dayView.dots[2];
-        dot.backgroundColor = [UIColor redColor];
-        dot2.backgroundColor = [UIColor greenColor];
+//    if([self _haveEventForDay:dayView.date] && ![self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+//        dayView.circleView.hidden = NO;
+//        dayView.dotView.hidden = YES;
+//        dayView.circleView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+//        UIView *dot = dayView.dots[0];
+//        UIView *dot2 = dayView.dots[2];
+//        dot.backgroundColor = [UIColor redColor];
+//        dot2.backgroundColor = [UIColor greenColor];
 
-    } else{
+//    }
+    else{
         dayView.dotView.hidden = NO;
     }
 }
