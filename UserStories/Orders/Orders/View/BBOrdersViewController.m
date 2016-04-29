@@ -13,20 +13,23 @@
 #import "BBCalendarMenuView.h"
 #import "BBDottedBorderButton.h"
 
-#import <JTCalendar/JTCalendar.h>
+#import "BBCalendarTableViewCell.h"
 
+@interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate>
 
-@interface BBOrdersViewController() <BBCalendarMenuViewDelegate>
-
-@property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarView;
-@property (weak, nonatomic) IBOutlet BBDottedBorderButton *addNewOrderButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) BBCalendarMenuView *calendarMenu;
 
+@property (strong, nonatomic) BBCalendarTableViewCell *calendarCell;
+
 @end
+
+static NSString *kCalendarCellIdentifire = @"calendarTableViewCell";
 
 static CGFloat wightForCalendarMenuView = 140.0f;
 static CGFloat heightForCalendarMenuView = 32.0f;
+static CGFloat estimatedRowHeight = 100.0f;
 
 @implementation BBOrdersViewController
 
@@ -34,22 +37,15 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    
 	[self.output didTriggerViewReadyEvent];
 }
-
-#pragma mark - Actions 
-
-- (IBAction)addNewOrderButtonAction:(id)sender {
-    
-}
-
 
 #pragma mark - Методы BBOrdersViewInput
 
 - (void)setupInitialState {
-    [self.output initCalendarManagerWithCalendarView:self.calendarView];
-    
+    [self _registerNibWithIdentifireCell];
+    [self _settingTableView];
     self.navigationItem.titleView = self.calendarMenu;
 }
 
@@ -57,15 +53,42 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     self.calendarMenu.titleLabel.text = currentName;
 }
 
+#pragma mark - TableView Methods
+
+- (void)_registerNibWithIdentifireCell {
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBCalendarTableViewCell" bundle:nil] forCellReuseIdentifier:kCalendarCellIdentifire];
+}
+
+- (void)_settingTableView {
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = estimatedRowHeight;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBCalendarTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarCellIdentifire];
+    self.calendarCell = calendarCell;
+    
+    return calendarCell;
+}
+
+- (void)_setDelegates {
+    self.calendarCell.delegate = self;
+    self.delegate = self.calendarCell;
+}
+
 #pragma mark - BBCalendarMenuViewDelegate
 
 - (void)leftButtonDidTap {
-    [self.output leftButtonDidTap];
+    [self.delegate leftCalendarMenuButtonDidTap];
 }
 
-
 - (void)rightButtonDidTap {
-    [self.output rightButtonDidTap];
+    [self.delegate leftCalendarMenuButtonDidTap];
 }
 
 #pragma mark - Lazy Load

@@ -8,12 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <JTCalendar/JTCalendar.h>
-
 @protocol BBOrdersViewInput <NSObject>
 
 - (void)setupInitialState;
-
-- (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
 
 @end

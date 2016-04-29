@@ -38,22 +38,6 @@
 	[self.view setupInitialState];
 }
 
-- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView {
-    [self.interactor initCalendarManagerWithCalendarView:calendarView];
-}
-
-- (void)leftButtonDidTap {
-    [self.interactor leftButtonDidTap];
-}
-
-- (void)rightButtonDidTap {
-    [self.interactor rightButtonDidTap];
-}
-
 #pragma mark - Методы BBOrdersInteractorOutput
-
-- (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
-    [self.view updateNameMonthPreviousName:previousName currentName:currentName nextName:nextName];
-}
 
 @end

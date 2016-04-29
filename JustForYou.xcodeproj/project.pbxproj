@@ -23,6 +23,8 @@
 		3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */; };
 		3A63A3B31CD3A6E800CE241C /* BBInfoRegistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63A3B11CD3A6E800CE241C /* BBInfoRegistTableViewCell.m */; };
 		3A63A3B41CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A63A3B21CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib */; };
+		3A63A3B91CD3B5FC00CE241C /* BBCalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63A3B71CD3B5FC00CE241C /* BBCalendarTableViewCell.m */; };
+		3A63A3BA1CD3B5FC00CE241C /* BBCalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A63A3B81CD3B5FC00CE241C /* BBCalendarTableViewCell.xib */; };
 		3A698BA61CB68E6E004E857D /* BBAuthorizationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698ABC1CB68E6E004E857D /* BBAuthorizationAssembly.m */; };
 		3A698BA71CB68E6E004E857D /* BBAuthorizationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698ABF1CB68E6E004E857D /* BBAuthorizationInteractor.m */; };
 		3A698BA81CB68E6E004E857D /* BBAuthorizationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698AC51CB68E6E004E857D /* BBAuthorizationPresenter.m */; };
@@ -143,6 +145,10 @@
 		3A63A3B01CD3A6E800CE241C /* BBInfoRegistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInfoRegistTableViewCell.h; sourceTree = "<group>"; };
 		3A63A3B11CD3A6E800CE241C /* BBInfoRegistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBInfoRegistTableViewCell.m; sourceTree = "<group>"; };
 		3A63A3B21CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBInfoRegistTableViewCell.xib; sourceTree = "<group>"; };
+		3A63A3B61CD3B5FC00CE241C /* BBCalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarTableViewCell.h; sourceTree = "<group>"; };
+		3A63A3B71CD3B5FC00CE241C /* BBCalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarTableViewCell.m; sourceTree = "<group>"; };
+		3A63A3B81CD3B5FC00CE241C /* BBCalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarTableViewCell.xib; sourceTree = "<group>"; };
+		3A63A3BB1CD3C46C00CE241C /* BBOrderViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrderViewControllerDelegate.h; sourceTree = "<group>"; };
 		3A698ABB1CB68E6E004E857D /* BBAuthorizationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationAssembly.h; sourceTree = "<group>"; };
 		3A698ABC1CB68E6E004E857D /* BBAuthorizationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAuthorizationAssembly.m; sourceTree = "<group>"; };
 		3A698ABE1CB68E6E004E857D /* BBAuthorizationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationInteractor.h; sourceTree = "<group>"; };
@@ -1124,6 +1130,7 @@
 				3AF1CE901CC7EF20001D0B2C /* Views */,
 				3A698B761CB68E6E004E857D /* BBOrdersViewInput.h */,
 				3A698B771CB68E6E004E857D /* BBOrdersViewOutput.h */,
+				3A63A3BB1CD3C46C00CE241C /* BBOrderViewControllerDelegate.h */,
 				3A698B741CB68E6E004E857D /* BBOrdersViewController.h */,
 				3A698B751CB68E6E004E857D /* BBOrdersViewController.m */,
 			);
@@ -1295,6 +1302,9 @@
 				3AF1CE911CC7EF4B001D0B2C /* BBCalendarMenuView.h */,
 				3AF1CE921CC7EF4B001D0B2C /* BBCalendarMenuView.m */,
 				3AF1CE941CC7EF64001D0B2C /* BBCalendarMenuView.xib */,
+				3A63A3B61CD3B5FC00CE241C /* BBCalendarTableViewCell.h */,
+				3A63A3B71CD3B5FC00CE241C /* BBCalendarTableViewCell.m */,
+				3A63A3B81CD3B5FC00CE241C /* BBCalendarTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1588,6 +1598,7 @@
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
 				3AC988861CAFF5530069DE52 /* BBTextTableViewCell.xib in Resources */,
 				3AE607841CC0CF91009E7961 /* BBDescriptionTableViewCell.xib in Resources */,
+				3A63A3BA1CD3B5FC00CE241C /* BBCalendarTableViewCell.xib in Resources */,
 				3A698BAC1CB68E6E004E857D /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
 				3A698BB81CB68E6E004E857D /* BBBlockTableViewCell.xib in Resources */,
@@ -1690,6 +1701,7 @@
 				3AF1CEFD1CCAAA4D001D0B2C /* BBSettingsPresenter.m in Sources */,
 				3A698BBC1CB68E6E004E857D /* BBCardProgramRouter.m in Sources */,
 				3AF1CF041CCAAA4D001D0B2C /* BBUniversalViewController.m in Sources */,
+				3A63A3B91CD3B5FC00CE241C /* BBCalendarTableViewCell.m in Sources */,
 				3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */,
 				3AF1CEF51CCAAA4D001D0B2C /* BBProfileInteractor.m in Sources */,
 				3A5B0BF31CB9563300ADCE2C /* BBHeaderTableViewCell.m in Sources */,

@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <JTCalendar/JTCalendar.h>
-
 @protocol BBOrdersInteractorInput <NSObject>
-
-- (void)initCalendarManagerWithCalendarView:(JTHorizontalCalendarView *)calendarView;
-
-
-- (void)leftButtonDidTap;
-- (void)rightButtonDidTap;
 
 @end
