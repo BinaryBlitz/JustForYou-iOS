@@ -32,11 +32,12 @@
     if (self) {
         self.window = window;
         [self setCustomBackBarButtonImage];
-//        if ([[BBUserService sharedService] currentUser]) {
+        BBUser *user = [[BBUserService sharedService] currentUser];
+        if (user) {
             [self.tabbarModule presentInWindow:window];
-//        } else {
-//            [self.navigationModule presentInWindow:window];
-//        }
+        } else {
+            [self.navigationModule presentInWindow:window];
+        }
     }
     return self;
 }

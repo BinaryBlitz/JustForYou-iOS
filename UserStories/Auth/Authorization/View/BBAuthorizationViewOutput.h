@@ -14,6 +14,6 @@
 
 - (void)nextButtonDidPress;
 
-- (void)sendAgainButtonDidPress;
+- (void)numberPhoneUserWithString:(NSString *)phone;
 
 @end

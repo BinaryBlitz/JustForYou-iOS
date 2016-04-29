@@ -55,56 +55,25 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="5a6-J5-Q1i"/>
                                 </constraints>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="LSa-PL-5em" id="Zcg-WZ-ddc"/>
                                     <outlet property="delegate" destination="LSa-PL-5em" id="hjR-jj-NoV"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Код подтверждения отправлен в SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djo-FW-qep">
-                                <rect key="frame" x="50" y="290" width="221" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="221" id="HBC-zA-uvw"/>
-                                    <constraint firstAttribute="height" constant="15" id="dtP-Gw-ivi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-1P-FE7" customClass="BBUnderlineButton">
-                                <rect key="frame" x="95" y="305" width="131" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="2Ou-61-8yD"/>
-                                    <constraint firstAttribute="width" constant="131" id="6XP-Ih-917"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Выслать повторно">
-                                    <color key="titleColor" red="0.35686274509803922" green="0.6588235294117647" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendAgainActionButton:" destination="LSa-PL-5em" eventType="touchUpInside" id="nTf-7X-nAz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4DG-gc-S8q" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="35u-iS-i1J"/>
                             <constraint firstItem="kDC-KR-W51" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="5O8-2V-TiI"/>
                             <constraint firstAttribute="trailing" secondItem="kFE-aJ-f1u" secondAttribute="trailing" id="8Lu-Dq-1Jb"/>
-                            <constraint firstItem="djo-FW-qep" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="FP7-Ax-jj3"/>
-                            <constraint firstItem="9Uj-1P-FE7" firstAttribute="top" secondItem="djo-FW-qep" secondAttribute="bottom" id="HF8-D3-oRv"/>
                             <constraint firstItem="kFE-aJ-f1u" firstAttribute="top" secondItem="4DG-gc-S8q" secondAttribute="bottom" constant="8" id="P0z-aT-fKL"/>
                             <constraint firstItem="kDC-KR-W51" firstAttribute="top" secondItem="FB3-dA-Cn3" secondAttribute="bottom" constant="17" id="m6L-Bf-dRf"/>
                             <constraint firstItem="kFE-aJ-f1u" firstAttribute="leading" secondItem="9rr-Fi-fOb" secondAttribute="leading" id="sK9-Mm-tWS"/>
                             <constraint firstItem="4DG-gc-S8q" firstAttribute="top" secondItem="kDC-KR-W51" secondAttribute="bottom" constant="31" id="vgW-Gn-wDo"/>
-                            <constraint firstItem="9Uj-1P-FE7" firstAttribute="centerX" secondItem="9rr-Fi-fOb" secondAttribute="centerX" id="zgW-8p-OeL"/>
-                            <constraint firstItem="djo-FW-qep" firstAttribute="top" secondItem="kFE-aJ-f1u" secondAttribute="bottom" constant="5" id="zrp-Z2-I3f"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="sendAgainButton" destination="9Uj-1P-FE7" id="gmu-Yy-RdL"/>
-                        <outlet property="smsLabel" destination="djo-FW-qep" id="Xdt-4n-7IX"/>
                         <outlet property="tableView" destination="kFE-aJ-f1u" id="6kz-mO-Wei"/>
                         <outlet property="youView" destination="kDC-KR-W51" id="wrd-ro-mEh"/>
                     </connections>

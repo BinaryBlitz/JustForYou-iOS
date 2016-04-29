@@ -33,7 +33,7 @@ typedef enum : NSUInteger {
 #pragma mark - Constants
 
 static NSInteger numberOfRows = 3;
-static NSString *kIdentifireTextFieldCell = @"textFieldCell";
+static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
 
 @implementation BBRegistrationViewController
 
@@ -49,7 +49,7 @@ static NSString *kIdentifireTextFieldCell = @"textFieldCell";
 #pragma mark - Actions
 
 
-- (void)nextButtonAction {
+- (void)_nextButtonAction {
     [self.output nextButtonDidTap];
 }
 
@@ -65,13 +65,13 @@ static NSString *kIdentifireTextFieldCell = @"textFieldCell";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
                                                              style:UIBarButtonItemStylePlain
                                                             target:self
-                                                            action:@selector(nextButtonAction)];
-    item.tintColor = [UIColor whiteColor];
+                                                            action:@selector(_nextButtonAction)];
+    item.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = item;
 }
 
 - (BBUser *)userWithTextFields {
-    BBUser *user = nil;
+    BBUser *user = [[BBUser alloc] init];
     user.name = [self.nameCell getTextFromTextField];
     user.surname = [self.surnameCell getTextFromTextField];
     user.email = [self.emailCell getTextFromTextField];
@@ -86,7 +86,7 @@ static NSString *kIdentifireTextFieldCell = @"textFieldCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireTextFieldCell];
+    BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireTextFieldCellIdentifire];
     if (indexPath.row == kNameTextFiledCell) {
         self.nameCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите имя"];
@@ -102,7 +102,8 @@ static NSString *kIdentifireTextFieldCell = @"textFieldCell";
 
 
 - (void) registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBTextTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireTextFieldCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBTextTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kIdentifireTextFieldCellIdentifire];
     
 }
 

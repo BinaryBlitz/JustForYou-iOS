@@ -16,10 +16,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+@class BBUser;
 @interface BBRegistrationPresenter()
 
 @property (weak, nonatomic) id<BBAuthorizationModuleInput> authModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+
+@property (strong, nonatomic) NSString *userPhone;
 
 @end
 
@@ -31,21 +34,23 @@
     
 }
 
-- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule {
+- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule andUserPhone:(NSString *)phone {
     self.authModule = module;
     self.navigModule = navigModule;
+    self.userPhone = phone;
     [self.router presentFromView:self.view withNavigationView:[self.navigModule currentViewWithLoadModule:BBRegistrationModule]];
 }
 
 #pragma mark - Методы BBRegistrationViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+    [self.view setupInitialState];
 }
 
 - (void)nextButtonDidTap {
-    
-    [self.interactor saveUser:[self.view userWithTextFields]];
+    BBUser *user = [self.view userWithTextFields];
+    user.numberPhone = self.userPhone;
+    [self.interactor saveUser:user];
 }
 
 #pragma mark - Методы BBRegistrationInteractorOutput

@@ -13,6 +13,6 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *surname;
 @property (strong, nonatomic) NSString *email;
-
+@property (strong, nonatomic) NSString *numberPhone;
 
 @end

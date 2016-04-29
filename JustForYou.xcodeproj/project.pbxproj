@@ -21,6 +21,8 @@
 		3A5B0BF31CB9563300ADCE2C /* BBHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF11CB9563300ADCE2C /* BBHeaderTableViewCell.m */; };
 		3A5B0BF41CB9563300ADCE2C /* BBHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF21CB9563300ADCE2C /* BBHeaderTableViewCell.xib */; };
 		3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */; };
+		3A63A3B31CD3A6E800CE241C /* BBInfoRegistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63A3B11CD3A6E800CE241C /* BBInfoRegistTableViewCell.m */; };
+		3A63A3B41CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A63A3B21CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib */; };
 		3A698BA61CB68E6E004E857D /* BBAuthorizationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698ABC1CB68E6E004E857D /* BBAuthorizationAssembly.m */; };
 		3A698BA71CB68E6E004E857D /* BBAuthorizationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698ABF1CB68E6E004E857D /* BBAuthorizationInteractor.m */; };
 		3A698BA81CB68E6E004E857D /* BBAuthorizationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A698AC51CB68E6E004E857D /* BBAuthorizationPresenter.m */; };
@@ -138,6 +140,9 @@
 		3A5B0BF21CB9563300ADCE2C /* BBHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		3A5B0BF51CBA35CD00ADCE2C /* BBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSegmentedControl.h; sourceTree = "<group>"; };
 		3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSegmentedControl.m; sourceTree = "<group>"; };
+		3A63A3B01CD3A6E800CE241C /* BBInfoRegistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInfoRegistTableViewCell.h; sourceTree = "<group>"; };
+		3A63A3B11CD3A6E800CE241C /* BBInfoRegistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBInfoRegistTableViewCell.m; sourceTree = "<group>"; };
+		3A63A3B21CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBInfoRegistTableViewCell.xib; sourceTree = "<group>"; };
 		3A698ABB1CB68E6E004E857D /* BBAuthorizationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationAssembly.h; sourceTree = "<group>"; };
 		3A698ABC1CB68E6E004E857D /* BBAuthorizationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAuthorizationAssembly.m; sourceTree = "<group>"; };
 		3A698ABE1CB68E6E004E857D /* BBAuthorizationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationInteractor.h; sourceTree = "<group>"; };
@@ -559,10 +564,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698ABA1CB68E6E004E857D /* Assembly */,
-				3A698ABD1CB68E6E004E857D /* Interactor */,
-				3A698AC21CB68E6E004E857D /* Presenter */,
-				3A698AC61CB68E6E004E857D /* Router */,
 				3A698ACA1CB68E6E004E857D /* View */,
+				3A698AC21CB68E6E004E857D /* Presenter */,
+				3A698ABD1CB68E6E004E857D /* Interactor */,
+				3A698AC61CB68E6E004E857D /* Router */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -610,11 +615,11 @@
 		3A698ACA1CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698ACB1CB68E6E004E857D /* BBAuthorizationViewController.h */,
-				3A698ACC1CB68E6E004E857D /* BBAuthorizationViewController.m */,
+				3A698ACF1CB68E6E004E857D /* VIews */,
 				3A698ACD1CB68E6E004E857D /* BBAuthorizationViewInput.h */,
 				3A698ACE1CB68E6E004E857D /* BBAuthorizationViewOutput.h */,
-				3A698ACF1CB68E6E004E857D /* VIews */,
+				3A698ACB1CB68E6E004E857D /* BBAuthorizationViewController.h */,
+				3A698ACC1CB68E6E004E857D /* BBAuthorizationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -625,6 +630,9 @@
 				3A698AD01CB68E6E004E857D /* BBNumberPhoneTableViewCell.h */,
 				3A698AD11CB68E6E004E857D /* BBNumberPhoneTableViewCell.m */,
 				3A698AD21CB68E6E004E857D /* BBNumberPhoneTableViewCell.xib */,
+				3A63A3B01CD3A6E800CE241C /* BBInfoRegistTableViewCell.h */,
+				3A63A3B11CD3A6E800CE241C /* BBInfoRegistTableViewCell.m */,
+				3A63A3B21CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -633,10 +641,10 @@
 			isa = PBXGroup;
 			children = (
 				3A698AD41CB68E6E004E857D /* Assembly */,
-				3A698AD71CB68E6E004E857D /* Interactor */,
-				3A698ADC1CB68E6E004E857D /* Presenter */,
-				3A698AE01CB68E6E004E857D /* Router */,
 				3A698AE41CB68E6E004E857D /* View */,
+				3A698ADC1CB68E6E004E857D /* Presenter */,
+				3A698AD71CB68E6E004E857D /* Interactor */,
+				3A698AE01CB68E6E004E857D /* Router */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -684,10 +692,10 @@
 		3A698AE41CB68E6E004E857D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A698AE51CB68E6E004E857D /* BBRegistrationViewController.h */,
-				3A698AE61CB68E6E004E857D /* BBRegistrationViewController.m */,
 				3A698AE71CB68E6E004E857D /* BBRegistrationViewInput.h */,
 				3A698AE81CB68E6E004E857D /* BBRegistrationViewOutput.h */,
+				3A698AE51CB68E6E004E857D /* BBRegistrationViewController.h */,
+				3A698AE61CB68E6E004E857D /* BBRegistrationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1584,6 +1592,7 @@
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
 				3A698BB81CB68E6E004E857D /* BBBlockTableViewCell.xib in Resources */,
 				3AF1CE751CC501F3001D0B2C /* BBPartDayTableViewCell.xib in Resources */,
+				3A63A3B41CD3A6E800CE241C /* BBInfoRegistTableViewCell.xib in Resources */,
 				3AF1CE701CC501AB001D0B2C /* BBNumderDayTableViewCell.xib in Resources */,
 				3AF1CE951CC7EF64001D0B2C /* BBCalendarMenuView.xib in Resources */,
 				3A698BF71CB84457004E857D /* BBProgramView.xib in Resources */,
@@ -1699,6 +1708,7 @@
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3AF1CEF91CCAAA4D001D0B2C /* BBProfileTableViewCell.m in Sources */,
 				3A698BD01CB68E6E004E857D /* BBOrdersPresenter.m in Sources */,
+				3A63A3B31CD3A6E800CE241C /* BBInfoRegistTableViewCell.m in Sources */,
 				3A698BCB1CB68E6E004E857D /* BBTabbarRouter.m in Sources */,
 				3A698BF31CB843D4004E857D /* BBProgramView.m in Sources */,
 				3AC988851CAFF5530069DE52 /* BBTextTableViewCell.m in Sources */,

@@ -13,18 +13,23 @@
 #import "BBUnderlineButton.h"
 
 #import "BBNumberPhoneTableViewCell.h"
+#import "BBTextTableViewCell.h"
+#import "BBInfoRegistTableViewCell.h"
 
 @interface BBAuthorizationViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *youView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *smsLabel;
-@property (weak, nonatomic) IBOutlet BBUnderlineButton *sendAgainButton;
+@property (strong, nonatomic) BBNumberPhoneTableViewCell *numberCell;
 
 
 @end
 
-static NSString *kIdentifireNumberCell = @"numberPhoneCell";
+static NSString *kIdentifireNumberCellIdentifire = @"numberPhoneCell";
+static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
+static NSString *kInfoRegistCellIdentifire = @"infoRegistTableViewCell";
+
+static CGFloat heightForRowAtIndexPath = 44.0f;
 
 @implementation BBAuthorizationViewController
 
@@ -53,41 +58,58 @@ static NSString *kIdentifireNumberCell = @"numberPhoneCell";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
                                                              style:UIBarButtonItemStylePlain
                                                             target:self
-                                                            action:@selector(nextButtonAction)];
-    item.tintColor = [UIColor whiteColor];
+                                                            action:@selector(_nextButtonAction)];
+    item.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)getNumberPhoneUser {
+    [self.output numberPhoneUserWithString:self.numberCell.numberTextField.text];
 }
 
 
 #pragma mark - Actions
 
-- (IBAction)sendAgainActionButton:(id)sender {
-    
-}
-
-- (void)nextButtonAction {
+- (void)_nextButtonAction {
     [self.output nextButtonDidPress];
 }
 
-
 #pragma mark - UITableView
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return heightForRowAtIndexPath;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBNumberPhoneTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireNumberCell];
+    BBNumberPhoneTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireNumberCellIdentifire];
+    self.numberCell = numberCell;
     
     return numberCell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (void) registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBNumberPhoneTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireNumberCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBNumberPhoneTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kIdentifireNumberCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBTextTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kIdentifireTextFieldCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBInfoRegistTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kInfoRegistCellIdentifire];
 }
 
 #pragma mark - Layout Views

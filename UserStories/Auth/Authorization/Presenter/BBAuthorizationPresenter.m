@@ -48,12 +48,14 @@
 }
 
 - (void)nextButtonDidPress {
-    [self.registModule presentWithAuthModule:self andNavigModule:self.navigModule];
+    [self.view getNumberPhoneUser];
 }
 
-- (void)sendAgainButtonDidPress {
-    
+
+- (void)numberPhoneUserWithString:(NSString *)phone {
+    [self.registModule presentWithAuthModule:self andNavigModule:self.navigModule andUserPhone:phone];
 }
+
 
 #pragma mark - Методы BBAuthorizationInteractorOutput
 

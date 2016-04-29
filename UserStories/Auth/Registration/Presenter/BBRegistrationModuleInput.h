@@ -12,6 +12,6 @@
 
 - (void)configureModule;
 
-- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule;
+- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule andUserPhone:(NSString *)phone;
 
 @end
