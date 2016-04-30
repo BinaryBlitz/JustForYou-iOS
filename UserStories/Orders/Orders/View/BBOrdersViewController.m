@@ -67,6 +67,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)_settingTableView {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimatedRowHeight;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 

@@ -50,9 +50,9 @@ static CGFloat borderLineWight = 1.0f;
 - (CAShapeLayer *)_createBorderLayer {
     CAShapeLayer *borderLayer = [[CAShapeLayer alloc] init];
     borderLayer.frame = self.contentView.bounds;
-    borderLayer.lineWidth   = borderLineWight;
+    borderLayer.lineWidth = borderLineWight;
     borderLayer.strokeColor = [BBConstantAndColor colorForR:230 G:230 B:230 alpha:1.0f].CGColor;
-    borderLayer.fillColor   = [UIColor clearColor].CGColor;
+    borderLayer.fillColor = [UIColor clearColor].CGColor;
     
     return borderLayer;
 }
