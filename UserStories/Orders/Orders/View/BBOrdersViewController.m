@@ -14,6 +14,7 @@
 #import "BBDottedBorderButton.h"
 
 #import "BBCalendarTableViewCell.h"
+#import "BBPreviewOrderTableViewCell.h"
 
 @interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate>
 
@@ -26,6 +27,7 @@
 @end
 
 static NSString *kCalendarCellIdentifire = @"calendarTableViewCell";
+static NSString *kPreviewOrderCellIdentifire = @"previewOrderTableViewCell";
 
 static CGFloat wightForCalendarMenuView = 140.0f;
 static CGFloat heightForCalendarMenuView = 32.0f;
@@ -56,7 +58,10 @@ static CGFloat estimatedRowHeight = 100.0f;
 #pragma mark - TableView Methods
 
 - (void)_registerNibWithIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBCalendarTableViewCell" bundle:nil] forCellReuseIdentifier:kCalendarCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBCalendarTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kCalendarCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:@"BBPreviewOrderTableViewCell" bundle:nil]
+         forCellReuseIdentifier:kPreviewOrderCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -66,14 +71,23 @@ static CGFloat estimatedRowHeight = 100.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBCalendarTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarCellIdentifire];
-    self.calendarCell = calendarCell;
+    UITableViewCell *cell;
+    if (indexPath.row == 0) {
+        BBCalendarTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarCellIdentifire];
+        self.calendarCell = calendarCell;
+        [self _setDelegates];
+        cell = calendarCell;
+    } else {
+        BBPreviewOrderTableViewCell *previewCell = [self.tableView dequeueReusableCellWithIdentifier:kPreviewOrderCellIdentifire];
+        
+        cell = previewCell;
+    }
     
-    return calendarCell;
+    return cell;
 }
 
 - (void)_setDelegates {
@@ -88,7 +102,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 }
 
 - (void)rightButtonDidTap {
-    [self.delegate leftCalendarMenuButtonDidTap];
+    [self.delegate rightCalendarMenuButtonDidTap];
 }
 
 #pragma mark - Lazy Load

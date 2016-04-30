@@ -10,4 +10,10 @@
 
 @interface BBPreviewOrderTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nameProgramLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptLabel;
+@property (weak, nonatomic) IBOutlet UIView *indicatorView;
+@property (weak, nonatomic) IBOutlet UILabel *adresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end

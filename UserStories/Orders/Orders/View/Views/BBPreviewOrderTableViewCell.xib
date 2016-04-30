@@ -7,15 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BBPreviewOrderTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previewOrderTableViewCell" id="KGk-i7-Jjw" customClass="BBPreviewOrderTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1300 Ккал без мяса и птицы" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA6-1s-GiA">
-                        <rect key="frame" x="19" y="8" width="337" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1300 Ккал без мяса и птицы" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA6-1s-GiA">
+                        <rect key="frame" x="19" y="8" width="282" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="3f1-mu-Ds4"/>
                         </constraints>
@@ -23,13 +23,62 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Снижение веса" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16w-59-iJA">
+                        <rect key="frame" x="37" y="52" width="114" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEt-yH-SUY">
+                        <rect key="frame" x="19" y="57" width="10" height="10"/>
+                        <color key="backgroundColor" red="0.49019607840000001" green="0.71372549019999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="VLS-Lt-Mps"/>
+                            <constraint firstAttribute="height" constant="10" id="jxQ-hy-gkX"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тверская, 16 кв. 23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-UP-Vu0">
+                        <rect key="frame" x="19" y="80" width="203" height="18"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00-10:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSt-cA-GRy">
+                        <rect key="frame" x="222" y="80" width="90" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="wdk-VK-T4a"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="pSt-cA-GRy" secondAttribute="trailing" constant="8" id="3BL-Eu-vp8"/>
+                    <constraint firstItem="AEt-yH-SUY" firstAttribute="top" secondItem="OA6-1s-GiA" secondAttribute="bottom" constant="5" id="BDq-Jv-1rV"/>
                     <constraint firstItem="OA6-1s-GiA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="CS5-lv-dgv"/>
+                    <constraint firstItem="pSt-cA-GRy" firstAttribute="leading" secondItem="CtG-UP-Vu0" secondAttribute="trailing" id="Jma-ps-Wtw"/>
+                    <constraint firstItem="16w-59-iJA" firstAttribute="leading" secondItem="AEt-yH-SUY" secondAttribute="trailing" constant="8" id="U2Z-9Z-MYd"/>
+                    <constraint firstItem="CtG-UP-Vu0" firstAttribute="top" secondItem="16w-59-iJA" secondAttribute="bottom" constant="10" id="XDQ-Qo-w1T"/>
+                    <constraint firstItem="CtG-UP-Vu0" firstAttribute="leading" secondItem="AEt-yH-SUY" secondAttribute="leading" id="Yct-xn-hfv"/>
+                    <constraint firstAttribute="bottom" secondItem="CtG-UP-Vu0" secondAttribute="bottom" priority="999" constant="14" id="aKS-Ta-4k1"/>
                     <constraint firstItem="OA6-1s-GiA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bJJ-ey-sXq"/>
+                    <constraint firstItem="16w-59-iJA" firstAttribute="top" secondItem="OA6-1s-GiA" secondAttribute="bottom" id="jwQ-mU-Y4b"/>
+                    <constraint firstItem="AEt-yH-SUY" firstAttribute="leading" secondItem="OA6-1s-GiA" secondAttribute="leading" id="rFW-YN-Bq7"/>
+                    <constraint firstItem="pSt-cA-GRy" firstAttribute="bottom" secondItem="CtG-UP-Vu0" secondAttribute="bottom" id="vM5-Iv-FFU"/>
                     <constraint firstAttribute="trailing" secondItem="OA6-1s-GiA" secondAttribute="trailing" constant="19" id="wuX-JG-PAR"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="adresLabel" destination="CtG-UP-Vu0" id="Oa1-7P-ffq"/>
+                <outlet property="descriptLabel" destination="16w-59-iJA" id="jEc-vC-51O"/>
+                <outlet property="indicatorView" destination="AEt-yH-SUY" id="AOG-O6-AgG"/>
+                <outlet property="nameProgramLabel" destination="OA6-1s-GiA" id="VFm-PT-qPT"/>
+                <outlet property="timeLabel" destination="pSt-cA-GRy" id="Ifh-Wk-noG"/>
+            </connections>
             <point key="canvasLocation" x="208.5" y="220"/>
         </tableViewCell>
     </objects>

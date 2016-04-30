@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 
+@property (strong, nonatomic) NSString *nameMonth;
+
 @property (strong, nonatomic) NSMutableDictionary *eventsByDate;
 
 @end
@@ -31,6 +33,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self.delegate updateNameMonthPreviousName:@"" currentName:self.nameMonth nextName:@""];
 }
 
 #pragma mark - BBOrderViewControllerDelegate Methods
@@ -133,6 +140,9 @@
 
 - (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
     [self.delegate updateNameMonthPreviousName:previousName currentName:currentName nextName:nextName];
+    if (!self.nameMonth || [self.nameMonth isEqualToString:@""]) {
+        self.nameMonth = currentName;
+    }
 }
 
 - (BOOL)_haveEventForDay:(NSDate *)date {
