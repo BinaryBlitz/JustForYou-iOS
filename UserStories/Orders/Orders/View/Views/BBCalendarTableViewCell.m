@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSString *nameMonth;
 
 @property (strong, nonatomic) NSMutableDictionary *eventsByDate;
+@property (strong, nonatomic) NSDate *dateSelected;
+
 
 @end
 
@@ -97,10 +99,6 @@
 #pragma mark - Calendar Delegate Methods
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView {
     
-    [dayView.colorsForDots addObject:[UIColor clearColor]];
-    [dayView.colorsForDots addObject:[UIColor clearColor]];
-    [dayView.colorsForDots addObject:[UIColor clearColor]];
-    
     // Other month
     if([dayView isFromAnotherMonth]){
         dayView.hidden = YES;
@@ -109,23 +107,18 @@
         dayView.circleView.hidden = NO;
         dayView.dotView.hidden = YES;
         dayView.circleView.backgroundColor = [UIColor clearColor];
-        //                [dayView.colorsForDots addObject:[UIColor redColor]];
-        //                [dayView.colorsForDots addObject:[UIColor redColor]];
-        //        [dayView.colorsForDots addObject:[UIColor blueColor]];
-        dayView.textLabel.textColor = [UIColor blackColor];
+        dayView.circleView.setBorderForView = YES;
+        dayView.circleView.colorForBorderView = [BBConstantAndColor applicationGrayColor];
+        [dayView initAndLayoutDotViewWithCountDots:2 withColorSForDots:@[[BBConstantAndColor applicationOrangeColor], [BBConstantAndColor applicationOrangeColor]]];
+        
     }
     
     if([self _haveEventForDay:dayView.date] /*&& ![self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]*/){
         dayView.circleView.hidden = NO;
-//        dayView.dotView.hidden = NO;
-//        dayView.dotView.backgroundColor = [BBConstantAndColor applicationGreenColor];
+
         dayView.circleView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.7];
-//        UIView *dot = dayView.dots[0];
-//        UIView *dot1 = dayView.dots[1];
-//        UIView *dot2 = dayView.dots[2];
-//        dot.backgroundColor = [UIColor redColor];
-//        dot1.backgroundColor = [BBConstantAndColor applicationGreenColor];
-//        dot2.backgroundColor = [UIColor greenColor];
+        [dayView initAndLayoutDotViewWithCountDots:3
+                                 withColorSForDots:@[[BBConstantAndColor applicationOrangeColor], [BBConstantAndColor applicationGreenColor], [BBConstantAndColor applicationOrangeColor]]];
 
     }
     else{
@@ -134,7 +127,41 @@
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView {
-    
+//    if (self.dateSelected) {
+//        if([self isInDatesSelected:dayView.date]) {
+//            
+//            [UIView transitionWithView:dayView
+//                              duration:.3
+//                               options:0
+//                            animations:^{
+//                                [self.calendarManager reload];
+//                                dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+//                            } completion:nil];
+//        } else {
+//            
+//            dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+//            [UIView transitionWithView:dayView
+//                              duration:.3
+//                               options:0
+//                            animations:^{
+//                                [self.calendarManager reload];
+//                                dayView.circleView.transform = CGAffineTransformIdentity;
+//                            } completion:nil];
+//        }
+//        self.dateSelected = dayView.date;
+//    } else {
+//        self.dateSelected = dayView.date;
+//        dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+//        [UIView transitionWithView:dayView
+//                          duration:.3
+//                           options:0
+//                        animations:^{
+//                            [self.calendarManager reload];
+//                            dayView.circleView.transform = CGAffineTransformIdentity;
+//                        } completion:nil];
+//    }
+//    
+//    
 }
 
 - (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
@@ -154,6 +181,13 @@
     return NO;
 }
 
+- (BOOL)isInDatesSelected:(NSDate *)date {
+    if([self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:date]){
+        return YES;
+    }
+    
+    return NO;
+}
 
 #pragma mark - Actions
 
