@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   JTCalendar:
-    :commit: 224c5084656c99aa46df3298cf5d10d0f05c7093
+    :commit: e9336cb3a7f09a16f47e0b833d7e206af30aa2e1
     :git: https://github.com/tercteberc/JTCalendar.git
 
 SPEC CHECKSUMS:

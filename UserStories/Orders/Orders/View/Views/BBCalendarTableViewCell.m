@@ -20,6 +20,9 @@
 @property (strong, nonatomic) NSDate *dateSelected;
 @property (strong, nonatomic) UIColor *selectedDayViewColor;
 
+// aspect ratio for calendarView if line weak = 5 - 64:55
+// aspect ratio for calendarView if line weak = 6 - 1:1
+
 @end
 
 @implementation BBCalendarTableViewCell
@@ -100,6 +103,7 @@
 #pragma mark - Calendar Delegate Methods
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView {
     
+    dayView.hidden = NO;
     dayView.circleView.backgroundColor = [UIColor clearColor];
     // Other month
     if([dayView isFromAnotherMonth]){
