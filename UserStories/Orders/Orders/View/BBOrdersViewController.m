@@ -24,10 +24,13 @@
 
 @property (strong, nonatomic) BBCalendarTableViewCell *calendarCell;
 
+@property (strong, nonatomic) NSArray *ordersArray;
+
 @end
 
 static NSString *kCalendarCellIdentifire = @"calendarTableViewCell";
-static NSString *kPreviewOrderCellIdentifire = @"previewOrderTableViewCell";
+static NSString *kNibNameCalendarCell = @"BBCalendarTableViewCell";
+static NSString *kNibNamePreviewOrderCell = @"BBPreviewOrderTableViewCell";
 
 static CGFloat wightForCalendarMenuView = 140.0f;
 static CGFloat heightForCalendarMenuView = 32.0f;
@@ -58,10 +61,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 #pragma mark - TableView Methods
 
 - (void)_registerNibWithIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBCalendarTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kCalendarCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBPreviewOrderTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kPreviewOrderCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameCalendarCell bundle:nil] forCellReuseIdentifier:kCalendarCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -71,20 +71,30 @@ static CGFloat estimatedRowHeight = 100.0f;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
+    return [self.ordersArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         BBCalendarTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarCellIdentifire];
         self.calendarCell = calendarCell;
         [self _setDelegates];
         cell = calendarCell;
     } else {
-        BBPreviewOrderTableViewCell *previewCell = [self.tableView dequeueReusableCellWithIdentifier:kPreviewOrderCellIdentifire];
-        
+        BBPreviewOrderTableViewCell *previewCell = [[NSBundle mainBundle] loadNibNamed:kNibNamePreviewOrderCell owner:self options:nil].lastObject;
+        if ([self.ordersArray count] > 0) {
+            UIView *dot = [self.ordersArray objectAtIndex:indexPath.row];
+            previewCell.indicatorView.backgroundColor = dot.backgroundColor;
+        }
         cell = previewCell;
     }
     
@@ -94,6 +104,14 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)_setDelegates {
     self.calendarCell.delegate = self;
     self.delegate = self.calendarCell;
+}
+
+#pragma mark - BBCalendarTableViewCellDelegate 
+
+- (void)dayViewDidTapWithOrders:(NSArray *)orders {
+    self.ordersArray = orders;
+    NSRange range = NSMakeRange(1, 1);
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - BBCalendarMenuViewDelegate
@@ -114,6 +132,13 @@ static CGFloat estimatedRowHeight = 100.0f;
         _calendarMenu.delegate = self;
     }
     return _calendarMenu;
+}
+
+- (NSArray *)ordersArray {
+    if (!_ordersArray) {
+        _ordersArray = [NSArray array];
+    }
+    return _ordersArray;
 }
 
 @end

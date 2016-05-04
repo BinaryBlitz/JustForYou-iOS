@@ -9,6 +9,7 @@
 #import "BBPreviewOrderTableViewCell.h"
 
 static CGFloat sideOffest = 14.0f;
+static CGFloat bottomOffest = 10.0f;
 static CGFloat cornerRadius = 4.0f;
 static CGFloat borderLineWight = 1.0f;
 
@@ -27,6 +28,7 @@ static CGFloat borderLineWight = 1.0f;
     CGRect contentViewFrame = self.contentView.frame;
     contentViewFrame.origin.x = sideOffest;
     contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffest*2;
+    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - bottomOffest;
     self.contentView.frame = contentViewFrame;
 }
 

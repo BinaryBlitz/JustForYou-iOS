@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previewOrderTableViewCell" id="KGk-i7-Jjw" customClass="BBPreviewOrderTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previewOrderTableViewCell" rowHeight="115" id="KGk-i7-Jjw" customClass="BBPreviewOrderTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1300 Ккал без мяса и птицы" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA6-1s-GiA">
@@ -20,7 +20,7 @@
                             <constraint firstAttribute="height" constant="44" id="3f1-mu-Ds4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Снижение веса" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16w-59-iJA">
@@ -40,6 +40,9 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тверская, 16 кв. 23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-UP-Vu0">
                         <rect key="frame" x="19" y="80" width="203" height="18"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="RYk-rO-Sls"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -63,7 +66,7 @@
                     <constraint firstItem="16w-59-iJA" firstAttribute="leading" secondItem="AEt-yH-SUY" secondAttribute="trailing" constant="8" id="U2Z-9Z-MYd"/>
                     <constraint firstItem="CtG-UP-Vu0" firstAttribute="top" secondItem="16w-59-iJA" secondAttribute="bottom" constant="10" id="XDQ-Qo-w1T"/>
                     <constraint firstItem="CtG-UP-Vu0" firstAttribute="leading" secondItem="AEt-yH-SUY" secondAttribute="leading" id="Yct-xn-hfv"/>
-                    <constraint firstAttribute="bottom" secondItem="CtG-UP-Vu0" secondAttribute="bottom" priority="999" constant="14" id="aKS-Ta-4k1"/>
+                    <constraint firstAttribute="bottom" secondItem="CtG-UP-Vu0" secondAttribute="bottom" priority="250" constant="24" id="aKS-Ta-4k1"/>
                     <constraint firstItem="OA6-1s-GiA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bJJ-ey-sXq"/>
                     <constraint firstItem="16w-59-iJA" firstAttribute="top" secondItem="OA6-1s-GiA" secondAttribute="bottom" id="jwQ-mU-Y4b"/>
                     <constraint firstItem="AEt-yH-SUY" firstAttribute="leading" secondItem="OA6-1s-GiA" secondAttribute="leading" id="rFW-YN-Bq7"/>
@@ -79,7 +82,7 @@
                 <outlet property="nameProgramLabel" destination="OA6-1s-GiA" id="VFm-PT-qPT"/>
                 <outlet property="timeLabel" destination="pSt-cA-GRy" id="Ifh-Wk-noG"/>
             </connections>
-            <point key="canvasLocation" x="208.5" y="220"/>
+            <point key="canvasLocation" x="195" y="166.5"/>
         </tableViewCell>
     </objects>
 </document>
