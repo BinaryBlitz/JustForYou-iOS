@@ -48,6 +48,8 @@
 
 #pragma mark - Методы BBOrdersInteractorOutput
 
+#pragma  mark - Lazy Load
+
 - (id<BBMyProgramsModuleInput>)myProgramModule {
     if (!_myProgramModule) {
         _myProgramModule = [BBMyProgramsAssembly createModule];

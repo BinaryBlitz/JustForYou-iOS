@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Снижение веса" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16w-59-iJA">
-                        <rect key="frame" x="37" y="52" width="114" height="18"/>
+                        <rect key="frame" x="37" y="52" width="264" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -72,6 +72,7 @@
                     <constraint firstItem="AEt-yH-SUY" firstAttribute="leading" secondItem="OA6-1s-GiA" secondAttribute="leading" id="rFW-YN-Bq7"/>
                     <constraint firstItem="pSt-cA-GRy" firstAttribute="bottom" secondItem="CtG-UP-Vu0" secondAttribute="bottom" id="vM5-Iv-FFU"/>
                     <constraint firstAttribute="trailing" secondItem="OA6-1s-GiA" secondAttribute="trailing" constant="19" id="wuX-JG-PAR"/>
+                    <constraint firstItem="16w-59-iJA" firstAttribute="trailing" secondItem="OA6-1s-GiA" secondAttribute="trailing" id="xPe-SI-F7U"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

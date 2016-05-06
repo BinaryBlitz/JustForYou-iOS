@@ -14,9 +14,14 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBNewOrderAssembly.h"
+#import "BBNewOrderModuleInput.h"
+
 @interface BBMyProgramsPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBNewOrderModuleInput> neworderModule;
+
 
 @end
 
@@ -39,6 +44,19 @@
 	[self.view setupInitialState];
 }
 
+- (void)didSelectRowWithProgram:(NSInteger)program {
+    [self.neworderModule pushModuleWithNavigationModule:self.navigationModule withProgram:program];
+}
+
 #pragma mark - Методы BBMyProgramsInteractorOutput
+
+#pragma  mark - Lazy Load
+
+- (id<BBNewOrderModuleInput>)neworderModule {
+    if (!_neworderModule) {
+        _neworderModule = [BBNewOrderAssembly createModule];
+    }
+    return _neworderModule;
+}
 
 @end

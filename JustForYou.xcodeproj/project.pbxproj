@@ -1282,10 +1282,10 @@
 			isa = PBXGroup;
 			children = (
 				3AFCE3E81CDD2EA300995DB5 /* Assembly */,
-				3AFCE3EB1CDD2EA300995DB5 /* Interactor */,
-				3AFCE3F01CDD2EA300995DB5 /* Presenter */,
-				3AFCE3F41CDD2EA300995DB5 /* Router */,
 				3AFCE3F81CDD2EA300995DB5 /* View */,
+				3AFCE3F01CDD2EA300995DB5 /* Presenter */,
+				3AFCE3EB1CDD2EA300995DB5 /* Interactor */,
+				3AFCE3F41CDD2EA300995DB5 /* Router */,
 			);
 			path = NewOrder;
 			sourceTree = "<group>";
@@ -1323,9 +1323,9 @@
 		3AFCE3F41CDD2EA300995DB5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3AFCE3F71CDD2EA300995DB5 /* BBNewOrderRouterInput.h */,
 				3AFCE3F51CDD2EA300995DB5 /* BBNewOrderRouter.h */,
 				3AFCE3F61CDD2EA300995DB5 /* BBNewOrderRouter.m */,
-				3AFCE3F71CDD2EA300995DB5 /* BBNewOrderRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1333,10 +1333,10 @@
 		3AFCE3F81CDD2EA300995DB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3AFCE3F91CDD2EA300995DB5 /* BBNewOrderViewController.h */,
-				3AFCE3FA1CDD2EA300995DB5 /* BBNewOrderViewController.m */,
 				3AFCE3FB1CDD2EA300995DB5 /* BBNewOrderViewInput.h */,
 				3AFCE3FC1CDD2EA300995DB5 /* BBNewOrderViewOutput.h */,
+				3AFCE3F91CDD2EA300995DB5 /* BBNewOrderViewController.h */,
+				3AFCE3FA1CDD2EA300995DB5 /* BBNewOrderViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";

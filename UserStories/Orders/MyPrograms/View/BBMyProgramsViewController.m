@@ -21,6 +21,9 @@
 static NSString *kMyProgramCellIdentifire = @"myProgramTableViewCell";
 static NSString *kNibMyProgramCell = @"BBMyProgramTableViewCell";
 
+static CGFloat estimatedHeightCell = 80.0f;
+static CGFloat verticalInset = 10.0f;
+
 @implementation BBMyProgramsViewController
 
 #pragma mark - Методы жизненного цикла
@@ -34,14 +37,17 @@ static NSString *kNibMyProgramCell = @"BBMyProgramTableViewCell";
 #pragma mark - Методы BBMyProgramsViewInput
 
 - (void)setupInitialState {
-    [self _settingsTableView];
+    [self _settingsTableViewAndRegisterNib];
 }
 
 
 #pragma mark - TableView Methods
 
-- (void)_settingsTableView {
+- (void)_settingsTableViewAndRegisterNib {
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = estimatedHeightCell;
+    self.tableView.contentInset = UIEdgeInsetsMake(verticalInset, 0, verticalInset, 0);
     [self.tableView registerNib:[UINib nibWithNibName:kNibMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
 }
 
@@ -51,8 +57,12 @@ static NSString *kNibMyProgramCell = @"BBMyProgramTableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBMyProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyProgramCellIdentifire];
-    
+    cell.keyMode = kProgramCellModeCornerRadius;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.output didSelectRowWithProgram:2];
 }
 
 @end

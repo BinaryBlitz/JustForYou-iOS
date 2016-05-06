@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    kProgramCellModeCornerRadius,
+    kProgramCellModeDefault
+}BBKeyProgramCellMode;
+
 @interface BBMyProgramTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIView *indicatorView;
+@property (weak, nonatomic) IBOutlet UILabel *subNameLabel;
+@property (assign, nonatomic) BBKeyProgramCellMode keyMode;
 
 @end

@@ -17,6 +17,8 @@ typedef enum : NSUInteger {
 
 @interface BBAccessoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+
 @property (nonatomic) BOOL setRadius;
 @property (nonatomic) BBKeyCornerRadius kSideCornerRadius;
 

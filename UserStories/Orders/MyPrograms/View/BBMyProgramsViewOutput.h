@@ -12,4 +12,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)didSelectRowWithProgram:(NSInteger)program;
+
 @end

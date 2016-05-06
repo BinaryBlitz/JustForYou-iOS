@@ -349,7 +349,7 @@
         <!--My Programs View Controller-->
         <scene sceneID="mHs-XR-NN7">
             <objects>
-                <viewController storyboardIdentifier="BBMyProgramsViewController" id="tX2-9h-JYn" customClass="BBMyProgramsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BBMyProgramsViewController" hidesBottomBarWhenPushed="YES" id="tX2-9h-JYn" customClass="BBMyProgramsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EWg-cs-pK2"/>
                         <viewControllerLayoutGuide type="bottom" id="Rrx-LF-KZe"/>
@@ -382,6 +382,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAf-3x-XkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1186" y="1727"/>
+        </scene>
+        <!--New Order View Controller-->
+        <scene sceneID="aIF-VH-Cc6">
+            <objects>
+                <viewController storyboardIdentifier="BBNewOrderViewController" id="hsg-Z8-FD6" customClass="BBNewOrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N2p-lC-7RZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="w4x-yP-LCC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="18d-Dq-oj9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-aN-rnF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hsg-Z8-FD6" id="GPf-hn-IgO"/>
+                                    <outlet property="delegate" destination="hsg-Z8-FD6" id="Vf0-6F-RyR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Y96-aN-rnF" id="bXo-lp-rJX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTM-oO-JQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934" y="1727"/>
         </scene>
         <!--Support View Controller-->
         <scene sceneID="JFE-Qz-Vap">

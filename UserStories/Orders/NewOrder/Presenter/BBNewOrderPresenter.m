@@ -12,7 +12,11 @@
 #import "BBNewOrderInteractorInput.h"
 #import "BBNewOrderRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBNewOrderPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 
 @end
 
@@ -24,11 +28,18 @@
     
 }
 
+- (void)pushModuleWithNavigationModule:(id)navigationModule withProgram:(NSInteger)program {
+    self.navigationModule = navigationModule;
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
 #pragma mark - Методы BBNewOrderViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
 }
+
+
 
 #pragma mark - Методы BBNewOrderInteractorOutput
 

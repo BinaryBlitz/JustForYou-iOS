@@ -18,6 +18,7 @@ static CGFloat borderLineWight = 1.0f;
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.setRadius = NO;
+    self.countLabel.hidden = YES;
     self.kSideCornerRadius = kNoneCornerRadius;
     self.textLabel.font = [UIFont systemFontOfSize:sizeFont weight:UIFontWeightLight];
 
