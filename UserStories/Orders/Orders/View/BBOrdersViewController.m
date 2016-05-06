@@ -114,6 +114,10 @@ static CGFloat estimatedRowHeight = 100.0f;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+- (void)addNewOrderButtonDidTap {
+    
+}
+
 #pragma mark - BBCalendarMenuViewDelegate
 
 - (void)leftButtonDidTap {

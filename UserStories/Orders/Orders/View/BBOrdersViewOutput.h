@@ -11,5 +11,6 @@
 @protocol BBOrdersViewOutput <NSObject>
 
 - (void)didTriggerViewReadyEvent;
+- (void)addNewOrderButtonDidTap;
 
 @end

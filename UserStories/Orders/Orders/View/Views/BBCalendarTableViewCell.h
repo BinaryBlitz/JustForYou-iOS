@@ -29,5 +29,6 @@
 
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
 - (void)dayViewDidTapWithOrders:(NSArray *)orders;
+- (void)addNewOrderButtonDidTap;
 
 @end
