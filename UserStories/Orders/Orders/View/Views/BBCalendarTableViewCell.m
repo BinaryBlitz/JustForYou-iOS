@@ -187,7 +187,7 @@
 #pragma mark - Actions
 
 - (IBAction)addNewOrderButtonAction:(id)sender {
-    
+    [self.delegate addNewOrderButtonDidTap];
 }
 
 

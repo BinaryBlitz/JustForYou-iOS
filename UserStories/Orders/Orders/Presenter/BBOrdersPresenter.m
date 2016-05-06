@@ -14,9 +14,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBMyProgramsAssembly.h"
+#import "BBMyProgramsModuleInput.h"
+
 @interface BBOrdersPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBMyProgramsModuleInput> myProgramModule;
 
 @end
 
@@ -38,6 +42,17 @@
 	[self.view setupInitialState];
 }
 
+- (void)addNewOrderButtonDidTap {
+    [self.myProgramModule pushModuleWithNavigationModule:self.navigModule];
+}
+
 #pragma mark - Методы BBOrdersInteractorOutput
+
+- (id<BBMyProgramsModuleInput>)myProgramModule {
+    if (!_myProgramModule) {
+        _myProgramModule = [BBMyProgramsAssembly createModule];
+    }
+    return _myProgramModule;
+}
 
 @end

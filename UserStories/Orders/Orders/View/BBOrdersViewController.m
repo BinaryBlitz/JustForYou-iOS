@@ -115,7 +115,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 }
 
 - (void)addNewOrderButtonDidTap {
-    
+    [self.output addNewOrderButtonDidTap];
 }
 
 #pragma mark - BBCalendarMenuViewDelegate
