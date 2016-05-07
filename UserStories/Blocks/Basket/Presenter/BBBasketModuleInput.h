@@ -10,7 +10,8 @@
 
 @protocol BBBasketModuleInput <NSObject>
 
+- (id)currentViewWithModule:(id)module;
+
 - (void)configureModule;
-- (void)popModuleWithNavigationModule:(id)navigationModule;
 
 @end

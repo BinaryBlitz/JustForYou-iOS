@@ -17,6 +17,7 @@
 @interface BBNewOrderViewController() <UITableViewDataSource, UITableViewDelegate, BBCommentTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *toOrderButton;
 
 @property (strong, nonatomic) BBCommentTableViewCell *commentCell;
 
@@ -48,6 +49,18 @@ static CGFloat topInsetForTableView = - 35.0f;
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self _layoutToOrderButton];
+}
+
+#pragma mark - Actions Methods
+
+- (IBAction)toOrderButtonAction:(id)sender {
+    
+}
+
 
 #pragma mark - Методы BBNewOrderViewInput
 
@@ -164,6 +177,13 @@ static CGFloat topInsetForTableView = - 35.0f;
 -(void) keyboardWillHide:(NSNotification *)notification {
     self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
     [self.tableView setContentOffset:CGPointMake(0, -topInsetForTableView) animated:YES];
+}
+
+#pragma mark - Layout Methods
+
+- (void)_layoutToOrderButton {
+    self.toOrderButton.layer.masksToBounds = YES;
+    self.toOrderButton.layer.cornerRadius = CGRectGetHeight(self.toOrderButton.frame)/2;
 }
 
 @end

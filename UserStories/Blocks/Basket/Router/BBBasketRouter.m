@@ -8,14 +8,18 @@
 
 #import "BBBasketRouter.h"
 
+@interface BBBasketRouter()
+
+@end
+
 @implementation BBBasketRouter
 
 #pragma mark - BBBasketRouterInput
 
-- (void)popViewControllerWithNavigationController:(UINavigationController *)nc {
-    UIViewController *vc = (UIViewController *)self.presenter.view;
+- (void)dissmissViewControllerWithNavigation:(UINavigationController *)nc {
     HQDispatchToMainQueue(^{
-        [nc pushViewController:vc animated:YES];
+        [nc dismissViewControllerAnimated:YES completion:nil];
     });
 }
+
 @end

@@ -13,4 +13,7 @@
 
 - (void)presentFromWindow:(UIWindow *)window;
 
+- (void)presentBasketViewControllerWithController:(UINavigationController *)basketNC
+                         withNavigationController:(UINavigationController *)nc;
+
 @end

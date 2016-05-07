@@ -27,6 +27,9 @@
 #import "BBProfileAssembly.h"
 #import "BBProfileModuleInput.h"
 
+#import "BBBasketAssembly.h"
+#import "BBBasketModuleInput.h"
+
 @interface BBNavigationPresenter()
 
 @property (strong, nonatomic) id<BBAuthorizationModuleInput> authModule;
@@ -34,6 +37,7 @@
 @property (strong, nonatomic) id<BBOrdersModuleInput> orderModule;
 @property (strong, nonatomic) id<BBSupportModuleInput> supportModule;
 @property (strong, nonatomic) id<BBProfileModuleInput> profileModule;
+@property (strong, nonatomic) id<BBBasketModuleInput> basketModule;
 
 @property (nonatomic) BBLoadModule loadModule;
 
@@ -84,8 +88,10 @@
         [self.router rootVC:[self.orderModule currentViewWithModule:self]];
     } else if (self.loadModule == BBLoadSupportModule) {
         [self.router rootVC:[self.supportModule currentViewWithModule:self]];
-    } else {
+    } else if (self.loadModule == BBLoadProfileModule) {
         [self.router rootVC:[self.profileModule currentViewWithModule:self]];
+    } else {
+        [self.router rootVC:[self.basketModule currentViewWithModule:self]];
     }
 }
 
@@ -126,6 +132,13 @@
         _profileModule = [BBProfileAssembly createModule];
     }
     return _profileModule;
+}
+
+- (id<BBBasketModuleInput>)basketModule {
+    if (!_basketModule) {
+        _basketModule = [BBBasketAssembly createModule];
+    }
+    return _basketModule;
 }
 
 @end

@@ -11,6 +11,6 @@
 
 @protocol BBBasketRouterInput <NSObject>
 
-- (void)popViewControllerWithNavigationController:(UINavigationController *)nc;
+- (void)dissmissViewControllerWithNavigation:(UINavigationController *)nc;
 
 @end

@@ -16,7 +16,7 @@
 
 @interface BBBasketPresenter()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 
 @end
 
@@ -28,15 +28,20 @@
     
 }
 
-- (void)popModuleWithNavigationModule:(id)navigationModule {
-    self.navigModule = navigationModule;
-    [self.router popViewControllerWithNavigationController:[self.navigModule currentView]];
+- (id)currentViewWithModule:(id)module {
+    self.navigationModule = module;
+    return self.view;
 }
+
 
 #pragma mark - Методы BBBasketViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+}
+
+- (void)closeButtonDidTap {
+    [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBBasketInteractorOutput

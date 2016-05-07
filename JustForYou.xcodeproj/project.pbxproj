@@ -736,9 +736,9 @@
 		3A88167D1CDE050400472531 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816801CDE050400472531 /* BBBlocksRouterInput.h */,
 				3A88167E1CDE050400472531 /* BBBlocksRouter.h */,
 				3A88167F1CDE050400472531 /* BBBlocksRouter.m */,
-				3A8816801CDE050400472531 /* BBBlocksRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -746,11 +746,11 @@
 		3A8816811CDE050400472531 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816861CDE050400472531 /* VIews */,
 				3A8816841CDE050400472531 /* BBBlocksViewInput.h */,
 				3A8816851CDE050400472531 /* BBBlocksViewOutput.h */,
 				3A8816821CDE050400472531 /* BBBlocksViewController.h */,
 				3A8816831CDE050400472531 /* BBBlocksViewController.m */,
-				3A8816861CDE050400472531 /* VIews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -820,11 +820,11 @@
 		3A88169B1CDE050400472531 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816A01CDE050400472531 /* VIews */,
 				3A88169E1CDE050400472531 /* BBCardProgramViewInput.h */,
 				3A88169F1CDE050400472531 /* BBCardProgramViewOutput.h */,
 				3A88169C1CDE050400472531 /* BBCardProgramViewController.h */,
 				3A88169D1CDE050400472531 /* BBCardProgramViewController.m */,
-				3A8816A01CDE050400472531 /* VIews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -898,9 +898,9 @@
 		3A8816BF1CDE050400472531 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816C21CDE050400472531 /* BBProgramsRouterInput.h */,
 				3A8816C01CDE050400472531 /* BBProgramsRouter.h */,
 				3A8816C11CDE050400472531 /* BBProgramsRouter.m */,
-				3A8816C21CDE050400472531 /* BBProgramsRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";

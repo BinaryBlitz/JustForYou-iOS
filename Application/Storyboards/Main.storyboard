@@ -283,8 +283,51 @@
                     <view key="view" contentMode="scaleToFill" id="G19-Mz-Wdl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HLh-Yz-kw1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="535.5"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XCZ-le-pJ0" id="2yU-RZ-sAD"/>
+                                    <outlet property="delegate" destination="XCZ-le-pJ0" id="PvC-zw-Q4g"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXk-uV-2qj">
+                                <rect key="frame" x="76" y="535" width="448" height="42.5"/>
+                                <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ОПЛАТИТЬ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="payButtonAction:" destination="XCZ-le-pJ0" eventType="touchUpInside" id="qhE-wZ-i9Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hXk-uV-2qj" firstAttribute="width" secondItem="G19-Mz-Wdl" secondAttribute="width" multiplier="280:375" id="1tF-QS-ahN"/>
+                            <constraint firstItem="R5q-oV-7qE" firstAttribute="top" secondItem="hXk-uV-2qj" secondAttribute="bottom" priority="750" constant="22" id="5Vg-O8-uix"/>
+                            <constraint firstItem="hXk-uV-2qj" firstAttribute="top" secondItem="HLh-Yz-kw1" secondAttribute="bottom" id="PaW-Zm-E9X"/>
+                            <constraint firstItem="hXk-uV-2qj" firstAttribute="height" secondItem="G19-Mz-Wdl" secondAttribute="height" multiplier="47:667" id="Xfp-kq-q1G"/>
+                            <constraint firstItem="HLh-Yz-kw1" firstAttribute="top" secondItem="G19-Mz-Wdl" secondAttribute="top" id="Zhl-Ih-bgk"/>
+                            <constraint firstItem="hXk-uV-2qj" firstAttribute="centerX" secondItem="G19-Mz-Wdl" secondAttribute="centerX" id="fmh-RG-RcS"/>
+                            <constraint firstItem="HLh-Yz-kw1" firstAttribute="leading" secondItem="G19-Mz-Wdl" secondAttribute="leading" id="iml-EZ-WEO"/>
+                            <constraint firstAttribute="trailing" secondItem="HLh-Yz-kw1" secondAttribute="trailing" id="kL0-FF-keX"/>
+                            <constraint firstItem="hXk-uV-2qj" firstAttribute="top" secondItem="HLh-Yz-kw1" secondAttribute="bottom" id="mih-I1-893"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ifU-VD-Q5e">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ovD-HH-JKI">
+                            <color key="tintColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closeButtonAction:" destination="XCZ-le-pJ0" id="iE7-3k-Ngd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="payButton" destination="hXk-uV-2qj" id="tzs-yZ-Yor"/>
+                        <outlet property="tableView" destination="HLh-Yz-kw1" id="xJK-uS-94u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVW-Cv-5OJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,29 +457,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-aN-rnF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="535.5"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hsg-Z8-FD6" id="GPf-hn-IgO"/>
                                     <outlet property="delegate" destination="hsg-Z8-FD6" id="Vf0-6F-RyR"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X4-Vu-z4A">
+                                <rect key="frame" x="76" y="535" width="448" height="42.5"/>
+                                <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ЗАКАЗАТЬ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toOrderButtonAction:" destination="hsg-Z8-FD6" eventType="touchUpInside" id="zkn-Yx-MBe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Y96-aN-rnF" firstAttribute="leading" secondItem="18d-Dq-oj9" secondAttribute="leading" id="CIs-iq-VJL"/>
-                            <constraint firstItem="w4x-yP-LCC" firstAttribute="top" secondItem="Y96-aN-rnF" secondAttribute="bottom" id="h98-q9-gPa"/>
-                            <constraint firstItem="Y96-aN-rnF" firstAttribute="top" secondItem="18d-Dq-oj9" secondAttribute="top" id="i8k-ah-jnh"/>
-                            <constraint firstAttribute="trailing" secondItem="Y96-aN-rnF" secondAttribute="trailing" id="pvz-Ac-lle"/>
+                            <constraint firstItem="Y96-aN-rnF" firstAttribute="top" secondItem="18d-Dq-oj9" secondAttribute="top" id="EQJ-0A-CyX"/>
+                            <constraint firstItem="0X4-Vu-z4A" firstAttribute="width" secondItem="18d-Dq-oj9" secondAttribute="width" multiplier="280:375" id="LEN-bH-lu4"/>
+                            <constraint firstItem="w4x-yP-LCC" firstAttribute="top" secondItem="0X4-Vu-z4A" secondAttribute="bottom" priority="750" constant="22" id="Qzd-Je-IQP"/>
+                            <constraint firstItem="0X4-Vu-z4A" firstAttribute="height" secondItem="18d-Dq-oj9" secondAttribute="height" multiplier="47:667" id="Sum-fa-CL1"/>
+                            <constraint firstItem="0X4-Vu-z4A" firstAttribute="centerX" secondItem="18d-Dq-oj9" secondAttribute="centerX" id="TrX-gk-csK"/>
+                            <constraint firstItem="Y96-aN-rnF" firstAttribute="leading" secondItem="18d-Dq-oj9" secondAttribute="leading" id="cy7-U3-ibT"/>
+                            <constraint firstItem="0X4-Vu-z4A" firstAttribute="top" secondItem="Y96-aN-rnF" secondAttribute="bottom" id="sob-s5-4ih"/>
+                            <constraint firstAttribute="trailing" secondItem="Y96-aN-rnF" secondAttribute="trailing" id="wQO-Bv-Hbq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Y96-aN-rnF" id="bXo-lp-rJX"/>
+                        <outlet property="toOrderButton" destination="0X4-Vu-z4A" id="viM-Nb-SCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTM-oO-JQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="1727"/>
+            <point key="canvasLocation" x="1933.5" y="1726.5"/>
         </scene>
         <!--Support View Controller-->
         <scene sceneID="JFE-Qz-Vap">

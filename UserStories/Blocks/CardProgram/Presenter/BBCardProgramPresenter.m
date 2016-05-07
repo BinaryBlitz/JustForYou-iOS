@@ -12,11 +12,16 @@
 #import "BBCardProgramInteractorInput.h"
 #import "BBCardProgramRouterInput.h"
 
+#import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
+
+#import "BBBasketAssembly.h"
+#import "BBBasketModuleInput.h"
 
 @interface BBCardProgramPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
 @end
 
@@ -39,6 +44,20 @@
 	[self.view setupInitialState];
 }
 
+- (void)basketButtonDidTap {
+    [self.router presentBasketViewControllerWithController:[self.basketNavigationModule currentViewWithLoadModule:BBLoadBasketModule]
+                                  withNavigationController:[self.navigModule currentView]];
+}
+
 #pragma mark - Методы BBCardProgramInteractorOutput
+
+#pragma makr - Lazy Load 
+
+- (id<BBNavigationModuleInput>)basketNavigationModule {
+    if (!_basketNavigationModule) {
+        _basketNavigationModule = [BBNavigationAssembly createModule];
+    }
+    return _basketNavigationModule;
+}
 
 @end

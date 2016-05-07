@@ -19,4 +19,11 @@
     });
 }
 
+- (void)presentBasketViewControllerWithController:(UINavigationController *)basketNC
+                         withNavigationController:(UINavigationController *)nc {
+    HQDispatchToMainQueue(^{
+        [nc presentViewController:basketNC animated:YES completion:nil];
+    });
+}
+
 @end

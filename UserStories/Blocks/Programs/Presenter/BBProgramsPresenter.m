@@ -12,6 +12,7 @@
 #import "BBProgramsInteractorInput.h"
 #import "BBProgramsRouterInput.h"
 
+#import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
 
 #import "BBCardProgramAssembly.h"
@@ -21,6 +22,7 @@
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 @property (strong, nonatomic) id<BBCardProgramModuleInput> cardProgramModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
 @end
 
@@ -48,7 +50,8 @@
 }
 
 - (void)basketButtonDidTap {
-    
+    [self.router presentBasketViewControllerWithController:[self.basketNavigationModule currentViewWithLoadModule:BBLoadBasketModule]
+                                  withNavigationController:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBProgramsInteractorOutput
@@ -62,5 +65,11 @@
     return _cardProgramModule;
 }
 
+- (id<BBNavigationModuleInput>)basketNavigationModule {
+    if (!_basketNavigationModule) {
+        _basketNavigationModule = [BBNavigationAssembly createModule];
+    }
+    return _basketNavigationModule;
+}
 
 @end
