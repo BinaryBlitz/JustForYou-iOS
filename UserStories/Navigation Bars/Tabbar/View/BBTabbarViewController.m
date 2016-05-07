@@ -47,19 +47,4 @@
     self.tabBar.items[3].title = @"Профиль";
 }
 
-//#pragma mark - UITabbarDelegate
-//
-//- (void)tabBar:(BBTabBar *)tabBar didPressItem:(BBTabbarItem)item
-//{
-//    if (item == BBTabbarItemPrograms) {
-//        [self.output didPressItemPrograms];
-//    } else if (item == BBTabbarItemOrders) {
-//        [self.output didPressItemOrders];
-//    }  else if (item == BBTabbarItemProfile) {
-//        [self.output didPressItemProfile];
-//    }  else if (item == BBTabbarItemSupport) {
-//        [self.output didPressItemSupport];
-//    }
-//}
-
 @end

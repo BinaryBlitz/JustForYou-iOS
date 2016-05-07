@@ -72,4 +72,7 @@ typedef enum : NSUInteger {
 #pragma mark - Constant
 
 static CGFloat bottomOffsetForBlockTableView = 13.0f;
+static CGFloat cornerRadiusCell = 4.0f;
+static CGFloat sideOffsetCell = 14.0f;
+static CGFloat borderWightLineCell = 1.0f;
 

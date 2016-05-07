@@ -28,6 +28,8 @@
 
 @end
 
+static NSString *kNibMenuCell = @"BBMenuTableViewCell";
+
 static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
 static NSString *kMenuCellIdentifire = @"menuTableViewCell";
@@ -125,7 +127,8 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
                 }
                 cell = partCell;
             } else {
-                BBMenuTableViewCell *menuCell = [self.tableView dequeueReusableCellWithIdentifier:kMenuCellIdentifire];
+                BBMenuTableViewCell *menuCell = [[NSBundle mainBundle] loadNibNamed:kNibMenuCell
+                                                                              owner:self options:nil].lastObject;;
                 cell = menuCell;
             }
         }

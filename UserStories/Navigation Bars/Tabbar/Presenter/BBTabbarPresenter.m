@@ -26,9 +26,6 @@
 @property (nonatomic) id<BBNavigationModuleInput> navigationSupportModule;
 
 
-#warning delete
-@property (nonatomic) id<BBBlocksModuleInput> blockModule;
-
 @property (strong, nonatomic) NSMutableArray *arrayMainModules;
 
 
@@ -59,11 +56,6 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-//    [self.arrayMainModules addObject:[self.navigationBlockModule currentViewWithLoadModule:BBLoadBlockModule]];
-//    [self.arrayMainModules addObject:[self.navigationOrderModule currentViewWithLoadModule:BBLoadOrdersModule]];
-//    [self.arrayMainModules addObject:[self.navigationProfileModule currentViewWithLoadModule:BBLoadProfileModule]];
-//    [self.arrayMainModules addObject:[self.navigationSupportModule currentViewWithLoadModule:BBLoadSupportModule]];
-//    [self.view setItemsBar:self.arrayMainModules];
 }
 
 
@@ -116,18 +108,5 @@
     }
     return _navigationSupportModule;
 }
-
-
-
-
-#warning DELETE
-
-- (id<BBBlocksModuleInput>) blockModule {
-    if (!_blockModule) {
-        _blockModule = [BBBlocksAssembly createModule];
-    }
-    return _blockModule;
-}
-
 
 @end

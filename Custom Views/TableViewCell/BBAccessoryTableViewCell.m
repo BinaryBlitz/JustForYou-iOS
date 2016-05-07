@@ -9,9 +9,6 @@
 #import "BBAccessoryTableViewCell.h"
 
 static CGFloat sizeFont = 16.0f;
-static CGFloat sideOffest = 12.0f;
-static CGFloat cornerRadius = 3.0f;
-static CGFloat borderLineWight = 1.0f;
 
 @implementation BBAccessoryTableViewCell
 
@@ -24,15 +21,13 @@ static CGFloat borderLineWight = 1.0f;
 
 }
 
-
-
 - (void) layoutSubviews {
     [super layoutSubviews];
     
     CGRect contentViewFrame = self.contentView.frame;
-    contentViewFrame.origin.x = sideOffest;
+    contentViewFrame.origin.x = sideOffsetCell;
     
-    contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffest*2;
+    contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffsetCell*2;
     self.contentView.frame = contentViewFrame;
     UIView *backgroundView = [[UIView alloc] initWithFrame:contentViewFrame];
     self.selectedBackgroundView = backgroundView;
@@ -52,15 +47,15 @@ static CGFloat borderLineWight = 1.0f;
     
     if (self.setRadius == YES) {
         if (self.kSideCornerRadius == kTopCornerRadius) {
-            maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+            maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(cornerRadiusCell, cornerRadiusCell)];
             maskLayer.path = maskPath.CGPath;
         }
         if (self.kSideCornerRadius == kBottomCornerRadius) {
-            maskPath = [UIBezierPath bezierPathWithRoundedRect: self.contentView.bounds byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+            maskPath = [UIBezierPath bezierPathWithRoundedRect: self.contentView.bounds byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(cornerRadiusCell, cornerRadiusCell)];
             maskLayer.path = maskPath.CGPath;
         }
         if (self.kSideCornerRadius == kAllCornerRadius) {
-            maskPath = [UIBezierPath bezierPathWithRoundedRect: self.contentView.bounds byRoundingCorners: UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+            maskPath = [UIBezierPath bezierPathWithRoundedRect: self.contentView.bounds byRoundingCorners: UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadiusCell, cornerRadiusCell)];
             maskLayer.path = maskPath.CGPath;
         }
     } else {
@@ -76,7 +71,7 @@ static CGFloat borderLineWight = 1.0f;
 - (CAShapeLayer *)_createBorderLayer {
     CAShapeLayer *borderLayer = [[CAShapeLayer alloc] init];
     borderLayer.frame = self.contentView.bounds;
-    borderLayer.lineWidth   = borderLineWight;
+    borderLayer.lineWidth   = borderWightLineCell;
     borderLayer.strokeColor = [BBConstantAndColor colorForR:230 G:230 B:230 alpha:1.0f].CGColor;
     borderLayer.fillColor   = [UIColor clearColor].CGColor;
     

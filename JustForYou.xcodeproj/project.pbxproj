@@ -951,6 +951,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3A8816FA1CDE597C00472531 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
 		3AC988631CAB1FD80069DE52 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1743,6 +1750,7 @@
 		3AFCE4601CDD2EA300995DB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816FA1CDE597C00472531 /* VIews */,
 				3AFCE4611CDD2EA300995DB5 /* BBUniversalViewController.h */,
 				3AFCE4621CDD2EA300995DB5 /* BBUniversalViewController.m */,
 				3AFCE4631CDD2EA300995DB5 /* BBUniversalViewInput.h */,
