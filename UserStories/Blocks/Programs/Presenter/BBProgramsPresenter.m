@@ -47,6 +47,10 @@
     [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule];
 }
 
+- (void)basketButtonDidTap {
+    
+}
+
 #pragma mark - Методы BBProgramsInteractorOutput
 
 #pragma mark - Lazy Load

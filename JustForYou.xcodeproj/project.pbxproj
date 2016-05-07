@@ -27,6 +27,41 @@
 		3A8816521CDDE87B00472531 /* BBTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A88164A1CDDE87B00472531 /* BBTextTableViewCell.xib */; };
 		3A8816561CDDF12900472531 /* BBCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816541CDDF12900472531 /* BBCommentTableViewCell.m */; };
 		3A8816571CDDF12900472531 /* BBCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816551CDDF12900472531 /* BBCommentTableViewCell.xib */; };
+		3A8816CC1CDE050400472531 /* BBBasketAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A88165D1CDE050400472531 /* BBBasketAssembly.m */; };
+		3A8816CD1CDE050400472531 /* BBBasketInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816601CDE050400472531 /* BBBasketInteractor.m */; };
+		3A8816CE1CDE050400472531 /* BBBasketPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816661CDE050400472531 /* BBBasketPresenter.m */; };
+		3A8816CF1CDE050400472531 /* BBBasketRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816691CDE050400472531 /* BBBasketRouter.m */; };
+		3A8816D01CDE050400472531 /* BBBasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A88166D1CDE050400472531 /* BBBasketViewController.m */; };
+		3A8816D11CDE050400472531 /* BBBlocksAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816731CDE050400472531 /* BBBlocksAssembly.m */; };
+		3A8816D21CDE050400472531 /* BBBlocksInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816761CDE050400472531 /* BBBlocksInteractor.m */; };
+		3A8816D31CDE050400472531 /* BBBlocksPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A88167C1CDE050400472531 /* BBBlocksPresenter.m */; };
+		3A8816D41CDE050400472531 /* BBBlocksRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A88167F1CDE050400472531 /* BBBlocksRouter.m */; };
+		3A8816D51CDE050400472531 /* BBBlocksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816831CDE050400472531 /* BBBlocksViewController.m */; };
+		3A8816D61CDE050400472531 /* BBBlockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816881CDE050400472531 /* BBBlockTableViewCell.m */; };
+		3A8816D71CDE050400472531 /* BBBlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816891CDE050400472531 /* BBBlockTableViewCell.xib */; };
+		3A8816D81CDE050400472531 /* BBCardProgramAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A88168D1CDE050400472531 /* BBCardProgramAssembly.m */; };
+		3A8816D91CDE050400472531 /* BBCardProgramInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816901CDE050400472531 /* BBCardProgramInteractor.m */; };
+		3A8816DA1CDE050400472531 /* BBCardProgramPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816961CDE050400472531 /* BBCardProgramPresenter.m */; };
+		3A8816DB1CDE050400472531 /* BBCardProgramRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816991CDE050400472531 /* BBCardProgramRouter.m */; };
+		3A8816DC1CDE050400472531 /* BBCardProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A88169D1CDE050400472531 /* BBCardProgramViewController.m */; };
+		3A8816DD1CDE050400472531 /* BBDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816A21CDE050400472531 /* BBDescriptionTableViewCell.m */; };
+		3A8816DE1CDE050400472531 /* BBDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816A31CDE050400472531 /* BBDescriptionTableViewCell.xib */; };
+		3A8816DF1CDE050400472531 /* BBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816A51CDE050400472531 /* BBGradientView.m */; };
+		3A8816E01CDE050400472531 /* BBHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816A71CDE050400472531 /* BBHeaderTableViewCell.m */; };
+		3A8816E11CDE050400472531 /* BBHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816A81CDE050400472531 /* BBHeaderTableViewCell.xib */; };
+		3A8816E21CDE050400472531 /* BBMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816AA1CDE050400472531 /* BBMenuTableViewCell.m */; };
+		3A8816E31CDE050400472531 /* BBMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816AB1CDE050400472531 /* BBMenuTableViewCell.xib */; };
+		3A8816E41CDE050400472531 /* BBNumderDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816AD1CDE050400472531 /* BBNumderDayTableViewCell.m */; };
+		3A8816E51CDE050400472531 /* BBNumderDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816AE1CDE050400472531 /* BBNumderDayTableViewCell.xib */; };
+		3A8816E61CDE050400472531 /* BBPartDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816B01CDE050400472531 /* BBPartDayTableViewCell.m */; };
+		3A8816E71CDE050400472531 /* BBPartDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816B11CDE050400472531 /* BBPartDayTableViewCell.xib */; };
+		3A8816E81CDE050400472531 /* BBProgramsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816B51CDE050400472531 /* BBProgramsAssembly.m */; };
+		3A8816E91CDE050400472531 /* BBProgramsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816B81CDE050400472531 /* BBProgramsInteractor.m */; };
+		3A8816EA1CDE050400472531 /* BBProgramsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816BE1CDE050400472531 /* BBProgramsPresenter.m */; };
+		3A8816EB1CDE050400472531 /* BBProgramsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816C11CDE050400472531 /* BBProgramsRouter.m */; };
+		3A8816EC1CDE050400472531 /* BBProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816C51CDE050400472531 /* BBProgramsViewController.m */; };
+		3A8816ED1CDE050400472531 /* BBProgramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816CA1CDE050400472531 /* BBProgramView.m */; };
+		3A8816EE1CDE050400472531 /* BBProgramView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816CB1CDE050400472531 /* BBProgramView.xib */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887C1CAFF0D40069DE52 /* BBUnderlineButton.m */; };
@@ -47,36 +82,6 @@
 		3AFCE4871CDD2EA300995DB5 /* BBRegistrationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3381CDD2EA200995DB5 /* BBRegistrationPresenter.m */; };
 		3AFCE4881CDD2EA300995DB5 /* BBRegistrationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE33B1CDD2EA200995DB5 /* BBRegistrationRouter.m */; };
 		3AFCE4891CDD2EA300995DB5 /* BBRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE33F1CDD2EA200995DB5 /* BBRegistrationViewController.m */; };
-		3AFCE48A1CDD2EA300995DB5 /* BBBlocksAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3461CDD2EA300995DB5 /* BBBlocksAssembly.m */; };
-		3AFCE48B1CDD2EA300995DB5 /* BBBlocksInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3491CDD2EA300995DB5 /* BBBlocksInteractor.m */; };
-		3AFCE48C1CDD2EA300995DB5 /* BBBlocksPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE34F1CDD2EA300995DB5 /* BBBlocksPresenter.m */; };
-		3AFCE48D1CDD2EA300995DB5 /* BBBlocksRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3521CDD2EA300995DB5 /* BBBlocksRouter.m */; };
-		3AFCE48E1CDD2EA300995DB5 /* BBBlocksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3561CDD2EA300995DB5 /* BBBlocksViewController.m */; };
-		3AFCE48F1CDD2EA300995DB5 /* BBBlockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE35B1CDD2EA300995DB5 /* BBBlockTableViewCell.m */; };
-		3AFCE4901CDD2EA300995DB5 /* BBBlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE35C1CDD2EA300995DB5 /* BBBlockTableViewCell.xib */; };
-		3AFCE4911CDD2EA300995DB5 /* BBCardProgramAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3601CDD2EA300995DB5 /* BBCardProgramAssembly.m */; };
-		3AFCE4921CDD2EA300995DB5 /* BBCardProgramInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3631CDD2EA300995DB5 /* BBCardProgramInteractor.m */; };
-		3AFCE4931CDD2EA300995DB5 /* BBCardProgramPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3691CDD2EA300995DB5 /* BBCardProgramPresenter.m */; };
-		3AFCE4941CDD2EA300995DB5 /* BBCardProgramRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE36C1CDD2EA300995DB5 /* BBCardProgramRouter.m */; };
-		3AFCE4951CDD2EA300995DB5 /* BBCardProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3701CDD2EA300995DB5 /* BBCardProgramViewController.m */; };
-		3AFCE4961CDD2EA300995DB5 /* BBDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3751CDD2EA300995DB5 /* BBDescriptionTableViewCell.m */; };
-		3AFCE4971CDD2EA300995DB5 /* BBDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE3761CDD2EA300995DB5 /* BBDescriptionTableViewCell.xib */; };
-		3AFCE4981CDD2EA300995DB5 /* BBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3781CDD2EA300995DB5 /* BBGradientView.m */; };
-		3AFCE4991CDD2EA300995DB5 /* BBHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE37A1CDD2EA300995DB5 /* BBHeaderTableViewCell.m */; };
-		3AFCE49A1CDD2EA300995DB5 /* BBHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE37B1CDD2EA300995DB5 /* BBHeaderTableViewCell.xib */; };
-		3AFCE49B1CDD2EA300995DB5 /* BBMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE37D1CDD2EA300995DB5 /* BBMenuTableViewCell.m */; };
-		3AFCE49C1CDD2EA300995DB5 /* BBMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE37E1CDD2EA300995DB5 /* BBMenuTableViewCell.xib */; };
-		3AFCE49D1CDD2EA300995DB5 /* BBNumderDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3801CDD2EA300995DB5 /* BBNumderDayTableViewCell.m */; };
-		3AFCE49E1CDD2EA300995DB5 /* BBNumderDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE3811CDD2EA300995DB5 /* BBNumderDayTableViewCell.xib */; };
-		3AFCE49F1CDD2EA300995DB5 /* BBPartDayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3831CDD2EA300995DB5 /* BBPartDayTableViewCell.m */; };
-		3AFCE4A01CDD2EA300995DB5 /* BBPartDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE3841CDD2EA300995DB5 /* BBPartDayTableViewCell.xib */; };
-		3AFCE4A11CDD2EA300995DB5 /* BBProgramsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3881CDD2EA300995DB5 /* BBProgramsAssembly.m */; };
-		3AFCE4A21CDD2EA300995DB5 /* BBProgramsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE38B1CDD2EA300995DB5 /* BBProgramsInteractor.m */; };
-		3AFCE4A31CDD2EA300995DB5 /* BBProgramsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3911CDD2EA300995DB5 /* BBProgramsPresenter.m */; };
-		3AFCE4A41CDD2EA300995DB5 /* BBProgramsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3941CDD2EA300995DB5 /* BBProgramsRouter.m */; };
-		3AFCE4A51CDD2EA300995DB5 /* BBProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3981CDD2EA300995DB5 /* BBProgramsViewController.m */; };
-		3AFCE4A61CDD2EA300995DB5 /* BBProgramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE39D1CDD2EA300995DB5 /* BBProgramView.m */; };
-		3AFCE4A71CDD2EA300995DB5 /* BBProgramView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE39E1CDD2EA300995DB5 /* BBProgramView.xib */; };
 		3AFCE4A81CDD2EA300995DB5 /* BBNavigationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3A31CDD2EA300995DB5 /* BBNavigationAssembly.m */; };
 		3AFCE4A91CDD2EA300995DB5 /* BBNavigationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3A61CDD2EA300995DB5 /* BBNavigationInteractor.m */; };
 		3AFCE4AA1CDD2EA300995DB5 /* BBNavigationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3AD1CDD2EA300995DB5 /* BBNavigationPresenter.m */; };
@@ -167,6 +172,93 @@
 		3A8816531CDDF12900472531 /* BBCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCommentTableViewCell.h; sourceTree = "<group>"; };
 		3A8816541CDDF12900472531 /* BBCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCommentTableViewCell.m; sourceTree = "<group>"; };
 		3A8816551CDDF12900472531 /* BBCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCommentTableViewCell.xib; sourceTree = "<group>"; };
+		3A88165C1CDE050400472531 /* BBBasketAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketAssembly.h; sourceTree = "<group>"; };
+		3A88165D1CDE050400472531 /* BBBasketAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketAssembly.m; sourceTree = "<group>"; };
+		3A88165F1CDE050400472531 /* BBBasketInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketInteractor.h; sourceTree = "<group>"; };
+		3A8816601CDE050400472531 /* BBBasketInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketInteractor.m; sourceTree = "<group>"; };
+		3A8816611CDE050400472531 /* BBBasketInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketInteractorInput.h; sourceTree = "<group>"; };
+		3A8816621CDE050400472531 /* BBBasketInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketInteractorOutput.h; sourceTree = "<group>"; };
+		3A8816641CDE050400472531 /* BBBasketModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketModuleInput.h; sourceTree = "<group>"; };
+		3A8816651CDE050400472531 /* BBBasketPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketPresenter.h; sourceTree = "<group>"; };
+		3A8816661CDE050400472531 /* BBBasketPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketPresenter.m; sourceTree = "<group>"; };
+		3A8816681CDE050400472531 /* BBBasketRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketRouter.h; sourceTree = "<group>"; };
+		3A8816691CDE050400472531 /* BBBasketRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketRouter.m; sourceTree = "<group>"; };
+		3A88166A1CDE050400472531 /* BBBasketRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketRouterInput.h; sourceTree = "<group>"; };
+		3A88166C1CDE050400472531 /* BBBasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketViewController.h; sourceTree = "<group>"; };
+		3A88166D1CDE050400472531 /* BBBasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketViewController.m; sourceTree = "<group>"; };
+		3A88166E1CDE050400472531 /* BBBasketViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketViewInput.h; sourceTree = "<group>"; };
+		3A88166F1CDE050400472531 /* BBBasketViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketViewOutput.h; sourceTree = "<group>"; };
+		3A8816721CDE050400472531 /* BBBlocksAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksAssembly.h; sourceTree = "<group>"; };
+		3A8816731CDE050400472531 /* BBBlocksAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksAssembly.m; sourceTree = "<group>"; };
+		3A8816751CDE050400472531 /* BBBlocksInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractor.h; sourceTree = "<group>"; };
+		3A8816761CDE050400472531 /* BBBlocksInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksInteractor.m; sourceTree = "<group>"; };
+		3A8816771CDE050400472531 /* BBBlocksInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractorInput.h; sourceTree = "<group>"; };
+		3A8816781CDE050400472531 /* BBBlocksInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractorOutput.h; sourceTree = "<group>"; };
+		3A88167A1CDE050400472531 /* BBBlocksModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksModuleInput.h; sourceTree = "<group>"; };
+		3A88167B1CDE050400472531 /* BBBlocksPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksPresenter.h; sourceTree = "<group>"; };
+		3A88167C1CDE050400472531 /* BBBlocksPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksPresenter.m; sourceTree = "<group>"; };
+		3A88167E1CDE050400472531 /* BBBlocksRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksRouter.h; sourceTree = "<group>"; };
+		3A88167F1CDE050400472531 /* BBBlocksRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksRouter.m; sourceTree = "<group>"; };
+		3A8816801CDE050400472531 /* BBBlocksRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksRouterInput.h; sourceTree = "<group>"; };
+		3A8816821CDE050400472531 /* BBBlocksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewController.h; sourceTree = "<group>"; };
+		3A8816831CDE050400472531 /* BBBlocksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksViewController.m; sourceTree = "<group>"; };
+		3A8816841CDE050400472531 /* BBBlocksViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewInput.h; sourceTree = "<group>"; };
+		3A8816851CDE050400472531 /* BBBlocksViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewOutput.h; sourceTree = "<group>"; };
+		3A8816871CDE050400472531 /* BBBlockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlockTableViewCell.h; sourceTree = "<group>"; };
+		3A8816881CDE050400472531 /* BBBlockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlockTableViewCell.m; sourceTree = "<group>"; };
+		3A8816891CDE050400472531 /* BBBlockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBBlockTableViewCell.xib; sourceTree = "<group>"; };
+		3A88168C1CDE050400472531 /* BBCardProgramAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramAssembly.h; sourceTree = "<group>"; };
+		3A88168D1CDE050400472531 /* BBCardProgramAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramAssembly.m; sourceTree = "<group>"; };
+		3A88168F1CDE050400472531 /* BBCardProgramInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramInteractor.h; sourceTree = "<group>"; };
+		3A8816901CDE050400472531 /* BBCardProgramInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramInteractor.m; sourceTree = "<group>"; };
+		3A8816911CDE050400472531 /* BBCardProgramInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramInteractorInput.h; sourceTree = "<group>"; };
+		3A8816921CDE050400472531 /* BBCardProgramInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramInteractorOutput.h; sourceTree = "<group>"; };
+		3A8816941CDE050400472531 /* BBCardProgramModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramModuleInput.h; sourceTree = "<group>"; };
+		3A8816951CDE050400472531 /* BBCardProgramPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramPresenter.h; sourceTree = "<group>"; };
+		3A8816961CDE050400472531 /* BBCardProgramPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramPresenter.m; sourceTree = "<group>"; };
+		3A8816981CDE050400472531 /* BBCardProgramRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramRouter.h; sourceTree = "<group>"; };
+		3A8816991CDE050400472531 /* BBCardProgramRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramRouter.m; sourceTree = "<group>"; };
+		3A88169A1CDE050400472531 /* BBCardProgramRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramRouterInput.h; sourceTree = "<group>"; };
+		3A88169C1CDE050400472531 /* BBCardProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramViewController.h; sourceTree = "<group>"; };
+		3A88169D1CDE050400472531 /* BBCardProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramViewController.m; sourceTree = "<group>"; };
+		3A88169E1CDE050400472531 /* BBCardProgramViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramViewInput.h; sourceTree = "<group>"; };
+		3A88169F1CDE050400472531 /* BBCardProgramViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramViewOutput.h; sourceTree = "<group>"; };
+		3A8816A11CDE050400472531 /* BBDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		3A8816A21CDE050400472531 /* BBDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDescriptionTableViewCell.m; sourceTree = "<group>"; };
+		3A8816A31CDE050400472531 /* BBDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		3A8816A41CDE050400472531 /* BBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGradientView.h; sourceTree = "<group>"; };
+		3A8816A51CDE050400472531 /* BBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGradientView.m; sourceTree = "<group>"; };
+		3A8816A61CDE050400472531 /* BBHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderTableViewCell.h; sourceTree = "<group>"; };
+		3A8816A71CDE050400472531 /* BBHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBHeaderTableViewCell.m; sourceTree = "<group>"; };
+		3A8816A81CDE050400472531 /* BBHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		3A8816A91CDE050400472531 /* BBMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMenuTableViewCell.h; sourceTree = "<group>"; };
+		3A8816AA1CDE050400472531 /* BBMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMenuTableViewCell.m; sourceTree = "<group>"; };
+		3A8816AB1CDE050400472531 /* BBMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuTableViewCell.xib; sourceTree = "<group>"; };
+		3A8816AC1CDE050400472531 /* BBNumderDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNumderDayTableViewCell.h; sourceTree = "<group>"; };
+		3A8816AD1CDE050400472531 /* BBNumderDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNumderDayTableViewCell.m; sourceTree = "<group>"; };
+		3A8816AE1CDE050400472531 /* BBNumderDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNumderDayTableViewCell.xib; sourceTree = "<group>"; };
+		3A8816AF1CDE050400472531 /* BBPartDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPartDayTableViewCell.h; sourceTree = "<group>"; };
+		3A8816B01CDE050400472531 /* BBPartDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPartDayTableViewCell.m; sourceTree = "<group>"; };
+		3A8816B11CDE050400472531 /* BBPartDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPartDayTableViewCell.xib; sourceTree = "<group>"; };
+		3A8816B41CDE050400472531 /* BBProgramsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsAssembly.h; sourceTree = "<group>"; };
+		3A8816B51CDE050400472531 /* BBProgramsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsAssembly.m; sourceTree = "<group>"; };
+		3A8816B71CDE050400472531 /* BBProgramsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsInteractor.h; sourceTree = "<group>"; };
+		3A8816B81CDE050400472531 /* BBProgramsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsInteractor.m; sourceTree = "<group>"; };
+		3A8816B91CDE050400472531 /* BBProgramsInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsInteractorInput.h; sourceTree = "<group>"; };
+		3A8816BA1CDE050400472531 /* BBProgramsInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsInteractorOutput.h; sourceTree = "<group>"; };
+		3A8816BC1CDE050400472531 /* BBProgramsModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsModuleInput.h; sourceTree = "<group>"; };
+		3A8816BD1CDE050400472531 /* BBProgramsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsPresenter.h; sourceTree = "<group>"; };
+		3A8816BE1CDE050400472531 /* BBProgramsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsPresenter.m; sourceTree = "<group>"; };
+		3A8816C01CDE050400472531 /* BBProgramsRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsRouter.h; sourceTree = "<group>"; };
+		3A8816C11CDE050400472531 /* BBProgramsRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsRouter.m; sourceTree = "<group>"; };
+		3A8816C21CDE050400472531 /* BBProgramsRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsRouterInput.h; sourceTree = "<group>"; };
+		3A8816C41CDE050400472531 /* BBProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewController.h; sourceTree = "<group>"; };
+		3A8816C51CDE050400472531 /* BBProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsViewController.m; sourceTree = "<group>"; };
+		3A8816C61CDE050400472531 /* BBProgramsViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewInput.h; sourceTree = "<group>"; };
+		3A8816C71CDE050400472531 /* BBProgramsViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewOutput.h; sourceTree = "<group>"; };
+		3A8816C91CDE050400472531 /* BBProgramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramView.h; sourceTree = "<group>"; };
+		3A8816CA1CDE050400472531 /* BBProgramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramView.m; sourceTree = "<group>"; };
+		3A8816CB1CDE050400472531 /* BBProgramView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBProgramView.xib; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
@@ -217,77 +309,6 @@
 		3AFCE33F1CDD2EA200995DB5 /* BBRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRegistrationViewController.m; sourceTree = "<group>"; };
 		3AFCE3401CDD2EA200995DB5 /* BBRegistrationViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRegistrationViewInput.h; sourceTree = "<group>"; };
 		3AFCE3411CDD2EA200995DB5 /* BBRegistrationViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRegistrationViewOutput.h; sourceTree = "<group>"; };
-		3AFCE3451CDD2EA300995DB5 /* BBBlocksAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksAssembly.h; sourceTree = "<group>"; };
-		3AFCE3461CDD2EA300995DB5 /* BBBlocksAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksAssembly.m; sourceTree = "<group>"; };
-		3AFCE3481CDD2EA300995DB5 /* BBBlocksInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractor.h; sourceTree = "<group>"; };
-		3AFCE3491CDD2EA300995DB5 /* BBBlocksInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksInteractor.m; sourceTree = "<group>"; };
-		3AFCE34A1CDD2EA300995DB5 /* BBBlocksInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractorInput.h; sourceTree = "<group>"; };
-		3AFCE34B1CDD2EA300995DB5 /* BBBlocksInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksInteractorOutput.h; sourceTree = "<group>"; };
-		3AFCE34D1CDD2EA300995DB5 /* BBBlocksModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksModuleInput.h; sourceTree = "<group>"; };
-		3AFCE34E1CDD2EA300995DB5 /* BBBlocksPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksPresenter.h; sourceTree = "<group>"; };
-		3AFCE34F1CDD2EA300995DB5 /* BBBlocksPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksPresenter.m; sourceTree = "<group>"; };
-		3AFCE3511CDD2EA300995DB5 /* BBBlocksRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksRouter.h; sourceTree = "<group>"; };
-		3AFCE3521CDD2EA300995DB5 /* BBBlocksRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksRouter.m; sourceTree = "<group>"; };
-		3AFCE3531CDD2EA300995DB5 /* BBBlocksRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksRouterInput.h; sourceTree = "<group>"; };
-		3AFCE3551CDD2EA300995DB5 /* BBBlocksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewController.h; sourceTree = "<group>"; };
-		3AFCE3561CDD2EA300995DB5 /* BBBlocksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlocksViewController.m; sourceTree = "<group>"; };
-		3AFCE3571CDD2EA300995DB5 /* BBBlocksViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewInput.h; sourceTree = "<group>"; };
-		3AFCE3581CDD2EA300995DB5 /* BBBlocksViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlocksViewOutput.h; sourceTree = "<group>"; };
-		3AFCE35A1CDD2EA300995DB5 /* BBBlockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlockTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE35B1CDD2EA300995DB5 /* BBBlockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlockTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE35C1CDD2EA300995DB5 /* BBBlockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBBlockTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE35F1CDD2EA300995DB5 /* BBCardProgramAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramAssembly.h; sourceTree = "<group>"; };
-		3AFCE3601CDD2EA300995DB5 /* BBCardProgramAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramAssembly.m; sourceTree = "<group>"; };
-		3AFCE3621CDD2EA300995DB5 /* BBCardProgramInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramInteractor.h; sourceTree = "<group>"; };
-		3AFCE3631CDD2EA300995DB5 /* BBCardProgramInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramInteractor.m; sourceTree = "<group>"; };
-		3AFCE3641CDD2EA300995DB5 /* BBCardProgramInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramInteractorInput.h; sourceTree = "<group>"; };
-		3AFCE3651CDD2EA300995DB5 /* BBCardProgramInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramInteractorOutput.h; sourceTree = "<group>"; };
-		3AFCE3671CDD2EA300995DB5 /* BBCardProgramModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramModuleInput.h; sourceTree = "<group>"; };
-		3AFCE3681CDD2EA300995DB5 /* BBCardProgramPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramPresenter.h; sourceTree = "<group>"; };
-		3AFCE3691CDD2EA300995DB5 /* BBCardProgramPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramPresenter.m; sourceTree = "<group>"; };
-		3AFCE36B1CDD2EA300995DB5 /* BBCardProgramRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramRouter.h; sourceTree = "<group>"; };
-		3AFCE36C1CDD2EA300995DB5 /* BBCardProgramRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramRouter.m; sourceTree = "<group>"; };
-		3AFCE36D1CDD2EA300995DB5 /* BBCardProgramRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramRouterInput.h; sourceTree = "<group>"; };
-		3AFCE36F1CDD2EA300995DB5 /* BBCardProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramViewController.h; sourceTree = "<group>"; };
-		3AFCE3701CDD2EA300995DB5 /* BBCardProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCardProgramViewController.m; sourceTree = "<group>"; };
-		3AFCE3711CDD2EA300995DB5 /* BBCardProgramViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramViewInput.h; sourceTree = "<group>"; };
-		3AFCE3721CDD2EA300995DB5 /* BBCardProgramViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCardProgramViewOutput.h; sourceTree = "<group>"; };
-		3AFCE3741CDD2EA300995DB5 /* BBDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDescriptionTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE3751CDD2EA300995DB5 /* BBDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDescriptionTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE3761CDD2EA300995DB5 /* BBDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBDescriptionTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE3771CDD2EA300995DB5 /* BBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGradientView.h; sourceTree = "<group>"; };
-		3AFCE3781CDD2EA300995DB5 /* BBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGradientView.m; sourceTree = "<group>"; };
-		3AFCE3791CDD2EA300995DB5 /* BBHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE37A1CDD2EA300995DB5 /* BBHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBHeaderTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE37B1CDD2EA300995DB5 /* BBHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBHeaderTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE37C1CDD2EA300995DB5 /* BBMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMenuTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE37D1CDD2EA300995DB5 /* BBMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMenuTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE37E1CDD2EA300995DB5 /* BBMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMenuTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE37F1CDD2EA300995DB5 /* BBNumderDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNumderDayTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE3801CDD2EA300995DB5 /* BBNumderDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNumderDayTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE3811CDD2EA300995DB5 /* BBNumderDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNumderDayTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE3821CDD2EA300995DB5 /* BBPartDayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPartDayTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE3831CDD2EA300995DB5 /* BBPartDayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPartDayTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE3841CDD2EA300995DB5 /* BBPartDayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPartDayTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE3871CDD2EA300995DB5 /* BBProgramsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsAssembly.h; sourceTree = "<group>"; };
-		3AFCE3881CDD2EA300995DB5 /* BBProgramsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsAssembly.m; sourceTree = "<group>"; };
-		3AFCE38A1CDD2EA300995DB5 /* BBProgramsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsInteractor.h; sourceTree = "<group>"; };
-		3AFCE38B1CDD2EA300995DB5 /* BBProgramsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsInteractor.m; sourceTree = "<group>"; };
-		3AFCE38C1CDD2EA300995DB5 /* BBProgramsInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsInteractorInput.h; sourceTree = "<group>"; };
-		3AFCE38D1CDD2EA300995DB5 /* BBProgramsInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsInteractorOutput.h; sourceTree = "<group>"; };
-		3AFCE38F1CDD2EA300995DB5 /* BBProgramsModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsModuleInput.h; sourceTree = "<group>"; };
-		3AFCE3901CDD2EA300995DB5 /* BBProgramsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsPresenter.h; sourceTree = "<group>"; };
-		3AFCE3911CDD2EA300995DB5 /* BBProgramsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsPresenter.m; sourceTree = "<group>"; };
-		3AFCE3931CDD2EA300995DB5 /* BBProgramsRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsRouter.h; sourceTree = "<group>"; };
-		3AFCE3941CDD2EA300995DB5 /* BBProgramsRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsRouter.m; sourceTree = "<group>"; };
-		3AFCE3951CDD2EA300995DB5 /* BBProgramsRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsRouterInput.h; sourceTree = "<group>"; };
-		3AFCE3971CDD2EA300995DB5 /* BBProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewController.h; sourceTree = "<group>"; };
-		3AFCE3981CDD2EA300995DB5 /* BBProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsViewController.m; sourceTree = "<group>"; };
-		3AFCE3991CDD2EA300995DB5 /* BBProgramsViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewInput.h; sourceTree = "<group>"; };
-		3AFCE39A1CDD2EA300995DB5 /* BBProgramsViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewOutput.h; sourceTree = "<group>"; };
-		3AFCE39C1CDD2EA300995DB5 /* BBProgramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramView.h; sourceTree = "<group>"; };
-		3AFCE39D1CDD2EA300995DB5 /* BBProgramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramView.m; sourceTree = "<group>"; };
-		3AFCE39E1CDD2EA300995DB5 /* BBProgramView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBProgramView.xib; sourceTree = "<group>"; };
 		3AFCE3A21CDD2EA300995DB5 /* BBNavigationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationAssembly.h; sourceTree = "<group>"; };
 		3AFCE3A31CDD2EA300995DB5 /* BBNavigationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationAssembly.m; sourceTree = "<group>"; };
 		3AFCE3A51CDD2EA300995DB5 /* BBNavigationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationInteractor.h; sourceTree = "<group>"; };
@@ -596,6 +617,316 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		3A8816591CDE050400472531 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				3A88165A1CDE050400472531 /* Basket */,
+				3A8816701CDE050400472531 /* Blocks */,
+				3A8816B21CDE050400472531 /* Programs */,
+				3A88168A1CDE050400472531 /* CardProgram */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		3A88165A1CDE050400472531 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				3A88165B1CDE050400472531 /* Assembly */,
+				3A88166B1CDE050400472531 /* View */,
+				3A8816631CDE050400472531 /* Presenter */,
+				3A88165E1CDE050400472531 /* Interactor */,
+				3A8816671CDE050400472531 /* Router */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		3A88165B1CDE050400472531 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A88165C1CDE050400472531 /* BBBasketAssembly.h */,
+				3A88165D1CDE050400472531 /* BBBasketAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A88165E1CDE050400472531 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A88165F1CDE050400472531 /* BBBasketInteractor.h */,
+				3A8816601CDE050400472531 /* BBBasketInteractor.m */,
+				3A8816611CDE050400472531 /* BBBasketInteractorInput.h */,
+				3A8816621CDE050400472531 /* BBBasketInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A8816631CDE050400472531 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816641CDE050400472531 /* BBBasketModuleInput.h */,
+				3A8816651CDE050400472531 /* BBBasketPresenter.h */,
+				3A8816661CDE050400472531 /* BBBasketPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A8816671CDE050400472531 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A88166A1CDE050400472531 /* BBBasketRouterInput.h */,
+				3A8816681CDE050400472531 /* BBBasketRouter.h */,
+				3A8816691CDE050400472531 /* BBBasketRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A88166B1CDE050400472531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A88166E1CDE050400472531 /* BBBasketViewInput.h */,
+				3A88166F1CDE050400472531 /* BBBasketViewOutput.h */,
+				3A88166C1CDE050400472531 /* BBBasketViewController.h */,
+				3A88166D1CDE050400472531 /* BBBasketViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A8816701CDE050400472531 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816711CDE050400472531 /* Assembly */,
+				3A8816811CDE050400472531 /* View */,
+				3A8816791CDE050400472531 /* Presenter */,
+				3A8816741CDE050400472531 /* Interactor */,
+				3A88167D1CDE050400472531 /* Router */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		3A8816711CDE050400472531 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816721CDE050400472531 /* BBBlocksAssembly.h */,
+				3A8816731CDE050400472531 /* BBBlocksAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A8816741CDE050400472531 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816751CDE050400472531 /* BBBlocksInteractor.h */,
+				3A8816761CDE050400472531 /* BBBlocksInteractor.m */,
+				3A8816771CDE050400472531 /* BBBlocksInteractorInput.h */,
+				3A8816781CDE050400472531 /* BBBlocksInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A8816791CDE050400472531 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A88167A1CDE050400472531 /* BBBlocksModuleInput.h */,
+				3A88167B1CDE050400472531 /* BBBlocksPresenter.h */,
+				3A88167C1CDE050400472531 /* BBBlocksPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A88167D1CDE050400472531 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A88167E1CDE050400472531 /* BBBlocksRouter.h */,
+				3A88167F1CDE050400472531 /* BBBlocksRouter.m */,
+				3A8816801CDE050400472531 /* BBBlocksRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A8816811CDE050400472531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816841CDE050400472531 /* BBBlocksViewInput.h */,
+				3A8816851CDE050400472531 /* BBBlocksViewOutput.h */,
+				3A8816821CDE050400472531 /* BBBlocksViewController.h */,
+				3A8816831CDE050400472531 /* BBBlocksViewController.m */,
+				3A8816861CDE050400472531 /* VIews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A8816861CDE050400472531 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816871CDE050400472531 /* BBBlockTableViewCell.h */,
+				3A8816881CDE050400472531 /* BBBlockTableViewCell.m */,
+				3A8816891CDE050400472531 /* BBBlockTableViewCell.xib */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		3A88168A1CDE050400472531 /* CardProgram */ = {
+			isa = PBXGroup;
+			children = (
+				3A88168B1CDE050400472531 /* Assembly */,
+				3A88168E1CDE050400472531 /* Interactor */,
+				3A8816931CDE050400472531 /* Presenter */,
+				3A8816971CDE050400472531 /* Router */,
+				3A88169B1CDE050400472531 /* View */,
+			);
+			path = CardProgram;
+			sourceTree = "<group>";
+		};
+		3A88168B1CDE050400472531 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A88168C1CDE050400472531 /* BBCardProgramAssembly.h */,
+				3A88168D1CDE050400472531 /* BBCardProgramAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A88168E1CDE050400472531 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A88168F1CDE050400472531 /* BBCardProgramInteractor.h */,
+				3A8816901CDE050400472531 /* BBCardProgramInteractor.m */,
+				3A8816911CDE050400472531 /* BBCardProgramInteractorInput.h */,
+				3A8816921CDE050400472531 /* BBCardProgramInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A8816931CDE050400472531 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816941CDE050400472531 /* BBCardProgramModuleInput.h */,
+				3A8816951CDE050400472531 /* BBCardProgramPresenter.h */,
+				3A8816961CDE050400472531 /* BBCardProgramPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A8816971CDE050400472531 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A88169A1CDE050400472531 /* BBCardProgramRouterInput.h */,
+				3A8816981CDE050400472531 /* BBCardProgramRouter.h */,
+				3A8816991CDE050400472531 /* BBCardProgramRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A88169B1CDE050400472531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A88169E1CDE050400472531 /* BBCardProgramViewInput.h */,
+				3A88169F1CDE050400472531 /* BBCardProgramViewOutput.h */,
+				3A88169C1CDE050400472531 /* BBCardProgramViewController.h */,
+				3A88169D1CDE050400472531 /* BBCardProgramViewController.m */,
+				3A8816A01CDE050400472531 /* VIews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A8816A01CDE050400472531 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816A11CDE050400472531 /* BBDescriptionTableViewCell.h */,
+				3A8816A21CDE050400472531 /* BBDescriptionTableViewCell.m */,
+				3A8816A31CDE050400472531 /* BBDescriptionTableViewCell.xib */,
+				3A8816A41CDE050400472531 /* BBGradientView.h */,
+				3A8816A51CDE050400472531 /* BBGradientView.m */,
+				3A8816A61CDE050400472531 /* BBHeaderTableViewCell.h */,
+				3A8816A71CDE050400472531 /* BBHeaderTableViewCell.m */,
+				3A8816A81CDE050400472531 /* BBHeaderTableViewCell.xib */,
+				3A8816A91CDE050400472531 /* BBMenuTableViewCell.h */,
+				3A8816AA1CDE050400472531 /* BBMenuTableViewCell.m */,
+				3A8816AB1CDE050400472531 /* BBMenuTableViewCell.xib */,
+				3A8816AC1CDE050400472531 /* BBNumderDayTableViewCell.h */,
+				3A8816AD1CDE050400472531 /* BBNumderDayTableViewCell.m */,
+				3A8816AE1CDE050400472531 /* BBNumderDayTableViewCell.xib */,
+				3A8816AF1CDE050400472531 /* BBPartDayTableViewCell.h */,
+				3A8816B01CDE050400472531 /* BBPartDayTableViewCell.m */,
+				3A8816B11CDE050400472531 /* BBPartDayTableViewCell.xib */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		3A8816B21CDE050400472531 /* Programs */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816B31CDE050400472531 /* Assembly */,
+				3A8816B61CDE050400472531 /* Interactor */,
+				3A8816BB1CDE050400472531 /* Presenter */,
+				3A8816BF1CDE050400472531 /* Router */,
+				3A8816C31CDE050400472531 /* View */,
+			);
+			path = Programs;
+			sourceTree = "<group>";
+		};
+		3A8816B31CDE050400472531 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816B41CDE050400472531 /* BBProgramsAssembly.h */,
+				3A8816B51CDE050400472531 /* BBProgramsAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A8816B61CDE050400472531 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816B71CDE050400472531 /* BBProgramsInteractor.h */,
+				3A8816B81CDE050400472531 /* BBProgramsInteractor.m */,
+				3A8816B91CDE050400472531 /* BBProgramsInteractorInput.h */,
+				3A8816BA1CDE050400472531 /* BBProgramsInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A8816BB1CDE050400472531 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816BC1CDE050400472531 /* BBProgramsModuleInput.h */,
+				3A8816BD1CDE050400472531 /* BBProgramsPresenter.h */,
+				3A8816BE1CDE050400472531 /* BBProgramsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A8816BF1CDE050400472531 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816C01CDE050400472531 /* BBProgramsRouter.h */,
+				3A8816C11CDE050400472531 /* BBProgramsRouter.m */,
+				3A8816C21CDE050400472531 /* BBProgramsRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A8816C31CDE050400472531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816C61CDE050400472531 /* BBProgramsViewInput.h */,
+				3A8816C71CDE050400472531 /* BBProgramsViewOutput.h */,
+				3A8816C41CDE050400472531 /* BBProgramsViewController.h */,
+				3A8816C51CDE050400472531 /* BBProgramsViewController.m */,
+				3A8816C81CDE050400472531 /* Views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A8816C81CDE050400472531 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816C91CDE050400472531 /* BBProgramView.h */,
+				3A8816CA1CDE050400472531 /* BBProgramView.m */,
+				3A8816CB1CDE050400472531 /* BBProgramView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3AC988631CAB1FD80069DE52 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,9 +995,9 @@
 		3AFCE30D1CDD2EA200995DB5 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
-				3AFCE30E1CDD2EA200995DB5 /* Auth */,
-				3AFCE3421CDD2EA200995DB5 /* Blocks */,
 				3AFCE39F1CDD2EA300995DB5 /* Navigation Bars */,
+				3AFCE30E1CDD2EA200995DB5 /* Auth */,
+				3A8816591CDE050400472531 /* Blocks */,
 				3AFCE3D01CDD2EA300995DB5 /* Orders */,
 				3AFCE4651CDD2EA300995DB5 /* Support */,
 				3AFCE41E1CDD2EA300995DB5 /* Profile */,
@@ -821,252 +1152,6 @@
 				3AFCE3411CDD2EA200995DB5 /* BBRegistrationViewOutput.h */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE3421CDD2EA200995DB5 /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3431CDD2EA300995DB5 /* Blocks */,
-				3AFCE35D1CDD2EA300995DB5 /* CardProgram */,
-				3AFCE3851CDD2EA300995DB5 /* Programs */,
-			);
-			path = Blocks;
-			sourceTree = "<group>";
-		};
-		3AFCE3431CDD2EA300995DB5 /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3441CDD2EA300995DB5 /* Assembly */,
-				3AFCE3471CDD2EA300995DB5 /* Interactor */,
-				3AFCE34C1CDD2EA300995DB5 /* Presenter */,
-				3AFCE3501CDD2EA300995DB5 /* Router */,
-				3AFCE3541CDD2EA300995DB5 /* View */,
-			);
-			path = Blocks;
-			sourceTree = "<group>";
-		};
-		3AFCE3441CDD2EA300995DB5 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3451CDD2EA300995DB5 /* BBBlocksAssembly.h */,
-				3AFCE3461CDD2EA300995DB5 /* BBBlocksAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		3AFCE3471CDD2EA300995DB5 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3481CDD2EA300995DB5 /* BBBlocksInteractor.h */,
-				3AFCE3491CDD2EA300995DB5 /* BBBlocksInteractor.m */,
-				3AFCE34A1CDD2EA300995DB5 /* BBBlocksInteractorInput.h */,
-				3AFCE34B1CDD2EA300995DB5 /* BBBlocksInteractorOutput.h */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3AFCE34C1CDD2EA300995DB5 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE34D1CDD2EA300995DB5 /* BBBlocksModuleInput.h */,
-				3AFCE34E1CDD2EA300995DB5 /* BBBlocksPresenter.h */,
-				3AFCE34F1CDD2EA300995DB5 /* BBBlocksPresenter.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3AFCE3501CDD2EA300995DB5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3511CDD2EA300995DB5 /* BBBlocksRouter.h */,
-				3AFCE3521CDD2EA300995DB5 /* BBBlocksRouter.m */,
-				3AFCE3531CDD2EA300995DB5 /* BBBlocksRouterInput.h */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3AFCE3541CDD2EA300995DB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3551CDD2EA300995DB5 /* BBBlocksViewController.h */,
-				3AFCE3561CDD2EA300995DB5 /* BBBlocksViewController.m */,
-				3AFCE3571CDD2EA300995DB5 /* BBBlocksViewInput.h */,
-				3AFCE3581CDD2EA300995DB5 /* BBBlocksViewOutput.h */,
-				3AFCE3591CDD2EA300995DB5 /* VIews */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE3591CDD2EA300995DB5 /* VIews */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE35A1CDD2EA300995DB5 /* BBBlockTableViewCell.h */,
-				3AFCE35B1CDD2EA300995DB5 /* BBBlockTableViewCell.m */,
-				3AFCE35C1CDD2EA300995DB5 /* BBBlockTableViewCell.xib */,
-			);
-			path = VIews;
-			sourceTree = "<group>";
-		};
-		3AFCE35D1CDD2EA300995DB5 /* CardProgram */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE35E1CDD2EA300995DB5 /* Assembly */,
-				3AFCE3611CDD2EA300995DB5 /* Interactor */,
-				3AFCE3661CDD2EA300995DB5 /* Presenter */,
-				3AFCE36A1CDD2EA300995DB5 /* Router */,
-				3AFCE36E1CDD2EA300995DB5 /* View */,
-			);
-			path = CardProgram;
-			sourceTree = "<group>";
-		};
-		3AFCE35E1CDD2EA300995DB5 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE35F1CDD2EA300995DB5 /* BBCardProgramAssembly.h */,
-				3AFCE3601CDD2EA300995DB5 /* BBCardProgramAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		3AFCE3611CDD2EA300995DB5 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3621CDD2EA300995DB5 /* BBCardProgramInteractor.h */,
-				3AFCE3631CDD2EA300995DB5 /* BBCardProgramInteractor.m */,
-				3AFCE3641CDD2EA300995DB5 /* BBCardProgramInteractorInput.h */,
-				3AFCE3651CDD2EA300995DB5 /* BBCardProgramInteractorOutput.h */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3AFCE3661CDD2EA300995DB5 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3671CDD2EA300995DB5 /* BBCardProgramModuleInput.h */,
-				3AFCE3681CDD2EA300995DB5 /* BBCardProgramPresenter.h */,
-				3AFCE3691CDD2EA300995DB5 /* BBCardProgramPresenter.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3AFCE36A1CDD2EA300995DB5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE36B1CDD2EA300995DB5 /* BBCardProgramRouter.h */,
-				3AFCE36C1CDD2EA300995DB5 /* BBCardProgramRouter.m */,
-				3AFCE36D1CDD2EA300995DB5 /* BBCardProgramRouterInput.h */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3AFCE36E1CDD2EA300995DB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE36F1CDD2EA300995DB5 /* BBCardProgramViewController.h */,
-				3AFCE3701CDD2EA300995DB5 /* BBCardProgramViewController.m */,
-				3AFCE3711CDD2EA300995DB5 /* BBCardProgramViewInput.h */,
-				3AFCE3721CDD2EA300995DB5 /* BBCardProgramViewOutput.h */,
-				3AFCE3731CDD2EA300995DB5 /* VIews */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE3731CDD2EA300995DB5 /* VIews */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3741CDD2EA300995DB5 /* BBDescriptionTableViewCell.h */,
-				3AFCE3751CDD2EA300995DB5 /* BBDescriptionTableViewCell.m */,
-				3AFCE3761CDD2EA300995DB5 /* BBDescriptionTableViewCell.xib */,
-				3AFCE3771CDD2EA300995DB5 /* BBGradientView.h */,
-				3AFCE3781CDD2EA300995DB5 /* BBGradientView.m */,
-				3AFCE3791CDD2EA300995DB5 /* BBHeaderTableViewCell.h */,
-				3AFCE37A1CDD2EA300995DB5 /* BBHeaderTableViewCell.m */,
-				3AFCE37B1CDD2EA300995DB5 /* BBHeaderTableViewCell.xib */,
-				3AFCE37C1CDD2EA300995DB5 /* BBMenuTableViewCell.h */,
-				3AFCE37D1CDD2EA300995DB5 /* BBMenuTableViewCell.m */,
-				3AFCE37E1CDD2EA300995DB5 /* BBMenuTableViewCell.xib */,
-				3AFCE37F1CDD2EA300995DB5 /* BBNumderDayTableViewCell.h */,
-				3AFCE3801CDD2EA300995DB5 /* BBNumderDayTableViewCell.m */,
-				3AFCE3811CDD2EA300995DB5 /* BBNumderDayTableViewCell.xib */,
-				3AFCE3821CDD2EA300995DB5 /* BBPartDayTableViewCell.h */,
-				3AFCE3831CDD2EA300995DB5 /* BBPartDayTableViewCell.m */,
-				3AFCE3841CDD2EA300995DB5 /* BBPartDayTableViewCell.xib */,
-			);
-			path = VIews;
-			sourceTree = "<group>";
-		};
-		3AFCE3851CDD2EA300995DB5 /* Programs */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3861CDD2EA300995DB5 /* Assembly */,
-				3AFCE3891CDD2EA300995DB5 /* Interactor */,
-				3AFCE38E1CDD2EA300995DB5 /* Presenter */,
-				3AFCE3921CDD2EA300995DB5 /* Router */,
-				3AFCE3961CDD2EA300995DB5 /* View */,
-			);
-			path = Programs;
-			sourceTree = "<group>";
-		};
-		3AFCE3861CDD2EA300995DB5 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3871CDD2EA300995DB5 /* BBProgramsAssembly.h */,
-				3AFCE3881CDD2EA300995DB5 /* BBProgramsAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		3AFCE3891CDD2EA300995DB5 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE38A1CDD2EA300995DB5 /* BBProgramsInteractor.h */,
-				3AFCE38B1CDD2EA300995DB5 /* BBProgramsInteractor.m */,
-				3AFCE38C1CDD2EA300995DB5 /* BBProgramsInteractorInput.h */,
-				3AFCE38D1CDD2EA300995DB5 /* BBProgramsInteractorOutput.h */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3AFCE38E1CDD2EA300995DB5 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE38F1CDD2EA300995DB5 /* BBProgramsModuleInput.h */,
-				3AFCE3901CDD2EA300995DB5 /* BBProgramsPresenter.h */,
-				3AFCE3911CDD2EA300995DB5 /* BBProgramsPresenter.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3AFCE3921CDD2EA300995DB5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3931CDD2EA300995DB5 /* BBProgramsRouter.h */,
-				3AFCE3941CDD2EA300995DB5 /* BBProgramsRouter.m */,
-				3AFCE3951CDD2EA300995DB5 /* BBProgramsRouterInput.h */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3AFCE3961CDD2EA300995DB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3971CDD2EA300995DB5 /* BBProgramsViewController.h */,
-				3AFCE3981CDD2EA300995DB5 /* BBProgramsViewController.m */,
-				3AFCE3991CDD2EA300995DB5 /* BBProgramsViewInput.h */,
-				3AFCE39A1CDD2EA300995DB5 /* BBProgramsViewOutput.h */,
-				3AFCE39B1CDD2EA300995DB5 /* Views */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE39B1CDD2EA300995DB5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE39C1CDD2EA300995DB5 /* BBProgramView.h */,
-				3AFCE39D1CDD2EA300995DB5 /* BBProgramView.m */,
-				3AFCE39E1CDD2EA300995DB5 /* BBProgramView.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		3AFCE39F1CDD2EA300995DB5 /* Navigation Bars */ = {
@@ -1786,24 +1871,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
-				3AFCE49A1CDD2EA300995DB5 /* BBHeaderTableViewCell.xib in Resources */,
 				3AFCE4841CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
+				3A8816E71CDE050400472531 /* BBPartDayTableViewCell.xib in Resources */,
 				3A8816521CDDE87B00472531 /* BBTextTableViewCell.xib in Resources */,
-				3AFCE49C1CDD2EA300995DB5 /* BBMenuTableViewCell.xib in Resources */,
+				3A8816E31CDE050400472531 /* BBMenuTableViewCell.xib in Resources */,
 				3AFCE4C31CDD2EA300995DB5 /* BBCalendarMenuView.xib in Resources */,
+				3A8816D71CDE050400472531 /* BBBlockTableViewCell.xib in Resources */,
+				3A8816E51CDE050400472531 /* BBNumderDayTableViewCell.xib in Resources */,
+				3A8816EE1CDE050400472531 /* BBProgramView.xib in Resources */,
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
 				3AFCE4C71CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib in Resources */,
 				3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */,
-				3AFCE4971CDD2EA300995DB5 /* BBDescriptionTableViewCell.xib in Resources */,
-				3AFCE49E1CDD2EA300995DB5 /* BBNumderDayTableViewCell.xib in Resources */,
 				3AFCE4C51CDD2EA300995DB5 /* BBCalendarTableViewCell.xib in Resources */,
+				3A8816DE1CDE050400472531 /* BBDescriptionTableViewCell.xib in Resources */,
 				3A8816571CDDF12900472531 /* BBCommentTableViewCell.xib in Resources */,
-				3AFCE4A01CDD2EA300995DB5 /* BBPartDayTableViewCell.xib in Resources */,
-				3AFCE4901CDD2EA300995DB5 /* BBBlockTableViewCell.xib in Resources */,
+				3A8816E11CDE050400472531 /* BBHeaderTableViewCell.xib in Resources */,
 				3A8816501CDDE87B00472531 /* BBMyProgramTableViewCell.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
-				3AFCE4A71CDD2EA300995DB5 /* BBProgramView.xib in Resources */,
 				3AFCE4821CDD2EA300995DB5 /* BBInfoRegistTableViewCell.xib in Resources */,
 				3AFCE4CE1CDD2EA300995DB5 /* BBProfileTableViewCell.xib in Resources */,
 			);
@@ -1877,23 +1962,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8816D01CDE050400472531 /* BBBasketViewController.m in Sources */,
+				3A8816DF1CDE050400472531 /* BBGradientView.m in Sources */,
+				3A8816DC1CDE050400472531 /* BBCardProgramViewController.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
-				3AFCE4951CDD2EA300995DB5 /* BBCardProgramViewController.m in Sources */,
+				3A8816DA1CDE050400472531 /* BBCardProgramPresenter.m in Sources */,
 				3AFCE4B81CDD2EA300995DB5 /* BBNewOrderAssembly.m in Sources */,
 				3AFCE4B31CDD2EA300995DB5 /* BBMyProgramsAssembly.m in Sources */,
 				3AFCE4B41CDD2EA300995DB5 /* BBMyProgramsInteractor.m in Sources */,
 				3A88164F1CDDE87B00472531 /* BBMyProgramTableViewCell.m in Sources */,
+				3A8816E21CDE050400472531 /* BBMenuTableViewCell.m in Sources */,
 				3AFCE4D31CDD2EA300995DB5 /* BBSettingsViewController.m in Sources */,
 				3AFCE4D11CDD2EA300995DB5 /* BBSettingsPresenter.m in Sources */,
+				3A8816ED1CDE050400472531 /* BBProgramView.m in Sources */,
 				3AFCE4891CDD2EA300995DB5 /* BBRegistrationViewController.m in Sources */,
 				3AFCE4DA1CDD2EA300995DB5 /* BBSupportInteractor.m in Sources */,
-				3AFCE4A21CDD2EA300995DB5 /* BBProgramsInteractor.m in Sources */,
-				3AFCE48C1CDD2EA300995DB5 /* BBBlocksPresenter.m in Sources */,
-				3AFCE4941CDD2EA300995DB5 /* BBCardProgramRouter.m in Sources */,
+				3A8816DB1CDE050400472531 /* BBCardProgramRouter.m in Sources */,
+				3A8816EA1CDE050400472531 /* BBProgramsPresenter.m in Sources */,
+				3A8816D81CDE050400472531 /* BBCardProgramAssembly.m in Sources */,
 				3AFCE4811CDD2EA300995DB5 /* BBInfoRegistTableViewCell.m in Sources */,
 				3AFCE4BB1CDD2EA300995DB5 /* BBNewOrderRouter.m in Sources */,
 				3AFCE47D1CDD2EA300995DB5 /* BBAuthorizationInteractor.m in Sources */,
 				3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */,
+				3A8816D31CDE050400472531 /* BBBlocksPresenter.m in Sources */,
 				3AFCE4C11CDD2EA300995DB5 /* BBOrdersViewController.m in Sources */,
 				3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */,
 				3AFCE4831CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.m in Sources */,
@@ -1902,80 +1993,79 @@
 				3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */,
 				3AFCE47F1CDD2EA300995DB5 /* BBAuthorizationRouter.m in Sources */,
 				3AFCE4C21CDD2EA300995DB5 /* BBCalendarMenuView.m in Sources */,
+				3A8816D11CDE050400472531 /* BBBlocksAssembly.m in Sources */,
+				3A8816D51CDE050400472531 /* BBBlocksViewController.m in Sources */,
+				3A8816CF1CDE050400472531 /* BBBasketRouter.m in Sources */,
 				3AFCE4C01CDD2EA300995DB5 /* BBOrdersRouter.m in Sources */,
 				3AFCE4BF1CDD2EA300995DB5 /* BBOrdersPresenter.m in Sources */,
 				3A8816561CDDF12900472531 /* BBCommentTableViewCell.m in Sources */,
 				3AFCE4A81CDD2EA300995DB5 /* BBNavigationAssembly.m in Sources */,
+				3A8816DD1CDE050400472531 /* BBDescriptionTableViewCell.m in Sources */,
 				3AFCE4B91CDD2EA300995DB5 /* BBNewOrderInteractor.m in Sources */,
 				3A1AB2761C9D8F6B0070E065 /* AppDelegate.m in Sources */,
+				3A8816CD1CDE050400472531 /* BBBasketInteractor.m in Sources */,
 				3AFCE4AE1CDD2EA300995DB5 /* BBTabbarInteractor.m in Sources */,
 				3AFCE4D81CDD2EA300995DB5 /* BBUniversalViewController.m in Sources */,
 				3AFCE4D01CDD2EA300995DB5 /* BBSettingsInteractor.m in Sources */,
-				3AFCE48F1CDD2EA300995DB5 /* BBBlockTableViewCell.m in Sources */,
 				3AFCE4BD1CDD2EA300995DB5 /* BBOrdersAssembly.m in Sources */,
 				3AFCE4D61CDD2EA300995DB5 /* BBUniversalPresenter.m in Sources */,
 				3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */,
 				3AFCE47E1CDD2EA300995DB5 /* BBAuthorizationPresenter.m in Sources */,
 				3AFCE4AA1CDD2EA300995DB5 /* BBNavigationPresenter.m in Sources */,
 				3AFCE4C61CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.m in Sources */,
+				3A8816E41CDE050400472531 /* BBNumderDayTableViewCell.m in Sources */,
+				3A8816EB1CDE050400472531 /* BBProgramsRouter.m in Sources */,
 				3AFCE4CF1CDD2EA300995DB5 /* BBSettingsAssembly.m in Sources */,
 				3AFCE4DC1CDD2EA300995DB5 /* BBSupportRouter.m in Sources */,
-				3AFCE48D1CDD2EA300995DB5 /* BBBlocksRouter.m in Sources */,
-				3AFCE4931CDD2EA300995DB5 /* BBCardProgramPresenter.m in Sources */,
 				3AFCE4881CDD2EA300995DB5 /* BBRegistrationRouter.m in Sources */,
 				3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */,
-				3AFCE48A1CDD2EA300995DB5 /* BBBlocksAssembly.m in Sources */,
 				3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */,
-				3AFCE4921CDD2EA300995DB5 /* BBCardProgramInteractor.m in Sources */,
-				3AFCE49B1CDD2EA300995DB5 /* BBMenuTableViewCell.m in Sources */,
 				3AFCE4CB1CDD2EA300995DB5 /* BBProfileRouter.m in Sources */,
-				3AFCE4A11CDD2EA300995DB5 /* BBProgramsAssembly.m in Sources */,
 				3AFCE4C41CDD2EA300995DB5 /* BBCalendarTableViewCell.m in Sources */,
+				3A8816CC1CDE050400472531 /* BBBasketAssembly.m in Sources */,
 				3AFCE4B11CDD2EA300995DB5 /* BBTabbarViewController.m in Sources */,
 				3AFCE4D71CDD2EA300995DB5 /* BBUniversalRouter.m in Sources */,
 				3AFCE4BE1CDD2EA300995DB5 /* BBOrdersInteractor.m in Sources */,
 				3AFCE4B71CDD2EA300995DB5 /* BBMyProgramsViewController.m in Sources */,
-				3AFCE4981CDD2EA300995DB5 /* BBGradientView.m in Sources */,
 				3AFCE47C1CDD2EA300995DB5 /* BBAuthorizationAssembly.m in Sources */,
 				3AFCE4A91CDD2EA300995DB5 /* BBNavigationInteractor.m in Sources */,
-				3AFCE48E1CDD2EA300995DB5 /* BBBlocksViewController.m in Sources */,
 				3AFCE4871CDD2EA300995DB5 /* BBRegistrationPresenter.m in Sources */,
 				3AFCE4BA1CDD2EA300995DB5 /* BBNewOrderPresenter.m in Sources */,
+				3A8816D21CDE050400472531 /* BBBlocksInteractor.m in Sources */,
 				3AFCE4861CDD2EA300995DB5 /* BBRegistrationInteractor.m in Sources */,
 				3AFCE4851CDD2EA300995DB5 /* BBRegistrationAssembly.m in Sources */,
 				3AFCE4AB1CDD2EA300995DB5 /* BBNavigationRouter.m in Sources */,
 				3AFCE4B21CDD2EA300995DB5 /* BBTabBar.m in Sources */,
 				3AFCE4AD1CDD2EA300995DB5 /* BBTabbarAssembly.m in Sources */,
+				3A8816D91CDE050400472531 /* BBCardProgramInteractor.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3AFCE4801CDD2EA300995DB5 /* BBAuthorizationViewController.m in Sources */,
 				3AFCE4CC1CDD2EA300995DB5 /* BBProfileViewController.m in Sources */,
-				3AFCE4911CDD2EA300995DB5 /* BBCardProgramAssembly.m in Sources */,
 				3AFCE4DD1CDD2EA300995DB5 /* BBSupportViewController.m in Sources */,
+				3A8816E61CDE050400472531 /* BBPartDayTableViewCell.m in Sources */,
 				3AFCE4D21CDD2EA300995DB5 /* BBSettingsRouter.m in Sources */,
+				3A8816D61CDE050400472531 /* BBBlockTableViewCell.m in Sources */,
 				3AFCE4DB1CDD2EA300995DB5 /* BBSupportPresenter.m in Sources */,
-				3AFCE48B1CDD2EA300995DB5 /* BBBlocksInteractor.m in Sources */,
-				3AFCE4961CDD2EA300995DB5 /* BBDescriptionTableViewCell.m in Sources */,
+				3A8816E91CDE050400472531 /* BBProgramsInteractor.m in Sources */,
 				3AFCE4D51CDD2EA300995DB5 /* BBUniversalInteractor.m in Sources */,
+				3A8816E81CDE050400472531 /* BBProgramsAssembly.m in Sources */,
+				3A8816D41CDE050400472531 /* BBBlocksRouter.m in Sources */,
 				3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */,
-				3AFCE4991CDD2EA300995DB5 /* BBHeaderTableViewCell.m in Sources */,
 				3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */,
-				3AFCE4A51CDD2EA300995DB5 /* BBProgramsViewController.m in Sources */,
 				3AFCE4C81CDD2EA300995DB5 /* BBProfileAssembly.m in Sources */,
 				3AFCE4D91CDD2EA300995DB5 /* BBSupportAssembly.m in Sources */,
 				3AFCE4B61CDD2EA300995DB5 /* BBMyProgramsRouter.m in Sources */,
 				3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */,
-				3AFCE49D1CDD2EA300995DB5 /* BBNumderDayTableViewCell.m in Sources */,
 				3AFCE4CD1CDD2EA300995DB5 /* BBProfileTableViewCell.m in Sources */,
 				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
-				3AFCE4A41CDD2EA300995DB5 /* BBProgramsRouter.m in Sources */,
 				3AFCE4B01CDD2EA300995DB5 /* BBTabbarRouter.m in Sources */,
-				3AFCE4A31CDD2EA300995DB5 /* BBProgramsPresenter.m in Sources */,
-				3AFCE49F1CDD2EA300995DB5 /* BBPartDayTableViewCell.m in Sources */,
 				3AFCE4AC1CDD2EA300995DB5 /* BBNavigationViewController.m in Sources */,
+				3A8816EC1CDE050400472531 /* BBProgramsViewController.m in Sources */,
 				3AFCE4AF1CDD2EA300995DB5 /* BBTabbarPresenter.m in Sources */,
 				3A8816511CDDE87B00472531 /* BBTextTableViewCell.m in Sources */,
-				3AFCE4A61CDD2EA300995DB5 /* BBProgramView.m in Sources */,
 				3AFCE4C91CDD2EA300995DB5 /* BBProfileInteractor.m in Sources */,
+				3A8816CE1CDE050400472531 /* BBBasketPresenter.m in Sources */,
+				3A8816E01CDE050400472531 /* BBHeaderTableViewCell.m in Sources */,
 				3AFCE4D41CDD2EA300995DB5 /* BBUniversalAssembly.m in Sources */,
 				3AFCE4CA1CDD2EA300995DB5 /* BBProfilePresenter.m in Sources */,
 				3AFCE4B51CDD2EA300995DB5 /* BBMyProgramsPresenter.m in Sources */,

@@ -35,8 +35,8 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 
 #pragma mark - Actions
 
-- (void)basketButtonAction {
-    
+- (void)_basketButtonAction {
+    [self.output basketButtonDidTap];
 }
 
 #pragma mark - Методы BBBlocksViewInput
@@ -74,7 +74,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 #pragma mark - Init Methods
 
 - (void)_initRightBarButton {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(basketButtonAction)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(_basketButtonAction)];
     
     self.navigationItem.rightBarButtonItem = item;
 }

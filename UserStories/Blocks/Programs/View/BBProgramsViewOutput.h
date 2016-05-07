@@ -14,4 +14,6 @@
 
 - (void)programDidTap;
 
+- (void)basketButtonDidTap;
+
 @end
