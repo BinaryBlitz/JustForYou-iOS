@@ -62,6 +62,10 @@
 		3A8816EC1CDE050400472531 /* BBProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816C51CDE050400472531 /* BBProgramsViewController.m */; };
 		3A8816ED1CDE050400472531 /* BBProgramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816CA1CDE050400472531 /* BBProgramView.m */; };
 		3A8816EE1CDE050400472531 /* BBProgramView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816CB1CDE050400472531 /* BBProgramView.xib */; };
+		3A8816F21CDE4AD500472531 /* BBSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816F01CDE4AD500472531 /* BBSwitchTableViewCell.m */; };
+		3A8816F31CDE4AD500472531 /* BBSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816F11CDE4AD500472531 /* BBSwitchTableViewCell.xib */; };
+		3A8816F81CDE4B2500472531 /* BBBasketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816F61CDE4B2500472531 /* BBBasketTableViewCell.m */; };
+		3A8816F91CDE4B2500472531 /* BBBasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816F71CDE4B2500472531 /* BBBasketTableViewCell.xib */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887C1CAFF0D40069DE52 /* BBUnderlineButton.m */; };
@@ -259,6 +263,12 @@
 		3A8816C91CDE050400472531 /* BBProgramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramView.h; sourceTree = "<group>"; };
 		3A8816CA1CDE050400472531 /* BBProgramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramView.m; sourceTree = "<group>"; };
 		3A8816CB1CDE050400472531 /* BBProgramView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBProgramView.xib; sourceTree = "<group>"; };
+		3A8816EF1CDE4AD500472531 /* BBSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSwitchTableViewCell.h; sourceTree = "<group>"; };
+		3A8816F01CDE4AD500472531 /* BBSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSwitchTableViewCell.m; sourceTree = "<group>"; };
+		3A8816F11CDE4AD500472531 /* BBSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		3A8816F51CDE4B2500472531 /* BBBasketTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketTableViewCell.h; sourceTree = "<group>"; };
+		3A8816F61CDE4B2500472531 /* BBBasketTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketTableViewCell.m; sourceTree = "<group>"; };
+		3A8816F71CDE4B2500472531 /* BBBasketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBBasketTableViewCell.xib; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
@@ -613,6 +623,9 @@
 				3A8816531CDDF12900472531 /* BBCommentTableViewCell.h */,
 				3A8816541CDDF12900472531 /* BBCommentTableViewCell.m */,
 				3A8816551CDDF12900472531 /* BBCommentTableViewCell.xib */,
+				3A8816EF1CDE4AD500472531 /* BBSwitchTableViewCell.h */,
+				3A8816F01CDE4AD500472531 /* BBSwitchTableViewCell.m */,
+				3A8816F11CDE4AD500472531 /* BBSwitchTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -683,6 +696,7 @@
 		3A88166B1CDE050400472531 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816F41CDE4B1100472531 /* Views */,
 				3A88166E1CDE050400472531 /* BBBasketViewInput.h */,
 				3A88166F1CDE050400472531 /* BBBasketViewOutput.h */,
 				3A88166C1CDE050400472531 /* BBBasketViewController.h */,
@@ -923,6 +937,16 @@
 				3A8816C91CDE050400472531 /* BBProgramView.h */,
 				3A8816CA1CDE050400472531 /* BBProgramView.m */,
 				3A8816CB1CDE050400472531 /* BBProgramView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A8816F41CDE4B1100472531 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A8816F51CDE4B2500472531 /* BBBasketTableViewCell.h */,
+				3A8816F61CDE4B2500472531 /* BBBasketTableViewCell.m */,
+				3A8816F71CDE4B2500472531 /* BBBasketTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1871,6 +1895,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
+				3A8816F31CDE4AD500472531 /* BBSwitchTableViewCell.xib in Resources */,
 				3AFCE4841CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
 				3A8816E71CDE050400472531 /* BBPartDayTableViewCell.xib in Resources */,
@@ -1878,6 +1903,7 @@
 				3A8816E31CDE050400472531 /* BBMenuTableViewCell.xib in Resources */,
 				3AFCE4C31CDD2EA300995DB5 /* BBCalendarMenuView.xib in Resources */,
 				3A8816D71CDE050400472531 /* BBBlockTableViewCell.xib in Resources */,
+				3A8816F91CDE4B2500472531 /* BBBasketTableViewCell.xib in Resources */,
 				3A8816E51CDE050400472531 /* BBNumderDayTableViewCell.xib in Resources */,
 				3A8816EE1CDE050400472531 /* BBProgramView.xib in Resources */,
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
@@ -1997,6 +2023,7 @@
 				3A8816D51CDE050400472531 /* BBBlocksViewController.m in Sources */,
 				3A8816CF1CDE050400472531 /* BBBasketRouter.m in Sources */,
 				3AFCE4C01CDD2EA300995DB5 /* BBOrdersRouter.m in Sources */,
+				3A8816F81CDE4B2500472531 /* BBBasketTableViewCell.m in Sources */,
 				3AFCE4BF1CDD2EA300995DB5 /* BBOrdersPresenter.m in Sources */,
 				3A8816561CDDF12900472531 /* BBCommentTableViewCell.m in Sources */,
 				3AFCE4A81CDD2EA300995DB5 /* BBNavigationAssembly.m in Sources */,
@@ -2017,6 +2044,7 @@
 				3A8816EB1CDE050400472531 /* BBProgramsRouter.m in Sources */,
 				3AFCE4CF1CDD2EA300995DB5 /* BBSettingsAssembly.m in Sources */,
 				3AFCE4DC1CDD2EA300995DB5 /* BBSupportRouter.m in Sources */,
+				3A8816F21CDE4AD500472531 /* BBSwitchTableViewCell.m in Sources */,
 				3AFCE4881CDD2EA300995DB5 /* BBRegistrationRouter.m in Sources */,
 				3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */,
 				3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */,

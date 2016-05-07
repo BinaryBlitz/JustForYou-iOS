@@ -125,8 +125,8 @@
     else if(self.dateSelected && [self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = self.selectedDayViewColor;
-    } else{
-        dayView.circleView.hidden = [UIColor clearColor];
+    } else {
+        dayView.circleView.backgroundColor = [UIColor clearColor];
     }
 
     

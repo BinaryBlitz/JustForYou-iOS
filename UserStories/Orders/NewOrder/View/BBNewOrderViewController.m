@@ -61,6 +61,9 @@ static CGFloat topInsetForTableView = - 35.0f;
     
 }
 
+- (void)_resignFirstResponderWithTap {
+    [self.commentCell.textView resignFirstResponder];
+}
 
 #pragma mark - Методы BBNewOrderViewInput
 
@@ -80,6 +83,8 @@ static CGFloat topInsetForTableView = - 35.0f;
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
+    [self.view addGestureRecognizer:tap];
 }
 
 

@@ -10,12 +10,24 @@
 
 #import "BBBasketViewOutput.h"
 
+#import "BBSwitchTableViewCell.h"
+#import "BBBasketTableViewCell.h"
+
 @interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
 @end
+
+static NSString *kNibSwitchCell = @"BBSwitchTableViewCell";
+static NSString *kNibBasketCell = @"BBBasketTableViewCell";
+
+static NSString *kSwitchCellIdentifire = @"switchTableViewCell";
+static NSString *kBasketCellIdentifire = @"basketTableViewCell";
+
+static CGFloat estimatedHeightCell = 44.0f;
+static CGFloat topInsetForTableView = -35.0f;
 
 @implementation BBBasketViewController
 
@@ -46,17 +58,41 @@
 
 - (void)setupInitialState {
     self.navigationItem.title = @"Корзина";
+    [self _settingsTableViewAndRegisterNib];
 }
 
 #pragma mark - TableView Methods
 
+- (void)_settingsTableViewAndRegisterNib {
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = estimatedHeightCell;
+    self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
+    [self.tableView registerNib:[UINib nibWithNibName:kNibSwitchCell bundle:nil] forCellReuseIdentifier:kSwitchCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibBasketCell bundle:nil] forCellReuseIdentifier:kBasketCellIdentifire];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if (section == 0) {
+        return 1;
+    }
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
+    UITableViewCell *cell;
+    if (indexPath.section == 0) {
+        BBSwitchTableViewCell *switchCell = [self.tableView dequeueReusableCellWithIdentifier:kSwitchCellIdentifire];
+        cell = switchCell;
+    } else {
+        BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];
+        
+        cell = basketCell;
+    }
     return cell;
 }
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="switchTableViewCell" id="KGk-i7-Jjw" customClass="BBSwitchTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Использовать бонусы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oF-FV-AEo">
+                        <rect key="frame" x="21" y="12.5" width="166.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="166.5" id="jeO-tV-Jnt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jnN-Lh-DpA">
+                        <rect key="frame" x="251" y="6" width="51" height="31"/>
+                        <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="onTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="6oF-FV-AEo" secondAttribute="bottom" priority="250" constant="11.5" id="QFt-BI-pxI"/>
+                    <constraint firstItem="6oF-FV-AEo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="RpU-Tf-Qjq"/>
+                    <constraint firstItem="jnN-Lh-DpA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="X9J-dY-NZY"/>
+                    <constraint firstAttribute="trailing" secondItem="jnN-Lh-DpA" secondAttribute="trailing" constant="20" id="htW-Sa-NZw"/>
+                    <constraint firstItem="6oF-FV-AEo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zNu-ar-zdO"/>
+                    <constraint firstItem="6oF-FV-AEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="11" id="ziD-MW-ZVP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bonusSwitch" destination="jnN-Lh-DpA" id="f5V-qQ-oK1"/>
+            </connections>
+            <point key="canvasLocation" x="329" y="221"/>
+        </tableViewCell>
+    </objects>
+</document>
