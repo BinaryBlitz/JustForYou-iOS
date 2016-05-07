@@ -24,11 +24,14 @@ static CGFloat borderLineWight = 1.0f;
 
 }
 
+
+
 - (void) layoutSubviews {
     [super layoutSubviews];
     
     CGRect contentViewFrame = self.contentView.frame;
     contentViewFrame.origin.x = sideOffest;
+    
     contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffest*2;
     self.contentView.frame = contentViewFrame;
     UIView *backgroundView = [[UIView alloc] initWithFrame:contentViewFrame];

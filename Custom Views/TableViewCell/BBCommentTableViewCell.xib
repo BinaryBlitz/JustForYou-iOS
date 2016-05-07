@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="commentTableViewCell" rowHeight="70" id="KGk-i7-Jjw" customClass="BBCommentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий к заказу..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmB-ma-PhL">
+                        <rect key="frame" x="20" y="16" width="175" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="5BZ-Wg-m97"/>
+                            <constraint firstAttribute="width" constant="175" id="mf1-aL-3Rh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gad-lJ-o4x">
+                        <rect key="frame" x="16" y="8" width="296" height="53.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                    </textView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="gad-lJ-o4x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AAP-rf-SO7"/>
+                    <constraint firstAttribute="bottom" secondItem="LmB-ma-PhL" secondAttribute="bottom" priority="750" constant="40" id="Cfk-Te-Ioc"/>
+                    <constraint firstItem="LmB-ma-PhL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Jkg-1F-Voc"/>
+                    <constraint firstAttribute="trailing" secondItem="gad-lJ-o4x" secondAttribute="trailing" constant="8" id="MzZ-mQ-hkk"/>
+                    <constraint firstItem="gad-lJ-o4x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="V7j-E9-cko"/>
+                    <constraint firstAttribute="bottom" secondItem="gad-lJ-o4x" secondAttribute="bottom" constant="8" id="qUw-KR-DQ4"/>
+                    <constraint firstItem="LmB-ma-PhL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zRf-jZ-7D1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="placeholderLabel" destination="LmB-ma-PhL" id="D1K-uR-R2S"/>
+                <outlet property="textView" destination="gad-lJ-o4x" id="XxB-Y1-eu6"/>
+            </connections>
+            <point key="canvasLocation" x="240" y="161"/>
+        </tableViewCell>
+    </objects>
+</document>
