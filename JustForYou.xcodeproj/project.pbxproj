@@ -18,6 +18,8 @@
 		3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2741C9D8F6B0070E065 /* main.m */; };
 		3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB27E1C9D91450070E065 /* HelpQueue.m */; };
 		3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2871C9D98B70070E065 /* BBPreloader.m */; };
+		3A1BEEA81CE2851B00C592EE /* BBMyCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEA61CE2851B00C592EE /* BBMyCardTableViewCell.m */; };
+		3A1BEEA91CE2851B00C592EE /* BBMyCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEEA71CE2851B00C592EE /* BBMyCardTableViewCell.xib */; };
 		3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */; };
 		3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816401CDDE87B00472531 /* BBAccessoryTableViewCell.m */; };
 		3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816411CDDE87B00472531 /* BBAccessoryTableViewCell.xib */; };
@@ -165,6 +167,9 @@
 		3A1AB2811C9D917A0070E065 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3A1AB2861C9D98B70070E065 /* BBPreloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPreloader.h; sourceTree = "<group>"; };
 		3A1AB2871C9D98B70070E065 /* BBPreloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreloader.m; sourceTree = "<group>"; };
+		3A1BEEA51CE2851B00C592EE /* BBMyCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyCardTableViewCell.h; sourceTree = "<group>"; };
+		3A1BEEA61CE2851B00C592EE /* BBMyCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyCardTableViewCell.m; sourceTree = "<group>"; };
+		3A1BEEA71CE2851B00C592EE /* BBMyCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMyCardTableViewCell.xib; sourceTree = "<group>"; };
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5B0BF51CBA35CD00ADCE2C /* BBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSegmentedControl.h; sourceTree = "<group>"; };
 		3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSegmentedControl.m; sourceTree = "<group>"; };
@@ -598,6 +603,9 @@
 		3A1BEEA41CE2690200C592EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A1BEEA51CE2851B00C592EE /* BBMyCardTableViewCell.h */,
+				3A1BEEA61CE2851B00C592EE /* BBMyCardTableViewCell.m */,
+				3A1BEEA71CE2851B00C592EE /* BBMyCardTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1935,6 +1943,7 @@
 				3A8816521CDDE87B00472531 /* BBTextTableViewCell.xib in Resources */,
 				3A8816E31CDE050400472531 /* BBMenuTableViewCell.xib in Resources */,
 				3AFCE4C31CDD2EA300995DB5 /* BBCalendarMenuView.xib in Resources */,
+				3A1BEEA91CE2851B00C592EE /* BBMyCardTableViewCell.xib in Resources */,
 				3A8816D71CDE050400472531 /* BBBlockTableViewCell.xib in Resources */,
 				3A8816F91CDE4B2500472531 /* BBBasketTableViewCell.xib in Resources */,
 				3A8816E51CDE050400472531 /* BBNumderDayTableViewCell.xib in Resources */,
@@ -2031,6 +2040,7 @@
 				3AFCE4B81CDD2EA300995DB5 /* BBNewOrderAssembly.m in Sources */,
 				3AFCE4B31CDD2EA300995DB5 /* BBMyProgramsAssembly.m in Sources */,
 				3AFCE4B41CDD2EA300995DB5 /* BBMyProgramsInteractor.m in Sources */,
+				3A1BEEA81CE2851B00C592EE /* BBMyCardTableViewCell.m in Sources */,
 				3A88164F1CDDE87B00472531 /* BBMyProgramTableViewCell.m in Sources */,
 				3A8816E21CDE050400472531 /* BBMenuTableViewCell.m in Sources */,
 				3AFCE4D31CDD2EA300995DB5 /* BBSettingsViewController.m in Sources */,
