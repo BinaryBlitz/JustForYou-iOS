@@ -1,18 +1,14 @@
 //
-//  BBBasketTableViewCell.m
+//  BBMyOldProgramTableViewCell.m
 //  JustForYou
 //
-//  Created by Антон on 07.05.16.
+//  Created by Антон on 10.05.16.
 //  Copyright © 2016 BinaryBlitz. All rights reserved.
 //
 
-#import "BBBasketTableViewCell.h"
+#import "BBMyOldProgramTableViewCell.h"
 
-@interface BBBasketTableViewCell()
-
-@end
-
-@implementation BBBasketTableViewCell
+@implementation BBMyOldProgramTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -24,22 +20,31 @@
 
     // Configure the view for the selected state
 }
+#pragma mark - Actions Methods
 
+- (IBAction)replaceButtonAction:(id)sender {
+    
+}
+
+- (IBAction)extendButtonAction:(id)sender {
+    
+}
+
+#pragma mark - Draw Methods
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+    self.indicatorView.layer.masksToBounds = YES;
     self.indicatorView.layer.cornerRadius = CGRectGetHeight(self.indicatorView.frame)/2;
     
     CGRect contentViewFrame = self.contentView.frame;
     contentViewFrame.origin.x = sideOffsetCell;
     contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffsetCell*2;
-    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - sideOffsetCell;
+    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - bottomOffsetCells;
     self.contentView.frame = contentViewFrame;
 }
 
 - (void)drawRect:(CGRect)rect {
-    
     CAShapeLayer *borderLayer = [self _createBorderLayer];
     CAShapeLayer * maskLayer = [CAShapeLayer layer];
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadiusCell, cornerRadiusCell)];
@@ -47,7 +52,6 @@
     borderLayer.path  = maskPath.CGPath;
     self.contentView.layer.mask = maskLayer;
     [self.contentView.layer addSublayer:borderLayer];
-    
 }
 
 - (CAShapeLayer *)_createBorderLayer {
@@ -59,21 +63,5 @@
     
     return borderLayer;
 }
-
-#pragma mark - Actions Methods
-
-
-- (void)setTextForCountLabel:(NSString *)text {
-    self.countLabel.text = text;
-}
-
-- (IBAction)leftButtonAction:(id)sender {
-    
-}
-
-- (IBAction)rightButtonAction:(id)sender {
-    
-}
-
 
 @end

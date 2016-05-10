@@ -8,8 +8,6 @@
 
 #import "BBMyProgramTableViewCell.h"
 
-static CGFloat bottomOffest = 10.0f;
-
 @implementation BBMyProgramTableViewCell
 
 - (void)awakeFromNib {
@@ -33,7 +31,7 @@ static CGFloat bottomOffest = 10.0f;
         CGRect contentViewFrame = self.contentView.frame;
         contentViewFrame.origin.x = sideOffsetCell;
         contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffsetCell*2;
-        contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - bottomOffest;
+        contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - bottomOffsetCells;
         self.contentView.frame = contentViewFrame;
     }
 }

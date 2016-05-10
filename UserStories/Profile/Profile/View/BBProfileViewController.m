@@ -119,7 +119,11 @@ static NSInteger numberOfRowsInSecondSection = 5;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row != 0) {
         BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
-        [self.output didSelectRowForTitle:accessoryCell.textLabel.text];
+        if ([accessoryCell.textLabel.text isEqualToString:@"Программы"]) {
+            [self.output didSelectRowForTitle:@"Мои программы"];
+        } else {
+            [self.output didSelectRowForTitle:accessoryCell.textLabel.text];
+        }
     }
 }
 

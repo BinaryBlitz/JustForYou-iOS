@@ -66,6 +66,10 @@
 		3A8816F31CDE4AD500472531 /* BBSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816F11CDE4AD500472531 /* BBSwitchTableViewCell.xib */; };
 		3A8816F81CDE4B2500472531 /* BBBasketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816F61CDE4B2500472531 /* BBBasketTableViewCell.m */; };
 		3A8816F91CDE4B2500472531 /* BBBasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816F71CDE4B2500472531 /* BBBasketTableViewCell.xib */; };
+		3AC491FB1CE242E900F2A928 /* BBMyOldProgramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC491F91CE242E900F2A928 /* BBMyOldProgramTableViewCell.m */; };
+		3AC491FC1CE242E900F2A928 /* BBMyOldProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC491FA1CE242E900F2A928 /* BBMyOldProgramTableViewCell.xib */; };
+		3AC492001CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC491FE1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m */; };
+		3AC492011CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC491FF1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887C1CAFF0D40069DE52 /* BBUnderlineButton.m */; };
@@ -269,6 +273,12 @@
 		3A8816F51CDE4B2500472531 /* BBBasketTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBasketTableViewCell.h; sourceTree = "<group>"; };
 		3A8816F61CDE4B2500472531 /* BBBasketTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBasketTableViewCell.m; sourceTree = "<group>"; };
 		3A8816F71CDE4B2500472531 /* BBBasketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBBasketTableViewCell.xib; sourceTree = "<group>"; };
+		3AC491F81CE242E900F2A928 /* BBMyOldProgramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyOldProgramTableViewCell.h; sourceTree = "<group>"; };
+		3AC491F91CE242E900F2A928 /* BBMyOldProgramTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyOldProgramTableViewCell.m; sourceTree = "<group>"; };
+		3AC491FA1CE242E900F2A928 /* BBMyOldProgramTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMyOldProgramTableViewCell.xib; sourceTree = "<group>"; };
+		3AC491FD1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPaymentHistoryTableViewCell.h; sourceTree = "<group>"; };
+		3AC491FE1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPaymentHistoryTableViewCell.m; sourceTree = "<group>"; };
+		3AC491FF1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPaymentHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
@@ -954,6 +964,12 @@
 		3A8816FA1CDE597C00472531 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
+				3AC491F81CE242E900F2A928 /* BBMyOldProgramTableViewCell.h */,
+				3AC491F91CE242E900F2A928 /* BBMyOldProgramTableViewCell.m */,
+				3AC491FA1CE242E900F2A928 /* BBMyOldProgramTableViewCell.xib */,
+				3AC491FD1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.h */,
+				3AC491FE1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m */,
+				3AC491FF1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -1699,10 +1715,10 @@
 			isa = PBXGroup;
 			children = (
 				3AFCE4501CDD2EA300995DB5 /* Assembly */,
-				3AFCE4531CDD2EA300995DB5 /* Interactor */,
-				3AFCE4581CDD2EA300995DB5 /* Presenter */,
-				3AFCE45C1CDD2EA300995DB5 /* Router */,
 				3AFCE4601CDD2EA300995DB5 /* View */,
+				3AFCE4581CDD2EA300995DB5 /* Presenter */,
+				3AFCE4531CDD2EA300995DB5 /* Interactor */,
+				3AFCE45C1CDD2EA300995DB5 /* Router */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -1751,10 +1767,10 @@
 			isa = PBXGroup;
 			children = (
 				3A8816FA1CDE597C00472531 /* VIews */,
-				3AFCE4611CDD2EA300995DB5 /* BBUniversalViewController.h */,
-				3AFCE4621CDD2EA300995DB5 /* BBUniversalViewController.m */,
 				3AFCE4631CDD2EA300995DB5 /* BBUniversalViewInput.h */,
 				3AFCE4641CDD2EA300995DB5 /* BBUniversalViewOutput.h */,
+				3AFCE4611CDD2EA300995DB5 /* BBUniversalViewController.h */,
+				3AFCE4621CDD2EA300995DB5 /* BBUniversalViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1906,6 +1922,7 @@
 				3A8816F31CDE4AD500472531 /* BBSwitchTableViewCell.xib in Resources */,
 				3AFCE4841CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
+				3AC491FC1CE242E900F2A928 /* BBMyOldProgramTableViewCell.xib in Resources */,
 				3A8816E71CDE050400472531 /* BBPartDayTableViewCell.xib in Resources */,
 				3A8816521CDDE87B00472531 /* BBTextTableViewCell.xib in Resources */,
 				3A8816E31CDE050400472531 /* BBMenuTableViewCell.xib in Resources */,
@@ -1918,6 +1935,7 @@
 				3AFCE4C71CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib in Resources */,
 				3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */,
 				3AFCE4C51CDD2EA300995DB5 /* BBCalendarTableViewCell.xib in Resources */,
+				3AC492011CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib in Resources */,
 				3A8816DE1CDE050400472531 /* BBDescriptionTableViewCell.xib in Resources */,
 				3A8816571CDDF12900472531 /* BBCommentTableViewCell.xib in Resources */,
 				3A8816E11CDE050400472531 /* BBHeaderTableViewCell.xib in Resources */,
@@ -1998,6 +2016,7 @@
 			files = (
 				3A8816D01CDE050400472531 /* BBBasketViewController.m in Sources */,
 				3A8816DF1CDE050400472531 /* BBGradientView.m in Sources */,
+				3AC492001CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m in Sources */,
 				3A8816DC1CDE050400472531 /* BBCardProgramViewController.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
 				3A8816DA1CDE050400472531 /* BBCardProgramPresenter.m in Sources */,
@@ -2016,6 +2035,7 @@
 				3A8816D81CDE050400472531 /* BBCardProgramAssembly.m in Sources */,
 				3AFCE4811CDD2EA300995DB5 /* BBInfoRegistTableViewCell.m in Sources */,
 				3AFCE4BB1CDD2EA300995DB5 /* BBNewOrderRouter.m in Sources */,
+				3AC491FB1CE242E900F2A928 /* BBMyOldProgramTableViewCell.m in Sources */,
 				3AFCE47D1CDD2EA300995DB5 /* BBAuthorizationInteractor.m in Sources */,
 				3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */,
 				3A8816D31CDE050400472531 /* BBBlocksPresenter.m in Sources */,

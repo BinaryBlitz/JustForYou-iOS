@@ -8,7 +8,9 @@
 
 #import "BBPreviewOrderTableViewCell.h"
 
-static CGFloat bottomOffest = 10.0f;
+@interface BBPreviewOrderTableViewCell()
+
+@end
 
 @implementation BBPreviewOrderTableViewCell
 
@@ -31,7 +33,7 @@ static CGFloat bottomOffest = 10.0f;
     CGRect contentViewFrame = self.contentView.frame;
     contentViewFrame.origin.x = sideOffsetCell;
     contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffsetCell*2;
-    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - bottomOffest;
+    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - bottomOffsetCells;
     self.contentView.frame = contentViewFrame;
 }
 
@@ -42,7 +44,7 @@ static CGFloat bottomOffest = 10.0f;
     maskLayer.path = maskPath.CGPath;
     borderLayer.path  = maskPath.CGPath;
     self.contentView.layer.mask = maskLayer;
-    [self.contentView.layer addSublayer:borderLayer];
+    [self.contentView.layer addSublayer:borderLayer];    
 }
 
 - (CAShapeLayer *)_createBorderLayer {

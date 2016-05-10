@@ -29,6 +29,8 @@
 @end
 
 static NSString *kCalendarCellIdentifire = @"calendarTableViewCell";
+static NSString *kPreviewOrderCellIdentifire = @"previewOrderTableViewCell";
+
 static NSString *kNibNameCalendarCell = @"BBCalendarTableViewCell";
 static NSString *kNibNamePreviewOrderCell = @"BBPreviewOrderTableViewCell";
 
@@ -62,6 +64,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 
 - (void)_registerNibWithIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameCalendarCell bundle:nil] forCellReuseIdentifier:kCalendarCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNamePreviewOrderCell bundle:nil] forCellReuseIdentifier:kPreviewOrderCellIdentifire];
 }
 
 - (void)_settingTableView {

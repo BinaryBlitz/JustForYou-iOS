@@ -362,8 +362,27 @@
                     <view key="view" contentMode="scaleToFill" id="uzV-A4-FFc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uao-CG-exY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wOP-p1-mJG" id="S0z-U2-cdO"/>
+                                    <outlet property="delegate" destination="wOP-p1-mJG" id="EhA-PM-he9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JyO-CC-pKg" firstAttribute="top" secondItem="Uao-CG-exY" secondAttribute="bottom" id="6FZ-Tt-UVz"/>
+                            <constraint firstItem="Uao-CG-exY" firstAttribute="top" secondItem="uzV-A4-FFc" secondAttribute="top" id="CiS-RU-xWL"/>
+                            <constraint firstItem="Uao-CG-exY" firstAttribute="leading" secondItem="uzV-A4-FFc" secondAttribute="leading" id="qFh-xf-cUQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Uao-CG-exY" secondAttribute="trailing" id="sh3-7Z-eu8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Uao-CG-exY" id="qxl-b4-Fcq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="stc-VM-kve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
