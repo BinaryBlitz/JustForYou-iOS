@@ -20,6 +20,32 @@
 		3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB2871C9D98B70070E065 /* BBPreloader.m */; };
 		3A1BEEA81CE2851B00C592EE /* BBMyCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEA61CE2851B00C592EE /* BBMyCardTableViewCell.m */; };
 		3A1BEEA91CE2851B00C592EE /* BBMyCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEEA71CE2851B00C592EE /* BBMyCardTableViewCell.xib */; };
+		3A1BEF0E1CE28AED00C592EE /* BBDeliveryAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEAE1CE28AED00C592EE /* BBDeliveryAssembly.m */; };
+		3A1BEF0F1CE28AED00C592EE /* BBDeliveryInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEB11CE28AED00C592EE /* BBDeliveryInteractor.m */; };
+		3A1BEF101CE28AED00C592EE /* BBDeliveryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEB71CE28AED00C592EE /* BBDeliveryPresenter.m */; };
+		3A1BEF111CE28AED00C592EE /* BBDeliveryRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEBA1CE28AED00C592EE /* BBDeliveryRouter.m */; };
+		3A1BEF121CE28AED00C592EE /* BBDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEBE1CE28AED00C592EE /* BBDeliveryViewController.m */; };
+		3A1BEF131CE28AED00C592EE /* BBMyProgramsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEC41CE28AED00C592EE /* BBMyProgramsAssembly.m */; };
+		3A1BEF141CE28AED00C592EE /* BBMyProgramsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEC71CE28AED00C592EE /* BBMyProgramsInteractor.m */; };
+		3A1BEF151CE28AED00C592EE /* BBMyProgramsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEECD1CE28AED00C592EE /* BBMyProgramsPresenter.m */; };
+		3A1BEF161CE28AED00C592EE /* BBMyProgramsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEED01CE28AED00C592EE /* BBMyProgramsRouter.m */; };
+		3A1BEF171CE28AED00C592EE /* BBMyProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEED41CE28AED00C592EE /* BBMyProgramsViewController.m */; };
+		3A1BEF181CE28AED00C592EE /* BBNewOrderAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEDA1CE28AED00C592EE /* BBNewOrderAssembly.m */; };
+		3A1BEF191CE28AED00C592EE /* BBNewOrderInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEDD1CE28AED00C592EE /* BBNewOrderInteractor.m */; };
+		3A1BEF1A1CE28AED00C592EE /* BBNewOrderPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEE31CE28AED00C592EE /* BBNewOrderPresenter.m */; };
+		3A1BEF1B1CE28AED00C592EE /* BBNewOrderRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEE61CE28AED00C592EE /* BBNewOrderRouter.m */; };
+		3A1BEF1C1CE28AED00C592EE /* BBNewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEEA1CE28AED00C592EE /* BBNewOrderViewController.m */; };
+		3A1BEF1D1CE28AED00C592EE /* BBOrdersAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEF01CE28AED00C592EE /* BBOrdersAssembly.m */; };
+		3A1BEF1E1CE28AED00C592EE /* BBOrdersInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEF31CE28AED00C592EE /* BBOrdersInteractor.m */; };
+		3A1BEF1F1CE28AED00C592EE /* BBOrdersPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEF91CE28AED00C592EE /* BBOrdersPresenter.m */; };
+		3A1BEF201CE28AED00C592EE /* BBOrdersRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEEFC1CE28AED00C592EE /* BBOrdersRouter.m */; };
+		3A1BEF211CE28AED00C592EE /* BBOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEF001CE28AED00C592EE /* BBOrdersViewController.m */; };
+		3A1BEF221CE28AED00C592EE /* BBCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEF061CE28AED00C592EE /* BBCalendarMenuView.m */; };
+		3A1BEF231CE28AED00C592EE /* BBCalendarMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEF071CE28AED00C592EE /* BBCalendarMenuView.xib */; };
+		3A1BEF241CE28AED00C592EE /* BBCalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEF091CE28AED00C592EE /* BBCalendarTableViewCell.m */; };
+		3A1BEF251CE28AED00C592EE /* BBCalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEF0A1CE28AED00C592EE /* BBCalendarTableViewCell.xib */; };
+		3A1BEF261CE28AED00C592EE /* BBPreviewOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEF0C1CE28AED00C592EE /* BBPreviewOrderTableViewCell.m */; };
+		3A1BEF271CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEF0D1CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib */; };
 		3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */; };
 		3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816401CDDE87B00472531 /* BBAccessoryTableViewCell.m */; };
 		3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816411CDDE87B00472531 /* BBAccessoryTableViewCell.xib */; };
@@ -103,27 +129,6 @@
 		3AFCE4B01CDD2EA300995DB5 /* BBTabbarRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3C61CDD2EA300995DB5 /* BBTabbarRouter.m */; };
 		3AFCE4B11CDD2EA300995DB5 /* BBTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3CA1CDD2EA300995DB5 /* BBTabbarViewController.m */; };
 		3AFCE4B21CDD2EA300995DB5 /* BBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3CF1CDD2EA300995DB5 /* BBTabBar.m */; };
-		3AFCE4B31CDD2EA300995DB5 /* BBMyProgramsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3D41CDD2EA300995DB5 /* BBMyProgramsAssembly.m */; };
-		3AFCE4B41CDD2EA300995DB5 /* BBMyProgramsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3D71CDD2EA300995DB5 /* BBMyProgramsInteractor.m */; };
-		3AFCE4B51CDD2EA300995DB5 /* BBMyProgramsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3DD1CDD2EA300995DB5 /* BBMyProgramsPresenter.m */; };
-		3AFCE4B61CDD2EA300995DB5 /* BBMyProgramsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3E01CDD2EA300995DB5 /* BBMyProgramsRouter.m */; };
-		3AFCE4B71CDD2EA300995DB5 /* BBMyProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3E41CDD2EA300995DB5 /* BBMyProgramsViewController.m */; };
-		3AFCE4B81CDD2EA300995DB5 /* BBNewOrderAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3EA1CDD2EA300995DB5 /* BBNewOrderAssembly.m */; };
-		3AFCE4B91CDD2EA300995DB5 /* BBNewOrderInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3ED1CDD2EA300995DB5 /* BBNewOrderInteractor.m */; };
-		3AFCE4BA1CDD2EA300995DB5 /* BBNewOrderPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3F31CDD2EA300995DB5 /* BBNewOrderPresenter.m */; };
-		3AFCE4BB1CDD2EA300995DB5 /* BBNewOrderRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3F61CDD2EA300995DB5 /* BBNewOrderRouter.m */; };
-		3AFCE4BC1CDD2EA300995DB5 /* BBNewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3FA1CDD2EA300995DB5 /* BBNewOrderViewController.m */; };
-		3AFCE4BD1CDD2EA300995DB5 /* BBOrdersAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4001CDD2EA300995DB5 /* BBOrdersAssembly.m */; };
-		3AFCE4BE1CDD2EA300995DB5 /* BBOrdersInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4031CDD2EA300995DB5 /* BBOrdersInteractor.m */; };
-		3AFCE4BF1CDD2EA300995DB5 /* BBOrdersPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4091CDD2EA300995DB5 /* BBOrdersPresenter.m */; };
-		3AFCE4C01CDD2EA300995DB5 /* BBOrdersRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE40C1CDD2EA300995DB5 /* BBOrdersRouter.m */; };
-		3AFCE4C11CDD2EA300995DB5 /* BBOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4101CDD2EA300995DB5 /* BBOrdersViewController.m */; };
-		3AFCE4C21CDD2EA300995DB5 /* BBCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4161CDD2EA300995DB5 /* BBCalendarMenuView.m */; };
-		3AFCE4C31CDD2EA300995DB5 /* BBCalendarMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE4171CDD2EA300995DB5 /* BBCalendarMenuView.xib */; };
-		3AFCE4C41CDD2EA300995DB5 /* BBCalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4191CDD2EA300995DB5 /* BBCalendarTableViewCell.m */; };
-		3AFCE4C51CDD2EA300995DB5 /* BBCalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE41A1CDD2EA300995DB5 /* BBCalendarTableViewCell.xib */; };
-		3AFCE4C61CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE41C1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.m */; };
-		3AFCE4C71CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFCE41D1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib */; };
 		3AFCE4C81CDD2EA300995DB5 /* BBProfileAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4221CDD2EA300995DB5 /* BBProfileAssembly.m */; };
 		3AFCE4C91CDD2EA300995DB5 /* BBProfileInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE4251CDD2EA300995DB5 /* BBProfileInteractor.m */; };
 		3AFCE4CA1CDD2EA300995DB5 /* BBProfilePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE42B1CDD2EA300995DB5 /* BBProfilePresenter.m */; };
@@ -170,6 +175,80 @@
 		3A1BEEA51CE2851B00C592EE /* BBMyCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyCardTableViewCell.h; sourceTree = "<group>"; };
 		3A1BEEA61CE2851B00C592EE /* BBMyCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyCardTableViewCell.m; sourceTree = "<group>"; };
 		3A1BEEA71CE2851B00C592EE /* BBMyCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMyCardTableViewCell.xib; sourceTree = "<group>"; };
+		3A1BEEAD1CE28AED00C592EE /* BBDeliveryAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryAssembly.h; sourceTree = "<group>"; };
+		3A1BEEAE1CE28AED00C592EE /* BBDeliveryAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDeliveryAssembly.m; sourceTree = "<group>"; };
+		3A1BEEB01CE28AED00C592EE /* BBDeliveryInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryInteractor.h; sourceTree = "<group>"; };
+		3A1BEEB11CE28AED00C592EE /* BBDeliveryInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDeliveryInteractor.m; sourceTree = "<group>"; };
+		3A1BEEB21CE28AED00C592EE /* BBDeliveryInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryInteractorInput.h; sourceTree = "<group>"; };
+		3A1BEEB31CE28AED00C592EE /* BBDeliveryInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryInteractorOutput.h; sourceTree = "<group>"; };
+		3A1BEEB51CE28AED00C592EE /* BBDeliveryModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryModuleInput.h; sourceTree = "<group>"; };
+		3A1BEEB61CE28AED00C592EE /* BBDeliveryPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryPresenter.h; sourceTree = "<group>"; };
+		3A1BEEB71CE28AED00C592EE /* BBDeliveryPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDeliveryPresenter.m; sourceTree = "<group>"; };
+		3A1BEEB91CE28AED00C592EE /* BBDeliveryRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryRouter.h; sourceTree = "<group>"; };
+		3A1BEEBA1CE28AED00C592EE /* BBDeliveryRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDeliveryRouter.m; sourceTree = "<group>"; };
+		3A1BEEBB1CE28AED00C592EE /* BBDeliveryRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryRouterInput.h; sourceTree = "<group>"; };
+		3A1BEEBD1CE28AED00C592EE /* BBDeliveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryViewController.h; sourceTree = "<group>"; };
+		3A1BEEBE1CE28AED00C592EE /* BBDeliveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDeliveryViewController.m; sourceTree = "<group>"; };
+		3A1BEEBF1CE28AED00C592EE /* BBDeliveryViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryViewInput.h; sourceTree = "<group>"; };
+		3A1BEEC01CE28AED00C592EE /* BBDeliveryViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryViewOutput.h; sourceTree = "<group>"; };
+		3A1BEEC31CE28AED00C592EE /* BBMyProgramsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsAssembly.h; sourceTree = "<group>"; };
+		3A1BEEC41CE28AED00C592EE /* BBMyProgramsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsAssembly.m; sourceTree = "<group>"; };
+		3A1BEEC61CE28AED00C592EE /* BBMyProgramsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsInteractor.h; sourceTree = "<group>"; };
+		3A1BEEC71CE28AED00C592EE /* BBMyProgramsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsInteractor.m; sourceTree = "<group>"; };
+		3A1BEEC81CE28AED00C592EE /* BBMyProgramsInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsInteractorInput.h; sourceTree = "<group>"; };
+		3A1BEEC91CE28AED00C592EE /* BBMyProgramsInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsInteractorOutput.h; sourceTree = "<group>"; };
+		3A1BEECB1CE28AED00C592EE /* BBMyProgramsModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsModuleInput.h; sourceTree = "<group>"; };
+		3A1BEECC1CE28AED00C592EE /* BBMyProgramsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsPresenter.h; sourceTree = "<group>"; };
+		3A1BEECD1CE28AED00C592EE /* BBMyProgramsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsPresenter.m; sourceTree = "<group>"; };
+		3A1BEECF1CE28AED00C592EE /* BBMyProgramsRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsRouter.h; sourceTree = "<group>"; };
+		3A1BEED01CE28AED00C592EE /* BBMyProgramsRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsRouter.m; sourceTree = "<group>"; };
+		3A1BEED11CE28AED00C592EE /* BBMyProgramsRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsRouterInput.h; sourceTree = "<group>"; };
+		3A1BEED31CE28AED00C592EE /* BBMyProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsViewController.h; sourceTree = "<group>"; };
+		3A1BEED41CE28AED00C592EE /* BBMyProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsViewController.m; sourceTree = "<group>"; };
+		3A1BEED51CE28AED00C592EE /* BBMyProgramsViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsViewInput.h; sourceTree = "<group>"; };
+		3A1BEED61CE28AED00C592EE /* BBMyProgramsViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsViewOutput.h; sourceTree = "<group>"; };
+		3A1BEED91CE28AED00C592EE /* BBNewOrderAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderAssembly.h; sourceTree = "<group>"; };
+		3A1BEEDA1CE28AED00C592EE /* BBNewOrderAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderAssembly.m; sourceTree = "<group>"; };
+		3A1BEEDC1CE28AED00C592EE /* BBNewOrderInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderInteractor.h; sourceTree = "<group>"; };
+		3A1BEEDD1CE28AED00C592EE /* BBNewOrderInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderInteractor.m; sourceTree = "<group>"; };
+		3A1BEEDE1CE28AED00C592EE /* BBNewOrderInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderInteractorInput.h; sourceTree = "<group>"; };
+		3A1BEEDF1CE28AED00C592EE /* BBNewOrderInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderInteractorOutput.h; sourceTree = "<group>"; };
+		3A1BEEE11CE28AED00C592EE /* BBNewOrderModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderModuleInput.h; sourceTree = "<group>"; };
+		3A1BEEE21CE28AED00C592EE /* BBNewOrderPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderPresenter.h; sourceTree = "<group>"; };
+		3A1BEEE31CE28AED00C592EE /* BBNewOrderPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderPresenter.m; sourceTree = "<group>"; };
+		3A1BEEE51CE28AED00C592EE /* BBNewOrderRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderRouter.h; sourceTree = "<group>"; };
+		3A1BEEE61CE28AED00C592EE /* BBNewOrderRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderRouter.m; sourceTree = "<group>"; };
+		3A1BEEE71CE28AED00C592EE /* BBNewOrderRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderRouterInput.h; sourceTree = "<group>"; };
+		3A1BEEE91CE28AED00C592EE /* BBNewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderViewController.h; sourceTree = "<group>"; };
+		3A1BEEEA1CE28AED00C592EE /* BBNewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderViewController.m; sourceTree = "<group>"; };
+		3A1BEEEB1CE28AED00C592EE /* BBNewOrderViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderViewInput.h; sourceTree = "<group>"; };
+		3A1BEEEC1CE28AED00C592EE /* BBNewOrderViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderViewOutput.h; sourceTree = "<group>"; };
+		3A1BEEEF1CE28AED00C592EE /* BBOrdersAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersAssembly.h; sourceTree = "<group>"; };
+		3A1BEEF01CE28AED00C592EE /* BBOrdersAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersAssembly.m; sourceTree = "<group>"; };
+		3A1BEEF21CE28AED00C592EE /* BBOrdersInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractor.h; sourceTree = "<group>"; };
+		3A1BEEF31CE28AED00C592EE /* BBOrdersInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersInteractor.m; sourceTree = "<group>"; };
+		3A1BEEF41CE28AED00C592EE /* BBOrdersInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractorInput.h; sourceTree = "<group>"; };
+		3A1BEEF51CE28AED00C592EE /* BBOrdersInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractorOutput.h; sourceTree = "<group>"; };
+		3A1BEEF71CE28AED00C592EE /* BBOrdersModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersModuleInput.h; sourceTree = "<group>"; };
+		3A1BEEF81CE28AED00C592EE /* BBOrdersPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersPresenter.h; sourceTree = "<group>"; };
+		3A1BEEF91CE28AED00C592EE /* BBOrdersPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersPresenter.m; sourceTree = "<group>"; };
+		3A1BEEFB1CE28AED00C592EE /* BBOrdersRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersRouter.h; sourceTree = "<group>"; };
+		3A1BEEFC1CE28AED00C592EE /* BBOrdersRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersRouter.m; sourceTree = "<group>"; };
+		3A1BEEFD1CE28AED00C592EE /* BBOrdersRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersRouterInput.h; sourceTree = "<group>"; };
+		3A1BEEFF1CE28AED00C592EE /* BBOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewController.h; sourceTree = "<group>"; };
+		3A1BEF001CE28AED00C592EE /* BBOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersViewController.m; sourceTree = "<group>"; };
+		3A1BEF011CE28AED00C592EE /* BBOrdersViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewInput.h; sourceTree = "<group>"; };
+		3A1BEF021CE28AED00C592EE /* BBOrdersViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewOutput.h; sourceTree = "<group>"; };
+		3A1BEF031CE28AED00C592EE /* BBOrderViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrderViewControllerDelegate.h; sourceTree = "<group>"; };
+		3A1BEF051CE28AED00C592EE /* BBCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarMenuView.h; sourceTree = "<group>"; };
+		3A1BEF061CE28AED00C592EE /* BBCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarMenuView.m; sourceTree = "<group>"; };
+		3A1BEF071CE28AED00C592EE /* BBCalendarMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarMenuView.xib; sourceTree = "<group>"; };
+		3A1BEF081CE28AED00C592EE /* BBCalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarTableViewCell.h; sourceTree = "<group>"; };
+		3A1BEF091CE28AED00C592EE /* BBCalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarTableViewCell.m; sourceTree = "<group>"; };
+		3A1BEF0A1CE28AED00C592EE /* BBCalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarTableViewCell.xib; sourceTree = "<group>"; };
+		3A1BEF0B1CE28AED00C592EE /* BBPreviewOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPreviewOrderTableViewCell.h; sourceTree = "<group>"; };
+		3A1BEF0C1CE28AED00C592EE /* BBPreviewOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreviewOrderTableViewCell.m; sourceTree = "<group>"; };
+		3A1BEF0D1CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPreviewOrderTableViewCell.xib; sourceTree = "<group>"; };
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5B0BF51CBA35CD00ADCE2C /* BBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSegmentedControl.h; sourceTree = "<group>"; };
 		3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSegmentedControl.m; sourceTree = "<group>"; };
@@ -369,64 +448,6 @@
 		3AFCE3CC1CDD2EA300995DB5 /* BBTabbarViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabbarViewOutput.h; sourceTree = "<group>"; };
 		3AFCE3CE1CDD2EA300995DB5 /* BBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabBar.h; sourceTree = "<group>"; };
 		3AFCE3CF1CDD2EA300995DB5 /* BBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTabBar.m; sourceTree = "<group>"; };
-		3AFCE3D31CDD2EA300995DB5 /* BBMyProgramsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsAssembly.h; sourceTree = "<group>"; };
-		3AFCE3D41CDD2EA300995DB5 /* BBMyProgramsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsAssembly.m; sourceTree = "<group>"; };
-		3AFCE3D61CDD2EA300995DB5 /* BBMyProgramsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsInteractor.h; sourceTree = "<group>"; };
-		3AFCE3D71CDD2EA300995DB5 /* BBMyProgramsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsInteractor.m; sourceTree = "<group>"; };
-		3AFCE3D81CDD2EA300995DB5 /* BBMyProgramsInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsInteractorInput.h; sourceTree = "<group>"; };
-		3AFCE3D91CDD2EA300995DB5 /* BBMyProgramsInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsInteractorOutput.h; sourceTree = "<group>"; };
-		3AFCE3DB1CDD2EA300995DB5 /* BBMyProgramsModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsModuleInput.h; sourceTree = "<group>"; };
-		3AFCE3DC1CDD2EA300995DB5 /* BBMyProgramsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsPresenter.h; sourceTree = "<group>"; };
-		3AFCE3DD1CDD2EA300995DB5 /* BBMyProgramsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsPresenter.m; sourceTree = "<group>"; };
-		3AFCE3DF1CDD2EA300995DB5 /* BBMyProgramsRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsRouter.h; sourceTree = "<group>"; };
-		3AFCE3E01CDD2EA300995DB5 /* BBMyProgramsRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsRouter.m; sourceTree = "<group>"; };
-		3AFCE3E11CDD2EA300995DB5 /* BBMyProgramsRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsRouterInput.h; sourceTree = "<group>"; };
-		3AFCE3E31CDD2EA300995DB5 /* BBMyProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsViewController.h; sourceTree = "<group>"; };
-		3AFCE3E41CDD2EA300995DB5 /* BBMyProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsViewController.m; sourceTree = "<group>"; };
-		3AFCE3E51CDD2EA300995DB5 /* BBMyProgramsViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsViewInput.h; sourceTree = "<group>"; };
-		3AFCE3E61CDD2EA300995DB5 /* BBMyProgramsViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsViewOutput.h; sourceTree = "<group>"; };
-		3AFCE3E91CDD2EA300995DB5 /* BBNewOrderAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderAssembly.h; sourceTree = "<group>"; };
-		3AFCE3EA1CDD2EA300995DB5 /* BBNewOrderAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderAssembly.m; sourceTree = "<group>"; };
-		3AFCE3EC1CDD2EA300995DB5 /* BBNewOrderInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderInteractor.h; sourceTree = "<group>"; };
-		3AFCE3ED1CDD2EA300995DB5 /* BBNewOrderInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderInteractor.m; sourceTree = "<group>"; };
-		3AFCE3EE1CDD2EA300995DB5 /* BBNewOrderInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderInteractorInput.h; sourceTree = "<group>"; };
-		3AFCE3EF1CDD2EA300995DB5 /* BBNewOrderInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderInteractorOutput.h; sourceTree = "<group>"; };
-		3AFCE3F11CDD2EA300995DB5 /* BBNewOrderModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderModuleInput.h; sourceTree = "<group>"; };
-		3AFCE3F21CDD2EA300995DB5 /* BBNewOrderPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderPresenter.h; sourceTree = "<group>"; };
-		3AFCE3F31CDD2EA300995DB5 /* BBNewOrderPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderPresenter.m; sourceTree = "<group>"; };
-		3AFCE3F51CDD2EA300995DB5 /* BBNewOrderRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderRouter.h; sourceTree = "<group>"; };
-		3AFCE3F61CDD2EA300995DB5 /* BBNewOrderRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderRouter.m; sourceTree = "<group>"; };
-		3AFCE3F71CDD2EA300995DB5 /* BBNewOrderRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderRouterInput.h; sourceTree = "<group>"; };
-		3AFCE3F91CDD2EA300995DB5 /* BBNewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderViewController.h; sourceTree = "<group>"; };
-		3AFCE3FA1CDD2EA300995DB5 /* BBNewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewOrderViewController.m; sourceTree = "<group>"; };
-		3AFCE3FB1CDD2EA300995DB5 /* BBNewOrderViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderViewInput.h; sourceTree = "<group>"; };
-		3AFCE3FC1CDD2EA300995DB5 /* BBNewOrderViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewOrderViewOutput.h; sourceTree = "<group>"; };
-		3AFCE3FF1CDD2EA300995DB5 /* BBOrdersAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersAssembly.h; sourceTree = "<group>"; };
-		3AFCE4001CDD2EA300995DB5 /* BBOrdersAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersAssembly.m; sourceTree = "<group>"; };
-		3AFCE4021CDD2EA300995DB5 /* BBOrdersInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractor.h; sourceTree = "<group>"; };
-		3AFCE4031CDD2EA300995DB5 /* BBOrdersInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersInteractor.m; sourceTree = "<group>"; };
-		3AFCE4041CDD2EA300995DB5 /* BBOrdersInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractorInput.h; sourceTree = "<group>"; };
-		3AFCE4051CDD2EA300995DB5 /* BBOrdersInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersInteractorOutput.h; sourceTree = "<group>"; };
-		3AFCE4071CDD2EA300995DB5 /* BBOrdersModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersModuleInput.h; sourceTree = "<group>"; };
-		3AFCE4081CDD2EA300995DB5 /* BBOrdersPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersPresenter.h; sourceTree = "<group>"; };
-		3AFCE4091CDD2EA300995DB5 /* BBOrdersPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersPresenter.m; sourceTree = "<group>"; };
-		3AFCE40B1CDD2EA300995DB5 /* BBOrdersRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersRouter.h; sourceTree = "<group>"; };
-		3AFCE40C1CDD2EA300995DB5 /* BBOrdersRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersRouter.m; sourceTree = "<group>"; };
-		3AFCE40D1CDD2EA300995DB5 /* BBOrdersRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersRouterInput.h; sourceTree = "<group>"; };
-		3AFCE40F1CDD2EA300995DB5 /* BBOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewController.h; sourceTree = "<group>"; };
-		3AFCE4101CDD2EA300995DB5 /* BBOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrdersViewController.m; sourceTree = "<group>"; };
-		3AFCE4111CDD2EA300995DB5 /* BBOrdersViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewInput.h; sourceTree = "<group>"; };
-		3AFCE4121CDD2EA300995DB5 /* BBOrdersViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrdersViewOutput.h; sourceTree = "<group>"; };
-		3AFCE4131CDD2EA300995DB5 /* BBOrderViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrderViewControllerDelegate.h; sourceTree = "<group>"; };
-		3AFCE4151CDD2EA300995DB5 /* BBCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarMenuView.h; sourceTree = "<group>"; };
-		3AFCE4161CDD2EA300995DB5 /* BBCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarMenuView.m; sourceTree = "<group>"; };
-		3AFCE4171CDD2EA300995DB5 /* BBCalendarMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarMenuView.xib; sourceTree = "<group>"; };
-		3AFCE4181CDD2EA300995DB5 /* BBCalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE4191CDD2EA300995DB5 /* BBCalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE41A1CDD2EA300995DB5 /* BBCalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarTableViewCell.xib; sourceTree = "<group>"; };
-		3AFCE41B1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPreviewOrderTableViewCell.h; sourceTree = "<group>"; };
-		3AFCE41C1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreviewOrderTableViewCell.m; sourceTree = "<group>"; };
-		3AFCE41D1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPreviewOrderTableViewCell.xib; sourceTree = "<group>"; };
 		3AFCE4211CDD2EA300995DB5 /* BBProfileAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProfileAssembly.h; sourceTree = "<group>"; };
 		3AFCE4221CDD2EA300995DB5 /* BBProfileAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProfileAssembly.m; sourceTree = "<group>"; };
 		3AFCE4241CDD2EA300995DB5 /* BBProfileInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProfileInteractor.h; sourceTree = "<group>"; };
@@ -606,6 +627,295 @@
 				3A1BEEA51CE2851B00C592EE /* BBMyCardTableViewCell.h */,
 				3A1BEEA61CE2851B00C592EE /* BBMyCardTableViewCell.m */,
 				3A1BEEA71CE2851B00C592EE /* BBMyCardTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A1BEEAA1CE28AED00C592EE /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEAB1CE28AED00C592EE /* Delivery */,
+				3A1BEEC11CE28AED00C592EE /* MyPrograms */,
+				3A1BEED71CE28AED00C592EE /* NewOrder */,
+				3A1BEEED1CE28AED00C592EE /* Orders */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		3A1BEEAB1CE28AED00C592EE /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEAC1CE28AED00C592EE /* Assembly */,
+				3A1BEEBC1CE28AED00C592EE /* View */,
+				3A1BEEB41CE28AED00C592EE /* Presenter */,
+				3A1BEEAF1CE28AED00C592EE /* Interactor */,
+				3A1BEEB81CE28AED00C592EE /* Router */,
+			);
+			path = Delivery;
+			sourceTree = "<group>";
+		};
+		3A1BEEAC1CE28AED00C592EE /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEAD1CE28AED00C592EE /* BBDeliveryAssembly.h */,
+				3A1BEEAE1CE28AED00C592EE /* BBDeliveryAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A1BEEAF1CE28AED00C592EE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEB01CE28AED00C592EE /* BBDeliveryInteractor.h */,
+				3A1BEEB11CE28AED00C592EE /* BBDeliveryInteractor.m */,
+				3A1BEEB21CE28AED00C592EE /* BBDeliveryInteractorInput.h */,
+				3A1BEEB31CE28AED00C592EE /* BBDeliveryInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A1BEEB41CE28AED00C592EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEB51CE28AED00C592EE /* BBDeliveryModuleInput.h */,
+				3A1BEEB61CE28AED00C592EE /* BBDeliveryPresenter.h */,
+				3A1BEEB71CE28AED00C592EE /* BBDeliveryPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A1BEEB81CE28AED00C592EE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEB91CE28AED00C592EE /* BBDeliveryRouter.h */,
+				3A1BEEBA1CE28AED00C592EE /* BBDeliveryRouter.m */,
+				3A1BEEBB1CE28AED00C592EE /* BBDeliveryRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A1BEEBC1CE28AED00C592EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEF281CE28B2000C592EE /* Views */,
+				3A1BEEBF1CE28AED00C592EE /* BBDeliveryViewInput.h */,
+				3A1BEEC01CE28AED00C592EE /* BBDeliveryViewOutput.h */,
+				3A1BEEBD1CE28AED00C592EE /* BBDeliveryViewController.h */,
+				3A1BEEBE1CE28AED00C592EE /* BBDeliveryViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A1BEEC11CE28AED00C592EE /* MyPrograms */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEC21CE28AED00C592EE /* Assembly */,
+				3A1BEEC51CE28AED00C592EE /* Interactor */,
+				3A1BEECA1CE28AED00C592EE /* Presenter */,
+				3A1BEECE1CE28AED00C592EE /* Router */,
+				3A1BEED21CE28AED00C592EE /* View */,
+			);
+			path = MyPrograms;
+			sourceTree = "<group>";
+		};
+		3A1BEEC21CE28AED00C592EE /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEC31CE28AED00C592EE /* BBMyProgramsAssembly.h */,
+				3A1BEEC41CE28AED00C592EE /* BBMyProgramsAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A1BEEC51CE28AED00C592EE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEC61CE28AED00C592EE /* BBMyProgramsInteractor.h */,
+				3A1BEEC71CE28AED00C592EE /* BBMyProgramsInteractor.m */,
+				3A1BEEC81CE28AED00C592EE /* BBMyProgramsInteractorInput.h */,
+				3A1BEEC91CE28AED00C592EE /* BBMyProgramsInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A1BEECA1CE28AED00C592EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEECB1CE28AED00C592EE /* BBMyProgramsModuleInput.h */,
+				3A1BEECC1CE28AED00C592EE /* BBMyProgramsPresenter.h */,
+				3A1BEECD1CE28AED00C592EE /* BBMyProgramsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A1BEECE1CE28AED00C592EE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEECF1CE28AED00C592EE /* BBMyProgramsRouter.h */,
+				3A1BEED01CE28AED00C592EE /* BBMyProgramsRouter.m */,
+				3A1BEED11CE28AED00C592EE /* BBMyProgramsRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A1BEED21CE28AED00C592EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEED31CE28AED00C592EE /* BBMyProgramsViewController.h */,
+				3A1BEED41CE28AED00C592EE /* BBMyProgramsViewController.m */,
+				3A1BEED51CE28AED00C592EE /* BBMyProgramsViewInput.h */,
+				3A1BEED61CE28AED00C592EE /* BBMyProgramsViewOutput.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A1BEED71CE28AED00C592EE /* NewOrder */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEED81CE28AED00C592EE /* Assembly */,
+				3A1BEEDB1CE28AED00C592EE /* Interactor */,
+				3A1BEEE01CE28AED00C592EE /* Presenter */,
+				3A1BEEE41CE28AED00C592EE /* Router */,
+				3A1BEEE81CE28AED00C592EE /* View */,
+			);
+			path = NewOrder;
+			sourceTree = "<group>";
+		};
+		3A1BEED81CE28AED00C592EE /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEED91CE28AED00C592EE /* BBNewOrderAssembly.h */,
+				3A1BEEDA1CE28AED00C592EE /* BBNewOrderAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A1BEEDB1CE28AED00C592EE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEDC1CE28AED00C592EE /* BBNewOrderInteractor.h */,
+				3A1BEEDD1CE28AED00C592EE /* BBNewOrderInteractor.m */,
+				3A1BEEDE1CE28AED00C592EE /* BBNewOrderInteractorInput.h */,
+				3A1BEEDF1CE28AED00C592EE /* BBNewOrderInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A1BEEE01CE28AED00C592EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEE11CE28AED00C592EE /* BBNewOrderModuleInput.h */,
+				3A1BEEE21CE28AED00C592EE /* BBNewOrderPresenter.h */,
+				3A1BEEE31CE28AED00C592EE /* BBNewOrderPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A1BEEE41CE28AED00C592EE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEE51CE28AED00C592EE /* BBNewOrderRouter.h */,
+				3A1BEEE61CE28AED00C592EE /* BBNewOrderRouter.m */,
+				3A1BEEE71CE28AED00C592EE /* BBNewOrderRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A1BEEE81CE28AED00C592EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEE91CE28AED00C592EE /* BBNewOrderViewController.h */,
+				3A1BEEEA1CE28AED00C592EE /* BBNewOrderViewController.m */,
+				3A1BEEEB1CE28AED00C592EE /* BBNewOrderViewInput.h */,
+				3A1BEEEC1CE28AED00C592EE /* BBNewOrderViewOutput.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A1BEEED1CE28AED00C592EE /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEEE1CE28AED00C592EE /* Assembly */,
+				3A1BEEF11CE28AED00C592EE /* Interactor */,
+				3A1BEEF61CE28AED00C592EE /* Presenter */,
+				3A1BEEFA1CE28AED00C592EE /* Router */,
+				3A1BEEFE1CE28AED00C592EE /* View */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		3A1BEEEE1CE28AED00C592EE /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEEF1CE28AED00C592EE /* BBOrdersAssembly.h */,
+				3A1BEEF01CE28AED00C592EE /* BBOrdersAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A1BEEF11CE28AED00C592EE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEF21CE28AED00C592EE /* BBOrdersInteractor.h */,
+				3A1BEEF31CE28AED00C592EE /* BBOrdersInteractor.m */,
+				3A1BEEF41CE28AED00C592EE /* BBOrdersInteractorInput.h */,
+				3A1BEEF51CE28AED00C592EE /* BBOrdersInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A1BEEF61CE28AED00C592EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEF71CE28AED00C592EE /* BBOrdersModuleInput.h */,
+				3A1BEEF81CE28AED00C592EE /* BBOrdersPresenter.h */,
+				3A1BEEF91CE28AED00C592EE /* BBOrdersPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A1BEEFA1CE28AED00C592EE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEFB1CE28AED00C592EE /* BBOrdersRouter.h */,
+				3A1BEEFC1CE28AED00C592EE /* BBOrdersRouter.m */,
+				3A1BEEFD1CE28AED00C592EE /* BBOrdersRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A1BEEFE1CE28AED00C592EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEEFF1CE28AED00C592EE /* BBOrdersViewController.h */,
+				3A1BEF001CE28AED00C592EE /* BBOrdersViewController.m */,
+				3A1BEF011CE28AED00C592EE /* BBOrdersViewInput.h */,
+				3A1BEF021CE28AED00C592EE /* BBOrdersViewOutput.h */,
+				3A1BEF031CE28AED00C592EE /* BBOrderViewControllerDelegate.h */,
+				3A1BEF041CE28AED00C592EE /* Views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A1BEF041CE28AED00C592EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A1BEF051CE28AED00C592EE /* BBCalendarMenuView.h */,
+				3A1BEF061CE28AED00C592EE /* BBCalendarMenuView.m */,
+				3A1BEF071CE28AED00C592EE /* BBCalendarMenuView.xib */,
+				3A1BEF081CE28AED00C592EE /* BBCalendarTableViewCell.h */,
+				3A1BEF091CE28AED00C592EE /* BBCalendarTableViewCell.m */,
+				3A1BEF0A1CE28AED00C592EE /* BBCalendarTableViewCell.xib */,
+				3A1BEF0B1CE28AED00C592EE /* BBPreviewOrderTableViewCell.h */,
+				3A1BEF0C1CE28AED00C592EE /* BBPreviewOrderTableViewCell.m */,
+				3A1BEF0D1CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A1BEF281CE28B2000C592EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1060,7 +1370,7 @@
 				3AFCE39F1CDD2EA300995DB5 /* Navigation Bars */,
 				3AFCE30E1CDD2EA200995DB5 /* Auth */,
 				3A8816591CDE050400472531 /* Blocks */,
-				3AFCE3D01CDD2EA300995DB5 /* Orders */,
+				3A1BEEAA1CE28AED00C592EE /* Orders */,
 				3AFCE4651CDD2EA300995DB5 /* Support */,
 				3AFCE41E1CDD2EA300995DB5 /* Profile */,
 			);
@@ -1358,223 +1668,6 @@
 			children = (
 				3AFCE3CE1CDD2EA300995DB5 /* BBTabBar.h */,
 				3AFCE3CF1CDD2EA300995DB5 /* BBTabBar.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		3AFCE3D01CDD2EA300995DB5 /* Orders */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3FD1CDD2EA300995DB5 /* Orders */,
-				3AFCE3D11CDD2EA300995DB5 /* MyPrograms */,
-				3AFCE3E71CDD2EA300995DB5 /* NewOrder */,
-			);
-			path = Orders;
-			sourceTree = "<group>";
-		};
-		3AFCE3D11CDD2EA300995DB5 /* MyPrograms */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3D21CDD2EA300995DB5 /* Assembly */,
-				3AFCE3E21CDD2EA300995DB5 /* View */,
-				3AFCE3DA1CDD2EA300995DB5 /* Presenter */,
-				3AFCE3D51CDD2EA300995DB5 /* Interactor */,
-				3AFCE3DE1CDD2EA300995DB5 /* Router */,
-			);
-			path = MyPrograms;
-			sourceTree = "<group>";
-		};
-		3AFCE3D21CDD2EA300995DB5 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3D31CDD2EA300995DB5 /* BBMyProgramsAssembly.h */,
-				3AFCE3D41CDD2EA300995DB5 /* BBMyProgramsAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		3AFCE3D51CDD2EA300995DB5 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3D61CDD2EA300995DB5 /* BBMyProgramsInteractor.h */,
-				3AFCE3D71CDD2EA300995DB5 /* BBMyProgramsInteractor.m */,
-				3AFCE3D81CDD2EA300995DB5 /* BBMyProgramsInteractorInput.h */,
-				3AFCE3D91CDD2EA300995DB5 /* BBMyProgramsInteractorOutput.h */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3AFCE3DA1CDD2EA300995DB5 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3DB1CDD2EA300995DB5 /* BBMyProgramsModuleInput.h */,
-				3AFCE3DC1CDD2EA300995DB5 /* BBMyProgramsPresenter.h */,
-				3AFCE3DD1CDD2EA300995DB5 /* BBMyProgramsPresenter.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3AFCE3DE1CDD2EA300995DB5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3E11CDD2EA300995DB5 /* BBMyProgramsRouterInput.h */,
-				3AFCE3DF1CDD2EA300995DB5 /* BBMyProgramsRouter.h */,
-				3AFCE3E01CDD2EA300995DB5 /* BBMyProgramsRouter.m */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3AFCE3E21CDD2EA300995DB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3E51CDD2EA300995DB5 /* BBMyProgramsViewInput.h */,
-				3AFCE3E61CDD2EA300995DB5 /* BBMyProgramsViewOutput.h */,
-				3AFCE3E31CDD2EA300995DB5 /* BBMyProgramsViewController.h */,
-				3AFCE3E41CDD2EA300995DB5 /* BBMyProgramsViewController.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE3E71CDD2EA300995DB5 /* NewOrder */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3E81CDD2EA300995DB5 /* Assembly */,
-				3AFCE3F81CDD2EA300995DB5 /* View */,
-				3AFCE3F01CDD2EA300995DB5 /* Presenter */,
-				3AFCE3EB1CDD2EA300995DB5 /* Interactor */,
-				3AFCE3F41CDD2EA300995DB5 /* Router */,
-			);
-			path = NewOrder;
-			sourceTree = "<group>";
-		};
-		3AFCE3E81CDD2EA300995DB5 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3E91CDD2EA300995DB5 /* BBNewOrderAssembly.h */,
-				3AFCE3EA1CDD2EA300995DB5 /* BBNewOrderAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		3AFCE3EB1CDD2EA300995DB5 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3EC1CDD2EA300995DB5 /* BBNewOrderInteractor.h */,
-				3AFCE3ED1CDD2EA300995DB5 /* BBNewOrderInteractor.m */,
-				3AFCE3EE1CDD2EA300995DB5 /* BBNewOrderInteractorInput.h */,
-				3AFCE3EF1CDD2EA300995DB5 /* BBNewOrderInteractorOutput.h */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3AFCE3F01CDD2EA300995DB5 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3F11CDD2EA300995DB5 /* BBNewOrderModuleInput.h */,
-				3AFCE3F21CDD2EA300995DB5 /* BBNewOrderPresenter.h */,
-				3AFCE3F31CDD2EA300995DB5 /* BBNewOrderPresenter.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3AFCE3F41CDD2EA300995DB5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3F71CDD2EA300995DB5 /* BBNewOrderRouterInput.h */,
-				3AFCE3F51CDD2EA300995DB5 /* BBNewOrderRouter.h */,
-				3AFCE3F61CDD2EA300995DB5 /* BBNewOrderRouter.m */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3AFCE3F81CDD2EA300995DB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3FB1CDD2EA300995DB5 /* BBNewOrderViewInput.h */,
-				3AFCE3FC1CDD2EA300995DB5 /* BBNewOrderViewOutput.h */,
-				3AFCE3F91CDD2EA300995DB5 /* BBNewOrderViewController.h */,
-				3AFCE3FA1CDD2EA300995DB5 /* BBNewOrderViewController.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE3FD1CDD2EA300995DB5 /* Orders */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3FE1CDD2EA300995DB5 /* Assembly */,
-				3AFCE40E1CDD2EA300995DB5 /* View */,
-				3AFCE4061CDD2EA300995DB5 /* Presenter */,
-				3AFCE4011CDD2EA300995DB5 /* Interactor */,
-				3AFCE40A1CDD2EA300995DB5 /* Router */,
-			);
-			path = Orders;
-			sourceTree = "<group>";
-		};
-		3AFCE3FE1CDD2EA300995DB5 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE3FF1CDD2EA300995DB5 /* BBOrdersAssembly.h */,
-				3AFCE4001CDD2EA300995DB5 /* BBOrdersAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		3AFCE4011CDD2EA300995DB5 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE4021CDD2EA300995DB5 /* BBOrdersInteractor.h */,
-				3AFCE4031CDD2EA300995DB5 /* BBOrdersInteractor.m */,
-				3AFCE4041CDD2EA300995DB5 /* BBOrdersInteractorInput.h */,
-				3AFCE4051CDD2EA300995DB5 /* BBOrdersInteractorOutput.h */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3AFCE4061CDD2EA300995DB5 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE4071CDD2EA300995DB5 /* BBOrdersModuleInput.h */,
-				3AFCE4081CDD2EA300995DB5 /* BBOrdersPresenter.h */,
-				3AFCE4091CDD2EA300995DB5 /* BBOrdersPresenter.m */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3AFCE40A1CDD2EA300995DB5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE40B1CDD2EA300995DB5 /* BBOrdersRouter.h */,
-				3AFCE40C1CDD2EA300995DB5 /* BBOrdersRouter.m */,
-				3AFCE40D1CDD2EA300995DB5 /* BBOrdersRouterInput.h */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3AFCE40E1CDD2EA300995DB5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE4141CDD2EA300995DB5 /* Views */,
-				3AFCE4111CDD2EA300995DB5 /* BBOrdersViewInput.h */,
-				3AFCE4121CDD2EA300995DB5 /* BBOrdersViewOutput.h */,
-				3AFCE4131CDD2EA300995DB5 /* BBOrderViewControllerDelegate.h */,
-				3AFCE40F1CDD2EA300995DB5 /* BBOrdersViewController.h */,
-				3AFCE4101CDD2EA300995DB5 /* BBOrdersViewController.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3AFCE4141CDD2EA300995DB5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3AFCE4151CDD2EA300995DB5 /* BBCalendarMenuView.h */,
-				3AFCE4161CDD2EA300995DB5 /* BBCalendarMenuView.m */,
-				3AFCE4171CDD2EA300995DB5 /* BBCalendarMenuView.xib */,
-				3AFCE4181CDD2EA300995DB5 /* BBCalendarTableViewCell.h */,
-				3AFCE4191CDD2EA300995DB5 /* BBCalendarTableViewCell.m */,
-				3AFCE41A1CDD2EA300995DB5 /* BBCalendarTableViewCell.xib */,
-				3AFCE41B1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.h */,
-				3AFCE41C1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.m */,
-				3AFCE41D1CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1935,6 +2028,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
+				3A1BEF271CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib in Resources */,
 				3A8816F31CDE4AD500472531 /* BBSwitchTableViewCell.xib in Resources */,
 				3AFCE4841CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.xib in Resources */,
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
@@ -1942,16 +2036,15 @@
 				3A8816E71CDE050400472531 /* BBPartDayTableViewCell.xib in Resources */,
 				3A8816521CDDE87B00472531 /* BBTextTableViewCell.xib in Resources */,
 				3A8816E31CDE050400472531 /* BBMenuTableViewCell.xib in Resources */,
-				3AFCE4C31CDD2EA300995DB5 /* BBCalendarMenuView.xib in Resources */,
 				3A1BEEA91CE2851B00C592EE /* BBMyCardTableViewCell.xib in Resources */,
 				3A8816D71CDE050400472531 /* BBBlockTableViewCell.xib in Resources */,
 				3A8816F91CDE4B2500472531 /* BBBasketTableViewCell.xib in Resources */,
+				3A1BEF251CE28AED00C592EE /* BBCalendarTableViewCell.xib in Resources */,
 				3A8816E51CDE050400472531 /* BBNumderDayTableViewCell.xib in Resources */,
 				3A8816EE1CDE050400472531 /* BBProgramView.xib in Resources */,
+				3A1BEF231CE28AED00C592EE /* BBCalendarMenuView.xib in Resources */,
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
-				3AFCE4C71CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.xib in Resources */,
 				3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */,
-				3AFCE4C51CDD2EA300995DB5 /* BBCalendarTableViewCell.xib in Resources */,
 				3AC492011CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib in Resources */,
 				3A8816DE1CDE050400472531 /* BBDescriptionTableViewCell.xib in Resources */,
 				3A8816571CDDF12900472531 /* BBCommentTableViewCell.xib in Resources */,
@@ -2032,14 +2125,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8816D01CDE050400472531 /* BBBasketViewController.m in Sources */,
+				3A1BEF161CE28AED00C592EE /* BBMyProgramsRouter.m in Sources */,
 				3A8816DF1CDE050400472531 /* BBGradientView.m in Sources */,
 				3AC492001CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m in Sources */,
 				3A8816DC1CDE050400472531 /* BBCardProgramViewController.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
 				3A8816DA1CDE050400472531 /* BBCardProgramPresenter.m in Sources */,
-				3AFCE4B81CDD2EA300995DB5 /* BBNewOrderAssembly.m in Sources */,
-				3AFCE4B31CDD2EA300995DB5 /* BBMyProgramsAssembly.m in Sources */,
-				3AFCE4B41CDD2EA300995DB5 /* BBMyProgramsInteractor.m in Sources */,
 				3A1BEEA81CE2851B00C592EE /* BBMyCardTableViewCell.m in Sources */,
 				3A88164F1CDDE87B00472531 /* BBMyProgramTableViewCell.m in Sources */,
 				3A8816E21CDE050400472531 /* BBMenuTableViewCell.m in Sources */,
@@ -2052,83 +2143,87 @@
 				3A8816EA1CDE050400472531 /* BBProgramsPresenter.m in Sources */,
 				3A8816D81CDE050400472531 /* BBCardProgramAssembly.m in Sources */,
 				3AFCE4811CDD2EA300995DB5 /* BBInfoRegistTableViewCell.m in Sources */,
-				3AFCE4BB1CDD2EA300995DB5 /* BBNewOrderRouter.m in Sources */,
 				3AC491FB1CE242E900F2A928 /* BBMyOldProgramTableViewCell.m in Sources */,
 				3AFCE47D1CDD2EA300995DB5 /* BBAuthorizationInteractor.m in Sources */,
+				3A1BEF0F1CE28AED00C592EE /* BBDeliveryInteractor.m in Sources */,
 				3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */,
 				3A8816D31CDE050400472531 /* BBBlocksPresenter.m in Sources */,
-				3AFCE4C11CDD2EA300995DB5 /* BBOrdersViewController.m in Sources */,
 				3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */,
+				3A1BEF111CE28AED00C592EE /* BBDeliveryRouter.m in Sources */,
 				3AFCE4831CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.m in Sources */,
 				3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */,
-				3AFCE4BC1CDD2EA300995DB5 /* BBNewOrderViewController.m in Sources */,
 				3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */,
 				3AFCE47F1CDD2EA300995DB5 /* BBAuthorizationRouter.m in Sources */,
-				3AFCE4C21CDD2EA300995DB5 /* BBCalendarMenuView.m in Sources */,
 				3A8816D11CDE050400472531 /* BBBlocksAssembly.m in Sources */,
 				3A8816D51CDE050400472531 /* BBBlocksViewController.m in Sources */,
 				3A8816CF1CDE050400472531 /* BBBasketRouter.m in Sources */,
-				3AFCE4C01CDD2EA300995DB5 /* BBOrdersRouter.m in Sources */,
 				3A8816F81CDE4B2500472531 /* BBBasketTableViewCell.m in Sources */,
-				3AFCE4BF1CDD2EA300995DB5 /* BBOrdersPresenter.m in Sources */,
+				3A1BEF0E1CE28AED00C592EE /* BBDeliveryAssembly.m in Sources */,
 				3A8816561CDDF12900472531 /* BBCommentTableViewCell.m in Sources */,
+				3A1BEF1B1CE28AED00C592EE /* BBNewOrderRouter.m in Sources */,
 				3AFCE4A81CDD2EA300995DB5 /* BBNavigationAssembly.m in Sources */,
 				3A8816DD1CDE050400472531 /* BBDescriptionTableViewCell.m in Sources */,
-				3AFCE4B91CDD2EA300995DB5 /* BBNewOrderInteractor.m in Sources */,
 				3A1AB2761C9D8F6B0070E065 /* AppDelegate.m in Sources */,
 				3A8816CD1CDE050400472531 /* BBBasketInteractor.m in Sources */,
 				3AFCE4AE1CDD2EA300995DB5 /* BBTabbarInteractor.m in Sources */,
 				3AFCE4D81CDD2EA300995DB5 /* BBUniversalViewController.m in Sources */,
 				3AFCE4D01CDD2EA300995DB5 /* BBSettingsInteractor.m in Sources */,
-				3AFCE4BD1CDD2EA300995DB5 /* BBOrdersAssembly.m in Sources */,
+				3A1BEF1C1CE28AED00C592EE /* BBNewOrderViewController.m in Sources */,
+				3A1BEF261CE28AED00C592EE /* BBPreviewOrderTableViewCell.m in Sources */,
 				3AFCE4D61CDD2EA300995DB5 /* BBUniversalPresenter.m in Sources */,
 				3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */,
+				3A1BEF141CE28AED00C592EE /* BBMyProgramsInteractor.m in Sources */,
 				3AFCE47E1CDD2EA300995DB5 /* BBAuthorizationPresenter.m in Sources */,
 				3AFCE4AA1CDD2EA300995DB5 /* BBNavigationPresenter.m in Sources */,
-				3AFCE4C61CDD2EA300995DB5 /* BBPreviewOrderTableViewCell.m in Sources */,
 				3A8816E41CDE050400472531 /* BBNumderDayTableViewCell.m in Sources */,
+				3A1BEF211CE28AED00C592EE /* BBOrdersViewController.m in Sources */,
 				3A8816EB1CDE050400472531 /* BBProgramsRouter.m in Sources */,
 				3AFCE4CF1CDD2EA300995DB5 /* BBSettingsAssembly.m in Sources */,
 				3AFCE4DC1CDD2EA300995DB5 /* BBSupportRouter.m in Sources */,
 				3A8816F21CDE4AD500472531 /* BBSwitchTableViewCell.m in Sources */,
 				3AFCE4881CDD2EA300995DB5 /* BBRegistrationRouter.m in Sources */,
 				3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */,
+				3A1BEF1F1CE28AED00C592EE /* BBOrdersPresenter.m in Sources */,
 				3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */,
 				3AFCE4CB1CDD2EA300995DB5 /* BBProfileRouter.m in Sources */,
-				3AFCE4C41CDD2EA300995DB5 /* BBCalendarTableViewCell.m in Sources */,
 				3A8816CC1CDE050400472531 /* BBBasketAssembly.m in Sources */,
 				3AFCE4B11CDD2EA300995DB5 /* BBTabbarViewController.m in Sources */,
 				3AFCE4D71CDD2EA300995DB5 /* BBUniversalRouter.m in Sources */,
-				3AFCE4BE1CDD2EA300995DB5 /* BBOrdersInteractor.m in Sources */,
-				3AFCE4B71CDD2EA300995DB5 /* BBMyProgramsViewController.m in Sources */,
 				3AFCE47C1CDD2EA300995DB5 /* BBAuthorizationAssembly.m in Sources */,
 				3AFCE4A91CDD2EA300995DB5 /* BBNavigationInteractor.m in Sources */,
 				3AFCE4871CDD2EA300995DB5 /* BBRegistrationPresenter.m in Sources */,
-				3AFCE4BA1CDD2EA300995DB5 /* BBNewOrderPresenter.m in Sources */,
+				3A1BEF181CE28AED00C592EE /* BBNewOrderAssembly.m in Sources */,
 				3A8816D21CDE050400472531 /* BBBlocksInteractor.m in Sources */,
 				3AFCE4861CDD2EA300995DB5 /* BBRegistrationInteractor.m in Sources */,
 				3AFCE4851CDD2EA300995DB5 /* BBRegistrationAssembly.m in Sources */,
 				3AFCE4AB1CDD2EA300995DB5 /* BBNavigationRouter.m in Sources */,
 				3AFCE4B21CDD2EA300995DB5 /* BBTabBar.m in Sources */,
+				3A1BEF131CE28AED00C592EE /* BBMyProgramsAssembly.m in Sources */,
 				3AFCE4AD1CDD2EA300995DB5 /* BBTabbarAssembly.m in Sources */,
 				3A8816D91CDE050400472531 /* BBCardProgramInteractor.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3AFCE4801CDD2EA300995DB5 /* BBAuthorizationViewController.m in Sources */,
 				3AFCE4CC1CDD2EA300995DB5 /* BBProfileViewController.m in Sources */,
 				3AFCE4DD1CDD2EA300995DB5 /* BBSupportViewController.m in Sources */,
+				3A1BEF171CE28AED00C592EE /* BBMyProgramsViewController.m in Sources */,
 				3A8816E61CDE050400472531 /* BBPartDayTableViewCell.m in Sources */,
 				3AFCE4D21CDD2EA300995DB5 /* BBSettingsRouter.m in Sources */,
 				3A8816D61CDE050400472531 /* BBBlockTableViewCell.m in Sources */,
+				3A1BEF101CE28AED00C592EE /* BBDeliveryPresenter.m in Sources */,
 				3AFCE4DB1CDD2EA300995DB5 /* BBSupportPresenter.m in Sources */,
+				3A1BEF151CE28AED00C592EE /* BBMyProgramsPresenter.m in Sources */,
 				3A8816E91CDE050400472531 /* BBProgramsInteractor.m in Sources */,
+				3A1BEF1D1CE28AED00C592EE /* BBOrdersAssembly.m in Sources */,
 				3AFCE4D51CDD2EA300995DB5 /* BBUniversalInteractor.m in Sources */,
+				3A1BEF1E1CE28AED00C592EE /* BBOrdersInteractor.m in Sources */,
 				3A8816E81CDE050400472531 /* BBProgramsAssembly.m in Sources */,
 				3A8816D41CDE050400472531 /* BBBlocksRouter.m in Sources */,
 				3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */,
 				3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */,
 				3AFCE4C81CDD2EA300995DB5 /* BBProfileAssembly.m in Sources */,
+				3A1BEF1A1CE28AED00C592EE /* BBNewOrderPresenter.m in Sources */,
 				3AFCE4D91CDD2EA300995DB5 /* BBSupportAssembly.m in Sources */,
-				3AFCE4B61CDD2EA300995DB5 /* BBMyProgramsRouter.m in Sources */,
+				3A1BEF121CE28AED00C592EE /* BBDeliveryViewController.m in Sources */,
 				3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */,
 				3AFCE4CD1CDD2EA300995DB5 /* BBProfileTableViewCell.m in Sources */,
 				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
@@ -2136,13 +2231,16 @@
 				3AFCE4AC1CDD2EA300995DB5 /* BBNavigationViewController.m in Sources */,
 				3A8816EC1CDE050400472531 /* BBProgramsViewController.m in Sources */,
 				3AFCE4AF1CDD2EA300995DB5 /* BBTabbarPresenter.m in Sources */,
+				3A1BEF201CE28AED00C592EE /* BBOrdersRouter.m in Sources */,
+				3A1BEF221CE28AED00C592EE /* BBCalendarMenuView.m in Sources */,
 				3A8816511CDDE87B00472531 /* BBTextTableViewCell.m in Sources */,
+				3A1BEF241CE28AED00C592EE /* BBCalendarTableViewCell.m in Sources */,
 				3AFCE4C91CDD2EA300995DB5 /* BBProfileInteractor.m in Sources */,
 				3A8816CE1CDE050400472531 /* BBBasketPresenter.m in Sources */,
 				3A8816E01CDE050400472531 /* BBHeaderTableViewCell.m in Sources */,
 				3AFCE4D41CDD2EA300995DB5 /* BBUniversalAssembly.m in Sources */,
+				3A1BEF191CE28AED00C592EE /* BBNewOrderInteractor.m in Sources */,
 				3AFCE4CA1CDD2EA300995DB5 /* BBProfilePresenter.m in Sources */,
-				3AFCE4B51CDD2EA300995DB5 /* BBMyProgramsPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
