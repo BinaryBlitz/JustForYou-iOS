@@ -162,6 +162,13 @@ static CGFloat topInsetForTableView = - 35.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [self.output countDayCellDidTap];
+        } else {
+            [self.output adresCellDidTap];
+        }
+    }
 }
 
 #pragma mark - Notification Methods

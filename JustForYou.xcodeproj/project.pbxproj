@@ -46,6 +46,8 @@
 		3A1BEF251CE28AED00C592EE /* BBCalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEF0A1CE28AED00C592EE /* BBCalendarTableViewCell.xib */; };
 		3A1BEF261CE28AED00C592EE /* BBPreviewOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEF0C1CE28AED00C592EE /* BBPreviewOrderTableViewCell.m */; };
 		3A1BEF271CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEF0D1CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib */; };
+		3A1BEF2C1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BEF2A1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.m */; };
+		3A1BEF2D1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1BEF2B1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.xib */; };
 		3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */; };
 		3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816401CDDE87B00472531 /* BBAccessoryTableViewCell.m */; };
 		3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816411CDDE87B00472531 /* BBAccessoryTableViewCell.xib */; };
@@ -249,6 +251,9 @@
 		3A1BEF0B1CE28AED00C592EE /* BBPreviewOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPreviewOrderTableViewCell.h; sourceTree = "<group>"; };
 		3A1BEF0C1CE28AED00C592EE /* BBPreviewOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPreviewOrderTableViewCell.m; sourceTree = "<group>"; };
 		3A1BEF0D1CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBPreviewOrderTableViewCell.xib; sourceTree = "<group>"; };
+		3A1BEF291CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarDeliveryTableViewCell.h; sourceTree = "<group>"; };
+		3A1BEF2A1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarDeliveryTableViewCell.m; sourceTree = "<group>"; };
+		3A1BEF2B1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarDeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		3A2A2E6E1C9D8CE900CA19E1 /* JustForYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustForYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5B0BF51CBA35CD00ADCE2C /* BBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSegmentedControl.h; sourceTree = "<group>"; };
 		3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSegmentedControl.m; sourceTree = "<group>"; };
@@ -634,10 +639,10 @@
 		3A1BEEAA1CE28AED00C592EE /* Orders */ = {
 			isa = PBXGroup;
 			children = (
-				3A1BEEAB1CE28AED00C592EE /* Delivery */,
+				3A1BEEED1CE28AED00C592EE /* Orders */,
 				3A1BEEC11CE28AED00C592EE /* MyPrograms */,
 				3A1BEED71CE28AED00C592EE /* NewOrder */,
-				3A1BEEED1CE28AED00C592EE /* Orders */,
+				3A1BEEAB1CE28AED00C592EE /* Delivery */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -824,10 +829,10 @@
 		3A1BEEE81CE28AED00C592EE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A1BEEE91CE28AED00C592EE /* BBNewOrderViewController.h */,
-				3A1BEEEA1CE28AED00C592EE /* BBNewOrderViewController.m */,
 				3A1BEEEB1CE28AED00C592EE /* BBNewOrderViewInput.h */,
 				3A1BEEEC1CE28AED00C592EE /* BBNewOrderViewOutput.h */,
+				3A1BEEE91CE28AED00C592EE /* BBNewOrderViewController.h */,
+				3A1BEEEA1CE28AED00C592EE /* BBNewOrderViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -916,6 +921,9 @@
 		3A1BEF281CE28B2000C592EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A1BEF291CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.h */,
+				3A1BEF2A1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.m */,
+				3A1BEF2B1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2047,6 +2055,7 @@
 				3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */,
 				3AC492011CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib in Resources */,
 				3A8816DE1CDE050400472531 /* BBDescriptionTableViewCell.xib in Resources */,
+				3A1BEF2D1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.xib in Resources */,
 				3A8816571CDDF12900472531 /* BBCommentTableViewCell.xib in Resources */,
 				3A8816E11CDE050400472531 /* BBHeaderTableViewCell.xib in Resources */,
 				3A8816501CDDE87B00472531 /* BBMyProgramTableViewCell.xib in Resources */,
@@ -2199,6 +2208,7 @@
 				3AFCE4AB1CDD2EA300995DB5 /* BBNavigationRouter.m in Sources */,
 				3AFCE4B21CDD2EA300995DB5 /* BBTabBar.m in Sources */,
 				3A1BEF131CE28AED00C592EE /* BBMyProgramsAssembly.m in Sources */,
+				3A1BEF2C1CE28B7C00C592EE /* BBCalendarDeliveryTableViewCell.m in Sources */,
 				3AFCE4AD1CDD2EA300995DB5 /* BBTabbarAssembly.m in Sources */,
 				3A8816D91CDE050400472531 /* BBCardProgramInteractor.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,

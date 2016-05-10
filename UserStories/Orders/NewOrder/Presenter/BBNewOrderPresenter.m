@@ -14,9 +14,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBDeliveryAssembly.h"
+#import "BBDeliveryModuleInput.h"
+
 @interface BBNewOrderPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBDeliveryModuleInput> deliveryModule;
 
 @end
 
@@ -39,8 +43,23 @@
 	[self.view setupInitialState];
 }
 
+- (void)countDayCellDidTap {
+    [self.deliveryModule pushModuleWithNavigationModule:self.navigationModule];
+}
 
+- (void)adresCellDidTap {
+    
+}
 
 #pragma mark - Методы BBNewOrderInteractorOutput
+
+#pragma mark - Lazy Load
+
+-(id<BBDeliveryModuleInput>) deliveryModule {
+    if (!_deliveryModule) {
+        _deliveryModule = [BBDeliveryAssembly createModule];
+    }
+    return _deliveryModule;
+}
 
 @end

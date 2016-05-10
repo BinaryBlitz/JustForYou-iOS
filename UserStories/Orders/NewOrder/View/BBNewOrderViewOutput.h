@@ -12,4 +12,7 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)countDayCellDidTap;
+- (void)adresCellDidTap;
+
 @end
