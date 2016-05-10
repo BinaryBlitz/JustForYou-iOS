@@ -18,7 +18,6 @@ static CGFloat sizeFont = 16.0f;
     self.countLabel.hidden = YES;
     self.kSideCornerRadius = kNoneCornerRadius;
     self.textLabel.font = [UIFont systemFontOfSize:sizeFont weight:UIFontWeightLight];
-
 }
 
 - (void) layoutSubviews {

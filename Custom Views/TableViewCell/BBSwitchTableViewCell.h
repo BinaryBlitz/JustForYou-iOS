@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface BBSwitchTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UISwitch *bonusSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *customTextLabel;
+
+@property (nonatomic) BOOL setRadius;
+@property (nonatomic) BBKeyCornerRadius kSideCornerRadius;
+@property (nonatomic) BBKeyStyleContentCell kStyleContentCell;
 
 @end

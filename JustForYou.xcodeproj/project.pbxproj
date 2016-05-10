@@ -595,6 +595,13 @@
 			path = Preloader;
 			sourceTree = "<group>";
 		};
+		3A1BEEA41CE2690200C592EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3A2A2E651C9D8CE900CA19E1 = {
 			isa = PBXGroup;
 			children = (
@@ -1703,10 +1710,11 @@
 		3AFCE44A1CDD2EA300995DB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3AFCE44B1CDD2EA300995DB5 /* BBSettingsViewController.h */,
-				3AFCE44C1CDD2EA300995DB5 /* BBSettingsViewController.m */,
+				3A1BEEA41CE2690200C592EE /* Views */,
 				3AFCE44D1CDD2EA300995DB5 /* BBSettingsViewInput.h */,
 				3AFCE44E1CDD2EA300995DB5 /* BBSettingsViewOutput.h */,
+				3AFCE44B1CDD2EA300995DB5 /* BBSettingsViewController.h */,
+				3AFCE44C1CDD2EA300995DB5 /* BBSettingsViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";

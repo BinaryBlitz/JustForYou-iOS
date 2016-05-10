@@ -8,13 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger {
-    kNoneCornerRadius,
-    kTopCornerRadius,
-    kBottomCornerRadius,
-    kAllCornerRadius
-}BBKeyCornerRadius;
-
 @interface BBAccessoryTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;

@@ -14,12 +14,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Использовать бонусы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oF-FV-AEo">
-                        <rect key="frame" x="21" y="12.5" width="166.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oF-FV-AEo">
+                        <rect key="frame" x="21" y="12" width="166.5" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="166.5" id="jeO-tV-Jnt"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -31,19 +31,22 @@
                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </switch>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="6oF-FV-AEo" secondAttribute="bottom" priority="250" constant="11.5" id="QFt-BI-pxI"/>
+                    <constraint firstAttribute="bottom" secondItem="6oF-FV-AEo" secondAttribute="bottom" priority="250" constant="13" id="QFt-BI-pxI"/>
                     <constraint firstItem="6oF-FV-AEo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="RpU-Tf-Qjq"/>
                     <constraint firstItem="jnN-Lh-DpA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="X9J-dY-NZY"/>
                     <constraint firstAttribute="trailing" secondItem="jnN-Lh-DpA" secondAttribute="trailing" constant="20" id="htW-Sa-NZw"/>
                     <constraint firstItem="6oF-FV-AEo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zNu-ar-zdO"/>
-                    <constraint firstItem="6oF-FV-AEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="11" id="ziD-MW-ZVP"/>
+                    <constraint firstItem="6oF-FV-AEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="12.5" id="ziD-MW-ZVP"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="bonusSwitch" destination="jnN-Lh-DpA" id="f5V-qQ-oK1"/>
+                <outlet property="customTextLabel" destination="6oF-FV-AEo" id="anS-JV-rwK"/>
             </connections>
-            <point key="canvasLocation" x="329" y="221"/>
+            <point key="canvasLocation" x="118" y="219"/>
         </tableViewCell>
     </objects>
 </document>

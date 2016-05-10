@@ -17,8 +17,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *callManagerButton;
 @property (weak, nonatomic) IBOutlet UIButton *writeManagerButton;
 @property (weak, nonatomic) IBOutlet BBDottedBorderButton *feedbackButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
+
+static CGFloat bottomInset = 30.0f;
 
 @implementation BBSupportViewController
 
@@ -48,6 +51,7 @@
 - (void)setupInitialState {
     self.navigationItem.title = @"Поддержка";
     [self _setTitleForButtons];
+    [self _settingScrollView];
 }
 
 #pragma mark - Settings Methods
@@ -60,5 +64,10 @@
     self.writeManagerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.writeManagerButton setTitle:@"Написать\nменеджеру" forState:UIControlStateNormal];
 }
+
+- (void)_settingScrollView {
+    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomInset, 0);
+}
+
 
 @end

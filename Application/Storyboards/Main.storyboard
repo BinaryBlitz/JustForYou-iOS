@@ -344,8 +344,43 @@
                     <view key="view" contentMode="scaleToFill" id="N5I-Tv-lhc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="K5I-We-2GV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="535"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MVg-Pr-lGU" id="Uik-Jn-B8B"/>
+                                    <outlet property="delegate" destination="MVg-Pr-lGU" id="EGx-Tl-mjS"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHA-Oh-fyh">
+                                <rect key="frame" x="76" y="535" width="448" height="42.5"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.32156862745098036" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ВЫЙТИ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonAction:" destination="MVg-Pr-lGU" eventType="touchUpInside" id="cZt-9V-zTt"/>
+                                    <action selector="payButtonAction:" destination="XCZ-le-pJ0" eventType="touchUpInside" id="gr9-nE-3WC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FHA-Oh-fyh" firstAttribute="height" secondItem="N5I-Tv-lhc" secondAttribute="height" multiplier="47:667" id="05L-zX-IOl"/>
+                            <constraint firstAttribute="trailing" secondItem="K5I-We-2GV" secondAttribute="trailing" id="EIs-GQ-3qW"/>
+                            <constraint firstItem="FHA-Oh-fyh" firstAttribute="width" secondItem="N5I-Tv-lhc" secondAttribute="width" multiplier="280:375" id="hgP-76-pAP"/>
+                            <constraint firstItem="K5I-We-2GV" firstAttribute="top" secondItem="N5I-Tv-lhc" secondAttribute="top" id="i77-Lp-FSH"/>
+                            <constraint firstItem="K5I-We-2GV" firstAttribute="leading" secondItem="N5I-Tv-lhc" secondAttribute="leading" id="ia7-mg-mIc"/>
+                            <constraint firstItem="FHA-Oh-fyh" firstAttribute="top" secondItem="K5I-We-2GV" secondAttribute="bottom" id="rD0-jg-QwK"/>
+                            <constraint firstItem="lRo-Mb-pKK" firstAttribute="top" secondItem="FHA-Oh-fyh" secondAttribute="bottom" priority="750" constant="23" id="s66-hH-abt"/>
+                            <constraint firstItem="FHA-Oh-fyh" firstAttribute="centerX" secondItem="N5I-Tv-lhc" secondAttribute="centerX" id="z9M-yR-TEO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="FHA-Oh-fyh" id="aIa-Mk-CNY"/>
+                        <outlet property="tableView" destination="K5I-We-2GV" id="KKq-Jq-AgN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iv3-DC-n2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -655,6 +690,7 @@
                     <connections>
                         <outlet property="callManagerButton" destination="duW-vI-PLw" id="w7h-Ff-y6k"/>
                         <outlet property="feedbackButton" destination="tpq-La-8mA" id="1l9-5x-apw"/>
+                        <outlet property="scrollView" destination="KY4-Va-dnC" id="wZM-mR-1jP"/>
                         <outlet property="writeManagerButton" destination="W96-I0-pxI" id="AXq-lt-o5N"/>
                     </connections>
                 </viewController>

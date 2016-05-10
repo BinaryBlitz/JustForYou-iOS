@@ -87,6 +87,7 @@ static CGFloat topInsetForTableView = -35.0f;
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         BBSwitchTableViewCell *switchCell = [self.tableView dequeueReusableCellWithIdentifier:kSwitchCellIdentifire];
+        switchCell.customTextLabel.text = @"Использовать бонусы";
         cell = switchCell;
     } else {
         BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];

@@ -30,6 +30,21 @@ typedef enum : NSUInteger {
 } BBTabbarItem;
 
 
+// стиль ячейки: карточкой или обычный
+typedef enum : NSUInteger {
+    kStandartContentCell,
+    kCardContentCell
+}BBKeyStyleContentCell;
+
+// какие углы закруглять у ячейки таблицы
+typedef enum : NSUInteger {
+    kNoneCornerRadius,
+    kTopCornerRadius,
+    kBottomCornerRadius,
+    kAllCornerRadius
+}BBKeyCornerRadius;
+
+
 typedef enum : NSUInteger {
     BBLeftOrientationBarButtonItem,
     BBRightOrientationBarButtonItem
