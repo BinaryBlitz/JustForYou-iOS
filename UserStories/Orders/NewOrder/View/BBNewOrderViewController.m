@@ -84,7 +84,8 @@ static CGFloat topInsetForTableView = - 35.0f;
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
-    [self.view addGestureRecognizer:tap];
+    tap.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:tap];
 }
 
 

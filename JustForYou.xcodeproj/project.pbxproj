@@ -892,12 +892,12 @@
 		3A1BEEFE1CE28AED00C592EE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A1BEF041CE28AED00C592EE /* Views */,
+				3A1BEF021CE28AED00C592EE /* BBOrdersViewOutput.h */,
+				3A1BEF011CE28AED00C592EE /* BBOrdersViewInput.h */,
+				3A1BEF031CE28AED00C592EE /* BBOrderViewControllerDelegate.h */,
 				3A1BEEFF1CE28AED00C592EE /* BBOrdersViewController.h */,
 				3A1BEF001CE28AED00C592EE /* BBOrdersViewController.m */,
-				3A1BEF011CE28AED00C592EE /* BBOrdersViewInput.h */,
-				3A1BEF021CE28AED00C592EE /* BBOrdersViewOutput.h */,
-				3A1BEF031CE28AED00C592EE /* BBOrderViewControllerDelegate.h */,
-				3A1BEF041CE28AED00C592EE /* Views */,
 			);
 			path = View;
 			sourceTree = "<group>";

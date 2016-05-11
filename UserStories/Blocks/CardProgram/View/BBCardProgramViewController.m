@@ -128,7 +128,7 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
                 cell = partCell;
             } else {
                 BBMenuTableViewCell *menuCell = [[NSBundle mainBundle] loadNibNamed:kNibMenuCell
-                                                                              owner:self options:nil].lastObject;;
+                                                                              owner:self options:nil].lastObject;
                 cell = menuCell;
             }
         }

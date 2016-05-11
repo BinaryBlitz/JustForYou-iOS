@@ -9,9 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <JTCalendar/JTCalendar.h>
 
-@interface BBCalendarDeliveryTableViewCell : UITableViewCell
+#import "BBOrderViewControllerDelegate.h"
+
+@protocol BBCalendarDeliveryCellDelegate;
+
+@interface BBCalendarDeliveryTableViewCell : UITableViewCell <BBOrderViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarView;
 @property (weak, nonatomic) IBOutlet UILabel *informationLabel;
+
+@property (strong, nonatomic) id<BBCalendarDeliveryCellDelegate> delegate;
+
+@end
+
+@protocol BBCalendarDeliveryCellDelegate <NSObject>
+
+- (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
 
 @end
