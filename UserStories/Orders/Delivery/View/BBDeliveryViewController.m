@@ -21,6 +21,7 @@
 @property (strong, nonatomic) BBCalendarMenuView *calendarMenu;
 
 @property (strong, nonatomic) BBCalendarDeliveryTableViewCell *calendarCell;
+@property (strong, nonatomic) UIAlertController *alertController;
 
 @end
 
@@ -58,6 +59,10 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     self.calendarMenu.titleLabel.text = currentName;
 }
 
+- (void)showAlertViewWithMessage:(NSString *)message {
+    self.alertController.message = message;
+    [self presentViewController:self.alertController animated:YES completion:nil];
+}
 
 #pragma mark - TableView Methods
 
@@ -90,6 +95,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     
     if (indexPath.section == 0) {
         BBCalendarDeliveryTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarDeliveryCellIdentifire];
+        calendarCell.countDayInOrder = 10;
         self.calendarCell = calendarCell;
         [self _setDelegates];
         cell = calendarCell;
@@ -97,6 +103,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
         BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
         accessoryCell.accessoryType = UITableViewCellAccessoryNone;
         accessoryCell.setRadius = YES;
+        accessoryCell.accessoryImageView.hidden = YES;
         if (indexPath.row == 0) {
             accessoryCell.kSideCornerRadius = kTopCornerRadius;
             accessoryCell.textLabel.text = @"Подряд";
@@ -108,6 +115,17 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [self.calendarCell successivelySelectedDay];
+        } else {
+            [self.calendarCell successivelySelectedDayWithoutWeekend];
+        }
+    }
 }
 
 - (void)_setDelegates {
@@ -136,5 +154,15 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     return _calendarMenu;
 }
 
+- (UIAlertController *)alertController {
+    if (!_alertController) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [_alertController addAction:action];
+    }
+    return _alertController;
+}
 
 @end

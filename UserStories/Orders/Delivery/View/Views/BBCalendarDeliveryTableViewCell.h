@@ -20,10 +20,16 @@
 
 @property (strong, nonatomic) id<BBCalendarDeliveryCellDelegate> delegate;
 
+@property (assign, nonatomic) NSInteger countDayInOrder;
+
+- (void)successivelySelectedDay;
+- (void)successivelySelectedDayWithoutWeekend;
+
 @end
 
 @protocol BBCalendarDeliveryCellDelegate <NSObject>
 
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
+- (void)showAlertViewWithMessage:(NSString *)message;
 
 @end

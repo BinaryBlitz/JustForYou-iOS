@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) UIColor *selectedDayViewColor;
 @property (strong, nonatomic) NSMutableArray *datesSelected;
+@property (assign, nonatomic) BOOL selectDays;
+@property (assign, nonatomic) BOOL selectWeekend;
 
 @end
 
@@ -24,6 +26,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self _initCalendarManager];
+    self.selectDays = NO;
+    self.selectWeekend = NO;
+    self.countDayInOrder = 0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,6 +40,36 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.delegate updateNameMonthPreviousName:@"" currentName:self.nameMonth nextName:@""];
+    [self _setTextInLabel];
+}
+
+- (void)successivelySelectedDay {
+    if ([self.datesSelected count] > 0 ) {
+        if ([self.datesSelected count] < self.countDayInOrder) {
+            self.datesSelected = [self.calendarManager.dateHelper daysFromCurrentDatesArray:self.datesSelected forInterval:self.countDayInOrder - [self.datesSelected count]];
+            [self _setTextInLabel];
+            [self.calendarManager reload];
+        } else {
+            [self.delegate showAlertViewWithMessage:@"Вы не можете больше выбирать дни"];
+        }
+    } else {
+        [self.delegate showAlertViewWithMessage:@"Выберете хотя бы один день"];
+    }
+}
+
+- (void)successivelySelectedDayWithoutWeekend {
+    if ([self.datesSelected count] > 0) {
+        if ([self.datesSelected count] < self.countDayInOrder) {
+            self.datesSelected = [self.calendarManager.dateHelper daysWithoutWeekendFromCurrentDatesArray:self.datesSelected
+                                                                                              forInterval:self.countDayInOrder - [self.datesSelected count]];
+            [self _setTextInLabel];
+            [self.calendarManager reload];
+        } else {
+            [self.delegate showAlertViewWithMessage:@"Вы не можете больше выбирать дни"];
+        }
+    } else {
+        [self.delegate showAlertViewWithMessage:@"Выберете хотя бы один день"];
+    }
 }
 
 #pragma mark - BBOrderViewControllerDelegate Methods
@@ -62,7 +97,6 @@
     [self.calendarManager setDate:[NSDate date]];
 }
 
-
 // Used only to have a key for _eventsByDate
 - (NSDateFormatter *)_dateFormatter {
     
@@ -86,19 +120,18 @@
     }
     
     // Selected date
-    else if([self isInDatesSelected:dayView.date]){
+    if([self isInDatesSelected:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = self.selectedDayViewColor;
     } else {
         dayView.circleView.backgroundColor = [UIColor clearColor];
     }
-    
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView {
     
     if([self isInDatesSelected:dayView.date]){
-        [self.datesSelected removeObject:dayView.date];
+        [self _removeDayInArray:dayView.date];
         
         [UIView transitionWithView:dayView
                           duration:.3
@@ -106,10 +139,12 @@
                         animations:^{
                             [_calendarManager reload];
                             dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-                        } completion:nil];
+                        } completion:^(BOOL finished) {
+                            dayView.circleView.transform = CGAffineTransformIdentity;
+                        }];
     }
     else{
-        [self.datesSelected addObject:dayView.date];
+        [self _addDayInArray:dayView.date];
         
         dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
         [UIView transitionWithView:dayView
@@ -131,6 +166,8 @@
 }
 
 
+#pragma mark - DatesSelected Methods
+
 - (BOOL)isInDatesSelected:(NSDate *)date {
     for(NSDate *dateSelected in self.datesSelected){
         if([self.calendarManager.dateHelper date:dateSelected isTheSameDayThan:date]){
@@ -141,6 +178,28 @@
 }
 
 
+- (void)_removeDayInArray:(NSDate *)date {
+    [self.datesSelected removeObject:date];
+    [self _sortedDateArray];
+    [self _setTextInLabel];
+}
+
+- (void)_addDayInArray:(NSDate *)date {
+    [self.datesSelected addObject:date];
+    [self _sortedDateArray];
+    [self _setTextInLabel];
+}
+
+- (void)_sortedDateArray {
+    NSArray *sortedArray = [self.datesSelected sortedArrayUsingComparator: ^(NSDate *d1, NSDate *d2) {
+        return [d1 compare:d2];
+    }];
+    self.datesSelected = [NSMutableArray arrayWithArray:sortedArray];
+}
+
+- (void)_setTextInLabel {
+    self.informationLabel.text = [NSString stringWithFormat:@"Выбрано %lu дней из %ld", (unsigned long)[self.datesSelected count], (long)self.countDayInOrder];
+}
 
 #pragma mark - Lazy Load
 

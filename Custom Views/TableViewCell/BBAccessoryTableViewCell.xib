@@ -39,6 +39,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="accessoryImageView" destination="DRo-tK-9D9" id="PnU-7A-sBx"/>
                 <outlet property="countLabel" destination="OEb-JA-NXg" id="KiU-3i-daB"/>
             </connections>
             <point key="canvasLocation" x="233" y="259"/>

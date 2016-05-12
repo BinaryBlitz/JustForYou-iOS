@@ -11,6 +11,7 @@
 @interface BBAccessoryTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *accessoryImageView;
 
 @property (nonatomic) BOOL setRadius;
 @property (nonatomic) BBKeyCornerRadius kSideCornerRadius;
