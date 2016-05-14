@@ -20,9 +20,11 @@ typedef enum : NSUInteger {
     kEmailTextFiledCell
 }kTextFiledCell;
 
-@interface BBRegistrationViewController() <UITableViewDelegate, UITableViewDataSource>
+@interface BBRegistrationViewController() <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) UIAlertController *alertController;
 
 @property (weak, nonatomic) BBTextTableViewCell *nameCell;
 @property (weak, nonatomic) BBTextTableViewCell *surnameCell;
@@ -34,6 +36,10 @@ typedef enum : NSUInteger {
 
 static NSInteger numberOfRows = 3;
 static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
+
+static NSString *kNibNameTextCell = @"BBTextTableViewCell";
+
+static CGFloat estimateRowHeight = 44.0f;
 
 @implementation BBRegistrationViewController
 
@@ -56,8 +62,9 @@ static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
 #pragma mark - Методы BBRegistrationViewInput
 
 - (void)setupInitialState {
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.navigationItem.title = @"Регистрация";
     [self createBarButtonItem];
+    [self _settingsTableView];
 }
 
 
@@ -78,6 +85,10 @@ static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
     return user;
 }
 
+- (void)presentAlertControllerWithMessage:(NSString *)message {
+    self.alertController.message = message;
+    [self presentViewController:self.alertController animated:YES completion:nil];
+}
 
 #pragma mark - Methods TableView
 
@@ -87,6 +98,8 @@ static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireTextFieldCellIdentifire];
+    textCell.textField.delegate = self;
+    textCell.textField.returnKeyType = UIReturnKeyNext;
     if (indexPath.row == kNameTextFiledCell) {
         self.nameCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите имя"];
@@ -96,15 +109,73 @@ static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
     } else {
         self.emailCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите E-mail"];
+        textCell.textField.returnKeyType = UIReturnKeyDone;
     }
     return textCell;
 }
 
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
 
 - (void) registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBTextTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameTextCell bundle:nil]
          forCellReuseIdentifier:kIdentifireTextFieldCellIdentifire];
     
+}
+
+- (void)_settingsTableView {
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = estimateRowHeight;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
+//    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
+}
+
+#pragma mark - TextField Delegate Methods
+
+- (void)_resignFirstResponderWithTap {
+    [self.nameCell.textField resignFirstResponder];
+    [self.surnameCell.textField resignFirstResponder];
+    [self.emailCell.textField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.nameCell.textField]) {
+        [self.surnameCell.textField becomeFirstResponder];
+    } else if ([textField isEqual:self.surnameCell.textField]) {
+        [self.emailCell.textField becomeFirstResponder];
+    } else if ([textField isEqual:self.emailCell.textField]) {
+        [self.emailCell.textField resignFirstResponder];
+        [self.output nextButtonDidTap];
+    } else {
+        [self.nameCell.textField becomeFirstResponder];
+    }
+    return YES;
+}
+
+#pragma mark - Lazy Load
+
+- (UIAlertController *)alertController {
+    if (!_alertController) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [_alertController addAction:action];
+    }
+    return _alertController;
 }
 
 

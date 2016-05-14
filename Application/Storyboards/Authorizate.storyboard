@@ -123,10 +123,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dzy-PT-Zmt">
-                                <rect key="frame" x="0.0" y="40" width="320" height="223"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="132"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="223" id="FW4-S1-xXS"/>
+                                    <constraint firstAttribute="height" constant="132" id="FW4-S1-xXS"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="pm3-b1-8NQ" id="M30-3G-Uwh"/>

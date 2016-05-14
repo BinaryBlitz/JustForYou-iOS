@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) UIAlertController *alertController;
+
 @property (nonatomic) BBKeyStyleTableViewRegist keyStyleTableView;
 
 @property (weak, nonatomic) BBNumberPhoneTableViewCell *numberCell;
@@ -82,10 +84,15 @@ static CGFloat offsetBottom = 10.0f;
 #pragma mark - Методы BBAuthorizationViewInput
 
 - (void)setupInitialState {
+    self.navigationItem.title = @"Авторизация";
     [self _registrateIdentifireCell];
     [self _registerNotificationKeyboard];
 }
 
+- (void)presentAlertControllerWithMessage:(NSString *)message {
+    self.alertController.message = message;
+    [self presentViewController:self.alertController animated:YES completion:nil];
+}
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key {
     self.keyStyleTableView = key;
@@ -118,7 +125,7 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)sendCodeButtonDidTap {
     [self.numberCell.numberTextField resignFirstResponder];
-    [self.output sendCodeButtonDidTap];
+    [self.output sendCodeButtonDidTapWithValidField:self.numberCell.validationOk];
 }
 
 #pragma mark - UITableView
@@ -205,6 +212,19 @@ static CGFloat offsetBottom = 10.0f;
 - (void)layoutYouView {
     self.youView.layer.masksToBounds = YES;
     [self.youView.layer setCornerRadius:CGRectGetHeight(self.youView.frame)/2];
+}
+
+#pragma mark - Lazy Load
+
+- (UIAlertController *)alertController {
+    if (!_alertController) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [_alertController addAction:action];
+    }
+    return _alertController;
 }
 
 

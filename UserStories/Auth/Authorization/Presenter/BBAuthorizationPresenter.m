@@ -56,8 +56,12 @@
     [self.registModule presentWithAuthModule:self andNavigModule:self.navigModule andUserPhone:phone];
 }
 
-- (void)sendCodeButtonDidTap {
-    [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+- (void)sendCodeButtonDidTapWithValidField:(BOOL)valid {
+    if (valid) {
+        [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+    } else {
+        [self.view presentAlertControllerWithMessage:@"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку"];
+    }
 }
 
 #pragma mark - Методы BBAuthorizationInteractorOutput

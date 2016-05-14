@@ -1480,10 +1480,10 @@
 			isa = PBXGroup;
 			children = (
 				3AFCE32D1CDD2EA200995DB5 /* Assembly */,
-				3AFCE3301CDD2EA200995DB5 /* Interactor */,
-				3AFCE3351CDD2EA200995DB5 /* Presenter */,
-				3AFCE3391CDD2EA200995DB5 /* Router */,
 				3AFCE33D1CDD2EA200995DB5 /* View */,
+				3AFCE3351CDD2EA200995DB5 /* Presenter */,
+				3AFCE3301CDD2EA200995DB5 /* Interactor */,
+				3AFCE3391CDD2EA200995DB5 /* Router */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -1531,10 +1531,10 @@
 		3AFCE33D1CDD2EA200995DB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3AFCE33E1CDD2EA200995DB5 /* BBRegistrationViewController.h */,
-				3AFCE33F1CDD2EA200995DB5 /* BBRegistrationViewController.m */,
 				3AFCE3401CDD2EA200995DB5 /* BBRegistrationViewInput.h */,
 				3AFCE3411CDD2EA200995DB5 /* BBRegistrationViewOutput.h */,
+				3AFCE33E1CDD2EA200995DB5 /* BBRegistrationViewController.h */,
+				3AFCE33F1CDD2EA200995DB5 /* BBRegistrationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";

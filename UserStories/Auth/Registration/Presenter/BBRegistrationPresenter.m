@@ -49,6 +49,18 @@
 
 - (void)nextButtonDidTap {
     BBUser *user = [self.view userWithTextFields];
+    if ([user.name isEqualToString:@""] || !user.name || [user.name isEqualToString:@" "]) {
+        [self.view presentAlertControllerWithMessage:@"Введите Ваше имя"];
+        return;
+    }
+    if ([user.surname isEqualToString:@""] || !user.surname || [user.surname isEqualToString:@" "]) {
+        [self.view presentAlertControllerWithMessage:@"Введите Вашу фамилию"];
+        return;
+    }
+    if ([user.email isEqualToString:@""] || !user.email || [user.email isEqualToString:@" "]) {
+        [self.view presentAlertControllerWithMessage:@"Введите Ваш E-mail"];
+        return;
+    }
     user.numberPhone = self.userPhone;
     [self.interactor saveUser:user];
 }

@@ -18,7 +18,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.validationOk = NO;
     self.numberTextField.delegate = self;
 }
 
@@ -30,7 +30,11 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
     NSString* totalString = [NSString stringWithFormat:@"%@%@",textField.text,string];
-
+    if (textField.text.length < 14) {
+        self.validationOk = NO;
+    } else {
+        self.validationOk = YES;
+    }
     if (range.length == 1) {
         textField.text = [BBValidationService validateNumberPhoneWithNumber:totalString deleteLastChar:YES];
     } else {

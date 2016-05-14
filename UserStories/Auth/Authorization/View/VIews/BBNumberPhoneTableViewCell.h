@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *numberTextField;
 
+@property (nonatomic) BOOL validationOk;
+
 @end
