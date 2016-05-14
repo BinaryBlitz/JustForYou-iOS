@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum : NSUInteger {
+    kNumberPhoneStyleTableView,
+    kSendCodeStyleTableView
+}BBKeyStyleTableViewRegist;
+
 @protocol BBAuthorizationViewInput <NSObject>
 
 - (void)setupInitialState;
 
 - (void)getNumberPhoneUser;
+
+- (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key;
 
 @end

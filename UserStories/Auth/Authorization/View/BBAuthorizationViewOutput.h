@@ -16,4 +16,6 @@
 
 - (void)numberPhoneUserWithString:(NSString *)phone;
 
+- (void)sendCodeButtonDidTap;
+
 @end

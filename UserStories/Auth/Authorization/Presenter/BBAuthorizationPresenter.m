@@ -56,6 +56,9 @@
     [self.registModule presentWithAuthModule:self andNavigModule:self.navigModule andUserPhone:phone];
 }
 
+- (void)sendCodeButtonDidTap {
+    [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+}
 
 #pragma mark - Методы BBAuthorizationInteractorOutput
 

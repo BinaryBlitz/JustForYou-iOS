@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -35,11 +35,27 @@
                             <color key="titleColor" red="0.35686274509999999" green="0.6588235294" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZl-CV-pnp">
+                        <rect key="frame" x="50.5" y="7" width="220" height="30"/>
+                        <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="BAg-6a-ggR"/>
+                            <constraint firstAttribute="width" constant="220" id="yk6-Ig-8Fk"/>
+                        </constraints>
+                        <state key="normal" title="Выслать код для регистрации">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="sendCodeButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pjK-o0-wuH"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="top" secondItem="i53-OM-1eM" secondAttribute="bottom" id="IIq-TP-ORt"/>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aN5-Id-q1Q"/>
+                    <constraint firstItem="fZl-CV-pnp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="b5c-l5-mGU"/>
+                    <constraint firstItem="fZl-CV-pnp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eGJ-Vl-Zzm"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qT7-G5-xDc"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ysL-WV-tFu"/>
                 </constraints>
@@ -48,8 +64,9 @@
             <connections>
                 <outlet property="infoLabel" destination="i53-OM-1eM" id="Ps1-Vf-3JN"/>
                 <outlet property="sendAgainButton" destination="UPG-fu-Prd" id="lSH-X3-i51"/>
+                <outlet property="sendCodeButton" destination="fZl-CV-pnp" id="odn-pI-KFf"/>
             </connections>
-            <point key="canvasLocation" x="0.0" y="166"/>
+            <point key="canvasLocation" x="8" y="225"/>
         </tableViewCell>
     </objects>
 </document>

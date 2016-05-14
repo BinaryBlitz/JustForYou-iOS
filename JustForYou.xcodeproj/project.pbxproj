@@ -1403,10 +1403,10 @@
 			isa = PBXGroup;
 			children = (
 				3AFCE3101CDD2EA200995DB5 /* Assembly */,
-				3AFCE3131CDD2EA200995DB5 /* Interactor */,
-				3AFCE3181CDD2EA200995DB5 /* Presenter */,
-				3AFCE31C1CDD2EA200995DB5 /* Router */,
 				3AFCE3201CDD2EA200995DB5 /* View */,
+				3AFCE3181CDD2EA200995DB5 /* Presenter */,
+				3AFCE3131CDD2EA200995DB5 /* Interactor */,
+				3AFCE31C1CDD2EA200995DB5 /* Router */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -1454,11 +1454,11 @@
 		3AFCE3201CDD2EA200995DB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3AFCE3211CDD2EA200995DB5 /* BBAuthorizationViewController.h */,
-				3AFCE3221CDD2EA200995DB5 /* BBAuthorizationViewController.m */,
+				3AFCE3251CDD2EA200995DB5 /* VIews */,
 				3AFCE3231CDD2EA200995DB5 /* BBAuthorizationViewInput.h */,
 				3AFCE3241CDD2EA200995DB5 /* BBAuthorizationViewOutput.h */,
-				3AFCE3251CDD2EA200995DB5 /* VIews */,
+				3AFCE3211CDD2EA200995DB5 /* BBAuthorizationViewController.h */,
+				3AFCE3221CDD2EA200995DB5 /* BBAuthorizationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
