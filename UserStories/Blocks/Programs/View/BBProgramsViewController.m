@@ -68,6 +68,7 @@ static NSInteger countPage = 5;
     self.scrollView.delegate = self;
     self.secondImageView.alpha = 0.0;
     self.pageControl.numberOfPages = countPage;
+    self.pageControl.enabled = NO;
     [self _initRightBarButton];
     [self _initWightProgramView];
 }

@@ -1270,11 +1270,11 @@
 		3A8816C31CDE050400472531 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A8816C81CDE050400472531 /* Views */,
 				3A8816C61CDE050400472531 /* BBProgramsViewInput.h */,
 				3A8816C71CDE050400472531 /* BBProgramsViewOutput.h */,
 				3A8816C41CDE050400472531 /* BBProgramsViewController.h */,
 				3A8816C51CDE050400472531 /* BBProgramsViewController.m */,
-				3A8816C81CDE050400472531 /* Views */,
 			);
 			path = View;
 			sourceTree = "<group>";
