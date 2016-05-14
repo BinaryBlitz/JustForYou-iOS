@@ -212,7 +212,7 @@
 
 - (UIColor *)selectedDayViewColor {
     if (!_selectedDayViewColor) {
-        _selectedDayViewColor = [UIColor colorWithWhite:0.7 alpha:0.7];
+        _selectedDayViewColor = [BBConstantAndColor applicationGreenColor];//[UIColor colorWithWhite:0.7 alpha:0.7];
     }
     return _selectedDayViewColor;
 }

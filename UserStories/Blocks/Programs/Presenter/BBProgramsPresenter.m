@@ -45,7 +45,7 @@
 	[self.view setupInitialState];
 }
 
-- (void)programDidTap {
+- (void)programDidTapWithProgram:(BBProgram *)program {
     [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule];
 }
 

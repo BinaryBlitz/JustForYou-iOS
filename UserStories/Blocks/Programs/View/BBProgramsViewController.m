@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButton;
 
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
@@ -41,8 +42,6 @@ static NSInteger countPage = 5;
         
         BBProgramView *view = [[BBProgramView alloc] init];
         view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureProgramViewAction)];
-        [view addGestureRecognizer:gesture];
         [self.scrollView addSubview:view];
     }
 }
@@ -55,12 +54,12 @@ static NSInteger countPage = 5;
 
 #pragma mark - Actions
 
-- (void)gestureProgramViewAction {
-    [self.output programDidTap];
-}
-
 - (void)_basketButtonAction {
     [self.output basketButtonDidTap];
+}
+
+- (IBAction)moreButtonAction:(id)sender {
+    [self.output programDidTapWithProgram:[BBProgram new]];
 }
 
 #pragma mark - Методы BBProgramsViewInput
@@ -79,14 +78,18 @@ static NSInteger countPage = 5;
     // Даня - это я пока тренируюсь с aplha так что можешь в этом классе код даже не читать :)
     
     CGFloat curX = scrollView.contentOffset.x;
-    CGFloat wight = scrollView.frame.size.width;
+    CGFloat pageWidth = scrollView.frame.size.width;
     
-    CGFloat ratio = curX/wight;
+    CGFloat ratio = curX/pageWidth;
     double d, drob;
     drob = modf(ratio, &d);
     
 //    NSLog(@"%f, часть какая то = %f", ratio, drob);
     self.secondImageView.alpha = drob;
+    
+    NSInteger offsetLooping = 1;
+    int page = round((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + offsetLooping;
+    self.pageControl.currentPage = (page % countPage);
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
@@ -104,16 +107,6 @@ static NSInteger countPage = 5;
         targetIndex = kMaxIndex;
     }
     targetContentOffset->x = targetIndex * (self.wightProgramView + self.insetfForView);
-}
-
-
-
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    CGFloat pageWidth = self.scrollView.frame.size.width;
-    NSInteger offsetLooping = 1;
-    int page = round((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + offsetLooping;
-    self.pageControl.currentPage = (page % countPage);
 }
 
 

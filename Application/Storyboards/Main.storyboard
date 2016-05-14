@@ -74,6 +74,20 @@
                                 <rect key="frame" x="0.0" y="147" width="375" height="373"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVx-cU-Qsp">
+                                <rect key="frame" x="135" y="563" width="104" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="jT5-68-cl9"/>
+                                    <constraint firstAttribute="width" constant="104" id="vD1-oo-Y7t"/>
+                                </constraints>
+                                <state key="normal" title="ПОДРОБНЕЕ">
+                                    <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="moreButtonAction:" destination="AA8-UO-QaK" eventType="touchUpInside" id="0ed-Q9-vNr"/>
+                                </connections>
+                            </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6xh-oz-5in">
                                 <rect key="frame" x="168" y="610" width="39" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -86,9 +100,11 @@
                             <constraint firstItem="QXZ-ll-crX" firstAttribute="height" secondItem="muE-HD-jFe" secondAttribute="height" multiplier="373:667" id="2f6-bn-EyS"/>
                             <constraint firstAttribute="trailing" secondItem="UB9-KO-16j" secondAttribute="trailing" id="5OU-H6-GNu"/>
                             <constraint firstItem="UB9-KO-16j" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" id="73e-v0-dyk"/>
+                            <constraint firstItem="yVx-cU-Qsp" firstAttribute="centerY" secondItem="muE-HD-jFe" secondAttribute="centerY" multiplier="576:334" id="CuB-yo-fzu"/>
                             <constraint firstItem="8N2-UG-aKh" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" id="ReT-lD-OMO"/>
                             <constraint firstItem="8N2-UG-aKh" firstAttribute="top" secondItem="muE-HD-jFe" secondAttribute="top" id="cJo-oq-npK"/>
                             <constraint firstAttribute="trailing" secondItem="QXZ-ll-crX" secondAttribute="trailing" id="gea-Pc-aNF"/>
+                            <constraint firstItem="yVx-cU-Qsp" firstAttribute="centerX" secondItem="muE-HD-jFe" secondAttribute="centerX" id="hrQ-TQ-51z"/>
                             <constraint firstItem="QXZ-ll-crX" firstAttribute="leading" secondItem="muE-HD-jFe" secondAttribute="leading" id="isG-6M-Os8"/>
                             <constraint firstItem="QXZ-ll-crX" firstAttribute="centerY" secondItem="muE-HD-jFe" secondAttribute="centerY" id="nKk-wF-hCx"/>
                             <constraint firstItem="5Tw-8S-SAg" firstAttribute="top" secondItem="6xh-oz-5in" secondAttribute="bottom" constant="20" id="nPf-zB-Kfp"/>
@@ -100,6 +116,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="firstImageView" destination="UB9-KO-16j" id="K8Q-bJ-CuC"/>
+                        <outlet property="moreButton" destination="CuB-yo-fzu" id="DiL-U5-T5I"/>
                         <outlet property="pageControl" destination="6xh-oz-5in" id="bJ8-8k-uyY"/>
                         <outlet property="scrollView" destination="QXZ-ll-crX" id="jV1-K9-7Lf"/>
                         <outlet property="secondImageView" destination="8N2-UG-aKh" id="zjf-M5-Cd4"/>

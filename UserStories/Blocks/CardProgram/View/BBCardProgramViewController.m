@@ -58,9 +58,14 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
 - (void)setupInitialState {
     self.segmentedIndex = BBDescriptionSegmentedIndex;
     [self _settingTableView];
+    [self _initRightBarButton];
 }
 
 #pragma mark - Actions
+
+- (void)_basketButtonAction {
+    [self.output basketButtonDidTap];
+}
 
 
 - (IBAction)addInBasketButtonAction:(id)sender {
@@ -148,9 +153,10 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
     self.segmentedIndex = segmentedIndex;
     [self _changeBackgroundTableView];
 //    [self.tableView reloadData];
-    NSRange range = NSMakeRange(1, 1);
-    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:range];
-    [self.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationNone];
+    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 1)];
+    [self.tableView beginUpdates];
+    [self.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView endUpdates];
 }
 
 - (void)_changeBackgroundTableView {
@@ -159,6 +165,14 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
     } else {
         self.tableView.backgroundColor = [BBConstantAndColor colorForR:250 G:250 B:250 alpha:1.f];
     }
+}
+
+#pragma mark - Init Methods
+
+- (void)_initRightBarButton {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(_basketButtonAction)];
+    
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 #pragma mark - Layout Views

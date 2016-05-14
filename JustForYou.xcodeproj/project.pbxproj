@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
+		3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D23011CE7A60700FA8B86 /* BBProgram.m */; };
 		3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */; };
 		3A1347551CA6B643007A83ED /* BBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347541CA6B643007A83ED /* BBUserService.m */; };
 		3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347571CA6B6BE007A83ED /* BBUser.m */; };
@@ -157,6 +158,8 @@
 
 /* Begin PBXFileReference section */
 		210AF3DD46A1874881C76F17 /* Pods-JustForYou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustForYou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou.debug.xcconfig"; sourceTree = "<group>"; };
+		3A0D23001CE7A60700FA8B86 /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
+		3A0D23011CE7A60700FA8B86 /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorizate.storyboard; sourceTree = "<group>"; };
 		3A1347531CA6B643007A83ED /* BBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUserService.h; sourceTree = "<group>"; };
 		3A1347541CA6B643007A83ED /* BBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUserService.m; sourceTree = "<group>"; };
@@ -549,6 +552,8 @@
 			children = (
 				3A1347561CA6B6BE007A83ED /* BBUser.h */,
 				3A1347571CA6B6BE007A83ED /* BBUser.m */,
+				3A0D23001CE7A60700FA8B86 /* BBProgram.h */,
+				3A0D23011CE7A60700FA8B86 /* BBProgram.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1126,10 +1131,10 @@
 			isa = PBXGroup;
 			children = (
 				3A88168B1CDE050400472531 /* Assembly */,
-				3A88168E1CDE050400472531 /* Interactor */,
-				3A8816931CDE050400472531 /* Presenter */,
-				3A8816971CDE050400472531 /* Router */,
 				3A88169B1CDE050400472531 /* View */,
+				3A8816931CDE050400472531 /* Presenter */,
+				3A88168E1CDE050400472531 /* Interactor */,
+				3A8816971CDE050400472531 /* Router */,
 			);
 			path = CardProgram;
 			sourceTree = "<group>";
@@ -2169,6 +2174,7 @@
 				3A8816F81CDE4B2500472531 /* BBBasketTableViewCell.m in Sources */,
 				3A1BEF0E1CE28AED00C592EE /* BBDeliveryAssembly.m in Sources */,
 				3A8816561CDDF12900472531 /* BBCommentTableViewCell.m in Sources */,
+				3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */,
 				3A1BEF1B1CE28AED00C592EE /* BBNewOrderRouter.m in Sources */,
 				3AFCE4A81CDD2EA300995DB5 /* BBNavigationAssembly.m in Sources */,
 				3A8816DD1CDE050400472531 /* BBDescriptionTableViewCell.m in Sources */,

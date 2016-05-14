@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BBProgram.h"
 
 @protocol BBProgramsViewOutput <NSObject>
 
 - (void)didTriggerViewReadyEvent;
 
-- (void)programDidTap;
+- (void)programDidTapWithProgram:(BBProgram *)program;
 
 - (void)basketButtonDidTap;
 
