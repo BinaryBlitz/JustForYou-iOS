@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.numberDay = 1;
     // Initialization code
 }
 
@@ -19,6 +20,18 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)rightButtonAction:(id)sender {
+    [self.delegate rightButtonDidTap];
+}
+
+- (IBAction)leftButtonAction:(id)sender {
+    [self.delegate leftButtonDidTap];
+}
+
+- (void)updateDayLabelWithNumber:(NSInteger)number {
+    self.numberDayLabel.text = [NSString stringWithFormat:@"%ld день", (long)number];
 }
 
 @end

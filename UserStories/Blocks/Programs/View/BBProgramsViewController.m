@@ -34,7 +34,6 @@ static NSInteger countPage = 5;
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLayoutSubviews {
-#warning delete after test
     
     self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
     for (int i = 0; i < countPage; i++) {
@@ -76,7 +75,6 @@ static NSInteger countPage = 5;
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // Даня - это я пока тренируюсь с aplha так что можешь в этом классе код даже не читать :)
     
     CGFloat curX = scrollView.contentOffset.x;
     CGFloat pageWidth = scrollView.frame.size.width;

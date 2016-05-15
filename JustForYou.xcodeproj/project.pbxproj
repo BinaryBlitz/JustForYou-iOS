@@ -1202,15 +1202,15 @@
 				3A8816A61CDE050400472531 /* BBHeaderTableViewCell.h */,
 				3A8816A71CDE050400472531 /* BBHeaderTableViewCell.m */,
 				3A8816A81CDE050400472531 /* BBHeaderTableViewCell.xib */,
-				3A8816A91CDE050400472531 /* BBMenuTableViewCell.h */,
-				3A8816AA1CDE050400472531 /* BBMenuTableViewCell.m */,
-				3A8816AB1CDE050400472531 /* BBMenuTableViewCell.xib */,
 				3A8816AC1CDE050400472531 /* BBNumderDayTableViewCell.h */,
 				3A8816AD1CDE050400472531 /* BBNumderDayTableViewCell.m */,
 				3A8816AE1CDE050400472531 /* BBNumderDayTableViewCell.xib */,
 				3A8816AF1CDE050400472531 /* BBPartDayTableViewCell.h */,
 				3A8816B01CDE050400472531 /* BBPartDayTableViewCell.m */,
 				3A8816B11CDE050400472531 /* BBPartDayTableViewCell.xib */,
+				3A8816A91CDE050400472531 /* BBMenuTableViewCell.h */,
+				3A8816AA1CDE050400472531 /* BBMenuTableViewCell.m */,
+				3A8816AB1CDE050400472531 /* BBMenuTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";

@@ -32,6 +32,10 @@
     return [self colorForR:125.0f G:182.0f B:98.0f alpha:1.0f];
 }
 
++ (UIColor *)applicationWhiteBackgroundColor {
+    return [self colorForR:249.0f G:249.0f B:249.0f alpha:1.0f];
+}
+
 + (UIColor *)colorForR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:alpha];
 }

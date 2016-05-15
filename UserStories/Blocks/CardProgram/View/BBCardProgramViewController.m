@@ -16,25 +16,34 @@
 #import "BBPartDayTableViewCell.h"
 #import "BBNumderDayTableViewCell.h"
 
-@interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate>
+
+@interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addInBasketButton;
 @property (weak, nonatomic) IBOutlet UIView *gradientVIew;
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
+@property (strong, nonatomic) BBNumderDayTableViewCell *numberDayCell;
+
 @property (nonatomic) BBCardProgramSegmentedIndex segmentedIndex;
 @property (nonatomic) CGFloat heightGradient;
 
 @end
 
-static NSString *kNibMenuCell = @"BBMenuTableViewCell";
+static NSString *kNibNameHeaderCell = @"BBHeaderTableViewCell";
+static NSString *kNibNameDescriptionCell = @"BBDescriptionTableViewCell";
+static NSString *kNibNameMenuCell = @"BBMenuTableViewCell";
+static NSString *kNibNamePartDayCell = @"BBPartDayTableViewCell";
+static NSString *kNibNameNumberDayCell = @"BBNumderDayTableViewCell";
+
 
 static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
 static NSString *kMenuCellIdentifire = @"menuTableViewCell";
 static NSString *kPartDayCellIdentifire = @"partDayTableViewCell";
 static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
+
 
 @implementation BBCardProgramViewController
 
@@ -73,72 +82,82 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
 }
 
 
-#pragma mark - TableView
+#pragma mark - TableView Methods
 
 - (void) _registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBHeaderTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameHeaderCell bundle:nil]
          forCellReuseIdentifier:kHeaderCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBDescriptionTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameDescriptionCell bundle:nil]
          forCellReuseIdentifier:kDescriptionCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBMenuTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMenuCell bundle:nil]
          forCellReuseIdentifier:kMenuCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBPartDayTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNamePartDayCell bundle:nil]
          forCellReuseIdentifier:kPartDayCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBNumderDayTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameNumberDayCell bundle:nil]
          forCellReuseIdentifier:kNumberDayCellIdentifire];
+    
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
-    } else {
-        if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
-            return 1;
-        } else {
-            return 8;   
-        }
     }
+    if (section == 1) {
+        return 1;
+    }
+    if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
+        return 0;
+    }
+    return 7;
+
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
+    
     if (indexPath.section == 0) {
         BBHeaderTableViewCell *headerCell = [self.tableView dequeueReusableCellWithIdentifier:kHeaderCellIdentifire];
         headerCell.delegate = self;
         headerCell.imageProgram.image = [UIImage imageNamed:@"testBack"];
         
-        cell = headerCell;
-    } else {
+        return headerCell;
+    }
+    if (indexPath.section == 1) {
+        
         if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
             BBDescriptionTableViewCell *descriptiomCell = [self.tableView dequeueReusableCellWithIdentifier:kDescriptionCellIdentifire];
             descriptiomCell.nameLabel.text = @"1300 ккал без мяса и птицы";
             descriptiomCell.costLabel.text = @"5800 РУБ";
             descriptiomCell.descriptionLabel.text = @"Самый комфортный путь к стройности для тех, кто предпочитает исключать из рациона мясо и птицу.\n\nПрограмма «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в качестве ";
-            cell = descriptiomCell;
+            return descriptiomCell;
         } else {
-            if (indexPath.row == 0) {
-                BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
-                cell = numberCell;
-            } else if (indexPath.row == 1 || indexPath.row == 5 ) {
-                BBPartDayTableViewCell *partCell = [self.tableView dequeueReusableCellWithIdentifier:kPartDayCellIdentifire];
-                if (indexPath.row == 1) {
-                    [partCell setPartOfDayWithKey:kMorningPartOfDay];
-                } else {
-                    [partCell setPartOfDayWithKey:kDayPartOfDay];
-                }
-                cell = partCell;
-            } else {
-                BBMenuTableViewCell *menuCell = [[NSBundle mainBundle] loadNibNamed:kNibMenuCell
-                                                                              owner:self options:nil].lastObject;
-                cell = menuCell;
+            BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
+            if (!numberCell.delegate) {
+                numberCell.delegate = self;
             }
+            self.numberDayCell = numberCell;
+            return numberCell;
+        }
+    } else {
+        if (indexPath.row == 0 || indexPath.row == 4) {
+            BBPartDayTableViewCell *partDayCell = [self.tableView dequeueReusableCellWithIdentifier:kPartDayCellIdentifire];
+            if (indexPath.row == 0) {
+                [partDayCell setPartOfDayWithKey:kMorningPartOfDay];
+            } else {
+                [partDayCell setPartOfDayWithKey:kDayPartOfDay];
+            }
+            return partDayCell;
+        } else {
+            BBMenuTableViewCell *menuCell = [[NSBundle mainBundle] loadNibNamed:kNibNameMenuCell owner:self options:nil].lastObject;
+            
+            return menuCell;
         }
     }
-    return cell;
+    
 }
 
 - (void)_settingTableView {
@@ -147,16 +166,23 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
     self.tableView.estimatedRowHeight = 44.f;
 }
 
+- (void)_updateTableViewWithIndex:(NSInteger)index range:(NSInteger)range animation:(UITableViewRowAnimation)animation {
+    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(index, range)];
+    [self.tableView beginUpdates];
+    [self.tableView reloadSections:section withRowAnimation:animation];
+    [self.tableView endUpdates];
+}
+
 #pragma mark - Controls TableView
 
 - (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex {
     self.segmentedIndex = segmentedIndex;
     [self _changeBackgroundTableView];
-//    [self.tableView reloadData];
-    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 1)];
-    [self.tableView beginUpdates];
-    [self.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationLeft];
-    [self.tableView endUpdates];
+    if (segmentedIndex == BBMenuSegmentedIndex) {
+        [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
+    } else {
+        [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
+    }
 }
 
 - (void)_changeBackgroundTableView {
@@ -165,6 +191,20 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
     } else {
         self.tableView.backgroundColor = [BBConstantAndColor colorForR:250 G:250 B:250 alpha:1.f];
     }
+}
+
+#pragma mark - Cell Delegates Methods 
+
+- (void)leftButtonDidTap {
+    self.numberDayCell.numberDay -= 1;
+    [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
+    [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationRight];
+}
+
+- (void)rightButtonDidTap {
+    self.numberDayCell.numberDay += 1;
+    [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
+    [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationLeft];
 }
 
 #pragma mark - Init Methods
