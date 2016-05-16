@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYI-W3-fuj">
-                        <rect key="frame" x="102" y="0.0" width="1" height="43.5"/>
+                        <rect key="frame" x="99" y="0.0" width="1" height="43.5"/>
                         <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="9Av-dw-UJg"/>
@@ -23,7 +23,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4R-n5-20C">
-                        <rect key="frame" x="65" y="11.5" width="20" height="21"/>
+                        <rect key="frame" x="62" y="11.5" width="20" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="A8F-wP-fsj"/>
                             <constraint firstAttribute="width" constant="20" id="n56-gY-MUH"/>
@@ -33,9 +33,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(900)-00-00-00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZ5-DW-qOf">
-                        <rect key="frame" x="111" y="7" width="144" height="30"/>
+                        <rect key="frame" x="108" y="7.5" width="150" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="144" id="gfE-SP-mPb"/>
+                            <constraint firstAttribute="width" constant="150" id="gfE-SP-mPb"/>
                             <constraint firstAttribute="height" constant="30" id="q4V-DD-pGQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>

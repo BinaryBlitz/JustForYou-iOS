@@ -86,8 +86,8 @@ static NSInteger countPage = 5;
 //    NSLog(@"%f, часть какая то = %f", ratio, drob);
     self.secondImageView.alpha = drob;
     
-    NSInteger offsetLooping = 1;
-    int page = round((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + offsetLooping;
+//    NSInteger offsetLooping = 1;
+    NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
     self.pageControl.currentPage = (page % countPage);
 }
 
@@ -96,9 +96,9 @@ static NSInteger countPage = 5;
               targetContentOffset:(inout CGPoint *)targetContentOffset {
     
     CGFloat kMaxIndex = countPage;
-    CGFloat targetX = scrollView.contentOffset.x + velocity.x * 120;
+    CGFloat targetX = scrollView.contentOffset.x + velocity.x * 240;
     CGFloat targetIndex = round(targetX / (self.wightProgramView + self.insetfForView));
-
+    
     if (targetIndex < 0) {
         targetIndex = 0;
     }
