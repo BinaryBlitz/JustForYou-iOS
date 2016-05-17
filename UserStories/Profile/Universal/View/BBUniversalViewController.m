@@ -22,6 +22,10 @@
 static CGFloat estimatedRowHeight = 50.0f;
 
 static CGFloat contentInset = 20.0f;
+
+static CGFloat miniHeightHeaderSection = 5.0f;
+static CGFloat miniHeightFooterSection = 5.0f;
+
 static CGFloat heightHeaderSection = 10.0f;
 static CGFloat heightFooterSection = 10.0f;
 
@@ -59,6 +63,8 @@ static CGFloat heightFooterSection = 10.0f;
          forCellReuseIdentifier:kMyPayCardCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameStockCell bundle:nil]
          forCellReuseIdentifier:kStockCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameAccessoryCell bundle:nil]
+         forCellReuseIdentifier:kAccessoryCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -69,10 +75,16 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (self.keyModule == kMyAddressModule) {
+        return miniHeightFooterSection;
+    }
     return heightFooterSection;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.keyModule == kMyAddressModule) {
+        return miniHeightHeaderSection;
+    }
     return heightHeaderSection;
 }
 
@@ -84,14 +96,14 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.keyModule == kSharesModule) {
+    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule) {
         return 3;
     }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.keyModule == kSharesModule) {
+    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule) {
         return 1;
     }
     return 3;
@@ -105,15 +117,22 @@ static CGFloat heightFooterSection = 10.0f;
         BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
         return cell;
     } else if (self.keyModule == kMyAddressModule) {
-        BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
+        BBAccessoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
+        cell.setRadius = YES;
+        cell.kSideCornerRadius = kAllCornerRadius;
+        cell.textLabel.text = @"Большая Никитская д.22/1, 134";
         return cell;
     } else if (self.keyModule == kSharesModule) {
         BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
         return cell;
-    } else {
+    }  else {
         BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -40,6 +40,10 @@
     return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:alpha];
 }
 
++ (UIColor *)applicationGreenBankColor {
+    return [self colorForR:62.0f G:177.0f B:79.0f alpha:1.0f];
+}
+
 
 #pragma mark - Constant
 
