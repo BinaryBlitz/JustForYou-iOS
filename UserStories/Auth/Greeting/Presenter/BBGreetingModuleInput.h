@@ -12,4 +12,6 @@
 
 - (void)configureModule;
 
+- (void)pushModuleWithNavigationModule:(id)navigationModule;
+
 @end

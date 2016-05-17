@@ -114,6 +114,7 @@ static CGFloat bottomOffsetCells = 10.0f;
 
 static NSString *kNameTitleRegistrationModule = @"Регистрация";
 static NSString *kNameTitleAuthorizateModule = @"Авторизация";
+static NSString *kNameTitleGreetingModule = @"JustForYou";
 
 static NSString *kNameTitleProgramModule = @"Программы";
 static NSString *kNameTitleBasketModule = @"Корзина";

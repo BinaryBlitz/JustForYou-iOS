@@ -12,4 +12,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)nextButtonDidTapWithPage:(NSInteger)page;
+
 @end

@@ -53,7 +53,7 @@
 
 
 - (void)numberPhoneUserWithString:(NSString *)phone {
-    [self.registModule presentWithAuthModule:self andNavigModule:self.navigModule andUserPhone:phone];
+    [self.registModule presentWithNavigModule:self.navigModule andUserPhone:phone];
 }
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid {

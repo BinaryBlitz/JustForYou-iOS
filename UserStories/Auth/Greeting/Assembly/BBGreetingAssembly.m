@@ -38,7 +38,7 @@
 }
 
 + (BBGreetingViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authorizate" bundle:nil];
     BBGreetingViewController * vc = (BBGreetingViewController *)[sb instantiateViewControllerWithIdentifier:@"BBGreetingViewController"];
     return vc;
 }

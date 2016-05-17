@@ -10,7 +10,13 @@
 
 #import "BBGreetingViewOutput.h"
 
-@interface BBGreetingViewController()
+@interface BBGreetingViewController() <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
+@property (nonatomic) NSInteger countPage;
 
 @end
 
@@ -24,10 +30,64 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self _layoutNextButton];
+    [self _initViewsInScrollView];
+}
+
+#pragma mark - Actions Methods
+
+- (IBAction)nextButtonAction:(id)sender {
+    [self.output nextButtonDidTapWithPage:self.pageControl.currentPage];
+}
+
 #pragma mark - Методы BBGreetingViewInput
 
 - (void)setupInitialState {
-	
+    self.navigationItem.title = kNameTitleGreetingModule;
+    self.navigationItem.hidesBackButton = YES;
+    self.pageControl.numberOfPages = self.countPage;
+}
+
+- (void)countPageInPageControl:(NSInteger)count {
+    self.countPage = count;
+}
+
+- (void)changePageInScrollView {
+    CGRect frame = self.scrollView.frame;
+    frame.origin.x = frame.size.width * (self.pageControl.currentPage + 1);
+    frame.origin.y = 0;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+}
+
+#pragma mark - ScrollView Methods
+
+- (void)_initViewsInScrollView {
+    CGFloat widht = CGRectGetWidth(self.scrollView.frame);
+    CGFloat height = CGRectGetHeight(self.scrollView.frame);
+    self.scrollView.contentSize = CGSizeMake(widht*self.countPage, height);
+    
+    for (int i = 0; i < self.countPage; i++) {
+        CGFloat x = widht*i;
+        
+        UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, widht, height)];
+        view.image = [UIImage imageNamed:@"TestIconBlock"];
+        [self.scrollView addSubview:view];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat width = CGRectGetWidth(scrollView.frame);
+    NSInteger page = (scrollView.contentOffset.x + (0.5f * width)) / width;
+    self.pageControl.currentPage = (page % self.countPage);
+}
+
+#pragma mark - Layout Views
+
+- (void)_layoutNextButton {
+    self.nextButton.layer.masksToBounds = YES;
+    self.nextButton.layer.cornerRadius = CGRectGetHeight(self.nextButton.frame)/2;
 }
 
 @end

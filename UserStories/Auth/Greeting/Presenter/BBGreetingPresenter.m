@@ -12,9 +12,15 @@
 #import "BBGreetingInteractorInput.h"
 #import "BBGreetingRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBGreetingPresenter()
 
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+
 @end
+
+static NSInteger countPage = 3;
 
 @implementation BBGreetingPresenter
 
@@ -24,10 +30,24 @@
     
 }
 
+- (void)pushModuleWithNavigationModule:(id)navigationModule {
+    self.navigationModule = navigationModule;
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
 #pragma mark - Методы BBGreetingViewOutput
 
 - (void)didTriggerViewReadyEvent {
+    [self.view countPageInPageControl:countPage];
 	[self.view setupInitialState];
+}
+
+- (void)nextButtonDidTapWithPage:(NSInteger)page {
+    if (page < (countPage - 1)) {
+        [self.view changePageInScrollView];
+    } else {
+        [self.navigationModule userRegistrationFulfilled];
+    }
 }
 
 #pragma mark - Методы BBGreetingInteractorOutput

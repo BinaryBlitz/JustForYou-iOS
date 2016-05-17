@@ -58,6 +58,7 @@ static CGFloat estimateRowHeight = 44.0f;
 
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleRegistrationModule;
+    self.navigationItem.hidesBackButton = YES;
     [self createBarButtonItem];
     [self _settingsTableView];
 }

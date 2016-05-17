@@ -12,15 +12,16 @@
 #import "BBRegistrationInteractorInput.h"
 #import "BBRegistrationRouterInput.h"
 
-#import "BBAuthorizationModuleInput.h"
-
 #import "BBNavigationModuleInput.h"
+
+#import "BBGreetingAssembly.h"
+#import "BBGreetingModuleInput.h"
 
 @class BBUser;
 @interface BBRegistrationPresenter()
 
-@property (weak, nonatomic) id<BBAuthorizationModuleInput> authModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBGreetingModuleInput> greetingModule;
 
 @property (strong, nonatomic) NSString *userPhone;
 
@@ -34,11 +35,11 @@
     
 }
 
-- (void)presentWithAuthModule:(id)module andNavigModule:(id)navigModule andUserPhone:(NSString *)phone {
-    self.authModule = module;
+- (void)presentWithNavigModule:(id)navigModule andUserPhone:(NSString *)phone {
     self.navigModule = navigModule;
     self.userPhone = phone;
-    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentViewWithLoadModule:BBRegistrationModule]];
+    [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
+//    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentViewWithLoadModule:BBRegistrationModule]];
 }
 
 #pragma mark - Методы BBRegistrationViewOutput
@@ -68,7 +69,16 @@
 #pragma mark - Методы BBRegistrationInteractorOutput
 
 - (void)userSuccessfullySaved {
-    [self.navigModule userRegistrationFulfilled];
+    [self.greetingModule pushModuleWithNavigationModule:self.navigModule];
+}
+
+#pragma mark - Lazy Load
+
+- (id<BBGreetingModuleInput>)greetingModule {
+    if (!_greetingModule) {
+        _greetingModule = [BBGreetingAssembly createModule];
+    }
+    return _greetingModule;
 }
 
 @end

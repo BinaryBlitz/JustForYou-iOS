@@ -8,11 +8,7 @@
 
 #import "BBRegistrationRouter.h"
 
-#import "BBAuthorizationViewController.h"
-
 @interface BBRegistrationRouter()
-
-@property (weak, nonatomic) BBAuthorizationViewController *authView;
 
 @end
 
@@ -20,11 +16,10 @@
 
 #pragma mark - BBRegistrationRouterInput
 
-- (void)presentFromView:(id)view withNavigationView:(id)navigationView {
-    self.authView = view;
-    UINavigationController *nc = (UINavigationController *)navigationView;
+- (void)pushViewControllerWithNavigationController:(UINavigationController *)nc {
+    UIViewController *vc = (UIViewController *)self.presenter.view;
     HQDispatchToMainQueue(^{
-        [nc pushViewController:view animated:YES];
+        [nc pushViewController:vc animated:YES];
     });
 }
 
