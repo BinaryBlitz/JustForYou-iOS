@@ -13,6 +13,8 @@
 #import "BBMyOldProgramTableViewCell.h"
 #import "BBPaymentHistoryTableViewCell.h"
 #import "BBMyCardTableViewCell.h"
+#import "BBStockTableViewCell.h"
+
 
 @interface BBUniversalViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -25,13 +27,18 @@
 static NSString *kMyOldProgramCellIdentifire = @"myOldProgramTableViewCell";
 static NSString *kPaymentHistoryCellIdentifire = @"paymentHistoryTableViewCell";
 static NSString *kMyPayCardCellIdentifire = @"myCardTableViewCell";
+static NSString *kStockCellIdentifire = @"stockTableViewCell";
 
 static NSString *kNibMyOldProgramCell = @"BBMyOldProgramTableViewCell";
 static NSString *kNibPaymentHistoryCell = @"BBPaymentHistoryTableViewCell";
 static NSString *kNibMyPayCardCell = @"BBMyCardTableViewCell";
+static NSString *kNibStockCell = @"BBStockTableViewCell";
 
 static CGFloat estimatedRowHeight = 50.0f;
-static CGFloat contentOffset = 15.0f;
+
+static CGFloat contentInset = 20.0f;
+static CGFloat heightHeaderSection = 10.0f;
+static CGFloat heightFooterSection = 10.0f;
 
 @implementation BBUniversalViewController
 
@@ -65,17 +72,43 @@ static CGFloat contentOffset = 15.0f;
          forCellReuseIdentifier:kPaymentHistoryCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibMyPayCardCell bundle:nil]
          forCellReuseIdentifier:kMyPayCardCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibStockCell bundle:nil]
+         forCellReuseIdentifier:kStockCellIdentifire];
 }
 
 - (void)_settingTableView {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimatedRowHeight;
-    self.tableView.contentInset = UIEdgeInsetsMake(contentOffset, 0, contentOffset, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(contentInset, 0, contentInset, 0);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return heightFooterSection;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return heightHeaderSection;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (self.keyModule == kSharesModule) {
+        return @"20.10.2016";
+    }
+    return @"";
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.keyModule == kSharesModule) {
+        return 3;
+    }
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.keyModule == kSharesModule) {
+        return 1;
+    }
     return 3;
 }
 
@@ -85,6 +118,9 @@ static CGFloat contentOffset = 15.0f;
         return cell;
     } else if (self.keyModule == kMyHystoryPaymentModule) {
         BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
+        return cell;
+    } else if (self.keyModule == kSharesModule) {
+        BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
         return cell;
     } else {
         BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];

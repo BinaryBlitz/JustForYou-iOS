@@ -31,7 +31,7 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="DRo-tK-9D9" secondAttribute="trailing" constant="19" id="4Vp-oF-o6r"/>
-                    <constraint firstAttribute="bottom" secondItem="DRo-tK-9D9" secondAttribute="bottom" constant="15" id="IKJ-W1-jPJ"/>
+                    <constraint firstAttribute="bottom" secondItem="DRo-tK-9D9" secondAttribute="bottom" priority="750" constant="15" id="IKJ-W1-jPJ"/>
                     <constraint firstItem="DRo-tK-9D9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="cWF-Bn-Ovk"/>
                     <constraint firstItem="OEb-JA-NXg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f4V-8z-9QP"/>
                     <constraint firstItem="DRo-tK-9D9" firstAttribute="leading" secondItem="OEb-JA-NXg" secondAttribute="trailing" id="gfA-A2-Awk"/>

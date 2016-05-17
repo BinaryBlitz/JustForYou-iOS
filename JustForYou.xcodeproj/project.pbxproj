@@ -105,6 +105,8 @@
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AC9887D1CAFF0D40069DE52 /* BBUnderlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887C1CAFF0D40069DE52 /* BBUnderlineButton.m */; };
 		3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887F1CAFF1830069DE52 /* BBContainerView.m */; };
+		3AE69BAA1CEB472300B5A674 /* BBStockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BA81CEB472300B5A674 /* BBStockTableViewCell.m */; };
+		3AE69BAB1CEB472300B5A674 /* BBStockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE69BA91CEB472300B5A674 /* BBStockTableViewCell.xib */; };
 		3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */; };
 		3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CF061CCABCEB001D0B2C /* BBDottedBorderButton.m */; };
 		3AFCE47C1CDD2EA300995DB5 /* BBAuthorizationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3121CDD2EA200995DB5 /* BBAuthorizationAssembly.m */; };
@@ -379,6 +381,9 @@
 		3AC9887C1CAFF0D40069DE52 /* BBUnderlineButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUnderlineButton.m; sourceTree = "<group>"; };
 		3AC9887E1CAFF1830069DE52 /* BBContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBContainerView.h; sourceTree = "<group>"; };
 		3AC9887F1CAFF1830069DE52 /* BBContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBContainerView.m; sourceTree = "<group>"; };
+		3AE69BA71CEB472300B5A674 /* BBStockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStockTableViewCell.h; sourceTree = "<group>"; };
+		3AE69BA81CEB472300B5A674 /* BBStockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStockTableViewCell.m; sourceTree = "<group>"; };
+		3AE69BA91CEB472300B5A674 /* BBStockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBStockTableViewCell.xib; sourceTree = "<group>"; };
 		3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
 		3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarService.m; sourceTree = "<group>"; };
 		3AF1CF051CCABCEB001D0B2C /* BBDottedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDottedBorderButton.h; sourceTree = "<group>"; };
@@ -1308,6 +1313,9 @@
 				3AC491FD1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.h */,
 				3AC491FE1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.m */,
 				3AC491FF1CE2499B00F2A928 /* BBPaymentHistoryTableViewCell.xib */,
+				3AE69BA71CEB472300B5A674 /* BBStockTableViewCell.h */,
+				3AE69BA81CEB472300B5A674 /* BBStockTableViewCell.m */,
+				3AE69BA91CEB472300B5A674 /* BBStockTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -2040,6 +2048,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE69BAB1CEB472300B5A674 /* BBStockTableViewCell.xib in Resources */,
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
 				3A1BEF271CE28AED00C592EE /* BBPreviewOrderTableViewCell.xib in Resources */,
 				3A8816F31CDE4AD500472531 /* BBSwitchTableViewCell.xib in Resources */,
@@ -2166,6 +2175,7 @@
 				3A1BEF111CE28AED00C592EE /* BBDeliveryRouter.m in Sources */,
 				3AFCE4831CDD2EA300995DB5 /* BBNumberPhoneTableViewCell.m in Sources */,
 				3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */,
+				3AE69BAA1CEB472300B5A674 /* BBStockTableViewCell.m in Sources */,
 				3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */,
 				3AFCE47F1CDD2EA300995DB5 /* BBAuthorizationRouter.m in Sources */,
 				3A8816D11CDE050400472531 /* BBBlocksAssembly.m in Sources */,
