@@ -10,15 +10,11 @@
 
 #import "BBProfileViewOutput.h"
 
-#import "BBProfileTableViewCell.h"
-
 @interface BBProfileViewController() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-
-static NSString *kProfileCellIdentifire = @"profileTableViewCell";
 static NSInteger numberOfRowsInSecondSection = 5;
 
 @implementation BBProfileViewController
@@ -49,9 +45,9 @@ static NSInteger numberOfRowsInSecondSection = 5;
 #pragma mark - TableView Methods
 
 - (void)_registerCellIdentifireInTableView {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBAccessoryTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameAccessoryCell bundle:nil]
          forCellReuseIdentifier:kAccessoryCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBProfileTableViewCell" bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameProfileCell bundle:nil]
          forCellReuseIdentifier:kProfileCellIdentifire];
 }
 

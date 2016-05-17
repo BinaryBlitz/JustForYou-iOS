@@ -13,9 +13,6 @@
 #import "BBCalendarMenuView.h"
 #import "BBDottedBorderButton.h"
 
-#import "BBCalendarTableViewCell.h"
-#import "BBPreviewOrderTableViewCell.h"
-
 @interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,12 +24,6 @@
 @property (strong, nonatomic) NSArray *ordersArray;
 
 @end
-
-static NSString *kCalendarCellIdentifire = @"calendarTableViewCell";
-static NSString *kPreviewOrderCellIdentifire = @"previewOrderTableViewCell";
-
-static NSString *kNibNameCalendarCell = @"BBCalendarTableViewCell";
-static NSString *kNibNamePreviewOrderCell = @"BBPreviewOrderTableViewCell";
 
 static CGFloat wightForCalendarMenuView = 140.0f;
 static CGFloat heightForCalendarMenuView = 32.0f;

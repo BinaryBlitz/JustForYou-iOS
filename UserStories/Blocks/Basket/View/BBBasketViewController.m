@@ -10,15 +10,12 @@
 
 #import "BBBasketViewOutput.h"
 
-
-
 @interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
 @end
-
 
 static CGFloat estimatedHeightCell = 44.0f;
 static CGFloat topInsetForTableView = -35.0f;

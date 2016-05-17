@@ -10,9 +10,6 @@
 
 #import "BBDeliveryViewOutput.h"
 
-#import "BBCalendarDeliveryTableViewCell.h"
-
-
 #import "BBCalendarMenuView.h"
 
 @interface BBDeliveryViewController() <UITableViewDelegate, UITableViewDataSource, BBCalendarMenuViewDelegate, BBCalendarDeliveryCellDelegate>
@@ -24,12 +21,6 @@
 @property (strong, nonatomic) UIAlertController *alertController;
 
 @end
-
-static NSString *kNibNameCalendarDeliveryCell = @"BBCalendarDeliveryTableViewCell";
-
-
-static NSString *kCalendarDeliveryCellIdentifire = @"calendarDeliveryTableViewCell";
-
 
 static CGFloat estimatedRowHeight = 50.0f;
 static CGFloat topOffset = -35.0f;

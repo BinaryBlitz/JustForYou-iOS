@@ -10,16 +10,11 @@
 
 #import "BBMyProgramsViewOutput.h"
 
-#import "BBMyProgramTableViewCell.h"
-
 @interface BBMyProgramsViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
-
-static NSString *kMyProgramCellIdentifire = @"myProgramTableViewCell";
-static NSString *kNibMyProgramCell = @"BBMyProgramTableViewCell";
 
 static CGFloat estimatedHeightCell = 80.0f;
 static CGFloat verticalInset = 10.0f;
@@ -49,7 +44,7 @@ static CGFloat verticalInset = 10.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimatedHeightCell;
     self.tableView.contentInset = UIEdgeInsetsMake(verticalInset, 0, verticalInset, 0);
-    [self.tableView registerNib:[UINib nibWithNibName:kNibMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

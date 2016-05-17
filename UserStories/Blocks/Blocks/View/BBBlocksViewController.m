@@ -10,14 +10,11 @@
 
 #import "BBBlocksViewOutput.h"
 
-#import "BBBlockTableViewCell.h"
-
 @interface BBBlocksViewController() <UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
-
-static NSString *kIdentifireBlockCell = @"blockCell";
 
 static CGFloat correlationCoefficientForCell = 1.12f;
 
@@ -31,7 +28,6 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     [self _registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
 }
-
 
 #pragma mark - Actions
 
@@ -50,7 +46,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 #pragma mark - TableView
 
 - (void) _registrateIdentifireCell {
-    [self.tableView registerNib:[UINib nibWithNibName:@"BBBlockTableViewCell" bundle:nil] forCellReuseIdentifier:kIdentifireBlockCell];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameBlockCell bundle:nil] forCellReuseIdentifier:kBlockCellIdentifire];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -62,7 +58,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBBlockTableViewCell *blockCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireBlockCell];
+    BBBlockTableViewCell *blockCell = [self.tableView dequeueReusableCellWithIdentifier:kBlockCellIdentifire];
     
     return blockCell;
 }

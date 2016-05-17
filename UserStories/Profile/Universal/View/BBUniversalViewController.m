@@ -10,12 +10,6 @@
 
 #import "BBUniversalViewOutput.h"
 
-#import "BBMyOldProgramTableViewCell.h"
-#import "BBPaymentHistoryTableViewCell.h"
-#import "BBMyCardTableViewCell.h"
-#import "BBStockTableViewCell.h"
-
-
 @interface BBUniversalViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -23,17 +17,6 @@
 @property (nonatomic) BBKeyModuleForUniversalModule keyModule;
 
 @end
-
-static NSString *kMyOldProgramCellIdentifire = @"myOldProgramTableViewCell";
-static NSString *kPaymentHistoryCellIdentifire = @"paymentHistoryTableViewCell";
-static NSString *kMyPayCardCellIdentifire = @"myCardTableViewCell";
-static NSString *kStockCellIdentifire = @"stockTableViewCell";
-
-
-static NSString *kNibMyOldProgramCell = @"BBMyOldProgramTableViewCell";
-static NSString *kNibPaymentHistoryCell = @"BBPaymentHistoryTableViewCell";
-static NSString *kNibMyPayCardCell = @"BBMyCardTableViewCell";
-static NSString *kNibStockCell = @"BBStockTableViewCell";
 
 
 static CGFloat estimatedRowHeight = 50.0f;
@@ -68,13 +51,13 @@ static CGFloat heightFooterSection = 10.0f;
 #pragma mark - TableView Methods
 
 - (void)_registerCellIdentifireInTableView {
-    [self.tableView registerNib:[UINib nibWithNibName:kNibMyOldProgramCell bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyOldProgramCell bundle:nil]
          forCellReuseIdentifier:kMyOldProgramCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibPaymentHistoryCell bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNamePaymentHistoryCell bundle:nil]
          forCellReuseIdentifier:kPaymentHistoryCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibMyPayCardCell bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyPayCardCell bundle:nil]
          forCellReuseIdentifier:kMyPayCardCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibStockCell bundle:nil]
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameStockCell bundle:nil]
          forCellReuseIdentifier:kStockCellIdentifire];
 }
 

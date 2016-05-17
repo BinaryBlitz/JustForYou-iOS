@@ -10,13 +10,6 @@
 
 #import "BBCardProgramViewOutput.h"
 
-#import "BBHeaderTableViewCell.h"
-#import "BBDescriptionTableViewCell.h"
-#import "BBMenuTableViewCell.h"
-#import "BBPartDayTableViewCell.h"
-#import "BBNumderDayTableViewCell.h"
-
-
 @interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -30,20 +23,6 @@
 @property (nonatomic) CGFloat heightGradient;
 
 @end
-
-static NSString *kNibNameHeaderCell = @"BBHeaderTableViewCell";
-static NSString *kNibNameDescriptionCell = @"BBDescriptionTableViewCell";
-static NSString *kNibNameMenuCell = @"BBMenuTableViewCell";
-static NSString *kNibNamePartDayCell = @"BBPartDayTableViewCell";
-static NSString *kNibNameNumberDayCell = @"BBNumderDayTableViewCell";
-
-
-static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
-static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
-static NSString *kMenuCellIdentifire = @"menuTableViewCell";
-static NSString *kPartDayCellIdentifire = @"partDayTableViewCell";
-static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
-
 
 @implementation BBCardProgramViewController
 
@@ -196,13 +175,17 @@ static NSString *kNumberDayCellIdentifire = @"numberDayTableViewCell";
 #pragma mark - Cell Delegates Methods 
 
 - (void)leftButtonDidTap {
-    self.numberDayCell.numberDay -= 1;
-    [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
-    [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationRight];
+    self.numberDayCell.numberDay--;
+    if (self.numberDayCell.numberDay < 1) {
+        self.numberDayCell.numberDay++;
+    } else {
+        [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
+        [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationRight];
+    }
 }
 
 - (void)rightButtonDidTap {
-    self.numberDayCell.numberDay += 1;
+    self.numberDayCell.numberDay++;
     [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
     [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationLeft];
 }
