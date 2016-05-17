@@ -12,18 +12,23 @@
 
 #import "BBMyOldProgramTableViewCell.h"
 #import "BBPaymentHistoryTableViewCell.h"
+#import "BBMyCardTableViewCell.h"
 
 @interface BBUniversalViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic) BBKeyModuleForUniversalModule keyModule;
+
 @end
 
 static NSString *kMyOldProgramCellIdentifire = @"myOldProgramTableViewCell";
 static NSString *kPaymentHistoryCellIdentifire = @"paymentHistoryTableViewCell";
+static NSString *kMyPayCardCellIdentifire = @"myCardTableViewCell";
 
 static NSString *kNibMyOldProgramCell = @"BBMyOldProgramTableViewCell";
 static NSString *kNibPaymentHistoryCell = @"BBPaymentHistoryTableViewCell";
+static NSString *kNibMyPayCardCell = @"BBMyCardTableViewCell";
 
 static CGFloat estimatedRowHeight = 50.0f;
 static CGFloat contentOffset = 15.0f;
@@ -45,8 +50,10 @@ static CGFloat contentOffset = 15.0f;
     [self _settingTableView];
 }
 
-- (void)navigationTitle:(NSString *)title {
+- (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationItem.title = title;
+    self.keyModule = key;
+    [self.tableView reloadData];
 }
 
 #pragma mark - TableView Methods
@@ -56,6 +63,8 @@ static CGFloat contentOffset = 15.0f;
          forCellReuseIdentifier:kMyOldProgramCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibPaymentHistoryCell bundle:nil]
          forCellReuseIdentifier:kPaymentHistoryCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibMyPayCardCell bundle:nil]
+         forCellReuseIdentifier:kMyPayCardCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -71,17 +80,16 @@ static CGFloat contentOffset = 15.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    
-    if (indexPath.row == 0) {
-        BBMyOldProgramTableViewCell *oldProgramCell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
-        cell = oldProgramCell;
+    if (self.keyModule == kMyProgramModule) {
+        BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
+        return cell;
+    } else if (self.keyModule == kMyHystoryPaymentModule) {
+        BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
+        return cell;
     } else {
-        BBPaymentHistoryTableViewCell *paymentCell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
-        cell = paymentCell;
+        BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];
+        return cell;
     }
-    
-    return cell;
 }
 
 @end

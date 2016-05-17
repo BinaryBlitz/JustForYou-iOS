@@ -44,7 +44,7 @@ static NSInteger numberOfRowsInSecondSection = 5;
     [self _registerCellIdentifireInTableView];
     [self _initRightBarButton];
     [self _setHeightCell];
-    self.navigationItem.title = @"Профиль";
+    self.navigationItem.title = kNameTitleProfileModule;
 }
 
 #pragma mark - TableView Methods
@@ -83,31 +83,36 @@ static NSInteger numberOfRowsInSecondSection = 5;
         }
         if (indexPath.row == 1) {
             BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-            accessoryCell.textLabel.text = @"Программы";
+            accessoryCell.textLabel.text = kNameTitleProgramModule;
+            accessoryCell.keyModuleCell = kMyProgramModule;
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kTopCornerRadius;
             cell = accessoryCell;
         }
         if (indexPath.row == 2) {
             BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-            accessoryCell.textLabel.text = @"Адреса";
+            accessoryCell.textLabel.text = kNameTitleAddressModule;
+            accessoryCell.keyModuleCell = kMyAddressModule;
             cell = accessoryCell;
         }
         if (indexPath.row == 3) {
             BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-            accessoryCell.textLabel.text = @"История платежей";
+            accessoryCell.textLabel.text =kNameTitleHystoryPaymentsModule;
+            accessoryCell.keyModuleCell = kMyHystoryPaymentModule;
             cell = accessoryCell;
         }
         if (indexPath.row == 4) {
             BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-            accessoryCell.textLabel.text = @"Замены";
+            accessoryCell.textLabel.text = kNameTitleReplacementModule;
+            accessoryCell.keyModuleCell = kReplacementModule;
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kBottomCornerRadius;
             cell = accessoryCell;
         }
     } else {
         BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-        accessoryCell.textLabel.text = @"Акции";
+        accessoryCell.textLabel.text = kNameTitleSharesModule;
+        accessoryCell.keyModuleCell = kSharesModule;
         accessoryCell.setRadius = YES;
         accessoryCell.kSideCornerRadius = kAllCornerRadius;
         cell = accessoryCell;
@@ -119,11 +124,7 @@ static NSInteger numberOfRowsInSecondSection = 5;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ((indexPath.section == 0 && indexPath.row != 0) || indexPath.section != 0) {
         BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
-        if ([accessoryCell.textLabel.text isEqualToString:@"Программы"]) {
-            [self.output didSelectRowForTitle:@"Мои программы"];
-        } else {
-            [self.output didSelectRowForTitle:accessoryCell.textLabel.text];
-        }
+        [self.output didSelectRowForKeyModule:accessoryCell.keyModuleCell];
     }
 }
 

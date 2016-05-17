@@ -14,6 +14,6 @@
 
 - (void)settingsButtonDidTap;
 
-- (void)didSelectRowForTitle:(NSString *)title;
+- (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key;
 
 @end

@@ -56,13 +56,26 @@ typedef enum : NSUInteger {
     BBMenuSegmentedIndex
 }BBCardProgramSegmentedIndex;
 
-
+// модель телефона
 typedef enum : NSUInteger {
     kModelIPhone4,
     kModelIPhone5,
     kModelIPhone6,
     kModelIPhone6plus
 }kModelIPhone;
+
+
+// тип экрана в блоке профиль
+typedef enum : NSUInteger {
+    kNoneModule,
+    kMyPayCardModule,
+    kMyProgramModule,
+    kMyAddressModule,
+    kMyHystoryPaymentModule,
+    kSharesModule,
+    kReplacementModule,
+    kAboutModule
+}BBKeyModuleForUniversalModule;
 
 #pragma mark - interface class
 
@@ -86,11 +99,38 @@ typedef enum : NSUInteger {
 
 @end
 
-#pragma mark - Constant
+#pragma mark - Numerical Constant
 
 static CGFloat bottomOffsetForBlockTableView = 13.0f;
 static CGFloat cornerRadiusCell = 4.0f;
 static CGFloat sideOffsetCell = 14.0f;
 static CGFloat borderWightLineCell = 1.0f;
 static CGFloat bottomOffsetCells = 10.0f;
+
+
+#pragma mark - Name Title Module
+
+static NSString *kNameTitleRegistrationModule = @"Регистрация";
+static NSString *kNameTitleAuthorizateModule = @"Авторизация";
+
+static NSString *kNameTitleProgramModule = @"Программы";
+static NSString *kNameTitleBasketModule = @"Корзина";
+static NSString *kNameTitleMyProgramModule = @"Мои программы";
+
+static NSString *kNameTitleOrdersModule = @"Заказы";
+static NSString *kNameTitleNewOrderModule = @"Новый заказ";
+
+static NSString *kNameTitleSupportModule = @"Поддержка";
+
+static NSString *kNameTitleProfileModule = @"Профиль";
+static NSString *kNameTitleAddressModule = @"Адреса";
+static NSString *kNameTitleHystoryPaymentsModule = @"История платежей";
+static NSString *kNameTitleReplacementModule = @"Замены";
+static NSString *kNameTitleSharesModule = @"Акции";
+
+static NSString *kNameTitleSettingsModule = @"Настройки";
+static NSString *kNameTitleMyPayCardModule = @"Мои карты";
+static NSString *kNameTitleAboutModule = @"О нас";
+
+static NSString *kNameTitleNoneModule = @"";
 

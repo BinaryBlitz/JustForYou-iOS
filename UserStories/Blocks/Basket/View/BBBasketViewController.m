@@ -57,7 +57,7 @@ static CGFloat topInsetForTableView = -35.0f;
 #pragma mark - Методы BBBasketViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = @"Корзина";
+    self.navigationItem.title = kNameTitleBasketModule;
     [self _settingsTableViewAndRegisterNib];
 }
 

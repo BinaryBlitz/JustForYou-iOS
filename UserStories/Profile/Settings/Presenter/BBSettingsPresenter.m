@@ -14,9 +14,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBUniversalAssembly.h"
+#import "BBUniversalModuleInput.h"
+
 @interface BBSettingsPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
 
 @end
 
@@ -39,6 +43,20 @@
 	[self.view setupInitialState];
 }
 
+- (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
+    [self.universalModule pushModuleWithNavigationModule:self.navigModule keyModule:key];
+}
+
 #pragma mark - Методы BBSettingsInteractorOutput
+
+#pragma mark - Lazy Load
+
+- (id<BBUniversalModuleInput>) universalModule {
+    if (!_universalModule) {
+        _universalModule = [BBUniversalAssembly createModule];
+    }
+    return _universalModule;
+}
+
 
 @end

@@ -12,6 +12,6 @@
 
 - (void)setupInitialState;
 
-- (void)navigationTitle:(NSString *)title;
+- (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key;
 
 @end

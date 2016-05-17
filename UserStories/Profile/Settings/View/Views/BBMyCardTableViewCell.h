@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface BBMyCardTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *namePaySystemLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameBankLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberCardLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconPaySystem;
 
 @end

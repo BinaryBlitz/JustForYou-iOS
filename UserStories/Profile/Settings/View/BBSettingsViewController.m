@@ -59,7 +59,7 @@ static CGFloat heightFooterSection = 1.0f;
 #pragma mark - Методы BBSettingsViewInput
 
 - (void)setupInitialState {
-	self.navigationItem.title = @"Настройки";
+	self.navigationItem.title = kNameTitleSettingsModule;
     [self _registerCellIdentifireInTableView];
     [self _settingTableView];
 }
@@ -116,7 +116,6 @@ static CGFloat heightFooterSection = 1.0f;
         switchCell.kStyleContentCell = kCardContentCell;
         cell = switchCell;
     } else {
-        
         if (indexPath.section == 0) {
             BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextCellIdentifire];
             textCell.setRadius = YES;
@@ -134,9 +133,11 @@ static CGFloat heightFooterSection = 1.0f;
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kAllCornerRadius;
             if (indexPath.section == 1) {
-                accessoryCell.textLabel.text = @"Мои карты";
+                accessoryCell.textLabel.text = kNameTitleMyPayCardModule;
+                accessoryCell.keyModuleCell = kMyPayCardModule;
             } else {
-                accessoryCell.textLabel.text = @"О нас";
+                accessoryCell.textLabel.text = kNameTitleAboutModule;
+                accessoryCell.keyModuleCell = kAboutModule;
             }
             cell = accessoryCell;
         }
@@ -147,6 +148,10 @@ static CGFloat heightFooterSection = 1.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1 || indexPath.section == 3) {
+        BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.output didSelectRowForKeyModule:accessoryCell.keyModuleCell];
+    }
 }
 
 #pragma mark - Layout Methods

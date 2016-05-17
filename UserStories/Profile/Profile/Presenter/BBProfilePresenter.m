@@ -51,8 +51,8 @@
     [self.settingsModule pushModuleWithNavigationModule:self.navigationModule];
 }
 
-- (void)didSelectRowForTitle:(NSString *)title {
-    [self.universalModule pushModuleWithNavigationModule:self.navigationModule navigationTitle:title];
+- (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
+    [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
 }
 
 #pragma mark - Методы BBProfileInteractorOutput

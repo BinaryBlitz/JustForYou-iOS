@@ -62,7 +62,7 @@ static CGFloat estimateRowHeight = 44.0f;
 #pragma mark - Методы BBRegistrationViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = @"Регистрация";
+    self.navigationItem.title = kNameTitleRegistrationModule;
     [self createBarButtonItem];
     [self _settingsTableView];
 }

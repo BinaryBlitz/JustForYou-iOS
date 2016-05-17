@@ -42,7 +42,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 #pragma mark - Методы BBBlocksViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = @"Программы";
+    self.navigationItem.title = kNameTitleProgramModule;
     [self.tableView setContentInset:UIEdgeInsetsMake(bottomOffsetForBlockTableView, 0, 0, 0)];
     [self _initRightBarButton];
 }

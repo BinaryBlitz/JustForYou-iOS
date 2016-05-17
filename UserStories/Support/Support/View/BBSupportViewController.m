@@ -49,7 +49,7 @@ static CGFloat bottomInset = 30.0f;
 #pragma mark - Методы BBSupportViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = @"Поддержка";
+    self.navigationItem.title = kNameTitleSupportModule;
     [self _setTitleForButtons];
     [self _settingScrollView];
 }

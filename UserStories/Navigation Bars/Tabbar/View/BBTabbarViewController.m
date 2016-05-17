@@ -41,10 +41,10 @@
     self.tabBar.items[2].image = [UIImage imageNamed:@"support"];
     self.tabBar.items[3].image = [UIImage imageNamed:@"profile"];
     
-    self.tabBar.items[0].title = @"Программы";
-    self.tabBar.items[1].title = @"Заказы";
-    self.tabBar.items[2].title = @"Поддержка";
-    self.tabBar.items[3].title = @"Профиль";
+    self.tabBar.items[0].title = kNameTitleProgramModule;
+    self.tabBar.items[1].title = kNameTitleOrdersModule;
+    self.tabBar.items[2].title = kNameTitleSupportModule;
+    self.tabBar.items[3].title = kNameTitleProfileModule;
 }
 
 @end

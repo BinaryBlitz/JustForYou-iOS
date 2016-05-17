@@ -28,12 +28,33 @@
     
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule navigationTitle:(NSString *)title {
+- (void)pushModuleWithNavigationModule:(id)navigationModule keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationModule = navigationModule;
-    [self.view navigationTitle:title];
+    [self _detectTitleForNavigationWithKey:key];
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
+- (void)_detectTitleForNavigationWithKey:(BBKeyModuleForUniversalModule)key {
+    if (key == kNoneModule) {
+        [self.view navigationTitle:kNameTitleNoneModule keyModule:key];
+    } else if (key == kMyPayCardModule) {
+        [self.view navigationTitle:kNameTitleMyPayCardModule keyModule:key];
+    } else if (key == kMyProgramModule) {
+        [self.view navigationTitle:kNameTitleMyProgramModule keyModule:key];
+    } else if (key == kMyAddressModule) {
+        [self.view navigationTitle:kNameTitleAddressModule keyModule:key];
+    } else if (key == kMyHystoryPaymentModule) {
+        [self.view navigationTitle:kNameTitleHystoryPaymentsModule keyModule:key];
+    } else if (key == kSharesModule) {
+        [self.view navigationTitle:kNameTitleSharesModule keyModule:key];
+    } else if (key == kReplacementModule) {
+        [self.view navigationTitle:kNameTitleReplacementModule keyModule:key];
+    } else if (key == kAboutModule) {
+        [self.view navigationTitle:kNameTitleAboutModule keyModule:key];
+    } else {
+        [self.view navigationTitle:kNameTitleNoneModule keyModule:key];
+    }
+}
 
 #pragma mark - Методы BBUniversalViewOutput
 

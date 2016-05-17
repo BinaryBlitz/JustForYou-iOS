@@ -12,6 +12,6 @@
 
 - (void)configureModule;
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule navigationTitle:(NSString *)title;
+- (void)pushModuleWithNavigationModule:(id)navigationModule keyModule:(BBKeyModuleForUniversalModule)key;
 
 @end

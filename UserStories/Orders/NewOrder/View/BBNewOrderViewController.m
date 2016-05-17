@@ -69,7 +69,7 @@ static CGFloat topInsetForTableView = - 35.0f;
 
 - (void)setupInitialState {
 	[self _settingsTableViewAndRegisterNib];
-    self.navigationItem.title = @"Новый заказ";
+    self.navigationItem.title = kNameTitleNewOrderModule;
     [self _registerNotificationKeyboard];
 }
 

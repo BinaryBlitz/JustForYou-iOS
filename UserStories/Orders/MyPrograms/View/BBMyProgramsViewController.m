@@ -38,7 +38,7 @@ static CGFloat verticalInset = 10.0f;
 
 - (void)setupInitialState {
     [self _settingsTableViewAndRegisterNib];
-    self.navigationItem.title = @"Мои программы";
+    self.navigationItem.title = kNameTitleMyProgramModule;
 }
 
 

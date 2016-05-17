@@ -84,7 +84,7 @@ static CGFloat offsetBottom = 10.0f;
 #pragma mark - Методы BBAuthorizationViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = @"Авторизация";
+    self.navigationItem.title = kNameTitleAuthorizateModule;
     [self _registrateIdentifireCell];
     [self _registerNotificationKeyboard];
 }
