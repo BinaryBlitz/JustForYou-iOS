@@ -10,24 +10,12 @@
 
 #import "BBSettingsViewOutput.h"
 
-#import "BBAccessoryTableViewCell.h"
-#import "BBSwitchTableViewCell.h"
-#import "BBTextTableViewCell.h"
-
 @interface BBSettingsViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end
-
-static NSString *kNibNameAccessoryCell = @"BBAccessoryTableViewCell";
-static NSString *kNibNameSwitchCell = @"BBSwitchTableViewCell";
-static NSString *kNibNameTextCell = @"BBTextTableViewCell";
-
-static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
-static NSString *kSwitchCellIdentifire = @"switchTableViewCell";
-static NSString *kTextCellIdentifire = @"textFieldCell";
 
 static CGFloat estimatedRowHeight = 44.0f;
 static CGFloat heightHeaderSection = 34.0f;
@@ -72,7 +60,7 @@ static CGFloat heightFooterSection = 1.0f;
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameSwitchCell bundle:nil]
          forCellReuseIdentifier:kSwitchCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameTextCell bundle:nil]
-         forCellReuseIdentifier:kTextCellIdentifire];
+         forCellReuseIdentifier:kTextFieldCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -117,7 +105,7 @@ static CGFloat heightFooterSection = 1.0f;
         cell = switchCell;
     } else {
         if (indexPath.section == 0) {
-            BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextCellIdentifire];
+            BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextFieldCellIdentifire];
             textCell.setRadius = YES;
             textCell.kStyleContentCell = kCardContentCell;
             if (indexPath.row == 0) {

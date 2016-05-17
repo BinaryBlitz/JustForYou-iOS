@@ -10,8 +10,7 @@
 
 #import "BBBasketViewOutput.h"
 
-#import "BBSwitchTableViewCell.h"
-#import "BBBasketTableViewCell.h"
+
 
 @interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -20,11 +19,6 @@
 
 @end
 
-static NSString *kNibSwitchCell = @"BBSwitchTableViewCell";
-static NSString *kNibBasketCell = @"BBBasketTableViewCell";
-
-static NSString *kSwitchCellIdentifire = @"switchTableViewCell";
-static NSString *kBasketCellIdentifire = @"basketTableViewCell";
 
 static CGFloat estimatedHeightCell = 44.0f;
 static CGFloat topInsetForTableView = -35.0f;
@@ -68,8 +62,8 @@ static CGFloat topInsetForTableView = -35.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimatedHeightCell;
     self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
-    [self.tableView registerNib:[UINib nibWithNibName:kNibSwitchCell bundle:nil] forCellReuseIdentifier:kSwitchCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibBasketCell bundle:nil] forCellReuseIdentifier:kBasketCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameSwitchCell bundle:nil] forCellReuseIdentifier:kSwitchCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameBasketCell bundle:nil] forCellReuseIdentifier:kBasketCellIdentifire];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

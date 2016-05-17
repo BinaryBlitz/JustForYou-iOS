@@ -29,10 +29,12 @@ static NSString *kPaymentHistoryCellIdentifire = @"paymentHistoryTableViewCell";
 static NSString *kMyPayCardCellIdentifire = @"myCardTableViewCell";
 static NSString *kStockCellIdentifire = @"stockTableViewCell";
 
+
 static NSString *kNibMyOldProgramCell = @"BBMyOldProgramTableViewCell";
 static NSString *kNibPaymentHistoryCell = @"BBPaymentHistoryTableViewCell";
 static NSString *kNibMyPayCardCell = @"BBMyCardTableViewCell";
 static NSString *kNibStockCell = @"BBStockTableViewCell";
+
 
 static CGFloat estimatedRowHeight = 50.0f;
 
@@ -118,6 +120,9 @@ static CGFloat heightFooterSection = 10.0f;
         return cell;
     } else if (self.keyModule == kMyHystoryPaymentModule) {
         BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
+        return cell;
+    } else if (self.keyModule == kMyAddressModule) {
+        BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
         return cell;
     } else if (self.keyModule == kSharesModule) {
         BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];

@@ -11,7 +11,7 @@
 #import "BBDeliveryViewOutput.h"
 
 #import "BBCalendarDeliveryTableViewCell.h"
-#import "BBAccessoryTableViewCell.h"
+
 
 #import "BBCalendarMenuView.h"
 
@@ -26,10 +26,10 @@
 @end
 
 static NSString *kNibNameCalendarDeliveryCell = @"BBCalendarDeliveryTableViewCell";
-static NSString *kNibNameAccessoryCell = @"BBAccessoryTableViewCell";
+
 
 static NSString *kCalendarDeliveryCellIdentifire = @"calendarDeliveryTableViewCell";
-static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
+
 
 static CGFloat estimatedRowHeight = 50.0f;
 static CGFloat topOffset = -35.0f;

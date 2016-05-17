@@ -107,6 +107,7 @@
 		3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9887F1CAFF1830069DE52 /* BBContainerView.m */; };
 		3AE69BAA1CEB472300B5A674 /* BBStockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BA81CEB472300B5A674 /* BBStockTableViewCell.m */; };
 		3AE69BAB1CEB472300B5A674 /* BBStockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE69BA91CEB472300B5A674 /* BBStockTableViewCell.xib */; };
+		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */; };
 		3AF1CF071CCABCEB001D0B2C /* BBDottedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CF061CCABCEB001D0B2C /* BBDottedBorderButton.m */; };
 		3AFCE47C1CDD2EA300995DB5 /* BBAuthorizationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCE3121CDD2EA200995DB5 /* BBAuthorizationAssembly.m */; };
@@ -384,6 +385,9 @@
 		3AE69BA71CEB472300B5A674 /* BBStockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStockTableViewCell.h; sourceTree = "<group>"; };
 		3AE69BA81CEB472300B5A674 /* BBStockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStockTableViewCell.m; sourceTree = "<group>"; };
 		3AE69BA91CEB472300B5A674 /* BBStockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBStockTableViewCell.xib; sourceTree = "<group>"; };
+		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
+		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
+		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
 		3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
 		3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarService.m; sourceTree = "<group>"; };
 		3AF1CF051CCABCEB001D0B2C /* BBDottedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDottedBorderButton.h; sourceTree = "<group>"; };
@@ -623,6 +627,9 @@
 				3A1AB27E1C9D91450070E065 /* HelpQueue.m */,
 				3AC988601CAB14940069DE52 /* BBConstantAndColor.h */,
 				3AC988611CAB14940069DE52 /* BBConstantAndColor.m */,
+				3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */,
+				3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */,
+				3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2162,6 +2169,7 @@
 				3A8816ED1CDE050400472531 /* BBProgramView.m in Sources */,
 				3AFCE4891CDD2EA300995DB5 /* BBRegistrationViewController.m in Sources */,
 				3AFCE4DA1CDD2EA300995DB5 /* BBSupportInteractor.m in Sources */,
+				3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */,
 				3A8816DB1CDE050400472531 /* BBCardProgramRouter.m in Sources */,
 				3A8816EA1CDE050400472531 /* BBProgramsPresenter.m in Sources */,
 				3A8816D81CDE050400472531 /* BBCardProgramAssembly.m in Sources */,

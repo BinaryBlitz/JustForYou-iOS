@@ -10,7 +10,6 @@
 
 #import "BBProfileViewOutput.h"
 
-#import "BBAccessoryTableViewCell.h"
 #import "BBProfileTableViewCell.h"
 
 @interface BBProfileViewController() <UITableViewDataSource, UITableViewDelegate>
@@ -18,7 +17,7 @@
 
 @end
 
-static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
+
 static NSString *kProfileCellIdentifire = @"profileTableViewCell";
 static NSInteger numberOfRowsInSecondSection = 5;
 

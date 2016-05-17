@@ -24,11 +24,10 @@
 @end
 
 static NSString *kNibMyProgramCell = @"BBMyProgramTableViewCell";
-static NSString *kNibAccessoryCell = @"BBAccessoryTableViewCell";
+
 static NSString *kNibCommentCell = @"BBCommentTableViewCell";
 
 static NSString *kMyProgramCellIdentifire = @"myProgramTableViewCell";
-static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
 static NSString *kCommentCellIdentifire = @"commentTableViewCell";
 
 
@@ -97,7 +96,7 @@ static CGFloat topInsetForTableView = - 35.0f;
     self.tableView.estimatedRowHeight = estimatedHeightCell;
     self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:kNibMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibAccessoryCell bundle:nil] forCellReuseIdentifier:kAccessoryCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameAccessoryCell bundle:nil] forCellReuseIdentifier:kAccessoryCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibCommentCell bundle:nil] forCellReuseIdentifier:kCommentCellIdentifire];
 }
 

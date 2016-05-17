@@ -12,8 +12,6 @@
 
 #import "BBUnderlineButton.h"
 
-#import "BBTextTableViewCell.h"
-
 typedef enum : NSUInteger {
     kNameTextFiledCell,
     kSubnameTextFiledCell,
@@ -35,9 +33,6 @@ typedef enum : NSUInteger {
 #pragma mark - Constants
 
 static NSInteger numberOfRows = 3;
-static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
-
-static NSString *kNibNameTextCell = @"BBTextTableViewCell";
 
 static CGFloat estimateRowHeight = 44.0f;
 
@@ -97,7 +92,7 @@ static CGFloat estimateRowHeight = 44.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireTextFieldCellIdentifire];
+    BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextFieldCellIdentifire];
     textCell.textField.delegate = self;
     textCell.textField.returnKeyType = UIReturnKeyNext;
     if (indexPath.row == kNameTextFiledCell) {
@@ -130,7 +125,7 @@ static CGFloat estimateRowHeight = 44.0f;
 
 - (void) registrateIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameTextCell bundle:nil]
-         forCellReuseIdentifier:kIdentifireTextFieldCellIdentifire];
+         forCellReuseIdentifier:kTextFieldCellIdentifire];
     
 }
 

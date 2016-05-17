@@ -12,12 +12,6 @@
 
 #import "BBUnderlineButton.h"
 
-#import "BBNumberPhoneTableViewCell.h"
-#import "BBTextTableViewCell.h"
-#import "BBInfoRegistTableViewCell.h"
-
-
-
 @interface BBAuthorizationViewController() <UITableViewDelegate, UITableViewDataSource, BBInfoRegistrateCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *youView;
@@ -33,14 +27,6 @@
 @property (weak, nonatomic) BBTextTableViewCell *textCell;
 
 @end
-
-static NSString *kIdentifireNumberCellIdentifire = @"numberPhoneCell";
-static NSString *kIdentifireTextFieldCellIdentifire = @"textFieldCell";
-static NSString *kInfoRegistCellIdentifire = @"infoRegistTableViewCell";
-
-static NSString *kNibNameNumberPhoneCell = @"BBNumberPhoneTableViewCell";
-static NSString *kNibNameTextCell = @"BBTextTableViewCell";
-static NSString *kNibNameInfoRegistCell = @"BBInfoRegistTableViewCell";
 
 static NSString *kTextForSendCode = @"Введите код:";
 
@@ -138,7 +124,7 @@ static CGFloat offsetBottom = 10.0f;
     UITableViewCell *cell;
     if (self.keyStyleTableView == kNumberPhoneStyleTableView) {
         if (indexPath.row == 0) {
-            BBNumberPhoneTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireNumberCellIdentifire];
+            BBNumberPhoneTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberCellIdentifire];
             self.numberCell = numberCell;
             cell = numberCell;
         } else {
@@ -150,7 +136,7 @@ static CGFloat offsetBottom = 10.0f;
         }
     } else {
         if (indexPath.row == 0) {
-            BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kIdentifireTextFieldCellIdentifire];
+            BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextFieldCellIdentifire];
             textCell.textField.textAlignment = NSTextAlignmentCenter;
             textCell.textField.placeholder = @"код из СМС";
             self.textCell = textCell;
@@ -169,9 +155,9 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)_registrateIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameNumberPhoneCell bundle:nil]
-         forCellReuseIdentifier:kIdentifireNumberCellIdentifire];
+         forCellReuseIdentifier:kNumberCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameTextCell bundle:nil]
-         forCellReuseIdentifier:kIdentifireTextFieldCellIdentifire];
+         forCellReuseIdentifier:kTextFieldCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameInfoRegistCell bundle:nil]
          forCellReuseIdentifier:kInfoRegistCellIdentifire];
 }
