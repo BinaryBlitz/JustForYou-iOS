@@ -138,7 +138,8 @@ static CGFloat offsetBottom = 10.0f;
         if (indexPath.row == 0) {
             BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextFieldCellIdentifire];
             textCell.textField.textAlignment = NSTextAlignmentCenter;
-            textCell.textField.placeholder = @"код из СМС";
+            textCell.textField.keyboardType = UIKeyboardTypeNumberPad;
+            textCell.textField.placeholder = @"1234";
             self.textCell = textCell;
             cell = textCell;
         } else {
@@ -174,7 +175,7 @@ static CGFloat offsetBottom = 10.0f;
     NSDictionary* info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    CGFloat contentOffsetY = -1*(CGRectGetHeight(self.view.frame)-kbSize.height-CGRectGetMaxY(self.tableView.frame)-offsetBottom);
+    CGFloat contentOffsetY = -1*(CGRectGetHeight(self.view.frame)-kbSize.height-CGRectGetMaxY(self.tableView.frame) - offsetBottom);
     [self.scrollView setContentOffset:CGPointMake(0, contentOffsetY) animated:YES];
 }
 

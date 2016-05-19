@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @property (nonatomic) NSInteger countPage;
+@property (strong, nonatomic) NSMutableArray *arrayViews;
 
 @end
 
@@ -26,14 +27,14 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    
 	[self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutNextButton];
-    [self _initViewsInScrollView];
+    [self _resizeViewOnScrollView];
 }
 
 #pragma mark - Actions Methods
@@ -48,6 +49,7 @@
     self.navigationItem.title = kNameTitleGreetingModule;
     self.navigationItem.hidesBackButton = YES;
     self.pageControl.numberOfPages = self.countPage;
+    [self _initViewsInScrollView];
 }
 
 - (void)countPageInPageControl:(NSInteger)count {
@@ -74,6 +76,7 @@
         UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, widht, height)];
         view.image = [UIImage imageNamed:@"TestIconBlock"];
         [self.scrollView addSubview:view];
+        [self.arrayViews addObject:view];
     }
 }
 
@@ -83,11 +86,33 @@
     self.pageControl.currentPage = (page % self.countPage);
 }
 
+#pragma mark - Lazy Load 
+
+- (NSMutableArray *)arrayViews {
+    if (!_arrayViews) {
+        _arrayViews = [NSMutableArray array];
+    }
+    return _arrayViews;
+}
+
 #pragma mark - Layout Views
 
 - (void)_layoutNextButton {
     self.nextButton.layer.masksToBounds = YES;
     self.nextButton.layer.cornerRadius = CGRectGetHeight(self.nextButton.frame)/2;
+}
+
+- (void)_resizeViewOnScrollView {
+    CGFloat widht = CGRectGetWidth(self.scrollView.frame);
+    CGFloat height = CGRectGetHeight(self.scrollView.frame);
+    self.scrollView.contentSize = CGSizeMake(widht*self.countPage, height);
+    
+    for  (int i = 0; i < [self.arrayViews count]; i++) {
+        CGFloat x = widht*i;
+        
+        UIImageView *view = self.arrayViews[i];
+        view.frame = CGRectMake(x, 0, widht, height);
+    }
 }
 
 @end

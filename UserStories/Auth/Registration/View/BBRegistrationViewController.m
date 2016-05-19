@@ -20,7 +20,10 @@ typedef enum : NSUInteger {
 
 @interface BBRegistrationViewController() <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *youView;
 
 @property (strong, nonatomic) UIAlertController *alertController;
 
@@ -35,6 +38,7 @@ typedef enum : NSUInteger {
 static NSInteger numberOfRows = 3;
 
 static CGFloat estimateRowHeight = 44.0f;
+static CGFloat offsetBottom = 10.0f;
 
 @implementation BBRegistrationViewController
 
@@ -45,6 +49,15 @@ static CGFloat estimateRowHeight = 44.0f;
     
     [self registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutYouView];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Actions
@@ -59,12 +72,27 @@ static CGFloat estimateRowHeight = 44.0f;
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleRegistrationModule;
     self.navigationItem.hidesBackButton = YES;
-    [self createBarButtonItem];
+    [self _createBarButtonItem];
+    [self _registerNotificationKeyboard];
     [self _settingsTableView];
 }
 
 
-- (void)createBarButtonItem {
+- (void)_registerNotificationKeyboard {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
+    [self.scrollView addGestureRecognizer:tap];
+}
+
+- (void)_createBarButtonItem {
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
                                                              style:UIBarButtonItemStylePlain
                                                             target:self
@@ -134,9 +162,9 @@ static CGFloat estimateRowHeight = 44.0f;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimateRowHeight;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
-//    tap.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
+////    tap.cancelsTouchesInView = NO;
+//    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - TextField Delegate Methods
@@ -161,6 +189,18 @@ static CGFloat estimateRowHeight = 44.0f;
     return YES;
 }
 
+-(void) keyboardWillShow:(NSNotification *)notification {
+    NSDictionary* info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGFloat contentOffsetY = -1*(CGRectGetHeight(self.view.frame)-kbSize.height-CGRectGetMaxY(self.tableView.frame) - offsetBottom);
+    [self.scrollView setContentOffset:CGPointMake(0, contentOffsetY) animated:YES];
+}
+
+-(void) keyboardWillHide:(NSNotification *)notification {
+    [self.scrollView setContentOffset:CGPointZero animated:YES];
+}
+
 #pragma mark - Lazy Load
 
 - (UIAlertController *)alertController {
@@ -174,6 +214,11 @@ static CGFloat estimateRowHeight = 44.0f;
     return _alertController;
 }
 
+#pragma mark - Layout Methods
 
+- (void)layoutYouView {
+    self.youView.layer.masksToBounds = YES;
+    [self.youView.layer setCornerRadius:CGRectGetHeight(self.youView.frame)/2];
+}
 
 @end

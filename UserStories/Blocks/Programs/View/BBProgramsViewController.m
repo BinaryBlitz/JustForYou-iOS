@@ -25,6 +25,8 @@
 
 @property (nonatomic) CGFloat currentPage;
 
+@property (strong, nonatomic) NSMutableArray *arrayViews;
+
 @end
 
 static NSInteger countPage = 5;
@@ -33,16 +35,9 @@ static NSInteger countPage = 5;
 
 #pragma mark - Методы жизненного цикла
 
-- (void)viewDidLayoutSubviews {
-    
-    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
-    for (int i = 0; i < countPage; i++) {
-        CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
-        
-        BBProgramView *view = [[BBProgramView alloc] init];
-        view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
-        [self.scrollView addSubview:view];
-    }
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self _resizeViewOnScrollView];
 }
 
 - (void)viewDidLoad {
@@ -68,9 +63,21 @@ static NSInteger countPage = 5;
     self.secondImageView.alpha = 0.0;
     self.pageControl.numberOfPages = countPage;
     self.pageControl.enabled = NO;
+    [self _initViewsInScrollView];
     [self _initRightBarButton];
     [self _initWightProgramView];
 }
+
+- (void)_initViewsInScrollView {    
+    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
+    for (int i = 0; i < countPage; i++) {
+        CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
+        
+        BBProgramView *view = [[BBProgramView alloc] init];
+        view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
+        [self.scrollView addSubview:view];
+        [self.arrayViews addObject:view];
+    }}
 
 #pragma mark - ScrollViewDelegate
 
@@ -129,6 +136,28 @@ static NSInteger countPage = 5;
     } else {
         self.wightProgramView = 332.0f;
         self.insetfForView = 20.5f;
+    }
+}
+
+
+#pragma mark - Lazy Load
+
+- (NSMutableArray *)arrayViews {
+    if (!_arrayViews) {
+        _arrayViews = [NSMutableArray array];
+    }
+    return _arrayViews;
+}
+
+#pragma mark - Layout Views
+
+- (void)_resizeViewOnScrollView {
+    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
+    for  (int i = 0; i < [self.arrayViews count]; i++) {
+        CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
+        
+        BBProgramView *view = self.arrayViews[i];
+        view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
     }
 }
 

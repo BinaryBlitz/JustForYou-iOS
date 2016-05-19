@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoRegistTableViewCell" id="KGk-i7-Jjw" customClass="BBInfoRegistTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoRegistTableViewCell" rowHeight="65" id="KGk-i7-Jjw" customClass="BBInfoRegistTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Код подтверждения отправлен в SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i53-OM-1eM">
@@ -36,11 +36,11 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZl-CV-pnp">
-                        <rect key="frame" x="84" y="7" width="153" height="30"/>
+                        <rect key="frame" x="66" y="20" width="188" height="39"/>
                         <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="BAg-6a-ggR"/>
-                            <constraint firstAttribute="width" constant="153" id="yk6-Ig-8Fk"/>
+                            <constraint firstAttribute="height" constant="39" id="BAg-6a-ggR"/>
+                            <constraint firstAttribute="width" constant="188" id="yk6-Ig-8Fk"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                         <state key="normal" title="Получить код">
@@ -56,7 +56,7 @@
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="top" secondItem="i53-OM-1eM" secondAttribute="bottom" id="IIq-TP-ORt"/>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aN5-Id-q1Q"/>
                     <constraint firstItem="fZl-CV-pnp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="b5c-l5-mGU"/>
-                    <constraint firstItem="fZl-CV-pnp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eGJ-Vl-Zzm"/>
+                    <constraint firstItem="fZl-CV-pnp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="7.25" id="eGJ-Vl-Zzm"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qT7-G5-xDc"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ysL-WV-tFu"/>
                 </constraints>
@@ -67,7 +67,7 @@
                 <outlet property="sendAgainButton" destination="UPG-fu-Prd" id="lSH-X3-i51"/>
                 <outlet property="sendCodeButton" destination="fZl-CV-pnp" id="odn-pI-KFf"/>
             </connections>
-            <point key="canvasLocation" x="8" y="225"/>
+            <point key="canvasLocation" x="7" y="129.5"/>
         </tableViewCell>
     </objects>
 </document>
