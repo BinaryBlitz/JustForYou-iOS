@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gradientVIew;
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
+@property (strong, nonatomic) UIAlertController *alertController;
+
 @property (strong, nonatomic) BBNumderDayTableViewCell *numberDayCell;
 
 @property (nonatomic) BBCardProgramSegmentedIndex segmentedIndex;
@@ -41,13 +43,6 @@
     [self _layoutBasketButton];
 }
 
-#pragma mark - Методы BBCardProgramViewInput
-
-- (void)setupInitialState {
-    self.segmentedIndex = BBDescriptionSegmentedIndex;
-    [self _settingTableView];
-    [self _initRightBarButton];
-}
 
 #pragma mark - Actions
 
@@ -57,7 +52,22 @@
 
 
 - (IBAction)addInBasketButtonAction:(id)sender {
-    
+    [self.output addInBasketButtonDidTap];
+}
+
+#pragma mark - Методы BBCardProgramViewInput
+
+- (void)setupInitialState {
+    self.segmentedIndex = BBDescriptionSegmentedIndex;
+    [self _settingTableView];
+    [self _initRightBarButton];
+}
+
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message {
+//    self.addInBasketButton.enabled = NO;
+    self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.alertController.message = message;
+    [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
 
@@ -205,5 +215,17 @@
     [self.addInBasketButton.layer setCornerRadius:CGRectGetHeight(self.addInBasketButton.frame)/2];
 }
 
+#pragma mark - Lazy Load
+
+- (UIAlertController *)alertController {
+    if (!_alertController) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [_alertController addAction:action];
+    }
+    return _alertController;
+}
 
 @end

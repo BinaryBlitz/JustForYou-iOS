@@ -49,6 +49,10 @@
                                   withNavigationController:[self.navigModule currentView]];
 }
 
+- (void)addInBasketButtonDidTap {
+    [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину"];
+}
+
 #pragma mark - Методы BBCardProgramInteractorOutput
 
 #pragma makr - Lazy Load 
