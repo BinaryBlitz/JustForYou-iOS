@@ -149,6 +149,9 @@
 		3A2D56DD1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D565A1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.xib */; };
 		3A2D56DE1CF075D200A8EFF5 /* BBStockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D565C1CF075D200A8EFF5 /* BBStockTableViewCell.m */; };
 		3A2D56DF1CF075D200A8EFF5 /* BBStockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D565D1CF075D200A8EFF5 /* BBStockTableViewCell.xib */; };
+		3A2D56E21CF07D9000A8EFF5 /* BBServerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D56E11CF07D9000A8EFF5 /* BBServerService.m */; };
+		3A2D56E51CF07DCA00A8EFF5 /* BBServerTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D56E41CF07DCA00A8EFF5 /* BBServerTransport.m */; };
+		3A2D56E91CF07F5E00A8EFF5 /* NSData+BBParserAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D56E81CF07F5E00A8EFF5 /* NSData+BBParserAPI.m */; };
 		3A5B0BF71CBA35CD00ADCE2C /* BBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */; };
 		3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8816401CDDE87B00472531 /* BBAccessoryTableViewCell.m */; };
 		3A88164C1CDDE87B00472531 /* BBAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8816411CDDE87B00472531 /* BBAccessoryTableViewCell.xib */; };
@@ -542,6 +545,12 @@
 		3A2D565B1CF075D200A8EFF5 /* BBStockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStockTableViewCell.h; sourceTree = "<group>"; };
 		3A2D565C1CF075D200A8EFF5 /* BBStockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStockTableViewCell.m; sourceTree = "<group>"; };
 		3A2D565D1CF075D200A8EFF5 /* BBStockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBStockTableViewCell.xib; sourceTree = "<group>"; };
+		3A2D56E01CF07D9000A8EFF5 /* BBServerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBServerService.h; sourceTree = "<group>"; };
+		3A2D56E11CF07D9000A8EFF5 /* BBServerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBServerService.m; sourceTree = "<group>"; };
+		3A2D56E31CF07DCA00A8EFF5 /* BBServerTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBServerTransport.h; sourceTree = "<group>"; };
+		3A2D56E41CF07DCA00A8EFF5 /* BBServerTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBServerTransport.m; sourceTree = "<group>"; };
+		3A2D56E71CF07F5E00A8EFF5 /* NSData+BBParserAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BBParserAPI.h"; sourceTree = "<group>"; };
+		3A2D56E81CF07F5E00A8EFF5 /* NSData+BBParserAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BBParserAPI.m"; sourceTree = "<group>"; };
 		3A5B0BF51CBA35CD00ADCE2C /* BBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSegmentedControl.h; sourceTree = "<group>"; };
 		3A5B0BF61CBA35CD00ADCE2C /* BBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSegmentedControl.m; sourceTree = "<group>"; };
 		3A88163F1CDDE87B00472531 /* BBAccessoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessoryTableViewCell.h; sourceTree = "<group>"; };
@@ -616,6 +625,7 @@
 				3A1347521CA6B634007A83ED /* UserService */,
 				3AC988631CAB1FD80069DE52 /* Validation */,
 				3AC988641CAB201A0069DE52 /* REST API */,
+				3A2D56E61CF07F2400A8EFF5 /* Parser */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1976,9 +1986,9 @@
 		3A2D56351CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D56381CF075D200A8EFF5 /* BBPaymentRouterInput.h */,
 				3A2D56361CF075D200A8EFF5 /* BBPaymentRouter.h */,
 				3A2D56371CF075D200A8EFF5 /* BBPaymentRouter.m */,
-				3A2D56381CF075D200A8EFF5 /* BBPaymentRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2039,9 +2049,9 @@
 		3A2D564B1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D564E1CF075D200A8EFF5 /* BBUniversalRouterInput.h */,
 				3A2D564C1CF075D200A8EFF5 /* BBUniversalRouter.h */,
 				3A2D564D1CF075D200A8EFF5 /* BBUniversalRouter.m */,
-				3A2D564E1CF075D200A8EFF5 /* BBUniversalRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2072,6 +2082,15 @@
 				3A2D565D1CF075D200A8EFF5 /* BBStockTableViewCell.xib */,
 			);
 			path = VIews;
+			sourceTree = "<group>";
+		};
+		3A2D56E61CF07F2400A8EFF5 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D56E71CF07F5E00A8EFF5 /* NSData+BBParserAPI.h */,
+				3A2D56E81CF07F5E00A8EFF5 /* NSData+BBParserAPI.m */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		3A88163E1CDDE87B00472531 /* TableViewCell */ = {
@@ -2117,6 +2136,8 @@
 		3AC988651CAB201A0069DE52 /* ServerAPIService */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D56E01CF07D9000A8EFF5 /* BBServerService.h */,
+				3A2D56E11CF07D9000A8EFF5 /* BBServerService.m */,
 			);
 			path = ServerAPIService;
 			sourceTree = "<group>";
@@ -2124,6 +2145,8 @@
 		3AC988661CAB201A0069DE52 /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D56E31CF07DCA00A8EFF5 /* BBServerTransport.h */,
+				3A2D56E41CF07DCA00A8EFF5 /* BBServerTransport.m */,
 			);
 			path = Transport;
 			sourceTree = "<group>";
@@ -2352,6 +2375,7 @@
 				3A2D56AC1CF075D200A8EFF5 /* BBMyProgramsViewController.m in Sources */,
 				3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */,
 				3A2D56601CF075D200A8EFF5 /* BBAuthorizationPresenter.m in Sources */,
+				3A2D56E21CF07D9000A8EFF5 /* BBServerService.m in Sources */,
 				3AC988801CAFF1830069DE52 /* BBContainerView.m in Sources */,
 				3A2D56B01CF075D200A8EFF5 /* BBNewOrderRouter.m in Sources */,
 				3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */,
@@ -2399,6 +2423,7 @@
 				3A2D569D1CF075D200A8EFF5 /* BBTabbarPresenter.m in Sources */,
 				3A2D56781CF075D200A8EFF5 /* BBBlocksAssembly.m in Sources */,
 				3A2D56821CF075D200A8EFF5 /* BBCardProgramRouter.m in Sources */,
+				3A2D56E91CF07F5E00A8EFF5 /* NSData+BBParserAPI.m in Sources */,
 				3A8816F21CDE4AD500472531 /* BBSwitchTableViewCell.m in Sources */,
 				3A2D56C01CF075D200A8EFF5 /* BBProfileRouter.m in Sources */,
 				3A2D56BD1CF075D200A8EFF5 /* BBProfileAssembly.m in Sources */,
@@ -2410,6 +2435,7 @@
 				3A2D56C91CF075D200A8EFF5 /* BBMyCardTableViewCell.m in Sources */,
 				3A2D566A1CF075D200A8EFF5 /* BBGreetingRouter.m in Sources */,
 				3A2D56891CF075D200A8EFF5 /* BBMenuTableViewCell.m in Sources */,
+				3A2D56E51CF07DCA00A8EFF5 /* BBServerTransport.m in Sources */,
 				3A2D56CF1CF075D200A8EFF5 /* BBSupportViewController.m in Sources */,
 				3A2D56C41CF075D200A8EFF5 /* BBSettingsAssembly.m in Sources */,
 				3A88164B1CDDE87B00472531 /* BBAccessoryTableViewCell.m in Sources */,

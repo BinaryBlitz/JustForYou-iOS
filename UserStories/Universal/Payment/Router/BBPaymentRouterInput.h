@@ -11,6 +11,6 @@
 
 @protocol BBPaymentRouterInput <NSObject>
 
-- (void)presentFromWindow:(UIWindow *)window;
+- (void)pushViewControllerWithNavigationController:(UINavigationController *)nc;
 
 @end
