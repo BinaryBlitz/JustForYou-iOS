@@ -35,7 +35,7 @@ static CGFloat heightUnderLine = 2.f;
     UIFont *systemFont = [UIFont boldSystemFontOfSize:12.0f];
     
     [self setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                  [UIColor lightGrayColor], NSForegroundColorAttributeName,
+                                  [BBConstantAndColor applicationDarkColor], NSForegroundColorAttributeName,
                                   systemFont, NSFontAttributeName, nil] forState:UIControlStateNormal];
     
     [self setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:

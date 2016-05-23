@@ -99,6 +99,8 @@ typedef enum : NSUInteger {
 
 + (kModelIPhone)modelDevice;
 
++ (CGRect)frameForAddBasketPopover;
+
 @end
 
 #pragma mark - Numerical Constant

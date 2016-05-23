@@ -11,14 +11,17 @@
 #import "BBProgramsViewOutput.h"
 
 #import "BBProgramView.h"
+#import "BBAddBasketViewPopover.h"
 
-@interface BBProgramsViewController() <UIScrollViewDelegate>
+@interface BBProgramsViewController() <UIScrollViewDelegate, BBAddBasketViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButton;
+
+@property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
@@ -140,15 +143,6 @@ static NSInteger countPage = 5;
 }
 
 
-#pragma mark - Lazy Load
-
-- (NSMutableArray *)arrayViews {
-    if (!_arrayViews) {
-        _arrayViews = [NSMutableArray array];
-    }
-    return _arrayViews;
-}
-
 #pragma mark - Layout Views
 
 - (void)_resizeViewOnScrollView {
@@ -160,5 +154,24 @@ static NSInteger countPage = 5;
         view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
     }
 }
+
+#pragma mark - Lazy Load
+
+- (NSMutableArray *)arrayViews {
+    if (!_arrayViews) {
+        _arrayViews = [NSMutableArray array];
+    }
+    return _arrayViews;
+}
+
+- (BBAddBasketViewPopover *)addBasketPopover {
+    if (!_addBasketPopover) {
+        _addBasketPopover = [[BBAddBasketViewPopover alloc] initWithFrame:[BBConstantAndColor frameForAddBasketPopover]];
+        _addBasketPopover.center = self.view.center;
+        _addBasketPopover.delegate = self;
+    }
+    return _addBasketPopover;
+}
+
 
 @end

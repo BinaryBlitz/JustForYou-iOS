@@ -47,6 +47,10 @@
 
 #pragma mark - Constant
 
++ (CGRect)frameForAddBasketPopover {
+    return CGRectMake(0, 0, 270, 190);
+}
+
 + (kModelIPhone)modelDevice {
     CGFloat heightDevice = [[UIScreen mainScreen] bounds].size.height;
     if (heightDevice == 480) {
