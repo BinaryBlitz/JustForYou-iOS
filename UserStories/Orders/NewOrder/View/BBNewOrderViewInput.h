@@ -12,4 +12,6 @@
 
 - (void)setupInitialState;
 
+- (void)adressForAdressTableViewCell:(NSString *)adress;
+
 @end

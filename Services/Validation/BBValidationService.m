@@ -31,17 +31,17 @@
     
     if(simpleNumber.length < 7) { // \d - это цифры
         simpleNumber = [simpleNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d+)"
-                                                               withString:@"($1)-$2"
+                                                               withString:@"($1) $2"
                                                                   options:NSRegularExpressionSearch
                                                                     range:NSMakeRange(0, [simpleNumber length])];
     } else if(simpleNumber.length < 9) {
         simpleNumber = [simpleNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d{3})(\\d+)"
-                                                               withString:@"($1)-$2-$3"
+                                                               withString:@"($1) $2-$3"
                                                                   options:NSRegularExpressionSearch
                                                                     range:NSMakeRange(0, [simpleNumber length])];
     } else {
         simpleNumber = [simpleNumber stringByReplacingOccurrencesOfString:@"(\\d{3})(\\d{3})(\\d{2})(\\d+)"
-                                                               withString:@"($1)-$2-$3-$4"
+                                                               withString:@"($1) $2-$3-$4"
                                                                   options:NSRegularExpressionSearch
                                                                     range:NSMakeRange(0, [simpleNumber length])];
     }

@@ -17,10 +17,14 @@
 #import "BBDeliveryAssembly.h"
 #import "BBDeliveryModuleInput.h"
 
+#import "BBUniversalAssembly.h"
+#import "BBUniversalModuleInput.h"
+
 @interface BBNewOrderPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBDeliveryModuleInput> deliveryModule;
+@property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
 
 @end
 
@@ -37,6 +41,11 @@
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
+- (void)popAdressModuleWithAdress:(NSString *)adress {
+    [self.view adressForAdressTableViewCell:adress];
+    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
 #pragma mark - Методы BBNewOrderViewOutput
 
 - (void)didTriggerViewReadyEvent {
@@ -48,18 +57,26 @@
 }
 
 - (void)adresCellDidTap {
-    
+    [self.universalModule pushModuleWithNavigationModule:self.navigationModule parentModule:self keyModule:kMyAddressForOrderModule];
 }
 
 #pragma mark - Методы BBNewOrderInteractorOutput
 
 #pragma mark - Lazy Load
 
--(id<BBDeliveryModuleInput>) deliveryModule {
+-(id<BBDeliveryModuleInput>)deliveryModule {
     if (!_deliveryModule) {
         _deliveryModule = [BBDeliveryAssembly createModule];
     }
     return _deliveryModule;
 }
+
+- (id<BBUniversalModuleInput>)universalModule {
+    if (!_universalModule) {
+        _universalModule = [BBUniversalAssembly createModule];
+    }
+    return _universalModule;
+}
+
 
 @end

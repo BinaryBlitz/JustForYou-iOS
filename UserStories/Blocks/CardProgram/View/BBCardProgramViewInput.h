@@ -14,4 +14,6 @@
 
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message;
 
+- (void)showAddInBasketPopover;
+
 @end

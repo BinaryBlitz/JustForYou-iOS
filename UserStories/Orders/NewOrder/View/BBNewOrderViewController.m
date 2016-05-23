@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *toOrderButton;
 
 @property (strong, nonatomic) BBCommentTableViewCell *commentCell;
+@property (strong, nonatomic) BBAccessoryTableViewCell *adressCell;
 
 @end
 
@@ -76,6 +77,9 @@ static CGFloat topInsetForTableView = - 35.0f;
     [self.tableView addGestureRecognizer:tap];
 }
 
+- (void)adressForAdressTableViewCell:(NSString *)adress {
+    self.adressCell.textLabel.text = adress;
+}
 
 #pragma mark - TableView Methods
 
@@ -133,6 +137,7 @@ static CGFloat topInsetForTableView = - 35.0f;
             accessoryCell.textLabel.text = @"Адрес";
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kBottomCornerRadius;
+            self.adressCell = accessoryCell;
         }
         cell = accessoryCell;
     } else {

@@ -31,8 +31,18 @@
                             <constraint firstAttribute="height" constant="10" id="wLV-J9-WMg"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 день" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flC-ti-TEP">
+                        <rect key="frame" x="245" y="52" width="67" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="67" id="abj-PA-0Di"/>
+                            <constraint firstAttribute="height" constant="18" id="bxg-RX-igs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Снижение веса" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8R-2d-tP0">
-                        <rect key="frame" x="37" y="52" width="264" height="18"/>
+                        <rect key="frame" x="37" y="52" width="205" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="5vF-Gc-HQX"/>
                         </constraints>
@@ -43,19 +53,22 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="b8R-2d-tP0" firstAttribute="trailing" secondItem="MhV-ck-Ikw" secondAttribute="trailing" id="5e7-cb-jxI"/>
+                    <constraint firstItem="flC-ti-TEP" firstAttribute="leading" secondItem="b8R-2d-tP0" secondAttribute="trailing" constant="3" id="5Ij-xZ-yLP"/>
                     <constraint firstItem="MhV-ck-Ikw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7Dk-aR-yjs"/>
                     <constraint firstItem="chG-rf-GA9" firstAttribute="top" secondItem="MhV-ck-Ikw" secondAttribute="bottom" constant="5" id="7wk-RK-e6T"/>
                     <constraint firstItem="MhV-ck-Ikw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="8cK-SD-Yq4"/>
                     <constraint firstItem="chG-rf-GA9" firstAttribute="leading" secondItem="MhV-ck-Ikw" secondAttribute="leading" id="EuO-lM-4je"/>
                     <constraint firstItem="b8R-2d-tP0" firstAttribute="top" secondItem="MhV-ck-Ikw" secondAttribute="bottom" id="KFs-Rh-rmB"/>
                     <constraint firstItem="b8R-2d-tP0" firstAttribute="leading" secondItem="chG-rf-GA9" secondAttribute="trailing" constant="8" id="Soh-ji-7wp"/>
+                    <constraint firstItem="flC-ti-TEP" firstAttribute="baseline" secondItem="b8R-2d-tP0" secondAttribute="baseline" id="Z9d-DJ-5sm"/>
                     <constraint firstAttribute="trailing" secondItem="MhV-ck-Ikw" secondAttribute="trailing" constant="19" id="arn-5P-oA3"/>
                     <constraint firstAttribute="bottom" secondItem="b8R-2d-tP0" secondAttribute="bottom" priority="250" constant="24" id="uDK-XV-1Qn"/>
+                    <constraint firstAttribute="trailing" secondItem="flC-ti-TEP" secondAttribute="trailing" constant="8" id="uLf-7W-GeC"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="countDayLabel" destination="flC-ti-TEP" id="zsW-ED-ZKk"/>
                 <outlet property="indicatorView" destination="chG-rf-GA9" id="eih-P4-6gK"/>
                 <outlet property="nameLabel" destination="MhV-ck-Ikw" id="Ryr-nX-3T3"/>
                 <outlet property="subNameLabel" destination="b8R-2d-tP0" id="xKu-cB-BsQ"/>

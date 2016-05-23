@@ -8,14 +8,14 @@
 
 #import "BBBasketTableViewCell.h"
 
-@interface BBBasketTableViewCell()
-
-@end
+static NSString *kNameMinusImage = @"minusIcon";
+static NSString *kNameCrossImage = @"crossIcon";
 
 @implementation BBBasketTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.countDays = 1;
     // Initialization code
 }
 
@@ -68,12 +68,27 @@
 }
 
 - (IBAction)leftButtonAction:(id)sender {
-    
+    if (self.countDays > 2) {
+        [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
+    } else {
+        [self _changeBackgroundImageInButtonWithName:kNameCrossImage];
+    }
+    if (self.countDays != 1) {
+        self.countDays--;
+    }
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
 }
 
 - (IBAction)rightButtonAction:(id)sender {
-    
+    if (self.countDays == 1) {
+        [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
+    }
+    self.countDays++;
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
 }
 
+- (void)_changeBackgroundImageInButtonWithName:(NSString *)image {
+    [self.leftButton setBackgroundImage:[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]forState:UIControlStateNormal];
+}
 
 @end

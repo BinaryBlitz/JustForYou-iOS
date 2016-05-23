@@ -50,6 +50,10 @@
 }
 
 - (void)addInBasketButtonDidTap {
+    [self.view showAddInBasketPopover];
+}
+
+- (void)okButtonDidTapWithCountDays:(NSInteger)count {
     [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину"];
 }
 

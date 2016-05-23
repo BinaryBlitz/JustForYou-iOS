@@ -63,7 +63,7 @@
                             <constraint firstAttribute="width" constant="30" id="JGZ-H1-qeH"/>
                             <constraint firstAttribute="height" constant="30" id="vZ8-JX-fSX"/>
                         </constraints>
-                        <state key="normal" image="crossIcon"/>
+                        <state key="normal" backgroundImage="crossIcon"/>
                         <connections>
                             <action selector="leftButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a5x-JW-8Ci"/>
                         </connections>
@@ -74,7 +74,7 @@
                             <constraint firstAttribute="width" constant="30" id="SJ6-1F-L3b"/>
                             <constraint firstAttribute="height" constant="30" id="nCH-1I-xUg"/>
                         </constraints>
-                        <state key="normal" image="plusIcon"/>
+                        <state key="normal" backgroundImage="plusIcon"/>
                         <connections>
                             <action selector="rightButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eU8-OM-6a3"/>
                         </connections>

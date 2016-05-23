@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
+@property (nonatomic) NSUInteger countDays;
 
 - (void)setTextForCountLabel:(NSString *)text;
 

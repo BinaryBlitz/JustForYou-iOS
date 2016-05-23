@@ -16,4 +16,6 @@
 
 - (void)addInBasketButtonDidTap;
 
+- (void)okButtonDidTapWithCountDays:(NSInteger)count;
+
 @end

@@ -14,6 +14,10 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) UIBarButtonItem *addBarButton;
+
+@property (nonatomic) NSInteger count;
+
 @property (nonatomic) BBKeyModuleForUniversalModule keyModule;
 
 @end
@@ -39,17 +43,37 @@ static CGFloat heightFooterSection = 10.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 #pragma mark - Методы BBUniversalViewInput
 
 - (void)setupInitialState {
     [self _registerCellIdentifireInTableView];
     [self _settingTableView];
+    self.count = 3;
 }
 
 - (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationItem.title = title;
     self.keyModule = key;
     [self.tableView reloadData];
+}
+
+- (void)settingView {
+    if (self.keyModule == kMyAddressModule) {
+        self.navigationItem.rightBarButtonItem = self.addBarButton;
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
+#pragma mark - Actions Methods
+
+- (void)_addBarButtonAction {
+    [self.output addBarButtonDidTap];
 }
 
 #pragma mark - TableView Methods
@@ -96,17 +120,17 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule) {
-        return 3;
+    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
+        return self.count;
     }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule) {
+    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
         return 1;
     }
-    return 3;
+    return self.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,10 +140,11 @@ static CGFloat heightFooterSection = 10.0f;
     } else if (self.keyModule == kMyHystoryPaymentModule) {
         BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
         return cell;
-    } else if (self.keyModule == kMyAddressModule) {
+    } else if (self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
         BBAccessoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
         cell.setRadius = YES;
         cell.kSideCornerRadius = kAllCornerRadius;
+        cell.accessoryImageView.hidden = YES;
         cell.textLabel.text = @"Большая Никитская д.22/1, 134";
         return cell;
     } else if (self.keyModule == kSharesModule) {
@@ -133,6 +158,43 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.keyModule == kMyAddressForOrderModule) {
+        BBAccessoryTableViewCell *adressCell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [self.output cellDidSelectWithAdress:adressCell.textLabel.text];
+    }
 }
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.keyModule == kMyAddressModule) {
+        return UITableViewCellEditingStyleDelete;
+    }
+    return UITableViewCellEditingStyleNone;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Remove";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        self.count--;
+//        [self.tableView beginUpdates];
+//        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [self.tableView endUpdates];
+    }
+}
+
+
+#pragma mark - Lazy Load
+
+- (UIBarButtonItem *)addBarButton {
+    if (!_addBarButton) {
+        _addBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(_addBarButtonAction)];
+        _addBarButton.tintColor = [BBConstantAndColor applicationGrayColor];
+    }
+    return _addBarButton;
+}
+
 
 @end

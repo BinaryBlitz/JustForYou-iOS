@@ -14,4 +14,6 @@
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule withProgram:(NSInteger)program;
 
+- (void)popAdressModuleWithAdress:(NSString *)adress;
+
 @end

@@ -10,7 +10,9 @@
 
 #import "BBCardProgramViewOutput.h"
 
-@interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell>
+#import "BBAddBasketViewPopover.h"
+
+@interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell, BBAddBasketViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addInBasketButton;
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
 @property (strong, nonatomic) UIAlertController *alertController;
+@property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
 @property (strong, nonatomic) BBNumderDayTableViewCell *numberDayCell;
 
@@ -63,8 +66,13 @@
     [self _initRightBarButton];
 }
 
+- (void)showAddInBasketPopover {
+    [self.view addSubview:self.addBasketPopover];
+}
+
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message {
 //    self.addInBasketButton.enabled = NO;
+    [self.addBasketPopover removeFromSuperview];
     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.alertController.message = message;
     [self presentViewController:self.alertController animated:YES completion:nil];
@@ -200,6 +208,10 @@
     [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationLeft];
 }
 
+- (void)okButtonDidTapWithCountDays:(NSInteger)count {
+    [self.output okButtonDidTapWithCountDays:count];
+}
+
 #pragma mark - Init Methods
 
 - (void)_initRightBarButton {
@@ -227,5 +239,14 @@
     }
     return _alertController;
 }
+
+- (BBAddBasketViewPopover *)addBasketPopover {
+    if (!_addBasketPopover) {
+        _addBasketPopover = [[BBAddBasketViewPopover alloc] initWithFrame:self.view.bounds];
+        _addBasketPopover.delegate = self;
+    }
+    return _addBasketPopover;
+}
+
 
 @end

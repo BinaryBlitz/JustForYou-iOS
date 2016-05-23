@@ -14,4 +14,6 @@
 
 - (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key;
 
+- (void)settingView;
+
 @end

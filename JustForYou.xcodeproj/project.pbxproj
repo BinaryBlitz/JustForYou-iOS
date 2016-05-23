@@ -741,8 +741,8 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54821CF075D200A8EFF5 /* Authorization */,
-				3A2D549F1CF075D200A8EFF5 /* Greeting */,
 				3A2D54B51CF075D200A8EFF5 /* Registration */,
+				3A2D549F1CF075D200A8EFF5 /* Greeting */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -792,9 +792,9 @@
 		3A2D548F1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D54921CF075D200A8EFF5 /* BBAuthorizationRouterInput.h */,
 				3A2D54901CF075D200A8EFF5 /* BBAuthorizationRouter.h */,
 				3A2D54911CF075D200A8EFF5 /* BBAuthorizationRouter.m */,
-				3A2D54921CF075D200A8EFF5 /* BBAuthorizationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -869,9 +869,9 @@
 		3A2D54AC1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D54AF1CF075D200A8EFF5 /* BBGreetingRouterInput.h */,
 				3A2D54AD1CF075D200A8EFF5 /* BBGreetingRouter.h */,
 				3A2D54AE1CF075D200A8EFF5 /* BBGreetingRouter.m */,
-				3A2D54AF1CF075D200A8EFF5 /* BBGreetingRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -932,9 +932,9 @@
 		3A2D54C21CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D54C51CF075D200A8EFF5 /* BBRegistrationRouterInput.h */,
 				3A2D54C31CF075D200A8EFF5 /* BBRegistrationRouter.h */,
 				3A2D54C41CF075D200A8EFF5 /* BBRegistrationRouter.m */,
-				3A2D54C51CF075D200A8EFF5 /* BBRegistrationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -955,8 +955,8 @@
 			children = (
 				3A2D54CC1CF075D200A8EFF5 /* Basket */,
 				3A2D54E61CF075D200A8EFF5 /* Blocks */,
-				3A2D55001CF075D200A8EFF5 /* CardProgram */,
 				3A2D55281CF075D200A8EFF5 /* Programs */,
+				3A2D55001CF075D200A8EFF5 /* CardProgram */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -1016,11 +1016,11 @@
 		3A2D54DD1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54DE1CF075D200A8EFF5 /* BBBasketViewController.h */,
-				3A2D54DF1CF075D200A8EFF5 /* BBBasketViewController.m */,
+				3A2D54E21CF075D200A8EFF5 /* Views */,
 				3A2D54E01CF075D200A8EFF5 /* BBBasketViewInput.h */,
 				3A2D54E11CF075D200A8EFF5 /* BBBasketViewOutput.h */,
-				3A2D54E21CF075D200A8EFF5 /* Views */,
+				3A2D54DE1CF075D200A8EFF5 /* BBBasketViewController.h */,
+				3A2D54DF1CF075D200A8EFF5 /* BBBasketViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1080,9 +1080,9 @@
 		3A2D54F31CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D54F61CF075D200A8EFF5 /* BBBlocksRouterInput.h */,
 				3A2D54F41CF075D200A8EFF5 /* BBBlocksRouter.h */,
 				3A2D54F51CF075D200A8EFF5 /* BBBlocksRouter.m */,
-				3A2D54F61CF075D200A8EFF5 /* BBBlocksRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1154,9 +1154,9 @@
 		3A2D550D1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D55101CF075D200A8EFF5 /* BBCardProgramRouterInput.h */,
 				3A2D550E1CF075D200A8EFF5 /* BBCardProgramRouter.h */,
 				3A2D550F1CF075D200A8EFF5 /* BBCardProgramRouter.m */,
-				3A2D55101CF075D200A8EFF5 /* BBCardProgramRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1164,11 +1164,11 @@
 		3A2D55111CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55121CF075D200A8EFF5 /* BBCardProgramViewController.h */,
-				3A2D55131CF075D200A8EFF5 /* BBCardProgramViewController.m */,
+				3A2D55161CF075D200A8EFF5 /* VIews */,
 				3A2D55141CF075D200A8EFF5 /* BBCardProgramViewInput.h */,
 				3A2D55151CF075D200A8EFF5 /* BBCardProgramViewOutput.h */,
-				3A2D55161CF075D200A8EFF5 /* VIews */,
+				3A2D55121CF075D200A8EFF5 /* BBCardProgramViewController.h */,
+				3A2D55131CF075D200A8EFF5 /* BBCardProgramViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1242,9 +1242,9 @@
 		3A2D55351CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D55381CF075D200A8EFF5 /* BBProgramsRouterInput.h */,
 				3A2D55361CF075D200A8EFF5 /* BBProgramsRouter.h */,
 				3A2D55371CF075D200A8EFF5 /* BBProgramsRouter.m */,
-				3A2D55381CF075D200A8EFF5 /* BBProgramsRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1389,9 +1389,9 @@
 		3A2D55671CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D556A1CF075D200A8EFF5 /* BBTabbarRouterInput.h */,
 				3A2D55681CF075D200A8EFF5 /* BBTabbarRouter.h */,
 				3A2D55691CF075D200A8EFF5 /* BBTabbarRouter.m */,
-				3A2D556A1CF075D200A8EFF5 /* BBTabbarRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1421,9 +1421,9 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55741CF075D200A8EFF5 /* Delivery */,
+				3A2D55BA1CF075D200A8EFF5 /* Orders */,
 				3A2D558E1CF075D200A8EFF5 /* MyPrograms */,
 				3A2D55A41CF075D200A8EFF5 /* NewOrder */,
-				3A2D55BA1CF075D200A8EFF5 /* Orders */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -1483,11 +1483,11 @@
 		3A2D55851CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55861CF075D200A8EFF5 /* BBDeliveryViewController.h */,
-				3A2D55871CF075D200A8EFF5 /* BBDeliveryViewController.m */,
+				3A2D558A1CF075D200A8EFF5 /* Views */,
 				3A2D55881CF075D200A8EFF5 /* BBDeliveryViewInput.h */,
 				3A2D55891CF075D200A8EFF5 /* BBDeliveryViewOutput.h */,
-				3A2D558A1CF075D200A8EFF5 /* Views */,
+				3A2D55861CF075D200A8EFF5 /* BBDeliveryViewController.h */,
+				3A2D55871CF075D200A8EFF5 /* BBDeliveryViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1557,10 +1557,10 @@
 		3A2D559F1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55A01CF075D200A8EFF5 /* BBMyProgramsViewController.h */,
-				3A2D55A11CF075D200A8EFF5 /* BBMyProgramsViewController.m */,
 				3A2D55A21CF075D200A8EFF5 /* BBMyProgramsViewInput.h */,
 				3A2D55A31CF075D200A8EFF5 /* BBMyProgramsViewOutput.h */,
+				3A2D55A01CF075D200A8EFF5 /* BBMyProgramsViewController.h */,
+				3A2D55A11CF075D200A8EFF5 /* BBMyProgramsViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1610,9 +1610,9 @@
 		3A2D55B11CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D55B41CF075D200A8EFF5 /* BBNewOrderRouterInput.h */,
 				3A2D55B21CF075D200A8EFF5 /* BBNewOrderRouter.h */,
 				3A2D55B31CF075D200A8EFF5 /* BBNewOrderRouter.m */,
-				3A2D55B41CF075D200A8EFF5 /* BBNewOrderRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1620,10 +1620,10 @@
 		3A2D55B51CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55B61CF075D200A8EFF5 /* BBNewOrderViewController.h */,
-				3A2D55B71CF075D200A8EFF5 /* BBNewOrderViewController.m */,
 				3A2D55B81CF075D200A8EFF5 /* BBNewOrderViewInput.h */,
 				3A2D55B91CF075D200A8EFF5 /* BBNewOrderViewOutput.h */,
+				3A2D55B61CF075D200A8EFF5 /* BBNewOrderViewController.h */,
+				3A2D55B71CF075D200A8EFF5 /* BBNewOrderViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2064,11 +2064,11 @@
 		3A2D564F1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D56541CF075D200A8EFF5 /* VIews */,
 				3A2D56521CF075D200A8EFF5 /* BBUniversalViewInput.h */,
 				3A2D56531CF075D200A8EFF5 /* BBUniversalViewOutput.h */,
 				3A2D56501CF075D200A8EFF5 /* BBUniversalViewController.h */,
 				3A2D56511CF075D200A8EFF5 /* BBUniversalViewController.m */,
-				3A2D56541CF075D200A8EFF5 /* VIews */,
 			);
 			path = View;
 			sourceTree = "<group>";

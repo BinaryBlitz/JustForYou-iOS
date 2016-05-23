@@ -12,4 +12,10 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+
+- (void)cellDidSelectWithAdress:(NSString *)adress;
+
+- (void)addBarButtonDidTap;
+
 @end

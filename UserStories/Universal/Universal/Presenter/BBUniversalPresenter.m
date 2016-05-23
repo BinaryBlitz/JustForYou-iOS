@@ -14,9 +14,12 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBNewOrderModuleInput.h"
+
 @interface BBUniversalPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBNewOrderModuleInput> parentNewOrderModule;
 
 @end
 
@@ -26,6 +29,13 @@
 
 - (void)configureModule {
     
+}
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule parentModule:(id)parentModule keyModule:(BBKeyModuleForUniversalModule)key {
+    self.navigationModule = navigationModule;
+    self.parentNewOrderModule = parentModule;
+    [self _detectTitleForNavigationWithKey:key];
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule keyModule:(BBKeyModuleForUniversalModule)key {
@@ -61,6 +71,19 @@
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
 }
+
+- (void)cellDidSelectWithAdress:(NSString *)adress {
+    [self.parentNewOrderModule popAdressModuleWithAdress:adress];
+}
+
+- (void)viewWillAppear {
+    [self.view settingView];
+}
+
+- (void)addBarButtonDidTap {
+    
+}
+
 
 #pragma mark - Методы BBUniversalInteractorOutput
 

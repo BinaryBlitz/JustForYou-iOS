@@ -18,6 +18,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *subNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countDayLabel;
 @property (assign, nonatomic) BBKeyProgramCellMode keyMode;
 
 @end

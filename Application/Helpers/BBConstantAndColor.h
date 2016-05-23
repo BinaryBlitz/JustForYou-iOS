@@ -71,6 +71,7 @@ typedef enum : NSUInteger {
     kMyPayCardModule,
     kMyProgramModule,
     kMyAddressModule,
+    kMyAddressForOrderModule,
     kMyHystoryPaymentModule,
     kSharesModule,
     kReplacementModule,
@@ -98,8 +99,6 @@ typedef enum : NSUInteger {
 + (UIColor *)applicationGreenBankColor;
 
 + (kModelIPhone)modelDevice;
-
-+ (CGRect)frameForAddBasketPopover;
 
 @end
 
