@@ -20,8 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIAlertController *alertController;
+@property (strong, nonatomic) UIBarButtonItem *backBarButton;
+@property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 
 @property (nonatomic) BBKeyStyleTableViewRegist keyStyleTableView;
+@property (strong, nonatomic) NSString *numberPhone;
 
 @property (weak, nonatomic) BBNumberPhoneTableViewCell *numberCell;
 @property (weak, nonatomic) BBTextTableViewCell *textCell;
@@ -29,6 +32,8 @@
 @end
 
 static NSString *kTextForSendCode = @"Введите код:";
+static NSString *kTextForEnterPhone = @"Введите ваш номер телефона:";
+static NSString *kTextForInfoLabel = @"Код отправлен на ";
 
 static CGFloat estimateRowHeight = 44.0f;
 static CGFloat offsetBottom = 10.0f;
@@ -71,6 +76,7 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleAuthorizateModule;
+    self.numberPhone = @"";
     [self _registrateIdentifireCell];
     [self _registerNotificationKeyboard];
 }
@@ -82,10 +88,15 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key {
     self.keyStyleTableView = key;
-    if (!self.navigationItem.rightBarButtonItem) {
-        [self _createBarButtonItem];
+    if (key == kSendCodeStyleTableView) {
+        self.navigationItem.rightBarButtonItem = self.rightBarButton;
+        self.navigationItem.leftBarButtonItem = self.backBarButton;
+        self.informationLabel.text = kTextForSendCode;
+    } else {
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem = nil;
+        self.informationLabel.text = kTextForEnterPhone;
     }
-    self.informationLabel.text = kTextForSendCode;
     [self.tableView beginUpdates];
     [self.tableView reloadData];
     [self.tableView endUpdates];
@@ -107,10 +118,15 @@ static CGFloat offsetBottom = 10.0f;
     [self.textCell.textField resignFirstResponder];
 }
 
+- (void)_backBarButtonAction {
+    [self.output backButtonDidTap];
+}
+
 #pragma mark - Cell Delegate Methods
 
 - (void)sendCodeButtonDidTap {
     [self.numberCell.numberTextField resignFirstResponder];
+    self.numberPhone = self.numberCell.numberTextField.text;
     [self.output sendCodeButtonDidTapWithValidField:self.numberCell.validationOk];
 }
 
@@ -122,16 +138,17 @@ static CGFloat offsetBottom = 10.0f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    BBInfoRegistTableViewCell *infoCell = [[NSBundle mainBundle] loadNibNamed:kNibNameInfoRegistCell
+                                                                        owner:self options:nil].lastObject;
+    infoCell.delegate = self;
     if (self.keyStyleTableView == kNumberPhoneStyleTableView) {
         if (indexPath.row == 0) {
             BBNumberPhoneTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberCellIdentifire];
             self.numberCell = numberCell;
+            numberCell.numberTextField.text = self.numberPhone;
             cell = numberCell;
         } else {
-            BBInfoRegistTableViewCell *infoCell = [[NSBundle mainBundle] loadNibNamed:kNibNameInfoRegistCell
-                                                                                owner:self options:nil].lastObject;
-            infoCell.delegate = self;
-            
+            infoCell.keyStyleCell = kBigInfoRegistCellStyle;
             cell = infoCell;
         }
     } else {
@@ -143,10 +160,8 @@ static CGFloat offsetBottom = 10.0f;
             self.textCell = textCell;
             cell = textCell;
         } else {
-            BBInfoRegistTableViewCell *infoCell = [[NSBundle mainBundle] loadNibNamed:kNibNameInfoRegistCell
-                                                                                owner:self options:nil].lastObject;
-            infoCell.delegate = self;
             infoCell.keyStyleCell = kFinishRegistCellStyle;
+            infoCell.infoLabel.text = [NSString stringWithFormat:@"%@%@", kTextForInfoLabel, self.numberPhone];
             cell = infoCell;
         }
     }
@@ -183,16 +198,6 @@ static CGFloat offsetBottom = 10.0f;
     [self.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
-#pragma mark - Init Methods 
-
-- (void)_createBarButtonItem {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
-                                                             style:UIBarButtonItemStylePlain
-                                                            target:self
-                                                            action:@selector(_nextButtonAction)];
-    item.tintColor = [UIColor blackColor];
-    self.navigationItem.rightBarButtonItem = item;
-}
 
 #pragma mark - Layout Views
 
@@ -214,5 +219,25 @@ static CGFloat offsetBottom = 10.0f;
     return _alertController;
 }
 
+- (UIBarButtonItem *)backBarButton {
+    if (!_backBarButton) {
+        _backBarButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                                       style:UIBarButtonItemStylePlain
+                                                      target:self
+                                                      action:@selector(_backBarButtonAction)];
+    }
+    return _backBarButton;
+}
+
+- (UIBarButtonItem *)rightBarButton {
+    if (!_rightBarButton) {
+        _rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(_nextButtonAction)];
+        _rightBarButton.tintColor = [UIColor blackColor];
+    }
+    return _rightBarButton;
+}
 
 @end

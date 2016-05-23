@@ -14,6 +14,8 @@
 
 - (void)nextButtonDidPress;
 
+- (void)backButtonDidTap;
+
 - (void)numberPhoneUserWithString:(NSString *)phone;
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid;

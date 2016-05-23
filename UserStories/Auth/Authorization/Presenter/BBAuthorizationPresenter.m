@@ -51,6 +51,9 @@
     [self.view getNumberPhoneUser];
 }
 
+- (void)backButtonDidTap {
+    [self.view updateTableViewWithKeyTableView:kNumberPhoneStyleTableView];
+}
 
 - (void)numberPhoneUserWithString:(NSString *)phone {
     [self.registModule presentWithNavigModule:self.navigModule andUserPhone:phone];

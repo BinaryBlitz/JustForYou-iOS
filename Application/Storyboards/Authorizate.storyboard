@@ -150,8 +150,18 @@
                                                     <constraint firstAttribute="width" constant="100" id="v1u-ly-ojJ"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расскажите немного о себе:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncu-YT-Zxr">
+                                                <rect key="frame" x="34" y="158" width="253" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="g3T-mC-cB7"/>
+                                                    <constraint firstAttribute="width" constant="253" id="pa0-xB-yI8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dzy-PT-Zmt">
-                                                <rect key="frame" x="0.0" y="164" width="320" height="132"/>
+                                                <rect key="frame" x="0.0" y="187" width="320" height="132"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="132" id="FW4-S1-xXS"/>
@@ -164,11 +174,13 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="ncu-YT-Zxr" firstAttribute="centerX" secondItem="POI-Il-c5x" secondAttribute="centerX" id="6Gm-Kx-fkh"/>
                                             <constraint firstItem="rDQ-I3-2ni" firstAttribute="top" secondItem="POI-Il-c5x" secondAttribute="top" constant="27" id="N3P-TX-lLg"/>
                                             <constraint firstAttribute="trailing" secondItem="Dzy-PT-Zmt" secondAttribute="trailing" id="O3s-sq-Ugg"/>
                                             <constraint firstItem="Dzy-PT-Zmt" firstAttribute="leading" secondItem="POI-Il-c5x" secondAttribute="leading" id="Th7-RT-smc"/>
+                                            <constraint firstItem="Dzy-PT-Zmt" firstAttribute="top" secondItem="ncu-YT-Zxr" secondAttribute="bottom" constant="8" id="oQc-sX-MPm"/>
                                             <constraint firstItem="rDQ-I3-2ni" firstAttribute="centerX" secondItem="POI-Il-c5x" secondAttribute="centerX" id="rDQ-pw-pMX"/>
-                                            <constraint firstItem="Dzy-PT-Zmt" firstAttribute="top" secondItem="rDQ-I3-2ni" secondAttribute="bottom" constant="37" id="y3L-gg-adS"/>
+                                            <constraint firstItem="ncu-YT-Zxr" firstAttribute="top" secondItem="rDQ-I3-2ni" secondAttribute="bottom" constant="31" id="wqD-kw-XEV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -199,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWJ-BC-afR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-53" y="-597"/>
+            <point key="canvasLocation" x="-53" y="-605"/>
         </scene>
         <!--Greeting View Controller-->
         <scene sceneID="y9e-z8-695">

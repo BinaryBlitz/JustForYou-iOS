@@ -35,6 +35,7 @@
 }
 
 - (IBAction)sendCodeButtonAction:(id)sender {
+    self.sendCodeButton.enabled = NO;
     [self.delegate sendCodeButtonDidTap];
 }
 
