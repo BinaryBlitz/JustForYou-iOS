@@ -13,4 +13,9 @@ typedef void (^ReceiveData)(NSData* data);
 
 @interface BBServerService : NSObject
 
++ (instancetype) sharedService;
+
+
+
+
 @end

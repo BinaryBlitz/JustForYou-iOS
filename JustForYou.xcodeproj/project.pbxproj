@@ -1996,10 +1996,10 @@
 		3A2D56391CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D563A1CF075D200A8EFF5 /* BBPaymentViewController.h */,
-				3A2D563B1CF075D200A8EFF5 /* BBPaymentViewController.m */,
 				3A2D563C1CF075D200A8EFF5 /* BBPaymentViewInput.h */,
 				3A2D563D1CF075D200A8EFF5 /* BBPaymentViewOutput.h */,
+				3A2D563A1CF075D200A8EFF5 /* BBPaymentViewController.h */,
+				3A2D563B1CF075D200A8EFF5 /* BBPaymentViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2059,10 +2059,10 @@
 		3A2D564F1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56501CF075D200A8EFF5 /* BBUniversalViewController.h */,
-				3A2D56511CF075D200A8EFF5 /* BBUniversalViewController.m */,
 				3A2D56521CF075D200A8EFF5 /* BBUniversalViewInput.h */,
 				3A2D56531CF075D200A8EFF5 /* BBUniversalViewOutput.h */,
+				3A2D56501CF075D200A8EFF5 /* BBUniversalViewController.h */,
+				3A2D56511CF075D200A8EFF5 /* BBUniversalViewController.m */,
 				3A2D56541CF075D200A8EFF5 /* VIews */,
 			);
 			path = View;

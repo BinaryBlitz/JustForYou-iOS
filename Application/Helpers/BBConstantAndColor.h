@@ -113,7 +113,7 @@ static CGFloat bottomOffsetCells = 10.0f;
 #pragma mark - Name Title Module
 
 static NSString *kNameTitleRegistrationModule = @"Регистрация";
-static NSString *kNameTitleAuthorizateModule = @"Авторизация";
+static NSString *kNameTitleAuthorizateModule = @"Вход";
 static NSString *kNameTitleGreetingModule = @"JustForYou";
 
 static NSString *kNameTitleProgramModule = @"Программы";
