@@ -20,4 +20,8 @@
 @property (strong, nonatomic) id<BBSupportInteractorInput> interactor;
 @property (strong, nonatomic) id<BBSupportRouterInput> router;
 
+
+- (void)kyky;
+- (void)errorEmail;
+
 @end

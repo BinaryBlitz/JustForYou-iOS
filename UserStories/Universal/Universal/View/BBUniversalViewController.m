@@ -53,7 +53,6 @@ static CGFloat heightFooterSection = 10.0f;
 - (void)setupInitialState {
     [self _registerCellIdentifireInTableView];
     [self _settingTableView];
-    self.count = 3;
 }
 
 - (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key {
@@ -68,6 +67,8 @@ static CGFloat heightFooterSection = 10.0f;
     } else {
         self.navigationItem.rightBarButtonItem = nil;
     }
+    self.count = 3;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Actions Methods
@@ -178,13 +179,13 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        self.count--;
-//        [self.tableView beginUpdates];
-//        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        [self.tableView endUpdates];
+        self.count--;
+        NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.section, 1)];
+        [self.tableView beginUpdates];
+        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
     }
 }
-
 
 #pragma mark - Lazy Load
 

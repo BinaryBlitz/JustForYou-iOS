@@ -75,7 +75,9 @@
     [self.addBasketPopover removeFromSuperview];
     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.alertController.message = message;
-    [self presentViewController:self.alertController animated:YES completion:nil];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:self.alertController animated:YES completion:nil];
+    });
 }
 
 

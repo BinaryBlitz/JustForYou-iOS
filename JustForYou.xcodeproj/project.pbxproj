@@ -1919,9 +1919,9 @@
 		3A2D561E1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D56211CF075D200A8EFF5 /* BBSupportRouterInput.h */,
 				3A2D561F1CF075D200A8EFF5 /* BBSupportRouter.h */,
 				3A2D56201CF075D200A8EFF5 /* BBSupportRouter.m */,
-				3A2D56211CF075D200A8EFF5 /* BBSupportRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1929,10 +1929,10 @@
 		3A2D56221CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56231CF075D200A8EFF5 /* BBSupportViewController.h */,
-				3A2D56241CF075D200A8EFF5 /* BBSupportViewController.m */,
 				3A2D56251CF075D200A8EFF5 /* BBSupportViewInput.h */,
 				3A2D56261CF075D200A8EFF5 /* BBSupportViewOutput.h */,
+				3A2D56231CF075D200A8EFF5 /* BBSupportViewController.h */,
+				3A2D56241CF075D200A8EFF5 /* BBSupportViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";

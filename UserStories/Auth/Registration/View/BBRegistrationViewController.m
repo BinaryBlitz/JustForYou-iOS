@@ -111,7 +111,9 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)presentAlertControllerWithMessage:(NSString *)message {
     self.alertController.message = message;
-    [self presentViewController:self.alertController animated:YES completion:nil];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:self.alertController animated:YES completion:nil];
+    });
 }
 
 #pragma mark - Methods TableView

@@ -33,10 +33,22 @@
     return self.view;
 }
 
+- (void)kyky {
+    NSLog(@"KyKy");
+}
+
+- (void)errorEmail {
+    [self.view presentAlertControllerWithTitle:@"Ошибка" message:@"В приложении \"Почта\" вашего устройства не привязан аккаунт"];
+}
+
 #pragma mark - Методы BBSupportViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+}
+
+- (void)writeManagerButtonDidTap {
+    [self.router presentMailController];
 }
 
 #pragma mark - Методы BBSupportInteractorOutput

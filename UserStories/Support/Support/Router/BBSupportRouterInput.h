@@ -11,6 +11,6 @@
 
 @protocol BBSupportRouterInput <NSObject>
 
-- (void)presentFromWindow:(UIWindow *)window;
+- (void)presentMailController;
 
 @end

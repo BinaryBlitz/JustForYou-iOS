@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet BBDottedBorderButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) UIAlertController *alertController;
+
 @end
 
 static CGFloat bottomInset = 30.0f;
@@ -34,16 +36,30 @@ static CGFloat bottomInset = 30.0f;
 }
 
 #pragma mark - Actions Mathods
+
 - (IBAction)callManagerButtonAction:(id)sender {
     
 }
 
 - (IBAction)writeManagerButtonAction:(id)sender {
+    [self _stopTapControlsWithTimer];
+    [self.output writeManagerButtonDidTap];
 }
 
 
 - (IBAction)feedbackButtonAction:(id)sender {
     
+}
+
+- (void)_stopTapControlsWithTimer {
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    double delayInSecond = 1;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSecond * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if ([[UIApplication sharedApplication] isIgnoringInteractionEvents]) {
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        }
+    });
 }
 
 #pragma mark - Методы BBSupportViewInput
@@ -52,6 +68,14 @@ static CGFloat bottomInset = 30.0f;
     self.navigationItem.title = kNameTitleSupportModule;
     [self _setTitleForButtons];
     [self _settingScrollView];
+}
+
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
+    self.alertController.title = title;
+    self.alertController.message = message;
+    HQDispatchToMainQueue(^{
+        [self presentViewController:self.alertController animated:YES completion:nil];
+    });
 }
 
 #pragma mark - Settings Methods
@@ -69,5 +93,18 @@ static CGFloat bottomInset = 30.0f;
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomInset, 0);
 }
 
+
+#pragma mark - Lazy Load
+
+- (UIAlertController *)alertController {
+    if (!_alertController) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [_alertController addAction:action];
+    }
+    return _alertController;
+}
 
 @end

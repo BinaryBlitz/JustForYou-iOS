@@ -52,7 +52,9 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 
 - (void)showAlertViewWithMessage:(NSString *)message {
     self.alertController.message = message;
-    [self presentViewController:self.alertController animated:YES completion:nil];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:self.alertController animated:YES completion:nil];
+    });
 }
 
 #pragma mark - TableView Methods
