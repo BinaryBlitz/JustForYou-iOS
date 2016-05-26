@@ -1,7 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="XhT-Z5-njn">
+            <objects>
+                <viewController storyboardIdentifier="BBProfileViewController" id="MYC-30-4vP" customClass="BBProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x1l-SW-Oum"/>
+                        <viewControllerLayoutGuide type="bottom" id="0TO-Wj-7BG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wqO-t2-yFd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HaR-fx-v3G">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MYC-30-4vP" id="94c-Sa-w13"/>
+                                    <outlet property="delegate" destination="MYC-30-4vP" id="3it-eX-Em9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HaR-fx-v3G" secondAttribute="trailing" id="9Sw-GW-sKo"/>
+                            <constraint firstItem="0TO-Wj-7BG" firstAttribute="top" secondItem="HaR-fx-v3G" secondAttribute="bottom" id="HMG-H9-jJ3"/>
+                            <constraint firstItem="HaR-fx-v3G" firstAttribute="top" secondItem="wqO-t2-yFd" secondAttribute="top" id="bUT-sJ-b5P"/>
+                            <constraint firstItem="HaR-fx-v3G" firstAttribute="leading" secondItem="wqO-t2-yFd" secondAttribute="leading" id="pqq-kP-j7i"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="HaR-fx-v3G" id="K64-bE-gju"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pig-ic-BD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="2739"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="TCE-wy-uRY">
+            <objects>
+                <viewController storyboardIdentifier="BBSettingsViewController" id="6MD-d2-3LA" customClass="BBSettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SH2-f6-Nmf"/>
+                        <viewControllerLayoutGuide type="bottom" id="JXY-c3-PXr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kc3-bd-w3F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G1R-N7-2h0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="535"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6MD-d2-3LA" id="EFK-9a-eIF"/>
+                                    <outlet property="delegate" destination="6MD-d2-3LA" id="juH-zN-7jk"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-OC-rEq">
+                                <rect key="frame" x="76" y="535" width="448" height="42.5"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.32156862749999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ВЫЙТИ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonAction:" destination="6MD-d2-3LA" eventType="touchUpInside" id="Wx3-T7-ERZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CAg-OC-rEq" firstAttribute="top" secondItem="G1R-N7-2h0" secondAttribute="bottom" id="QDm-41-YJf"/>
+                            <constraint firstItem="CAg-OC-rEq" firstAttribute="height" secondItem="kc3-bd-w3F" secondAttribute="height" multiplier="47:667" id="VMr-Om-Ccq"/>
+                            <constraint firstItem="G1R-N7-2h0" firstAttribute="top" secondItem="kc3-bd-w3F" secondAttribute="top" id="XnP-Iq-Exo"/>
+                            <constraint firstItem="G1R-N7-2h0" firstAttribute="leading" secondItem="kc3-bd-w3F" secondAttribute="leading" id="YMf-iS-fwJ"/>
+                            <constraint firstItem="CAg-OC-rEq" firstAttribute="width" secondItem="kc3-bd-w3F" secondAttribute="width" multiplier="280:375" id="YYG-bc-MyH"/>
+                            <constraint firstAttribute="trailing" secondItem="G1R-N7-2h0" secondAttribute="trailing" id="Z1Z-2Q-dB7"/>
+                            <constraint firstItem="CAg-OC-rEq" firstAttribute="centerX" secondItem="kc3-bd-w3F" secondAttribute="centerX" id="aM2-dF-5J5"/>
+                            <constraint firstItem="JXY-c3-PXr" firstAttribute="top" secondItem="CAg-OC-rEq" secondAttribute="bottom" priority="750" constant="23" id="jyi-ci-B6h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="CAg-OC-rEq" id="F6S-z4-Ojs"/>
+                        <outlet property="tableView" destination="G1R-N7-2h0" id="LHZ-IO-cUh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AT-N8-8fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="2739"/>
+        </scene>
+    </scenes>
 </document>

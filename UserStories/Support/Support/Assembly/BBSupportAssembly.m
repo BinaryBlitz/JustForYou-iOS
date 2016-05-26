@@ -38,7 +38,7 @@
 }
 
 + (BBSupportViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Support" bundle:nil];
     BBSupportViewController * vc = (BBSupportViewController *)[sb instantiateViewControllerWithIdentifier:@"BBSupportViewController"];
     return vc;
 }

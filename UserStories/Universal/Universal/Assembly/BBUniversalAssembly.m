@@ -38,7 +38,7 @@
 }
 
 + (BBUniversalViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Universal" bundle:nil];
     BBUniversalViewController * vc = (BBUniversalViewController *)[sb instantiateViewControllerWithIdentifier:@"BBUniversalViewController"];
     return vc;
 }

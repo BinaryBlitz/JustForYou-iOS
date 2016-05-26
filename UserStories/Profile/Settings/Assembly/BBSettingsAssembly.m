@@ -38,7 +38,7 @@
 }
 
 + (BBSettingsViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
     BBSettingsViewController * vc = (BBSettingsViewController *)[sb instantiateViewControllerWithIdentifier:@"BBSettingsViewController"];
     return vc;
 }

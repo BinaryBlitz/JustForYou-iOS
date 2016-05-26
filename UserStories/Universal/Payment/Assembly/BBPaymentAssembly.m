@@ -38,7 +38,7 @@
 }
 
 + (BBPaymentViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Universal" bundle:nil];
     BBPaymentViewController * vc = (BBPaymentViewController *)[sb instantiateViewControllerWithIdentifier:@"BBPaymentViewController"];
     return vc;
 }

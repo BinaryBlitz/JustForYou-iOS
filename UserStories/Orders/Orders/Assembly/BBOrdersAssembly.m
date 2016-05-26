@@ -38,7 +38,7 @@
 }
 
 + (BBOrdersViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Orders" bundle:nil];
     BBOrdersViewController * vc = (BBOrdersViewController *)[sb instantiateViewControllerWithIdentifier:@"BBOrdersViewController"];
     return vc;
 }

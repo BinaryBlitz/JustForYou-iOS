@@ -38,7 +38,7 @@
 }
 
 + (BBMapViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Universal" bundle:nil];
     BBMapViewController * vc = (BBMapViewController *)[sb instantiateViewControllerWithIdentifier:@"BBMapViewController"];
     return vc;
 }

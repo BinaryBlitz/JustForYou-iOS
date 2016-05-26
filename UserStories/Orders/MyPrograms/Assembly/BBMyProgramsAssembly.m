@@ -38,7 +38,7 @@
 }
 
 + (BBMyProgramsViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Orders" bundle:nil];
     BBMyProgramsViewController * vc = (BBMyProgramsViewController *)[sb instantiateViewControllerWithIdentifier:@"BBMyProgramsViewController"];
     return vc;
 }
