@@ -38,7 +38,7 @@
 }
 
 + (BBCardProgramViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Blocks" bundle:nil];
     BBCardProgramViewController * vc = (BBCardProgramViewController *)[sb instantiateViewControllerWithIdentifier:@"BBCardProgramViewController"];
     return vc;
 }

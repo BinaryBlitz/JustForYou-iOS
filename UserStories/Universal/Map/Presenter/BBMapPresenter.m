@@ -12,7 +12,11 @@
 #import "BBMapInteractorInput.h"
 #import "BBMapRouterInput.h"
 
+#import "BBNavigationModuleInput.h"
+
 @interface BBMapPresenter()
+
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 
 @end
 
@@ -22,6 +26,11 @@
 
 - (void)configureModule {
     
+}
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule {
+    self.navigationModule = navigationModule;
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBMapViewOutput

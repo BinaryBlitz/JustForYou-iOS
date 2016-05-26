@@ -38,7 +38,7 @@
 }
 
 + (BBBasketViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Blocks" bundle:nil];
     BBBasketViewController * vc = (BBBasketViewController *)[sb instantiateViewControllerWithIdentifier:@"BBBasketViewController"];
     return vc;
 }

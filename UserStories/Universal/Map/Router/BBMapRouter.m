@@ -12,10 +12,10 @@
 
 #pragma mark - BBMapRouterInput
 
-- (void)presentFromWindow:(UIWindow *)window {
+- (void)pushViewControllerWithNavigationController:(UINavigationController *)nc {
+    UIViewController *vc = (UIViewController *)self.presenter.view;
     HQDispatchToMainQueue(^{
-        [window setRootViewController:(UIViewController *)self.presenter.view];
-        [window makeKeyAndVisible];
+        [nc pushViewController:vc animated:YES];
     });
 }
 

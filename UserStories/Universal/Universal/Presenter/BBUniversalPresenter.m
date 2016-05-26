@@ -16,10 +16,14 @@
 
 #import "BBNewOrderModuleInput.h"
 
+#import "BBMapAssembly.h"
+#import "BBMapModuleInput.h"
+
 @interface BBUniversalPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBNewOrderModuleInput> parentNewOrderModule;
+@property (strong, nonatomic) id<BBMapModuleInput> mapModule;
 
 @end
 
@@ -81,10 +85,20 @@
 }
 
 - (void)addBarButtonDidTap {
-    
+    [self.mapModule pushModuleWithNavigationModule:self.navigationModule];
 }
 
 
 #pragma mark - Методы BBUniversalInteractorOutput
+
+
+#pragma mark - Lazy Load
+
+- (id<BBMapModuleInput>)mapModule {
+    if (!_mapModule) {
+        _mapModule = [BBMapAssembly  createModule];
+    }
+    return _mapModule;
+}
 
 @end

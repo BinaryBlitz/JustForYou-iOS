@@ -27,7 +27,7 @@
 #pragma mark - Методы BBMapViewInput
 
 - (void)setupInitialState {
-	
+    self.navigationItem.title = kNameTitleMapModule;
 }
 
 @end

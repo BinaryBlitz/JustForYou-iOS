@@ -38,7 +38,7 @@
 }
 
 + (BBBlocksViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Blocks" bundle:nil];
     BBBlocksViewController * vc = (BBBlocksViewController *)[sb instantiateViewControllerWithIdentifier:@"BBBlocksViewController"];
     return vc;
 }
