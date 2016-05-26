@@ -11,12 +11,15 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
 @property (strong, nonatomic) BBPreloader *preloader;
 
 @end
+
+static NSString *kGoogleMapsApi = @"AIzaSyD1Duwq-ZOGPw4YFo2CKzuQATDcizqbDNc";
 
 @implementation AppDelegate
 
@@ -27,6 +30,8 @@
     self.preloader = [[BBPreloader alloc] initWithWindow:self.window];
     
     [Fabric with:@[[Crashlytics class]]];
+    
+    [GMSServices provideAPIKey:kGoogleMapsApi];
     
     return YES;
 }

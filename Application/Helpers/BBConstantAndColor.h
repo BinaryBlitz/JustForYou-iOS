@@ -136,7 +136,7 @@ static NSString *kNameTitleSettingsModule = @"Настройки";
 static NSString *kNameTitleMyPayCardModule = @"Мои карты";
 static NSString *kNameTitleAboutModule = @"О нас";
 
-static NSString *kNameTitleMapModule = @"";
+static NSString *kNameTitleMapModule = @"Выберите адрес";
 
 static NSString *kNameTitleNoneModule = @"";
 

@@ -34,8 +34,46 @@
                     <view key="view" contentMode="scaleToFill" id="p8E-Ar-EOQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XrB-kU-sGc" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="markerMap" translatesAutoresizingMaskIntoConstraints="NO" id="SBI-u7-CGd">
+                                <rect key="frame" x="275" y="250" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="iVx-Qu-2AO"/>
+                                    <constraint firstAttribute="height" constant="50" id="m2J-Fl-5Wn"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWK-FY-U10" customClass="BBTextField">
+                                <rect key="frame" x="20" y="28" width="560" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CaL-tx-jgM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SBI-u7-CGd" firstAttribute="centerY" secondItem="p8E-Ar-EOQ" secondAttribute="centerY" constant="-25" id="5Us-wI-Lew"/>
+                            <constraint firstItem="SBI-u7-CGd" firstAttribute="centerX" secondItem="p8E-Ar-EOQ" secondAttribute="centerX" id="8nj-dm-0fp"/>
+                            <constraint firstItem="XrB-kU-sGc" firstAttribute="leading" secondItem="p8E-Ar-EOQ" secondAttribute="leading" id="Hix-ep-aVF"/>
+                            <constraint firstAttribute="trailing" secondItem="yWK-FY-U10" secondAttribute="trailing" constant="20" id="PKN-HK-M5Y"/>
+                            <constraint firstItem="XrB-kU-sGc" firstAttribute="top" secondItem="p8E-Ar-EOQ" secondAttribute="top" id="dXW-9s-6ce"/>
+                            <constraint firstItem="yWK-FY-U10" firstAttribute="top" secondItem="ZNU-9b-yIJ" secondAttribute="bottom" constant="8" id="g1X-Jv-N3T"/>
+                            <constraint firstAttribute="trailing" secondItem="XrB-kU-sGc" secondAttribute="trailing" id="h7O-gN-6dI"/>
+                            <constraint firstItem="sVR-Yi-SJu" firstAttribute="top" secondItem="XrB-kU-sGc" secondAttribute="bottom" id="pIw-k5-BaQ"/>
+                            <constraint firstItem="yWK-FY-U10" firstAttribute="leading" secondItem="p8E-Ar-EOQ" secondAttribute="leading" constant="20" id="sY5-Nx-W0l"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="yWK-FY-U10" id="8TG-Do-jhy"/>
+                        <outlet property="mapView" destination="XrB-kU-sGc" id="ndz-bV-QDT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oll-3V-btR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,4 +117,7 @@
             <point key="canvasLocation" x="-260" y="1185"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="markerMap" width="167" height="166"/>
+    </resources>
 </document>
