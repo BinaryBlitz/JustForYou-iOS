@@ -5,12 +5,20 @@
 
 target 'JustForYou' do
 
+# Data Base
 pod 'Realm'
 
+# Fabric
 pod 'Fabric'
 pod 'Crashlytics'
 
+# Calendar
 pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
+
+# Maps
+pod 'GoogleMaps'
+pod 'LMGeocoder'
+
 
 end
 
