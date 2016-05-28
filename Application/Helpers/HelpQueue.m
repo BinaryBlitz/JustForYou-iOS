@@ -31,7 +31,7 @@ void HQDispatchToBackgroundQueue(CodeBlock block) {
     });
 }
 
-void BLHFDispatchAfter(CGFloat time, CodeBlock block)
+void HQDispatchAfter(CGFloat time, CodeBlock block)
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (time * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }

@@ -74,7 +74,7 @@
     [self.addBasketPopover removeFromSuperview];
     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.alertController.message = message;
-    [self presentAlertControllerWithTitle:@"" message:message withCancelActionTitle:@"Ok"];
+    [self presentAlertControllerWithTitle:@"" message:message];
 }
 
 

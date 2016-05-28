@@ -69,7 +69,7 @@ static CGFloat bottomInset = 30.0f;
 }
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
-    [self presentAlertControllerWithTitle:title message:message withCancelActionTitle:@"Ok"];
+    [self presentAlertControllerWithTitle:title message:message];
 }
 
 #pragma mark - Settings Methods

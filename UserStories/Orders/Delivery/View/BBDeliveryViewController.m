@@ -50,7 +50,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 }
 
 - (void)showAlertViewWithMessage:(NSString *)message {
-    [self presentAlertControllerWithTitle:@"Внимание" message:message withCancelActionTitle:@"Ok"];
+    [self presentAlertControllerWithTitle:@"Внимание" message:message];
 }
 
 #pragma mark - TableView Methods

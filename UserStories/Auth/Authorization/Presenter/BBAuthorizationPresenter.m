@@ -61,8 +61,8 @@
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber {
     if (valid) {
-        [self.interactor sendNumberPhoneWithPrimaryPhone:primaryNumber];
-//        [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+//        [self.interactor sendNumberPhoneWithPrimaryPhone:primaryNumber];
+        [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
     } else {
         [self.view presentAlertControllerWithMessage:@"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку"];
     }

@@ -13,4 +13,4 @@ typedef void(^CodeBlock)(void);
 
 void HQDispatchToMainQueue(CodeBlock);
 void HQDispatchToBackgroundQueue(CodeBlock);
-void BLHFDispatchAfter(CGFloat, CodeBlock);
+void HQDispatchAfter(CGFloat, CodeBlock);

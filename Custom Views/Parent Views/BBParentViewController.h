@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) UIAlertController *alertController;
 
-- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message withCancelActionTitle:(NSString *)cancelTitle;
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

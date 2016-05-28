@@ -108,7 +108,7 @@ static CGFloat offsetBottom = 10.0f;
 }
 
 - (void)presentAlertControllerWithMessage:(NSString *)message {
-    [self presentAlertControllerWithTitle:@"Внимание" message:message withCancelActionTitle:@"Ok"];
+    [self presentAlertControllerWithTitle:@"Внимание" message:message];
 }
 
 #pragma mark - Methods TableView
