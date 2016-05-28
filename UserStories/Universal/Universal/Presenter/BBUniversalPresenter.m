@@ -61,8 +61,6 @@
         [self.view navigationTitle:kNameTitleHystoryPaymentsModule keyModule:key];
     } else if (key == kSharesModule) {
         [self.view navigationTitle:kNameTitleSharesModule keyModule:key];
-    } else if (key == kReplacementModule) {
-        [self.view navigationTitle:kNameTitleReplacementModule keyModule:key];
     } else if (key == kAboutModule) {
         [self.view navigationTitle:kNameTitleAboutModule keyModule:key];
     } else {

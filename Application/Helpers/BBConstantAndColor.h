@@ -73,6 +73,7 @@ typedef enum : NSUInteger {
     kMyAddressModule,
     kMyAddressForOrderModule,
     kMyHystoryPaymentModule,
+    kReplacementModule,
     kSharesModule,
     kAboutModule
 }BBKeyModuleForUniversalModule;

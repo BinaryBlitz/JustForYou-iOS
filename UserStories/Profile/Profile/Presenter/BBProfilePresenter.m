@@ -20,11 +20,15 @@
 #import "BBUniversalAssembly.h"
 #import "BBUniversalModuleInput.h"
 
+#import "BBReplacementAssembly.h"
+#import "BBReplacementModuleInput.h"
+
 @interface BBProfilePresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBSettingsModuleInput> settingsModule;
 @property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
+@property (strong, nonatomic) id<BBReplacementModuleInput> replacementModule;
 
 @end
 
@@ -52,7 +56,11 @@
 }
 
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
-    [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
+    if (key == kReplacementModule) {
+        [self.replacementModule pushModuleWithNavigationModule:self.navigationModule];
+    } else {
+        [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
+    }
 }
 
 #pragma mark - Методы BBProfileInteractorOutput
@@ -71,6 +79,13 @@
         _universalModule = [BBUniversalAssembly createModule];
     }
     return _universalModule;
+}
+
+- (id<BBReplacementModuleInput>) replacementModule {
+    if (!_replacementModule) {
+        _replacementModule = [BBReplacementAssembly createModule];
+    }
+    return _replacementModule;
 }
 
 @end

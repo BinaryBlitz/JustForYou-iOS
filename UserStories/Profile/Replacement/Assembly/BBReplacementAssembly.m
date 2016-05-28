@@ -38,7 +38,7 @@
 }
 
 + (BBReplacementViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
     BBReplacementViewController * vc = (BBReplacementViewController *)[sb instantiateViewControllerWithIdentifier:@"BBReplacementViewController"];
     return vc;
 }
