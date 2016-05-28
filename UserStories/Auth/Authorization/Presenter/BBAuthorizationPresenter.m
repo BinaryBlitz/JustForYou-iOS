@@ -17,6 +17,8 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBValidationService.h"
+
 @interface BBAuthorizationPresenter()
 
 @property (strong, nonatomic) id<BBRegistrationModuleInput> registModule;
@@ -59,8 +61,9 @@
     [self.registModule presentWithNavigModule:self.navigModule andUserPhone:phone];
 }
 
-- (void)sendCodeButtonDidTapWithValidField:(BOOL)valid {
+- (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber {
     if (valid) {
+        NSString *string = [BBValidationService numberPhoneWithPrimaryString:primaryNumber];
         [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
     } else {
         [self.view presentAlertControllerWithMessage:@"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку"];

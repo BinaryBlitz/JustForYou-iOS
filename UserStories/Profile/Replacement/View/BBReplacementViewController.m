@@ -35,6 +35,8 @@ static CGFloat contentInset = 20.0f;
 
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleReplacementModule;
+    [self _registerCellIdentifireInTableView];
+    [self _settingTableView];
 }
 
 #pragma mark - TableView Methods

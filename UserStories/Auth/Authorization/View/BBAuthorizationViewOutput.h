@@ -18,6 +18,6 @@
 
 - (void)numberPhoneUserWithString:(NSString *)phone;
 
-- (void)sendCodeButtonDidTapWithValidField:(BOOL)valid;
+- (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber;
 
 @end

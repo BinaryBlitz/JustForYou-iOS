@@ -48,4 +48,16 @@
     return simpleNumber;
 }
 
++ (NSString *)numberPhoneWithPrimaryString:(NSString *)primaryString {
+    primaryString = [primaryString stringByReplacingOccurrencesOfString:@"[^0-9]"
+                                                           withString:@""
+                                                              options:NSRegularExpressionSearch
+                                                                range:NSMakeRange(0, [primaryString length])];
+    
+    NSMutableString *newPhone = [NSMutableString stringWithString:primaryString];
+    [newPhone insertString:@"+7" atIndex:0];
+    
+    return newPhone;
+}
+
 @end

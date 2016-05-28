@@ -12,6 +12,6 @@
 
 + (NSString *)validateNumberPhoneWithNumber:(NSString *) simpleNumber deleteLastChar:(BOOL)deleteLastChar;
 
-
++ (NSString *)numberPhoneWithPrimaryString:(NSString *)primaryString;
 
 @end
