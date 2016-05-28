@@ -12,4 +12,12 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+
+- (void)addBarButtonDidTap;
+
+- (void)deleteElementWithText:(NSString *)text;
+
+- (void)cellDidSelectWithText:(NSString *)text;
+
 @end

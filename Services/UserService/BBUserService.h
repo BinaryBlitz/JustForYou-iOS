@@ -19,4 +19,10 @@
 
 - (void)logOutUser;
 
+
+
+- (void)saveCurrentReplacement:(NSArray *)replacement;
+
+- (NSArray *)currentReplacementUser;
+
 @end

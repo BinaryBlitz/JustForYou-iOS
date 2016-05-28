@@ -12,4 +12,14 @@
 
 - (void)setupInitialState;
 
+- (NSInteger)countReplacementInTableView;
+
+- (void)currentReplacementArray:(NSArray *)replacement;
+
+- (void)presentAlertControllerWithMessage:(NSString *)message;
+
+- (void)typeForController:(BBTypeReplacementController)type;
+
+- (void)endUpdateTableViewWithNewReplacement:(NSArray *)replacement;
+
 @end

@@ -10,4 +10,10 @@
 
 @protocol BBReplacementInteractorInput <NSObject>
 
+- (void)currentReplacementUser;
+
+- (void)deleteElementInArrayWithElement:(NSString *)element;
+
+- (void)addInCurrentArrayReplacementNewElement:(NSString *)element;
+
 @end

@@ -10,4 +10,10 @@
 
 @protocol BBReplacementInteractorOutput <NSObject>
 
+- (void)currentReplacementInData:(NSArray *)replacement;
+
+- (void)currentReplacementUpdate;
+
+- (void)elemetnDidDeleteWithNewArray:(NSArray *)array;
+
 @end

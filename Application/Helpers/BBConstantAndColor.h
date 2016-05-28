@@ -29,6 +29,11 @@ typedef enum : NSUInteger {
     BBTabbarItemSupport
 } BBTabbarItem;
 
+// тип контролера для экрана замены
+typedef enum : NSUInteger {
+    kViewReplacementType,
+    kAddReplacementType
+}BBTypeReplacementController;
 
 // стиль ячейки: карточкой или обычный
 typedef enum : NSUInteger {

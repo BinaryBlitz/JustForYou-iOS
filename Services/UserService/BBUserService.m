@@ -10,6 +10,8 @@
 
 static NSString *kCurrentUser = @"kCurrentUser";
 
+static NSString *kUserReplacement = @"kUserReplacement";
+
 @implementation BBUserService
 
 + (instancetype)sharedService {
@@ -21,6 +23,8 @@ static NSString *kCurrentUser = @"kCurrentUser";
     });
     return userService;
 }
+
+#pragma mark - Methods For User
 
 - (BBUser *)currentUser {
     NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentUser];
@@ -39,6 +43,17 @@ static NSString *kCurrentUser = @"kCurrentUser";
 - (void)logOutUser {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - Other Methods
+
+- (void)saveCurrentReplacement:(NSArray *)replacement {
+    [[NSUserDefaults standardUserDefaults] setObject:replacement forKey:kUserReplacement];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSArray *)currentReplacementUser {
+    return  [[NSUserDefaults standardUserDefaults] objectForKey:kUserReplacement];
 }
 
 @end

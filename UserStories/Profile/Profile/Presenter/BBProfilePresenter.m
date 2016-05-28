@@ -57,7 +57,7 @@
 
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
     if (key == kReplacementModule) {
-        [self.replacementModule pushModuleWithNavigationModule:self.navigationModule];
+        [self.replacementModule pushModuleWithNavigationModule:self.navigationModule withType:kViewReplacementType];
     } else {
         [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
     }
