@@ -51,6 +51,7 @@
 #pragma mark - Методы BBMapViewInput
 
 - (void)setupInitialState {
+    
     self.navigationItem.title = kNameTitleMapModule;
     self.navigationItem.rightBarButtonItem = self.myLocationButton;
     self.addressTextField.delegate = self;
