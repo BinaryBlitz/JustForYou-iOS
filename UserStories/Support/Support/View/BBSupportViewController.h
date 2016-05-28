@@ -12,7 +12,7 @@
 
 @protocol BBSupportViewOutput;
 
-@interface BBSupportViewController : UIViewController <BBSupportViewInput>
+@interface BBSupportViewController : BBParentViewController <BBSupportViewInput>
 
 @property (weak, nonatomic) id<BBSupportViewOutput> output;
 

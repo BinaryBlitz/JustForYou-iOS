@@ -14,7 +14,7 @@
 
 @protocol BBOrderViewControllerDelegate;
 
-@interface BBOrdersViewController : UIViewController <BBOrdersViewInput>
+@interface BBOrdersViewController : BBParentViewController <BBOrdersViewInput>
 
 @property (weak, nonatomic) id<BBOrdersViewOutput> output;
 

@@ -10,4 +10,8 @@
 
 @implementation NSData (BBParserAPI)
 
+- (NSString *)parseAuthorizateToken {
+    return [[NSJSONSerialization JSONObjectWithData:self options:0 error:nil] objectForKey:@"token"];
+}
+
 @end

@@ -12,7 +12,7 @@
 
 @protocol BBGreetingViewOutput;
 
-@interface BBGreetingViewController : UIViewController <BBGreetingViewInput>
+@interface BBGreetingViewController : BBParentViewController <BBGreetingViewInput>
 
 @property (weak, nonatomic) id<BBGreetingViewOutput> output;
 

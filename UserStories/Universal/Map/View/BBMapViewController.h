@@ -12,7 +12,7 @@
 
 @protocol BBMapViewOutput;
 
-@interface BBMapViewController : UIViewController <BBMapViewInput>
+@interface BBMapViewController : BBParentViewController <BBMapViewInput>
 
 @property (weak, nonatomic) id<BBMapViewOutput> output;
 

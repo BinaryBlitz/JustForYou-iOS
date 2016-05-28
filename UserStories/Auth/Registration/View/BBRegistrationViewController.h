@@ -12,7 +12,7 @@
 
 @protocol BBRegistrationViewOutput;
 
-@interface BBRegistrationViewController : UIViewController <BBRegistrationViewInput>
+@interface BBRegistrationViewController : BBParentViewController <BBRegistrationViewInput>
 
 @property (weak, nonatomic) id<BBRegistrationViewOutput> output;
 

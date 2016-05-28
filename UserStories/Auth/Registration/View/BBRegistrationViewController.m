@@ -25,8 +25,6 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *youView;
 
-@property (strong, nonatomic) UIAlertController *alertController;
-
 @property (weak, nonatomic) BBTextTableViewCell *nameCell;
 @property (weak, nonatomic) BBTextTableViewCell *surnameCell;
 @property (weak, nonatomic) BBTextTableViewCell *emailCell;
@@ -110,10 +108,7 @@ static CGFloat offsetBottom = 10.0f;
 }
 
 - (void)presentAlertControllerWithMessage:(NSString *)message {
-    self.alertController.message = message;
-    HQDispatchToMainQueue(^{
-        [self presentViewController:self.alertController animated:YES completion:nil];
-    });
+    [self presentAlertControllerWithTitle:@"Внимание" message:message withCancelActionTitle:@"Ok"];
 }
 
 #pragma mark - Methods TableView
@@ -201,19 +196,6 @@ static CGFloat offsetBottom = 10.0f;
 
 -(void) keyboardWillHide:(NSNotification *)notification {
     [self.scrollView setContentOffset:CGPointZero animated:YES];
-}
-
-#pragma mark - Lazy Load
-
-- (UIAlertController *)alertController {
-    if (!_alertController) {
-        _alertController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [_alertController addAction:action];
-    }
-    return _alertController;
 }
 
 #pragma mark - Layout Methods

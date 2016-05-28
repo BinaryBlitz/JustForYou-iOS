@@ -10,4 +10,8 @@
 
 @protocol BBAuthorizationInteractorOutput <NSObject>
 
+- (void)sendCodeSuccessfullyWithAuthToken:(NSString *)token;
+
+- (void)noConnectionNetwork;
+
 @end

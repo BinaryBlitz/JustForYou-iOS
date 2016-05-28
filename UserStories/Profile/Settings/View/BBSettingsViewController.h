@@ -12,7 +12,7 @@
 
 @protocol BBSettingsViewOutput;
 
-@interface BBSettingsViewController : UIViewController <BBSettingsViewInput>
+@interface BBSettingsViewController : BBParentViewController <BBSettingsViewInput>
 
 @property (weak, nonatomic) id<BBSettingsViewOutput> output;
 

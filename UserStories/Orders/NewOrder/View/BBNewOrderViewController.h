@@ -12,7 +12,7 @@
 
 @protocol BBNewOrderViewOutput;
 
-@interface BBNewOrderViewController : UIViewController <BBNewOrderViewInput>
+@interface BBNewOrderViewController : BBParentViewController <BBNewOrderViewInput>
 
 @property (weak, nonatomic) id<BBNewOrderViewOutput> output;
 

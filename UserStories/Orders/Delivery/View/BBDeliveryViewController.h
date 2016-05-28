@@ -13,7 +13,7 @@
 
 @protocol BBDeliveryViewOutput;
 
-@interface BBDeliveryViewController : UIViewController <BBDeliveryViewInput>
+@interface BBDeliveryViewController : BBParentViewController <BBDeliveryViewInput>
 
 @property (weak, nonatomic) id<BBDeliveryViewOutput> output;
 

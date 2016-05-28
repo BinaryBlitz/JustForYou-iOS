@@ -12,7 +12,7 @@
 
 @protocol BBBasketViewOutput;
 
-@interface BBBasketViewController : UIViewController <BBBasketViewInput>
+@interface BBBasketViewController : BBParentViewController <BBBasketViewInput>
 
 @property (weak, nonatomic) id<BBBasketViewOutput> output;
 

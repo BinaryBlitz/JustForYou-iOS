@@ -12,7 +12,7 @@
 
 @protocol BBProfileViewOutput;
 
-@interface BBProfileViewController : UIViewController <BBProfileViewInput>
+@interface BBProfileViewController : BBParentViewController <BBProfileViewInput>
 
 @property (weak, nonatomic) id<BBProfileViewOutput> output;
 

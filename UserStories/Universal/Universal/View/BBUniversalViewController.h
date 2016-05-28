@@ -12,7 +12,7 @@
 
 @protocol BBUniversalViewOutput;
 
-@interface BBUniversalViewController : UIViewController <BBUniversalViewInput>
+@interface BBUniversalViewController : BBParentViewController <BBUniversalViewInput>
 
 @property (weak, nonatomic) id<BBUniversalViewOutput> output;
 

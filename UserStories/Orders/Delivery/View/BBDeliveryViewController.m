@@ -18,7 +18,6 @@
 @property (strong, nonatomic) BBCalendarMenuView *calendarMenu;
 
 @property (strong, nonatomic) BBCalendarDeliveryTableViewCell *calendarCell;
-@property (strong, nonatomic) UIAlertController *alertController;
 
 @end
 
@@ -51,10 +50,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 }
 
 - (void)showAlertViewWithMessage:(NSString *)message {
-    self.alertController.message = message;
-    HQDispatchToMainQueue(^{
-        [self presentViewController:self.alertController animated:YES completion:nil];
-    });
+    [self presentAlertControllerWithTitle:@"Внимание" message:message withCancelActionTitle:@"Ok"];
 }
 
 #pragma mark - TableView Methods
@@ -145,17 +141,6 @@ static CGFloat heightForCalendarMenuView = 32.0f;
         _calendarMenu.delegate = self;
     }
     return _calendarMenu;
-}
-
-- (UIAlertController *)alertController {
-    if (!_alertController) {
-        _alertController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [_alertController addAction:action];
-    }
-    return _alertController;
 }
 
 @end

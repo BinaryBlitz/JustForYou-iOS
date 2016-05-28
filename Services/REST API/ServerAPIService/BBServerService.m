@@ -10,9 +10,15 @@
 
 #import "BBServerTransport.h"
 
+#import "NSData+BBParserAPI.h"
+
+#import "Reachability.h"
+
 @interface BBServerService()
 
+@property (strong, nonatomic) Reachability *internetReachable;
 @property (strong, nonatomic) BBServerTransport *transport;
+@property (assign, nonatomic) BBServerServiceConnection keyConnection;
 
 @end
 
@@ -27,8 +33,32 @@
     return service;
 }
 
+#pragma mark - Authorizate Methods
 
+- (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport sendUserNumberPhoneWithString:numberPhone completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *token = nil;
+        if (!error) {
+            token = [data parseAuthorizateToken];
+        }
+        if (completion) {
+            completion(self.keyConnection, token, error);
+        }
+    }];
+}
 
+#pragma mark - Check Network
+
+- (void)_checkNetworkConnection {
+    
+    NetworkStatus internetStatus = [self.internetReachable currentReachabilityStatus];
+    if (internetStatus == NotReachable) {
+        self.keyConnection = kErrorConnection;
+    } else {
+        self.keyConnection = kSuccessfullyConnection;
+    }
+}
 
 #pragma mark - Lazy Load
 
@@ -37,6 +67,13 @@
         _transport = [[BBServerTransport alloc] init];
     }
     return _transport;
+}
+
+- (Reachability *)internetReachable {
+    if (!_internetReachable) {
+        _internetReachable = [Reachability reachabilityForInternetConnection];
+    }
+    return _internetReachable;
 }
 
 

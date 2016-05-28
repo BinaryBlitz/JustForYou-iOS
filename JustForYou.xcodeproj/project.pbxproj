@@ -178,6 +178,8 @@
 		3A311FF91CF7245F00D179D1 /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FF81CF7245F00D179D1 /* BBAddressService.m */; };
 		3A311FFC1CF724CC00D179D1 /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFB1CF724CC00D179D1 /* BBAddress.m */; };
 		3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFE1CF74EA800D179D1 /* BBTextField.m */; };
+		3AB21D101CFA066B0090F436 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D0F1CFA066B0090F436 /* Reachability.m */; };
+		3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D171CFA130A0090F436 /* BBParentViewController.m */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
@@ -617,6 +619,10 @@
 		3A311FFB1CF724CC00D179D1 /* BBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddress.m; sourceTree = "<group>"; };
 		3A311FFD1CF74EA700D179D1 /* BBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextField.h; sourceTree = "<group>"; };
 		3A311FFE1CF74EA800D179D1 /* BBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextField.m; sourceTree = "<group>"; };
+		3AB21D0E1CFA066B0090F436 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3AB21D0F1CFA066B0090F436 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3AB21D161CFA130A0090F436 /* BBParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentViewController.h; sourceTree = "<group>"; };
+		3AB21D171CFA130A0090F436 /* BBParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBParentViewController.m; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
@@ -872,10 +878,10 @@
 		3A2D54861CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54871CF075D200A8EFF5 /* BBAuthorizationInteractor.h */,
-				3A2D54881CF075D200A8EFF5 /* BBAuthorizationInteractor.m */,
 				3A2D54891CF075D200A8EFF5 /* BBAuthorizationInteractorInput.h */,
 				3A2D548A1CF075D200A8EFF5 /* BBAuthorizationInteractorOutput.h */,
+				3A2D54871CF075D200A8EFF5 /* BBAuthorizationInteractor.h */,
+				3A2D54881CF075D200A8EFF5 /* BBAuthorizationInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -980,10 +986,10 @@
 		3A2D54B01CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54B11CF075D200A8EFF5 /* BBGreetingViewController.h */,
-				3A2D54B21CF075D200A8EFF5 /* BBGreetingViewController.m */,
 				3A2D54B31CF075D200A8EFF5 /* BBGreetingViewInput.h */,
 				3A2D54B41CF075D200A8EFF5 /* BBGreetingViewOutput.h */,
+				3A2D54B11CF075D200A8EFF5 /* BBGreetingViewController.h */,
+				3A2D54B21CF075D200A8EFF5 /* BBGreetingViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1043,10 +1049,10 @@
 		3A2D54C61CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54C71CF075D200A8EFF5 /* BBRegistrationViewController.h */,
-				3A2D54C81CF075D200A8EFF5 /* BBRegistrationViewController.m */,
 				3A2D54C91CF075D200A8EFF5 /* BBRegistrationViewInput.h */,
 				3A2D54CA1CF075D200A8EFF5 /* BBRegistrationViewOutput.h */,
+				3A2D54C71CF075D200A8EFF5 /* BBRegistrationViewController.h */,
+				3A2D54C81CF075D200A8EFF5 /* BBRegistrationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1191,10 +1197,10 @@
 		3A2D54F71CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54F81CF075D200A8EFF5 /* BBBlocksViewController.h */,
-				3A2D54F91CF075D200A8EFF5 /* BBBlocksViewController.m */,
 				3A2D54FA1CF075D200A8EFF5 /* BBBlocksViewInput.h */,
 				3A2D54FB1CF075D200A8EFF5 /* BBBlocksViewOutput.h */,
+				3A2D54F81CF075D200A8EFF5 /* BBBlocksViewController.h */,
+				3A2D54F91CF075D200A8EFF5 /* BBBlocksViewController.m */,
 				3A2D54FC1CF075D200A8EFF5 /* VIews */,
 			);
 			path = View;
@@ -1437,10 +1443,10 @@
 		3A2D55551CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55561CF075D200A8EFF5 /* BBNavigationViewController.h */,
-				3A2D55571CF075D200A8EFF5 /* BBNavigationViewController.m */,
 				3A2D55581CF075D200A8EFF5 /* BBNavigationViewInput.h */,
 				3A2D55591CF075D200A8EFF5 /* BBNavigationViewOutput.h */,
+				3A2D55561CF075D200A8EFF5 /* BBNavigationViewController.h */,
+				3A2D55571CF075D200A8EFF5 /* BBNavigationViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1500,10 +1506,10 @@
 		3A2D556B1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D556C1CF075D200A8EFF5 /* BBTabbarViewController.h */,
-				3A2D556D1CF075D200A8EFF5 /* BBTabbarViewController.m */,
 				3A2D556E1CF075D200A8EFF5 /* BBTabbarViewInput.h */,
 				3A2D556F1CF075D200A8EFF5 /* BBTabbarViewOutput.h */,
+				3A2D556C1CF075D200A8EFF5 /* BBTabbarViewController.h */,
+				3A2D556D1CF075D200A8EFF5 /* BBTabbarViewController.m */,
 				3A2D55701CF075D200A8EFF5 /* Views */,
 			);
 			path = View;
@@ -1784,12 +1790,12 @@
 		3A2D55CB1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55CC1CF075D200A8EFF5 /* BBOrdersViewController.h */,
-				3A2D55CD1CF075D200A8EFF5 /* BBOrdersViewController.m */,
+				3A2D55D11CF075D200A8EFF5 /* Views */,
 				3A2D55CE1CF075D200A8EFF5 /* BBOrdersViewInput.h */,
 				3A2D55CF1CF075D200A8EFF5 /* BBOrdersViewOutput.h */,
 				3A2D55D01CF075D200A8EFF5 /* BBOrderViewControllerDelegate.h */,
-				3A2D55D11CF075D200A8EFF5 /* Views */,
+				3A2D55CC1CF075D200A8EFF5 /* BBOrdersViewController.h */,
+				3A2D55CD1CF075D200A8EFF5 /* BBOrdersViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1949,11 +1955,11 @@
 		3A2D56071CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56081CF075D200A8EFF5 /* BBSettingsViewController.h */,
-				3A2D56091CF075D200A8EFF5 /* BBSettingsViewController.m */,
+				3A2D560C1CF075D200A8EFF5 /* Views */,
 				3A2D560A1CF075D200A8EFF5 /* BBSettingsViewInput.h */,
 				3A2D560B1CF075D200A8EFF5 /* BBSettingsViewOutput.h */,
-				3A2D560C1CF075D200A8EFF5 /* Views */,
+				3A2D56081CF075D200A8EFF5 /* BBSettingsViewController.h */,
+				3A2D56091CF075D200A8EFF5 /* BBSettingsViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2204,6 +2210,7 @@
 		3A2D56EA1CF331C300A8EFF5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				3AB21D151CFA12E70090F436 /* Parent Views */,
 				3A2D56EB1CF331C300A8EFF5 /* Buttons */,
 				3A2D56F01CF331C300A8EFF5 /* Custom Views */,
 				3A2D56F51CF331C300A8EFF5 /* TableViewCell */,
@@ -2269,6 +2276,24 @@
 			path = "Address Service";
 			sourceTree = "<group>";
 		};
+		3AB21D0D1CFA066B0090F436 /* Network Connection */ = {
+			isa = PBXGroup;
+			children = (
+				3AB21D0E1CFA066B0090F436 /* Reachability.h */,
+				3AB21D0F1CFA066B0090F436 /* Reachability.m */,
+			);
+			path = "Network Connection";
+			sourceTree = "<group>";
+		};
+		3AB21D151CFA12E70090F436 /* Parent Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AB21D161CFA130A0090F436 /* BBParentViewController.h */,
+				3AB21D171CFA130A0090F436 /* BBParentViewController.m */,
+			);
+			path = "Parent Views";
+			sourceTree = "<group>";
+		};
 		3AC988631CAB1FD80069DE52 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2281,6 +2306,7 @@
 		3AC988641CAB201A0069DE52 /* REST API */ = {
 			isa = PBXGroup;
 			children = (
+				3AB21D0D1CFA066B0090F436 /* Network Connection */,
 				3AC988651CAB201A0069DE52 /* ServerAPIService */,
 				3AC988661CAB201A0069DE52 /* Transport */,
 			);
@@ -2694,6 +2720,7 @@
 				3A2D567D1CF075D200A8EFF5 /* BBBlockTableViewCell.m in Sources */,
 				3A2D567C1CF075D200A8EFF5 /* BBBlocksViewController.m in Sources */,
 				3A2D569A1CF075D200A8EFF5 /* BBNavigationViewController.m in Sources */,
+				3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */,
 				3A2D56D81CF075D200A8EFF5 /* BBUniversalRouter.m in Sources */,
 				3A2D56711CF075D200A8EFF5 /* BBBasketAssembly.m in Sources */,
 				3A2D56AD1CF075D200A8EFF5 /* BBNewOrderAssembly.m in Sources */,
@@ -2721,6 +2748,7 @@
 				3A2D56A01CF075D200A8EFF5 /* BBTabBar.m in Sources */,
 				3A2D567A1CF075D200A8EFF5 /* BBBlocksPresenter.m in Sources */,
 				3A2D57081CF331C300A8EFF5 /* BBSegmentedControl.m in Sources */,
+				3AB21D101CFA066B0090F436 /* Reachability.m in Sources */,
 				3A2D56921CF075D200A8EFF5 /* BBProgramsRouter.m in Sources */,
 				3A2D56B21CF075D200A8EFF5 /* BBOrdersAssembly.m in Sources */,
 				3A2D56621CF075D200A8EFF5 /* BBAuthorizationViewController.m in Sources */,

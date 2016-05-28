@@ -12,7 +12,7 @@
 
 @protocol BBBlocksViewOutput;
 
-@interface BBBlocksViewController : UIViewController <BBBlocksViewInput>
+@interface BBBlocksViewController : BBParentViewController <BBBlocksViewInput>
 
 @property (weak, nonatomic) id<BBBlocksViewOutput> output;
 

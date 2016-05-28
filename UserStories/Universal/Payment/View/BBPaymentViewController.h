@@ -12,7 +12,7 @@
 
 @protocol BBPaymentViewOutput;
 
-@interface BBPaymentViewController : UIViewController <BBPaymentViewInput>
+@interface BBPaymentViewController : BBParentViewController <BBPaymentViewInput>
 
 @property (weak, nonatomic) id<BBPaymentViewOutput> output;
 

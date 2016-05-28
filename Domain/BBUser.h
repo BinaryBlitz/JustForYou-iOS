@@ -14,5 +14,6 @@
 @property (strong, nonatomic) NSString *surname;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *numberPhone;
+@property (strong, nonatomic) NSString *user_token;
 
 @end

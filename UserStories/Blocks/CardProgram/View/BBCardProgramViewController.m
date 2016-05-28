@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIView *gradientVIew;
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
-@property (strong, nonatomic) UIAlertController *alertController;
 @property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
 @property (strong, nonatomic) BBNumderDayTableViewCell *numberDayCell;
@@ -75,9 +74,7 @@
     [self.addBasketPopover removeFromSuperview];
     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.alertController.message = message;
-    HQDispatchToMainQueue(^{
-        [self presentViewController:self.alertController animated:YES completion:nil];
-    });
+    [self presentAlertControllerWithTitle:@"" message:message withCancelActionTitle:@"Ok"];
 }
 
 
@@ -230,17 +227,6 @@
 }
 
 #pragma mark - Lazy Load
-
-- (UIAlertController *)alertController {
-    if (!_alertController) {
-        _alertController = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [_alertController addAction:action];
-    }
-    return _alertController;
-}
 
 - (BBAddBasketViewPopover *)addBasketPopover {
     if (!_addBasketPopover) {

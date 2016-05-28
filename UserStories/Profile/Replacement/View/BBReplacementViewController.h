@@ -12,7 +12,7 @@
 
 @protocol BBReplacementViewOutput;
 
-@interface BBReplacementViewController : UIViewController <BBReplacementViewInput>
+@interface BBReplacementViewController : BBParentViewController <BBReplacementViewInput>
 
 @property (weak, nonatomic) id<BBReplacementViewOutput> output;
 

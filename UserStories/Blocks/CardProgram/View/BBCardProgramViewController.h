@@ -12,7 +12,7 @@
 
 @protocol BBCardProgramViewOutput;
 
-@interface BBCardProgramViewController : UIViewController <BBCardProgramViewInput>
+@interface BBCardProgramViewController : BBParentViewController <BBCardProgramViewInput>
 
 @property (weak, nonatomic) id<BBCardProgramViewOutput> output;
 

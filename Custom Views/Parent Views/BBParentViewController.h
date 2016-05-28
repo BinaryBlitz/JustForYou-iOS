@@ -10,4 +10,8 @@
 
 @interface BBParentViewController : UIViewController
 
+@property (strong, nonatomic) UIAlertController *alertController;
+
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message withCancelActionTitle:(NSString *)cancelTitle;
+
 @end

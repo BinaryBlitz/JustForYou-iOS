@@ -10,4 +10,6 @@
 
 @protocol BBAuthorizationInteractorInput <NSObject>
 
+- (void)sendNumberPhoneWithPrimaryPhone:(NSString *)primaryPhone;
+
 @end

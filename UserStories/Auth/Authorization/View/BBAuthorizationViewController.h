@@ -12,7 +12,7 @@
 
 @protocol BBAuthorizationViewOutput;
 
-@interface BBAuthorizationViewController : UIViewController <BBAuthorizationViewInput>
+@interface BBAuthorizationViewController : BBParentViewController <BBAuthorizationViewInput>
 
 @property (nonatomic, weak) id<BBAuthorizationViewOutput> output;
 

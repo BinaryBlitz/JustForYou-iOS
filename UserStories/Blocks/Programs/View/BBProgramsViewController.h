@@ -12,7 +12,7 @@
 
 @protocol BBProgramsViewOutput;
 
-@interface BBProgramsViewController : UIViewController <BBProgramsViewInput>
+@interface BBProgramsViewController : BBParentViewController <BBProgramsViewInput>
 
 @property (weak, nonatomic) id<BBProgramsViewOutput> output;
 

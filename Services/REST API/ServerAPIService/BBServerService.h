@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^AuthCompletion)(/*User* user,*/ NSError* error);
+typedef enum : NSUInteger {
+    kSuccessfullyConnection,
+    kErrorConnection
+}BBServerServiceConnection;
+
+typedef void (^AuthCompletion)(BBServerServiceConnection key, NSString* token, NSError* error);
 typedef void (^ReceiveData)(NSData* data);
 
 @interface BBServerService : NSObject
 
 + (instancetype) sharedService;
 
-
+- (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion;
 
 
 @end

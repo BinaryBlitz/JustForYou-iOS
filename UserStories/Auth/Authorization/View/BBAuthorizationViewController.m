@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (strong, nonatomic) UIAlertController *alertController;
 @property (strong, nonatomic) UIBarButtonItem *backBarButton;
 @property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 
@@ -82,10 +81,7 @@ static CGFloat offsetBottom = 10.0f;
 }
 
 - (void)presentAlertControllerWithMessage:(NSString *)message {
-    self.alertController.message = message;
-    HQDispatchToMainQueue(^{
-        [self presentViewController:self.alertController animated:YES completion:nil];
-    });
+    [self presentAlertControllerWithTitle:@"Внимание" message:message withCancelActionTitle:@"Ok"];
 }
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key {
@@ -208,18 +204,6 @@ static CGFloat offsetBottom = 10.0f;
     [self.youView.layer setCornerRadius:CGRectGetHeight(self.youView.frame)/2];
 }
 
-#pragma mark - Lazy Load
-
-- (UIAlertController *)alertController {
-    if (!_alertController) {
-        _alertController = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [_alertController addAction:action];
-    }
-    return _alertController;
-}
 
 - (UIBarButtonItem *)backBarButton {
     if (!_backBarButton) {

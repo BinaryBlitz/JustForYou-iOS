@@ -10,4 +10,6 @@
 
 @interface NSData (BBParserAPI)
 
+- (NSString *)parseAuthorizateToken;
+
 @end
