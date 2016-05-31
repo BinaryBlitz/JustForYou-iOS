@@ -25,10 +25,10 @@
             if (token) {
                 [self.output sendCodeSuccessfullyWithAuthToken:token];
             } else {
-                
+                [self.output errorServer];
             }
         } else {
-            
+            [self.output noConnectionNetwork];
         }
         
     }];

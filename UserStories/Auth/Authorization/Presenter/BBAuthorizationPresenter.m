@@ -24,6 +24,12 @@
 
 @end
 
+static NSString *kNoteTitle = @"Внимание";
+
+static NSString *kErrorNumberPhoneMessage = @"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку";
+static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
+static NSString *kErrorServer = @"Ошибка данных. Проверьте пожалуйста номер телефона";
+
 @implementation BBAuthorizationPresenter
 
 #pragma mark - Методы BBAuthorizationModuleInput
@@ -61,19 +67,29 @@
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber {
     if (valid) {
-//        [self.interactor sendNumberPhoneWithPrimaryPhone:primaryNumber];
-        [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+        [self.view showIndicator];
+        [self.interactor sendNumberPhoneWithPrimaryPhone:primaryNumber];
     } else {
-        [self.view presentAlertControllerWithMessage:@"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку"];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorNumberPhoneMessage];
     }
 }
 
 #pragma mark - Методы BBAuthorizationInteractorOutput
 
 - (void)sendCodeSuccessfullyWithAuthToken:(NSString *)token {
-    
+    [self.view hideIndicator];
+    [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
 }
 
+- (void)noConnectionNetwork {
+    [self.view hideIndicator];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideIndicator];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
 
 #pragma mark - Lazy Load
 

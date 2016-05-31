@@ -14,17 +14,48 @@
 
 @end
 
+CGFloat sizeLoader = 50.0f;
+CGFloat sizeBar = 44.0f;
+
 @implementation BBParentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self _settingLoaderView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - Init Methods
+
+- (void)_settingLoaderView {
+    [self.view addSubview:self.loaderView];
+    [self _layoutLoadView];
+    self.loaderView.hidden = YES;
+}
+
+#pragma mark - LoaderView Methods
+
+- (void)showLoaderView {
+    HQDispatchToMainQueue(^{
+        self.loaderView.hidden = NO;
+        [self.loaderView.activityIndicator startAnimating];
+    });
+}
+
+- (void)hideLoaderView {
+    HQDispatchToMainQueue(^{
+        self.loaderView.hidden = YES;
+        [self.loaderView.activityIndicator stopAnimating];
+    });
+}
+
+#pragma mark - AlertController Methods
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
     self.alertController.title = title;
@@ -33,6 +64,14 @@
         [self presentViewController:self.alertController animated:YES completion:nil];
         self.alertController.view.tintColor = [BBConstantAndColor applicationOrangeColor];
     });
+}
+
+#pragma mark - Layout Views
+
+- (void)_layoutLoadView {
+    CGRect mainScreen = [[UIScreen mainScreen] bounds];
+    NSLog(@"%@", NSStringFromCGRect(mainScreen));
+    self.loaderView.center = CGPointMake(CGRectGetMidX(mainScreen), CGRectGetMidY(mainScreen) - sizeBar);
 }
 
 #pragma mark - Lazy Load
@@ -55,4 +94,10 @@
     return _cancelAction;
 }
 
+- (BBLoaderView *)loaderView {
+    if (!_loaderView) {
+        _loaderView = [[BBLoaderView alloc] initWithFrame:CGRectMake(0, 0, sizeLoader, sizeLoader)];
+    }
+    return _loaderView;
+}
 @end

@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBLoaderView.h"
+
 @interface BBParentViewController : UIViewController
 
 @property (strong, nonatomic) UIAlertController *alertController;
+@property (strong, nonatomic) BBLoaderView *loaderView;
+
+- (void)showLoaderView;
+- (void)hideLoaderView;
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 

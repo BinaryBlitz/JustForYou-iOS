@@ -17,9 +17,12 @@ typedef enum : NSUInteger {
 
 - (void)setupInitialState;
 
+- (void)showIndicator;
+- (void)hideIndicator;
+
 - (void)getNumberPhoneUser;
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key;
-- (void)presentAlertControllerWithMessage:(NSString *)message;
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

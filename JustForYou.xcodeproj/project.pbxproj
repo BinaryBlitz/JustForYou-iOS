@@ -11,6 +11,8 @@
 		2991BD389DDE49D4E58B2B5D /* BBReplacementAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 72563B67D3D92F6CC90DD5DD /* BBReplacementAssembly.m */; };
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
 		3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D23011CE7A60700FA8B86 /* BBProgram.m */; };
+		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
+		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
 		3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */; };
 		3A1347551CA6B643007A83ED /* BBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347541CA6B643007A83ED /* BBUserService.m */; };
 		3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347571CA6B6BE007A83ED /* BBUser.m */; };
@@ -207,6 +209,9 @@
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
 		3A0D23001CE7A60700FA8B86 /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
 		3A0D23011CE7A60700FA8B86 /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
+		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
+		3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoaderView.h; sourceTree = "<group>"; };
+		3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoaderView.m; sourceTree = "<group>"; };
 		3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorizate.storyboard; sourceTree = "<group>"; };
 		3A1347531CA6B643007A83ED /* BBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUserService.h; sourceTree = "<group>"; };
 		3A1347541CA6B643007A83ED /* BBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUserService.m; sourceTree = "<group>"; };
@@ -2241,6 +2246,9 @@
 				3A2D57131CF331FA00A8EFF5 /* BBAddBasketViewPopover.h */,
 				3A2D57141CF331FA00A8EFF5 /* BBAddBasketViewPopover.m */,
 				3A2D57161CF3321500A8EFF5 /* BBAddBasketViewPopover.xib */,
+				3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */,
+				3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */,
+				3A1320191CFDF6240046CFBD /* BBLoaderView.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -2537,6 +2545,7 @@
 				3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */,
 				3A2D56CA1CF075D200A8EFF5 /* BBMyCardTableViewCell.xib in Resources */,
 				3A311FF51CF6DF0B00D179D1 /* Universal.storyboard in Resources */,
+				3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */,
 				3A2D56851CF075D200A8EFF5 /* BBDescriptionTableViewCell.xib in Resources */,
 				3A311FED1CF6DE8600D179D1 /* Blocks.storyboard in Resources */,
 				3A2D570E1CF331C300A8EFF5 /* BBMyProgramTableViewCell.xib in Resources */,
@@ -2637,6 +2646,7 @@
 				3A2D56611CF075D200A8EFF5 /* BBAuthorizationRouter.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
 				3A2D56B61CF075D200A8EFF5 /* BBOrdersViewController.m in Sources */,
+				3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */,
 				3A2D56AC1CF075D200A8EFF5 /* BBMyProgramsViewController.m in Sources */,
 				3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */,
 				3A2D56601CF075D200A8EFF5 /* BBAuthorizationPresenter.m in Sources */,

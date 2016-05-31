@@ -14,4 +14,6 @@
 
 - (void)noConnectionNetwork;
 
+- (void)errorServer;
+
 @end

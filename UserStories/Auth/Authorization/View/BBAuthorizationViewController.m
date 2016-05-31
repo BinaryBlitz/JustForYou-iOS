@@ -80,33 +80,43 @@ static CGFloat offsetBottom = 10.0f;
     [self _registerNotificationKeyboard];
 }
 
-- (void)presentAlertControllerWithMessage:(NSString *)message {
-    
-    [self presentAlertControllerWithTitle:@"Внимание" message:message];
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
 }
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key {
     self.keyStyleTableView = key;
-    if (key == kSendCodeStyleTableView) {
-        self.navigationItem.rightBarButtonItem = self.rightBarButton;
-        self.navigationItem.leftBarButtonItem = self.backBarButton;
-        self.informationLabel.text = kTextForSendCode;
-    } else {
-        self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem = nil;
-        self.informationLabel.text = kTextForEnterPhone;
-    }
-    [self.tableView beginUpdates];
-    [self.tableView reloadData];
-    [self.tableView endUpdates];
+    HQDispatchToMainQueue(^{
+        if (key == kSendCodeStyleTableView) {
+            self.navigationItem.rightBarButtonItem = self.rightBarButton;
+            self.navigationItem.leftBarButtonItem = self.backBarButton;
+            self.informationLabel.text = kTextForSendCode;
+        } else {
+            self.navigationItem.leftBarButtonItem = nil;
+            self.navigationItem.rightBarButtonItem = nil;
+            self.informationLabel.text = kTextForEnterPhone;
+        }
+        [self.tableView beginUpdates];
+        [self.tableView reloadData];
+        [self.tableView endUpdates];
+    });
 }
 
 - (void)getNumberPhoneUser {
     [self.output numberPhoneUserWithString:self.numberCell.numberTextField.text];
 }
 
+#pragma mark - Loader View
 
-#pragma mark - Actions
+- (void)showIndicator {
+    [self showLoaderView];
+}
+
+- (void)hideIndicator {
+    [self hideLoaderView];
+}
+
+#pragma mark - Actions Methods
 
 - (void)_nextButtonAction {
     [self.output nextButtonDidPress];

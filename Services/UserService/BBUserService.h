@@ -13,10 +13,12 @@
 
 + (instancetype)sharedService;
 
+
+- (void)saveApiTokenUser:(NSString *)apiToken;
+- (NSString *)tokenUser;
+
 - (BBUser *)currentUser;
-
 - (void)saveCurrentUser:(BBUser *)user;
-
 - (void)logOutUser;
 
 
