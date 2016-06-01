@@ -7,9 +7,13 @@
 //
 
 #import "AppDelegate.h"
+
 #import "BBPreloader.h"
+
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+
+#import "BBMapService.h"
 
 @import GoogleMaps;
 
@@ -18,8 +22,6 @@
 @property (strong, nonatomic) BBPreloader *preloader;
 
 @end
-
-static NSString *kGoogleMapsApi = @"AIzaSyD1Duwq-ZOGPw4YFo2CKzuQATDcizqbDNc";
 
 @implementation AppDelegate
 
@@ -31,7 +33,7 @@ static NSString *kGoogleMapsApi = @"AIzaSyD1Duwq-ZOGPw4YFo2CKzuQATDcizqbDNc";
     
     [Fabric with:@[[Crashlytics class]]];
     
-    [GMSServices provideAPIKey:kGoogleMapsApi];
+    [GMSServices provideAPIKey:[[BBMapService sharedService] currentApiKeyMap]];
     
     return YES;
 }

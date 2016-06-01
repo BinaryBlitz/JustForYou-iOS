@@ -12,4 +12,6 @@
 
 + (instancetype) sharedService;
 
+- (NSString *)currentApiKeyMap;
+
 @end

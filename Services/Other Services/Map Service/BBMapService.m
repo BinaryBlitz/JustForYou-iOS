@@ -8,6 +8,8 @@
 
 #import "BBMapService.h"
 
+static NSString *kGoogleMapsApi = @"AIzaSyD1Duwq-ZOGPw4YFo2CKzuQATDcizqbDNc";
+
 @implementation BBMapService
 
 + (instancetype) sharedService {
@@ -19,6 +21,8 @@
     return service;
 }
 
-
+- (NSString *)currentApiKeyMap {
+    return kGoogleMapsApi;
+}
 
 @end
