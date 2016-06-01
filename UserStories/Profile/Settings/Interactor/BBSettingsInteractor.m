@@ -14,4 +14,12 @@
 
 #pragma mark - Методы BBSettingsInteractorInput
 
+- (BBUser *)currentUser {
+    return [[BBUserService sharedService] currentUser];
+}
+
+- (void)saveUser:(BBUser *)user {
+    [[BBUserService sharedService] saveCurrentUser:user];
+}
+
 @end

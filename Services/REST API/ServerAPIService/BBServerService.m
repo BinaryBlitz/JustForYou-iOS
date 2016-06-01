@@ -48,6 +48,37 @@
     }];
 }
 
+#warning DELETE
+
+//- (void)searchCoordinatesForAddress:(NSString *)inAddress {
+//    
+//    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@?output=json",inAddress];
+//    
+//    //Replace Spaces with a '+' character.
+//    [urlString setString:[urlString stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+//    NSString* webStringURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    NSURL *url = [NSURL URLWithString:webStringURL];
+//    
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    if (data) {
+//        id jsonString = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        
+//        //JSON Framework magic to obtain a dictionary from the jsonString.
+//        
+//        
+//        //Now we need to obtain our coordinates
+//        NSArray *placemark  = [jsonString objectForKey:@"Placemark"];
+//        NSArray *coordinates = [[placemark objectAtIndex:0] valueForKeyPath:@"Point.coordinates"];
+//        
+//        //I put my coordinates in my array.
+//        double longitude = [[coordinates objectAtIndex:0] doubleValue];
+//        double latitude = [[coordinates objectAtIndex:1] doubleValue];
+//    }
+//    
+//}
+
+
 #pragma mark - Check Network
 
 - (void)_checkNetworkConnection {

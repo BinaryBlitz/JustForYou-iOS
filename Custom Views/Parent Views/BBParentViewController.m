@@ -70,7 +70,6 @@ CGFloat sizeBar = 44.0f;
 
 - (void)_layoutLoadView {
     CGRect mainScreen = [[UIScreen mainScreen] bounds];
-    NSLog(@"%@", NSStringFromCGRect(mainScreen));
     self.loaderView.center = CGPointMake(CGRectGetMidX(mainScreen), CGRectGetMidY(mainScreen) - sizeBar);
 }
 

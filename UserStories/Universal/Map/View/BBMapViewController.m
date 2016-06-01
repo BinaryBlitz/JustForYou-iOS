@@ -16,13 +16,23 @@
 
 #import "BBAddressService.h"
 
+#import "BBSearchTableViewController.h"
+
 @import GoogleMaps;
 
 
-@interface BBMapViewController() <GMSMapViewDelegate, UITextFieldDelegate>
+#import "BBServerService.h"
+
+@interface BBMapViewController() <GMSMapViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet BBTextField *addressTextField;
+
+
+//Fetch result controller
+@property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) BBSearchTableViewController *searchResultsController;
+
 
 @property (strong, nonatomic) UIBarButtonItem *myLocationButton;
 
@@ -34,7 +44,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    
 	[self.output didTriggerViewReadyEvent];
 }
 
@@ -51,11 +61,11 @@
 #pragma mark - Методы BBMapViewInput
 
 - (void)setupInitialState {
-    
     self.navigationItem.title = kNameTitleMapModule;
     self.navigationItem.rightBarButtonItem = self.myLocationButton;
     self.addressTextField.delegate = self;
     [self _settingMapView];
+    
 }
 
 - (void)_settingMapView {
@@ -97,6 +107,80 @@
 //    }
 }
 
+
+#pragma mark - Search Delegate
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
+
+#pragma mark - UISearchControllerDelegate
+
+- (void)presentSearchController:(UISearchController *)searchController {
+    
+}
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    // do something before the search controller is presented
+}
+
+- (void)didPresentSearchController:(UISearchController *)searchController {
+    // do something after the search controller is presented
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+    // do something before the search controller is dismissed
+}
+
+- (void)didDismissSearchController:(UISearchController *)searchController {
+    // do something after the search controller is dismissed
+}
+
+
+#pragma mark - UISearchResultsUpdating
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    
+    NSString *searchText = searchController.searchBar.text;
+    
+    if (!searchText || searchText.length < 3) {
+        return;
+    }
+//    
+//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//    [geocoder geocodeAddressString:searchText
+//                 completionHandler:^(NSArray* placemarks, NSError* error){
+//                     if (placemarks && placemarks.count > 0) {
+//                         CLPlacemark *topResult = [placemarks objectAtIndex:0];
+//                         MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+//                         
+////                         MKCoordinateRegion region = self.mapView.region;
+////                         region.center = placemark.region.center;
+////                         region.span.longitudeDelta /= 8.0;
+////                         region.span.latitudeDelta /= 8.0;
+//                         
+////                         [self.mapView setRegion:region animated:YES];
+////                         [self.mapView addAnnotation:placemark];
+//                     }
+//                 }
+//     ];
+    
+//    [[BBServerService sharedService] searchCoordinatesForAddress:searchText];
+//    self.searchResultsController.filterArray = searchResults;
+//    [self.searchResultsController.tableView reloadData];
+}
+
+
+
+#pragma mark - TextField Methods
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self presentViewController:self.searchController animated:YES completion:nil];
+}
+
+
 #pragma mark - Layout Methods
 
 - (void)_layoutAddressTextField {
@@ -111,6 +195,26 @@
         _myLocationButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"myLocationIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(_myLocationButtonAction)];
     }
     return _myLocationButton;
+}
+
+- (UISearchController *)searchController {
+    if (!_searchController) {
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultsController];
+        _searchController.searchBar.placeholder = @"Начните вводить адрес";
+        _searchController.hidesNavigationBarDuringPresentation = NO;
+        [_searchController.searchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
+        
+        _searchController.delegate = self;
+        _searchController.searchResultsUpdater = self;
+    }
+    return _searchController;
+}
+
+- (BBSearchTableViewController *)searchResultsController {
+    if (!_searchResultsController) {
+        _searchResultsController = [[BBSearchTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    }
+    return _searchResultsController;
 }
 
 @end

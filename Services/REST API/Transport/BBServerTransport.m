@@ -43,7 +43,7 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 #pragma mark - Sending Requests
 
 - (void)sendRequest:(NSURLRequest *)request completion:(CompletionBlock)completion {
-    [[[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:completion] resume];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:completion] resume];
 }
 
 @end

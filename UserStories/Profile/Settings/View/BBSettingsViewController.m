@@ -10,10 +10,15 @@
 
 #import "BBSettingsViewOutput.h"
 
-@interface BBSettingsViewController() <UITableViewDataSource, UITableViewDelegate>
+@interface BBSettingsViewController() <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
+@property (strong, nonatomic) BBTextTableViewCell *nameCell;
+@property (strong, nonatomic) BBTextTableViewCell *surnameCell;
+
+@property (strong, nonatomic) BBUser *currentUser;
 
 @end
 
@@ -32,9 +37,19 @@ static CGFloat heightFooterSection = 1.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutLogoutButton];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.output viewWillDisappear];
 }
 
 #pragma mark - Actions Methods
@@ -50,6 +65,17 @@ static CGFloat heightFooterSection = 1.0f;
 	self.navigationItem.title = kNameTitleSettingsModule;
     [self _registerCellIdentifireInTableView];
     [self _settingTableView];
+}
+
+- (void)updateInfoUserWithUser:(BBUser *)user {
+    self.currentUser = user;
+}
+
+- (BBUser *)currentInfoUser {
+    BBUser *user = self.currentUser;
+    user.name = self.nameCell.textField.text;
+    user.surname = self.surnameCell.textField.text;
+    return user;
 }
 
 #pragma mark - TableView Methods
@@ -68,6 +94,9 @@ static CGFloat heightFooterSection = 1.0f;
     self.tableView.estimatedRowHeight = estimatedRowHeight;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
+    tap.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:tap];
 }
 
 
@@ -106,14 +135,19 @@ static CGFloat heightFooterSection = 1.0f;
     } else {
         if (indexPath.section == 0) {
             BBTextTableViewCell *textCell = [self.tableView dequeueReusableCellWithIdentifier:kTextFieldCellIdentifire];
+            textCell.textField.delegate = self;
             textCell.setRadius = YES;
             textCell.kStyleContentCell = kCardContentCell;
             if (indexPath.row == 0) {
-                textCell.textField.text = @"Имя";
+                textCell.textField.placeholder = @"Имя";
                 textCell.kSideCornerRadius = kTopCornerRadius;
+                textCell.textField.returnKeyType = UIReturnKeyNext;
+                self.nameCell = textCell;
             } else {
-                textCell.textField.text = @"Фамилия";
+                textCell.textField.placeholder = @"Фамилия";
                 textCell.kSideCornerRadius = kBottomCornerRadius;
+                textCell.textField.returnKeyType = UIReturnKeyDone;
+                self.surnameCell = textCell;
             }
             cell = textCell;
         } else {
@@ -134,12 +168,37 @@ static CGFloat heightFooterSection = 1.0f;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[cell class] isSubclassOfClass:[BBTextTableViewCell class]]) {
+        self.nameCell.textField.text = self.currentUser.name;
+        self.surnameCell.textField.text = self.currentUser.surname;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1 || indexPath.section == 3) {
         BBAccessoryTableViewCell *accessoryCell = [tableView cellForRowAtIndexPath:indexPath];
         [self.output didSelectRowForKeyModule:accessoryCell.keyModuleCell];
     }
+}
+
+
+
+#pragma mark - TextField Delegate Methods
+
+- (void)_resignFirstResponderWithTap {
+    [self.nameCell.textField resignFirstResponder];
+    [self.surnameCell.textField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.nameCell.textField]) {
+        [self.surnameCell.textField becomeFirstResponder];
+    } else if ([textField isEqual:self.surnameCell.textField]) {
+        [self.surnameCell.textField resignFirstResponder];
+    }
+    return YES;
 }
 
 #pragma mark - Layout Methods

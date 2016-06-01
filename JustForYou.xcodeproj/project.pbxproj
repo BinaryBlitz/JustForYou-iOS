@@ -13,6 +13,8 @@
 		3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D23011CE7A60700FA8B86 /* BBProgram.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
 		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
+		3A1320241CFE30F30046CFBD /* BBSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */; };
+		3A1320281CFEF5A70046CFBD /* BBMapService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1320271CFEF5A70046CFBD /* BBMapService.m */; };
 		3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */; };
 		3A1347551CA6B643007A83ED /* BBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347541CA6B643007A83ED /* BBUserService.m */; };
 		3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347571CA6B6BE007A83ED /* BBUser.m */; };
@@ -212,6 +214,10 @@
 		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
 		3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoaderView.h; sourceTree = "<group>"; };
 		3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoaderView.m; sourceTree = "<group>"; };
+		3A1320221CFE30F30046CFBD /* BBSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSearchTableViewController.h; sourceTree = "<group>"; };
+		3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSearchTableViewController.m; sourceTree = "<group>"; };
+		3A1320261CFEF5A70046CFBD /* BBMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMapService.h; sourceTree = "<group>"; };
+		3A1320271CFEF5A70046CFBD /* BBMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMapService.m; sourceTree = "<group>"; };
 		3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorizate.storyboard; sourceTree = "<group>"; };
 		3A1347531CA6B643007A83ED /* BBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUserService.h; sourceTree = "<group>"; };
 		3A1347541CA6B643007A83ED /* BBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUserService.m; sourceTree = "<group>"; };
@@ -699,6 +705,7 @@
 		24BC59BBBD215185B110F518 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A1320211CFE30F30046CFBD /* Views */,
 				A10B52999919865A67DE5826 /* BBMapViewInput.h */,
 				160CE3982CC40331A923105A /* BBMapViewOutput.h */,
 				3BD9E82877E9B7E51871E52E /* BBMapViewController.h */,
@@ -715,6 +722,24 @@
 				D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		3A1320211CFE30F30046CFBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A1320221CFE30F30046CFBD /* BBSearchTableViewController.h */,
+				3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A1320251CFEF5930046CFBD /* Map Service */ = {
+			isa = PBXGroup;
+			children = (
+				3A1320261CFEF5A70046CFBD /* BBMapService.h */,
+				3A1320271CFEF5A70046CFBD /* BBMapService.m */,
+			);
+			path = "Map Service";
 			sourceTree = "<group>";
 		};
 		3A13472E1CA5DFAD007A83ED /* Domain */ = {
@@ -1023,10 +1048,10 @@
 		3A2D54B91CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54BA1CF075D200A8EFF5 /* BBRegistrationInteractor.h */,
-				3A2D54BB1CF075D200A8EFF5 /* BBRegistrationInteractor.m */,
 				3A2D54BC1CF075D200A8EFF5 /* BBRegistrationInteractorInput.h */,
 				3A2D54BD1CF075D200A8EFF5 /* BBRegistrationInteractorOutput.h */,
+				3A2D54BA1CF075D200A8EFF5 /* BBRegistrationInteractor.h */,
+				3A2D54BB1CF075D200A8EFF5 /* BBRegistrationInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1929,10 +1954,10 @@
 		3A2D55FA1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55FB1CF075D200A8EFF5 /* BBSettingsInteractor.h */,
-				3A2D55FC1CF075D200A8EFF5 /* BBSettingsInteractor.m */,
 				3A2D55FD1CF075D200A8EFF5 /* BBSettingsInteractorInput.h */,
 				3A2D55FE1CF075D200A8EFF5 /* BBSettingsInteractorOutput.h */,
+				3A2D55FB1CF075D200A8EFF5 /* BBSettingsInteractor.h */,
+				3A2D55FC1CF075D200A8EFF5 /* BBSettingsInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2344,6 +2369,7 @@
 			children = (
 				3AF1CE791CC6BAD5001D0B2C /* Calendar Service */,
 				3A311FF61CF7244200D179D1 /* Address Service */,
+				3A1320251CFEF5930046CFBD /* Map Service */,
 			);
 			path = "Other Services";
 			sourceTree = "<group>";
@@ -2680,6 +2706,7 @@
 				3A2D57051CF331C300A8EFF5 /* BBDottedBorderButton.m in Sources */,
 				3A2D56741CF075D200A8EFF5 /* BBBasketRouter.m in Sources */,
 				3A311FFC1CF724CC00D179D1 /* BBAddress.m in Sources */,
+				3A1320281CFEF5A70046CFBD /* BBMapService.m in Sources */,
 				3A2D57091CF331C300A8EFF5 /* BBAccessoryTableViewCell.m in Sources */,
 				3A2D56B31CF075D200A8EFF5 /* BBOrdersInteractor.m in Sources */,
 				3A2D56D11CF075D200A8EFF5 /* BBPaymentInteractor.m in Sources */,
@@ -2773,6 +2800,7 @@
 				B8BC89C6E4D042F06261386C /* BBMapViewController.m in Sources */,
 				3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */,
 				F8A28186AFAE11B25C5D8548 /* BBMapInteractor.m in Sources */,
+				3A1320241CFE30F30046CFBD /* BBSearchTableViewController.m in Sources */,
 				689FA166277AF4906B569B3B /* BBMapRouter.m in Sources */,
 				2991BD389DDE49D4E58B2B5D /* BBReplacementAssembly.m in Sources */,
 				B0E2FCF7760C6C769F1F1DEE /* BBReplacementViewController.m in Sources */,

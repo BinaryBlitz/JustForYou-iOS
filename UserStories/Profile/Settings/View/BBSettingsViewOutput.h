@@ -12,6 +12,10 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+- (void)viewWillDisappear;
+
+
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key;
 
 @end

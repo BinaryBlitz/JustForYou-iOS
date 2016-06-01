@@ -43,6 +43,14 @@
 	[self.view setupInitialState];
 }
 
+- (void)viewWillAppear {
+    [self.view updateInfoUserWithUser:[self.interactor currentUser]];
+}
+
+- (void)viewWillDisappear {
+    [self.interactor saveUser:[self.view currentInfoUser]];
+}
+
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
     [self.universalModule pushModuleWithNavigationModule:self.navigModule keyModule:key];
 }

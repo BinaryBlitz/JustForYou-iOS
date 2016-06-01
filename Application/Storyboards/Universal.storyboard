@@ -26,7 +26,7 @@
         <!--Map View Controller-->
         <scene sceneID="Wdn-GK-1Fe">
             <objects>
-                <viewController storyboardIdentifier="BBMapViewController" id="Ugl-GC-nV2" customClass="BBMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BBMapViewController" hidesBottomBarWhenPushed="YES" id="Ugl-GC-nV2" customClass="BBMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZNU-9b-yIJ"/>
                         <viewControllerLayoutGuide type="bottom" id="sVR-Yi-SJu"/>
