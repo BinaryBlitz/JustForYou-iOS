@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@import GoogleMaps;
+
 @protocol BBMapViewOutput <NSObject>
 
 - (void)didTriggerViewReadyEvent;
 
 - (void)viewWillAppear;
+
+- (void)myLocationButtonDidTap;
+
+- (void)textFieldDidBeginEditing;
+
+- (void)mapViewIdleAtCameraPosition:(GMSCameraPosition *)position;
+
+- (void)updateSearchResultsWithText:(NSString *)searchText;
 
 @end

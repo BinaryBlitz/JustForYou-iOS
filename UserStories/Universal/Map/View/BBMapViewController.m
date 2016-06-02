@@ -12,15 +12,8 @@
 
 #import "BBTextField.h"
 
-#import <LMGeocoder.h>
-
-#import "BBAddressService.h"
-
 #import "BBSearchTableViewController.h"
 
-#import <INTULocationManager.h>
-
-@import GoogleMaps;
 
 @interface BBMapViewController() <GMSMapViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, BBSearchTableControllerDelegate>
 
@@ -29,7 +22,6 @@
 
 @property (strong, nonatomic) BBAddress *currentAddres;
 
-//Fetch result controller
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) BBSearchTableViewController *searchResultsController;
 
@@ -60,7 +52,7 @@
 #pragma mark - Actions Methods
 
 - (void)_myLocationButtonAction {
-     [self moveCameraToCoordinate:self.mapView.myLocation.coordinate];
+    [self.output myLocationButtonDidTap];
 }
 
 #pragma mark - Методы BBMapViewInput
@@ -73,14 +65,10 @@
     
 }
 
-- (void)_settingMapView {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.75708318
-                                                            longitude:37.60244361
-                                                                 zoom:17];
-    self.mapView.camera = camera;
-    self.mapView.myLocationEnabled = YES;
-    self.mapView.delegate = self;
+- (void)moveCameraToCoordinateWithMyLocation {
+    [self moveCameraToCoordinate:self.mapView.myLocation.coordinate];
 }
+
 
 - (void)moveCameraToCoordinate:(CLLocationCoordinate2D)coordinate {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinate.latitude
@@ -90,42 +78,27 @@
     [self.mapView animateToCameraPosition:camera];
 }
 
-- (void)showCurrentLocation {
-    if (!self.currentAddres) {
-        INTULocationManager *locationManger = [INTULocationManager sharedInstance];
-        
-        [locationManger subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
-                                                                block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-                                                                    if (status == INTULocationStatusSuccess) {
-                                                                        [self moveCameraToCoordinate:currentLocation.coordinate];
-                                                                    } else if (status == INTULocationStatusTimedOut) {
-                                                                        [self showCurrentLocation];
-                                                                    } 
-                                                                }];
-    }
+- (void)updateTextFieldAddressWithAddress:(BBAddress *)address {
+    self.addressTextField.text = [address formatedDescription];
 }
-
-#warning delte this code
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
-    [[LMGeocoder sharedInstance] reverseGeocodeCoordinate:position.target
-                                                  service:kLMGeocoderGoogleService
-                                        completionHandler:^(NSArray *results, NSError *error) {
-                                            if (results.count && !error) {
-                                                LMAddress *address = [results firstObject];
-                                                
-                                                BBAddress *adr = [[BBAddressService sharedService] addressFromAddress:address];
-                                                
-                                                self.addressTextField.text = [adr formatedDescription];
-                                                
-                                                self.currentAddres = adr;
-                                            }
-                                        }];
+    [self.output mapViewIdleAtCameraPosition:position];
 }
 
+- (void)presentSearchController {
+    self.searchController.active = YES;
+    [self presentViewController:self.searchController animated:YES completion:nil];
+}
+
+- (void)updateResultSearchControllerWithArray:(NSArray *)arrayAddress {
+    self.searchResultsController.filterArray = arrayAddress;
+    HQDispatchToMainQueue(^{
+        [self.searchResultsController.tableView reloadData];
+    });
+}
 
 #pragma mark - Search Delegate
-
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
@@ -141,19 +114,7 @@
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    
-    NSString *searchText = searchController.searchBar.text;
-    
-    if (!searchText || searchText.length < 3) {
-        return;
-    }
-    
-    [[BBAddressService sharedService] searchGeopositionForAddress:searchText completion:^(NSArray *array) {
-        self.searchResultsController.filterArray = array;
-        HQDispatchToMainQueue(^{
-            [self.searchResultsController.tableView reloadData];
-        });
-    }];
+    [self.output updateSearchResultsWithText:searchController.searchBar.text];
 }
 
 #pragma mark - BBSearchTableControllerDelegate
@@ -166,10 +127,19 @@
 #pragma mark - TextField Methods
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    self.searchController.active = YES;
-    [self presentViewController:self.searchController animated:YES completion:nil];
+    [self.output textFieldDidBeginEditing];
 }
 
+#pragma mark - Load Methods
+
+- (void)_settingMapView {
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.75708318
+                                                            longitude:37.60244361
+                                                                 zoom:17];
+    self.mapView.camera = camera;
+    self.mapView.myLocationEnabled = YES;
+    self.mapView.delegate = self;
+}
 
 #pragma mark - Layout Methods
 

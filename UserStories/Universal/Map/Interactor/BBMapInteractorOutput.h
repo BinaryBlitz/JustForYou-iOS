@@ -10,4 +10,10 @@
 
 @protocol BBMapInteractorOutput <NSObject>
 
+- (void)currentAddresByCoordinate:(BBAddress *)address;
+
+- (void)currentLocationWithLocation:(CLLocationCoordinate2D)coordinate;
+
+- (void)searchAddressInArray:(NSArray *)arrayAddress;
+
 @end

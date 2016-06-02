@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@import GoogleMaps;
+
 @protocol BBMapViewInput <NSObject>
 
 - (void)setupInitialState;
 
-- (void)showCurrentLocation;
+- (void)moveCameraToCoordinateWithMyLocation;
+
+- (void)moveCameraToCoordinate:(CLLocationCoordinate2D)coordinate;
+
+- (void)updateTextFieldAddressWithAddress:(BBAddress *)address;
+
+- (void)presentSearchController;
+
+- (void)updateResultSearchControllerWithArray:(NSArray *)arrayAddress;
 
 @end

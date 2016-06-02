@@ -14,9 +14,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBAddress.h"
+
 @interface BBMapPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+
+@property (strong, nonatomic) BBAddress *currentAddres;
 
 @end
 
@@ -34,7 +38,28 @@
 }
 
 - (void)viewWillAppear {
-    [self.view showCurrentLocation];
+    if (!self.currentAddres) {
+        [self.interactor currentLocation];
+    }
+}
+
+- (void)myLocationButtonDidTap {
+    [self.view moveCameraToCoordinateWithMyLocation];
+}
+
+- (void)textFieldDidBeginEditing {
+    [self.view presentSearchController];
+}
+
+- (void)mapViewIdleAtCameraPosition:(GMSCameraPosition *)position {
+    [self.interactor mapViewIdleAtCameraPosition:position];
+}
+
+- (void)updateSearchResultsWithText:(NSString *)searchText {
+    if (!searchText || searchText.length < 3) {
+        return;
+    }
+    [self.interactor searchGeopositionForAddress:searchText];
 }
 
 #pragma mark - Методы BBMapViewOutput
@@ -44,5 +69,18 @@
 }
 
 #pragma mark - Методы BBMapInteractorOutput
+
+- (void)currentAddresByCoordinate:(BBAddress *)address {
+    [self.view updateTextFieldAddressWithAddress:address];
+    self.currentAddres = address;
+}
+
+- (void)currentLocationWithLocation:(CLLocationCoordinate2D)coordinate {
+    [self.view moveCameraToCoordinate:coordinate];
+}
+
+- (void)searchAddressInArray:(NSArray *)arrayAddress {
+    [self.view updateResultSearchControllerWithArray:arrayAddress];
+}
 
 @end
