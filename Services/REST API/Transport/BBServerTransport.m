@@ -28,22 +28,14 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     
     NSDictionary* parameters = @{@"phone_number" : userPhone};
     
-    NSData* data = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
-    
-    request.HTTPMethod = POST;
-    request.HTTPBody = data;
-    
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
     [self sendRequest:request completion:completion];
-
 }
 
-- (void)sendUser:(BBUser *)user completion:(CompletionBlock)completion {
+- (void)createUser:(BBUser *)user completion:(CompletionBlock)completion {
+    
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
-    
     NSDictionary *userDict = @{@"phone_number" : user.numberPhone,
                                @"first_name"   : user.name,
                                @"last_name"    : user.surname,
@@ -51,30 +43,58 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     
     NSDictionary* parameters = @{@"user" : userDict};
     
-    NSData* data = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
-    
-    request.HTTPMethod = POST;
-    request.HTTPBody = data;
-    
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
     [self sendRequest:request completion:completion];
+}
 
+- (void)showUser:(BBUser *)user completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
+    
+    NSDictionary* parameters = @{@"api_token" : user.apiToken};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
+- (void)updateUser:(BBUser *)user completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
+    
+    NSDictionary* parameters = @{@"api_token"    : user.apiToken,
+                                 @"api_token"    : user.apiToken,
+                                 @"phone_number" : user.numberPhone,
+                                 @"first_name"   : user.name,
+                                 @"last_name"    : user.surname,
+                                 @"email"        : user.email};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
+    [self sendRequest:request completion:completion];
 }
 
 #pragma mark - Geolocation
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion {
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
     
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
     request.URL = url;
     request.HTTPMethod = GET;
-    
     [self sendRequest:request completion:completion];
 }
 
 #pragma mark - Sending Requests
+
+- (NSMutableURLRequest *)_settingRequestWithRequest:(NSMutableURLRequest *)request parametrs:(NSDictionary *)params HTTPMethod:(NSString *)http {
+    if (params) {
+        NSData* data = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+        request.HTTPBody = data;
+    }
+    request.HTTPMethod = POST;
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    return request;
+}
 
 - (void)sendRequest:(NSURLRequest *)request completion:(CompletionBlock)completion {
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:completion] resume];

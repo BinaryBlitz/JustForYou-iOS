@@ -17,8 +17,8 @@ typedef enum : NSUInteger {
 
 - (void)setupInitialState;
 
-- (void)showIndicator;
-- (void)hideIndicator;
+- (void)showLoaderView;
+- (void)hideLoaderView;
 
 - (void)getNumberPhoneUser;
 

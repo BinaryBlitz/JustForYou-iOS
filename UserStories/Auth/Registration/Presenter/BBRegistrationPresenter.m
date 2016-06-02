@@ -37,7 +37,7 @@ static NSString *kErrorEmail = @"Введите Ваш E-mail";
 static NSString *kErrorValidEmail = @"Вы неверно ввели email. Пожалуйста проверьте данные и повторите попытку";
 
 static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
-static NSString *kErrorServer = @"Ошибка данных. Проверьте пожалуйста номер телефона";
+static NSString *kErrorServer = @"Ошибка сервера. Попробуйте снова";
 
 @implementation BBRegistrationPresenter
 
@@ -76,6 +76,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
     }
     if ([BBValidationService validationEmailWithString:user.email]) {
         user.numberPhone = self.userPhone;
+        [self.view showLoaderView];
         [self.interactor saveAndSendUser:user];
     } else {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorValidEmail];
@@ -85,7 +86,18 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 #pragma mark - Методы BBRegistrationInteractorOutput
 
 - (void)userSuccessfullySaved {
+    [self.view hideLoaderView];
     [self.greetingModule pushModuleWithNavigationModule:self.navigModule];
+}
+
+- (void)noConnectionNetwork {
+    [self.view hideLoaderView];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideLoaderView];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
 #pragma mark - Lazy Load

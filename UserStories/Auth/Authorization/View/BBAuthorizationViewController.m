@@ -106,16 +106,6 @@ static CGFloat offsetBottom = 10.0f;
     [self.output numberPhoneUserWithString:self.numberCell.numberTextField.text];
 }
 
-#pragma mark - Loader View
-
-- (void)showIndicator {
-    [self showLoaderView];
-}
-
-- (void)hideIndicator {
-    [self hideLoaderView];
-}
-
 #pragma mark - Actions Methods
 
 - (void)_nextButtonAction {

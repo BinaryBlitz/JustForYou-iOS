@@ -50,7 +50,7 @@
 
 - (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
-    [self.transport sendUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.transport createUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBUser *user = nil;
         
         if (!error) {
@@ -63,6 +63,33 @@
     }];
 }
 
+#warning check this methods
+
+- (void)showUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport showUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBUser *user = nil;
+        if (!error) {
+            user = [data parseRegisterResponseWithData];
+        }
+        if (completion) {
+            completion(self.keyConnection, user, error);
+        }
+    }];
+}
+
+- (void)updateUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport updateUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBUser *user = nil;
+        if (!error) {
+            user = [data parseRegisterResponseWithData];
+        }
+        if (completion) {
+            completion(self.keyConnection, user, error);
+        }
+    }];
+}
 
 #pragma mark - Check Network
 

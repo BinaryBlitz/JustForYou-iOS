@@ -70,7 +70,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber {
     if (valid) {
-        [self.view showIndicator];
+        [self.view showLoaderView];
         [self.interactor sendNumberPhoneWithPrimaryPhone:primaryNumber];
     } else {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorNumberPhoneMessage];
@@ -80,17 +80,17 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 #pragma mark - Методы BBAuthorizationInteractorOutput
 
 - (void)sendCodeSuccessfullyWithAuthToken:(NSString *)token {
-    [self.view hideIndicator];
+    [self.view hideLoaderView];
     [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
 }
 
 - (void)noConnectionNetwork {
-    [self.view hideIndicator];
+    [self.view hideLoaderView];
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
 }
 
 - (void)errorServer {
-    [self.view hideIndicator];
+    [self.view hideLoaderView];
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 

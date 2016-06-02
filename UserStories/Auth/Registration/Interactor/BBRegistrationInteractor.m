@@ -11,7 +11,6 @@
 #import "BBRegistrationInteractorOutput.h"
 
 #import "BBServerService.h"
-
 #import "BBUserService.h"
 
 @implementation BBRegistrationInteractor
@@ -19,12 +18,18 @@
 #pragma mark - Методы BBRegistrationInteractorInput
 
 - (void)saveAndSendUser:(BBUser *)user {
-    
     [[BBServerService sharedService] createUserWithUser:user completion:^(BBServerServiceConnection key, BBUser *user, NSError *error) {
-        
+        if (key == kSuccessfullyConnection) {
+            if (user) {
+                [[BBUserService sharedService] saveCurrentUser:user];
+                [self.output userSuccessfullySaved];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output noConnectionNetwork];
+        }
     }];
-//    [[BBUserService sharedService] saveCurrentUser:user];
-//    [self.output userSuccessfullySaved];
 }
 
 @end

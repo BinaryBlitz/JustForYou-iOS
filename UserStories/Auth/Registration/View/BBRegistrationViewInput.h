@@ -18,4 +18,7 @@
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
+- (void)showLoaderView;
+- (void)hideLoaderView;
+
 @end

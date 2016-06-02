@@ -26,5 +26,7 @@ typedef void (^ReceiveData)(NSData* data);
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion;
 
 - (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion;
+- (void)showUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion;
+- (void)updateUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion;
 
 @end

@@ -12,4 +12,9 @@
 
 - (void)userSuccessfullySaved;
 
+- (void)noConnectionNetwork;
+
+- (void)errorServer;
+
+
 @end
