@@ -10,8 +10,17 @@
 
 @implementation NSData (BBParserAPI)
 
+#pragma mark - User Methods
+
 - (NSString *)parseAuthorizateToken {
     return [[NSJSONSerialization JSONObjectWithData:self options:0 error:nil] objectForKey:@"token"];
+}
+
+
+#pragma mark - Map Methods
+
+- (id)parseSearchAddress {
+    return [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];;
 }
 
 @end

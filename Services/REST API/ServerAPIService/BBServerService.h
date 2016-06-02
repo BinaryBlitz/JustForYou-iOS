@@ -22,10 +22,4 @@ typedef void (^ReceiveData)(NSData* data);
 
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion;
 
-
-
-
-- (void)searchCoordinatesForAddress:(NSString *)inAddress;
-
-
 @end

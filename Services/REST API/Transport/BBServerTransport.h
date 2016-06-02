@@ -14,4 +14,6 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 - (void)sendUserNumberPhoneWithString:(NSString *)userPhone completion:(CompletionBlock)completion;
 
+- (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion;
+
 @end

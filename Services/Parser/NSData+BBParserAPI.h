@@ -12,4 +12,6 @@
 
 - (NSString *)parseAuthorizateToken;
 
+- (id)parseSearchAddress;
+
 @end

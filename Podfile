@@ -18,6 +18,7 @@ pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
 # Maps
 pod 'GoogleMaps'
 pod 'LMGeocoder'
+pod 'INTULocationManager'
 
 # Network
 #pod 'AFNetworking', '~> 3.0'

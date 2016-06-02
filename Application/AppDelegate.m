@@ -13,7 +13,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
-#import "BBMapService.h"
+#import "BBAddressService.h"
 
 @import GoogleMaps;
 
@@ -33,7 +33,7 @@
     
     [Fabric with:@[[Crashlytics class]]];
     
-    [GMSServices provideAPIKey:[[BBMapService sharedService] currentApiKeyMap]];
+    [GMSServices provideAPIKey:[[BBAddressService sharedService] currentApiKeyMap]];
     
     return YES;
 }

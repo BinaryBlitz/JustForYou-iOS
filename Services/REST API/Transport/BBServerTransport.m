@@ -40,6 +40,15 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 
 }
 
+- (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
+    request.URL = url;
+    
+    request.HTTPMethod = GET;
+    
+    [self sendRequest:request completion:completion];
+}
+
 #pragma mark - Sending Requests
 
 - (void)sendRequest:(NSURLRequest *)request completion:(CompletionBlock)completion {

@@ -33,6 +33,10 @@
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
+- (void)viewWillAppear {
+    [self.view showCurrentLocation];
+}
+
 #pragma mark - Методы BBMapViewOutput
 
 - (void)didTriggerViewReadyEvent {

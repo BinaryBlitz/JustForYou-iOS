@@ -50,16 +50,11 @@
 
 #warning DELETE
 
-//- (void)searchCoordinatesForAddress:(NSString *)inAddress {
-//    
-//    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@?output=json",inAddress];
-//    
-//    //Replace Spaces with a '+' character.
-//    [urlString setString:[urlString stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
-//    NSString* webStringURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    NSURL *url = [NSURL URLWithString:webStringURL];
-//    
+- (void)searchCoordinatesForURLString:(NSString *)urlString {
+    
+   
+    
+    
 //    NSData *data = [NSData dataWithContentsOfURL:url];
 //    if (data) {
 //        id jsonString = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -75,8 +70,8 @@
 //        double longitude = [[coordinates objectAtIndex:0] doubleValue];
 //        double latitude = [[coordinates objectAtIndex:1] doubleValue];
 //    }
-//    
-//}
+    
+}
 
 
 #pragma mark - Check Network

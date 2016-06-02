@@ -12,4 +12,6 @@
 
 - (void)setupInitialState;
 
+- (void)showCurrentLocation;
+
 @end

@@ -13,6 +13,7 @@
 
 // A
 static NSString *kNibNameAccessoryCell = @"BBAccessoryTableViewCell";
+static NSString *kNibNameAddressCell = @"BBAddressTableViewCell";
 
 // B
 static NSString *kNibNameBasketCell = @"BBBasketTableViewCell";
@@ -60,6 +61,7 @@ static NSString *kNibNameTextCell = @"BBTextTableViewCell";
 
 // A
 static NSString *kAccessoryCellIdentifire = @"accessoryTableViewCell";
+static NSString *kAddressCellIdentifire = @"addressTableViewCell";
 
 // B
 static NSString *kBasketCellIdentifire = @"basketTableViewCell";

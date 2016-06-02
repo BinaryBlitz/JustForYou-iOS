@@ -18,16 +18,16 @@
 
 #import "BBSearchTableViewController.h"
 
+#import <INTULocationManager.h>
+
 @import GoogleMaps;
 
-
-#import "BBServerService.h"
-
-@interface BBMapViewController() <GMSMapViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface BBMapViewController() <GMSMapViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, BBSearchTableControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet BBTextField *addressTextField;
 
+@property (strong, nonatomic) BBAddress *currentAddres;
 
 //Fetch result controller
 @property (nonatomic, strong) UISearchController *searchController;
@@ -46,6 +46,11 @@
 	[super viewDidLoad];
     
 	[self.output didTriggerViewReadyEvent];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -85,26 +90,37 @@
     [self.mapView animateToCameraPosition:camera];
 }
 
+- (void)showCurrentLocation {
+    if (!self.currentAddres) {
+        INTULocationManager *locationManger = [INTULocationManager sharedInstance];
+        
+        [locationManger subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
+                                                                block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                                                    if (status == INTULocationStatusSuccess) {
+                                                                        [self moveCameraToCoordinate:currentLocation.coordinate];
+                                                                    } else if (status == INTULocationStatusTimedOut) {
+                                                                        [self showCurrentLocation];
+                                                                    } 
+                                                                }];
+    }
+}
+
 #warning delte this code
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
-//    if (self.needUpdate) {
-        [[LMGeocoder sharedInstance] reverseGeocodeCoordinate:position.target
-                                                      service:kLMGeocoderGoogleService
-                                            completionHandler:^(NSArray *results, NSError *error) {
-                                                if (results.count && !error) {
-                                                    LMAddress *address = [results firstObject];
-                                                    
-                                                    BBAddress *adr = [BBAddressService addressFromAddress:address];
-                                                    
-                                                    self.addressTextField.text = [adr formatedDescription];
-                                                    
-//                                                    self.selectedAddress = adr;
-                                                }
-                                            }];
-//    } else {
-//        self.needUpdate = YES;
-//    }
+    [[LMGeocoder sharedInstance] reverseGeocodeCoordinate:position.target
+                                                  service:kLMGeocoderGoogleService
+                                        completionHandler:^(NSArray *results, NSError *error) {
+                                            if (results.count && !error) {
+                                                LMAddress *address = [results firstObject];
+                                                
+                                                BBAddress *adr = [[BBAddressService sharedService] addressFromAddress:address];
+                                                
+                                                self.addressTextField.text = [adr formatedDescription];
+                                                
+                                                self.currentAddres = adr;
+                                            }
+                                        }];
 }
 
 
@@ -119,25 +135,8 @@
 #pragma mark - UISearchControllerDelegate
 
 - (void)presentSearchController:(UISearchController *)searchController {
-    
+    self.searchController.searchBar.text = self.addressTextField.text;
 }
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    // do something before the search controller is presented
-}
-
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    // do something after the search controller is presented
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    // do something before the search controller is dismissed
-}
-
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    // do something after the search controller is dismissed
-}
-
 
 #pragma mark - UISearchResultsUpdating
 
@@ -148,35 +147,26 @@
     if (!searchText || searchText.length < 3) {
         return;
     }
-//    
-//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//    [geocoder geocodeAddressString:searchText
-//                 completionHandler:^(NSArray* placemarks, NSError* error){
-//                     if (placemarks && placemarks.count > 0) {
-//                         CLPlacemark *topResult = [placemarks objectAtIndex:0];
-//                         MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
-//                         
-////                         MKCoordinateRegion region = self.mapView.region;
-////                         region.center = placemark.region.center;
-////                         region.span.longitudeDelta /= 8.0;
-////                         region.span.latitudeDelta /= 8.0;
-//                         
-////                         [self.mapView setRegion:region animated:YES];
-////                         [self.mapView addAnnotation:placemark];
-//                     }
-//                 }
-//     ];
     
-//    [[BBServerService sharedService] searchCoordinatesForAddress:searchText];
-//    self.searchResultsController.filterArray = searchResults;
-//    [self.searchResultsController.tableView reloadData];
+    [[BBAddressService sharedService] searchGeopositionForAddress:searchText completion:^(NSArray *array) {
+        self.searchResultsController.filterArray = array;
+        HQDispatchToMainQueue(^{
+            [self.searchResultsController.tableView reloadData];
+        });
+    }];
 }
 
+#pragma mark - BBSearchTableControllerDelegate
 
+- (void)didSelectCellWithAddress:(BBAddress *)address {
+    self.searchController.active = NO;
+    [self moveCameraToCoordinate:address.coordinate];
+}
 
 #pragma mark - TextField Methods
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.searchController.active = YES;
     [self presentViewController:self.searchController animated:YES completion:nil];
 }
 
@@ -213,6 +203,7 @@
 - (BBSearchTableViewController *)searchResultsController {
     if (!_searchResultsController) {
         _searchResultsController = [[BBSearchTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        _searchResultsController.delegate = self;
     }
     return _searchResultsController;
 }
