@@ -59,7 +59,7 @@
 }
 
 - (IBAction)addButtonAction:(id)sender {
-    
+    [self.output addButtonDidTap];
 }
 
 #pragma mark - Методы BBMapViewInput

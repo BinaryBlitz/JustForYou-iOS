@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBUser.h"
+
 @interface NSData (BBParserAPI)
 
 - (NSString *)parseAuthorizateToken;
 
 - (id)parseSearchAddress;
+
+- (BBUser *)parseRegisterResponseWithData;
 
 @end

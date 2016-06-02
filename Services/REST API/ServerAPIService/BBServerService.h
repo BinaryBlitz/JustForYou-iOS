@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBUser;
+
 typedef enum : NSUInteger {
     kSuccessfullyConnection,
     kErrorConnection
 }BBServerServiceConnection;
 
 typedef void (^AuthCompletion)(BBServerServiceConnection key, NSString* token, NSError* error);
+typedef void (^RegistrationCompletion)(BBServerServiceConnection key, BBUser *user, NSError* error);
 typedef void (^ReceiveData)(NSData* data);
 
 @interface BBServerService : NSObject
@@ -21,5 +24,7 @@ typedef void (^ReceiveData)(NSData* data);
 + (instancetype) sharedService;
 
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion;
+
+- (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion;
 
 @end

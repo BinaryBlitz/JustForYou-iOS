@@ -36,7 +36,7 @@
 
 - (IBAction)sendCodeButtonAction:(id)sender {
     self.sendCodeButton.enabled = NO;
-    HQDispatchAfter(3, ^{
+    HQDispatchAfter(5, ^{
         self.sendCodeButton.enabled = YES;
     });
     [self.delegate sendCodeButtonDidTap];

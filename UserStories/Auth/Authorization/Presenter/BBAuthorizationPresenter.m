@@ -17,6 +17,8 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBValidationService.h"
+
 @interface BBAuthorizationPresenter()
 
 @property (strong, nonatomic) id<BBRegistrationModuleInput> registModule;
@@ -62,6 +64,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)numberPhoneUserWithString:(NSString *)phone {
+    phone = [BBValidationService numberPhoneWithPrimaryString:phone];
     [self.registModule presentWithNavigModule:self.navigModule andUserPhone:phone];
 }
 

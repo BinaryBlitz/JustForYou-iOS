@@ -10,15 +10,21 @@
 
 #import "BBRegistrationInteractorOutput.h"
 
+#import "BBServerService.h"
+
 #import "BBUserService.h"
 
 @implementation BBRegistrationInteractor
 
 #pragma mark - Методы BBRegistrationInteractorInput
 
-- (void)saveUser:(BBUser *)user {
-    [[BBUserService sharedService] saveCurrentUser:user];
-    [self.output userSuccessfullySaved];
+- (void)saveAndSendUser:(BBUser *)user {
+    
+    [[BBServerService sharedService] createUserWithUser:user completion:^(BBServerServiceConnection key, BBUser *user, NSError *error) {
+        
+    }];
+//    [[BBUserService sharedService] saveCurrentUser:user];
+//    [self.output userSuccessfullySaved];
 }
 
 @end

@@ -69,10 +69,7 @@
     [self.router presentFromWindow:window];
 }
 
-#warning delete after test
-
 - (void)userRegistrationFulfilled {
-//    [self.output userRegistrationFulfilledWithView:[self.view currentView]];
     [self.output userRegistrationFulfilled];
 }
 

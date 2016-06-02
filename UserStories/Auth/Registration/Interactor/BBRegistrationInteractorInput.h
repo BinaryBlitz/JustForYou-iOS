@@ -11,6 +11,6 @@
 @class BBUser;
 @protocol BBRegistrationInteractorInput <NSObject>
 
-- (void)saveUser:(BBUser *)user;
+- (void)saveAndSendUser:(BBUser *)user;
 
 @end

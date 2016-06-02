@@ -23,7 +23,7 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 
 - (void)sendUserNumberPhoneWithString:(NSString *)userPhone completion:(CompletionBlock)completion {
     
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/verification_tokens", kServerURL]];
     
     NSDictionary* parameters = @{@"phone_number" : userPhone};
@@ -40,10 +40,35 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 
 }
 
+- (void)sendUser:(BBUser *)user completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
+    
+    NSDictionary *userDict = @{@"phone_number" : user.numberPhone,
+                               @"first_name"   : user.name,
+                               @"last_name"    : user.surname,
+                               @"email"        : user.email};
+    
+    NSDictionary* parameters = @{@"user" : userDict};
+    
+    NSData* data = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+    
+    request.HTTPMethod = POST;
+    request.HTTPBody = data;
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [self sendRequest:request completion:completion];
+
+}
+
+#pragma mark - Geolocation
+
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
-    request.URL = url;
     
+    request.URL = url;
     request.HTTPMethod = GET;
     
     [self sendRequest:request completion:completion];

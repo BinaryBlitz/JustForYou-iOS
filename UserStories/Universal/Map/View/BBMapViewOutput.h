@@ -18,6 +18,8 @@
 
 - (void)myLocationButtonDidTap;
 
+- (void)addButtonDidTap;
+
 - (void)textFieldDidBeginEditing;
 
 - (void)mapViewIdleAtCameraPosition:(GMSCameraPosition *)position;

@@ -16,6 +16,6 @@
 
 - (BBUser *)userWithTextFields;
 
-- (void)presentAlertControllerWithMessage:(NSString *)message;
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

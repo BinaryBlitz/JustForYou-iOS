@@ -10,9 +10,13 @@
 
 @interface BBUser : NSObject
 
+@property (assign, nonatomic) NSInteger userId;
+@property (strong, nonatomic) NSString *apiToken;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *surname;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *numberPhone;
+
+-(instancetype)initWithJSON:(id)JSONObj;
 
 @end

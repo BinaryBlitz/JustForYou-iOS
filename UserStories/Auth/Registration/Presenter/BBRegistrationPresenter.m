@@ -17,6 +17,8 @@
 #import "BBGreetingAssembly.h"
 #import "BBGreetingModuleInput.h"
 
+#import "BBValidationService.h"
+
 @class BBUser;
 @interface BBRegistrationPresenter()
 
@@ -26,6 +28,16 @@
 @property (strong, nonatomic) NSString *userPhone;
 
 @end
+
+static NSString *kNoteTitle = @"Внимание";
+
+static NSString *kErrorName = @"Введите Ваше имя";
+static NSString *kErrorSurname = @"Введите Вашу фамилию";
+static NSString *kErrorEmail = @"Введите Ваш E-mail";
+static NSString *kErrorValidEmail = @"Вы неверно ввели email. Пожалуйста проверьте данные и повторите попытку";
+
+static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
+static NSString *kErrorServer = @"Ошибка данных. Проверьте пожалуйста номер телефона";
 
 @implementation BBRegistrationPresenter
 
@@ -51,19 +63,23 @@
 - (void)nextButtonDidTap {
     BBUser *user = [self.view userWithTextFields];
     if ([user.name isEqualToString:@""] || !user.name || [user.name isEqualToString:@" "]) {
-        [self.view presentAlertControllerWithMessage:@"Введите Ваше имя"];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorName];
         return;
     }
     if ([user.surname isEqualToString:@""] || !user.surname || [user.surname isEqualToString:@" "]) {
-        [self.view presentAlertControllerWithMessage:@"Введите Вашу фамилию"];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorSurname];
         return;
     }
     if ([user.email isEqualToString:@""] || !user.email || [user.email isEqualToString:@" "]) {
-        [self.view presentAlertControllerWithMessage:@"Введите Ваш E-mail"];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorEmail];
         return;
     }
-    user.numberPhone = self.userPhone;
-    [self.interactor saveUser:user];
+    if ([BBValidationService validationEmailWithString:user.email]) {
+        user.numberPhone = self.userPhone;
+        [self.interactor saveAndSendUser:user];
+    } else {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorValidEmail];
+    }
 }
 
 #pragma mark - Методы BBRegistrationInteractorOutput

@@ -16,6 +16,17 @@
     return [[NSJSONSerialization JSONObjectWithData:self options:0 error:nil] objectForKey:@"token"];
 }
 
+#warning see this method for error server
+
+- (BBUser *)parseRegisterResponseWithData {
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    BBUser *user = nil;
+    if ([JSONObj count] > 1) {
+        user = [[BBUser alloc] initWithJSON:JSONObj];
+    }
+    return user;
+}
+
 
 #pragma mark - Map Methods
 

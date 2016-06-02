@@ -41,6 +41,10 @@
     [self.view moveCameraToCoordinateWithMyLocation];
 }
 
+- (void)addButtonDidTap {
+    
+}
+
 - (void)textFieldDidBeginEditing {
     [self.view presentSearchController];
 }

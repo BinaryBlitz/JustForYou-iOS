@@ -48,36 +48,25 @@
     }];
 }
 
-#warning DELETE
-
-- (void)searchCoordinatesForURLString:(NSString *)urlString {
-    
-   
-    
-    
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    if (data) {
-//        id jsonString = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//        
-//        //JSON Framework magic to obtain a dictionary from the jsonString.
-//        
-//        
-//        //Now we need to obtain our coordinates
-//        NSArray *placemark  = [jsonString objectForKey:@"Placemark"];
-//        NSArray *coordinates = [[placemark objectAtIndex:0] valueForKeyPath:@"Point.coordinates"];
-//        
-//        //I put my coordinates in my array.
-//        double longitude = [[coordinates objectAtIndex:0] doubleValue];
-//        double latitude = [[coordinates objectAtIndex:1] doubleValue];
-//    }
-    
+- (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport sendUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBUser *user = nil;
+        
+        if (!error) {
+            user = [data parseRegisterResponseWithData];
+        }
+        
+        if (completion) {
+            completion(self.keyConnection, user, error);
+        }
+    }];
 }
 
 
 #pragma mark - Check Network
 
 - (void)_checkNetworkConnection {
-    
     NetworkStatus internetStatus = [self.internetReachable currentReachabilityStatus];
     if (internetStatus == NotReachable) {
         self.keyConnection = kErrorConnection;

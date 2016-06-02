@@ -11,15 +11,21 @@
 NSString* const kEmail = @"kEmail";
 NSString* const kUserName = @"kUserName";
 NSString* const kUserSurname = @"kUserSurname";
+NSString* const kUserId = @"kUserId";
+NSString* const kApiToken = @"kApiToken";
+NSString* const kNumberPhone = @"kNumberPhone";
 
 @implementation BBUser
 
 -(instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
+        self.userId = [[JSONObj valueForKey:@"id"] integerValue];
         self.email = [JSONObj valueForKey:@"email"];
-        self.name = [JSONObj valueForKey:@"name"];
-        self.surname = [JSONObj valueForKey:@"surname"];
+        self.name = [JSONObj valueForKey:@"first_name"];
+        self.surname = [JSONObj valueForKey:@"last_name"];
+        self.numberPhone = [JSONObj valueForKey:@"phone_number"];
+        self.apiToken = [JSONObj valueForKey:@"api_token"];
     }
     return self;
 }
@@ -30,6 +36,9 @@ NSString* const kUserSurname = @"kUserSurname";
         self.email = [coder decodeObjectForKey:kEmail];
         self.name = [coder decodeObjectForKey:kUserName];
         self.surname = [coder decodeObjectForKey:kUserSurname];
+        self.numberPhone = [coder decodeObjectForKey:kNumberPhone];
+        self.apiToken = [coder decodeObjectForKey:kApiToken];
+        self.userId = [coder decodeIntegerForKey:kUserId];
     }
     return self;
 }
@@ -38,6 +47,9 @@ NSString* const kUserSurname = @"kUserSurname";
     [aCoder encodeObject:self.email forKey:kEmail];
     [aCoder encodeObject:self.name forKey:kUserName];
     [aCoder encodeObject:self.surname forKey:kUserSurname];
+    [aCoder encodeObject:self.numberPhone forKey:kNumberPhone];
+    [aCoder encodeInteger:self.userId forKey:kUserId];
+    [aCoder encodeObject:self.apiToken forKey:kApiToken];
 }
 
 

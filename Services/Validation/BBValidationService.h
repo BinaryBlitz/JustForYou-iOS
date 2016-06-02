@@ -14,4 +14,6 @@
 
 + (NSString *)numberPhoneWithPrimaryString:(NSString *)primaryString;
 
++ (BOOL)validationEmailWithString:(NSString *)checkString;
+
 @end
