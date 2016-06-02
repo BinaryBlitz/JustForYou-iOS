@@ -16,6 +16,12 @@
 
 #import <INTULocationManager.h>
 
+@interface BBMapInteractor ()
+
+@property (strong, nonatomic) BBAddress *currentAddres;
+
+@end
+
 @implementation BBMapInteractor
 
 #pragma mark - Методы BBMapInteractorInput
@@ -29,21 +35,25 @@
                                                 LMAddress *address = [results firstObject];
                                                 BBAddress *adr = [[BBAddressService sharedService] addressFromAddress:address];
                                                 [self.output currentAddresByCoordinate:adr];
-                                                
+                                                self.currentAddres = adr;
                                             }
                                         }];
 
 }
 
 - (void)currentLocation {
-    [[INTULocationManager sharedInstance] subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
-                                                                                  block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-                                                                                      if (status == INTULocationStatusSuccess) {
-                                                                                          [self.output currentLocationWithLocation:currentLocation.coordinate];
-                                                                                      } else if (status == INTULocationStatusTimedOut) {
-                                                                                          [self currentLocation];
-                                                                                      }
-                                                                                  }];
+    if (!self.currentAddres) {
+        INTULocationManager *locationManager = [INTULocationManager sharedInstance];
+        INTULocationRequestID requestID = [locationManager subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
+                                                                 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                                                     if (status == INTULocationStatusSuccess) {
+                                                                         [self.output currentLocationWithLocation:currentLocation.coordinate];
+                                                                         [locationManager cancelHeadingRequest:requestID];
+                                                                     } else if (status == INTULocationStatusTimedOut) {
+                                                                         [self currentLocation];
+                                                                     }
+                                                                 }];
+    }
 }
 
 - (void)searchGeopositionForAddress:(NSString *)searchText {

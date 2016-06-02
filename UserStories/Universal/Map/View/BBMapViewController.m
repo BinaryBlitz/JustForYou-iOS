@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet BBTextField *addressTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *myLocationImageView;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (strong, nonatomic) BBAddress *currentAddres;
 
@@ -47,12 +49,17 @@
 
 - (void)viewWillLayoutSubviews {
     [self _layoutAddressTextField];
+    [self _layoutMyLocationImageView];
 }
 
 #pragma mark - Actions Methods
 
 - (void)_myLocationButtonAction {
     [self.output myLocationButtonDidTap];
+}
+
+- (IBAction)addButtonAction:(id)sender {
+    
 }
 
 #pragma mark - Методы BBMapViewInput
@@ -146,6 +153,11 @@
 - (void)_layoutAddressTextField {
     self.addressTextField.layer.masksToBounds = YES;
     self.addressTextField.layer.cornerRadius = 5.0f;
+}
+
+- (void)_layoutMyLocationImageView {
+    self.myLocationImageView.image = [self.myLocationImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.myLocationImageView.tintColor = [BBConstantAndColor applicationOrangeColor];
 }
 
 #pragma mark - Lazy Load

@@ -47,6 +47,19 @@
                                     <constraint firstAttribute="height" constant="50" id="m2J-Fl-5Wn"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQv-f5-Ep3">
+                                <rect key="frame" x="240" y="551" width="119" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FfA-re-fn6"/>
+                                    <constraint firstAttribute="width" constant="119" id="rZY-1R-FeO"/>
+                                </constraints>
+                                <state key="normal" title="ДОБАВИТЬ">
+                                    <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonAction:" destination="Ugl-GC-nV2" eventType="touchUpInside" id="oON-hB-jG5"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWK-FY-U10" customClass="BBTextField">
                                 <rect key="frame" x="20" y="28" width="560" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,16 +76,20 @@
                             <constraint firstItem="SBI-u7-CGd" firstAttribute="centerX" secondItem="p8E-Ar-EOQ" secondAttribute="centerX" id="8nj-dm-0fp"/>
                             <constraint firstItem="XrB-kU-sGc" firstAttribute="leading" secondItem="p8E-Ar-EOQ" secondAttribute="leading" id="Hix-ep-aVF"/>
                             <constraint firstAttribute="trailing" secondItem="yWK-FY-U10" secondAttribute="trailing" constant="20" id="PKN-HK-M5Y"/>
+                            <constraint firstItem="sVR-Yi-SJu" firstAttribute="top" secondItem="tQv-f5-Ep3" secondAttribute="bottom" constant="19" id="bJJ-0F-eNp"/>
                             <constraint firstItem="XrB-kU-sGc" firstAttribute="top" secondItem="p8E-Ar-EOQ" secondAttribute="top" id="dXW-9s-6ce"/>
                             <constraint firstItem="yWK-FY-U10" firstAttribute="top" secondItem="ZNU-9b-yIJ" secondAttribute="bottom" constant="8" id="g1X-Jv-N3T"/>
                             <constraint firstAttribute="trailing" secondItem="XrB-kU-sGc" secondAttribute="trailing" id="h7O-gN-6dI"/>
+                            <constraint firstItem="tQv-f5-Ep3" firstAttribute="centerX" secondItem="p8E-Ar-EOQ" secondAttribute="centerX" id="iKQ-Vd-3sQ"/>
                             <constraint firstItem="sVR-Yi-SJu" firstAttribute="top" secondItem="XrB-kU-sGc" secondAttribute="bottom" id="pIw-k5-BaQ"/>
                             <constraint firstItem="yWK-FY-U10" firstAttribute="leading" secondItem="p8E-Ar-EOQ" secondAttribute="leading" constant="20" id="sY5-Nx-W0l"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="tQv-f5-Ep3" id="sL1-F2-7DE"/>
                         <outlet property="addressTextField" destination="yWK-FY-U10" id="8TG-Do-jhy"/>
                         <outlet property="mapView" destination="XrB-kU-sGc" id="ndz-bV-QDT"/>
+                        <outlet property="myLocationImageView" destination="SBI-u7-CGd" id="rlC-Zf-BdF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oll-3V-btR" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,13 +14,9 @@
 
 #import "BBNavigationModuleInput.h"
 
-#import "BBAddress.h"
-
 @interface BBMapPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-
-@property (strong, nonatomic) BBAddress *currentAddres;
 
 @end
 
@@ -38,9 +34,7 @@
 }
 
 - (void)viewWillAppear {
-    if (!self.currentAddres) {
-        [self.interactor currentLocation];
-    }
+    [self.interactor currentLocation];
 }
 
 - (void)myLocationButtonDidTap {
@@ -72,7 +66,6 @@
 
 - (void)currentAddresByCoordinate:(BBAddress *)address {
     [self.view updateTextFieldAddressWithAddress:address];
-    self.currentAddres = address;
 }
 
 - (void)currentLocationWithLocation:(CLLocationCoordinate2D)coordinate {
