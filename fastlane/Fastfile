@@ -1,0 +1,70 @@
+fastlane_version "1.94.0"
+
+default_platform :ios
+
+platform :ios do
+
+  before_all do
+   # eure_git_status_clean
+   # cocoapods
+    increment_build_number
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  lane :beta do
+    sigh(development: true, output_path: "/tmp")
+    gym(scheme: 'JustForYou', use_legacy_build_api: true)
+    crashlytics(
+      api_token: ENV["CRASHLYTICS_API_TOKEN"],
+      build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
+      notes: "",
+      groups: ['justforyoutesters']
+    )
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :testflight do
+    # match(type: "appstore") # more information: https://codesigning.guide
+    gym # Build your app - more options available
+    pilot
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :appstore do
+    # match(type: "appstore")
+    # snapshot
+    gym # Build your app - more options available
+    deliver(force: true)
+    # frameit
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    build_number = Actions.lane_context[Actions::SharedValues::BUILD_NUMBER]
+    sh "git add -A"
+    sh "git commit -m \"Bulid \##{build_number}\""
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
