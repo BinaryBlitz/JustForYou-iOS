@@ -18,4 +18,7 @@
 
 - (void)updateInfoUserWithUser:(BBUser *)user;
 
+- (void)showLoaderView;
+- (void)hideLoaderView;
+
 @end

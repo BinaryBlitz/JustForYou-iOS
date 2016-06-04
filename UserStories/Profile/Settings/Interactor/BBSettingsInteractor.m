@@ -10,6 +10,8 @@
 
 #import "BBSettingsInteractorOutput.h"
 
+#import "BBServerService.h"
+
 @implementation BBSettingsInteractor
 
 #pragma mark - Методы BBSettingsInteractorInput
@@ -19,7 +21,19 @@
 }
 
 - (void)saveUser:(BBUser *)user {
-    [[BBUserService sharedService] saveCurrentUser:user];
+    [[BBServerService sharedService] updateUserWithUser:user completion:^(BBServerServiceConnection key, BBUser *user, NSError *error) {
+        if (key == kSuccessfullyConnection) {
+            if (user) {
+                [[BBUserService sharedService] saveCurrentUser:user];
+                [self.output updateUserSuccessfully];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output noConnectionNetwork];
+        }
+
+    }];
 }
 
 @end

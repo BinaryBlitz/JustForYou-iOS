@@ -10,4 +10,11 @@
 
 @protocol BBSettingsInteractorOutput <NSObject>
 
+- (void)updateUserSuccessfully;
+
+- (void)noConnectionNetwork;
+
+- (void)errorServer;
+
+
 @end

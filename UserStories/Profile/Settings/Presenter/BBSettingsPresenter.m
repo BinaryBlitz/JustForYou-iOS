@@ -24,6 +24,12 @@
 
 @end
 
+static NSString *kNoteTitle = @"Внимание";
+
+static NSString *kErrorNumberPhoneMessage = @"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку";
+static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
+static NSString *kErrorServer = @"Ошибка данных. Проверьте пожалуйста номер телефона";
+
 @implementation BBSettingsPresenter
 
 #pragma mark - Методы BBSettingsModuleInput
@@ -56,6 +62,21 @@
 }
 
 #pragma mark - Методы BBSettingsInteractorOutput
+
+- (void)updateUserSuccessfully {
+    [self.view hideLoaderView];
+//    [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+}
+
+- (void)noConnectionNetwork {
+    [self.view hideLoaderView];
+//    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideLoaderView];
+//    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
 
 #pragma mark - Lazy Load
 

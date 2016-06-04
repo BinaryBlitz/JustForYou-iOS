@@ -130,6 +130,7 @@ static CGFloat offsetBottom = 10.0f;
     } else {
         self.emailCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите E-mail"];
+        textCell.textField.keyboardType = UIKeyboardTypeEmailAddress;
         textCell.textField.returnKeyType = UIReturnKeyDone;
     }
     return textCell;

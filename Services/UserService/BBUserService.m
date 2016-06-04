@@ -9,7 +9,6 @@
 #import "BBUserService.h"
 
 
-static NSString *kApiTokenUser = @"kApiToken";
 static NSString *kCurrentUser = @"kCurrentUser";
 
 static NSString *kUserReplacement = @"kUserReplacement";
@@ -28,13 +27,14 @@ static NSString *kUserReplacement = @"kUserReplacement";
 
 #pragma mark - Methods For User
 
-- (void)saveApiTokenUser:(NSString *)apiToken {
-    [[NSUserDefaults standardUserDefaults] setObject:apiToken forKey:kApiTokenUser];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 - (NSString *)tokenUser {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kApiTokenUser];
+    NSData* userData = [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentUser];
+    NSString *apiToken = nil;
+    if (userData) {
+        BBUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        apiToken = user.apiToken;
+    }
+    return apiToken;
 }
 
 - (BBUser *)currentUser {
