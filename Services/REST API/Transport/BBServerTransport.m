@@ -32,6 +32,17 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)verificationUserWithNumberPhohe:(NSString *)phone codeSMS:(NSString *)code verificateToken:(NSString *)token completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/verification_tokens/%@", kServerURL, token]];
+    
+    NSDictionary* parameters = @{@"phone_number" : phone,
+                                 @"code"         : code};
+    
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
+    [self sendRequest:request completion:completion];
+}
+
 - (void)createUser:(BBUser *)user completion:(CompletionBlock)completion {
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
@@ -47,12 +58,12 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
-- (void)showUser:(BBUser *)user completion:(CompletionBlock)completion {
+- (void)showUser:(NSString *)apiToken completion:(CompletionBlock)completion {
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
     
-    NSDictionary* parameters = @{@"api_token" : user.apiToken};
+    NSDictionary* parameters = @{@"api_token" : apiToken};
     request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:GET];
     [self sendRequest:request completion:completion];
 }
@@ -89,7 +100,7 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
         NSData* data = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
         request.HTTPBody = data;
     }
-    request.HTTPMethod = POST;
+    request.HTTPMethod = http;
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     

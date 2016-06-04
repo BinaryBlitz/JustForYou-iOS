@@ -38,12 +38,31 @@
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport sendUserNumberPhoneWithString:numberPhone completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        
         NSString *token = nil;
         if (!error) {
             token = [data parseAuthorizateToken];
         }
+        
         if (completion) {
-            completion(self.keyConnection, token, error);
+            completion(responseServer, token, error);
+        }
+    }];
+}
+
+- (void)verificationUserWithNumberPhohe:(NSString *)phone codeSMS:(NSString *)code verificateToken:(NSString *)token completion:(AuthCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport verificationUserWithNumberPhohe:phone codeSMS:code verificateToken:token completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        
+        NSString *token = nil;
+        if (!error) {
+            token = [data parseApiToken];
+        }
+        
+        if (completion) {
+            completion(responseServer, token, error);
         }
     }];
 }
@@ -51,6 +70,8 @@
 - (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        
         BBUser *user = nil;
         
         if (!error) {
@@ -58,22 +79,22 @@
         }
         
         if (completion) {
-            completion(self.keyConnection, user, error);
+            completion(responseServer, user, error);
         }
     }];
 }
 
-#warning check this methods
-
-- (void)showUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
+- (void)showUserWithUserToken:(NSString *)apiToken completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
-    [self.transport showUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.transport showUser:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        
         BBUser *user = nil;
         if (!error) {
             user = [data parseRegisterResponseWithData];
         }
         if (completion) {
-            completion(self.keyConnection, user, error);
+            completion(responseServer, user, error);
         }
     }];
 }
@@ -81,12 +102,14 @@
 - (void)updateUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport updateUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        
         BBUser *user = nil;
         if (!error) {
             user = [data parseRegisterResponseWithData];
         }
         if (completion) {
-            completion(self.keyConnection, user, error);
+            completion(responseServer, user, error);
         }
     }];
 }

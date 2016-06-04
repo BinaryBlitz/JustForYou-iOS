@@ -10,6 +10,10 @@
 
 @protocol BBAuthorizationInteractorInput <NSObject>
 
-- (void)sendNumberPhoneWithPrimaryPhone:(NSString *)primaryPhone;
+- (void)sendNumberPhoneWithPhone:(NSString *)phone;
+
+- (void)sendCodeUserWithCode:(NSString *)code numberPhone:(NSString *)phone authTiken:(NSString *)token;
+
+- (void)getUserOnServerAndSaveWithToken:(NSString *)token;
 
 @end

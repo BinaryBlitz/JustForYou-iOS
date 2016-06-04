@@ -26,6 +26,7 @@
 @property (strong, nonatomic) id<BBGreetingModuleInput> greetingModule;
 
 @property (strong, nonatomic) NSString *userPhone;
+@property (strong, nonatomic) NSString *authToken;
 
 @end
 
@@ -47,9 +48,10 @@ static NSString *kErrorServer = @"Ошибка сервера. Попробуй�
     
 }
 
-- (void)presentWithNavigModule:(id)navigModule andUserPhone:(NSString *)phone {
+- (void)presentWithNavigModule:(id)navigModule andUserPhone:(NSString *)phone authToken:(NSString *)authToken {
     self.navigModule = navigModule;
     self.userPhone = phone;
+    self.authToken = authToken;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 //    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentViewWithLoadModule:BBRegistrationModule]];
 }

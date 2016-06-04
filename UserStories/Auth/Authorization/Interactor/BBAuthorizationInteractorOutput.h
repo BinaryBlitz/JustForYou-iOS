@@ -12,6 +12,11 @@
 
 - (void)sendCodeSuccessfullyWithAuthToken:(NSString *)token;
 
+- (void)codeSuccessfullyButUserMissingOnServer;
+- (void)codeSuccessfullyWithUserToken:(NSString *)token;
+
+- (void)userSuccessfullAuthorizate;
+
 - (void)noConnectionNetwork;
 
 - (void)errorServer;

@@ -15,9 +15,9 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 @interface BBServerTransport : NSObject
 
 - (void)sendUserNumberPhoneWithString:(NSString *)userPhone completion:(CompletionBlock)completion;
-
+- (void)verificationUserWithNumberPhohe:(NSString *)phone codeSMS:(NSString *)code verificateToken:(NSString *)token completion:(CompletionBlock)completion;
 - (void)createUser:(BBUser *)user completion:(CompletionBlock)completion;
-- (void)showUser:(BBUser *)user completion:(CompletionBlock)completion;
+- (void)showUser:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)updateUser:(BBUser *)user completion:(CompletionBlock)completion;
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion;

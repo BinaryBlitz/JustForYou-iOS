@@ -16,6 +16,10 @@
     return [[NSJSONSerialization JSONObjectWithData:self options:0 error:nil] objectForKey:@"token"];
 }
 
+- (NSString *)parseApiToken {
+    return [[NSJSONSerialization JSONObjectWithData:self options:0 error:nil] objectForKey:@"api_token"];
+}
+
 #warning see this method for error server
 
 - (BBUser *)parseRegisterResponseWithData {

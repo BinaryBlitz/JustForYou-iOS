@@ -181,6 +181,7 @@
 		3A311FF91CF7245F00D179D1 /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FF81CF7245F00D179D1 /* BBAddressService.m */; };
 		3A311FFC1CF724CC00D179D1 /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFB1CF724CC00D179D1 /* BBAddress.m */; };
 		3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFE1CF74EA800D179D1 /* BBTextField.m */; };
+		3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */; };
 		3A7EF7801D01FD87008196AC /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7EF77F1D01FD87008196AC /* BBOrder.m */; };
 		3AB21D101CFA066B0090F436 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D0F1CFA066B0090F436 /* Reachability.m */; };
 		3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D171CFA130A0090F436 /* BBParentViewController.m */; };
@@ -630,6 +631,8 @@
 		3A311FFB1CF724CC00D179D1 /* BBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddress.m; sourceTree = "<group>"; };
 		3A311FFD1CF74EA700D179D1 /* BBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextField.h; sourceTree = "<group>"; };
 		3A311FFE1CF74EA800D179D1 /* BBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextField.m; sourceTree = "<group>"; };
+		3A36B6EE1D03652D00A32B51 /* BBServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBServerResponse.h; sourceTree = "<group>"; };
+		3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBServerResponse.m; sourceTree = "<group>"; };
 		3A7EF77E1D01FD87008196AC /* BBOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrder.h; sourceTree = "<group>"; };
 		3A7EF77F1D01FD87008196AC /* BBOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrder.m; sourceTree = "<group>"; };
 		3AB21D0E1CFA066B0090F436 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -2352,6 +2355,8 @@
 			children = (
 				3A2D56E01CF07D9000A8EFF5 /* BBServerService.h */,
 				3A2D56E11CF07D9000A8EFF5 /* BBServerService.m */,
+				3A36B6EE1D03652D00A32B51 /* BBServerResponse.h */,
+				3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */,
 			);
 			path = ServerAPIService;
 			sourceTree = "<group>";
@@ -2698,6 +2703,7 @@
 				3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */,
 				3A2D569F1CF075D200A8EFF5 /* BBTabbarViewController.m in Sources */,
 				3A2D56691CF075D200A8EFF5 /* BBGreetingPresenter.m in Sources */,
+				3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */,
 				3A2D56DE1CF075D200A8EFF5 /* BBStockTableViewCell.m in Sources */,
 				3A2D569E1CF075D200A8EFF5 /* BBTabbarRouter.m in Sources */,
 				3A2D56AA1CF075D200A8EFF5 /* BBMyProgramsPresenter.m in Sources */,

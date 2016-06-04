@@ -20,7 +20,7 @@ typedef enum : NSUInteger {
 - (void)showLoaderView;
 - (void)hideLoaderView;
 
-- (void)getNumberPhoneUser;
+- (void)getCodeUser;
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key;
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;

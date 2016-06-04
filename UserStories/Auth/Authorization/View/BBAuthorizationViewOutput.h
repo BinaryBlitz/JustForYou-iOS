@@ -16,7 +16,7 @@
 
 - (void)backButtonDidTap;
 
-- (void)numberPhoneUserWithString:(NSString *)phone;
+- (void)codeUser:(NSString *)code;
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber;
 

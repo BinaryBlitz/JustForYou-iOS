@@ -13,6 +13,7 @@
 @interface NSData (BBParserAPI)
 
 - (NSString *)parseAuthorizateToken;
+- (NSString *)parseApiToken;
 
 - (id)parseSearchAddress;
 

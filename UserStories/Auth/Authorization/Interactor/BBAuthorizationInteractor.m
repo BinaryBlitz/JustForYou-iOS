@@ -11,17 +11,15 @@
 #import "BBAuthorizationInteractorOutput.h"
 
 #import "BBServerService.h"
-
-#import "BBValidationService.h"
+#import "BBUserService.h"
 
 @implementation BBAuthorizationInteractor
 
 #pragma mark - Методы BBAuthorizationInteractorInput
 
-- (void)sendNumberPhoneWithPrimaryPhone:(NSString *)primaryPhone {
-     NSString *numberPhone = [BBValidationService numberPhoneWithPrimaryString:primaryPhone];
-    [[BBServerService sharedService] userNumberPhoneWithString:numberPhone completion:^(BBServerServiceConnection key, NSString* token, NSError* error) {
-        if (key == kSuccessfullyConnection) {
+- (void)sendNumberPhoneWithPhone:(NSString *)phone {
+    [[BBServerService sharedService] userNumberPhoneWithString:phone completion:^(BBServerResponse *response, NSString* token, NSError* error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
             if (token) {
                 [self.output sendCodeSuccessfullyWithAuthToken:token];
             } else {
@@ -31,6 +29,37 @@
             [self.output noConnectionNetwork];
         }
         
+    }];
+}
+
+- (void)sendCodeUserWithCode:(NSString *)code numberPhone:(NSString *)phone authTiken:(NSString *)token {
+    [[BBServerService sharedService] verificationUserWithNumberPhohe:phone codeSMS:code verificateToken:token completion:^(BBServerResponse *response, NSString *token, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.responseCode == kResponce200 && ([token isKindOfClass:[NSNull class]] || token == nil)) {
+                [self.output codeSuccessfullyButUserMissingOnServer];
+            } else if (token && [token isKindOfClass:[NSString class]]) {
+                [self.output codeSuccessfullyWithUserToken:token];
+            } else if(response.serverError != kServerErrorSuccessfull) {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output noConnectionNetwork];
+        }
+    }];
+}
+
+- (void)getUserOnServerAndSaveWithToken:(NSString *)token {
+    [[BBServerService sharedService] showUserWithUserToken:token completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (user) {
+                [[BBUserService sharedService] saveCurrentUser:user];
+                [self.output sendCodeSuccessfullyWithAuthToken:token];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output noConnectionNetwork];
+        }
     }];
 }
 

@@ -102,8 +102,8 @@ static CGFloat offsetBottom = 10.0f;
     });
 }
 
-- (void)getNumberPhoneUser {
-    [self.output numberPhoneUserWithString:self.numberCell.numberTextField.text];
+- (void)getCodeUser {
+    [self.output codeUser:self.textCell.textField.text];
 }
 
 #pragma mark - Actions Methods

@@ -22,7 +22,10 @@
 @interface BBAuthorizationPresenter()
 
 @property (strong, nonatomic) id<BBRegistrationModuleInput> registModule;
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+
+@property (strong, nonatomic) NSString *authToken;
+@property (strong, nonatomic) NSString *numberPhone;
 
 @end
 
@@ -41,7 +44,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (id)currentViewWithModule:(id)module {
-    self.navigModule = module;
+    self.navigationModule = module;
     return self.view;
 }
 
@@ -56,22 +59,22 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)nextButtonDidPress {
-    [self.view getNumberPhoneUser];
+    [self.view getCodeUser];
 }
 
 - (void)backButtonDidTap {
     [self.view updateTableViewWithKeyTableView:kNumberPhoneStyleTableView];
 }
 
-- (void)numberPhoneUserWithString:(NSString *)phone {
-    phone = [BBValidationService numberPhoneWithPrimaryString:phone];
-    [self.registModule presentWithNavigModule:self.navigModule andUserPhone:phone];
+- (void)codeUser:(NSString *)code {
+    [self.interactor sendCodeUserWithCode:code numberPhone:self.numberPhone authTiken:self.authToken];
 }
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber {
     if (valid) {
         [self.view showLoaderView];
-        [self.interactor sendNumberPhoneWithPrimaryPhone:primaryNumber];
+        self.numberPhone = [BBValidationService numberPhoneWithPrimaryString:primaryNumber];
+        [self.interactor sendNumberPhoneWithPhone:self.numberPhone];
     } else {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorNumberPhoneMessage];
     }
@@ -81,7 +84,20 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 
 - (void)sendCodeSuccessfullyWithAuthToken:(NSString *)token {
     [self.view hideLoaderView];
+    self.authToken = token;
     [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+}
+
+- (void)codeSuccessfullyButUserMissingOnServer {
+    [self.registModule presentWithNavigModule:self.navigationModule andUserPhone:self.numberPhone authToken:self.authToken];
+}
+
+- (void)codeSuccessfullyWithUserToken:(NSString *)token {
+    [self.interactor getUserOnServerAndSaveWithToken:token];
+}
+
+- (void)userSuccessfullAuthorizate {
+    [self.navigationModule userRegistrationFulfilled];
 }
 
 - (void)noConnectionNetwork {
