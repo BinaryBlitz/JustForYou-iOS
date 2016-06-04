@@ -67,6 +67,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)codeUser:(NSString *)code {
+    [self.view showLoaderView];
     [self.interactor sendCodeUserWithCode:code numberPhone:self.numberPhone authTiken:self.authToken];
 }
 
@@ -89,6 +90,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)codeSuccessfullyButUserMissingOnServer {
+    [self.view hideLoaderView];
     [self.registModule presentWithNavigModule:self.navigationModule andUserPhone:self.numberPhone authToken:self.authToken];
 }
 
@@ -97,6 +99,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)userSuccessfullAuthorizate {
+    [self.view hideLoaderView];
     [self.navigationModule userRegistrationFulfilled];
 }
 
