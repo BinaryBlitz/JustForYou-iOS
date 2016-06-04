@@ -122,9 +122,11 @@ static CGFloat offsetBottom = 10.0f;
     textCell.textField.delegate = self;
     textCell.textField.returnKeyType = UIReturnKeyNext;
     if (indexPath.row == kNameTextFiledCell) {
+        textCell.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
         self.nameCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите имя"];
     } else if (indexPath.row == kSubnameTextFiledCell) {
+        textCell.textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
         self.surnameCell = textCell;
         [textCell setPlaceholderInTextField:@"Введите фамилию"];
     } else {
