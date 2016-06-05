@@ -13,6 +13,8 @@
 @interface BBProfileViewController() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) BBUser *currentUser;
+
 @end
 
 static NSInteger numberOfRowsInSecondSection = 5;
@@ -29,6 +31,7 @@ static NSInteger numberOfRowsInSecondSection = 5;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.output viewWillAppear];
 }
 
 #pragma mark - Actions
@@ -44,6 +47,13 @@ static NSInteger numberOfRowsInSecondSection = 5;
     [self _initRightBarButton];
     [self _setHeightCell];
     self.navigationItem.title = kNameTitleProfileModule;
+}
+
+- (void)currentUser:(BBUser *)user {
+    self.currentUser = user;
+    [self.tableView beginUpdates];
+    [self.tableView reloadData];
+    [self.tableView endUpdates];
 }
 
 #pragma mark - TableView Methods
@@ -77,7 +87,6 @@ static NSInteger numberOfRowsInSecondSection = 5;
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             BBProfileTableViewCell *profileCell = [self.tableView dequeueReusableCellWithIdentifier:kProfileCellIdentifire];
-            
             cell = profileCell;
         }
         if (indexPath.row == 1) {
@@ -117,6 +126,13 @@ static NSInteger numberOfRowsInSecondSection = 5;
         cell = accessoryCell;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell isKindOfClass:[BBProfileTableViewCell class]]) {
+        BBProfileTableViewCell *profileCell = (BBProfileTableViewCell *)cell;
+        profileCell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.currentUser.name, self.currentUser.surname];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

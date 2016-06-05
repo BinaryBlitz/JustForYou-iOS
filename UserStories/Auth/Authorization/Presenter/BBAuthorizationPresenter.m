@@ -26,12 +26,15 @@
 
 @property (strong, nonatomic) NSString *authToken;
 @property (strong, nonatomic) NSString *numberPhone;
+@property (assign, nonatomic) BOOL validCodeInServer;
 
 @end
 
 static NSString *kNoteTitle = @"Внимание";
 
 static NSString *kErrorNumberPhoneMessage = @"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку";
+static NSString *kSendAgainCode = @"Код выслан вам повторно";
+static NSString *kOldCodeEnter = @"Введеный вами код устарел. Пожалуйста дождитесь нового кода";
 static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
 static NSString *kErrorServer = @"Ошибка данных. Проверьте пожалуйста номер телефона";
 
@@ -40,7 +43,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 #pragma mark - Методы BBAuthorizationModuleInput
 
 - (void)configureModule {
-    
+    self.validCodeInServer = YES;
 }
 
 - (id)currentViewWithModule:(id)module {
@@ -67,6 +70,10 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)codeUser:(NSString *)code {
+    if (self.validCodeInServer == NO) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kOldCodeEnter];
+        return;
+    }
     [self.view showLoaderView];
     [self.interactor sendCodeUserWithCode:code numberPhone:self.numberPhone authTiken:self.authToken];
 }
@@ -81,11 +88,19 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
     }
 }
 
+- (void)sengAgainButtonDidTap {
+    self.validCodeInServer = NO;
+    [self.view showLoaderView];
+    [self.interactor sendNumberPhoneWithPhone:self.numberPhone];
+    [self.view presentAlertWithTitle:@"" message:kSendAgainCode];
+}
+
 #pragma mark - Методы BBAuthorizationInteractorOutput
 
 - (void)sendCodeSuccessfullyWithAuthToken:(NSString *)token {
     [self.view hideLoaderView];
     self.authToken = token;
+    self.validCodeInServer = YES;
     [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
 }
 
@@ -110,6 +125,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 
 - (void)errorServer {
     [self.view hideLoaderView];
+    self.validCodeInServer = YES;
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 

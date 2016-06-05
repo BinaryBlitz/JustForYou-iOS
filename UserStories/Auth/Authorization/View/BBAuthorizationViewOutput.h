@@ -19,5 +19,6 @@
 - (void)codeUser:(NSString *)code;
 
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber;
+- (void)sengAgainButtonDidTap;
 
 @end

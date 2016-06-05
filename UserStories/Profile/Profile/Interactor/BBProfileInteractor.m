@@ -10,8 +10,14 @@
 
 #import "BBProfileInteractorOutput.h"
 
+#import "BBUserService.h"
+
 @implementation BBProfileInteractor
 
 #pragma mark - Методы BBProfileInteractorInput
+
+- (void)currentUser {
+    [self.output currentUserWithUser:[[BBUserService sharedService] currentUser]];
+}
 
 @end

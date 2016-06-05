@@ -67,17 +67,17 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
-- (void)updateUser:(BBUser *)user completion:(CompletionBlock)completion {
+- (void)updateUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
     
-//    NSDictionary* parameters = @{@"api_token"    : user.apiToken,
-//                                 @"phone_number" : user.numberPhone,
-//                                 @"first_name"   : user.name,
-//                                 @"last_name"    : user.surname,
-//                                 @"email"        : user.email};
-//    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
+    NSDictionary* parameters = @{@"api_token"    : apiToken,
+                                 @"phone_number" : user.numberPhone,
+                                 @"first_name"   : user.name,
+                                 @"last_name"    : user.surname,
+                                 @"email"        : user.email};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
     [self sendRequest:request completion:completion];
 }
 

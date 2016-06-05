@@ -49,6 +49,7 @@ static CGFloat heightFooterSection = 1.0f;
 
 -(void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self _resignFirstResponderWithTap];
     [self.output viewWillDisappear];
 }
 

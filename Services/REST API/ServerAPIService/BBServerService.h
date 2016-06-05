@@ -24,6 +24,6 @@ typedef void (^ReceiveData)(NSData* data);
 - (void)verificationUserWithNumberPhohe:(NSString *)phone codeSMS:(NSString *)code verificateToken:(NSString *)token completion:(AuthCompletion)completion;
 - (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion;
 - (void)showUserWithUserToken:(NSString *)apiToken completion:(RegistrationCompletion)completion;
-- (void)updateUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion;
+- (void)updateUserWithUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(RegistrationCompletion)completion;
 
 @end

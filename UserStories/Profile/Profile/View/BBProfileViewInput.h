@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBUser.h"
+
 @protocol BBProfileViewInput <NSObject>
 
 - (void)setupInitialState;
+
+- (void)currentUser:(BBUser *)user;
 
 @end

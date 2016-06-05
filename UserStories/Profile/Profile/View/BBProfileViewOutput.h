@@ -16,4 +16,6 @@
 
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key;
 
+- (void)viewWillAppear;
+
 @end

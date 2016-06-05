@@ -99,15 +99,11 @@
     }];
 }
 
-- (void)updateUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
+- (void)updateUserWithUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
-    [self.transport updateUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.transport updateUser:user apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         
-        BBUser *user = nil;
-        if (!error) {
-            user = [data parseRegisterResponseWithData];
-        }
         if (completion) {
             completion(responseServer, user, error);
         }

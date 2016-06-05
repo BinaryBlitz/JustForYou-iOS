@@ -32,5 +32,6 @@ typedef enum : NSUInteger{
 @protocol BBInfoRegistrateCellDelegate <NSObject>
 
 - (void)sendCodeButtonDidTap;
+- (void)sengAgainButtonDidTap;
 
 @end

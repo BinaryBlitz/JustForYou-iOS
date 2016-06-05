@@ -1891,10 +1891,10 @@
 		3A2D55E01CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55E11CF075D200A8EFF5 /* BBProfileInteractor.h */,
-				3A2D55E21CF075D200A8EFF5 /* BBProfileInteractor.m */,
 				3A2D55E31CF075D200A8EFF5 /* BBProfileInteractorInput.h */,
 				3A2D55E41CF075D200A8EFF5 /* BBProfileInteractorOutput.h */,
+				3A2D55E11CF075D200A8EFF5 /* BBProfileInteractor.h */,
+				3A2D55E21CF075D200A8EFF5 /* BBProfileInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";

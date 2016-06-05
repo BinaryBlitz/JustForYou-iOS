@@ -103,6 +103,7 @@ static CGFloat offsetBottom = 10.0f;
 }
 
 - (void)getCodeUser {
+    [self _resignFirstResponderWithTap];
     [self.output codeUser:self.textCell.textField.text];
 }
 
@@ -127,6 +128,10 @@ static CGFloat offsetBottom = 10.0f;
     [self.numberCell.numberTextField resignFirstResponder];
     self.numberPhone = self.numberCell.numberTextField.text;
     [self.output sendCodeButtonDidTapWithValidField:self.numberCell.validationOk andNumberPhone:self.numberPhone];
+}
+
+- (void)sengAgainButtonDidTap {
+    [self.output sengAgainButtonDidTap];
 }
 
 #pragma mark - UITableView

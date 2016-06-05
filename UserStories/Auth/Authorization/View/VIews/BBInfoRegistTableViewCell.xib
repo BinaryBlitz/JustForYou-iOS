@@ -34,6 +34,9 @@
                         <state key="normal" title="Выслать повторно">
                             <color key="titleColor" red="0.35686274509999999" green="0.6588235294" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="sendAgainButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2V0-hs-smJ"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZl-CV-pnp">
                         <rect key="frame" x="66" y="20" width="188" height="39"/>

@@ -18,7 +18,7 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 - (void)verificationUserWithNumberPhohe:(NSString *)phone codeSMS:(NSString *)code verificateToken:(NSString *)token completion:(CompletionBlock)completion;
 - (void)createUser:(BBUser *)user completion:(CompletionBlock)completion;
 - (void)showUser:(NSString *)apiToken completion:(CompletionBlock)completion;
-- (void)updateUser:(BBUser *)user completion:(CompletionBlock)completion;
+- (void)updateUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion;
 

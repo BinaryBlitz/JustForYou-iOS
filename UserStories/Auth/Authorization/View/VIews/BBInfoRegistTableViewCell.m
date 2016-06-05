@@ -42,6 +42,14 @@
     [self.delegate sendCodeButtonDidTap];
 }
 
+- (IBAction)sendAgainButton:(id)sender {
+    self.sendAgainButton.enabled = NO;
+    HQDispatchAfter(5, ^{
+        self.sendAgainButton.enabled = YES;
+    });
+    [self.delegate sengAgainButtonDidTap];
+}
+
 - (void)drawRect:(CGRect)rect {
     if (self.keyStyleCell == kBigInfoRegistCellStyle) {
         self.infoLabel.hidden = YES;

@@ -22,18 +22,18 @@
 }
 
 - (void)saveUser:(BBUser *)user {
-//    [[BBServerService sharedService] updateUserWithUser:user completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
-//        if (response.kConnectionServer == kSuccessfullyConnection) {
-//            if (user) {
-//                [[BBUserService sharedService] saveCurrentUser:user];
+    [[BBUserService sharedService] saveCurrentUser:user];
+    [[BBServerService sharedService] updateUserWithUser:user apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.serverError == kServerErrorSuccessfull ) {
                 [self.output updateUserSuccessfully];
-//            } else {
-//                [self.output errorServer];
-//            }
-//        } else {
-//            [self.output noConnectionNetwork];
-//        }
-//    }];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output noConnectionNetwork];
+        }
+    }];
 }
 
 - (void)logoutUser {

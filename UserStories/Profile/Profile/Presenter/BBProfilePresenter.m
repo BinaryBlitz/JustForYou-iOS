@@ -51,6 +51,10 @@
 	[self.view setupInitialState];
 }
 
+- (void)viewWillAppear {
+    [self.interactor currentUser];
+}
+
 - (void)settingsButtonDidTap {
     [self.settingsModule pushModuleWithNavigationModule:self.navigationModule];
 }
@@ -64,6 +68,10 @@
 }
 
 #pragma mark - Методы BBProfileInteractorOutput
+
+- (void)currentUserWithUser:(BBUser *)user {
+    [self.view currentUser:user];
+}
 
 #pragma mark - Lazy Load
 
