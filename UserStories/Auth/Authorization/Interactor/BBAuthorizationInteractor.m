@@ -35,13 +35,14 @@
 - (void)sendCodeUserWithCode:(NSString *)code numberPhone:(NSString *)phone authTiken:(NSString *)token {
     [[BBServerService sharedService] verificationUserWithNumberPhohe:phone codeSMS:code verificateToken:token completion:^(BBServerResponse *response, NSString *token, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
-//            if (response.responseCode == kResponce200 && ([token isKindOfClass:[NSNull class]] || token == nil)) {
+            if (response.responseCode == kResponce200 && ([token isKindOfClass:[NSNull class]] || token == nil)) {
                 [self.output codeSuccessfullyButUserMissingOnServer];
-//            } else if (token && [token isKindOfClass:[NSString class]]) {
-//                [self.output codeSuccessfullyWithUserToken:token];
-//            } else if(response.serverError != kServerErrorSuccessfull) {
-//                [self.output errorServer];
-//            }
+            } else if (token && [token isKindOfClass:[NSString class]]) {
+                [[BBUserService sharedService] saveUserApiToken:token];
+                [self.output codeSuccessfullyWithUserToken:token];
+            } else if(response.serverError != kServerErrorSuccessfull) {
+                [self.output errorServer];
+            }
         } else {
             [self.output noConnectionNetwork];
         }
@@ -53,7 +54,7 @@
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (user) {
                 [[BBUserService sharedService] saveCurrentUser:user];
-                [self.output sendCodeSuccessfullyWithAuthToken:token];
+                [self.output userSuccessfullAuthorizate];
             } else {
                 [self.output errorServer];
             }

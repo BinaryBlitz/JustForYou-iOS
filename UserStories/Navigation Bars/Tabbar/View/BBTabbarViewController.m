@@ -29,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [self.tabBar layoutSubviews];
 }
 
 #pragma mark - Методы BBTabbarViewInput

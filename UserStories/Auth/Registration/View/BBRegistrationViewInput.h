@@ -21,4 +21,6 @@
 - (void)showLoaderView;
 - (void)hideLoaderView;
 
+- (void)endEditingTextFields;
+
 @end

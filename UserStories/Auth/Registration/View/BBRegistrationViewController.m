@@ -75,6 +75,9 @@ static CGFloat offsetBottom = 10.0f;
     [self _settingsTableView];
 }
 
+- (void)endEditingTextFields {
+    [self _resignFirstResponderWithTap];
+}
 
 - (void)_registerNotificationKeyboard {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -162,9 +165,6 @@ static CGFloat offsetBottom = 10.0f;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimateRowHeight;
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
-////    tap.cancelsTouchesInView = NO;
-//    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - TextField Delegate Methods

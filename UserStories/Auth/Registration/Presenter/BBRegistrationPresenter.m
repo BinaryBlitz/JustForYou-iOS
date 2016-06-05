@@ -53,7 +53,6 @@ static NSString *kErrorServer = @"Ошибка сервера. Попробуй�
     self.userPhone = phone;
     self.authToken = authToken;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
-//    [self.router presentFromView:self.view withNavigationView:[self.navigModule currentViewWithLoadModule:BBRegistrationModule]];
 }
 
 #pragma mark - Методы BBRegistrationViewOutput
@@ -79,6 +78,7 @@ static NSString *kErrorServer = @"Ошибка сервера. Попробуй�
     if ([BBValidationService validationEmailWithString:user.email]) {
         user.numberPhone = self.userPhone;
         [self.view showLoaderView];
+        [self.view endEditingTextFields];
         [self.interactor saveAndSendUser:user];
     } else {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorValidEmail];

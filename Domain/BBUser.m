@@ -12,7 +12,6 @@ NSString* const kEmail = @"kEmail";
 NSString* const kUserName = @"kUserName";
 NSString* const kUserSurname = @"kUserSurname";
 NSString* const kUserId = @"kUserId";
-NSString* const kApiToken = @"kApiToken";
 NSString* const kNumberPhone = @"kNumberPhone";
 
 @implementation BBUser
@@ -25,7 +24,6 @@ NSString* const kNumberPhone = @"kNumberPhone";
         self.name = [JSONObj valueForKey:@"first_name"];
         self.surname = [JSONObj valueForKey:@"last_name"];
         self.numberPhone = [JSONObj valueForKey:@"phone_number"];
-        self.apiToken = [JSONObj valueForKey:@"api_token"];
     }
     return self;
 }
@@ -37,7 +35,6 @@ NSString* const kNumberPhone = @"kNumberPhone";
         self.name = [coder decodeObjectForKey:kUserName];
         self.surname = [coder decodeObjectForKey:kUserSurname];
         self.numberPhone = [coder decodeObjectForKey:kNumberPhone];
-        self.apiToken = [coder decodeObjectForKey:kApiToken];
         self.userId = [coder decodeIntegerForKey:kUserId];
     }
     return self;
@@ -49,7 +46,6 @@ NSString* const kNumberPhone = @"kNumberPhone";
     [aCoder encodeObject:self.surname forKey:kUserSurname];
     [aCoder encodeObject:self.numberPhone forKey:kNumberPhone];
     [aCoder encodeInteger:self.userId forKey:kUserId];
-    [aCoder encodeObject:self.apiToken forKey:kApiToken];
 }
 
 

@@ -14,6 +14,7 @@
 + (instancetype)sharedService;
 
 - (NSString *)tokenUser;
+- (void)saveUserApiToken:(NSString *)apiToken;
 
 - (BBUser *)currentUser;
 - (void)saveCurrentUser:(BBUser *)user;

@@ -72,12 +72,12 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
     
-    NSDictionary* parameters = @{@"api_token"    : user.apiToken,
-                                 @"phone_number" : user.numberPhone,
-                                 @"first_name"   : user.name,
-                                 @"last_name"    : user.surname,
-                                 @"email"        : user.email};
-    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
+//    NSDictionary* parameters = @{@"api_token"    : user.apiToken,
+//                                 @"phone_number" : user.numberPhone,
+//                                 @"first_name"   : user.name,
+//                                 @"last_name"    : user.surname,
+//                                 @"email"        : user.email};
+//    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
     [self sendRequest:request completion:completion];
 }
 
