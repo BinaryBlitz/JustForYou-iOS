@@ -27,6 +27,10 @@ static NSInteger numberOfRowsInSecondSection = 5;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 #pragma mark - Actions
 
 - (void)_settingsBarButtonAction {

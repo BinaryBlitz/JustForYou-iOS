@@ -12,6 +12,8 @@
 #import "BBNavigationInteractorInput.h"
 #import "BBNavigationRouterInput.h"
 
+#import "BBTabbarModuleOutput.h"
+
 #import "BBAuthorizationAssembly.h"
 #import "BBAuthorizationModuleInput.h"
 
@@ -31,6 +33,8 @@
 #import "BBBasketModuleInput.h"
 
 @interface BBNavigationPresenter()
+
+@property (strong, nonatomic) id<BBTabbarModuleOutput> tabbarModule;
 
 @property (strong, nonatomic) id<BBAuthorizationModuleInput> authModule;
 @property (strong, nonatomic) id<BBBlocksModuleInput> blockModule;
@@ -71,6 +75,14 @@
 
 - (void)userRegistrationFulfilled {
     [self.output userRegistrationFulfilled];
+}
+
+- (void)userLogout {
+    [self.tabbarModule userLogout];
+}
+
+- (void)setToMeTabbarModule:(id)tabbarModule {
+    self.tabbarModule = tabbarModule;
 }
 
 #pragma mark - Методы BBNavigationViewOutput

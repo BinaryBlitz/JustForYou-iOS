@@ -19,7 +19,7 @@
 
 @interface BBSettingsPresenter()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
 
 @end
@@ -39,8 +39,8 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule {
-    self.navigModule = navigationModule;
-    [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
+    self.navigationModule = navigationModule;
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBSettingsViewOutput
@@ -57,8 +57,14 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
     [self.interactor saveUser:[self.view currentInfoUser]];
 }
 
+- (void)logoutButtonDidTap {
+    [self.view showLoaderView];
+    [self.router popSelfViewControllerWithNavigationController:[self.navigationModule currentView]];
+    [self.interactor logoutUser];
+}
+
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
-    [self.universalModule pushModuleWithNavigationModule:self.navigModule keyModule:key];
+    [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
 }
 
 #pragma mark - Методы BBSettingsInteractorOutput
@@ -66,6 +72,11 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 - (void)updateUserSuccessfully {
     [self.view hideLoaderView];
 //    [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
+}
+
+- (void)userLogoutSuccessfully {
+    [self.view hideLoaderView];
+    [self.navigationModule userLogout];
 }
 
 - (void)noConnectionNetwork {

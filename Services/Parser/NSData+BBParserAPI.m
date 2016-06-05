@@ -20,8 +20,6 @@
     return [[NSJSONSerialization JSONObjectWithData:self options:0 error:nil] objectForKey:@"api_token"];
 }
 
-#warning see this method for error server
-
 - (BBUser *)parseRegisterResponseWithData {
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     BBUser *user = nil;

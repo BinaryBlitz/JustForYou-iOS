@@ -12,15 +12,6 @@
 
 - (void)didTriggerViewReadyEvent;
 
-
-#pragma mark - TabBarItems
-
-- (void)didPressItemPrograms;
-
-- (void)didPressItemOrders;
-
-- (void)didPressItemProfile;
-
-- (void)didPressItemSupport;
+- (void)viewWillAppear;
 
 @end

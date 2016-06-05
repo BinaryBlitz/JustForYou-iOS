@@ -12,7 +12,4 @@
 
 - (void)userRegistrationFulfilled;
 
-- (void)userRegistrationFulfilledWithView:(id)view;
-
-
 @end

@@ -22,8 +22,11 @@
 
 - (void)userRegistrationFulfilled;
 
+- (void)userLogout;
+
 - (void)pushViewControllerWithView:(id)view;
 
+- (void)setToMeTabbarModule:(id)tabbarModule;
 
 @property (strong, nonatomic) id<BBNavigationModuleOutput> output;
 

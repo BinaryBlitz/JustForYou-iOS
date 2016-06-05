@@ -16,24 +16,29 @@
 
 #pragma mark - Методы BBSettingsInteractorInput
 
+
 - (BBUser *)currentUser {
     return [[BBUserService sharedService] currentUser];
 }
 
 - (void)saveUser:(BBUser *)user {
-    [[BBServerService sharedService] updateUserWithUser:user completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
-        if (response.kConnectionServer == kSuccessfullyConnection) {
-            if (user) {
-                [[BBUserService sharedService] saveCurrentUser:user];
+//    [[BBServerService sharedService] updateUserWithUser:user completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
+//        if (response.kConnectionServer == kSuccessfullyConnection) {
+//            if (user) {
+//                [[BBUserService sharedService] saveCurrentUser:user];
                 [self.output updateUserSuccessfully];
-            } else {
-                [self.output errorServer];
-            }
-        } else {
-            [self.output noConnectionNetwork];
-        }
+//            } else {
+//                [self.output errorServer];
+//            }
+//        } else {
+//            [self.output noConnectionNetwork];
+//        }
+//    }];
+}
 
-    }];
+- (void)logoutUser {
+//    [[BBUserService sharedService] logOutUser];
+    [self.output userLogoutSuccessfully];
 }
 
 @end

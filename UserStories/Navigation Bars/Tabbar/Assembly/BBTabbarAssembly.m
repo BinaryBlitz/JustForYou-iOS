@@ -17,7 +17,6 @@
 
 
 + (id <BBTabbarModuleInput>)createModule {
-
     BBTabbarViewController *view = [self viewController];
 
     BBTabbarInteractor *interactor = [BBTabbarInteractor new];

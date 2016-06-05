@@ -55,7 +55,7 @@ static CGFloat heightFooterSection = 1.0f;
 #pragma mark - Actions Methods
 
 - (IBAction)logoutButtonAction:(id)sender {
-    
+    [self.output logoutButtonDidTap];
 }
 
 

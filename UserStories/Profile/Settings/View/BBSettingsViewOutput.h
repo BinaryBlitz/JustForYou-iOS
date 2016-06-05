@@ -15,6 +15,7 @@
 - (void)viewWillAppear;
 - (void)viewWillDisappear;
 
+- (void)logoutButtonDidTap;
 
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key;
 

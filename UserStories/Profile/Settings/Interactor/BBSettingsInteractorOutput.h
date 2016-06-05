@@ -12,6 +12,8 @@
 
 - (void)updateUserSuccessfully;
 
+- (void)userLogoutSuccessfully;
+
 - (void)noConnectionNetwork;
 
 - (void)errorServer;

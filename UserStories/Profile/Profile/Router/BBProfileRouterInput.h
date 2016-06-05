@@ -11,6 +11,4 @@
 
 @protocol BBProfileRouterInput <NSObject>
 
-- (void)presentFromWindow:(UIWindow *)window;
-
 @end

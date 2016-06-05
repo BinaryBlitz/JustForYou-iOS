@@ -13,4 +13,6 @@
 
 - (void)pushViewControllerWithNavigationController:(UINavigationController *)nc;
 
+- (void)popSelfViewControllerWithNavigationController:(UINavigationController *)nc;
+
 @end

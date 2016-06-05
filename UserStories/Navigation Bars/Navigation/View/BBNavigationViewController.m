@@ -24,7 +24,6 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
-
 #pragma mark - Методы BBNavigationViewInput
 
 - (void)setupInitialState {

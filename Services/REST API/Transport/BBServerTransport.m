@@ -61,10 +61,9 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 - (void)showUser:(NSString *)apiToken completion:(CompletionBlock)completion {
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user?api_token=%@", kServerURL, apiToken]];
     
-    NSDictionary* parameters = @{@"api_token" : apiToken};
-    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:GET];
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
     [self sendRequest:request completion:completion];
 }
 
@@ -74,7 +73,6 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
     
     NSDictionary* parameters = @{@"api_token"    : user.apiToken,
-                                 @"api_token"    : user.apiToken,
                                  @"phone_number" : user.numberPhone,
                                  @"first_name"   : user.name,
                                  @"last_name"    : user.surname,
@@ -87,7 +85,7 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion {
     
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]init];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = url;
     request.HTTPMethod = GET;
     [self sendRequest:request completion:completion];

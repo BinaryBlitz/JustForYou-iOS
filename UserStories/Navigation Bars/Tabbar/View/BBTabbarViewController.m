@@ -12,7 +12,7 @@
 
 #import "BBTabBar.h"
 
-@interface BBTabbarViewController() /*<BBTabbarDelegate>*/
+@interface BBTabbarViewController()
 
 @end
 
@@ -26,6 +26,10 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
 
 #pragma mark - Методы BBTabbarViewInput
 
@@ -33,6 +37,9 @@
     
 }
 
+- (void)presentFirstItem {
+    [self setSelectedIndex:0];
+}
 
 - (void)setItemsBar:(NSArray *)items {
     self.viewControllers = items;

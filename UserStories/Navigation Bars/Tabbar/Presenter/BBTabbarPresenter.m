@@ -25,13 +25,12 @@
 @property (nonatomic) id<BBNavigationModuleInput> navigationProfileModule;
 @property (nonatomic) id<BBNavigationModuleInput> navigationSupportModule;
 
-
 @property (strong, nonatomic) NSMutableArray *arrayMainModules;
-
 
 @end
 
 @implementation BBTabbarPresenter
+@synthesize output;
 
 #pragma mark - Методы BBTabbarModuleInput
 
@@ -42,6 +41,7 @@
     [self.arrayMainModules addObject:[self.navigationSupportModule currentViewWithLoadModule:BBLoadSupportModule]];
     [self.arrayMainModules addObject:[self.navigationProfileModule currentViewWithLoadModule:BBLoadProfileModule]];
     [self.view setItemsBar:self.arrayMainModules];
+    [self.navigationProfileModule setToMeTabbarModule:self];
 }
 
 - (id)currentView {
@@ -52,29 +52,18 @@
     [self.router presentFromWindow:window];
 }
 
+- (void)userLogout {
+    [self.output userLogout];
+}
+
 #pragma mark - Методы BBTabbarViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
 }
-
-
-- (void)didPressItemPrograms {
-    
+- (void)viewWillAppear {
+    [self.view presentFirstItem];
 }
-
-- (void)didPressItemOrders {
-    
-}
-
-- (void)didPressItemProfile {
-    
-}
-
-- (void)didPressItemSupport {
-    
-}
-
 
 #pragma mark - Методы BBTabbarInteractorOutput
 

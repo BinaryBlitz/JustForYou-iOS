@@ -21,14 +21,14 @@
 
 - (void)rootVC:(id)view {
     UINavigationController *nc = (UINavigationController *)self.presenter.view;
-//    nc.navigationBarHidden = YES;
     nc.viewControllers = @[view];
 }
 
 - (void)pushViewController:(id)view {
     UINavigationController *nc = (UINavigationController *)self.presenter.view;
-    
-    [nc pushViewController:view animated:YES];
+    HQDispatchToMainQueue(^{
+        [nc pushViewController:view animated:YES];
+    });
 }
 
 @end
