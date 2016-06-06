@@ -2047,10 +2047,10 @@
 		3A2D56151CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56161CF075D200A8EFF5 /* BBSupportInteractor.h */,
-				3A2D56171CF075D200A8EFF5 /* BBSupportInteractor.m */,
 				3A2D56181CF075D200A8EFF5 /* BBSupportInteractorInput.h */,
 				3A2D56191CF075D200A8EFF5 /* BBSupportInteractorOutput.h */,
+				3A2D56161CF075D200A8EFF5 /* BBSupportInteractor.h */,
+				3A2D56171CF075D200A8EFF5 /* BBSupportInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";

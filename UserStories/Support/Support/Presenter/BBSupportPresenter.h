@@ -10,6 +10,8 @@
 #import "BBSupportInteractorOutput.h"
 #import "BBSupportModuleInput.h"
 
+#import <MessageUI/MessageUI.h>
+
 @protocol BBSupportViewInput;
 @protocol BBSupportInteractorInput;
 @protocol BBSupportRouterInput;
@@ -21,7 +23,9 @@
 @property (strong, nonatomic) id<BBSupportRouterInput> router;
 
 
-- (void)kyky;
-- (void)errorEmail;
+- (void)errorOpenEmailController;
+- (void)mailControllerDissmassWithResult:(MFMailComposeResult)result;
+
+- (void)errorCallManager;
 
 @end

@@ -13,4 +13,6 @@
 
 - (void)presentMailController;
 
+- (void)callManagerOnPhone:(NSString *)phoneManager;
+
 @end

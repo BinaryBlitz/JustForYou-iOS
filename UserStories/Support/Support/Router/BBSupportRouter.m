@@ -20,6 +20,16 @@
 
 #pragma mark - BBSupportRouterInput
 
+- (void)callManagerOnPhone:(NSString *)phoneManager {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@", phoneManager]];
+    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:phoneUrl];
+    } else {
+        [self.presenter errorCallManager];
+    }
+}
+
+
 - (void)presentMailController {
     UIViewController *vc = (UIViewController *)self.presenter.view;
     if ([MFMailComposeViewController canSendMail]) {
@@ -27,7 +37,7 @@
             [vc presentViewController:self.mailController animated:YES completion:^(void){}];
         });
     } else {
-        [self.presenter errorEmail];
+        [self.presenter errorOpenEmailController];
     }
 }
 
@@ -36,9 +46,8 @@
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     UIViewController *vc = (UIViewController *)self.presenter.view;
     HQDispatchToMainQueue(^{
-//         [vc dismissViewControllerAnimated:YES completion:nil];
         [vc dismissViewControllerAnimated:YES completion:^{
-            [self.presenter kyky];
+            [self.presenter mailControllerDissmassWithResult:result];
         }];
     });
 }
@@ -51,7 +60,7 @@
         _mailController.mailComposeDelegate = self;
         [_mailController setSubject:@"iOS Приложение"];
         [_mailController setMessageBody:@"" isHTML:YES];
-        [_mailController setToRecipients:[NSArray arrayWithObjects:@"support@roscontrol.com <support@roscontrol.com>",nil]];
+        [_mailController setToRecipients:[NSArray arrayWithObjects:@"justforyouav@gmail.com",nil]];
         [_mailController becomeFirstResponder];
     }
     return _mailController;

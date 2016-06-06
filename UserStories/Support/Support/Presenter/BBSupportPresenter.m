@@ -20,6 +20,16 @@
 
 @end
 
+static NSString *kNumberPhoneManager = @"+74957075353";
+
+static NSString *kErrorTitle = @"Ошибка";
+
+static NSString *kErrorSendEmail = @"Не удалось отправить письмо";
+static NSString *kErrorCallManager = @"Произошла внутренняя ошибка приложения";
+static NSString *kErrorOpenEmail = @"В приложении \"Почта\" вашего устройства не привязан аккаунт";
+
+static NSString *kMailSuccessSend = @"Ваше письмо успешно отправлено";
+
 @implementation BBSupportPresenter
 
 #pragma mark - Методы BBSupportModuleInput
@@ -33,13 +43,24 @@
     return self.view;
 }
 
-- (void)kyky {
-    NSLog(@"KyKy");
+- (void)errorOpenEmailController {
+    [self.view presentAlertControllerWithTitle:kErrorTitle message:kErrorOpenEmail];
 }
 
-- (void)errorEmail {
-    [self.view presentAlertControllerWithTitle:@"Ошибка" message:@"В приложении \"Почта\" вашего устройства не привязан аккаунт"];
+- (void)mailControllerDissmassWithResult:(MFMailComposeResult)result {
+    if (result == MFMailComposeResultSent) {
+        [self.view presentAlertControllerWithTitle:@"" message:kMailSuccessSend];
+    }
+    
+    if (result == MFMailComposeResultFailed) {
+        [self.view presentAlertControllerWithTitle:@"" message:kErrorSendEmail];
+    }
 }
+
+- (void)errorCallManager {
+    [self.view presentAlertControllerWithTitle:kErrorTitle message:kErrorCallManager];
+}
+
 
 #pragma mark - Методы BBSupportViewOutput
 
@@ -50,6 +71,11 @@
 - (void)writeManagerButtonDidTap {
     [self.router presentMailController];
 }
+
+- (void)callManagerButtonDidTap {
+    [self.router callManagerOnPhone:kNumberPhoneManager];
+}
+
 
 #pragma mark - Методы BBSupportInteractorOutput
 
