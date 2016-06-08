@@ -110,6 +110,22 @@
     }];
 }
 
+#pragma mark - Blocks And Program
+
+- (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self.transport listBlocksWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseArrayBlocksWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
+
 #pragma mark - Orders
 
 //- (void)createOrderWithOrders:(NSArray *)orders completion{

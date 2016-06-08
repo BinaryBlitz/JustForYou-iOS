@@ -90,11 +90,15 @@ static CGFloat heightHeaderSection = 10.0f;
 - (void)endUpdateTableViewWithNewReplacement:(NSArray *)replacement {
     [self _setNewReplasement:replacement];
     NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
-//    NSLog(@"Не упал");
-    [self.tableView beginUpdates];
-    [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
-//    NSLog(@"упал");
-    [self.tableView endUpdates];
+    if ([replacement count] != 0) {
+        [self.tableView beginUpdates];
+        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+    } else {
+        [self.tableView beginUpdates];
+        [self.tableView reloadData];
+        [self.tableView endUpdates];
+    }
 }
 
 - (void)_setNewReplasement:(NSArray *)replacement {
@@ -166,6 +170,7 @@ static CGFloat heightHeaderSection = 10.0f;
             cell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
         } else {
             cell.textLabel.text = [self.replacement objectAtIndex:indexPath.section];
+            cell.textLabel.textColor = [UIColor blackColor];
         }
     } else {
         cell.textLabel.text = [NSString stringWithFormat:@"Молоко #%ld", (long)indexPath.row];

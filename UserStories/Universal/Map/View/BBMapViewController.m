@@ -81,12 +81,15 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinate.latitude
                                                             longitude:coordinate.longitude
                                                                  zoom:17];
-    
-    [self.mapView animateToCameraPosition:camera];
+    HQDispatchToMainQueue(^{
+        [self.mapView animateToCameraPosition:camera];
+    });
 }
 
 - (void)updateTextFieldAddressWithAddress:(BBAddress *)address {
-    self.addressTextField.text = [address formatedDescription];
+    HQDispatchToMainQueue(^{
+        self.addressTextField.text = [address formatedDescription];
+    });
 }
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {

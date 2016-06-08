@@ -10,6 +10,7 @@
 		0DD1BEF1040DB32C524FC2E8 /* BBReplacementRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF05A6AB8B377EDEFDB01ED /* BBReplacementRouter.m */; };
 		2991BD389DDE49D4E58B2B5D /* BBReplacementAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 72563B67D3D92F6CC90DD5DD /* BBReplacementAssembly.m */; };
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
+		3A050EFB1D0816A0000AC0B8 /* BBBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFA1D0816A0000AC0B8 /* BBBlock.m */; };
 		3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D23011CE7A60700FA8B86 /* BBProgram.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
 		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
@@ -213,6 +214,8 @@
 		2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementInteractor.m; sourceTree = "<group>"; };
 		3304FD8D99596FEEFD9612AB /* BBReplacementInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementInteractor.h; sourceTree = "<group>"; };
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
+		3A050EF91D0816A0000AC0B8 /* BBBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlock.h; sourceTree = "<group>"; };
+		3A050EFA1D0816A0000AC0B8 /* BBBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlock.m; sourceTree = "<group>"; };
 		3A0D23001CE7A60700FA8B86 /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
 		3A0D23011CE7A60700FA8B86 /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 			children = (
 				3A1347561CA6B6BE007A83ED /* BBUser.h */,
 				3A1347571CA6B6BE007A83ED /* BBUser.m */,
+				3A050EF91D0816A0000AC0B8 /* BBBlock.h */,
+				3A050EFA1D0816A0000AC0B8 /* BBBlock.m */,
 				3A0D23001CE7A60700FA8B86 /* BBProgram.h */,
 				3A0D23011CE7A60700FA8B86 /* BBProgram.m */,
 				3A311FFA1CF724CC00D179D1 /* BBAddress.h */,
@@ -1206,10 +1211,10 @@
 		3A2D54EA1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54EB1CF075D200A8EFF5 /* BBBlocksInteractor.h */,
-				3A2D54EC1CF075D200A8EFF5 /* BBBlocksInteractor.m */,
 				3A2D54ED1CF075D200A8EFF5 /* BBBlocksInteractorInput.h */,
 				3A2D54EE1CF075D200A8EFF5 /* BBBlocksInteractorOutput.h */,
+				3A2D54EB1CF075D200A8EFF5 /* BBBlocksInteractor.h */,
+				3A2D54EC1CF075D200A8EFF5 /* BBBlocksInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1237,11 +1242,11 @@
 		3A2D54F71CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D54FC1CF075D200A8EFF5 /* VIews */,
 				3A2D54FA1CF075D200A8EFF5 /* BBBlocksViewInput.h */,
 				3A2D54FB1CF075D200A8EFF5 /* BBBlocksViewOutput.h */,
 				3A2D54F81CF075D200A8EFF5 /* BBBlocksViewController.h */,
 				3A2D54F91CF075D200A8EFF5 /* BBBlocksViewController.m */,
-				3A2D54FC1CF075D200A8EFF5 /* VIews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2797,6 +2802,7 @@
 				3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */,
 				3A2D569C1CF075D200A8EFF5 /* BBTabbarInteractor.m in Sources */,
 				3A2D56BF1CF075D200A8EFF5 /* BBProfilePresenter.m in Sources */,
+				3A050EFB1D0816A0000AC0B8 /* BBBlock.m in Sources */,
 				3A2D56811CF075D200A8EFF5 /* BBCardProgramPresenter.m in Sources */,
 				3A2D56A01CF075D200A8EFF5 /* BBTabBar.m in Sources */,
 				3A2D567A1CF075D200A8EFF5 /* BBBlocksPresenter.m in Sources */,

@@ -8,6 +8,9 @@
 
 #import "NSData+BBParserAPI.h"
 
+#import "BBBlock.h"
+#import "BBProgram.h"
+
 @implementation NSData (BBParserAPI)
 
 #pragma mark - User Methods
@@ -29,6 +32,20 @@
     return user;
 }
 
+
+#pragma mark - Blocks Methods
+
+- (NSArray *)parseArrayBlocksWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id blockObj in JSONObj) {
+            BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj];
+            [result addObject:block];
+        }
+    }
+    return result;
+}
 
 #pragma mark - Map Methods
 

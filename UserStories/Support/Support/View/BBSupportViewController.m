@@ -36,17 +36,7 @@ static CGFloat bottomInset = 30.0f;
 #pragma mark - Actions Mathods
 
 - (IBAction)callManagerButtonAction:(id)sender {
-    NSString *phNo = @"+74957075353";
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",phNo]];
-    NSLog(@"CALL");
-    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
-        [[UIApplication sharedApplication] openURL:phoneUrl];
-    } else {
-        NSLog(@"NO CALL");
-//        calert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Call facility is not available!!!" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//        [calert show];
-    }
-    NSLog(@"CALL SUCCESS");
+    [self.output callManagerButtonDidTap];
 }
 
 - (IBAction)writeManagerButtonAction:(id)sender {

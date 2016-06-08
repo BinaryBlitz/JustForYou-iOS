@@ -10,8 +10,17 @@
 
 #import "BBBlocksInteractorOutput.h"
 
+#import "BBUserService.h"
+#import "BBServerService.h"
+
 @implementation BBBlocksInteractor
 
 #pragma mark - Методы BBBlocksInteractorInput
+
+- (void)getList {
+    [[BBServerService sharedService] listBlocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        
+    }];
+}
 
 @end

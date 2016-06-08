@@ -12,11 +12,19 @@
 
 @interface NSData (BBParserAPI)
 
+#pragma mark - User Methods
+
 - (NSString *)parseAuthorizateToken;
 - (NSString *)parseApiToken;
 
-- (id)parseSearchAddress;
-
 - (BBUser *)parseRegisterResponseWithData;
+
+#pragma mark - Blocks Methods
+
+- (NSArray *)parseArrayBlocksWithData;
+
+#pragma mark - Map Methods
+
+- (id)parseSearchAddress;
 
 @end

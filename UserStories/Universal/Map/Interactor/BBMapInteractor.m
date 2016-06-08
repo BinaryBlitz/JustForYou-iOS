@@ -44,15 +44,29 @@
 - (void)currentLocation {
     if (!self.currentAddres) {
         INTULocationManager *locationManager = [INTULocationManager sharedInstance];
-        INTULocationRequestID requestID = [locationManager subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
-                                                                 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-                                                                     if (status == INTULocationStatusSuccess) {
-                                                                         [self.output currentLocationWithLocation:currentLocation.coordinate];
-                                                                         [locationManager cancelHeadingRequest:requestID];
-                                                                     } else if (status == INTULocationStatusTimedOut) {
-                                                                         [self currentLocation];
-                                                                     }
-                                                                 }];
+        [locationManager requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock
+                                                   timeout:1.0
+                                      delayUntilAuthorized:YES
+                                                     block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                                         if (status == INTULocationStatusSuccess) {
+                                                             [self.output currentLocationWithLocation:currentLocation.coordinate];
+                                                         } else if (status == INTULocationStatusTimedOut) {
+                                                             [self currentLocation];
+                                                         } else {
+                                                             // An error occurred, more info is available by
+                                                             // looking at the specific status returned.
+                                                         }
+                                                     }];
+//        INTULocationRequestID requestID = [locationManager subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
+//                                                                 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+//                                                                     if (status == INTULocationStatusSuccess) {
+//                                                                         NSLog(@"Location = %ld", (long)requestID);
+//                                                                         [self.output currentLocationWithLocation:currentLocation.coordinate];
+//                                                                         [locationManager cancelHeadingRequest:requestID];
+//                                                                     } else if (status == INTULocationStatusTimedOut) {
+//                                                                         [self currentLocation];
+//                                                                     }
+//                                                                 }];
     }
 }
 

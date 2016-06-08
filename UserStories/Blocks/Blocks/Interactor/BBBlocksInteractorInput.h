@@ -10,4 +10,6 @@
 
 @protocol BBBlocksInteractorInput <NSObject>
 
+- (void)getList;
+
 @end

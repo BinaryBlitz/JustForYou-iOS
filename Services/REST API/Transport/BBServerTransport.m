@@ -19,7 +19,7 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
 
 @implementation BBServerTransport
 
-#pragma mark - Authorization Methods 
+#pragma mark - User Methods 
 
 - (void)sendUserNumberPhoneWithString:(NSString *)userPhone completion:(CompletionBlock)completion {
     
@@ -80,6 +80,20 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
     [self sendRequest:request completion:completion];
 }
+
+
+
+#pragma mark - Blocks And Programs
+
+- (void)listBlocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/blocks?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
 
 #pragma mark - Geolocation
 

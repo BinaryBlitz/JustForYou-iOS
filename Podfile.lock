@@ -5,10 +5,10 @@ PODS:
   - GoogleMaps (1.13.2)
   - INTULocationManager (4.2.0)
   - JTCalendar (2.1.5)
-  - LMGeocoder (1.0.4)
-  - Realm (0.102.0):
-    - Realm/Headers (= 0.102.0)
-  - Realm/Headers (0.102.0)
+  - LMGeocoder (1.0.5)
+  - Realm (1.0.0):
+    - Realm/Headers (= 1.0.0)
+  - Realm/Headers (1.0.0)
 
 DEPENDENCIES:
   - Crashlytics
@@ -16,7 +16,7 @@ DEPENDENCIES:
   - GoogleMaps
   - INTULocationManager
   - JTCalendar (from `https://github.com/tercteberc/JTCalendar.git`)
-  - LMGeocoder
+  - LMGeocoder (= 1.0.5)
   - Realm
 
 EXTERNAL SOURCES:
@@ -34,9 +34,9 @@ SPEC CHECKSUMS:
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   JTCalendar: 57a4420f12d10c93c3b28da96803e7043d1c9281
-  LMGeocoder: a0f635f948b0ca420d8d338e54886744cdcb215d
-  Realm: 5d219f9037e3ec2019c599b8227bfc95433cb10e
+  LMGeocoder: 84027708180aae8eb47eb314bcc2e794e289eb7f
+  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
 
-PODFILE CHECKSUM: 082cba21b382883e7905cf2e34235c8acfc605df
+PODFILE CHECKSUM: 29ab14c242d0ce419892a815beba0b6c46bc8a95
 
 COCOAPODS: 1.0.0.beta.5

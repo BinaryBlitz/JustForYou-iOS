@@ -42,8 +42,8 @@ static NSString *kStatusOK = @"OK";
     NSString *route = [self component:@"route" inArray:addr.lines ofType:@"short_name"];
     NSString *streetName = nil;
     
-    if (route && addr.thoroughfare) {
-        streetName = [NSString stringWithFormat:@"%@, %@", route, addr.thoroughfare];
+    if (route && addr.streetNumber) {
+        streetName = [NSString stringWithFormat:@"%@, %@", route, addr.streetNumber];
     } else if (route) {
         streetName = [NSString stringWithFormat:@"%@", route];
     } else {

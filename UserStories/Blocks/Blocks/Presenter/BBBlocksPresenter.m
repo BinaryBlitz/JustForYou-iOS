@@ -46,6 +46,11 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+    
+#warning Attention
+    
+    [self.interactor getList];
+    
 }
 
 - (void)didSelectRow {
