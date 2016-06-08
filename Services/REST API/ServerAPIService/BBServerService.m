@@ -113,11 +113,12 @@
 #pragma mark - Blocks And Program
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
     [self.transport listBlocksWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSArray *result = nil;
         if (!error) {
-            result = [data parseArrayBlocksWithData];
+            result = [data parseArrayWithDataAndKey:kTypeBlockInData];
         }
         
         if (completion) {
@@ -126,11 +127,38 @@
     }];
 }
 
-#pragma mark - Orders
 
-//- (void)createOrderWithOrders:(NSArray *)orders completion{
-//    
-//}
+- (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSInteger)blockId completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listProgramsWithApiToken:apiToken blockId:[NSString stringWithFormat:@"%ld", (long)blockId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseArrayWithDataAndKey:kTypeProgramInData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
+
+#pragma mark - Order Methods
+
+- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createOrderWithOrders:orders apiToken:token numberPhone:phone completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBOrder *order = nil;
+        if (!error) {
+//            result = [data parseArrayWithDataAndKey:kTypeProgramInData];
+        }
+        
+        if (completion) {
+//            completion(responseServer, result, error);
+        }
+    }];
+}
 
 
 #pragma mark - Check Network

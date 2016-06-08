@@ -10,6 +10,12 @@
 
 #import "BBUser.h"
 
+typedef enum : NSUInteger {
+    kTypeBlockInData,
+    kTypeProgramInData
+}BBTypeObjectInData;
+
+
 @interface NSData (BBParserAPI)
 
 #pragma mark - User Methods
@@ -19,9 +25,9 @@
 
 - (BBUser *)parseRegisterResponseWithData;
 
-#pragma mark - Blocks Methods
+#pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayBlocksWithData;
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key;
 
 #pragma mark - Map Methods
 

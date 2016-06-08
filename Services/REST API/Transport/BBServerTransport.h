@@ -26,6 +26,11 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 #pragma mark - Blocks And Programs
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+- (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSString *)blockId completion:(CompletionBlock)completion;
+
+#pragma mark - Order Methods
+
+- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(CompletionBlock)completion;
 
 #pragma mark - Geolocation
 

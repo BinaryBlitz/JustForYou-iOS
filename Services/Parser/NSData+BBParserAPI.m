@@ -33,15 +33,20 @@
 }
 
 
-#pragma mark - Blocks Methods
+#pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayBlocksWithData {
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key {
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
         for (id blockObj in JSONObj) {
-            BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj];
-            [result addObject:block];
+            if (key == kTypeBlockInData) {
+                BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj];
+                [result addObject:block];
+            } else {
+                BBProgram *program = [[BBProgram alloc] initWithJSON:blockObj];
+                [result addObject:program];
+            }
         }
     }
     return result;

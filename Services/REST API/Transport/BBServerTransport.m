@@ -94,6 +94,32 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSString *)blockId completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/blocks/%@/programs?api_token=%@", kServerURL, blockId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
+
+
+#pragma mark - Order Methods
+
+- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/orders", kServerURL]];
+    
+    NSDictionary* parameters = @{@"api_token"             : token,
+                                 @"phone_number"          : phone,
+                                 @"line_items_attributes" : orders};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+
+}
+
 
 #pragma mark - Geolocation
 
@@ -104,6 +130,8 @@ NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
     request.HTTPMethod = GET;
     [self sendRequest:request completion:completion];
 }
+
+
 
 #pragma mark - Sending Requests
 

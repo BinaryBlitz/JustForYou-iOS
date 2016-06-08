@@ -11,11 +11,14 @@
 #import "BBServerResponse.h"
 
 @class BBUser;
+@class BBOrder;
 
 typedef void (^AuthCompletion)(BBServerResponse *response, NSString* token, NSError* error);
 typedef void (^RegistrationCompletion)(BBServerResponse *response, BBUser *user, NSError* error);
 
 typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *objects, NSError* error);
+
+typedef void (^OrderCompletion)(BBServerResponse *response, BBOrder *order, NSError* error);
 
 typedef void (^ReceiveData)(NSData* data);
 
@@ -34,5 +37,10 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Blocks And Programs
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+- (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSInteger)blockId completion:(ArrayObjectsCompletion)completion;
+
+#pragma mark - Order Methods
+
+- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion;
 
 @end
