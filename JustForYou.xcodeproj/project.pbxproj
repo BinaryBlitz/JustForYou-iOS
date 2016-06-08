@@ -11,6 +11,7 @@
 		2991BD389DDE49D4E58B2B5D /* BBReplacementAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 72563B67D3D92F6CC90DD5DD /* BBReplacementAssembly.m */; };
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
 		3A050EFB1D0816A0000AC0B8 /* BBBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFA1D0816A0000AC0B8 /* BBBlock.m */; };
+		3A050EFF1D086737000AC0B8 /* BBDataBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */; };
 		3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D23011CE7A60700FA8B86 /* BBProgram.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
 		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
@@ -216,6 +217,8 @@
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
 		3A050EF91D0816A0000AC0B8 /* BBBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlock.h; sourceTree = "<group>"; };
 		3A050EFA1D0816A0000AC0B8 /* BBBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlock.m; sourceTree = "<group>"; };
+		3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataBaseService.h; sourceTree = "<group>"; };
+		3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataBaseService.m; sourceTree = "<group>"; };
 		3A0D23001CE7A60700FA8B86 /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
 		3A0D23011CE7A60700FA8B86 /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
@@ -739,6 +742,15 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		3A050EFC1D0864D3000AC0B8 /* DataBase Service */ = {
+			isa = PBXGroup;
+			children = (
+				3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */,
+				3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */,
+			);
+			path = "DataBase Service";
+			sourceTree = "<group>";
+		};
 		3A1320211CFE30F30046CFBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +783,7 @@
 		3A13472F1CA5DFAD007A83ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3A050EFC1D0864D3000AC0B8 /* DataBase Service */,
 				3AF1CE781CC6BAD5001D0B2C /* Other Services */,
 				3A1347521CA6B634007A83ED /* UserService */,
 				3AC988631CAB1FD80069DE52 /* Validation */,
@@ -2762,6 +2775,7 @@
 				3A2D56E51CF07DCA00A8EFF5 /* BBServerTransport.m in Sources */,
 				3A2D56CF1CF075D200A8EFF5 /* BBSupportViewController.m in Sources */,
 				3A2D56C41CF075D200A8EFF5 /* BBSettingsAssembly.m in Sources */,
+				3A050EFF1D086737000AC0B8 /* BBDataBaseService.m in Sources */,
 				3A2D56A81CF075D200A8EFF5 /* BBMyProgramsAssembly.m in Sources */,
 				3A2D566C1CF075D200A8EFF5 /* BBRegistrationAssembly.m in Sources */,
 				3A2D565F1CF075D200A8EFF5 /* BBAuthorizationInteractor.m in Sources */,
