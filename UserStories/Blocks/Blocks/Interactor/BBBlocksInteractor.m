@@ -12,15 +12,18 @@
 
 #import "BBUserService.h"
 #import "BBServerService.h"
+#import "BBDataBaseService.h"
 
 @implementation BBBlocksInteractor
 
 #pragma mark - Методы BBBlocksInteractorInput
 
 - (void)getList {
-    [[BBServerService sharedService] listBlocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
-        
-    }];
+//    [[BBServerService sharedService] listBlocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+//        if (objects && [objects count] > 0) {
+//            [[BBDataBaseService sharedService] addOrUpdateBlocksFromArray:objects];
+//        }
+//    }];
 }
 
 @end

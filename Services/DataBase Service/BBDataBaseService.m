@@ -19,6 +19,12 @@
     return service;
 }
 
-
+- (void)addOrUpdateBlocksFromArray:(NSArray *)blocks {
+    RLMRealm *standartRealm = [RLMRealm defaultRealm];
+    
+    [standartRealm beginWriteTransaction];
+    [standartRealm addOrUpdateObjectsFromArray:blocks];
+    [standartRealm commitWriteTransaction];
+}
 
 @end
