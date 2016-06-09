@@ -2,7 +2,7 @@
 //  BBBlock.m
 //  JustForYou
 //
-//  Created by Антон on 08.06.16.
+//  Created by Антон on 09.06.16.
 //  Copyright © 2016 BinaryBlitz. All rights reserved.
 //
 
@@ -19,5 +19,23 @@
     }
     return self;
 }
+
++ (NSString *)primaryKey {
+    return @"blockId";
+}
+
+// Specify default values for properties
+
+//+ (NSDictionary *)defaultPropertyValues
+//{
+//    return @{};
+//}
+
+// Specify properties to ignore (Realm won't persist these)
+
+//+ (NSArray *)ignoredProperties
+//{
+//    return @[];
+//}
 
 @end

@@ -17,6 +17,8 @@
 
 + (instancetype) sharedService;
 
-- (void)addOrUpdateBlocksFromArray:(NSArray *)blocks;
+- (void)addOrUpdateObjectsFromArray:(NSArray *)objects;
+
+- (NSArray *)blocksInRealm;
 
 @end

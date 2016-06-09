@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Realm/Realm.h>
+
 @protocol BBBlocksInteractorOutput <NSObject>
+
+- (void)currentBlocksInDataBase:(NSArray *)blocks;
+
+- (void)blocksSaveInDataBase;
 
 @end

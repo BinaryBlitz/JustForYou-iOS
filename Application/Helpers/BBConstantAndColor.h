@@ -20,7 +20,6 @@ typedef enum : NSUInteger {
     BBLoadBasketModule
 }BBLoadModule;
 
-
 // Кнопочки в таббаре
 typedef enum : NSUInteger {
     BBTabbarItemPrograms,
@@ -82,6 +81,13 @@ typedef enum : NSUInteger {
     kSharesModule,
     kAboutModule
 }BBKeyModuleForUniversalModule;
+
+
+// Сделать запрос и обновить данные или сделать запрос и положить их в базу
+typedef enum : NSUInteger {
+    kStateUpdateData,
+    kStateCreateData
+}BBKeyStateData;
 
 #pragma mark - interface class
 

@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Realm/Realm.h>
+
+#import "BBBlock.h"
+
 @protocol BBBlocksInteractorInput <NSObject>
 
-- (void)getList;
+- (BOOL)checkObjectsInDataBase;
+
+- (void)blocksInDataBase;
+
+- (void)listBlocksWithKey:(BBKeyStateData)key;
 
 @end

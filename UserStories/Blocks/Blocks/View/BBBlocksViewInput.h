@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
 @protocol BBBlocksViewInput <NSObject>
 
 - (void)setupInitialState;
+
+- (void)blocksForTableView:(NSArray *)blocks;
+
+- (void)showLoaderView;
+- (void)hideLoaderView;
 
 @end

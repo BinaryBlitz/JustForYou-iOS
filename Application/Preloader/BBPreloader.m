@@ -14,6 +14,7 @@
 #import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
 
+#import <Realm/Realm.h>
 
 #import "BBUserService.h"
 
@@ -32,10 +33,26 @@
     self = [super init];
     if (self) {
         self.window = window;
+        [self _migrationRealm];
         [self setCustomBackBarButtonImage];
         [self _setStartControllerToRoot];
     }
     return self;
+}
+
+- (void)_migrationRealm {
+    RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+    config.schemaVersion = 1;
+    config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+        // We haven’t migrated anything yet, so oldSchemaVersion == 0
+        if (oldSchemaVersion < 1) {
+            // Nothing to do!
+            // Realm will automatically detect new properties and removed properties
+            // And will update the schema on disk automatically
+        }
+    };
+    [RLMRealmConfiguration setDefaultConfiguration:config];
+    [RLMRealm defaultRealm];
 }
 
 - (void)_setStartControllerToRoot {

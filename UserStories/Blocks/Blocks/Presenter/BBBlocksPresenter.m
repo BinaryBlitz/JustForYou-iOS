@@ -27,6 +27,9 @@
 @property (strong, nonatomic) id<BBProgramsModuleInput> programsModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
+@property (nonatomic) BOOL isEmptyRealm;
+@property (strong, nonatomic) RLMNotificationToken *notificationToken;
+
 @end
 
 @implementation BBBlocksPresenter
@@ -34,7 +37,7 @@
 #pragma mark - Методы BBBlocksModuleInput
 
 - (void)configureModule {
-    
+    self.isEmptyRealm = [self.interactor checkObjectsInDataBase];
 }
 
 - (id)currentViewWithModule:(id)module {
@@ -42,15 +45,25 @@
     return self.view;
 }
 
+- (void)_updateBlocksOnBackground {
+    [self.interactor listBlocksWithKey:kStateUpdateData];
+}
+
 #pragma mark - Методы BBBlocksViewOutput
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-    
-#warning Attention
-    
-    [self.interactor getList];
-    
+    if (self.isEmptyRealm) {
+        [self.view showLoaderView];
+        [self.interactor listBlocksWithKey:kStateCreateData];
+    } else {
+        [self.interactor blocksInDataBase];
+        [self _updateBlocksOnBackground];
+    }
+}
+
+- (void)viewWillAppear {
+    [self.interactor blocksInDataBase];
 }
 
 - (void)didSelectRow {
@@ -63,6 +76,15 @@
 }
 
 #pragma mark - Методы BBBlocksInteractorOutput
+
+- (void)blocksSaveInDataBase {
+    [self.view hideLoaderView];
+    [self.interactor blocksInDataBase];
+}
+
+- (void)currentBlocksInDataBase:(NSArray *)blocks {
+    [self.view blocksForTableView:blocks];
+}
 
 #pragma mark - Lazy Load
 

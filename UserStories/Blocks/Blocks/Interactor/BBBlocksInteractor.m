@@ -18,12 +18,23 @@
 
 #pragma mark - Методы BBBlocksInteractorInput
 
-- (void)getList {
-//    [[BBServerService sharedService] listBlocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
-//        if (objects && [objects count] > 0) {
-//            [[BBDataBaseService sharedService] addOrUpdateBlocksFromArray:objects];
-//        }
-//    }];
+- (BOOL)checkObjectsInDataBase {
+    return [[RLMRealm defaultRealm] isEmpty];
+}
+
+- (void)blocksInDataBase {
+    HQDispatchToMainQueue(^{
+        [self.output currentBlocksInDataBase:[[BBDataBaseService sharedService] blocksInRealm]];
+    });
+}
+
+- (void)listBlocksWithKey:(BBKeyStateData)key {
+    [[BBServerService sharedService] listBlocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        if ([objects count] > 0) {
+            [[BBDataBaseService sharedService] addOrUpdateObjectsFromArray:objects];
+            [self.output blocksSaveInDataBase];
+        }
+    }];
 }
 
 @end

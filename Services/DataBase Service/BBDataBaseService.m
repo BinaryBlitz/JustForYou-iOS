@@ -19,12 +19,28 @@
     return service;
 }
 
-- (void)addOrUpdateBlocksFromArray:(NSArray *)blocks {
+- (void)addOrUpdateObjectsFromArray:(NSArray *)objects {
     RLMRealm *standartRealm = [RLMRealm defaultRealm];
     
     [standartRealm beginWriteTransaction];
-    [standartRealm addOrUpdateObjectsFromArray:blocks];
+    RLMResults *old = [BBBlock allObjectsInRealm:standartRealm];
+    [standartRealm deleteObjects:old];
+    [standartRealm addOrUpdateObjectsFromArray:objects];
     [standartRealm commitWriteTransaction];
 }
+
+- (NSArray *)blocksInRealm {
+    RLMResults *res = [BBBlock allObjectsInRealm:[RLMRealm defaultRealm]];
+    return [self _RLMResultsToNSArray:res];
+}
+
+- (NSArray *)_RLMResultsToNSArray:(RLMResults *)results {
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:results.count];
+    for (RLMObject *object in results) {
+        [array addObject:object];
+    }
+    return array;
+}
+
 
 @end

@@ -10,9 +10,13 @@
 
 #import "BBBlocksViewOutput.h"
 
+#import "BBBlock.h"
+
 @interface BBBlocksViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray *blocks;
 
 @end
 
@@ -25,8 +29,12 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-    [self _registrateIdentifireCell];
-	[self.output didTriggerViewReadyEvent];
+    [self.output didTriggerViewReadyEvent];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
 }
 
 #pragma mark - Actions
@@ -41,6 +49,14 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     self.navigationItem.title = kNameTitleProgramModule;
     [self.tableView setContentInset:UIEdgeInsetsMake(bottomOffsetForBlockTableView, 0, 0, 0)];
     [self _initRightBarButton];
+    [self _registrateIdentifireCell];
+}
+
+- (void)blocksForTableView:(NSArray *)blocks {
+    self.blocks = blocks;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
 }
 
 #pragma mark - TableView
@@ -50,7 +66,10 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if (self.blocks) {
+        return [self.blocks count];
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,6 +80,14 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     BBBlockTableViewCell *blockCell = [self.tableView dequeueReusableCellWithIdentifier:kBlockCellIdentifire];
     
     return blockCell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBBlockTableViewCell *blockCell = (BBBlockTableViewCell *)cell;
+    if ([self.blocks count] > 0) {
+        BBBlock *block = [self.blocks objectAtIndex:indexPath.row];
+        blockCell.nameBlock.text = block.name;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
