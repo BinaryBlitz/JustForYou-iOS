@@ -12,7 +12,6 @@
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
 		3A050EFF1D086737000AC0B8 /* BBDataBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */; };
 		3A050F021D099627000AC0B8 /* BBBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050F011D099627000AC0B8 /* BBBlock.m */; };
-		3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D23011CE7A60700FA8B86 /* BBProgram.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
 		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
 		3A1320241CFE30F30046CFBD /* BBSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */; };
@@ -194,6 +193,7 @@
 		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */; };
+		3AF26F421D0C8739004972FC /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F411D0C8739004972FC /* BBProgram.m */; };
 		3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45279BE176CE0A5502C4EB9A /* BBMapPresenter.m */; };
 		689FA166277AF4906B569B3B /* BBMapRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */; };
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
@@ -219,8 +219,6 @@
 		3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataBaseService.m; sourceTree = "<group>"; };
 		3A050F001D099627000AC0B8 /* BBBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlock.h; sourceTree = "<group>"; };
 		3A050F011D099627000AC0B8 /* BBBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlock.m; sourceTree = "<group>"; };
-		3A0D23001CE7A60700FA8B86 /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
-		3A0D23011CE7A60700FA8B86 /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
 		3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoaderView.h; sourceTree = "<group>"; };
 		3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoaderView.m; sourceTree = "<group>"; };
@@ -661,6 +659,8 @@
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
 		3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
 		3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarService.m; sourceTree = "<group>"; };
+		3AF26F401D0C8739004972FC /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
+		3AF26F411D0C8739004972FC /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3B674AE35FA53969A699922E /* BBReplacementRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementRouter.h; sourceTree = "<group>"; };
 		3BD9E82877E9B7E51871E52E /* BBMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapViewController.h; sourceTree = "<group>"; };
 		3E23F5D57A15732615C66273 /* BBReplacementModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementModuleInput.h; sourceTree = "<group>"; };
@@ -770,8 +770,8 @@
 				3A1347571CA6B6BE007A83ED /* BBUser.m */,
 				3A050F001D099627000AC0B8 /* BBBlock.h */,
 				3A050F011D099627000AC0B8 /* BBBlock.m */,
-				3A0D23001CE7A60700FA8B86 /* BBProgram.h */,
-				3A0D23011CE7A60700FA8B86 /* BBProgram.m */,
+				3AF26F401D0C8739004972FC /* BBProgram.h */,
+				3AF26F411D0C8739004972FC /* BBProgram.m */,
 				3A311FFA1CF724CC00D179D1 /* BBAddress.h */,
 				3A311FFB1CF724CC00D179D1 /* BBAddress.m */,
 				3A7EF77E1D01FD87008196AC /* BBOrder.h */,
@@ -2703,6 +2703,7 @@
 				3A2D56611CF075D200A8EFF5 /* BBAuthorizationRouter.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
 				3A2D56B61CF075D200A8EFF5 /* BBOrdersViewController.m in Sources */,
+				3AF26F421D0C8739004972FC /* BBProgram.m in Sources */,
 				3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */,
 				3A2D56AC1CF075D200A8EFF5 /* BBMyProgramsViewController.m in Sources */,
 				3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */,
@@ -2725,7 +2726,6 @@
 				3A2D570B1CF331C300A8EFF5 /* BBCommentTableViewCell.m in Sources */,
 				3A2D56CB1CF075D200A8EFF5 /* BBSupportAssembly.m in Sources */,
 				3A2D56961CF075D200A8EFF5 /* BBNavigationAssembly.m in Sources */,
-				3A0D23021CE7A60700FA8B86 /* BBProgram.m in Sources */,
 				3A2D569F1CF075D200A8EFF5 /* BBTabbarViewController.m in Sources */,
 				3A2D56691CF075D200A8EFF5 /* BBGreetingPresenter.m in Sources */,
 				3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */,

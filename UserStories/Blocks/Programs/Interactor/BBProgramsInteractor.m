@@ -24,7 +24,7 @@
 
 - (void)programsInDataBaseWithParentId:(NSInteger)parentId {
     HQDispatchToMainQueue(^{
-        [self.output currentProgramsInDataBase:[[BBDataBaseService sharedService] blocksInRealm]];
+        [self.output currentProgramsInDataBase:[[BBDataBaseService sharedService] programsInRealmWithParentId:parentId]];
     });
 }
 
@@ -33,8 +33,10 @@
     [[BBServerService sharedService] listProgramsWithApiToken:[[BBUserService sharedService] tokenUser] blockId:parentId completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
         if (response.serverError == kServerErrorSuccessfull) {
             if ([objects count] > 0) {
-                [[BBDataBaseService sharedService] addOrUpdateProgramsFromArray:objects parentId:parent];
-                [self.output programsSaveInDataBase];
+                HQDispatchToRealmQueue(^{
+                    [[BBDataBaseService sharedService] addOrUpdateProgramsFromArray:objects parentId:parent];
+                    [self.output programsSaveInDataBase];
+                });
             }
         } else if(response.serverError == kServerErrorClient) {
             [self.output errorClient];

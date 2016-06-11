@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Realm/Realm.h>
+
 @protocol BBProgramsViewInput <NSObject>
 
 - (void)setupInitialState;

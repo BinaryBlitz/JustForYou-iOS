@@ -8,7 +8,7 @@
 
 #import <Realm/Realm.h>
 
-#import "BBProgram.h"
+//#import "BBProgram.h"
 
 @interface BBBlock : RLMObject
 
@@ -16,8 +16,9 @@
 @property NSString *name;
 @property NSString *image;
 
-@property RLMArray <BBProgram *><BBProgram> *programs;
+//@property RLMArray<BBProgram> *programs;
 
+@property (readonly) RLMLinkingObjects *programs;
 
 - (instancetype)initWithJSON:(id)JSONObj;
 

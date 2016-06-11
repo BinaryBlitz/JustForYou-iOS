@@ -8,7 +8,19 @@
 
 #import "BBBlock.h"
 
+#import "BBProgram.h"
+
 @implementation BBBlock
+
++ (NSString *)primaryKey {
+    return @"blockId";
+}
+
++ (NSDictionary *)linkingObjectsProperties {
+    return @{
+             @"programs": [RLMPropertyDescriptor descriptorWithClass:BBProgram.class propertyName:@"block"],
+             };
+}
 
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
@@ -20,22 +32,7 @@
     return self;
 }
 
-+ (NSString *)primaryKey {
-    return @"blockId";
-}
 
-// Specify default values for properties
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
-
-// Specify properties to ignore (Realm won't persist these)
-
-//+ (NSArray *)ignoredProperties
-//{
-//    return @[];
-//}
 
 @end

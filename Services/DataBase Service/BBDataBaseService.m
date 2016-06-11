@@ -25,7 +25,9 @@
     RLMRealm *standartRealm = [RLMRealm defaultRealm];
     
     RLMResults *old = [BBBlock allObjectsInRealm:standartRealm];
+    
     for (BBBlock *oldBl in old) {
+        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"blockId == %d", oldBl.blockId];
         NSArray *filteredArray = [objects filteredArrayUsingPredicate:predicate];
         if ([filteredArray count] < 1) {
@@ -48,25 +50,29 @@
 
 #pragma mark - Programs
 
+
 - (NSArray *)programsInRealmWithParentId:(NSInteger)parentId {
-    RLMResults *res = [BBProgram objectsWhere:[NSString stringWithFormat:@"parentId=%ld", (long)parentId]];
+    BBBlock *block = [[BBBlock objectsWhere:[NSString stringWithFormat:@"blockId=%ld", (long)parentId]] firstObject];
+    RLMResults *res = block.programs;
+    
     return [self _RLMResultsToNSArray:res];
 }
 
+
 - (void)addOrUpdateProgramsFromArray:(NSArray *)objects parentId:(NSInteger)parentId {
     RLMRealm *standartRealm = [RLMRealm defaultRealm];
-    
     BBBlock *block = [[BBBlock objectsWhere:[NSString stringWithFormat:@"blockId=%ld", (long)parentId]] firstObject];
-    RLMArray *programs = block.programs;
     
+    RLMResults *res = block.programs;
     [standartRealm beginWriteTransaction];
-    [standartRealm deleteObjects:programs];
+    [standartRealm deleteObjects:res];
+    [standartRealm addObjects:objects];
+    for (BBProgram *prog in objects) {
+        
+        [prog setBlock:block];
+    }
     [standartRealm commitWriteTransaction];
     
-    [standartRealm beginWriteTransaction];
-    [block.programs addObjects:programs];
-    [standartRealm addOrUpdateObject:block];
-    [standartRealm commitWriteTransaction];
 }
 
 #pragma mark - Self

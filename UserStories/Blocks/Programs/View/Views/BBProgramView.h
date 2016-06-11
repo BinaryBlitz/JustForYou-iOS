@@ -21,4 +21,6 @@
 
 @property (strong, nonatomic) BBProgram *program;
 
+- (void)setProgramInUI:(BBProgram *)program;
+
 @end

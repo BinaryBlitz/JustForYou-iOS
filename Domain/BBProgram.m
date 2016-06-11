@@ -2,7 +2,7 @@
 //  BBProgram.m
 //  JustForYou
 //
-//  Created by Антон on 14.05.16.
+//  Created by Антон on 11.06.16.
 //  Copyright © 2016 BinaryBlitz. All rights reserved.
 //
 
@@ -10,8 +10,10 @@
 
 @implementation BBProgram
 
-+ (NSString *)primaryKey {
-    return @"programId";
+
+
++ (NSArray *)ignoredProperties {
+    return @[@"parentId"];
 }
 
 - (instancetype)initWithJSON:(id)JSONObj {
@@ -27,5 +29,6 @@
     }
     return self;
 }
+
 
 @end

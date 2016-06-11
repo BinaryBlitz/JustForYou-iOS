@@ -78,7 +78,13 @@
 #pragma mark - Методы BBProgramsInteractorOutput
 
 - (void)currentProgramsInDataBase:(NSArray *)programs {
-    [self.view programsForTableView:programs];
+    if ([programs count] > 0) {
+        [self.view hideBackgroundLoaderView];
+        [self.view programsForTableView:programs];
+    } else {
+        [self.view showBackgroundLoaderView];
+        [self.interactor listProgramsWithParentId:self.parentId];
+    }
 }
 
 - (void)programsSaveInDataBase {

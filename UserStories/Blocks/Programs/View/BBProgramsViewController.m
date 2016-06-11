@@ -51,6 +51,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    if (self.countPage < 2) {
+        self.pageControl.hidden = YES;
+    } else {
+        self.pageControl.hidden = NO;
+        self.pageControl.numberOfPages = self.countPage;
+    }
 }
 
 #pragma mark - Actions
@@ -67,65 +73,69 @@
 
 - (void)setupInitialState {
     self.scrollView.delegate = self;
-    self.countPage = 2;
+    self.countPage = 1;
     self.secondImageView.alpha = 0.0;
     self.pageControl.numberOfPages = self.countPage;
     self.pageControl.enabled = NO;
-    [self _relodViewsInScrollView];
+//    [self _reloadViewsInScrollView];
     [self _initRightBarButton];
     [self _initWightProgramView];
 }
 
 - (void)programsForTableView:(NSArray *)programs {
-//    self.programsArray = programs;
-//    self.countPage = [programs count];
-//    HQDispatchToMainQueue(^{
-//        if ([self.programsArray count] > 0) {
-//            [self _relodViewsInScrollView];
-//        }
-//    });
+    self.programsArray = programs;
+    self.countPage = [programs count];
+    HQDispatchToMainQueue(^{
+        if ([self.programsArray count] > 0) {
+            [self _reloadViewsInScrollView];
+        }
+    });
 }
 
-- (void)_relodViewsInScrollView {
-//    if ([self.scrollView.subviews count] > 0) {
-//        for (UIView *view in self.scrollView.subviews) {
-//            [view removeFromSuperview];
-//        }
-//    }
+- (void)_reloadViewsInScrollView {
+    if ([self.scrollView.subviews count] > 0) {
+        for (UIView *view in self.scrollView.subviews) {
+            [view removeFromSuperview];
+            [self.arrayViews removeObject:view];
+        }
+    }
     self.scrollView.contentSize = CGSizeMake(self.wightProgramView*self.countPage + (self.insetfForView*(self.countPage+3)), self.scrollView.frame.size.height);
     for (int i = 0; i < self.countPage; i++) {
         CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
         
-        BBProgramView *view = [[BBProgramView alloc] init];
-        view.program = [self.programsArray objectAtIndex:i];
-        view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
+        BBProgramView *view = [[BBProgramView alloc] initWithFrame: CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame))];
+        [view setProgramInUI:[self.programsArray objectAtIndex:i]];
         [self.scrollView addSubview:view];
         [self.arrayViews addObject:view];
     }
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
-    [self programsForTableView:@[@"dsfws", @"fsw", @"sdcskd"]];
     [self presentAlertControllerWithTitle:title message:message];
 }
 
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    CGFloat curX = scrollView.contentOffset.x;
-    CGFloat pageWidth = scrollView.frame.size.width;
-    
-    CGFloat ratio = curX/pageWidth;
-    double d, drob;
-    drob = modf(ratio, &d);
-    
-//    NSLog(@"%f, часть какая то = %f", ratio, drob);
-    self.secondImageView.alpha = drob;
-    
-//    NSInteger offsetLooping = 1;
-    NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
-    self.pageControl.currentPage = (page % self.countPage);
+    if ([self.arrayViews count] > 1) {
+        CGFloat curX = scrollView.contentOffset.x;
+        CGFloat pageWidth = scrollView.frame.size.width;
+        
+        CGFloat ratio = curX/pageWidth;
+        double d, drob;
+        drob = modf(ratio, &d);
+        
+        //    NSLog(@"%f, часть какая то = %f", ratio, drob);
+        self.secondImageView.alpha = drob;
+        
+        //    NSInteger offsetLooping = 1;
+        NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
+        @try {
+            self.pageControl.currentPage = (page % self.countPage);
+        } @catch (NSException *exception) {
+            
+        }
+    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
@@ -173,12 +183,14 @@
 #pragma mark - Layout Views
 
 - (void)_resizeViewOnScrollView {
-    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*self.countPage + (self.insetfForView*(self.countPage+3)), self.scrollView.frame.size.height);
-    for  (int i = 0; i < [self.arrayViews count]; i++) {
-        CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
-        
-        BBProgramView *view = self.arrayViews[i];
-        view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
+    if ([self.scrollView.subviews count] > 0) {
+        self.scrollView.contentSize = CGSizeMake(self.wightProgramView*self.countPage + (self.insetfForView*(self.countPage+3)), self.scrollView.frame.size.height);
+        for  (int i = 0; i < [self.arrayViews count]; i++) {
+            CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
+            
+            BBProgramView *view = self.arrayViews[i];
+            view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
+        }
     }
 }
 

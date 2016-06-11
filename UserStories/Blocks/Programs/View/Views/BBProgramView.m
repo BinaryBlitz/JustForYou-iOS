@@ -28,4 +28,10 @@
     self.contentView.frame = self.bounds;
 }
 
+- (void)setProgramInUI:(BBProgram *)program {
+    self.program = program;
+    BBProgramView *view = self.subviews.lastObject;
+    view.nameProgram.text = program.name;
+}
+
 @end

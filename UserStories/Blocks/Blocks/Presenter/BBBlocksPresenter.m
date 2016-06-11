@@ -38,6 +38,16 @@
 
 - (void)configureModule {
     self.isEmptyRealm = [self.interactor checkObjectsInDataBase];
+    
+//    [self _deleteBD];
+}
+
+#warning delete after test
+
+- (void)_deleteBD {
+    [[RLMRealm defaultRealm] beginWriteTransaction];
+    [[RLMRealm defaultRealm] deleteAllObjects];
+    [[RLMRealm defaultRealm] commitWriteTransaction];
 }
 
 - (id)currentViewWithModule:(id)module {
