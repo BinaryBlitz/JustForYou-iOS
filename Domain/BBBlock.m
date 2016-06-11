@@ -15,7 +15,7 @@
     if (self) {
         self.blockId = [[JSONObj objectForKey:@"id"] integerValue];
         self.name = [JSONObj objectForKey:@"name"];
-        self.image = [[[JSONObj objectForKey:@"image"] objectForKey:@"image"] objectForKey:@"url"];
+        self.image = [JSONObj objectForKey:@"image_url"];
     }
     return self;
 }

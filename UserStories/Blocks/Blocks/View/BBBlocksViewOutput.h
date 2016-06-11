@@ -14,7 +14,7 @@
 
 - (void)viewWillAppear;
 
-- (void)didSelectRow;
+- (void)didSelectRowWithBlockId:(NSInteger)blockId;
 
 - (void)basketButtonDidTap;
 

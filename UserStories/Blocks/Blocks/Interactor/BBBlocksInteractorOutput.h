@@ -16,4 +16,7 @@
 
 - (void)blocksSaveInDataBase;
 
+- (void)errorServer;
+- (void)errorClient;
+
 @end

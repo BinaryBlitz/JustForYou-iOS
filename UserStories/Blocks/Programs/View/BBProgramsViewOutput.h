@@ -17,4 +17,6 @@
 
 - (void)basketButtonDidTap;
 
+- (void)viewWillAppear;
+
 @end

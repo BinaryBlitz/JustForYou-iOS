@@ -12,4 +12,10 @@
 
 - (void)setupInitialState;
 
+- (void)programsForTableView:(NSArray *)programs;
+
+- (void)showBackgroundLoaderView;
+- (void)hideBackgroundLoaderView;
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end

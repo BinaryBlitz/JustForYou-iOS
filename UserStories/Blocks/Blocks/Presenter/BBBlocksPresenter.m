@@ -28,7 +28,7 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
 @property (nonatomic) BOOL isEmptyRealm;
-@property (strong, nonatomic) RLMNotificationToken *notificationToken;
+
 
 @end
 
@@ -45,10 +45,6 @@
     return self.view;
 }
 
-- (void)_updateBlocksOnBackground {
-    [self.interactor listBlocksWithKey:kStateUpdateData];
-}
-
 #pragma mark - Методы BBBlocksViewOutput
 
 - (void)didTriggerViewReadyEvent {
@@ -58,7 +54,7 @@
         [self.interactor listBlocksWithKey:kStateCreateData];
     } else {
         [self.interactor blocksInDataBase];
-        [self _updateBlocksOnBackground];
+        [self.interactor listBlocksWithKey:kStateUpdateData];
     }
 }
 
@@ -66,8 +62,8 @@
     [self.interactor blocksInDataBase];
 }
 
-- (void)didSelectRow {
-    [self.programsModule pushModuleWithNavigationModule:self.navigModule];
+- (void)didSelectRowWithBlockId:(NSInteger)blockId {
+    [self.programsModule pushModuleWithNavigationModule:self.navigModule parentId:blockId];
 }
 
 - (void)basketButtonDidTap {
@@ -84,6 +80,18 @@
 
 - (void)currentBlocksInDataBase:(NSArray *)blocks {
     [self.view blocksForTableView:blocks];
+}
+
+- (void)errorClient {
+    if (self.isEmptyRealm) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    }
+}
+
+- (void)errorServer {
+    if (self.isEmptyRealm) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    }
 }
 
 #pragma mark - Lazy Load

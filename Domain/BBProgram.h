@@ -10,6 +10,15 @@
 
 @interface BBProgram : RLMObject
 
+@property NSInteger programId;
+@property NSInteger parentId;
+@property NSString *name;
+@property NSString *descript;
+@property NSInteger threshold;
+@property NSInteger primaryPrice;
+@property NSInteger secondaryPrice;
+@property NSString *previewImage;
+
 - (instancetype)initWithJSON:(id)JSONObj;
 
 @end

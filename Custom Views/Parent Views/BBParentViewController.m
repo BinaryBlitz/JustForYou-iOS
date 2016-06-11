@@ -11,6 +11,10 @@
 @interface BBParentViewController ()
 
 @property (strong, nonatomic) UIAlertAction *cancelAction;
+@property (strong, nonatomic) UIView *backGroungView;
+@property (strong, nonatomic) BBLoaderView *backgroungLoaderView;
+
+@property (nonatomic) BOOL badConstant;
 
 @end
 
@@ -21,6 +25,7 @@ CGFloat sizeBar = 44.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.badConstant = YES;
     
     [self _settingLoaderView];
 }
@@ -52,6 +57,24 @@ CGFloat sizeBar = 44.0f;
     HQDispatchToMainQueue(^{
         self.loaderView.hidden = YES;
         [self.loaderView.activityIndicator stopAnimating];
+    });
+}
+
+- (void)showBackgroundLoaderView {
+    if (self.badConstant) {
+        [self.view addSubview:self.backGroungView];
+        self.badConstant = NO;
+    }
+    HQDispatchToMainQueue(^{
+        self.backGroungView.hidden = NO;
+        [self.backgroungLoaderView.activityIndicator startAnimating];
+    });
+}
+
+- (void)hideBackgroundLoaderView {
+    HQDispatchToMainQueue(^{
+        self.backGroungView.hidden = YES;
+        [self.backgroungLoaderView.activityIndicator stopAnimating];
     });
 }
 
@@ -99,4 +122,22 @@ CGFloat sizeBar = 44.0f;
     }
     return _loaderView;
 }
+
+- (BBLoaderView *)backgroungLoaderView {
+    if (!_backgroungLoaderView) {
+        _backgroungLoaderView = [[BBLoaderView alloc] initWithFrame:CGRectMake(0, 0, sizeLoader, sizeLoader)];
+    }
+    return _backgroungLoaderView;
+}
+
+- (UIView *)backGroungView {
+    if (!_backGroungView) {
+        _backGroungView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        _backGroungView.backgroundColor = [BBConstantAndColor applicationWhiteBackgroundColor];
+        [_backGroungView addSubview:self.backgroungLoaderView];
+        self.backgroungLoaderView.center = _backGroungView.center;
+    }
+    return _backGroungView;
+}
+
 @end

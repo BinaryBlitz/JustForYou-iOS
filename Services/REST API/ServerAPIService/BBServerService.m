@@ -118,7 +118,7 @@
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSArray *result = nil;
         if (!error) {
-            result = [data parseArrayWithDataAndKey:kTypeBlockInData];
+            result = [data parseArrayWithDataAndKey:kTypeBlockInData parentId:0];
         }
         
         if (completion) {
@@ -134,7 +134,7 @@
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSArray *result = nil;
         if (!error) {
-            result = [data parseArrayWithDataAndKey:kTypeProgramInData];
+            result = [data parseArrayWithDataAndKey:kTypeProgramInData parentId:blockId];
         }
         
         if (completion) {

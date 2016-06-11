@@ -59,6 +59,10 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     });
 }
 
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
+
 #pragma mark - TableView
 
 - (void) _registrateIdentifireCell {
@@ -87,11 +91,13 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     if ([self.blocks count] > 0) {
         BBBlock *block = [self.blocks objectAtIndex:indexPath.row];
         blockCell.nameBlock.text = block.name;
+        blockCell.blockId = block.blockId;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.output didSelectRow];
+    BBBlockTableViewCell *blockCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self.output didSelectRowWithBlockId:blockCell.blockId];
 }
 
 #pragma mark - Init Methods

@@ -35,7 +35,7 @@
 
 #pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key {
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId {
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
@@ -45,6 +45,7 @@
                 [result addObject:block];
             } else {
                 BBProgram *program = [[BBProgram alloc] initWithJSON:blockObj];
+                program.parentId = parentId;
                 [result addObject:program];
             }
         }

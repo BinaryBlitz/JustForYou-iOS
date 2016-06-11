@@ -17,8 +17,14 @@
 
 + (instancetype) sharedService;
 
-- (void)addOrUpdateObjectsFromArray:(NSArray *)objects;
+#pragma mark - Blocks
 
+- (void)addOrUpdateBlocksFromArray:(NSArray *)objects;
 - (NSArray *)blocksInRealm;
+
+#pragma mark - Programs
+
+- (NSArray *)programsInRealmWithParentId:(NSInteger)parentId;
+- (void)addOrUpdateProgramsFromArray:(NSArray *)objects parentId:(NSInteger)parentId;
 
 @end

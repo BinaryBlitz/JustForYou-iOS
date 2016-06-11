@@ -30,13 +30,12 @@
 
 @end
 
-static NSString *kNoteTitle = @"Внимание";
+
 
 static NSString *kErrorNumberPhoneMessage = @"Вы неверно ввели номер телефона. Пожалуйста проверьте данные и повторите попытку";
 static NSString *kSendAgainCode = @"Код выслан вам повторно";
 static NSString *kOldCodeEnter = @"Введеный вами код устарел. Пожалуйста дождитесь нового кода";
-static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
-static NSString *kErrorServer = @"Ошибка данных. Проверьте пожалуйста номер телефона";
+static NSString *kErrorData = @"Ошибка данных. Проверьте пожалуйста номер телефона";
 
 @implementation BBAuthorizationPresenter
 
@@ -126,7 +125,7 @@ static NSString *kErrorServer = @"Ошибка данных. Проверьте 
 - (void)errorServer {
     [self.view hideLoaderView];
     self.validCodeInServer = YES;
-    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorData];
 }
 
 #pragma mark - Lazy Load

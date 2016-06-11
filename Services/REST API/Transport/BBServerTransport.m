@@ -14,7 +14,7 @@ NSString * const POST = @"POST";
 NSString * const PATCH = @"PATCH";
 NSString * const DELETE = @"DELETE";
 
-NSString * const kServerURL = @"https://secure-harbor-57135.herokuapp.com";
+NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 
 
 @implementation BBServerTransport

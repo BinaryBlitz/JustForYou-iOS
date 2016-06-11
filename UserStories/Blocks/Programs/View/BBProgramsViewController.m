@@ -20,16 +20,18 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButton;
 
+@property (strong, nonatomic) NSArray *programsArray;
+
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
 
 @property (nonatomic) CGFloat currentPage;
+@property (nonatomic) NSInteger countPage;
 
 @property (strong, nonatomic) NSMutableArray *arrayViews;
 
 @end
 
-static NSInteger countPage = 5;
 
 @implementation BBProgramsViewController
 
@@ -46,6 +48,11 @@ static NSInteger countPage = 5;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 #pragma mark - Actions
 
 - (void)_basketButtonAction {
@@ -60,24 +67,47 @@ static NSInteger countPage = 5;
 
 - (void)setupInitialState {
     self.scrollView.delegate = self;
+    self.countPage = 2;
     self.secondImageView.alpha = 0.0;
-    self.pageControl.numberOfPages = countPage;
+    self.pageControl.numberOfPages = self.countPage;
     self.pageControl.enabled = NO;
-    [self _initViewsInScrollView];
+    [self _relodViewsInScrollView];
     [self _initRightBarButton];
     [self _initWightProgramView];
 }
 
-- (void)_initViewsInScrollView {    
-    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
-    for (int i = 0; i < countPage; i++) {
+- (void)programsForTableView:(NSArray *)programs {
+//    self.programsArray = programs;
+//    self.countPage = [programs count];
+//    HQDispatchToMainQueue(^{
+//        if ([self.programsArray count] > 0) {
+//            [self _relodViewsInScrollView];
+//        }
+//    });
+}
+
+- (void)_relodViewsInScrollView {
+//    if ([self.scrollView.subviews count] > 0) {
+//        for (UIView *view in self.scrollView.subviews) {
+//            [view removeFromSuperview];
+//        }
+//    }
+    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*self.countPage + (self.insetfForView*(self.countPage+3)), self.scrollView.frame.size.height);
+    for (int i = 0; i < self.countPage; i++) {
         CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
         
         BBProgramView *view = [[BBProgramView alloc] init];
+        view.program = [self.programsArray objectAtIndex:i];
         view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
         [self.scrollView addSubview:view];
         [self.arrayViews addObject:view];
-    }}
+    }
+}
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self programsForTableView:@[@"dsfws", @"fsw", @"sdcskd"]];
+    [self presentAlertControllerWithTitle:title message:message];
+}
 
 #pragma mark - ScrollViewDelegate
 
@@ -95,14 +125,14 @@ static NSInteger countPage = 5;
     
 //    NSInteger offsetLooping = 1;
     NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
-    self.pageControl.currentPage = (page % countPage);
+    self.pageControl.currentPage = (page % self.countPage);
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
                      withVelocity:(CGPoint)velocity
               targetContentOffset:(inout CGPoint *)targetContentOffset {
     
-    CGFloat kMaxIndex = countPage;
+    CGFloat kMaxIndex = self.countPage;
     CGFloat targetX = scrollView.contentOffset.x + velocity.x * 240;
     CGFloat targetIndex = round(targetX / (self.wightProgramView + self.insetfForView));
     
@@ -143,7 +173,7 @@ static NSInteger countPage = 5;
 #pragma mark - Layout Views
 
 - (void)_resizeViewOnScrollView {
-    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*countPage + (self.insetfForView*(countPage+3)), self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.wightProgramView*self.countPage + (self.insetfForView*(self.countPage+3)), self.scrollView.frame.size.height);
     for  (int i = 0; i < [self.arrayViews count]; i++) {
         CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
         

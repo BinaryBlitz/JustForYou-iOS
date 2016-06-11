@@ -30,15 +30,11 @@
 
 @end
 
-static NSString *kNoteTitle = @"Внимание";
-
 static NSString *kErrorName = @"Введите Ваше имя";
 static NSString *kErrorSurname = @"Введите Вашу фамилию";
 static NSString *kErrorEmail = @"Введите Ваш E-mail";
 static NSString *kErrorValidEmail = @"Вы неверно ввели email. Пожалуйста проверьте данные и повторите попытку";
 
-static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
-static NSString *kErrorServer = @"Ошибка сервера. Попробуйте снова";
 
 @implementation BBRegistrationPresenter
 

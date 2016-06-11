@@ -12,6 +12,6 @@
 
 - (void)configureModule;
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule;
+- (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId;
 
 @end

@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameBlock;
 @property (weak, nonatomic) IBOutlet UILabel *numberProgramInBlock;
 
+@property (assign, nonatomic) NSInteger blockId;
+
 @end

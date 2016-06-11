@@ -18,6 +18,9 @@
 - (void)showLoaderView;
 - (void)hideLoaderView;
 
+- (void)showBackgroundLoaderView;
+- (void)hideBackgroundLoaderView;
+
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

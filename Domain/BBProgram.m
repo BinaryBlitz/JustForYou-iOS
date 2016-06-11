@@ -10,12 +10,20 @@
 
 @implementation BBProgram
 
++ (NSString *)primaryKey {
+    return @"programId";
+}
+
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-//        self.blockId = [[JSONObj objectForKey:@"id"] integerValue];
-//        self.name = [JSONObj objectForKey:@"name"];
-//        self.image = [[[JSONObj objectForKey:@"image"] objectForKey:@"image"] objectForKey:@"url"];
+        self.programId = [[JSONObj objectForKey:@"id"] integerValue];
+        self.name = [JSONObj objectForKey:@"name"];
+        self.descript = [JSONObj objectForKey:@"description"];
+        self.threshold = [[JSONObj objectForKey:@"threshold"] integerValue];
+        self.primaryPrice = [[JSONObj objectForKey:@"primary_price"] integerValue];
+        self.secondaryPrice = [[JSONObj objectForKey:@"secondary_price"] integerValue];
+        self.previewImage = [[[JSONObj objectForKey:@"preview_image"] objectForKey:@"preview_image"] objectForKey:@"url"];
     }
     return self;
 }

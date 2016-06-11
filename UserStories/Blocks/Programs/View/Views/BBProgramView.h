@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBProgram.h"
+
 @interface BBProgramView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *nameProgram;
@@ -16,5 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionProgram;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (strong, nonatomic) BBProgram *program;
 
 @end

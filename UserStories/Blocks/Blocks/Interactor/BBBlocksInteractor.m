@@ -30,9 +30,15 @@
 
 - (void)listBlocksWithKey:(BBKeyStateData)key {
     [[BBServerService sharedService] listBlocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
-        if ([objects count] > 0) {
-            [[BBDataBaseService sharedService] addOrUpdateObjectsFromArray:objects];
-            [self.output blocksSaveInDataBase];
+        if (response.serverError == kServerErrorSuccessfull) {
+            if ([objects count] > 0) {
+                [[BBDataBaseService sharedService] addOrUpdateBlocksFromArray:objects];
+                [self.output blocksSaveInDataBase];
+            }
+        } else if(response.serverError == kServerErrorClient) {
+            [self.output errorClient];
+        } else if (response.serverError == kServerErrorServer) {
+            [self.output errorServer];
         }
     }];
 }

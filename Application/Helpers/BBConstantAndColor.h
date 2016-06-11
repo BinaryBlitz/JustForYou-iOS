@@ -122,6 +122,15 @@ static CGFloat borderWightLineCell = 1.0f;
 static CGFloat bottomOffsetCells = 10.0f;
 
 
+#pragma mark - Title And Message Alert
+
+static NSString *kNoteTitle = @"Внимание";
+
+static NSString *kErrorServer = @"Ошибка сервера. Повторите позже";
+static NSString *kErrorClient = @"Ошибка сервера. Повторите позже";
+static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
+
+
 #pragma mark - Name Title Module
 
 static NSString *kNameTitleRegistrationModule = @"Регистрация";
