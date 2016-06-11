@@ -23,7 +23,7 @@
         self.threshold = [[JSONObj objectForKey:@"threshold"] integerValue];
         self.primaryPrice = [[JSONObj objectForKey:@"primary_price"] integerValue];
         self.secondaryPrice = [[JSONObj objectForKey:@"secondary_price"] integerValue];
-        self.previewImage = [[[JSONObj objectForKey:@"preview_image"] objectForKey:@"preview_image"] objectForKey:@"url"];
+        self.previewImage = [JSONObj objectForKey:@"preview_image_url"];
     }
     return self;
 }
