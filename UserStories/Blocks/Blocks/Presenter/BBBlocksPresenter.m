@@ -37,9 +37,9 @@
 #pragma mark - Методы BBBlocksModuleInput
 
 - (void)configureModule {
-    self.isEmptyRealm = [self.interactor checkObjectsInDataBase];
-    
 //    [self _deleteBD];
+    
+    self.isEmptyRealm = [self.interactor checkObjectsInDataBase];
 }
 
 #warning delete after test

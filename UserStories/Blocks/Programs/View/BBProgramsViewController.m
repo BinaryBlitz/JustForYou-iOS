@@ -51,12 +51,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
-    if (self.countPage < 2) {
-        self.pageControl.hidden = YES;
-    } else {
-        self.pageControl.hidden = NO;
-        self.pageControl.numberOfPages = self.countPage;
-    }
 }
 
 #pragma mark - Actions
@@ -87,6 +81,12 @@
     self.countPage = [programs count];
     HQDispatchToMainQueue(^{
         if ([self.programsArray count] > 0) {
+            if (self.countPage < 2) {
+                self.pageControl.hidden = YES;
+            } else {
+                self.pageControl.hidden = NO;
+                self.pageControl.numberOfPages = self.countPage;
+            }
             [self _reloadViewsInScrollView];
         }
     });
@@ -108,6 +108,7 @@
         [self.scrollView addSubview:view];
         [self.arrayViews addObject:view];
     }
+    self.scrollView.contentOffset = CGPointZero;
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {

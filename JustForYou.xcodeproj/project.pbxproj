@@ -179,7 +179,6 @@
 		3A311FF11CF6DEAE00D179D1 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A311FF01CF6DEAE00D179D1 /* Support.storyboard */; };
 		3A311FF31CF6DEFA00D179D1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A311FF21CF6DEFA00D179D1 /* Profile.storyboard */; };
 		3A311FF51CF6DF0B00D179D1 /* Universal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A311FF41CF6DF0B00D179D1 /* Universal.storyboard */; };
-		3A311FF91CF7245F00D179D1 /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FF81CF7245F00D179D1 /* BBAddressService.m */; };
 		3A311FFC1CF724CC00D179D1 /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFB1CF724CC00D179D1 /* BBAddress.m */; };
 		3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFE1CF74EA800D179D1 /* BBTextField.m */; };
 		3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */; };
@@ -190,10 +189,12 @@
 		3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */; };
 		3ABAA0D91D003DC00042BD56 /* BBAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
-		3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988681CAB20410069DE52 /* BBValidationService.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
-		3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */; };
 		3AF26F421D0C8739004972FC /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F411D0C8739004972FC /* BBProgram.m */; };
+		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
+		3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F491D0CBA4E004972FC /* BBCalendarService.m */; };
+		3AF26F501D0CBA4E004972FC /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F4D1D0CBA4E004972FC /* BBValidationService.m */; };
+		3AF26F531D0CBA66004972FC /* BBImageViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F521D0CBA66004972FC /* BBImageViewService.m */; };
 		3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45279BE176CE0A5502C4EB9A /* BBMapPresenter.m */; };
 		689FA166277AF4906B569B3B /* BBMapRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */; };
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
@@ -630,8 +631,6 @@
 		3A311FF01CF6DEAE00D179D1 /* Support.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
 		3A311FF21CF6DEFA00D179D1 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3A311FF41CF6DF0B00D179D1 /* Universal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Universal.storyboard; sourceTree = "<group>"; };
-		3A311FF71CF7245F00D179D1 /* BBAddressService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressService.h; sourceTree = "<group>"; };
-		3A311FF81CF7245F00D179D1 /* BBAddressService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressService.m; sourceTree = "<group>"; };
 		3A311FFA1CF724CC00D179D1 /* BBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddress.h; sourceTree = "<group>"; };
 		3A311FFB1CF724CC00D179D1 /* BBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddress.m; sourceTree = "<group>"; };
 		3A311FFD1CF74EA700D179D1 /* BBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextField.h; sourceTree = "<group>"; };
@@ -652,15 +651,19 @@
 		3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAddressTableViewCell.xib; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
-		3AC988671CAB20410069DE52 /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
-		3AC988681CAB20410069DE52 /* BBValidationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBValidationService.m; sourceTree = "<group>"; };
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
 		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
-		3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
-		3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarService.m; sourceTree = "<group>"; };
 		3AF26F401D0C8739004972FC /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
 		3AF26F411D0C8739004972FC /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
+		3AF26F451D0CBA4E004972FC /* BBAddressService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressService.h; sourceTree = "<group>"; };
+		3AF26F461D0CBA4E004972FC /* BBAddressService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressService.m; sourceTree = "<group>"; };
+		3AF26F481D0CBA4E004972FC /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
+		3AF26F491D0CBA4E004972FC /* BBCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarService.m; sourceTree = "<group>"; };
+		3AF26F4C1D0CBA4E004972FC /* BBValidationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBValidationService.h; sourceTree = "<group>"; };
+		3AF26F4D1D0CBA4E004972FC /* BBValidationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBValidationService.m; sourceTree = "<group>"; };
+		3AF26F511D0CBA66004972FC /* BBImageViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBImageViewService.h; sourceTree = "<group>"; };
+		3AF26F521D0CBA66004972FC /* BBImageViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImageViewService.m; sourceTree = "<group>"; };
 		3B674AE35FA53969A699922E /* BBReplacementRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementRouter.h; sourceTree = "<group>"; };
 		3BD9E82877E9B7E51871E52E /* BBMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapViewController.h; sourceTree = "<group>"; };
 		3E23F5D57A15732615C66273 /* BBReplacementModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementModuleInput.h; sourceTree = "<group>"; };
@@ -783,10 +786,9 @@
 		3A13472F1CA5DFAD007A83ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3AF26F431D0CBA4E004972FC /* Other Services */,
 				3A050EFC1D0864D3000AC0B8 /* DataBase Service */,
-				3AF1CE781CC6BAD5001D0B2C /* Other Services */,
 				3A1347521CA6B634007A83ED /* UserService */,
-				3AC988631CAB1FD80069DE52 /* Validation */,
 				3AC988641CAB201A0069DE52 /* REST API */,
 				3A2D56E61CF07F2400A8EFF5 /* Parser */,
 			);
@@ -2329,15 +2331,6 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
-		3A311FF61CF7244200D179D1 /* Address Service */ = {
-			isa = PBXGroup;
-			children = (
-				3A311FF71CF7245F00D179D1 /* BBAddressService.h */,
-				3A311FF81CF7245F00D179D1 /* BBAddressService.m */,
-			);
-			path = "Address Service";
-			sourceTree = "<group>";
-		};
 		3AB21D0D1CFA066B0090F436 /* Network Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -2354,15 +2347,6 @@
 				3AB21D171CFA130A0090F436 /* BBParentViewController.m */,
 			);
 			path = "Parent Views";
-			sourceTree = "<group>";
-		};
-		3AC988631CAB1FD80069DE52 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				3AC988671CAB20410069DE52 /* BBValidationService.h */,
-				3AC988681CAB20410069DE52 /* BBValidationService.m */,
-			);
-			path = Validation;
 			sourceTree = "<group>";
 		};
 		3AC988641CAB201A0069DE52 /* REST API */ = {
@@ -2395,22 +2379,51 @@
 			path = Transport;
 			sourceTree = "<group>";
 		};
-		3AF1CE781CC6BAD5001D0B2C /* Other Services */ = {
+		3AF26F431D0CBA4E004972FC /* Other Services */ = {
 			isa = PBXGroup;
 			children = (
-				3AF1CE791CC6BAD5001D0B2C /* Calendar Service */,
-				3A311FF61CF7244200D179D1 /* Address Service */,
+				3AF26F441D0CBA4E004972FC /* Address Service */,
+				3AF26F471D0CBA4E004972FC /* Calendar Service */,
+				3AF26F4A1D0CBA4E004972FC /* ImageView Service */,
+				3AF26F4B1D0CBA4E004972FC /* Validation */,
 			);
 			path = "Other Services";
 			sourceTree = "<group>";
 		};
-		3AF1CE791CC6BAD5001D0B2C /* Calendar Service */ = {
+		3AF26F441D0CBA4E004972FC /* Address Service */ = {
 			isa = PBXGroup;
 			children = (
-				3AF1CE7A1CC6BB1B001D0B2C /* BBCalendarService.h */,
-				3AF1CE7B1CC6BB1B001D0B2C /* BBCalendarService.m */,
+				3AF26F451D0CBA4E004972FC /* BBAddressService.h */,
+				3AF26F461D0CBA4E004972FC /* BBAddressService.m */,
+			);
+			path = "Address Service";
+			sourceTree = "<group>";
+		};
+		3AF26F471D0CBA4E004972FC /* Calendar Service */ = {
+			isa = PBXGroup;
+			children = (
+				3AF26F481D0CBA4E004972FC /* BBCalendarService.h */,
+				3AF26F491D0CBA4E004972FC /* BBCalendarService.m */,
 			);
 			path = "Calendar Service";
+			sourceTree = "<group>";
+		};
+		3AF26F4A1D0CBA4E004972FC /* ImageView Service */ = {
+			isa = PBXGroup;
+			children = (
+				3AF26F511D0CBA66004972FC /* BBImageViewService.h */,
+				3AF26F521D0CBA66004972FC /* BBImageViewService.m */,
+			);
+			path = "ImageView Service";
+			sourceTree = "<group>";
+		};
+		3AF26F4B1D0CBA4E004972FC /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				3AF26F4C1D0CBA4E004972FC /* BBValidationService.h */,
+				3AF26F4D1D0CBA4E004972FC /* BBValidationService.m */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		8BD8B9C12DC306DEADB2EDA6 /* View */ = {
@@ -2713,7 +2726,6 @@
 				3A1AB27F1C9D91450070E065 /* HelpQueue.m in Sources */,
 				3A2D56A21CF075D200A8EFF5 /* BBDeliveryInteractor.m in Sources */,
 				3A2D568B1CF075D200A8EFF5 /* BBNumderDayTableViewCell.m in Sources */,
-				3AF1CE7C1CC6BB1B001D0B2C /* BBCalendarService.m in Sources */,
 				3A2D566F1CF075D200A8EFF5 /* BBRegistrationRouter.m in Sources */,
 				3A2D56DC1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.m in Sources */,
 				3A2D56981CF075D200A8EFF5 /* BBNavigationPresenter.m in Sources */,
@@ -2730,9 +2742,11 @@
 				3A2D56691CF075D200A8EFF5 /* BBGreetingPresenter.m in Sources */,
 				3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */,
 				3A2D56DE1CF075D200A8EFF5 /* BBStockTableViewCell.m in Sources */,
+				3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */,
 				3A2D569E1CF075D200A8EFF5 /* BBTabbarRouter.m in Sources */,
 				3A2D56AA1CF075D200A8EFF5 /* BBMyProgramsPresenter.m in Sources */,
 				3A2D56A61CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.m in Sources */,
+				3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */,
 				3A2D565E1CF075D200A8EFF5 /* BBAuthorizationAssembly.m in Sources */,
 				3A2D566D1CF075D200A8EFF5 /* BBRegistrationInteractor.m in Sources */,
 				3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */,
@@ -2754,12 +2768,11 @@
 				3A2D567B1CF075D200A8EFF5 /* BBBlocksRouter.m in Sources */,
 				3A2D56DA1CF075D200A8EFF5 /* BBMyOldProgramTableViewCell.m in Sources */,
 				3A2D56A41CF075D200A8EFF5 /* BBDeliveryRouter.m in Sources */,
-				3AC988691CAB20410069DE52 /* BBValidationService.m in Sources */,
 				3A2D56D51CF075D200A8EFF5 /* BBUniversalAssembly.m in Sources */,
 				3A2D56731CF075D200A8EFF5 /* BBBasketPresenter.m in Sources */,
 				3A2D569D1CF075D200A8EFF5 /* BBTabbarPresenter.m in Sources */,
 				3A2D56781CF075D200A8EFF5 /* BBBlocksAssembly.m in Sources */,
-				3A311FF91CF7245F00D179D1 /* BBAddressService.m in Sources */,
+				3AF26F501D0CBA4E004972FC /* BBValidationService.m in Sources */,
 				3A2D56821CF075D200A8EFF5 /* BBCardProgramRouter.m in Sources */,
 				3A2D56E91CF07F5E00A8EFF5 /* NSData+BBParserAPI.m in Sources */,
 				3A2D56C01CF075D200A8EFF5 /* BBProfileRouter.m in Sources */,
@@ -2832,6 +2845,7 @@
 				3A2D56B91CF075D200A8EFF5 /* BBCalendarTableViewCell.m in Sources */,
 				3A2D568D1CF075D200A8EFF5 /* BBPartDayTableViewCell.m in Sources */,
 				3A2D56941CF075D200A8EFF5 /* BBProgramView.m in Sources */,
+				3AF26F531D0CBA66004972FC /* BBImageViewService.m in Sources */,
 				70217D8635D95BD16CF6B88E /* BBMapAssembly.m in Sources */,
 				B8BC89C6E4D042F06261386C /* BBMapViewController.m in Sources */,
 				3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */,

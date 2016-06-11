@@ -10,6 +10,8 @@
 
 #import "BBLoaderView.h"
 
+#import "BBImageViewService.h"
+
 @interface BBParentViewController : UIViewController
 
 @property (strong, nonatomic) UIAlertController *alertController;

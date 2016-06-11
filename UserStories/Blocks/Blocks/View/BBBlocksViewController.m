@@ -92,6 +92,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
         BBBlock *block = [self.blocks objectAtIndex:indexPath.row];
         blockCell.nameBlock.text = block.name;
         blockCell.blockId = block.blockId;
+        [[BBImageViewService sharedService] setImageForImageView:blockCell.imageBlock placeholder:[UIImage imageNamed:@"TestIconBlock"] stringURL:block.image];
     }
 }
 

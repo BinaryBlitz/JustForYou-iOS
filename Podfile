@@ -12,8 +12,10 @@ pod 'Realm'
 pod 'Fabric'
 pod 'Crashlytics'
 
-# Calendar
+# UI
 pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
+pod 'Haneke'
+pod 'SDWebImage'
 
 # Maps
 pod 'GoogleMaps'
