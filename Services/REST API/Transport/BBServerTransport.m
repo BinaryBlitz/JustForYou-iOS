@@ -19,6 +19,10 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 
 @implementation BBServerTransport
 
+- (NSString *)HOSTServer {
+    return kServerURL;
+}
+
 #pragma mark - User Methods 
 
 - (void)sendUserNumberPhoneWithString:(NSString *)userPhone completion:(CompletionBlock)completion {

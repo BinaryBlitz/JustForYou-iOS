@@ -16,4 +16,6 @@
 
 @property (assign, nonatomic) NSInteger blockId;
 
+- (void)setCountProgram:(NSInteger)programs;
+
 @end

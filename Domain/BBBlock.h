@@ -20,7 +20,7 @@
 
 @property (readonly) RLMLinkingObjects *programs;
 
-- (instancetype)initWithJSON:(id)JSONObj;
+- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url;
 
 @end
 

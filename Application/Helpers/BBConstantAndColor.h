@@ -93,6 +93,12 @@ typedef enum : NSUInteger {
 
 @interface BBConstantAndColor : NSObject
 
+#pragma mark - Helper Numbers
+
++ (NSString *)getNumberEndingWith:(NSInteger)numberInArray andEndings:(NSArray *)endingArray;
+
+#pragma mark - Colors
+
 + (UIColor *)colorForR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b alpha:(CGFloat)alpha;
 
 + (UIColor *)applicationOrangeColor;

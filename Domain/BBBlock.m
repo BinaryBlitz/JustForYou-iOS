@@ -22,12 +22,13 @@
              };
 }
 
-- (instancetype)initWithJSON:(id)JSONObj {
+- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url {
     self = [super init];
     if (self) {
         self.blockId = [[JSONObj objectForKey:@"id"] integerValue];
         self.name = [JSONObj objectForKey:@"name"];
-        self.image = [JSONObj objectForKey:@"image_url"];
+        NSString *image = [JSONObj objectForKey:@"image_url"];
+        self.image = [NSString stringWithFormat:@"%@%@", url, image];
     }
     return self;
 }

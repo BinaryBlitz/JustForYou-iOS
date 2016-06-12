@@ -23,7 +23,7 @@
 
 @property BBBlock *block;
 
-- (instancetype)initWithJSON:(id)JSONObj;
+- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url;
 
 @end
 

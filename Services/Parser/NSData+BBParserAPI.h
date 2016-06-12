@@ -27,7 +27,7 @@ typedef enum : NSUInteger {
 
 #pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId;
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId urlServer:(NSString *)url;
 
 #pragma mark - Map Methods
 

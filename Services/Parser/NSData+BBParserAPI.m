@@ -35,16 +35,16 @@
 
 #pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId {
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId urlServer:(NSString *)url {
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
         for (id blockObj in JSONObj) {
             if (key == kTypeBlockInData) {
-                BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj];
+                BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj andUrlServer:url];
                 [result addObject:block];
             } else {
-                BBProgram *program = [[BBProgram alloc] initWithJSON:blockObj];
+                BBProgram *program = [[BBProgram alloc] initWithJSON:blockObj andUrlServer:url];
                 program.parentId = parentId;
                 [result addObject:program];
             }

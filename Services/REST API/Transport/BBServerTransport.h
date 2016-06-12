@@ -14,6 +14,8 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 @interface BBServerTransport : NSObject
 
+- (NSString *)HOSTServer;
+
 #pragma mark - User
 
 - (void)sendUserNumberPhoneWithString:(NSString *)userPhone completion:(CompletionBlock)completion;

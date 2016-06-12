@@ -22,6 +22,10 @@ static CGFloat sideOffset = 27.0f;
     // Configure the view for the selected state
 }
 
+- (void)setCountProgram:(NSInteger)programs {
+    self.numberProgramInBlock.text = [NSString stringWithFormat:@"%ld %@", (long)programs, [BBConstantAndColor getNumberEndingWith:programs andEndings:@[@"ПРОГРАММА", @"ПРОГРАММЫ", @"ПРОГРАММ"]]];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     

@@ -10,13 +10,11 @@
 
 @implementation BBProgram
 
-
-
 + (NSArray *)ignoredProperties {
     return @[@"parentId"];
 }
 
-- (instancetype)initWithJSON:(id)JSONObj {
+- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url {
     self = [super init];
     if (self) {
         self.programId = [[JSONObj objectForKey:@"id"] integerValue];
