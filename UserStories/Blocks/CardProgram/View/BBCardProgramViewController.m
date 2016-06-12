@@ -105,7 +105,8 @@
          forCellReuseIdentifier:kPartDayCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameNumberDayCell bundle:nil]
          forCellReuseIdentifier:kNumberDayCellIdentifire];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameForWhomCell bundle:nil]
+         forCellReuseIdentifier:kForWhomCellIdentifire];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -144,6 +145,10 @@
             descriptiomCell.costLabel.text = @"5800 РУБ";
             descriptiomCell.descriptionLabel.text = @"Самый комфортный путь к стройности для тех, кто предпочитает исключать из рациона мясо и птицу.\n\nПрограмма «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в качестве ";
             return descriptiomCell;
+        } else if (self.segmentedIndex == BBForWhomSegmentedIndex) {
+            BBForWhomTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kForWhomCellIdentifire];
+            
+            return cell;
         } else {
             BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
             if (!numberCell.delegate) {
@@ -167,7 +172,6 @@
             return menuCell;
         }
     }
-    
 }
 
 - (void)_settingTableView {
@@ -186,14 +190,19 @@
 #pragma mark - Controls TableView
 
 - (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex)segmentedIndex {
+    NSInteger oldSeg = self.segmentedIndex;
     self.segmentedIndex = segmentedIndex;
     [self _changeBackgroundTableView];
-    if (segmentedIndex == BBMenuSegmentedIndex) {
-        [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
-    } else if (segmentedIndex == BBDescriptionSegmentedIndex) {
+    if (segmentedIndex == BBDescriptionSegmentedIndex) {
         [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
+    } else if (segmentedIndex == BBMenuSegmentedIndex) {
+        if (oldSeg < self.segmentedIndex) {
+            [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
+        } else {
+            [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
+        }
     } else {
-        
+        [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
     }
 }
 

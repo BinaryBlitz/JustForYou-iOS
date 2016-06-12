@@ -32,6 +32,10 @@
     self.program = program;
     BBProgramView *view = self.subviews.lastObject;
     view.nameProgram.text = program.name;
+    view.descriptionProgram.text = program.descript;
+    view.costProgram.text = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)program.primaryPrice];
+    view.bigCostProgram.text = [NSString
+                                stringWithFormat:@"При заказе от %ld дней: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
 }
 
 @end

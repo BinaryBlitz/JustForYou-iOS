@@ -14,8 +14,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameProgram;
 @property (weak, nonatomic) IBOutlet UILabel *costProgram;
+@property (weak, nonatomic) IBOutlet UILabel *bigCostProgram;
 @property (weak, nonatomic) IBOutlet UILabel *shortDescription;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionProgram;
+
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 

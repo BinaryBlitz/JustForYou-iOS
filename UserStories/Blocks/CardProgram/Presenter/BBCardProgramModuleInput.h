@@ -14,6 +14,6 @@
 
 - (void)configureModule;
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId;
+- (void)pushModuleWithNavigationModule:(id)navigationModule prog:(BBProgram *)prog;
 
 @end

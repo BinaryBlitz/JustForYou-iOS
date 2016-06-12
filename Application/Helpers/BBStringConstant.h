@@ -27,6 +27,9 @@ static NSString *kNibNameCommentCell = @"BBCommentTableViewCell";
 // D
 static NSString *kNibNameDescriptionCell = @"BBDescriptionTableViewCell";
 
+// F
+static NSString *kNibNameForWhomCell = @"BBForWhomTableViewCell";
+
 // H
 static NSString *kNibNameHeaderCell = @"BBHeaderTableViewCell";
 
@@ -74,6 +77,9 @@ static NSString *kCommentCellIdentifire = @"commentTableViewCell";
 
 // D
 static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
+
+// F
+static NSString *kForWhomCellIdentifire = @"forWhomTableViewCell";
 
 // H
 static NSString *kHeaderCellIdentifire = @"headerTableViewCell";

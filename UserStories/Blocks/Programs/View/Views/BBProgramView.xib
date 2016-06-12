@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBProgramView">
             <connections>
+                <outlet property="bigCostProgram" destination="EGC-ee-Yfw" id="eja-Rd-juv"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="h2Q-dO-zHP"/>
             </connections>
         </placeholder>

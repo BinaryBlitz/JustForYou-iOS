@@ -28,6 +28,9 @@
 // D
 #import "BBDescriptionTableViewCell.h"
 
+// F
+#import "BBForWhomTableViewCell.h"
+
 // H
 #import "BBHeaderTableViewCell.h"
 

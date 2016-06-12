@@ -36,9 +36,9 @@
     self.clearData = YES;
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId {
+- (void)pushModuleWithNavigationModule:(id)navigationModule prog:(BBProgram *)prog {
     self.navigModule = navigationModule;
-    self.parentId = parentId;
+    self.parentId = prog.parentId;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
@@ -46,15 +46,15 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
-    if (res && [res count] > 0) {
-        self.clearData = NO;
-//        [self.view daForTableView:res];
-        [self.interactor listDaysWithParentId:self.parentId];
-    } else {
-        [self.view showLoaderView];
-        [self.interactor listDaysWithParentId:self.parentId];
-    }
+//    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
+//    if (res && [res count] > 0) {
+//        self.clearData = NO;
+////        [self.view daForTableView:res];
+//        [self.interactor listDaysWithParentId:self.parentId];
+//    } else {
+//        [self.view showLoaderView];
+//        [self.interactor listDaysWithParentId:self.parentId];
+//    }
 //    [self.view updateViewWithProgram:self.program];
 }
 

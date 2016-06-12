@@ -64,7 +64,7 @@
 }
 
 - (void)programDidTapWithProgram:(BBProgram *)program {
-    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule parentId:program.programId];
+    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule prog:program];
 }
 
 - (void)basketButtonDidTap {
