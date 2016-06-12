@@ -10,4 +10,11 @@
 
 @protocol BBCardProgramInteractorOutput <NSObject>
 
+- (void)currentDaysInDataBase:(NSArray *)days;
+
+- (void)daysSaveInDataBase;
+
+- (void)errorServer;
+- (void)errorClient;
+
 @end

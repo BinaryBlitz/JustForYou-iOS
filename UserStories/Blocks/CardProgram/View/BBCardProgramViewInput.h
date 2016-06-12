@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBProgram.h"
+
 @protocol BBCardProgramViewInput <NSObject>
 
 - (void)setupInitialState;
+
+- (void)updateViewWithProgram:(BBProgram *)program;
 
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message;
 

@@ -10,4 +10,10 @@
 
 @protocol BBCardProgramInteractorInput <NSObject>
 
+- (NSArray *)checkDaysInDataBaseWith:(NSInteger)parentId;
+
+- (void)daysInDataBaseWithParentId:(NSInteger)parentId;
+
+- (void)listDaysWithParentId:(NSInteger)parentId;
+
 @end

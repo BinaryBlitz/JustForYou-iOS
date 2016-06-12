@@ -11,13 +11,11 @@
 		2991BD389DDE49D4E58B2B5D /* BBReplacementAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 72563B67D3D92F6CC90DD5DD /* BBReplacementAssembly.m */; };
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
 		3A050EFF1D086737000AC0B8 /* BBDataBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */; };
-		3A050F021D099627000AC0B8 /* BBBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050F011D099627000AC0B8 /* BBBlock.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
 		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
 		3A1320241CFE30F30046CFBD /* BBSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */; };
 		3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */; };
 		3A1347551CA6B643007A83ED /* BBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347541CA6B643007A83ED /* BBUserService.m */; };
-		3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1347571CA6B6BE007A83ED /* BBUser.m */; };
 		3A1AB2761C9D8F6B0070E065 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */; };
 		3A1AB2771C9D8F6B0070E065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */; };
 		3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1AB2701C9D8F6B0070E065 /* LaunchScreen.storyboard */; };
@@ -179,22 +177,25 @@
 		3A311FF11CF6DEAE00D179D1 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A311FF01CF6DEAE00D179D1 /* Support.storyboard */; };
 		3A311FF31CF6DEFA00D179D1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A311FF21CF6DEFA00D179D1 /* Profile.storyboard */; };
 		3A311FF51CF6DF0B00D179D1 /* Universal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A311FF41CF6DF0B00D179D1 /* Universal.storyboard */; };
-		3A311FFC1CF724CC00D179D1 /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFB1CF724CC00D179D1 /* BBAddress.m */; };
 		3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFE1CF74EA800D179D1 /* BBTextField.m */; };
 		3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */; };
 		3A36B6F71D04B1EE00A32B51 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6F61D04B1EE00A32B51 /* BBRootViewController.m */; };
-		3A7EF7801D01FD87008196AC /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7EF77F1D01FD87008196AC /* BBOrder.m */; };
 		3AB21D101CFA066B0090F436 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D0F1CFA066B0090F436 /* Reachability.m */; };
 		3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D171CFA130A0090F436 /* BBParentViewController.m */; };
 		3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */; };
 		3ABAA0D91D003DC00042BD56 /* BBAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
-		3AF26F421D0C8739004972FC /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F411D0C8739004972FC /* BBProgram.m */; };
 		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
 		3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F491D0CBA4E004972FC /* BBCalendarService.m */; };
 		3AF26F501D0CBA4E004972FC /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F4D1D0CBA4E004972FC /* BBValidationService.m */; };
 		3AF26F531D0CBA66004972FC /* BBImageViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F521D0CBA66004972FC /* BBImageViewService.m */; };
+		3AF26F631D0D703A004972FC /* BBBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F591D0D703A004972FC /* BBBlock.m */; };
+		3AF26F641D0D703A004972FC /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F5B1D0D703A004972FC /* BBOrder.m */; };
+		3AF26F651D0D703A004972FC /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F5D1D0D703A004972FC /* BBProgram.m */; };
+		3AF26F661D0D703A004972FC /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F601D0D703A004972FC /* BBAddress.m */; };
+		3AF26F671D0D703A004972FC /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F621D0D703A004972FC /* BBUser.m */; };
+		3AF26F6A1D0D7062004972FC /* BBDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F691D0D7062004972FC /* BBDay.m */; };
 		3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45279BE176CE0A5502C4EB9A /* BBMapPresenter.m */; };
 		689FA166277AF4906B569B3B /* BBMapRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */; };
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
@@ -218,8 +219,6 @@
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
 		3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataBaseService.h; sourceTree = "<group>"; };
 		3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataBaseService.m; sourceTree = "<group>"; };
-		3A050F001D099627000AC0B8 /* BBBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlock.h; sourceTree = "<group>"; };
-		3A050F011D099627000AC0B8 /* BBBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlock.m; sourceTree = "<group>"; };
 		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
 		3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoaderView.h; sourceTree = "<group>"; };
 		3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoaderView.m; sourceTree = "<group>"; };
@@ -228,8 +227,6 @@
 		3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorizate.storyboard; sourceTree = "<group>"; };
 		3A1347531CA6B643007A83ED /* BBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUserService.h; sourceTree = "<group>"; };
 		3A1347541CA6B643007A83ED /* BBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUserService.m; sourceTree = "<group>"; };
-		3A1347561CA6B6BE007A83ED /* BBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUser.h; sourceTree = "<group>"; };
-		3A1347571CA6B6BE007A83ED /* BBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUser.m; sourceTree = "<group>"; };
 		3A1AB26C1C9D8F6B0070E065 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -631,8 +628,6 @@
 		3A311FF01CF6DEAE00D179D1 /* Support.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
 		3A311FF21CF6DEFA00D179D1 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		3A311FF41CF6DF0B00D179D1 /* Universal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Universal.storyboard; sourceTree = "<group>"; };
-		3A311FFA1CF724CC00D179D1 /* BBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddress.h; sourceTree = "<group>"; };
-		3A311FFB1CF724CC00D179D1 /* BBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddress.m; sourceTree = "<group>"; };
 		3A311FFD1CF74EA700D179D1 /* BBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTextField.h; sourceTree = "<group>"; };
 		3A311FFE1CF74EA800D179D1 /* BBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTextField.m; sourceTree = "<group>"; };
 		3A36B6EE1D03652D00A32B51 /* BBServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBServerResponse.h; sourceTree = "<group>"; };
@@ -640,8 +635,6 @@
 		3A36B6F11D03813C00A32B51 /* BBTabbarModuleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabbarModuleOutput.h; sourceTree = "<group>"; };
 		3A36B6F51D04B1EE00A32B51 /* BBRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRootViewController.h; sourceTree = "<group>"; };
 		3A36B6F61D04B1EE00A32B51 /* BBRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRootViewController.m; sourceTree = "<group>"; };
-		3A7EF77E1D01FD87008196AC /* BBOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrder.h; sourceTree = "<group>"; };
-		3A7EF77F1D01FD87008196AC /* BBOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrder.m; sourceTree = "<group>"; };
 		3AB21D0E1CFA066B0090F436 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3AB21D0F1CFA066B0090F436 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3AB21D161CFA130A0090F436 /* BBParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentViewController.h; sourceTree = "<group>"; };
@@ -654,8 +647,6 @@
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
 		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
-		3AF26F401D0C8739004972FC /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
-		3AF26F411D0C8739004972FC /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3AF26F451D0CBA4E004972FC /* BBAddressService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressService.h; sourceTree = "<group>"; };
 		3AF26F461D0CBA4E004972FC /* BBAddressService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressService.m; sourceTree = "<group>"; };
 		3AF26F481D0CBA4E004972FC /* BBCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarService.h; sourceTree = "<group>"; };
@@ -664,6 +655,18 @@
 		3AF26F4D1D0CBA4E004972FC /* BBValidationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBValidationService.m; sourceTree = "<group>"; };
 		3AF26F511D0CBA66004972FC /* BBImageViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBImageViewService.h; sourceTree = "<group>"; };
 		3AF26F521D0CBA66004972FC /* BBImageViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImageViewService.m; sourceTree = "<group>"; };
+		3AF26F581D0D703A004972FC /* BBBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlock.h; sourceTree = "<group>"; };
+		3AF26F591D0D703A004972FC /* BBBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlock.m; sourceTree = "<group>"; };
+		3AF26F5A1D0D703A004972FC /* BBOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrder.h; sourceTree = "<group>"; };
+		3AF26F5B1D0D703A004972FC /* BBOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrder.m; sourceTree = "<group>"; };
+		3AF26F5C1D0D703A004972FC /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
+		3AF26F5D1D0D703A004972FC /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
+		3AF26F5F1D0D703A004972FC /* BBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddress.h; sourceTree = "<group>"; };
+		3AF26F601D0D703A004972FC /* BBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddress.m; sourceTree = "<group>"; };
+		3AF26F611D0D703A004972FC /* BBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUser.h; sourceTree = "<group>"; };
+		3AF26F621D0D703A004972FC /* BBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUser.m; sourceTree = "<group>"; };
+		3AF26F681D0D7062004972FC /* BBDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDay.h; sourceTree = "<group>"; };
+		3AF26F691D0D7062004972FC /* BBDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDay.m; sourceTree = "<group>"; };
 		3B674AE35FA53969A699922E /* BBReplacementRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementRouter.h; sourceTree = "<group>"; };
 		3BD9E82877E9B7E51871E52E /* BBMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapViewController.h; sourceTree = "<group>"; };
 		3E23F5D57A15732615C66273 /* BBReplacementModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementModuleInput.h; sourceTree = "<group>"; };
@@ -766,23 +769,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		3A13472E1CA5DFAD007A83ED /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				3A1347561CA6B6BE007A83ED /* BBUser.h */,
-				3A1347571CA6B6BE007A83ED /* BBUser.m */,
-				3A050F001D099627000AC0B8 /* BBBlock.h */,
-				3A050F011D099627000AC0B8 /* BBBlock.m */,
-				3AF26F401D0C8739004972FC /* BBProgram.h */,
-				3AF26F411D0C8739004972FC /* BBProgram.m */,
-				3A311FFA1CF724CC00D179D1 /* BBAddress.h */,
-				3A311FFB1CF724CC00D179D1 /* BBAddress.m */,
-				3A7EF77E1D01FD87008196AC /* BBOrder.h */,
-				3A7EF77F1D01FD87008196AC /* BBOrder.m */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		3A13472F1CA5DFAD007A83ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,7 +860,7 @@
 				3A2D56EA1CF331C300A8EFF5 /* Custom Views */,
 				3A2D54801CF075D200A8EFF5 /* UserStories */,
 				3A13472F1CA5DFAD007A83ED /* Services */,
-				3A13472E1CA5DFAD007A83ED /* Domain */,
+				3AF26F561D0D703A004972FC /* Domain */,
 				1F94A1FB1291D9AAD2535E32 /* Frameworks */,
 				3A2A2E6F1C9D8CE900CA19E1 /* Products */,
 				3A1AB2721C9D8F6B0070E065 /* Supporting Files */,
@@ -1300,10 +1286,10 @@
 		3A2D55041CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55051CF075D200A8EFF5 /* BBCardProgramInteractor.h */,
-				3A2D55061CF075D200A8EFF5 /* BBCardProgramInteractor.m */,
 				3A2D55071CF075D200A8EFF5 /* BBCardProgramInteractorInput.h */,
 				3A2D55081CF075D200A8EFF5 /* BBCardProgramInteractorOutput.h */,
+				3A2D55051CF075D200A8EFF5 /* BBCardProgramInteractor.h */,
+				3A2D55061CF075D200A8EFF5 /* BBCardProgramInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2426,6 +2412,41 @@
 			path = Validation;
 			sourceTree = "<group>";
 		};
+		3AF26F561D0D703A004972FC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3AF26F571D0D703A004972FC /* JFY Objects */,
+				3AF26F5E1D0D703A004972FC /* User */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3AF26F571D0D703A004972FC /* JFY Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3AF26F581D0D703A004972FC /* BBBlock.h */,
+				3AF26F591D0D703A004972FC /* BBBlock.m */,
+				3AF26F5C1D0D703A004972FC /* BBProgram.h */,
+				3AF26F5D1D0D703A004972FC /* BBProgram.m */,
+				3AF26F681D0D7062004972FC /* BBDay.h */,
+				3AF26F691D0D7062004972FC /* BBDay.m */,
+				3AF26F5A1D0D703A004972FC /* BBOrder.h */,
+				3AF26F5B1D0D703A004972FC /* BBOrder.m */,
+			);
+			path = "JFY Objects";
+			sourceTree = "<group>";
+		};
+		3AF26F5E1D0D703A004972FC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3AF26F5F1D0D703A004972FC /* BBAddress.h */,
+				3AF26F601D0D703A004972FC /* BBAddress.m */,
+				3AF26F611D0D703A004972FC /* BBUser.h */,
+				3AF26F621D0D703A004972FC /* BBUser.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		8BD8B9C12DC306DEADB2EDA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2716,7 +2737,6 @@
 				3A2D56611CF075D200A8EFF5 /* BBAuthorizationRouter.m in Sources */,
 				3A1AB27B1C9D8F6B0070E065 /* main.m in Sources */,
 				3A2D56B61CF075D200A8EFF5 /* BBOrdersViewController.m in Sources */,
-				3AF26F421D0C8739004972FC /* BBProgram.m in Sources */,
 				3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */,
 				3A2D56AC1CF075D200A8EFF5 /* BBMyProgramsViewController.m in Sources */,
 				3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */,
@@ -2730,6 +2750,7 @@
 				3A2D56DC1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.m in Sources */,
 				3A2D56981CF075D200A8EFF5 /* BBNavigationPresenter.m in Sources */,
 				3A2D56B11CF075D200A8EFF5 /* BBNewOrderViewController.m in Sources */,
+				3AF26F651D0D703A004972FC /* BBProgram.m in Sources */,
 				3A2D56CC1CF075D200A8EFF5 /* BBSupportInteractor.m in Sources */,
 				3A2D56D31CF075D200A8EFF5 /* BBPaymentRouter.m in Sources */,
 				3A2D56D71CF075D200A8EFF5 /* BBUniversalPresenter.m in Sources */,
@@ -2752,16 +2773,16 @@
 				3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */,
 				3A2D57051CF331C300A8EFF5 /* BBDottedBorderButton.m in Sources */,
 				3A2D56741CF075D200A8EFF5 /* BBBasketRouter.m in Sources */,
-				3A050F021D099627000AC0B8 /* BBBlock.m in Sources */,
-				3A311FFC1CF724CC00D179D1 /* BBAddress.m in Sources */,
 				3A2D57091CF331C300A8EFF5 /* BBAccessoryTableViewCell.m in Sources */,
 				3A2D56B31CF075D200A8EFF5 /* BBOrdersInteractor.m in Sources */,
 				3A2D56D11CF075D200A8EFF5 /* BBPaymentInteractor.m in Sources */,
+				3AF26F641D0D703A004972FC /* BBOrder.m in Sources */,
 				3A2D56841CF075D200A8EFF5 /* BBDescriptionTableViewCell.m in Sources */,
 				3A2D56D91CF075D200A8EFF5 /* BBUniversalViewController.m in Sources */,
 				3A2D567F1CF075D200A8EFF5 /* BBCardProgramAssembly.m in Sources */,
 				3A2D566B1CF075D200A8EFF5 /* BBGreetingViewController.m in Sources */,
 				3A2D56671CF075D200A8EFF5 /* BBGreetingAssembly.m in Sources */,
+				3AF26F631D0D703A004972FC /* BBBlock.m in Sources */,
 				3A2D56C11CF075D200A8EFF5 /* BBProfileViewController.m in Sources */,
 				3A1AB2761C9D8F6B0070E065 /* AppDelegate.m in Sources */,
 				3A36B6F71D04B1EE00A32B51 /* BBRootViewController.m in Sources */,
@@ -2798,6 +2819,7 @@
 				3A2D56701CF075D200A8EFF5 /* BBRegistrationViewController.m in Sources */,
 				3A2D56C81CF075D200A8EFF5 /* BBSettingsViewController.m in Sources */,
 				3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */,
+				3AF26F6A1D0D7062004972FC /* BBDay.m in Sources */,
 				3A2D570F1CF331C300A8EFF5 /* BBSwitchTableViewCell.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3A2D56D41CF075D200A8EFF5 /* BBPaymentViewController.m in Sources */,
@@ -2814,9 +2836,7 @@
 				3A2D56651CF075D200A8EFF5 /* BBNumberPhoneTableViewCell.m in Sources */,
 				3A2D570D1CF331C300A8EFF5 /* BBMyProgramTableViewCell.m in Sources */,
 				3A2D56D61CF075D200A8EFF5 /* BBUniversalInteractor.m in Sources */,
-				3A1347581CA6B6BE007A83ED /* BBUser.m in Sources */,
 				3A2D56BB1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.m in Sources */,
-				3A7EF7801D01FD87008196AC /* BBOrder.m in Sources */,
 				3A2D56991CF075D200A8EFF5 /* BBNavigationRouter.m in Sources */,
 				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
 				3A2D56A31CF075D200A8EFF5 /* BBDeliveryPresenter.m in Sources */,
@@ -2828,6 +2848,7 @@
 				3A2D56721CF075D200A8EFF5 /* BBBasketInteractor.m in Sources */,
 				3A2D568F1CF075D200A8EFF5 /* BBProgramsAssembly.m in Sources */,
 				3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */,
+				3AF26F661D0D703A004972FC /* BBAddress.m in Sources */,
 				3A2D569C1CF075D200A8EFF5 /* BBTabbarInteractor.m in Sources */,
 				3A2D56BF1CF075D200A8EFF5 /* BBProfilePresenter.m in Sources */,
 				3A2D56811CF075D200A8EFF5 /* BBCardProgramPresenter.m in Sources */,
@@ -2838,6 +2859,7 @@
 				3A2D56921CF075D200A8EFF5 /* BBProgramsRouter.m in Sources */,
 				3A2D56B21CF075D200A8EFF5 /* BBOrdersAssembly.m in Sources */,
 				3A2D56621CF075D200A8EFF5 /* BBAuthorizationViewController.m in Sources */,
+				3AF26F671D0D703A004972FC /* BBUser.m in Sources */,
 				3A2D56AB1CF075D200A8EFF5 /* BBMyProgramsRouter.m in Sources */,
 				3A2D56A11CF075D200A8EFF5 /* BBDeliveryAssembly.m in Sources */,
 				3A2D56C71CF075D200A8EFF5 /* BBSettingsRouter.m in Sources */,

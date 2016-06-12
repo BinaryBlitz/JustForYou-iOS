@@ -143,6 +143,11 @@
     }];
 }
 
+- (void)listDaysInProgramId:(NSInteger)programId apiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    
+}
+
 #pragma mark - Order Methods
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion {

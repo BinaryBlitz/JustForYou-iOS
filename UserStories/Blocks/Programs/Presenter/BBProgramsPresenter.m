@@ -43,9 +43,6 @@
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
-- (void)_updateProgramsInBackground {
-    
-}
 
 #pragma mark - Методы BBProgramsViewOutput
 
@@ -67,7 +64,7 @@
 }
 
 - (void)programDidTapWithProgram:(BBProgram *)program {
-    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule];
+    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule program:program];
 }
 
 - (void)basketButtonDidTap {

@@ -38,6 +38,7 @@ typedef void (^ReceiveData)(NSData* data);
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 - (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSInteger)blockId completion:(ArrayObjectsCompletion)completion;
+- (void)listDaysInProgramId:(NSInteger)programId apiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 
 #pragma mark - Order Methods
 

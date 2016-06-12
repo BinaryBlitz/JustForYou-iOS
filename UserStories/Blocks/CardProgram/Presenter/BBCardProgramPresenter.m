@@ -23,6 +23,8 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
+@property (strong, nonatomic) BBProgram *program;
+
 @end
 
 @implementation BBCardProgramPresenter
@@ -33,8 +35,9 @@
     
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule {
+- (void)pushModuleWithNavigationModule:(id)navigationModule program:(BBProgram *)program {
     self.navigModule = navigationModule;
+    self.program = program;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
@@ -42,6 +45,11 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+    [self.view updateViewWithProgram:self.program];
+}
+
+- (void)viewWillAppear {
+    
 }
 
 - (void)basketButtonDidTap {
@@ -58,6 +66,22 @@
 }
 
 #pragma mark - Методы BBCardProgramInteractorOutput
+
+- (void)currentDaysInDataBase:(NSArray *)days {
+    
+}
+
+- (void)daysSaveInDataBase {
+    
+}
+
+- (void)errorServer {
+    
+}
+
+- (void)errorClient {
+    
+}
 
 #pragma makr - Lazy Load 
 

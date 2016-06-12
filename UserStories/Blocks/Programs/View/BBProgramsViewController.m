@@ -60,7 +60,7 @@
 }
 
 - (IBAction)moreButtonAction:(id)sender {
-    [self.output programDidTapWithProgram:[BBProgram new]];
+    [self.output programDidTapWithProgram:[self.programsArray objectAtIndex:self.pageControl.currentPage]];
 }
 
 #pragma mark - Методы BBProgramsViewInput

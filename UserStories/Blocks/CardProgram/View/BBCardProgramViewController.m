@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gradientVIew;
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
+@property (strong, nonatomic) BBProgram *myProgram;
+
 @property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
 @property (strong, nonatomic) BBNumderDayTableViewCell *numberDayCell;
@@ -37,6 +39,11 @@
     
     [self _registrateIdentifireCell];
 	[self.output didTriggerViewReadyEvent];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
 }
 
 - (void)viewWillLayoutSubviews {
@@ -63,6 +70,10 @@
     self.segmentedIndex = BBDescriptionSegmentedIndex;
     [self _settingTableView];
     [self _initRightBarButton];
+}
+
+- (void)updateViewWithProgram:(BBProgram *)program {
+    self.myProgram = program;
 }
 
 - (void)showAddInBasketPopover {
