@@ -10,6 +10,7 @@
 
 #import "BBBlock.h"
 #import "BBProgram.h"
+#import "BBDay.h"
 
 @implementation NSData (BBParserAPI)
 
@@ -43,10 +44,12 @@
             if (key == kTypeBlockInData) {
                 BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj andUrlServer:url];
                 [result addObject:block];
-            } else {
+            } else if (key == kTypeProgramInData) {
                 BBProgram *program = [[BBProgram alloc] initWithJSON:blockObj andUrlServer:url];
                 program.parentId = parentId;
                 [result addObject:program];
+            } else {
+                
             }
         }
     }

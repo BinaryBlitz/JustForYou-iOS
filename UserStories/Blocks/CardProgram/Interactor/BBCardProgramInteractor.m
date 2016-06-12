@@ -35,7 +35,7 @@
             if ([objects count] > 0) {
                 HQDispatchToRealmQueue(^{
 //                    [[BBDataBaseService sharedService] addOrUpdateProgramsFromArray:objects parentId:parent];
-                    [self.output daysSaveInDataBase];
+//                    [self.output daysSaveInDataBase];
                 });
             }
         } else if(response.serverError == kServerErrorClient) {

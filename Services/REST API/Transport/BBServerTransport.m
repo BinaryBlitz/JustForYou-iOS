@@ -107,6 +107,14 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)listDaysWithApiToken:(NSString *)apiToken programId:(NSString *)programId completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/programs/%@/days?api_token=%@", kServerURL, programId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
 
 
 #pragma mark - Order Methods

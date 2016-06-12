@@ -29,6 +29,7 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSString *)blockId completion:(CompletionBlock)completion;
+- (void)listDaysWithApiToken:(NSString *)apiToken programId:(NSString *)programId completion:(CompletionBlock)completion;
 
 #pragma mark - Order Methods
 

@@ -12,7 +12,8 @@
 
 typedef enum : NSUInteger {
     kTypeBlockInData,
-    kTypeProgramInData
+    kTypeProgramInData,
+    kTypeDayInData
 }BBTypeObjectInData;
 
 

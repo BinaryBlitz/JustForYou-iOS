@@ -23,7 +23,8 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
-@property (strong, nonatomic) BBProgram *program;
+@property (nonatomic) NSInteger parentId;
+@property (nonatomic) BOOL clearData;
 
 @end
 
@@ -32,12 +33,12 @@
 #pragma mark - Методы BBCardProgramModuleInput
 
 - (void)configureModule {
-    
+    self.clearData = YES;
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule program:(BBProgram *)program {
+- (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId {
     self.navigModule = navigationModule;
-    self.program = program;
+    self.parentId = parentId;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
@@ -45,7 +46,16 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-    [self.view updateViewWithProgram:self.program];
+    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
+    if (res && [res count] > 0) {
+        self.clearData = NO;
+//        [self.view daForTableView:res];
+        [self.interactor listDaysWithParentId:self.parentId];
+    } else {
+        [self.view showLoaderView];
+        [self.interactor listDaysWithParentId:self.parentId];
+    }
+//    [self.view updateViewWithProgram:self.program];
 }
 
 - (void)viewWillAppear {
@@ -75,13 +85,18 @@
     
 }
 
-- (void)errorServer {
-    
+- (void)errorClient {
+    if (self.clearData) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    }
 }
 
-- (void)errorClient {
-    
+- (void)errorServer {
+    if (self.clearData) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    }
 }
+
 
 #pragma makr - Lazy Load 
 

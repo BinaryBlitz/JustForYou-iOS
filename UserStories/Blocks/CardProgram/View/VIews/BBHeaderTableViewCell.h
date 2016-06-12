@@ -24,6 +24,6 @@
 @protocol BBHeaderTableViewCellDelegate <NSObject>
 @optional
 
-- (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex;
+- (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex)segmentedIndex;
 
 @end

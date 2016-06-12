@@ -73,7 +73,7 @@
 }
 
 - (void)updateViewWithProgram:(BBProgram *)program {
-    self.myProgram = program;
+//    self.myProgram = program;
 }
 
 - (void)showAddInBasketPopover {
@@ -88,6 +88,9 @@
     [self presentAlertControllerWithTitle:@"" message:message];
 }
 
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
 
 #pragma mark - TableView Methods
 
@@ -116,7 +119,7 @@
     if (section == 1) {
         return 1;
     }
-    if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
+    if (self.segmentedIndex == BBDescriptionSegmentedIndex || self.segmentedIndex == BBForWhomSegmentedIndex) {
         return 0;
     }
     return 7;
@@ -182,13 +185,15 @@
 
 #pragma mark - Controls TableView
 
-- (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex) segmentedIndex {
+- (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex)segmentedIndex {
     self.segmentedIndex = segmentedIndex;
     [self _changeBackgroundTableView];
     if (segmentedIndex == BBMenuSegmentedIndex) {
         [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
-    } else {
+    } else if (segmentedIndex == BBDescriptionSegmentedIndex) {
         [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
+    } else {
+        
     }
 }
 

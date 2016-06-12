@@ -145,7 +145,17 @@
 
 - (void)listDaysInProgramId:(NSInteger)programId apiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
-    
+//    [self.transport listDaysWithApiToken:apiToken programId:[NSString stringWithFormat:@"%ld", (long)programId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+//        NSArray *result = nil;
+//        if (!error) {
+//            result = [data parseArrayWithDataAndKey:kTypeDayInData parentId:programId urlServer:[self.transport HOSTServer]];
+//        }
+//        
+//        if (completion) {
+//            completion(responseServer, result, error);
+//        }
+//    }];
 }
 
 #pragma mark - Order Methods

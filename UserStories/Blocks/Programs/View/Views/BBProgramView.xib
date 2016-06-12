@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,10 +19,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="300" height="376"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-5x-2eb">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="341"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="342"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5500 РУБ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-7Q-WYp">
-                                    <rect key="frame" x="30" y="89" width="60" height="15"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена за 1 день: 5800 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-7Q-WYp">
+                                    <rect key="frame" x="30" y="83" width="143" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="503-RX-bHA"/>
                                     </constraints>
@@ -31,20 +31,20 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nx-3Y-8fu">
-                                    <rect key="frame" x="30" y="120" width="240" height="1"/>
+                                    <rect key="frame" x="30" y="121" width="240" height="1"/>
                                     <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="sOO-uk-8J0"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Самый комфортный путь к стройности для тех, кто предпочитает исключать из рациона мясо и птицу." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdl-8T-XDl">
-                                    <rect key="frame" x="30" y="134" width="240" height="67"/>
+                                    <rect key="frame" x="30" y="135" width="240" height="67"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                     <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVE-Ye-tWt">
-                                    <rect key="frame" x="30" y="228" width="240" height="84"/>
+                                    <rect key="frame" x="30" y="229" width="240" height="84"/>
                                     <string key="text">Программа «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в</string>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,6 +58,15 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При заказе от 10 дней: 5500 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGC-ee-Yfw">
+                                    <rect key="frame" x="30" y="104" width="190" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="M0P-4G-73K"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                    <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -65,16 +74,18 @@
                                 <constraint firstItem="ehH-pO-iVz" firstAttribute="leading" secondItem="IHT-5x-2eb" secondAttribute="leading" constant="30" id="Jbf-Kl-MZR"/>
                                 <constraint firstItem="YVE-Ye-tWt" firstAttribute="trailing" secondItem="gdl-8T-XDl" secondAttribute="trailing" id="MtX-7b-xhC"/>
                                 <constraint firstItem="gdl-8T-XDl" firstAttribute="top" secondItem="6nx-3Y-8fu" secondAttribute="bottom" constant="13" id="NE3-X3-yf7"/>
+                                <constraint firstItem="6nx-3Y-8fu" firstAttribute="top" secondItem="EGC-ee-Yfw" secondAttribute="bottom" constant="2" id="NgG-OM-3yi"/>
                                 <constraint firstItem="YVE-Ye-tWt" firstAttribute="leading" secondItem="gdl-8T-XDl" secondAttribute="leading" id="OvI-Zo-Oxi"/>
                                 <constraint firstItem="gdl-8T-XDl" firstAttribute="leading" secondItem="6nx-3Y-8fu" secondAttribute="leading" id="PYs-UC-HKZ"/>
                                 <constraint firstItem="6nx-3Y-8fu" firstAttribute="trailing" secondItem="ehH-pO-iVz" secondAttribute="trailing" id="UmK-0T-Wyj"/>
                                 <constraint firstAttribute="bottom" secondItem="YVE-Ye-tWt" secondAttribute="bottom" constant="29" id="WFc-74-71Y"/>
                                 <constraint firstAttribute="trailing" secondItem="ehH-pO-iVz" secondAttribute="trailing" constant="30" id="X8m-LP-Qe1"/>
                                 <constraint firstItem="ehH-pO-iVz" firstAttribute="top" secondItem="IHT-5x-2eb" secondAttribute="top" constant="30" id="XfI-2t-0hX"/>
+                                <constraint firstItem="EGC-ee-Yfw" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="Zpl-mF-1SQ"/>
+                                <constraint firstItem="EGC-ee-Yfw" firstAttribute="top" secondItem="Iyv-7Q-WYp" secondAttribute="bottom" constant="6" id="dTi-MW-kCc"/>
                                 <constraint firstItem="gdl-8T-XDl" firstAttribute="trailing" secondItem="6nx-3Y-8fu" secondAttribute="trailing" id="fby-n2-cEh"/>
-                                <constraint firstItem="6nx-3Y-8fu" firstAttribute="top" secondItem="Iyv-7Q-WYp" secondAttribute="bottom" constant="16" id="gmh-uC-24m"/>
                                 <constraint firstItem="6nx-3Y-8fu" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="go4-0G-Yrw"/>
-                                <constraint firstItem="Iyv-7Q-WYp" firstAttribute="top" secondItem="ehH-pO-iVz" secondAttribute="bottom" constant="16" id="hOa-mK-ed8"/>
+                                <constraint firstItem="Iyv-7Q-WYp" firstAttribute="top" secondItem="ehH-pO-iVz" secondAttribute="bottom" constant="10" id="hOa-mK-ed8"/>
                                 <constraint firstItem="Iyv-7Q-WYp" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="rfv-rc-xhQ"/>
                             </constraints>
                         </view>
@@ -102,7 +113,7 @@
                 <outlet property="nameProgram" destination="ehH-pO-iVz" id="YzB-5B-EUS"/>
                 <outlet property="shortDescription" destination="gdl-8T-XDl" id="KAN-yi-XxB"/>
             </connections>
-            <point key="canvasLocation" x="353" y="201.5"/>
+            <point key="canvasLocation" x="353" y="201"/>
         </view>
     </objects>
 </document>

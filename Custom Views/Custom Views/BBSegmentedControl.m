@@ -13,6 +13,7 @@
 
 @property (nonatomic) CGFloat centerPointForFirstSegment;
 @property (nonatomic) CGFloat centerPointForSecondSegment;
+@property (nonatomic) CGFloat centerPointForThirdSegment;
 
 @end
 
@@ -45,8 +46,9 @@ static CGFloat heightUnderLine = 2.f;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.centerPointForFirstSegment = CGRectGetWidth(self.frame)/4;
-    self.centerPointForSecondSegment = (CGRectGetWidth(self.frame)/2) + (CGRectGetWidth(self.frame)/4);
+    self.centerPointForFirstSegment = CGRectGetWidth(self.frame)/6;
+    self.centerPointForSecondSegment = (CGRectGetWidth(self.frame)/2);
+    self.centerPointForThirdSegment = CGRectGetWidth(self.frame) - (CGRectGetWidth(self.frame)/6);
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -58,11 +60,13 @@ static CGFloat heightUnderLine = 2.f;
     if (self.selectedSegmentIndex == BBDescriptionSegmentedIndex) {
         CGContextMoveToPoint(context, self.centerPointForFirstSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
         CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-    } else {
+    } else if (self.selectedSegmentIndex == BBMenuSegmentedIndex) {
         CGContextMoveToPoint(context, self.centerPointForSecondSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
         CGContextAddLineToPoint(context, self.centerPointForSecondSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+    } else {
+        CGContextMoveToPoint(context, self.centerPointForThirdSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextAddLineToPoint(context, self.centerPointForThirdSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
     }
-    
     CGContextStrokePath(context);
 }
 

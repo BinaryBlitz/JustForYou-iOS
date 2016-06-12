@@ -196,6 +196,8 @@
 		3AF26F661D0D703A004972FC /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F601D0D703A004972FC /* BBAddress.m */; };
 		3AF26F671D0D703A004972FC /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F621D0D703A004972FC /* BBUser.m */; };
 		3AF26F6A1D0D7062004972FC /* BBDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F691D0D7062004972FC /* BBDay.m */; };
+		3AF26F6E1D0D7B89004972FC /* BBForWhomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */; };
+		3AF26F6F1D0D7B89004972FC /* BBForWhomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */; };
 		3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45279BE176CE0A5502C4EB9A /* BBMapPresenter.m */; };
 		689FA166277AF4906B569B3B /* BBMapRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */; };
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
@@ -667,6 +669,9 @@
 		3AF26F621D0D703A004972FC /* BBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUser.m; sourceTree = "<group>"; };
 		3AF26F681D0D7062004972FC /* BBDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDay.h; sourceTree = "<group>"; };
 		3AF26F691D0D7062004972FC /* BBDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDay.m; sourceTree = "<group>"; };
+		3AF26F6B1D0D7B89004972FC /* BBForWhomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBForWhomTableViewCell.h; sourceTree = "<group>"; };
+		3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBForWhomTableViewCell.m; sourceTree = "<group>"; };
+		3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBForWhomTableViewCell.xib; sourceTree = "<group>"; };
 		3B674AE35FA53969A699922E /* BBReplacementRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementRouter.h; sourceTree = "<group>"; };
 		3BD9E82877E9B7E51871E52E /* BBMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapViewController.h; sourceTree = "<group>"; };
 		3E23F5D57A15732615C66273 /* BBReplacementModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementModuleInput.h; sourceTree = "<group>"; };
@@ -1346,6 +1351,9 @@
 				3A2D55251CF075D200A8EFF5 /* BBPartDayTableViewCell.h */,
 				3A2D55261CF075D200A8EFF5 /* BBPartDayTableViewCell.m */,
 				3A2D55271CF075D200A8EFF5 /* BBPartDayTableViewCell.xib */,
+				3AF26F6B1D0D7B89004972FC /* BBForWhomTableViewCell.h */,
+				3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */,
+				3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -2629,6 +2637,7 @@
 				3A1347501CA6B59B007A83ED /* Authorizate.storyboard in Resources */,
 				3A2D56BA1CF075D200A8EFF5 /* BBCalendarTableViewCell.xib in Resources */,
 				3ABAA0D91D003DC00042BD56 /* BBAddressTableViewCell.xib in Resources */,
+				3AF26F6F1D0D7B89004972FC /* BBForWhomTableViewCell.xib in Resources */,
 				3A2D56DD1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.xib in Resources */,
 				3A2D570C1CF331C300A8EFF5 /* BBCommentTableViewCell.xib in Resources */,
 				3A2D56771CF075D200A8EFF5 /* BBBasketTableViewCell.xib in Resources */,
@@ -2773,6 +2782,7 @@
 				3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */,
 				3A2D57051CF331C300A8EFF5 /* BBDottedBorderButton.m in Sources */,
 				3A2D56741CF075D200A8EFF5 /* BBBasketRouter.m in Sources */,
+				3AF26F6E1D0D7B89004972FC /* BBForWhomTableViewCell.m in Sources */,
 				3A2D57091CF331C300A8EFF5 /* BBAccessoryTableViewCell.m in Sources */,
 				3A2D56B31CF075D200A8EFF5 /* BBOrdersInteractor.m in Sources */,
 				3A2D56D11CF075D200A8EFF5 /* BBPaymentInteractor.m in Sources */,

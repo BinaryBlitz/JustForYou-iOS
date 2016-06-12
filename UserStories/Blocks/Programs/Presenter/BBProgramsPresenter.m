@@ -34,7 +34,7 @@
 #pragma mark - Методы BBProgramsModuleInput
 
 - (void)configureModule {
-    self.clearData = YES;;
+    self.clearData = YES;
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId {
@@ -64,7 +64,7 @@
 }
 
 - (void)programDidTapWithProgram:(BBProgram *)program {
-    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule program:program];
+    [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule parentId:program.programId];
 }
 
 - (void)basketButtonDidTap {
