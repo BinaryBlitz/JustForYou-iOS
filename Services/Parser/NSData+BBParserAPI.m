@@ -12,6 +12,8 @@
 #import "BBProgram.h"
 #import "BBDay.h"
 
+#import "BBDataBaseService.h"
+
 @implementation NSData (BBParserAPI)
 
 #pragma mark - User Methods
@@ -40,16 +42,21 @@
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
-        for (id blockObj in JSONObj) {
+        for (id obj in JSONObj) {
             if (key == kTypeBlockInData) {
-                BBBlock *block = [[BBBlock alloc] initWithJSON:blockObj andUrlServer:url];
+                BBBlock *block = [[BBBlock alloc] initWithJSON:obj andUrlServer:url];
                 [result addObject:block];
             } else if (key == kTypeProgramInData) {
-                BBProgram *program = [[BBProgram alloc] initWithJSON:blockObj andUrlServer:url];
+                BBProgram *program = [[BBProgram alloc] initWithJSON:obj andUrlServer:url];
                 program.parentId = parentId;
                 [result addObject:program];
             } else {
-                
+                [result addObject:obj];
+            }
+        }
+        if (key == kTypeDayInData) {
+            if ([result count] > 0) {
+                [[BBDataBaseService sharedService] addOrUpdateDaysFromArray:result parentId:parentId];
             }
         }
     }

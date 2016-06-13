@@ -19,24 +19,24 @@
 #pragma mark - Методы BBCardProgramInteractorInput
 
 - (NSArray *)checkDaysInDataBaseWith:(NSInteger)parentId {
-    return [[BBDataBaseService sharedService] programsInRealmWithParentId:parentId];
+    return [[BBDataBaseService sharedService] daysInRealmWithParentId:parentId];
 }
 
-- (void)daysInDataBaseWithParentId:(NSInteger)parentId {
+- (void)programInDataBaseWithParentId:(NSInteger)parentId {
     HQDispatchToMainQueue(^{
-//        [self.output currentDaysInDataBase:[[BBDataBaseService sharedService] programsInRealmWithParentId:parentId]];
+        [self.output currentProgramInDataBase:[[BBDataBaseService sharedService] programInRealmWithProgramId:parentId]];
     });
 }
 
 - (void)listDaysWithParentId:(NSInteger)parentId {
-    NSInteger __block parent = parentId;
+//    NSInteger __block parent = parentId;
     [[BBServerService sharedService] listDaysInProgramId:parentId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
         if (response.serverError == kServerErrorSuccessfull) {
             if ([objects count] > 0) {
-                HQDispatchToRealmQueue(^{
-//                    [[BBDataBaseService sharedService] addOrUpdateProgramsFromArray:objects parentId:parent];
-//                    [self.output daysSaveInDataBase];
-                });
+//                HQDispatchToRealmQueue(^{
+//                    [[BBDataBaseService sharedService] addOrUpdateDaysFromArray:objects parentId:parent];
+                    [self.output daysSaveInDataBase];
+//                });
             }
         } else if(response.serverError == kServerErrorClient) {
             [self.output errorClient];

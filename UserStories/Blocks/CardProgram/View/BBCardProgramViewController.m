@@ -12,6 +12,8 @@
 
 #import "BBAddBasketViewPopover.h"
 
+#import "BBDay.h"
+
 @interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell, BBAddBasketViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
 @property (strong, nonatomic) BBProgram *myProgram;
+@property (strong, nonatomic) RLMResults *daysInProgram;
+
+@property (strong, nonatomic) BBDay *currentDay;
+@property (strong, nonatomic) RLMResults *currentMenu;
+@property (nonatomic) NSInteger positionDay;
 
 @property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
@@ -43,7 +50,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self.output viewWillAppear];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -72,20 +79,32 @@
     [self _initRightBarButton];
 }
 
-- (void)updateViewWithProgram:(BBProgram *)program {
-//    self.myProgram = program;
+- (void)updateViewWithProgram:(NSInteger)programId {
+    self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
+    self.daysInProgram = self.myProgram.days;
+    self.positionDay = 1;
+    [self _updateCurrentDay];
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)_updateCurrentDay {
+    self.currentDay = [self.daysInProgram objectsWhere:[NSString stringWithFormat:@"position=%ld", (long)self.positionDay]].firstObject;
+//    self.currentMenu = self.currentDay.items;
+    RLMResults *res = self.currentDay.items;
+    self.currentMenu = [res sortedResultsUsingProperty:[NSString stringWithFormat:@"startsHour"] ascending:YES];
 }
 
 - (void)showAddInBasketPopover {
     [self.view addSubview:self.addBasketPopover];
 }
 
-- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message {
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
 //    self.addInBasketButton.enabled = NO;
     [self.addBasketPopover removeFromSuperview];
     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.alertController.message = message;
-    [self presentAlertControllerWithTitle:@"" message:message];
+    [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
@@ -118,22 +137,35 @@
         return 1;
     }
     if (section == 1) {
+//        if (self.segmentedIndex == BBForWhomSegmentedIndex) {
+//            return 3;
+//        }
         return 1;
     }
     if (self.segmentedIndex == BBDescriptionSegmentedIndex || self.segmentedIndex == BBForWhomSegmentedIndex) {
         return 0;
     }
-    return 7;
+    NSInteger cells = 0;
+    if (self.currentDay.morningMenu > 0) {
+        cells++;
+    }
+    if (self.currentDay.dayMenu > 0) {
+        cells++;
+    }
+    if (self.currentDay.eveningMenu > 0) {
+        cells++;
+    }
+    NSInteger sum = cells + self.currentDay.morningMenu + self.currentDay.dayMenu + self.currentDay.eveningMenu;
+    return sum;
 
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
         BBHeaderTableViewCell *headerCell = [self.tableView dequeueReusableCellWithIdentifier:kHeaderCellIdentifire];
         headerCell.delegate = self;
-        headerCell.imageProgram.image = [UIImage imageNamed:@"testBack"];
+        [[BBImageViewService sharedService] setImageForImageView:headerCell.imageProgram placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.myProgram.previewImage];
         
         return headerCell;
     }
@@ -141,16 +173,15 @@
         
         if (self.segmentedIndex == BBDescriptionSegmentedIndex) {
             BBDescriptionTableViewCell *descriptiomCell = [self.tableView dequeueReusableCellWithIdentifier:kDescriptionCellIdentifire];
-            descriptiomCell.nameLabel.text = @"1300 ккал без мяса и птицы";
-            descriptiomCell.costLabel.text = @"5800 РУБ";
-            descriptiomCell.descriptionLabel.text = @"Самый комфортный путь к стройности для тех, кто предпочитает исключать из рациона мясо и птицу.\n\nПрограмма «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в качестве ";
+            [descriptiomCell reloadUIWithProgram:self.myProgram];
             return descriptiomCell;
         } else if (self.segmentedIndex == BBForWhomSegmentedIndex) {
             BBForWhomTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kForWhomCellIdentifire];
-            
+            [cell setDescriptions:self.myProgram.firstPrescription :self.myProgram.secondPrescription :self.myProgram.thirdPrescription];
             return cell;
         } else {
             BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
+            [numberCell setDaysAndUpdateUI:self.daysInProgram];
             if (!numberCell.delegate) {
                 numberCell.delegate = self;
             }
@@ -158,20 +189,32 @@
             return numberCell;
         }
     } else {
-        if (indexPath.row == 0 || indexPath.row == 4) {
+        if (indexPath.row == 0 || indexPath.row == self.currentDay.morningMenu+1 || indexPath.row == self.currentDay.morningMenu+1+self.currentDay.dayMenu+1) {
             BBPartDayTableViewCell *partDayCell = [self.tableView dequeueReusableCellWithIdentifier:kPartDayCellIdentifire];
             if (indexPath.row == 0) {
                 [partDayCell setPartOfDayWithKey:kMorningPartOfDay];
-            } else {
+            } else if (indexPath.row == self.currentDay.morningMenu+1) {
                 [partDayCell setPartOfDayWithKey:kDayPartOfDay];
+            } else {
+                [partDayCell setPartOfDayWithKey:kEveningPartOfDay];
             }
             return partDayCell;
         } else {
             BBMenuTableViewCell *menuCell = [[NSBundle mainBundle] loadNibNamed:kNibNameMenuCell owner:self options:nil].lastObject;
-            
+            if (indexPath.row < self.currentDay.morningMenu+1) {
+                [menuCell setMenuWithMenu:[self.currentMenu objectAtIndex:indexPath.row-1]];
+            } else if (indexPath.row < self.currentDay.morningMenu+1+self.currentDay.dayMenu+1) {
+                [menuCell setMenuWithMenu:[self.currentMenu objectAtIndex:indexPath.row-2]];
+            } else {
+                [menuCell setMenuWithMenu:[self.currentMenu objectAtIndex:indexPath.row-3]];
+            }
             return menuCell;
         }
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 - (void)_settingTableView {
@@ -217,19 +260,22 @@
 #pragma mark - Cell Delegates Methods 
 
 - (void)leftButtonDidTap {
-    self.numberDayCell.numberDay--;
-    if (self.numberDayCell.numberDay < 1) {
-        self.numberDayCell.numberDay++;
-    } else {
-        [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
+    if (self.positionDay > 1) {
+        self.positionDay--;
+        [self _updateCurrentDay];
+        [self.numberDayCell updateDayLabelWithNumber:self.positionDay];
         [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationRight];
+    } else {
     }
 }
 
 - (void)rightButtonDidTap {
-    self.numberDayCell.numberDay++;
-    [self.numberDayCell updateDayLabelWithNumber:self.numberDayCell.numberDay];
-    [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationLeft];
+    if (self.positionDay < [self.daysInProgram count]) {
+        self.positionDay++;
+        [self _updateCurrentDay];
+        [self.numberDayCell updateDayLabelWithNumber:self.positionDay];
+        [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationLeft];
+    }
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {

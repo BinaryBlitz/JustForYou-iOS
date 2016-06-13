@@ -12,7 +12,7 @@
 
 - (NSArray *)checkDaysInDataBaseWith:(NSInteger)parentId;
 
-- (void)daysInDataBaseWithParentId:(NSInteger)parentId;
+- (void)programInDataBaseWithParentId:(NSInteger)parentId;
 
 - (void)listDaysWithParentId:(NSInteger)parentId;
 

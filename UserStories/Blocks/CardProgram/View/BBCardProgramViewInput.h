@@ -14,9 +14,9 @@
 
 - (void)setupInitialState;
 
-- (void)updateViewWithProgram:(BBProgram *)program;
+- (void)updateViewWithProgram:(NSInteger)parentId;
 
-- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message;
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle;
 
 - (void)showAddInBasketPopover;
 

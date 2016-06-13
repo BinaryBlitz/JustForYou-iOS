@@ -8,20 +8,29 @@
 
 #import "BBDay.h"
 
+#import "BBMenu.h"
+
 @implementation BBDay
 
-// Specify default values for properties
++ (NSDictionary *)linkingObjectsProperties {
+    return @{
+             @"items": [RLMPropertyDescriptor descriptorWithClass:BBMenu.class propertyName:@"day"],
+             };
+}
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
++ (NSArray *)ignoredProperties {
+    return @[@"parentId"];
+}
 
-// Specify properties to ignore (Realm won't persist these)
 
-//+ (NSArray *)ignoredProperties
-//{
-//    return @[];
-//}
+- (instancetype)initWithJSON:(id)JSONObj {
+    self = [super init];
+    if (self) {
+        self.dayId = [[JSONObj objectForKey:@"id"] integerValue];
+        self.position = [[JSONObj objectForKey:@"position"] integerValue];
+//        [self _setMenuToDayWithJSON:[JSONObj objectForKey:@"items"] withDay:self];
+    }
+    return self;
+}
 
 @end

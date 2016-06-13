@@ -12,6 +12,7 @@
 
 #import "BBBlock.h"
 #import "BBProgram.h"
+#import "BBDay.h"
 
 @interface BBDataBaseService : NSObject
 
@@ -25,6 +26,12 @@
 #pragma mark - Programs
 
 - (NSArray *)programsInRealmWithParentId:(NSInteger)parentId;
+- (BBProgram *)programInRealmWithProgramId:(NSInteger)programId;
 - (void)addOrUpdateProgramsFromArray:(NSArray *)objects parentId:(NSInteger)parentId;
+
+#pragma mark - Days
+
+- (NSArray *)daysInRealmWithParentId:(NSInteger)parentId;
+- (void)addOrUpdateDaysFromArray:(NSArray *)objects parentId:(NSInteger)parentId;
 
 @end

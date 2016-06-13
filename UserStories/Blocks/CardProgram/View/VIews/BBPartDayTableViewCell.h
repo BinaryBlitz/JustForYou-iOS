@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger {
-    kMorningPartOfDay,
-    kDayPartOfDay,
-    kEveningPartOfDay
-}BBPartOfDay;
-
 @interface BBPartDayTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *partOfDayLabel;

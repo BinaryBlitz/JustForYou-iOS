@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButton;
 
 @property (strong, nonatomic) NSArray *programsArray;
+@property (strong, nonatomic) NSMutableArray *idArray;
+@property (strong, nonatomic) NSMutableArray *urlsArray;
 
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
@@ -60,7 +62,7 @@
 }
 
 - (IBAction)moreButtonAction:(id)sender {
-    [self.output programDidTapWithProgram:[self.programsArray objectAtIndex:self.pageControl.currentPage]];
+    [self.output programDidTapWithProgram:[[self.idArray objectAtIndex:self.pageControl.currentPage] integerValue]];
 }
 
 #pragma mark - Методы BBProgramsViewInput
@@ -78,7 +80,9 @@
 
 - (void)programsForTableView:(NSArray *)programs {
     self.programsArray = programs;
+    self.urlsArray = [NSMutableArray array];
     self.countPage = [programs count];
+    [self getIdInPrograms];
     HQDispatchToMainQueue(^{
         if ([self.programsArray count] > 0) {
             if (self.countPage < 2) {
@@ -90,6 +94,13 @@
             [self _reloadViewsInScrollView];
         }
     });
+}
+
+- (void)getIdInPrograms {
+    self.idArray = [NSMutableArray array];
+    for (BBProgram *program in self.programsArray) {
+        [self.idArray addObject:[NSNumber numberWithInteger:program.programId]];
+    }
 }
 
 - (void)_reloadViewsInScrollView {
@@ -104,15 +115,31 @@
         CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
         
         BBProgramView *view = [[BBProgramView alloc] initWithFrame: CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame))];
-        [view setProgramInUI:[self.programsArray objectAtIndex:i]];
+        BBProgram *program = [self.programsArray objectAtIndex:i];
+        [view setProgramInUI:program];
+        [self.urlsArray addObject:program.previewImage];
         [self.scrollView addSubview:view];
         [self.arrayViews addObject:view];
+    }
+    if ([self.urlsArray count] > 0) {
+        [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[0]];
+//        [self updateImageViewsWithIndex:0];
     }
     self.scrollView.contentOffset = CGPointZero;
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
     [self presentAlertControllerWithTitle:title message:message];
+}
+
+- (void)updateImageViewsWithIndex:(NSInteger)index {
+    if (index+1 == [self.urlsArray count]) {
+        [[BBImageViewService sharedService] setImageForImageView:self.secondImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[index]];
+        return;
+    }
+    if (index < [self.urlsArray count]) {
+        [[BBImageViewService sharedService] setImageForImageView:self.secondImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[index+1]];
+    }
 }
 
 #pragma mark - ScrollViewDelegate
@@ -122,20 +149,23 @@
         CGFloat curX = scrollView.contentOffset.x;
         CGFloat pageWidth = scrollView.frame.size.width;
         
-        CGFloat ratio = curX/pageWidth;
+        CGFloat ratio = curX/self.wightProgramView;
         double d, drob;
         drob = modf(ratio, &d);
         
-        //    NSLog(@"%f, часть какая то = %f", ratio, drob);
-        self.secondImageView.alpha = drob;
+//        NSLog(@"%f, часть какая то = %f", ratio, drob);
+//        self.secondImageView.alpha = drob;
         
         //    NSInteger offsetLooping = 1;
         NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
-        @try {
-            self.pageControl.currentPage = (page % self.countPage);
-        } @catch (NSException *exception) {
-            
-        }
+        self.pageControl.currentPage = (page % self.countPage);
+        [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:nil stringURL:self.urlsArray[self.pageControl.currentPage]];
+        
+//        if (drob == 0.0000) {
+//            self.firstImageView.image = self.secondImageView.image;
+//            self.secondImageView.alpha = 0.0;
+//            [self updateImageViewsWithIndex:self.pageControl.currentPage];
+//        }
     }
 }
 

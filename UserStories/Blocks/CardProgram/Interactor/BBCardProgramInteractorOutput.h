@@ -10,7 +10,7 @@
 
 @protocol BBCardProgramInteractorOutput <NSObject>
 
-- (void)currentDaysInDataBase:(NSArray *)days;
+- (void)currentProgramInDataBase:(BBProgram *)program;
 
 - (void)daysSaveInDataBase;
 

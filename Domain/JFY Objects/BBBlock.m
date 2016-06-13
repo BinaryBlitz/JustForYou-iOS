@@ -27,8 +27,7 @@
     if (self) {
         self.blockId = [[JSONObj objectForKey:@"id"] integerValue];
         self.name = [JSONObj objectForKey:@"name"];
-        NSString *image = [JSONObj objectForKey:@"image_url"];
-        self.image = [NSString stringWithFormat:@"%@%@", url, image];
+        self.image = [JSONObj objectForKey:@"image_url"];
     }
     return self;
 }

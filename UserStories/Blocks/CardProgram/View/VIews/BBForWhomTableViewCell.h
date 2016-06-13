@@ -10,4 +10,12 @@
 
 @interface BBForWhomTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *descriptLabel;
+
+@property (strong, nonatomic) NSString *first;
+@property (strong, nonatomic) NSString *second;
+@property (strong, nonatomic) NSString *third;
+
+- (void)setDescriptions:(NSString *)first :(NSString *)second :(NSString *)third;
+
 @end

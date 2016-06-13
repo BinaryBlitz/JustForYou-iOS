@@ -14,7 +14,6 @@
 
 @interface BBParentViewController : UIViewController
 
-@property (strong, nonatomic) UIAlertController *alertController;
 @property (strong, nonatomic) BBLoaderView *loaderView;
 
 - (void)showLoaderView;
@@ -24,5 +23,6 @@
 - (void)hideBackgroundLoaderView;
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel;
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBDay.h"
+
 @protocol BBNumberDayTableViewCell;
 
 @interface BBNumderDayTableViewCell : UITableViewCell
@@ -18,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 
 @property (nonatomic) NSInteger numberDay;
+
+@property (strong, nonatomic) RLMResults *days;
+
+- (void)setDaysAndUpdateUI:(RLMResults *)days;
 
 @property (strong, nonatomic) id<BBNumberDayTableViewCell> delegate;
 

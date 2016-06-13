@@ -13,7 +13,7 @@
 
 - (void)didTriggerViewReadyEvent;
 
-- (void)programDidTapWithProgram:(BBProgram *)program;
+- (void)programDidTapWithProgram:(NSInteger)programId;
 
 - (void)basketButtonDidTap;
 

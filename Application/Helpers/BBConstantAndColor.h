@@ -84,6 +84,14 @@ typedef enum : NSUInteger {
 }BBKeyModuleForUniversalModule;
 
 
+// Время дня
+typedef enum : NSUInteger {
+    kMorningPartOfDay,
+    kDayPartOfDay,
+    kEveningPartOfDay
+}BBPartOfDay;
+
+
 // Сделать запрос и обновить данные или сделать запрос и положить их в базу
 typedef enum : NSUInteger {
     kStateUpdateData,

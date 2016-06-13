@@ -22,6 +22,14 @@
     // Configure the view for the selected state
 }
 
+- (void)setDaysAndUpdateUI:(RLMResults *)days {
+    self.caloriesLabel.text = [NSString stringWithFormat:@"0 Ккал"];
+    [days sortedResultsUsingProperty:@"position" ascending:YES];
+    self.days = days;
+    BBDay *day = days.firstObject;
+    [self updateDayLabelWithNumber:day.position];
+}
+
 - (IBAction)rightButtonAction:(id)sender {
     [self.delegate rightButtonDidTap];
 }

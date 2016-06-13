@@ -8,8 +8,6 @@
 
 #import <Realm/Realm.h>
 
-//#import "BBProgram.h"
-
 @interface BBBlock : RLMObject
 
 @property NSInteger blockId;

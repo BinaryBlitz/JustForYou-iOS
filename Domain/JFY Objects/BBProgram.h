@@ -19,9 +19,13 @@
 @property NSInteger threshold;
 @property NSInteger primaryPrice;
 @property NSInteger secondaryPrice;
+@property NSString *firstPrescription;
+@property NSString *secondPrescription;
+@property NSString *thirdPrescription;
 @property NSString *previewImage;
 
 @property BBBlock *block;
+@property (readonly) RLMLinkingObjects *days;
 
 - (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url;
 

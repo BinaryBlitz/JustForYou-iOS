@@ -10,7 +10,6 @@
 
 @interface BBParentViewController ()
 
-@property (strong, nonatomic) UIAlertAction *cancelAction;
 @property (strong, nonatomic) UIView *backGroungView;
 @property (strong, nonatomic) BBLoaderView *backgroungLoaderView;
 
@@ -81,12 +80,46 @@ CGFloat sizeBar = 44.0f;
 #pragma mark - AlertController Methods
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
-    self.alertController.title = title;
-    self.alertController.message = message;
+    UIAlertController *alertController = [self _alertController];
+    alertController.title = title;
+    alertController.message = message;
+    UIAlertAction *action = [self _cancelActionWithTitle:@"Ok"];
+    [alertController addAction:action];
     HQDispatchToMainQueue(^{
-        [self presentViewController:self.alertController animated:YES completion:nil];
-        self.alertController.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+        [self presentViewController:alertController animated:YES completion:nil];
+        alertController.view.tintColor = [BBConstantAndColor applicationOrangeColor];
     });
+}
+
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel {
+    UIAlertController *alertController = [self _alertController];
+    alertController.title = title;
+    alertController.message = message;
+    UIAlertAction *action = [self _cancelActionWithTitle:titleCancel];
+    [alertController addAction:action];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alertController animated:YES completion:nil];
+        alertController.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    });
+}
+
+#pragma mark - Init Alert Methods
+
+- (UIAlertController *)_alertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@""
+                                                                             message:@""
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    alertController.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    return alertController;
+}
+
+- (UIAlertAction *)_cancelActionWithTitle:(NSString *)title {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:title
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    return cancelAction;
 }
 
 #pragma mark - Layout Views
@@ -97,24 +130,6 @@ CGFloat sizeBar = 44.0f;
 }
 
 #pragma mark - Lazy Load
-
-- (UIAlertController *)alertController {
-    if (!_alertController) {
-        _alertController = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        [_alertController addAction:self.cancelAction];
-        _alertController.view.tintColor = [BBConstantAndColor applicationOrangeColor];
-    }
-    return _alertController;
-}
-
-- (UIAlertAction *)cancelAction {
-    if (!_cancelAction) {
-        _cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-    }
-    return _cancelAction;
-}
 
 - (BBLoaderView *)loaderView {
     if (!_loaderView) {

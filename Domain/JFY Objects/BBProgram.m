@@ -8,7 +8,19 @@
 
 #import "BBProgram.h"
 
+#import "BBDay.h"
+
 @implementation BBProgram
+
++ (NSDictionary *)linkingObjectsProperties {
+    return @{
+             @"days": [RLMPropertyDescriptor descriptorWithClass:BBDay.class propertyName:@"program"],
+             };
+}
+
++ (NSString *)primaryKey {
+    return @"programId";
+}
 
 + (NSArray *)ignoredProperties {
     return @[@"parentId"];
@@ -24,9 +36,23 @@
         self.primaryPrice = [[JSONObj objectForKey:@"primary_price"] integerValue];
         self.secondaryPrice = [[JSONObj objectForKey:@"secondary_price"] integerValue];
         self.previewImage = [JSONObj objectForKey:@"preview_image_url"];
+        [self _initPrescriptionArrayWithJSON:[JSONObj objectForKey:@"prescription"]];
     }
     return self;
 }
 
+- (void)_initPrescriptionArrayWithJSON:(id)JSONArray {
+    if (JSONArray && [JSONArray isKindOfClass:[NSArray class]]) {
+        if (JSONArray[0]) {
+            self.firstPrescription = JSONArray[0];
+        }
+        if (JSONArray[1]) {
+            self.secondPrescription = JSONArray[1];
+        }
+        if (JSONArray[2]) {
+            self.thirdPrescription = JSONArray[2];
+        }
+    }
+}
 
 @end

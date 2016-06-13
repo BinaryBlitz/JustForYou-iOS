@@ -21,4 +21,18 @@
     // Configure the view for the selected state
 }
 
+- (void)reloadUIWithProgram:(BBProgram *)program {
+    self.program = program;
+    self.nameLabel.text = program.name;
+    NSString *day = @"";
+    if (self.program.threshold == 1) {
+        day = [NSString stringWithFormat:@"При заказе от %ld дня: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+    } else {
+        day = [NSString stringWithFormat:@"При заказе от %ld дней: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+    }
+    self.costLabel.text = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)self.program.primaryPrice];
+    self.bigCostLabel.text = day;
+    self.descriptionLabel.text = program.descript;
+}
+
 @end

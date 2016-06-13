@@ -36,9 +36,9 @@
     self.clearData = YES;
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule prog:(BBProgram *)prog {
+- (void)pushModuleWithNavigationModule:(id)navigationModule prog:(NSInteger)prog {
     self.navigModule = navigationModule;
-    self.parentId = prog.parentId;
+    self.parentId = prog;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
@@ -46,20 +46,22 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-//    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
-//    if (res && [res count] > 0) {
-//        self.clearData = NO;
-////        [self.view daForTableView:res];
+    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
+    if (res && [res count] > 0) {
+        self.clearData = NO;
+        [self.interactor programInDataBaseWithParentId:self.parentId];
 //        [self.interactor listDaysWithParentId:self.parentId];
-//    } else {
-//        [self.view showLoaderView];
-//        [self.interactor listDaysWithParentId:self.parentId];
-//    }
-//    [self.view updateViewWithProgram:self.program];
+    } else {
+        [self.view showLoaderView];
+        [self.interactor listDaysWithParentId:self.parentId];
+    }
 }
 
 - (void)viewWillAppear {
-    
+    [self.interactor programInDataBaseWithParentId:self.parentId];
+    if (!self.clearData) {
+        [self.interactor listDaysWithParentId:self.parentId];
+    }
 }
 
 - (void)basketButtonDidTap {
@@ -72,17 +74,24 @@
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
-    [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину"];
+    [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
 }
 
 #pragma mark - Методы BBCardProgramInteractorOutput
 
-- (void)currentDaysInDataBase:(NSArray *)days {
-    
+- (void)currentProgramInDataBase:(BBProgram *)program {
+    if (program.programId) {
+        [self.view hideLoaderView];
+        [self.view updateViewWithProgram:program.programId];
+    } else {
+        [self.view showLoaderView];
+        [self.interactor listDaysWithParentId:self.parentId];
+    }
 }
 
 - (void)daysSaveInDataBase {
-    
+    [self.view hideLoaderView];
+    [self.interactor programInDataBaseWithParentId:self.parentId];
 }
 
 - (void)errorClient {

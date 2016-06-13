@@ -21,7 +21,7 @@ static NSString *kNameFormat = @"cache";
     return service;
 }
 
-- (void) setImageForImageView:(UIImageView *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url {
+- (void)setImageForImageView:(UIImageView *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url {
 //    HNKCacheFormat *format = [[HNKCache sharedCache].formats objectForKey:kNameFormat];
 //    if (!format) {
 //        format = [[HNKCacheFormat alloc] initWithName:kNameFormat];

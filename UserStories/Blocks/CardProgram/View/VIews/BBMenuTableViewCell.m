@@ -52,4 +52,10 @@
 }
 
 
+- (void)setMenuWithMenu:(BBMenu *)menu {
+    self.menuLabel.text = [NSString stringWithFormat:@"%@ %ldгр.", menu.content, (long)menu.weight];
+    self.caloriesLabel.text = [NSString stringWithFormat:@"%ld Ккал", (long)menu.calories];
+    self.timeLabel.text = [NSString stringWithFormat:@"%ld:%ld-%ld:%ld", (long)menu.startsHour, (long)menu.startsMinute, (long)menu.endsHour, (long)menu.endsMinute];
+}
+
 @end

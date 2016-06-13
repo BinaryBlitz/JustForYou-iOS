@@ -198,6 +198,7 @@
 		3AF26F6A1D0D7062004972FC /* BBDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F691D0D7062004972FC /* BBDay.m */; };
 		3AF26F6E1D0D7B89004972FC /* BBForWhomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */; };
 		3AF26F6F1D0D7B89004972FC /* BBForWhomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */; };
+		3AF26F751D0DC256004972FC /* BBMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F741D0DC256004972FC /* BBMenu.m */; };
 		3D6531BF97DB5DB900C3F798 /* BBMapPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45279BE176CE0A5502C4EB9A /* BBMapPresenter.m */; };
 		689FA166277AF4906B569B3B /* BBMapRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */; };
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
@@ -672,6 +673,8 @@
 		3AF26F6B1D0D7B89004972FC /* BBForWhomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBForWhomTableViewCell.h; sourceTree = "<group>"; };
 		3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBForWhomTableViewCell.m; sourceTree = "<group>"; };
 		3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBForWhomTableViewCell.xib; sourceTree = "<group>"; };
+		3AF26F731D0DC256004972FC /* BBMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMenu.h; sourceTree = "<group>"; };
+		3AF26F741D0DC256004972FC /* BBMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMenu.m; sourceTree = "<group>"; };
 		3B674AE35FA53969A699922E /* BBReplacementRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementRouter.h; sourceTree = "<group>"; };
 		3BD9E82877E9B7E51871E52E /* BBMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapViewController.h; sourceTree = "<group>"; };
 		3E23F5D57A15732615C66273 /* BBReplacementModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementModuleInput.h; sourceTree = "<group>"; };
@@ -2438,6 +2441,8 @@
 				3AF26F5D1D0D703A004972FC /* BBProgram.m */,
 				3AF26F681D0D7062004972FC /* BBDay.h */,
 				3AF26F691D0D7062004972FC /* BBDay.m */,
+				3AF26F731D0DC256004972FC /* BBMenu.h */,
+				3AF26F741D0DC256004972FC /* BBMenu.m */,
 				3AF26F5A1D0D703A004972FC /* BBOrder.h */,
 				3AF26F5B1D0D703A004972FC /* BBOrder.m */,
 			);
@@ -2804,6 +2809,7 @@
 				3A2D569D1CF075D200A8EFF5 /* BBTabbarPresenter.m in Sources */,
 				3A2D56781CF075D200A8EFF5 /* BBBlocksAssembly.m in Sources */,
 				3AF26F501D0CBA4E004972FC /* BBValidationService.m in Sources */,
+				3AF26F751D0DC256004972FC /* BBMenu.m in Sources */,
 				3A2D56821CF075D200A8EFF5 /* BBCardProgramRouter.m in Sources */,
 				3A2D56E91CF07F5E00A8EFF5 /* NSData+BBParserAPI.m in Sources */,
 				3A2D56C01CF075D200A8EFF5 /* BBProfileRouter.m in Sources */,
