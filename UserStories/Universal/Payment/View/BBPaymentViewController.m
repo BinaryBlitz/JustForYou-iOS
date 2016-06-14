@@ -12,6 +12,8 @@
 
 @interface BBPaymentViewController()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation BBPaymentViewController

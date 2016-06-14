@@ -10,4 +10,8 @@
 
 @protocol BBBasketInteractorInput <NSObject>
 
+- (void)currentOrdersInBasket;
+
+- (void)createOrderOnServer;
+
 @end

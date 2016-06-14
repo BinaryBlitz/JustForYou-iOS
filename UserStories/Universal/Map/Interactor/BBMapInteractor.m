@@ -11,10 +11,10 @@
 #import "BBMapInteractorOutput.h"
 
 #import <LMGeocoder.h>
+#import <INTULocationManager.h>
 
 #import "BBAddressService.h"
-
-#import <INTULocationManager.h>
+#import "BBUserService.h"
 
 @interface BBMapInteractor ()
 
@@ -57,16 +57,6 @@
                                                              // looking at the specific status returned.
                                                          }
                                                      }];
-//        INTULocationRequestID requestID = [locationManager subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyBlock
-//                                                                 block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-//                                                                     if (status == INTULocationStatusSuccess) {
-//                                                                         NSLog(@"Location = %ld", (long)requestID);
-//                                                                         [self.output currentLocationWithLocation:currentLocation.coordinate];
-//                                                                         [locationManager cancelHeadingRequest:requestID];
-//                                                                     } else if (status == INTULocationStatusTimedOut) {
-//                                                                         [self currentLocation];
-//                                                                     }
-//                                                                 }];
     }
 }
 
@@ -76,6 +66,11 @@
             [self.output searchAddressInArray:array];
         }
     }];
+}
+
+- (void)addAddressToUserAddressArray {
+    BOOL status = [[BBUserService sharedService] addAddressToUserWithAddress:self.currentAddres];
+    [self.output addressDidSaveWithStatus:status];
 }
 
 @end

@@ -63,6 +63,14 @@
     return result;
 }
 
+
+#pragma mark - Orders Methods
+
+- (NSInteger)parseCreatingOrderPrograms {
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    return [[JSONObj objectForKey:@"id"] integerValue];
+}
+
 #pragma mark - Map Methods
 
 - (id)parseSearchAddress {

@@ -11,6 +11,7 @@
 		2991BD389DDE49D4E58B2B5D /* BBReplacementAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 72563B67D3D92F6CC90DD5DD /* BBReplacementAssembly.m */; };
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
 		3A050EFF1D086737000AC0B8 /* BBDataBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */; };
+		3A128BA61D107596001D2D1C /* BBOrderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A128BA51D107596001D2D1C /* BBOrderProgram.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
 		3A13201D1CFDF63E0046CFBD /* BBLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */; };
 		3A1320241CFE30F30046CFBD /* BBSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */; };
@@ -222,6 +223,8 @@
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
 		3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataBaseService.h; sourceTree = "<group>"; };
 		3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataBaseService.m; sourceTree = "<group>"; };
+		3A128BA41D107596001D2D1C /* BBOrderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrderProgram.h; sourceTree = "<group>"; };
+		3A128BA51D107596001D2D1C /* BBOrderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrderProgram.m; sourceTree = "<group>"; };
 		3A1320191CFDF6240046CFBD /* BBLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLoaderView.xib; sourceTree = "<group>"; };
 		3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoaderView.h; sourceTree = "<group>"; };
 		3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoaderView.m; sourceTree = "<group>"; };
@@ -1146,10 +1149,10 @@
 		3A2D54D01CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54D11CF075D200A8EFF5 /* BBBasketInteractor.h */,
-				3A2D54D21CF075D200A8EFF5 /* BBBasketInteractor.m */,
 				3A2D54D31CF075D200A8EFF5 /* BBBasketInteractorInput.h */,
 				3A2D54D41CF075D200A8EFF5 /* BBBasketInteractorOutput.h */,
+				3A2D54D11CF075D200A8EFF5 /* BBBasketInteractor.h */,
+				3A2D54D21CF075D200A8EFF5 /* BBBasketInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2200,10 +2203,10 @@
 		3A2D56421CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56431CF075D200A8EFF5 /* BBUniversalInteractor.h */,
-				3A2D56441CF075D200A8EFF5 /* BBUniversalInteractor.m */,
 				3A2D56451CF075D200A8EFF5 /* BBUniversalInteractorInput.h */,
 				3A2D56461CF075D200A8EFF5 /* BBUniversalInteractorOutput.h */,
+				3A2D56431CF075D200A8EFF5 /* BBUniversalInteractor.h */,
+				3A2D56441CF075D200A8EFF5 /* BBUniversalInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2456,6 +2459,8 @@
 				3AF26F601D0D703A004972FC /* BBAddress.m */,
 				3AF26F611D0D703A004972FC /* BBUser.h */,
 				3AF26F621D0D703A004972FC /* BBUser.m */,
+				3A128BA41D107596001D2D1C /* BBOrderProgram.h */,
+				3A128BA51D107596001D2D1C /* BBOrderProgram.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2879,6 +2884,7 @@
 				3A2D56AB1CF075D200A8EFF5 /* BBMyProgramsRouter.m in Sources */,
 				3A2D56A11CF075D200A8EFF5 /* BBDeliveryAssembly.m in Sources */,
 				3A2D56C71CF075D200A8EFF5 /* BBSettingsRouter.m in Sources */,
+				3A128BA61D107596001D2D1C /* BBOrderProgram.m in Sources */,
 				3A2D56CE1CF075D200A8EFF5 /* BBSupportRouter.m in Sources */,
 				3A2D56B91CF075D200A8EFF5 /* BBCalendarTableViewCell.m in Sources */,
 				3A2D568D1CF075D200A8EFF5 /* BBPartDayTableViewCell.m in Sources */,

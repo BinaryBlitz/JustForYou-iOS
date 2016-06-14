@@ -23,7 +23,7 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
-@property (nonatomic) NSInteger parentId;
+@property (nonatomic) NSInteger programId;
 @property (nonatomic) BOOL clearData;
 
 @end
@@ -38,7 +38,7 @@
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule prog:(NSInteger)prog {
     self.navigModule = navigationModule;
-    self.parentId = prog;
+    self.programId = prog;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
@@ -46,17 +46,18 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
-   }
+}
 
 - (void)viewWillAppear {
-    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
+    NSArray *res = [self.interactor checkDaysInDataBaseWith:self.programId];
     if (res && [res count] > 0) {
         self.clearData = NO;
-        [self.interactor programInDataBaseWithParentId:self.parentId];
-        [self.interactor listDaysWithParentId:self.parentId];
+        [self.interactor programInDataBaseWithParentId:self.programId];
+        [self.interactor listDaysWithParentId:self.programId];
     } else {
+        self.clearData = YES;
         [self.view showLoaderView];
-        [self.interactor listDaysWithParentId:self.parentId];
+        [self.interactor listDaysWithParentId:self.programId];
     }
 }
 
@@ -70,6 +71,7 @@
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
+    [self.interactor addInOrdersUserOrderWithProgramId:self.programId countDay:count];
     [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
 }
 
@@ -81,13 +83,13 @@
         [self.view updateViewWithProgram:program.programId];
     } else {
         [self.view showLoaderView];
-        [self.interactor listDaysWithParentId:self.parentId];
+        [self.interactor listDaysWithParentId:self.programId];
     }
 }
 
 - (void)daysSaveInDataBase {
     [self.view hideLoaderView];
-    [self.interactor programInDataBaseWithParentId:self.parentId];
+    [self.interactor programInDataBaseWithParentId:self.programId];
 }
 
 - (void)errorClient {

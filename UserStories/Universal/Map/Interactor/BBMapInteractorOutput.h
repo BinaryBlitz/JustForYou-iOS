@@ -16,4 +16,6 @@
 
 - (void)searchAddressInArray:(NSArray *)arrayAddress;
 
+- (void)addressDidSaveWithStatus:(BOOL)status;
+
 @end

@@ -16,6 +16,8 @@
 
 - (void)cellDidSelectWithAdress:(NSString *)adress;
 
+- (void)deletedCellWithAddress:(BBAddress *)address;
+
 - (void)addBarButtonDidTap;
 
 @end

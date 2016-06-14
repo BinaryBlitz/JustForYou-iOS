@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "BBUser.h"
+#import "BBAddress.h"
+#import "BBOrderProgram.h"
 
 @interface BBUserService : NSObject
 
@@ -20,7 +22,10 @@
 - (void)saveCurrentUser:(BBUser *)user;
 - (void)logOutUser;
 
-
+- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays;
+- (void)deleteAllOrderProgramInUser;
+- (BOOL)addAddressToUserWithAddress:(BBAddress *)address;
+- (void)deleteAddressOnUser:(BBAddress *)address;
 
 - (void)saveCurrentReplacement:(NSArray *)replacement;
 

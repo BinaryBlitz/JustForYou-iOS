@@ -12,6 +12,9 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+
 - (void)closeButtonDidTap;
+- (void)payButtonDidTap;
 
 @end

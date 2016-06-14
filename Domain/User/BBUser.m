@@ -13,6 +13,8 @@ NSString* const kUserName = @"kUserName";
 NSString* const kUserSurname = @"kUserSurname";
 NSString* const kUserId = @"kUserId";
 NSString* const kNumberPhone = @"kNumberPhone";
+NSString* const kOrdersProgramArray = @"kOrdersProgramArray";
+NSString* const kAddressArray = @"kAddressArray";
 
 @implementation BBUser
 
@@ -24,6 +26,8 @@ NSString* const kNumberPhone = @"kNumberPhone";
         self.name = [JSONObj valueForKey:@"first_name"];
         self.surname = [JSONObj valueForKey:@"last_name"];
         self.numberPhone = [JSONObj valueForKey:@"phone_number"];
+        self.addressArray = [NSArray array];
+        self.ordersProgramArray = [NSArray array];
     }
     return self;
 }
@@ -36,6 +40,8 @@ NSString* const kNumberPhone = @"kNumberPhone";
         self.surname = [coder decodeObjectForKey:kUserSurname];
         self.numberPhone = [coder decodeObjectForKey:kNumberPhone];
         self.userId = [coder decodeIntegerForKey:kUserId];
+        self.ordersProgramArray = [coder decodeObjectForKey:kOrdersProgramArray];
+        self.addressArray = [coder decodeObjectForKey:kAddressArray];
     }
     return self;
 }
@@ -46,6 +52,8 @@ NSString* const kNumberPhone = @"kNumberPhone";
     [aCoder encodeObject:self.surname forKey:kUserSurname];
     [aCoder encodeObject:self.numberPhone forKey:kNumberPhone];
     [aCoder encodeInteger:self.userId forKey:kUserId];
+    [aCoder encodeObject:self.ordersProgramArray forKey:kOrdersProgramArray];
+    [aCoder encodeObject:self.addressArray forKey:kAddressArray];
 }
 
 

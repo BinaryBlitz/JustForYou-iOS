@@ -25,7 +25,11 @@
 @property (strong, nonatomic) id<BBNewOrderModuleInput> parentNewOrderModule;
 @property (strong, nonatomic) id<BBMapModuleInput> mapModule;
 
+@property (nonatomic) BBKeyModuleForUniversalModule moduleKey;
+
 @end
+
+static NSString *kErrorAddAddress = @"Вы пытаетесь добавить адрес который уже есть в вашем списке адресов";
 
 @implementation BBUniversalPresenter
 
@@ -38,14 +42,23 @@
 - (void)pushModuleWithNavigationModule:(id)navigationModule parentModule:(id)parentModule keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationModule = navigationModule;
     self.parentNewOrderModule = parentModule;
+    self.moduleKey = key;
     [self _detectTitleForNavigationWithKey:key];
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationModule = navigationModule;
+    self.moduleKey = key;
     [self _detectTitleForNavigationWithKey:key];
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
+- (void)popMapModuleWithStatus:(BOOL)status {
+    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+    if (!status) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorAddAddress];
+    }
 }
 
 - (void)_detectTitleForNavigationWithKey:(BBKeyModuleForUniversalModule)key {
@@ -80,15 +93,26 @@
 
 - (void)viewWillAppear {
     [self.view settingView];
+    if (self.moduleKey == kMyAddressModule) {
+        [self.interactor currentAddressArray];
+    }
+}
+
+- (void)deletedCellWithAddress:(BBAddress *)address {
+    NSArray *objects = [self.interactor deleteAddress:address];
+    [self.view updateTableViewWithDeletedObjects:objects];
 }
 
 - (void)addBarButtonDidTap {
-    [self.mapModule pushModuleWithNavigationModule:self.navigationModule];
+    [self.mapModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
 }
 
 
 #pragma mark - Методы BBUniversalInteractorOutput
 
+- (void)currentAddressArray:(NSArray *)addressArray {
+    [self.view updateTableViewWithArrayObjects:addressArray];
+}
 
 #pragma mark - Lazy Load
 

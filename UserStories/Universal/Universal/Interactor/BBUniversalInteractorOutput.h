@@ -10,4 +10,6 @@
 
 @protocol BBUniversalInteractorOutput <NSObject>
 
+- (void)currentAddressArray:(NSArray *)addressArray;
+
 @end

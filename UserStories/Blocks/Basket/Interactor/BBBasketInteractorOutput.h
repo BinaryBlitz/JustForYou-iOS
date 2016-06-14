@@ -10,4 +10,6 @@
 
 @protocol BBBasketInteractorOutput <NSObject>
 
+- (void)currentOrders:(NSArray *)orders;
+
 @end

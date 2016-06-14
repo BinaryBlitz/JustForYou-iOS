@@ -40,10 +40,22 @@
 	[self.view setupInitialState];
 }
 
+- (void)viewWillAppear {
+    [self.interactor currentOrdersInBasket];
+}
+
 - (void)closeButtonDidTap {
     [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
 }
 
+- (void)payButtonDidTap {
+    
+}
+
 #pragma mark - Методы BBBasketInteractorOutput
+
+- (void)currentOrders:(NSArray *)orders {
+    [self.view updateTebleViewWithOrders:orders];
+}
 
 @end

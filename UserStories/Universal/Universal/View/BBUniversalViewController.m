@@ -16,7 +16,9 @@
 
 @property (strong, nonatomic) UIBarButtonItem *addBarButton;
 
+@property (strong, nonatomic) NSArray *objects;
 @property (nonatomic) NSInteger count;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @property (nonatomic) BBKeyModuleForUniversalModule keyModule;
 
@@ -58,7 +60,6 @@ static CGFloat heightFooterSection = 10.0f;
 - (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationItem.title = title;
     self.keyModule = key;
-    [self.tableView reloadData];
 }
 
 - (void)settingView {
@@ -68,8 +69,30 @@ static CGFloat heightFooterSection = 10.0f;
         self.navigationItem.rightBarButtonItem = nil;
     }
     self.count = 3;
-    [self.tableView reloadData];
 }
+
+- (void)updateTableViewWithArrayObjects:(NSArray *)objects {
+    self.objects = objects;
+    self.count = [objects count];
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)updateTableViewWithDeletedObjects:(NSArray *)objects {
+    self.objects = objects;
+    self.count = [objects count];
+    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
+    [self.tableView beginUpdates];
+    [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+}
+
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
+
 
 #pragma mark - Actions Methods
 
@@ -146,7 +169,8 @@ static CGFloat heightFooterSection = 10.0f;
         cell.setRadius = YES;
         cell.kSideCornerRadius = kAllCornerRadius;
         cell.accessoryImageView.hidden = YES;
-        cell.textLabel.text = @"Большая Никитская д.22/1, 134";
+        BBAddress *address = [self.objects objectAtIndex:indexPath.section];
+        cell.textLabel.text = address.address;
         return cell;
     } else if (self.keyModule == kSharesModule) {
         BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
@@ -179,11 +203,8 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        self.count--;
-        NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.section, 1)];
-        [self.tableView beginUpdates];
-        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView endUpdates];
+        self.indexPath = indexPath;
+        [self.output deletedCellWithAddress:[self.objects objectAtIndex:indexPath.section]];
     }
 }
 

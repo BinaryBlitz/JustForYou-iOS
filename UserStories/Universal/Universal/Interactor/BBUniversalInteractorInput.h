@@ -10,4 +10,8 @@
 
 @protocol BBUniversalInteractorInput <NSObject>
 
+- (void)currentAddressArray;
+
+- (NSArray *)deleteAddress:(BBAddress *)address;
+
 @end

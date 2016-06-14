@@ -14,9 +14,12 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBUniversalModuleInput.h"
+
 @interface BBMapPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBUniversalModuleInput> parentModule;
 
 @end
 
@@ -28,8 +31,9 @@
     
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule {
+- (void)pushModuleWithNavigationModule:(id)navigationModule parentModule:(id)parent {
     self.navigationModule = navigationModule;
+    self.parentModule = parent;
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
@@ -42,7 +46,7 @@
 }
 
 - (void)addButtonDidTap {
-    
+    [self.interactor addAddressToUserAddressArray];
 }
 
 - (void)textFieldDidBeginEditing {
@@ -78,6 +82,10 @@
 
 - (void)searchAddressInArray:(NSArray *)arrayAddress {
     [self.view updateResultSearchControllerWithArray:arrayAddress];
+}
+
+- (void)addressDidSaveWithStatus:(BOOL)status {
+    [self.parentModule popMapModuleWithStatus:status];
 }
 
 @end

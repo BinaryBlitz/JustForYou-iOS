@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
+@property (strong, nonatomic) NSArray *programOrders;
+
 @end
 
 static CGFloat estimatedHeightCell = 44.0f;
@@ -30,6 +32,11 @@ static CGFloat topInsetForTableView = -35.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutPayButton];
@@ -38,7 +45,7 @@ static CGFloat topInsetForTableView = -35.0f;
 #pragma mark - Actions Methods
 
 - (IBAction)payButtonAction:(id)sender {
-    
+    [self.output payButtonDidTap];
 }
 
 - (IBAction)closeButtonAction:(id)sender {
@@ -49,7 +56,15 @@ static CGFloat topInsetForTableView = -35.0f;
 
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleBasketModule;
+    self.programOrders = [NSArray array];
     [self _settingsTableViewAndRegisterNib];
+}
+
+- (void)updateTebleViewWithOrders:(NSArray *)orders {
+    self.programOrders = orders;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
 }
 
 #pragma mark - TableView Methods
@@ -71,7 +86,7 @@ static CGFloat topInsetForTableView = -35.0f;
     if (section == 0) {
         return 1;
     }
-    return 2;
+    return [self.programOrders count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

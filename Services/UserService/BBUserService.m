@@ -56,6 +56,70 @@ static NSString *kUserReplacement = @"kUserReplacement";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays {
+    BBUser *user = [self currentUser];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:user.ordersProgramArray];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"programId==%d", programId];
+    NSArray *filteredArray = [array filteredArrayUsingPredicate:predicate];
+    if ([filteredArray count] < 1) {
+        BBOrderProgram *orderPro = [[BBOrderProgram alloc] init];
+        orderPro.programId = programId;
+        orderPro.countDays = countDays;
+        [array addObject:orderPro];
+    } else {
+        for (BBOrderProgram *ordProg in filteredArray) {
+            ordProg.countDays = ordProg.countDays + countDays;
+            [array removeObject:ordProg];
+            [array addObject:ordProg];
+        }
+    }
+    if (user.ordersProgramArray == nil) {
+        user.ordersProgramArray = [NSArray array];
+    }
+    user.ordersProgramArray = array;
+    [self saveCurrentUser:user];
+}
+
+
+- (void)deleteAllOrderProgramInUser {
+    BBUser *user = [self currentUser];
+    user.ordersProgramArray = [NSArray array];
+    [self saveCurrentUser:user];
+}
+
+
+- (BOOL)addAddressToUserWithAddress:(BBAddress *)address {
+    BBUser *user = [self currentUser];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:user.addressArray];
+    for (BBAddress *oldAddr in user.addressArray) {
+        if ([oldAddr.address isEqualToString:address.address]) {
+            return NO;
+        }
+    }
+    [array addObject:address];
+    if (user.addressArray == nil) {
+        user.addressArray = [NSArray array];
+    }
+    user.addressArray = array;
+    [self saveCurrentUser:user];
+    return YES;
+}
+
+- (void)deleteAddressOnUser:(BBAddress *)address {
+    BBUser *user = [self currentUser];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:user.addressArray];
+    for (int i = 0; i < [array count]; i++) {
+        BBAddress *removeAd = [user.addressArray objectAtIndex:i];
+        if ((address.coordinate.longitude == removeAd.coordinate.longitude) &&
+            (address.coordinate.latitude == removeAd.coordinate.latitude)) {
+            [array removeObjectAtIndex:i];
+        }
+    }
+    user.addressArray = array;
+    [self saveCurrentUser:user];
+}
+
 #pragma mark - Other Methods
 
 - (void)saveCurrentReplacement:(NSArray *)replacement {

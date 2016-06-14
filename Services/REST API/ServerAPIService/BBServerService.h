@@ -18,7 +18,7 @@ typedef void (^RegistrationCompletion)(BBServerResponse *response, BBUser *user,
 
 typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *objects, NSError* error);
 
-typedef void (^OrderCompletion)(BBServerResponse *response, BBOrder *order, NSError* error);
+typedef void (^OrderCompletion)(BBServerResponse *response, NSInteger orderId, NSError* error);
 
 typedef void (^ReceiveData)(NSData* data);
 

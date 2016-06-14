@@ -30,6 +30,10 @@ typedef enum : NSUInteger {
 
 - (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId urlServer:(NSString *)url;
 
+#pragma mark - Orders Methods
+
+- (NSInteger)parseCreatingOrderPrograms;
+
 #pragma mark - Map Methods
 
 - (id)parseSearchAddress;

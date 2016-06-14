@@ -16,4 +16,9 @@
 
 - (void)settingView;
 
+- (void)updateTableViewWithArrayObjects:(NSArray *)objects;
+- (void)updateTableViewWithDeletedObjects:(NSArray *)objects;
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end

@@ -12,4 +12,6 @@
 
 - (void)setupInitialState;
 
+- (void)updateTebleViewWithOrders:(NSArray *)orders;
+
 @end

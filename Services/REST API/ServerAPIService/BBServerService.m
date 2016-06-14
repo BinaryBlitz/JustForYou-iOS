@@ -164,13 +164,13 @@
     [self _checkNetworkConnection];
     [self.transport createOrderWithOrders:orders apiToken:token numberPhone:phone completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
-        BBOrder *order = nil;
+        NSInteger orderId = 0;
         if (!error) {
-//            result = [data parseArrayWithDataAndKey:kTypeProgramInData];
+            orderId = [data parseCreatingOrderPrograms];
         }
         
         if (completion) {
-//            completion(responseServer, result, error);
+            completion(responseServer, orderId, error);
         }
     }];
 }
