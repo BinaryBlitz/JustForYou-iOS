@@ -55,7 +55,38 @@
 - (void)setMenuWithMenu:(BBMenu *)menu {
     self.menuLabel.text = [NSString stringWithFormat:@"%@ %ldгр.", menu.content, (long)menu.weight];
     self.caloriesLabel.text = [NSString stringWithFormat:@"%ld Ккал", (long)menu.calories];
-    self.timeLabel.text = [NSString stringWithFormat:@"%ld:%ld-%ld:%ld", (long)menu.startsHour, (long)menu.startsMinute, (long)menu.endsHour, (long)menu.endsMinute];
+    NSString *time = [self _timeWithMenu:menu];
+    self.timeLabel.text = time;
+}
+
+- (NSString *)_timeWithMenu:(BBMenu *)menu {
+    NSString *result = @"";
+    NSString *startH;
+    NSString *startM;
+    NSString *endH;
+    NSString *endM;
+    if (menu.startsHour >= 0 && menu.startsHour < 10) {
+        startH = [NSString stringWithFormat:@"0%ld", (long)menu.startsHour];
+    } else {
+        startH = [NSString stringWithFormat:@"%ld", (long)menu.startsHour];
+    }
+    if (menu.startsMinute >= 0 && menu.startsMinute < 10) {
+        startM = [NSString stringWithFormat:@"0%ld", (long)menu.startsMinute];
+    } else {
+        startM = [NSString stringWithFormat:@"%ld", (long)menu.startsMinute];
+    }
+    if (menu.endsHour >= 0 && menu.endsHour < 10) {
+        endH = [NSString stringWithFormat:@"0%ld", (long)menu.endsHour];
+    } else {
+        endH = [NSString stringWithFormat:@"%ld", (long)menu.endsHour];
+    }
+    if (menu.endsMinute >= 0 && menu.endsMinute < 10) {
+        endM = [NSString stringWithFormat:@"0%ld", (long)menu.endsMinute];
+    } else {
+        endM = [NSString stringWithFormat:@"%ld", (long)menu.endsMinute];
+    }
+    result = [NSString stringWithFormat:@"%@:%@-%@:%@", startH, startM, endH, endM];
+    return result;
 }
 
 @end

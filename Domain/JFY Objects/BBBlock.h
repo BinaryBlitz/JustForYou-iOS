@@ -13,6 +13,7 @@
 @property NSInteger blockId;
 @property NSString *name;
 @property NSString *image;
+@property NSInteger programs_count;
 
 //@property RLMArray<BBProgram> *programs;
 

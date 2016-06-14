@@ -46,20 +46,16 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+   }
+
+- (void)viewWillAppear {
     NSArray *res = [self.interactor checkDaysInDataBaseWith:self.parentId];
     if (res && [res count] > 0) {
         self.clearData = NO;
         [self.interactor programInDataBaseWithParentId:self.parentId];
-//        [self.interactor listDaysWithParentId:self.parentId];
+        [self.interactor listDaysWithParentId:self.parentId];
     } else {
         [self.view showLoaderView];
-        [self.interactor listDaysWithParentId:self.parentId];
-    }
-}
-
-- (void)viewWillAppear {
-    [self.interactor programInDataBaseWithParentId:self.parentId];
-    if (!self.clearData) {
         [self.interactor listDaysWithParentId:self.parentId];
     }
 }

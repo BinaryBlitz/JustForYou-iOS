@@ -25,7 +25,6 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
 
 @property (nonatomic) NSInteger parentId;
-@property (nonatomic) NSInteger oldParentId;
 @property (nonatomic) BOOL clearData;
 
 @end
@@ -36,15 +35,10 @@
 
 - (void)configureModule {
     self.clearData = YES;
-    self.oldParentId = -1;
-    self.parentId = -1;
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId {
     self.navigModule = navigationModule;
-    if (self.parentId != -1) {
-        self.oldParentId = self.parentId;
-    }
     self.parentId = parentId;
     [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
@@ -54,20 +48,17 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+}
+
+- (void)viewWillAppear {
     NSArray *res = [self.interactor checkProgramsInDataBaseWith:self.parentId];
     if (res && [res count] > 0) {
         self.clearData = NO;
         [self.view programsForTableView:res];
-//        [self.interactor listProgramsWithParentId:self.parentId];
-    } else {
-        [self.view showBackgroundLoaderView];
         [self.interactor listProgramsWithParentId:self.parentId];
-    }
-}
-
-- (void)viewWillAppear {
-    [self.interactor programsInDataBaseWithParentId:self.parentId];
-    if (!self.clearData) {
+    } else {
+        self.clearData = YES;
+        [self.view showBackgroundLoaderView];
         [self.interactor listProgramsWithParentId:self.parentId];
     }
 }

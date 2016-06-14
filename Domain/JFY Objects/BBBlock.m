@@ -28,6 +28,7 @@
         self.blockId = [[JSONObj objectForKey:@"id"] integerValue];
         self.name = [JSONObj objectForKey:@"name"];
         self.image = [JSONObj objectForKey:@"image_url"];
+        self.programs_count = [[JSONObj objectForKey:@"programs_count"] integerValue];
     }
     return self;
 }

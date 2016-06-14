@@ -15,7 +15,7 @@
 @property NSInteger dayId;
 @property NSInteger parentId;
 @property NSInteger position;
-
+@property NSInteger calories;
 @property NSInteger morningMenu;
 @property NSInteger dayMenu;
 @property NSInteger eveningMenu;

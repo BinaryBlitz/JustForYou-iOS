@@ -122,6 +122,9 @@
     for (id obj in objects) {
         BBDay *day = [[BBDay alloc] initWithJSON:obj];
         day.parentId = parentId;
+        day.morningMenu = 0;
+        day.dayMenu = 0;
+        day.eveningMenu = 0;
         [resultsMenu addObject:[self _setMenuToDayWithJSON:[obj objectForKey:@"items"] withDay:day]];
         [resultsDay addObject:day];
     }
@@ -149,38 +152,20 @@
     if (JSONObj && [JSONObj isKindOfClass:[NSArray class]]) {
         for (id obj in JSONObj) {
             BBMenu *menu = [[BBMenu alloc] initWithJSON:obj];
-            day.morningMenu = 0;
-            day.dayMenu = 0;
-            day.eveningMenu = 0;
             [self _setPartDayForMenu:menu day:day];
             [array addObject:menu];
         }
-//        [self _addOrUpdateMenuFromArray:array withDay:day];
     }
     return array;
 }
 
-- (void)_addOrUpdateMenuFromArray:(NSArray *)objects withDay:(BBDay *)day {
-    RLMRealm *standartRealm = [RLMRealm defaultRealm];
-    day.morningMenu = 0;
-    day.dayMenu = 0;
-    day.eveningMenu = 0;
-    [standartRealm beginWriteTransaction];
-    [standartRealm addOrUpdateObjectsFromArray:objects];
-    //    [standartRealm addObjects:objects];
-    for (BBMenu *menu in objects) {
-        [self _setPartDayForMenu:menu day:day];
-        [menu setDay:day];
-    }
-    [standartRealm commitWriteTransaction];
-}
 
 - (void)_setPartDayForMenu:(BBMenu *)menu day:(BBDay *)day {
-    if ((menu.startsHour >= 6) && ((menu.endsHour <= 11) && (menu.endsMinute <= 59))) {
+    if ((menu.startsHour >= 6) && (menu.endsHour <= 12)) {
         menu.partDay = kMorningPartOfDay;
         day.morningMenu++;
     }
-    if ((menu.startsHour >= 12) && ((menu.endsHour <= 17) && (menu.endsMinute <= 59))) {
+    if ((menu.startsHour >= 12) && (menu.endsHour <= 18)) {
         menu.partDay = kDayPartOfDay;
         day.dayMenu++;
     }

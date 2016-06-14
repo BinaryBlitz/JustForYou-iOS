@@ -91,7 +91,6 @@
 
 - (void)_updateCurrentDay {
     self.currentDay = [self.daysInProgram objectsWhere:[NSString stringWithFormat:@"position=%ld", (long)self.positionDay]].firstObject;
-//    self.currentMenu = self.currentDay.items;
     RLMResults *res = self.currentDay.items;
     self.currentMenu = [res sortedResultsUsingProperty:[NSString stringWithFormat:@"startsHour"] ascending:YES];
 }
@@ -137,9 +136,6 @@
         return 1;
     }
     if (section == 1) {
-//        if (self.segmentedIndex == BBForWhomSegmentedIndex) {
-//            return 3;
-//        }
         return 1;
     }
     if (self.segmentedIndex == BBDescriptionSegmentedIndex || self.segmentedIndex == BBForWhomSegmentedIndex) {
@@ -185,6 +181,7 @@
             if (!numberCell.delegate) {
                 numberCell.delegate = self;
             }
+            [numberCell updateDayLabelWithNumber:self.currentDay.position];
             self.numberDayCell = numberCell;
             return numberCell;
         }
