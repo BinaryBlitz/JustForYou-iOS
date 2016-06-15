@@ -12,6 +12,8 @@
 
 - (void)currentOrdersInBasket;
 
+- (NSArray *)deleteOrderProgramOnUserArray:(BBOrderProgram *)orderProgram;
+
 - (void)createOrderOnServer;
 
 @end

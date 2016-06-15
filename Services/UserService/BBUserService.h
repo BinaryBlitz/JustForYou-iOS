@@ -23,6 +23,8 @@
 - (void)logOutUser;
 
 - (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays;
+- (void)updateOrderProgramWithOrderProgram:(BBOrderProgram *)orderProgram;
+- (void)deleteInOrdersUserOrderProgram:(BBOrderProgram *)order;
 - (void)deleteAllOrderProgramInUser;
 - (BOOL)addAddressToUserWithAddress:(BBAddress *)address;
 - (void)deleteAddressOnUser:(BBAddress *)address;

@@ -12,6 +12,7 @@
 
 - (void)setupInitialState;
 
-- (void)updateTebleViewWithOrders:(NSArray *)orders;
+- (void)updateTableViewWithOrders:(NSArray *)orders;
+- (void)updateTableViewWithDelete:(NSArray *)objects;
 
 @end

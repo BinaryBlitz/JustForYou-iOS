@@ -103,6 +103,19 @@ CGFloat sizeBar = 44.0f;
     });
 }
 
+- (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel {
+    UIAlertController *alertController = [self _alertController];
+    alertController.title = title;
+    alertController.message = message;
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:titleCancel
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {}];
+    
+    [alertController addAction:cancelAction];
+    return alertController;
+}
+
+
 #pragma mark - Init Alert Methods
 
 - (UIAlertController *)_alertController {

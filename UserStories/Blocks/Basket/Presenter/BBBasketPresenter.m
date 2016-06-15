@@ -52,10 +52,15 @@
     
 }
 
+- (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {
+    NSArray *objects = [self.interactor deleteOrderProgramOnUserArray:order];
+    [self.view updateTableViewWithDelete:objects];
+}
+
 #pragma mark - Методы BBBasketInteractorOutput
 
 - (void)currentOrders:(NSArray *)orders {
-    [self.view updateTebleViewWithOrders:orders];
+    [self.view updateTableViewWithOrders:orders];
 }
 
 @end

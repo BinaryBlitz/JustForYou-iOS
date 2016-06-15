@@ -8,6 +8,8 @@
 
 #import "BBBasketTableViewCell.h"
 
+#import "BBUserService.h"
+
 static NSString *kNameMinusImage = @"minusIcon";
 static NSString *kNameCrossImage = @"crossIcon";
 
@@ -15,7 +17,6 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.countDays = 1;
     // Initialization code
 }
 
@@ -25,10 +26,23 @@ static NSString *kNameCrossImage = @"crossIcon";
     // Configure the view for the selected state
 }
 
+#pragma mark - Setters Methods
+
+- (void)setProgram:(BBProgram *)program {
+    _program = program;
+    self.nameLabel.text = program.name;
+}
+
+- (void)setOrderProgram:(BBOrderProgram *)orderProgram {
+    _orderProgram = orderProgram;
+    self.countLabel.text = [NSString stringWithFormat:@"%ld", (long)orderProgram.countDays];
+}
+
+#pragma mark - UI Methods
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+    self.indicatorView.layer.masksToBounds = YES;
     self.indicatorView.layer.cornerRadius = CGRectGetHeight(self.indicatorView.frame)/2;
     
     CGRect contentViewFrame = self.contentView.frame;
@@ -62,29 +76,32 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 #pragma mark - Actions Methods
 
-
-- (void)setTextForCountLabel:(NSString *)text {
-    self.countLabel.text = text;
+- (IBAction)closeButtonAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(closeButtonDidTapWithBasketCell:)]) {
+        [self.delegate closeButtonDidTapWithBasketCell:self];
+    }
 }
 
 - (IBAction)leftButtonAction:(id)sender {
-    if (self.countDays > 2) {
+    if (self.orderProgram.countDays > 2) {
         [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
     } else {
         [self _changeBackgroundImageInButtonWithName:kNameCrossImage];
     }
-    if (self.countDays != 1) {
-        self.countDays--;
+    if (self.orderProgram.countDays != 1) {
+        self.orderProgram.countDays--;
     }
-    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
+    [[BBUserService sharedService] updateOrderProgramWithOrderProgram:self.orderProgram];
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.orderProgram.countDays];
 }
 
 - (IBAction)rightButtonAction:(id)sender {
-    if (self.countDays == 1) {
+    if (self.orderProgram.countDays == 1) {
         [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
     }
-    self.countDays++;
-    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
+    self.orderProgram.countDays++;
+    [[BBUserService sharedService] updateOrderProgramWithOrderProgram:self.orderProgram];
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.orderProgram.countDays];
 }
 
 - (void)_changeBackgroundImageInButtonWithName:(NSString *)image {

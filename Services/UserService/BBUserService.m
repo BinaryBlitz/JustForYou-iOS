@@ -81,6 +81,31 @@ static NSString *kUserReplacement = @"kUserReplacement";
     [self saveCurrentUser:user];
 }
 
+- (void)deleteInOrdersUserOrderProgram:(BBOrderProgram *)order {
+    BBUser *user = [self currentUser];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:user.ordersProgramArray];
+    for (BBOrderProgram *oldProg in user.ordersProgramArray) {
+        if (oldProg.programId == order.programId) {
+            [array removeObject:oldProg];
+        }
+    }
+    user.ordersProgramArray = array;
+    [self saveCurrentUser:user];
+}
+
+- (void)updateOrderProgramWithOrderProgram:(BBOrderProgram *)orderProgram {
+    BBUser *user = [self currentUser];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:user.ordersProgramArray];
+    for (int i = 0; i < [array count]; i++) {
+        BBOrderProgram *ord = [array objectAtIndex:i];
+        if (ord.programId == orderProgram.programId) {
+            ord.countDays = orderProgram.countDays;
+            [array replaceObjectAtIndex:i withObject:ord];
+        }
+    }
+    user.ordersProgramArray = array;
+    [self saveCurrentUser:user];
+}
 
 - (void)deleteAllOrderProgramInUser {
     BBUser *user = [self currentUser];

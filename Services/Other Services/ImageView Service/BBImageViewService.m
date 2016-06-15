@@ -22,16 +22,16 @@ static NSString *kNameFormat = @"cache";
 }
 
 - (void)setImageForImageView:(UIImageView *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url {
-//    HNKCacheFormat *format = [[HNKCache sharedCache].formats objectForKey:kNameFormat];
-//    if (!format) {
-//        format = [[HNKCacheFormat alloc] initWithName:kNameFormat];
-////        format.size = imageView.frame.size;
-//        format.scaleMode = HNKScaleModeFill;
-//        //        format.compressionQuality = 0.5;
-////        format.diskCapacity = 1 * 1024 * 1024; // 1MB
-//        format.preloadPolicy = HNKPreloadPolicyLastSession;
-//    }
-//    imageView.hnk_cacheFormat = format;
+    HNKCacheFormat *format = [[HNKCache sharedCache].formats objectForKey:kNameFormat];
+    if (!format) {
+        format = [[HNKCacheFormat alloc] initWithName:kNameFormat];
+        format.size = imageView.frame.size;
+        format.scaleMode = HNKScaleModeFill;
+        //        format.compressionQuality = 0.5;
+//        format.diskCapacity = 1 * 1024 * 1024; // 1MB
+        format.preloadPolicy = HNKPreloadPolicyLastSession;
+    }
+    imageView.hnk_cacheFormat = format;
     [imageView hnk_setImageFromURL:[NSURL URLWithString:url] placeholder:placeholder];
 }
 

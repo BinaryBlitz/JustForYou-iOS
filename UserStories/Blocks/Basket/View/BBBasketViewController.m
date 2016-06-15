@@ -10,12 +10,17 @@
 
 #import "BBBasketViewOutput.h"
 
-@interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource>
+#import <Realm/Realm.h>
+#import "BBOrderProgram.h"
+
+@interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
 @property (strong, nonatomic) NSArray *programOrders;
+@property (strong, nonatomic) NSIndexPath *removeIndexPath;
+@property (strong, nonatomic) BBOrderProgram *removeOrder;
 
 @end
 
@@ -52,6 +57,18 @@ static CGFloat topInsetForTableView = -35.0f;
     [self.output closeButtonDidTap];
 }
 
+- (void)_presentAlertWithProgram:(BBProgram *)program {
+    NSString *message = [NSString stringWithFormat:@"Вы уверены что хотите удалить эту программу из списка покупок: %@", program.name];
+    UIAlertController *alert = [self alertControllerWithTitle:@"" message:message titleCancel:@"Отмена"];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Удалить" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self.output removeButtonDidTapWithOrderProgram:self.removeOrder];
+    }];
+    [alert addAction:action];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alert animated:YES completion:nil];
+    });
+}
+
 #pragma mark - Методы BBBasketViewInput
 
 - (void)setupInitialState {
@@ -60,10 +77,19 @@ static CGFloat topInsetForTableView = -35.0f;
     [self _settingsTableViewAndRegisterNib];
 }
 
-- (void)updateTebleViewWithOrders:(NSArray *)orders {
+- (void)updateTableViewWithOrders:(NSArray *)orders {
     self.programOrders = orders;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
+    });
+}
+
+- (void)updateTableViewWithDelete:(NSArray *)objects {
+    self.programOrders = objects;
+    HQDispatchToMainQueue(^{
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:@[self.removeIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
     });
 }
 
@@ -97,10 +123,20 @@ static CGFloat topInsetForTableView = -35.0f;
         cell = switchCell;
     } else {
         BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];
-        
+        BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
+        BBProgram *program = [BBProgram objectsWhere:@"programId=%d", orderP.programId].firstObject;
+        basketCell.program = program;
+        basketCell.orderProgram = orderP;
+        basketCell.delegate = self;
         cell = basketCell;
     }
     return cell;
+}
+
+- (void)closeButtonDidTapWithBasketCell:(BBBasketTableViewCell *)cell {
+    self.removeIndexPath = [self.tableView indexPathForCell:cell];
+    self.removeOrder = cell.orderProgram;
+    [self _presentAlertWithProgram:cell.program];
 }
 
 #pragma mark - Layout Methods

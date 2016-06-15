@@ -14,6 +14,8 @@
 
 - (void)viewWillAppear;
 
+- (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order;
+
 - (void)closeButtonDidTap;
 - (void)payButtonDidTap;
 

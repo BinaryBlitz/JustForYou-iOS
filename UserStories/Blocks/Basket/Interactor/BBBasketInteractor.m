@@ -31,4 +31,9 @@
     }];
 }
 
+- (NSArray *)deleteOrderProgramOnUserArray:(BBOrderProgram *)orderProgram {
+    [[BBUserService sharedService] deleteInOrdersUserOrderProgram:orderProgram];
+    return [[BBUserService sharedService] currentUser].ordersProgramArray;
+}
+
 @end
