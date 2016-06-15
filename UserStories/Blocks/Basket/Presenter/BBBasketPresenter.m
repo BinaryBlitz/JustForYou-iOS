@@ -14,9 +14,13 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBPaymentAssembly.h"
+#import "BBPaymentModuleInput.h"
+
 @interface BBBasketPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBPaymentModuleInput> paymentModule;
 
 @end
 
@@ -49,7 +53,7 @@
 }
 
 - (void)payButtonDidTap {
-    
+    [self.interactor createOrderOnServer];
 }
 
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {
@@ -61,6 +65,20 @@
 
 - (void)currentOrders:(NSArray *)orders {
     [self.view updateTableViewWithOrders:orders];
+}
+
+- (void)paymentDidStartWithPayment:(BBPayment *)payment {
+    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule payment:payment];
+}
+
+
+#pragma mark - Lazy Load
+
+- (id<BBPaymentModuleInput>)paymentModule {
+    if (!_paymentModule) {
+        _paymentModule = [BBPaymentAssembly createModule];
+    }
+    return _paymentModule;
 }
 
 @end

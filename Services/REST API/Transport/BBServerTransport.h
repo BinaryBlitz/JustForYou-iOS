@@ -35,6 +35,10 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(CompletionBlock)completion;
 
+#pragma mark - Payments Methods
+
+- (void)createPaymentsWithOrderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+
 #pragma mark - Geolocation
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion;

@@ -185,6 +185,7 @@
 		3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D171CFA130A0090F436 /* BBParentViewController.m */; };
 		3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */; };
 		3ABAA0D91D003DC00042BD56 /* BBAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */; };
+		3AC92B091D10D53C00036E70 /* BBPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC92B081D10D53C00036E70 /* BBPayment.m */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
@@ -648,6 +649,8 @@
 		3ABAA0D51D003DC00042BD56 /* BBAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressTableViewCell.h; sourceTree = "<group>"; };
 		3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressTableViewCell.m; sourceTree = "<group>"; };
 		3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAddressTableViewCell.xib; sourceTree = "<group>"; };
+		3AC92B071D10D53C00036E70 /* BBPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPayment.h; sourceTree = "<group>"; };
+		3AC92B081D10D53C00036E70 /* BBPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPayment.m; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
@@ -2461,6 +2464,8 @@
 				3AF26F621D0D703A004972FC /* BBUser.m */,
 				3A128BA41D107596001D2D1C /* BBOrderProgram.h */,
 				3A128BA51D107596001D2D1C /* BBOrderProgram.m */,
+				3AC92B071D10D53C00036E70 /* BBPayment.h */,
+				3AC92B081D10D53C00036E70 /* BBPayment.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2774,6 +2779,7 @@
 				3A2D56D31CF075D200A8EFF5 /* BBPaymentRouter.m in Sources */,
 				3A2D56D71CF075D200A8EFF5 /* BBUniversalPresenter.m in Sources */,
 				3A2D56B51CF075D200A8EFF5 /* BBOrdersRouter.m in Sources */,
+				3AC92B091D10D53C00036E70 /* BBPayment.m in Sources */,
 				3A2D56B41CF075D200A8EFF5 /* BBOrdersPresenter.m in Sources */,
 				3A2D570B1CF331C300A8EFF5 /* BBCommentTableViewCell.m in Sources */,
 				3A2D56CB1CF075D200A8EFF5 /* BBSupportAssembly.m in Sources */,

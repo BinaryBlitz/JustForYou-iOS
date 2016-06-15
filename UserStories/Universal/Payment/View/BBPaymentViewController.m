@@ -10,7 +10,7 @@
 
 #import "BBPaymentViewOutput.h"
 
-@interface BBPaymentViewController()
+@interface BBPaymentViewController() <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
@@ -29,7 +29,12 @@
 #pragma mark - Методы BBPaymentViewInput
 
 - (void)setupInitialState {
-	
+    self.navigationItem.title = kNameTitlePaymentModule;
+}
+
+- (void)loadWebViewWithPayment:(BBPayment *)payment {
+    NSURL *url = [NSURL URLWithString:payment.paymentURL];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 @end

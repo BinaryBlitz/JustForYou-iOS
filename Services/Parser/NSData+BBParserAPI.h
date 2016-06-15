@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "BBUser.h"
+#import "BBPayment.h"
 
 typedef enum : NSUInteger {
     kTypeBlockInData,
@@ -33,6 +34,10 @@ typedef enum : NSUInteger {
 #pragma mark - Orders Methods
 
 - (NSInteger)parseCreatingOrderPrograms;
+
+#pragma mark - Payments Methods
+
+- (BBPayment *)parsePaymentWithData;
 
 #pragma mark - Map Methods
 

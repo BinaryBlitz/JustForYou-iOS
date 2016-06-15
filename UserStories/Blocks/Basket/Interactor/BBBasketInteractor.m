@@ -26,7 +26,11 @@
     BBUser *user = [[BBUserService sharedService] currentUser];
     [[BBServerService sharedService] createOrderWithOrders:user.ordersProgramArray apiToken:[[BBUserService sharedService] tokenUser] numberPhone:user.numberPhone completion:^(BBServerResponse *response, NSInteger orderId, NSError *error) {
         if (response.responseCode == 201) {
-            
+            [[BBServerService sharedService] createPaymentsWithOrderId:orderId apiToken:[[BBUserService sharedService] tokenUser]  completion:^(BBServerResponse *response, BBPayment *payment, NSError *error) {
+                if (payment) {
+                    [self.output paymentDidStartWithPayment:payment];
+                }
+            }];
         }
     }];
 }

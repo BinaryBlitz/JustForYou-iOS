@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBPayment;
+
 @protocol BBBasketInteractorOutput <NSObject>
 
 - (void)currentOrders:(NSArray *)orders;
+
+- (void)paymentDidStartWithPayment:(BBPayment *)payment;
 
 @end

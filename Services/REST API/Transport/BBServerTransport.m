@@ -124,14 +124,33 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/orders", kServerURL]];
     
-    NSDictionary* parameters = @{@"api_token"             : token,
-                                 @"phone_number"          : phone,
-                                 @"line_items_attributes" : orders};
-    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    NSMutableArray *array = [NSMutableArray array];
+    for (BBOrderProgram *ord in orders) {
+        NSNumber *numb1 = [NSNumber numberWithInteger:ord.programId];
+        NSNumber *numb2 = [NSNumber numberWithInteger:ord.countDays];
+        NSDictionary *par = @{@"program_id"     : numb1,
+                              @"number_of_days" : numb2};
+        [array addObject:par];
+    }
+    NSDictionary* parameters = @{@"phone_number"          : phone,
+                                 @"line_items_attributes" : array};
+    NSDictionary *param = @{@"api_token" : token,
+                            @"order" : parameters};
+    request = [self _settingRequestWithRequest:request parametrs:param HTTPMethod:POST];
     [self sendRequest:request completion:completion];
-
 }
 
+
+#pragma mark - Payments Methods
+
+- (void)createPaymentsWithOrderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/orders/%@/payment", kServerURL, orderId]];
+    
+    NSDictionary* parameters = @{@"api_token" : apiToken};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
 
 #pragma mark - Geolocation
 

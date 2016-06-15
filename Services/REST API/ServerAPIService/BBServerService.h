@@ -12,14 +12,15 @@
 
 @class BBUser;
 @class BBOrder;
+@class BBPayment;
 
-typedef void (^AuthCompletion)(BBServerResponse *response, NSString* token, NSError* error);
-typedef void (^RegistrationCompletion)(BBServerResponse *response, BBUser *user, NSError* error);
+typedef void (^AuthCompletion)(BBServerResponse *response, NSString *token, NSError *error);
+typedef void (^RegistrationCompletion)(BBServerResponse *response, BBUser *user, NSError *error);
 
-typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *objects, NSError* error);
+typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *objects, NSError *error);
 
-typedef void (^OrderCompletion)(BBServerResponse *response, NSInteger orderId, NSError* error);
-
+typedef void (^OrderCompletion)(BBServerResponse *response, NSInteger orderId, NSError *error);
+typedef void (^PaymentCompletion)(BBServerResponse *response, BBPayment *payment, NSError *error);
 typedef void (^ReceiveData)(NSData* data);
 
 @interface BBServerService : NSObject
@@ -43,5 +44,9 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Order Methods
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion;
+
+#pragma mark - Payments Methods
+
+- (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion;
 
 @end

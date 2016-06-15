@@ -176,6 +176,25 @@
 }
 
 
+#pragma mark - Payments Methods
+
+- (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createPaymentsWithOrderId:[NSString stringWithFormat:@"%ld", (long)orderId] apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBPayment *payment = nil;
+        if (!error) {
+            payment = [data parsePaymentWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, payment, error);
+        }        
+    }];
+}
+
+
+
 #pragma mark - Check Network
 
 - (void)_checkNetworkConnection {

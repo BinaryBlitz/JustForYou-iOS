@@ -12,6 +12,7 @@
 #import "BBProgram.h"
 #import "BBDay.h"
 
+
 #import "BBDataBaseService.h"
 
 @implementation NSData (BBParserAPI)
@@ -69,6 +70,15 @@
 - (NSInteger)parseCreatingOrderPrograms {
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     return [[JSONObj objectForKey:@"id"] integerValue];
+}
+
+
+#pragma mark - Payments Methods
+
+- (BBPayment *)parsePaymentWithData {
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    BBPayment *payment = [[BBPayment alloc] initWithJSON:JSONObj];
+    return payment;
 }
 
 #pragma mark - Map Methods

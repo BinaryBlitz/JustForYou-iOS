@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 
+@property (strong, nonatomic) BBPayment *payment;
+
 @end
 
 @implementation BBPaymentPresenter
@@ -28,8 +30,9 @@
     
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule {
+- (void)pushModuleWithNavigationModule:(id)navigationModule payment:(BBPayment *)payment {
     self.navigationModule = navigationModule;
+    self.payment = payment;
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
@@ -37,6 +40,7 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+    [self.view loadWebViewWithPayment:self.payment];
 }
 
 #pragma mark - Методы BBPaymentInteractorOutput

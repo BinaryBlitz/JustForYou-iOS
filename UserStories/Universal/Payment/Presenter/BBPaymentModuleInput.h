@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBPayment;
+
 @protocol BBPaymentModuleInput <NSObject>
 
 - (void)configureModule;
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule;
+- (void)pushModuleWithNavigationModule:(id)navigationModule payment:(BBPayment *)payment;
 
 @end

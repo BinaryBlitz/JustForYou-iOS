@@ -30,6 +30,9 @@ static NSString *kErrorOpenEmail = @"В приложении \"Почта\" ва
 
 static NSString *kMailSuccessSend = @"Ваше письмо успешно отправлено";
 
+
+static NSString *kURLBundleRoskont = @"https://itunes.apple.com/us/app/roskontrol/id998320930?l=ru&ls=1&mt=8";
+
 @implementation BBSupportPresenter
 
 #pragma mark - Методы BBSupportModuleInput
