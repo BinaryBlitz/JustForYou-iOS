@@ -36,3 +36,7 @@ fastlane/report.xml
 Templates/
 Rambafile
 
+# Push-notification
+development_ru.binaryblitz.JustForYou.*
+
+

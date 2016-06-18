@@ -2609,6 +2609,11 @@
 					3A2A2E6D1C9D8CE900CA19E1 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 4WGG8V34K4;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
