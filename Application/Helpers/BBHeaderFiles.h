@@ -15,6 +15,7 @@
 // A
 #import "BBAccessoryTableViewCell.h"
 #import "BBAddressTableViewCell.h"
+#import "BBAboutTableViewCell.h"
 
 // B
 #import "BBBasketTableViewCell.h"

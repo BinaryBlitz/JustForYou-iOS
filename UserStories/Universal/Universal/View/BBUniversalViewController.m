@@ -113,6 +113,8 @@ static CGFloat heightFooterSection = 10.0f;
          forCellReuseIdentifier:kStockCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameAccessoryCell bundle:nil]
          forCellReuseIdentifier:kAccessoryCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameAboutCell bundle:nil]
+         forCellReuseIdentifier:kAboutCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -123,14 +125,14 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (self.keyModule == kMyAddressModule) {
+    if (self.keyModule == kMyAddressModule || self.keyModule == kAboutModule) {
         return miniHeightFooterSection;
     }
     return heightFooterSection;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.keyModule == kMyAddressModule) {
+    if (self.keyModule == kMyAddressModule || self.keyModule == kAboutModule) {
         return miniHeightHeaderSection;
     }
     return heightHeaderSection;
@@ -151,7 +153,8 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
+    if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule ||
+        self.keyModule == kMyAddressForOrderModule || self.keyModule == kAboutModule) {
         return 1;
     }
     return self.count;
@@ -174,6 +177,9 @@ static CGFloat heightFooterSection = 10.0f;
         return cell;
     } else if (self.keyModule == kSharesModule) {
         BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
+        return cell;
+    } else if (self.keyModule == kAboutModule) {
+        BBAboutTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAboutCellIdentifire];
         return cell;
     }  else {
         BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];

@@ -159,7 +159,7 @@ static CGFloat heightFooterSection = 1.0f;
                 accessoryCell.textLabel.text = kNameTitleMyPayCardModule;
                 accessoryCell.keyModuleCell = kMyPayCardModule;
             } else {
-                accessoryCell.textLabel.text = kNameTitleAboutModule;
+                accessoryCell.textLabel.text = @"О нас";
                 accessoryCell.keyModuleCell = kAboutModule;
             }
             cell = accessoryCell;

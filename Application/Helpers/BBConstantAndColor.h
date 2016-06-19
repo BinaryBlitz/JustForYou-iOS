@@ -171,7 +171,7 @@ static NSString *kNameTitleSharesModule = @"Акции";
 
 static NSString *kNameTitleSettingsModule = @"Настройки";
 static NSString *kNameTitleMyPayCardModule = @"Мои карты";
-static NSString *kNameTitleAboutModule = @"О нас";
+static NSString *kNameTitleAboutModule = @"Что такое Just For You?";
 
 static NSString *kNameTitleMapModule = @"Выберите адрес";
 

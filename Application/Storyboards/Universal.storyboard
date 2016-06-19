@@ -100,7 +100,7 @@
         <!--Universal View Controller-->
         <scene sceneID="m4m-qK-6gS">
             <objects>
-                <viewController storyboardIdentifier="BBUniversalViewController" id="7DS-ME-51I" customClass="BBUniversalViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BBUniversalViewController" hidesBottomBarWhenPushed="YES" id="7DS-ME-51I" customClass="BBUniversalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EsU-9N-JGU"/>
                         <viewControllerLayoutGuide type="bottom" id="4X4-4C-iqb"/>

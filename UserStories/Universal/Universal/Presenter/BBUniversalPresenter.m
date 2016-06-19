@@ -95,6 +95,8 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
     [self.view settingView];
     if (self.moduleKey == kMyAddressModule) {
         [self.interactor currentAddressArray];
+    } else if (self.moduleKey == kAboutModule) {
+        
     }
 }
 
