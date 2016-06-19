@@ -9,6 +9,7 @@
 #import "BBUniversalViewController.h"
 
 #import "BBUniversalViewOutput.h"
+#import "BBStock.h"
 
 @interface BBUniversalViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -68,7 +69,7 @@ static CGFloat heightFooterSection = 10.0f;
     } else {
         self.navigationItem.rightBarButtonItem = nil;
     }
-    self.count = 3;
+    self.count = 1;
 }
 
 - (void)updateTableViewWithArrayObjects:(NSArray *)objects {
@@ -140,14 +141,17 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.keyModule == kSharesModule) {
-        return @"20.10.2016";
+        BBStock *stock = [self.objects objectAtIndex:section];
+        return [stock dateForUI];
     }
     return @"";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
-        return self.count;
+        if (self.count != 0) {
+            return self.count;
+        }
     }
     return 1;
 }
@@ -172,11 +176,24 @@ static CGFloat heightFooterSection = 10.0f;
         cell.setRadius = YES;
         cell.kSideCornerRadius = kAllCornerRadius;
         cell.accessoryImageView.hidden = YES;
-        BBAddress *address = [self.objects objectAtIndex:indexPath.section];
-        cell.textLabel.text = address.address;
+        NSString *addressString = @"У вас пока нет ни одного адреса";
+        if ([self.objects count] != 0) {
+            BBAddress *address = [self.objects objectAtIndex:indexPath.section];
+            addressString = address.address;
+        }
+        cell.textLabel.text = addressString;
         return cell;
     } else if (self.keyModule == kSharesModule) {
+        if ([self.objects count] == 0) {
+            BBAccessoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
+            cell.setRadius = YES;
+            cell.kSideCornerRadius = kAllCornerRadius;
+            cell.accessoryImageView.hidden = YES;
+            cell.textLabel.text = @"В настоящий момент акций нет";
+            return cell;
+        }
         BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
+        [cell setStockForUI:[self.objects objectAtIndex:indexPath.section]];
         return cell;
     } else if (self.keyModule == kAboutModule) {
         BBAboutTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAboutCellIdentifire];

@@ -93,10 +93,11 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 
 - (void)viewWillAppear {
     [self.view settingView];
-    if (self.moduleKey == kMyAddressModule) {
+    if (self.moduleKey == kMyAddressModule || self.moduleKey == kMyAddressForOrderModule) {
         [self.interactor currentAddressArray];
-    } else if (self.moduleKey == kAboutModule) {
-        
+    } else if (self.moduleKey == kSharesModule) {
+        [self.view showLoaderView];
+        [self.interactor listShares];
     }
 }
 
@@ -114,6 +115,11 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 
 - (void)currentAddressArray:(NSArray *)addressArray {
     [self.view updateTableViewWithArrayObjects:addressArray];
+}
+
+- (void)currentSharesWithArray:(NSArray *)array {
+    [self.view hideLoaderView];
+    [self.view updateTableViewWithArrayObjects:array];
 }
 
 #pragma mark - Lazy Load

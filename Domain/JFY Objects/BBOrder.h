@@ -2,15 +2,22 @@
 //  BBOrder.h
 //  JustForYou
 //
-//  Created by Антон on 03.06.16.
+//  Created by Антон on 19.06.16.
 //  Copyright © 2016 BinaryBlitz. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface BBOrder : NSObject
+@interface BBOrder : RLMObject
 
-@property (strong, nonatomic) NSString *programId;
-@property (assign, nonatomic) NSInteger numberOfDays;
+@property NSInteger programId;
+@property NSDate *scheduledDay;
+@property UIColor *colorProgram;
+
+- (instancetype)initWithJSON:(id)JSONObj;
 
 @end
+
+// This protocol enables typed collections. i.e.:
+// RLMArray<BBOrder>
+RLM_ARRAY_TYPE(BBOrder)

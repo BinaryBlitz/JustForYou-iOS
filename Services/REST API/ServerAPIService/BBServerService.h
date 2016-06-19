@@ -35,6 +35,8 @@ typedef void (^ReceiveData)(NSData* data);
 - (void)showUserWithUserToken:(NSString *)apiToken completion:(RegistrationCompletion)completion;
 - (void)updateUserWithUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(RegistrationCompletion)completion;
 
+- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+
 #pragma mark - Blocks And Programs
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
@@ -45,8 +47,19 @@ typedef void (^ReceiveData)(NSData* data);
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion;
 
+#pragma mark - Deliveries
+
+- (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+//- (void)createDeliveriesWithApiToken:(NSString *)apiToken 
+
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion;
+
+
+#pragma mark - Stock Methods
+
+- (void)listStocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+
 
 @end

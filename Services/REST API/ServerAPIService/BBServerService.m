@@ -103,9 +103,24 @@
     [self _checkNetworkConnection];
     [self.transport updateUser:user apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
-        
         if (completion) {
             completion(responseServer, user, error);
+        }
+    }];
+}
+
+
+- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listAddressUserWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseUserAddressWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
         }
     }];
 }
@@ -193,6 +208,22 @@
     }];
 }
 
+#pragma mark - Stock Methods
+
+- (void)listStocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listStocksWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseStocksWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
 
 
 #pragma mark - Check Network

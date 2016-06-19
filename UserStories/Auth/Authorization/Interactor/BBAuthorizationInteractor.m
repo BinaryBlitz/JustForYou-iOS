@@ -54,7 +54,10 @@
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (user) {
                 [[BBUserService sharedService] saveCurrentUser:user];
-                [self.output userSuccessfullAuthorizate];
+                [[BBServerService sharedService] listAddressUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+                    [[BBUserService sharedService] addAddressUserFromArray:objects];
+                    [self.output userSuccessfullAuthorizate];
+                }];
             } else {
                 [self.output errorServer];
             }

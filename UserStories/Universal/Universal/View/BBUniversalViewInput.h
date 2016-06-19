@@ -16,6 +16,9 @@
 
 - (void)settingView;
 
+- (void)showLoaderView;
+- (void)hideLoaderView;
+
 - (void)updateTableViewWithArrayObjects:(NSArray *)objects;
 - (void)updateTableViewWithDeletedObjects:(NSArray *)objects;
 

@@ -10,6 +10,8 @@
 
 #import "BBUser.h"
 #import "BBPayment.h"
+#import "BBAddress.h"
+#import "BBStock.h"
 
 typedef enum : NSUInteger {
     kTypeBlockInData,
@@ -27,6 +29,8 @@ typedef enum : NSUInteger {
 
 - (BBUser *)parseRegisterResponseWithData;
 
+- (NSArray *)parseUserAddressWithData;
+
 #pragma mark - Blocks And Program Methods
 
 - (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId urlServer:(NSString *)url;
@@ -38,6 +42,10 @@ typedef enum : NSUInteger {
 #pragma mark - Payments Methods
 
 - (BBPayment *)parsePaymentWithData;
+
+#pragma mark - Stock Methods
+
+- (NSArray *)parseStocksWithData;
 
 #pragma mark - Map Methods
 

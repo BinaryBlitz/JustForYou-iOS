@@ -16,6 +16,20 @@ NSString* const kAddress = @"kAddress";
 
 @implementation BBAddress
 
+-(instancetype)initWithJSON:(id)JSONObj {
+    self = [super init];
+    if (self) {
+        self.addressId = [[JSONObj objectForKey:@"id"] integerValue];
+        self.address = [JSONObj objectForKey:@"content"];
+        self.country = @"Россия";
+        self.city = @"Москва";
+        double lat = 3;
+        double lng = 3;
+        self.coordinate = CLLocationCoordinate2DMake(lat, lng);
+    }
+    return self;
+}
+
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D )coordinate country:(NSString *)country city:(NSString *)city address:(NSString *)address {
     self = [super init];
     if (self) {

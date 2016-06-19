@@ -13,6 +13,7 @@
 #import "BBBlock.h"
 #import "BBProgram.h"
 #import "BBDay.h"
+#import "BBOrder.h"
 
 @interface BBDataBaseService : NSObject
 
@@ -33,5 +34,10 @@
 
 - (NSArray *)daysInRealmWithParentId:(NSInteger)parentId;
 - (void)addOrUpdateDaysFromArray:(NSArray *)objects parentId:(NSInteger)parentId;
+
+#pragma mark - Orders
+
+- (void)addOrUpdateOrdersFromArray:(NSArray *)objects;
+- (NSArray *)ordersInRealm;
 
 @end

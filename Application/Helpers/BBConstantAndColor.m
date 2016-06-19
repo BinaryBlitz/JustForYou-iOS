@@ -65,6 +65,45 @@
     return [self colorForR:62.0f G:177.0f B:79.0f alpha:1.0f];
 }
 
++ (UIColor *)colorForIdBlock:(NSInteger)blockId {
+    if (blockId == 1) {
+        return [self programBrownColor];
+    } else if (blockId == 2) {
+        return [self programGreenColor];
+    } else if (blockId == 3) {
+        return [self programBlueColor];
+    } else if (blockId == 4) {
+        return [self programRedColor];
+    } else if (blockId == 5) {
+        return [self programPurpleColor];
+    }
+    return [self programYellowColor];
+}
+
++ (UIColor *)programGreenColor {
+    return [self colorForR:148.0f G:164.0f B:76.0f alpha:1.0f];
+}
+
++ (UIColor *)programBrownColor {
+    return [self colorForR:221.0f G:160.0f B:121.0f alpha:1.0f];
+}
+
++ (UIColor *)programBlueColor {
+    return [self colorForR:89.0f G:161.0f B:209.0f alpha:1.0f];
+}
+
++ (UIColor *)programRedColor {
+    return [self colorForR:237.0f G:67.0f B:60.0f alpha:1.0f];
+}
+
++ (UIColor *)programPurpleColor {
+    return [self colorForR:168.0f G:81.0f B:144.0f alpha:1.0f];
+}
+
++ (UIColor *)programYellowColor {
+    return [self colorForR:254.0f G:195.0f B:60.0f alpha:1.0f];
+}
+
 
 #pragma mark - Constant
 

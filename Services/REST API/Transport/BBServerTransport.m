@@ -86,6 +86,13 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 }
 
 
+- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/addresses?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
 
 #pragma mark - Blocks And Programs
 
@@ -149,6 +156,17 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     
     NSDictionary* parameters = @{@"api_token" : apiToken};
     request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
+
+#pragma mark - Stock Methods
+
+- (void)listStocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/promotions?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
     [self sendRequest:request completion:completion];
 }
 

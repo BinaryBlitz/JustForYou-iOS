@@ -11,6 +11,7 @@
 #import "BBUniversalInteractorOutput.h"
 
 #import "BBUserService.h"
+#import "BBServerService.h"
 
 @implementation BBUniversalInteractor
 
@@ -24,6 +25,12 @@
 - (NSArray *)deleteAddress:(BBAddress *)address {
     [[BBUserService sharedService] deleteAddressOnUser:address];
     return [[BBUserService sharedService] currentUser].addressArray;
+}
+
+- (void)listShares {
+    [[BBServerService sharedService] listStocksWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        [self.output currentSharesWithArray:objects];
+    }];
 }
 
 @end

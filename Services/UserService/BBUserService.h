@@ -26,6 +26,8 @@
 - (void)updateOrderProgramWithOrderProgram:(BBOrderProgram *)orderProgram;
 - (void)deleteInOrdersUserOrderProgram:(BBOrderProgram *)order;
 - (void)deleteAllOrderProgramInUser;
+
+- (void)addAddressUserFromArray:(NSArray *)objects;
 - (BOOL)addAddressToUserWithAddress:(BBAddress *)address;
 - (void)deleteAddressOnUser:(BBAddress *)address;
 

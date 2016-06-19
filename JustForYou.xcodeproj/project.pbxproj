@@ -189,13 +189,14 @@
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
 		3AE546071D1695D2006A1CDD /* BBAboutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546051D1695D2006A1CDD /* BBAboutTableViewCell.m */; };
 		3AE546081D1695D2006A1CDD /* BBAboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE546061D1695D2006A1CDD /* BBAboutTableViewCell.xib */; };
+		3AE5460C1D16A13A006A1CDD /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5460B1D16A13A006A1CDD /* BBOrder.m */; };
+		3AE5460F1D16CC0A006A1CDD /* BBStock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5460E1D16CC0A006A1CDD /* BBStock.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
 		3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F491D0CBA4E004972FC /* BBCalendarService.m */; };
 		3AF26F501D0CBA4E004972FC /* BBValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F4D1D0CBA4E004972FC /* BBValidationService.m */; };
 		3AF26F531D0CBA66004972FC /* BBImageViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F521D0CBA66004972FC /* BBImageViewService.m */; };
 		3AF26F631D0D703A004972FC /* BBBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F591D0D703A004972FC /* BBBlock.m */; };
-		3AF26F641D0D703A004972FC /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F5B1D0D703A004972FC /* BBOrder.m */; };
 		3AF26F651D0D703A004972FC /* BBProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F5D1D0D703A004972FC /* BBProgram.m */; };
 		3AF26F661D0D703A004972FC /* BBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F601D0D703A004972FC /* BBAddress.m */; };
 		3AF26F671D0D703A004972FC /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F621D0D703A004972FC /* BBUser.m */; };
@@ -658,6 +659,10 @@
 		3AE546041D1695D2006A1CDD /* BBAboutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAboutTableViewCell.h; sourceTree = "<group>"; };
 		3AE546051D1695D2006A1CDD /* BBAboutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAboutTableViewCell.m; sourceTree = "<group>"; };
 		3AE546061D1695D2006A1CDD /* BBAboutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAboutTableViewCell.xib; sourceTree = "<group>"; };
+		3AE5460A1D16A13A006A1CDD /* BBOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrder.h; sourceTree = "<group>"; };
+		3AE5460B1D16A13A006A1CDD /* BBOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrder.m; sourceTree = "<group>"; };
+		3AE5460D1D16CC0A006A1CDD /* BBStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStock.h; sourceTree = "<group>"; };
+		3AE5460E1D16CC0A006A1CDD /* BBStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStock.m; sourceTree = "<group>"; };
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
 		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
@@ -671,8 +676,6 @@
 		3AF26F521D0CBA66004972FC /* BBImageViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImageViewService.m; sourceTree = "<group>"; };
 		3AF26F581D0D703A004972FC /* BBBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlock.h; sourceTree = "<group>"; };
 		3AF26F591D0D703A004972FC /* BBBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlock.m; sourceTree = "<group>"; };
-		3AF26F5A1D0D703A004972FC /* BBOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrder.h; sourceTree = "<group>"; };
-		3AF26F5B1D0D703A004972FC /* BBOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOrder.m; sourceTree = "<group>"; };
 		3AF26F5C1D0D703A004972FC /* BBProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgram.h; sourceTree = "<group>"; };
 		3AF26F5D1D0D703A004972FC /* BBProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgram.m; sourceTree = "<group>"; };
 		3AF26F5F1D0D703A004972FC /* BBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddress.h; sourceTree = "<group>"; };
@@ -2457,8 +2460,8 @@
 				3AF26F691D0D7062004972FC /* BBDay.m */,
 				3AF26F731D0DC256004972FC /* BBMenu.h */,
 				3AF26F741D0DC256004972FC /* BBMenu.m */,
-				3AF26F5A1D0D703A004972FC /* BBOrder.h */,
-				3AF26F5B1D0D703A004972FC /* BBOrder.m */,
+				3AE5460A1D16A13A006A1CDD /* BBOrder.h */,
+				3AE5460B1D16A13A006A1CDD /* BBOrder.m */,
 			);
 			path = "JFY Objects";
 			sourceTree = "<group>";
@@ -2474,6 +2477,8 @@
 				3A128BA51D107596001D2D1C /* BBOrderProgram.m */,
 				3AC92B071D10D53C00036E70 /* BBPayment.h */,
 				3AC92B081D10D53C00036E70 /* BBPayment.m */,
+				3AE5460D1D16CC0A006A1CDD /* BBStock.h */,
+				3AE5460E1D16CC0A006A1CDD /* BBStock.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2815,8 +2820,8 @@
 				3AF26F6E1D0D7B89004972FC /* BBForWhomTableViewCell.m in Sources */,
 				3A2D57091CF331C300A8EFF5 /* BBAccessoryTableViewCell.m in Sources */,
 				3A2D56B31CF075D200A8EFF5 /* BBOrdersInteractor.m in Sources */,
+				3AE5460F1D16CC0A006A1CDD /* BBStock.m in Sources */,
 				3A2D56D11CF075D200A8EFF5 /* BBPaymentInteractor.m in Sources */,
-				3AF26F641D0D703A004972FC /* BBOrder.m in Sources */,
 				3A2D56841CF075D200A8EFF5 /* BBDescriptionTableViewCell.m in Sources */,
 				3A2D56D91CF075D200A8EFF5 /* BBUniversalViewController.m in Sources */,
 				3A2D567F1CF075D200A8EFF5 /* BBCardProgramAssembly.m in Sources */,
@@ -2883,6 +2888,7 @@
 				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
 				3A2D56A31CF075D200A8EFF5 /* BBDeliveryPresenter.m in Sources */,
 				3A2D56871CF075D200A8EFF5 /* BBHeaderTableViewCell.m in Sources */,
+				3AE5460C1D16A13A006A1CDD /* BBOrder.m in Sources */,
 				3A2D56BE1CF075D200A8EFF5 /* BBProfileInteractor.m in Sources */,
 				3A2D56791CF075D200A8EFF5 /* BBBlocksInteractor.m in Sources */,
 				3A2D56971CF075D200A8EFF5 /* BBNavigationInteractor.m in Sources */,

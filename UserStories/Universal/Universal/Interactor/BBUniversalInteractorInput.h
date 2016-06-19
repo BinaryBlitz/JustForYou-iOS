@@ -14,4 +14,6 @@
 
 - (NSArray *)deleteAddress:(BBAddress *)address;
 
+- (void)listShares;
+
 @end

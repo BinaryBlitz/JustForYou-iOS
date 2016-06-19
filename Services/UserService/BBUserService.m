@@ -113,6 +113,11 @@ static NSString *kUserReplacement = @"kUserReplacement";
     [self saveCurrentUser:user];
 }
 
+- (void)addAddressUserFromArray:(NSArray *)objects {
+    BBUser *user = [self currentUser];
+    user.addressArray = [NSArray arrayWithArray:objects];
+    [self saveCurrentUser:user];
+}
 
 - (BOOL)addAddressToUserWithAddress:(BBAddress *)address {
     BBUser *user = [self currentUser];

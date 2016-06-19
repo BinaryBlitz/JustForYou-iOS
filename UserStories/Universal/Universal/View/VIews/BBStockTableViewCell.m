@@ -51,4 +51,10 @@
     return borderLayer;
 }
 
+- (void)setStockForUI:(BBStock *)stock {
+    self.stock = stock;
+    self.nameStockLabel.text = stock.name;
+    self.descriptionStockLabel.text = stock.descript;
+}
+
 @end

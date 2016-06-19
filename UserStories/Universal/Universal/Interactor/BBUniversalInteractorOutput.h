@@ -12,4 +12,6 @@
 
 - (void)currentAddressArray:(NSArray *)addressArray;
 
+- (void)currentSharesWithArray:(NSArray *)array;
+
 @end

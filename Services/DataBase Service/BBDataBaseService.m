@@ -176,6 +176,25 @@
 }
 
 
+#pragma mark - Orders
+
+- (void)addOrUpdateOrdersFromArray:(NSArray *)objects {
+    RLMRealm *standartRealm = [RLMRealm defaultRealm];
+    RLMResults *old = [BBOrder allObjectsInRealm:standartRealm];
+    
+    [standartRealm beginWriteTransaction];
+    [standartRealm deleteObjects:old];
+    [standartRealm commitWriteTransaction];
+    [standartRealm beginWriteTransaction];
+    [standartRealm addObjects:objects];
+    [standartRealm commitWriteTransaction];
+}
+
+- (NSArray *)ordersInRealm {
+    RLMResults *res = [BBOrder allObjectsInRealm:[RLMRealm defaultRealm]];
+    return [self _RLMResultsToNSArray:res];
+}
+
 #pragma mark - Self
 
 - (NSArray *)_RLMResultsToNSArray:(RLMResults *)results {

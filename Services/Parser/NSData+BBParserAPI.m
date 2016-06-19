@@ -36,6 +36,17 @@
     return user;
 }
 
+- (NSArray *)parseUserAddressWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            BBAddress *address = [[BBAddress alloc] initWithJSON:obj];
+            [result addObject:address];
+        }
+    }
+    return result;
+}
 
 #pragma mark - Blocks And Program Methods
 
@@ -79,6 +90,21 @@
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     BBPayment *payment = [[BBPayment alloc] initWithJSON:JSONObj];
     return payment;
+}
+
+
+#pragma mark - Stock Methods
+
+- (NSArray *)parseStocksWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            BBStock *address = [[BBStock alloc] initWithJSON:obj];
+            [result addObject:address];
+        }
+    }
+    return result;
 }
 
 #pragma mark - Map Methods

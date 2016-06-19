@@ -42,6 +42,10 @@
 	[self.view setupInitialState];
 }
 
+- (void)viewWillAppear {
+    
+}
+
 - (void)addNewOrderButtonDidTap {
     [self.myProgramModule pushModuleWithNavigationModule:self.navigModule];
 }

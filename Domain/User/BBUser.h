@@ -20,6 +20,6 @@
 @property (strong, nonatomic) NSArray *ordersProgramArray;
 @property (strong, nonatomic) NSArray *addressArray;
 
--(instancetype)initWithJSON:(id)JSONObj;
+- (instancetype)initWithJSON:(id)JSONObj;
 
 @end

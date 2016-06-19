@@ -13,4 +13,6 @@
 - (void)didTriggerViewReadyEvent;
 - (void)addNewOrderButtonDidTap;
 
+- (void)viewWillAppear;
+
 @end

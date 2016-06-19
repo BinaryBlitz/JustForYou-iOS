@@ -39,6 +39,11 @@ static CGFloat estimatedRowHeight = 100.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 #pragma mark - Методы BBOrdersViewInput
 
 - (void)setupInitialState {

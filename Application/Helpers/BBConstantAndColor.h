@@ -124,6 +124,8 @@ typedef enum : NSUInteger {
 
 + (UIColor *)applicationGreenBankColor;
 
++ (UIColor *)colorForIdBlock:(NSInteger)blockId;
+
 + (kModelIPhone)modelDevice;
 
 @end
