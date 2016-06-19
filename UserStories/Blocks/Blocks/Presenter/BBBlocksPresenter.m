@@ -29,8 +29,10 @@
 
 @property (nonatomic) BOOL isEmptyRealm;
 
-
 @end
+
+static NSString *kImageNameBasketFull = @"basketFull";
+static NSString *kImageNameBasket = @"basket";
 
 @implementation BBBlocksPresenter
 
@@ -69,6 +71,7 @@
 }
 
 - (void)viewWillAppear {
+    [self.interactor checkBasket];
     [self.interactor blocksInDataBase];
 }
 
@@ -101,6 +104,14 @@
 - (void)errorServer {
     if (self.isEmptyRealm) {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    }
+}
+
+- (void)currentProgramsInBasket:(NSArray *)programs {
+    if ([programs count] > 0) {
+        [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
+    } else {
+        [self.view updateBasketButtonImageWithImageName:kImageNameBasket];
     }
 }
 

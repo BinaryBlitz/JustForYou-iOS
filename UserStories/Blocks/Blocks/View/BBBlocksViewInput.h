@@ -20,4 +20,6 @@
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
+- (void)updateBasketButtonImageWithImageName:(NSString *)name;
+
 @end

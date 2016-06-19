@@ -20,4 +20,6 @@
 
 - (void)listBlocksWithKey:(BBKeyStateData)key;
 
+- (void)checkBasket;
+
 @end

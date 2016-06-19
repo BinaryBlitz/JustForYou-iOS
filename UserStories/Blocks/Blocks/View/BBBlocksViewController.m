@@ -63,6 +63,10 @@ static CGFloat correlationCoefficientForCell = 1.12f;
     [self presentAlertControllerWithTitle:title message:message];
 }
 
+- (void)updateBasketButtonImageWithImageName:(NSString *)name {
+     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 #pragma mark - TableView
 
 - (void) _registrateIdentifireCell {

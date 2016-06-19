@@ -28,6 +28,9 @@
 
 @end
 
+static NSString *kImageNameBasketFull = @"basketFull";
+static NSString *kImageNameBasket = @"basket";
+
 @implementation BBCardProgramPresenter
 
 #pragma mark - Методы BBCardProgramModuleInput
@@ -49,6 +52,7 @@
 }
 
 - (void)viewWillAppear {
+    [self.interactor checkBasket];
     NSArray *res = [self.interactor checkDaysInDataBaseWith:self.programId];
     if (res && [res count] > 0) {
         self.clearData = NO;
@@ -72,6 +76,7 @@
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
     [self.interactor addInOrdersUserOrderWithProgramId:self.programId countDay:count];
+    [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
     [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
 }
 
@@ -104,6 +109,13 @@
     }
 }
 
+- (void)currentProgramsInBasket:(NSArray *)programs {
+    if ([programs count] > 0) {
+        [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
+    } else {
+        [self.view updateBasketButtonImageWithImageName:kImageNameBasket];
+    }
+}
 
 #pragma makr - Lazy Load 
 

@@ -102,12 +102,16 @@
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
 //    self.addInBasketButton.enabled = NO;
     [self.addBasketPopover removeFromSuperview];
-    self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"basketFull"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
     [self presentAlertControllerWithTitle:title message:message];
+}
+
+- (void)updateBasketButtonImageWithImageName:(NSString *)name {
+    self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 #pragma mark - TableView Methods

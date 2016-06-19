@@ -142,6 +142,10 @@
     }
 }
 
+- (void)updateBasketButtonImageWithImageName:(NSString *)name {
+    self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

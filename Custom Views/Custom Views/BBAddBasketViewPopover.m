@@ -66,6 +66,8 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 - (IBAction)okButtonAction:(id)sender {
     [self.delegate okButtonDidTapWithCountDays:self.countDays];
+    self.countDays = 1;
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
 }
 
 - (void)_changeBackgroundImageInButtonWithName:(NSString *)image {

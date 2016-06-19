@@ -51,4 +51,9 @@
     [[BBUserService sharedService] addOrderProgramToUserWithProgramId:programId countDays:countDay];
 }
 
+- (void)checkBasket {
+    BBUser *user = [[BBUserService sharedService] currentUser];
+    [self.output currentProgramsInBasket:user.ordersProgramArray];
+}
+
 @end

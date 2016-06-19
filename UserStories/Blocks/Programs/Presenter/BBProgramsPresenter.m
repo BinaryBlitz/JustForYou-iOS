@@ -29,6 +29,9 @@
 
 @end
 
+static NSString *kImageNameBasketFull = @"basketFull";
+static NSString *kImageNameBasket = @"basket";
+
 @implementation BBProgramsPresenter
 
 #pragma mark - Методы BBProgramsModuleInput
@@ -51,6 +54,7 @@
 }
 
 - (void)viewWillAppear {
+    [self.interactor checkBasket];
     NSArray *res = [self.interactor checkProgramsInDataBaseWith:self.parentId];
     if (res && [res count] > 0) {
         self.clearData = NO;
@@ -98,6 +102,14 @@
 - (void)errorServer {
     if (self.clearData) {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+    }
+}
+
+- (void)currentProgramsInBasket:(NSArray *)programs {
+    if ([programs count] > 0) {
+        [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
+    } else {
+        [self.view updateBasketButtonImageWithImageName:kImageNameBasket];
     }
 }
 

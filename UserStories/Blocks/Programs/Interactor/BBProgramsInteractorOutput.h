@@ -19,4 +19,6 @@
 - (void)errorServer;
 - (void)errorClient;
 
+- (void)currentProgramsInBasket:(NSArray *)programs;
+
 @end
