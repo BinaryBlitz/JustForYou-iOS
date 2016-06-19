@@ -145,8 +145,38 @@
                     <view key="view" contentMode="scaleToFill" id="KMO-hj-yXc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="GzM-KC-qyY">
+                                <rect key="frame" x="8" y="57" width="592" height="535"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.06.2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF3-Ln-ctw">
+                                <rect key="frame" x="13" y="28" width="579" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="87Q-bq-kdV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KF3-Ln-ctw" firstAttribute="top" secondItem="Rg3-94-voE" secondAttribute="bottom" constant="8" id="0Ap-F5-y9G"/>
+                            <constraint firstItem="KF3-Ln-ctw" firstAttribute="leading" secondItem="KMO-hj-yXc" secondAttribute="leading" constant="13" id="Fq2-66-Y8l"/>
+                            <constraint firstItem="WIl-72-TRT" firstAttribute="top" secondItem="GzM-KC-qyY" secondAttribute="bottom" constant="8" id="MPZ-gA-Her"/>
+                            <constraint firstItem="GzM-KC-qyY" firstAttribute="leading" secondItem="KMO-hj-yXc" secondAttribute="leading" constant="8" id="NQn-Md-q5s"/>
+                            <constraint firstAttribute="trailing" secondItem="KF3-Ln-ctw" secondAttribute="trailing" constant="8" id="Nwd-Oi-gav"/>
+                            <constraint firstItem="GzM-KC-qyY" firstAttribute="top" secondItem="KF3-Ln-ctw" secondAttribute="bottom" constant="8" id="Yw9-20-Aa8"/>
+                            <constraint firstAttribute="trailing" secondItem="GzM-KC-qyY" secondAttribute="trailing" id="kT4-1H-zof"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="GzM-KC-qyY" id="jCG-sq-myp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pN2-9S-jgp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

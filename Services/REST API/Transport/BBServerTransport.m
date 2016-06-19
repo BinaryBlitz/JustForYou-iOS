@@ -159,6 +159,10 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 }
 
 
+- (void)createDeliveriesWithArrayDeliveries:(NSArray *)deliveries apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+
+}
+
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {

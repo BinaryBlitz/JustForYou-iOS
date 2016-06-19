@@ -12,6 +12,9 @@
 
 @interface BBStockViewController()
 
+@property (strong, nonatomic) BBStock *stock;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
 @end
 
 @implementation BBStockViewController
@@ -27,7 +30,12 @@
 #pragma mark - Методы BBStockViewInput
 
 - (void)setupInitialState {
-	
+    self.navigationItem.title = self.stock.name;
+    self.textView.text = self.stock.descript;
+}
+
+- (void)stockForUI:(BBStock *)stock {
+    self.stock = stock;
 }
 
 @end

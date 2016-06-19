@@ -12,4 +12,6 @@
 
 - (void)setupInitialState;
 
+- (void)stockForUI:(BBStock *)stock;
+
 @end

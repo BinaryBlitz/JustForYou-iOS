@@ -210,8 +210,11 @@ static CGFloat heightFooterSection = 10.0f;
         BBAccessoryTableViewCell *adressCell = [self.tableView cellForRowAtIndexPath:indexPath];
         [self.output cellDidSelectWithAdress:adressCell.textLabel.text];
     } else if (self.keyModule == kSharesModule) {
-        BBStockTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self.output cellDidSelectWithStock:cell.stock];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if ([cell isKindOfClass:[BBStockTableViewCell class]]) {
+            BBStockTableViewCell *stockCell = (BBStockTableViewCell *)cell;
+            [self.output cellDidSelectWithStock:stockCell.stock];
+        }
     }
 }
 

@@ -32,6 +32,7 @@
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule stock:(BBStock *)stock {
     self.navigationModule = navigationModule;
+    [self.view stockForUI:stock];
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
