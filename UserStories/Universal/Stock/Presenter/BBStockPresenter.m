@@ -14,6 +14,8 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBStock.h"
+
 @interface BBStockPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
@@ -28,7 +30,7 @@
     
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule {
+- (void)pushModuleWithNavigationModule:(id)navigationModule stock:(BBStock *)stock {
     self.navigationModule = navigationModule;
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }

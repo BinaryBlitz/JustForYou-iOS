@@ -19,11 +19,16 @@
 #import "BBMapAssembly.h"
 #import "BBMapModuleInput.h"
 
+#import "BBStockAssembly.h"
+#import "BBStockModuleInput.h"
+
 @interface BBUniversalPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBNewOrderModuleInput> parentNewOrderModule;
+@property (strong, nonatomic) id<BBStockModuleInput> stockModule;
 @property (strong, nonatomic) id<BBMapModuleInput> mapModule;
+
 
 @property (nonatomic) BBKeyModuleForUniversalModule moduleKey;
 
@@ -91,6 +96,10 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
     [self.parentNewOrderModule popAdressModuleWithAdress:adress];
 }
 
+- (void)cellDidSelectWithStock:(BBStock *)stock {
+    [self.stockModule pushModuleWithNavigationModule:self.navigationModule stock:stock];
+}
+
 - (void)viewWillAppear {
     [self.view settingView];
     if (self.moduleKey == kMyAddressModule || self.moduleKey == kMyAddressForOrderModule) {
@@ -129,6 +138,13 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
         _mapModule = [BBMapAssembly  createModule];
     }
     return _mapModule;
+}
+
+- (id<BBStockModuleInput>)stockModule {
+    if (!_stockModule) {
+        _stockModule = [BBStockAssembly createModule];
+    }
+    return _stockModule;
 }
 
 @end

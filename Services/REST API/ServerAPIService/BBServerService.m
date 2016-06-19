@@ -191,6 +191,24 @@
 }
 
 
+#pragma mark - Deliveries Methods
+
+- (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listDeliveriesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseDeliveriesWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+
+    }];
+}
+
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion {

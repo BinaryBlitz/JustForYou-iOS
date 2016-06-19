@@ -83,6 +83,18 @@
     return [[JSONObj objectForKey:@"id"] integerValue];
 }
 
+#pragma mark - Deliveries Methods
+
+- (NSArray *)parseDeliveriesWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+#warning LOOK THIS
+        }
+    }
+    return result;
+}
 
 #pragma mark - Payments Methods
 

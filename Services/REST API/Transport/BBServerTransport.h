@@ -36,6 +36,10 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(CompletionBlock)completion;
 
+#pragma mark - Deliveries Methods
+
+- (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion;

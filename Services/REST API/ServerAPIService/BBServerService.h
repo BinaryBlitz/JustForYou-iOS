@@ -47,10 +47,10 @@ typedef void (^ReceiveData)(NSData* data);
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion;
 
-#pragma mark - Deliveries
+#pragma mark - Deliveries Methods
 
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
-//- (void)createDeliveriesWithApiToken:(NSString *)apiToken 
+//- (void)createDeliveriesWithApiToken:(NSString *)apiToken arrayDeliveries:(NSArray *)deliveries;
 
 #pragma mark - Payments Methods
 

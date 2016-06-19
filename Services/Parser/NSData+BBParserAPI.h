@@ -39,6 +39,10 @@ typedef enum : NSUInteger {
 
 - (NSInteger)parseCreatingOrderPrograms;
 
+#pragma mark - Deliveries Methods
+
+- (NSArray *)parseDeliveriesWithData;
+
 #pragma mark - Payments Methods
 
 - (BBPayment *)parsePaymentWithData;
