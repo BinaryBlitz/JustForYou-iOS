@@ -243,6 +243,22 @@
     }];
 }
 
+#pragma  mark - PayCard Methods
+
+- (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listPaymentCardsUserWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parsePaymentsCardUserWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
 
 #pragma mark - Check Network
 

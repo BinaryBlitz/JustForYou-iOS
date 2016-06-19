@@ -10,10 +10,20 @@
 
 @protocol BBUniversalInteractorInput <NSObject>
 
+#pragma mark - Address
+
 - (void)currentAddressArray;
 
 - (NSArray *)deleteAddress:(BBAddress *)address;
 
+#pragma mark - Stock
+
 - (void)listShares;
+
+#pragma  mark - PayCard
+
+- (NSArray *)currentPayCards;
+
+- (void)listPayCardsUser;
 
 @end

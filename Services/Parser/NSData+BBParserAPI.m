@@ -119,6 +119,21 @@
     return result;
 }
 
+#pragma  mark - PayCard Methods 
+
+- (NSArray *)parsePaymentsCardUserWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            BBPayCard *card = [[BBPayCard alloc] initWithJSON:obj];
+            [result addObject:card];
+        }
+    }
+    return result;
+}
+
+
 #pragma mark - Map Methods
 
 - (id)parseSearchAddress {

@@ -14,4 +14,6 @@
 
 - (void)currentSharesWithArray:(NSArray *)array;
 
+- (void)currentPayCardsUserWithArray:(NSArray *)array;
+
 @end

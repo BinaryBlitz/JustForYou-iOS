@@ -49,6 +49,11 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 
+
+#pragma  mark - PayCard Methods
+
+- (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+
 #pragma mark - Geolocation
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion;

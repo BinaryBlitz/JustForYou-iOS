@@ -137,7 +137,7 @@ static CGFloat heightHeaderSection = 10.0f;
     if (self.kType == kViewReplacementType) {
         return 1;
     }
-    return 5;
+    return self.countCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -145,11 +145,6 @@ static CGFloat heightHeaderSection = 10.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.kType == kViewReplacementType) {
-        if ([self.replacement count] == 0) {
-            return 0;
-        }
-    }
     return heightHeaderSection;
 }
 
@@ -162,9 +157,12 @@ static CGFloat heightHeaderSection = 10.0f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBAccessoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
+    cell.setRadius = YES;
     cell.accessoryImageView.hidden = YES;
+
     if (self.kType == kViewReplacementType) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.kSideCornerRadius = kAllCornerRadius;
         if ([self.replacement count] == 0) {
             cell.textLabel.text = @"У Вас нет ни одной замены";
             cell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
@@ -173,6 +171,14 @@ static CGFloat heightHeaderSection = 10.0f;
             cell.textLabel.textColor = [UIColor blackColor];
         }
     } else {
+        if (indexPath.row == 0) {
+            cell.kSideCornerRadius = kTopCornerRadius;
+        } else if (indexPath.row == self.countCell-1) {
+            cell.kSideCornerRadius = kBottomCornerRadius;
+        } else {
+            cell.setRadius = NO;
+            cell.kSideCornerRadius = kNoneCornerRadius;
+        }
         cell.textLabel.text = [NSString stringWithFormat:@"Молоко #%ld", (long)indexPath.row];
     }
     

@@ -38,7 +38,6 @@
     [standartRealm beginWriteTransaction];
     [standartRealm addOrUpdateObjectsFromArray:objects];
     [standartRealm commitWriteTransaction];
-    
 }
 
 - (NSArray *)blocksInRealm {
@@ -193,6 +192,40 @@
 - (NSArray *)ordersInRealm {
     RLMResults *res = [BBOrder allObjectsInRealm:[RLMRealm defaultRealm]];
     return [self _RLMResultsToNSArray:res];
+}
+
+
+#pragma mark - PayCard
+
+- (NSArray *)curentPayCards {
+    RLMResults *res = [BBPayCard allObjectsInRealm:[RLMRealm defaultRealm]];
+    return [self _RLMResultsToNSArray:res];
+}
+
+- (void)addOrUpdatePayCardsUserWithArray:(NSArray *)objects {
+    RLMRealm *standartRealm = [RLMRealm defaultRealm];
+    
+    RLMResults *old = [BBPayCard allObjectsInRealm:standartRealm];
+    
+    for (BBPayCard *oldPayCard in old) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"payCardId == %d", oldPayCard.payCardId];
+        NSArray *filteredArray = [objects filteredArrayUsingPredicate:predicate];
+        if ([filteredArray count] < 1) {
+            [standartRealm beginWriteTransaction];
+            [standartRealm deleteObject:oldPayCard];
+            [standartRealm commitWriteTransaction];
+        }
+    }
+    [standartRealm beginWriteTransaction];
+    [standartRealm addOrUpdateObjectsFromArray:objects];
+    [standartRealm commitWriteTransaction];
+}
+
+- (void)deleteAllPayCardsUser {
+    RLMResults *res = [BBPayCard allObjectsInRealm:[RLMRealm defaultRealm]];
+    [[RLMRealm defaultRealm] beginWriteTransaction];
+    [[RLMRealm defaultRealm] deleteObjects:res];
+    [[RLMRealm defaultRealm] commitWriteTransaction];
 }
 
 #pragma mark - Self

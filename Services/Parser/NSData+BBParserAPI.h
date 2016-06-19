@@ -12,6 +12,7 @@
 #import "BBPayment.h"
 #import "BBAddress.h"
 #import "BBStock.h"
+#import "BBPayCard.h"
 
 typedef enum : NSUInteger {
     kTypeBlockInData,
@@ -50,6 +51,10 @@ typedef enum : NSUInteger {
 #pragma mark - Stock Methods
 
 - (NSArray *)parseStocksWithData;
+
+#pragma  mark - PayCard Methods
+
+- (NSArray *)parsePaymentsCardUserWithData;
 
 #pragma mark - Map Methods
 

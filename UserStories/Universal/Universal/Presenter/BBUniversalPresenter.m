@@ -29,7 +29,6 @@
 @property (strong, nonatomic) id<BBStockModuleInput> stockModule;
 @property (strong, nonatomic) id<BBMapModuleInput> mapModule;
 
-
 @property (nonatomic) BBKeyModuleForUniversalModule moduleKey;
 
 @end
@@ -102,11 +101,20 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 
 - (void)viewWillAppear {
     [self.view settingView];
+    [self.view reloadTableView];
     if (self.moduleKey == kMyAddressModule || self.moduleKey == kMyAddressForOrderModule) {
         [self.interactor currentAddressArray];
     } else if (self.moduleKey == kSharesModule) {
         [self.view showLoaderView];
         [self.interactor listShares];
+    } else if (self.moduleKey == kMyPayCardModule) {
+        NSArray *res = [self.interactor currentPayCards];
+        if ([res count] > 0) {
+            [self.view updateTableViewWithArrayObjects:res];
+        } else {
+            [self.view showLoaderView];
+        }
+        [self.interactor listPayCardsUser];
     }
 }
 
@@ -127,6 +135,11 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 }
 
 - (void)currentSharesWithArray:(NSArray *)array {
+    [self.view hideLoaderView];
+    [self.view updateTableViewWithArrayObjects:array];
+}
+
+- (void)currentPayCardsUserWithArray:(NSArray *)array {
     [self.view hideLoaderView];
     [self.view updateTableViewWithArrayObjects:array];
 }

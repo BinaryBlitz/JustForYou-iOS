@@ -177,9 +177,19 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 #pragma mark - Stock Methods
 
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
-    
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/promotions?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
+
+#pragma  mark - PayCard Methods
+
+- (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/payment_cards?api_token=%@", kServerURL, apiToken]];
     
     request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
     [self sendRequest:request completion:completion];

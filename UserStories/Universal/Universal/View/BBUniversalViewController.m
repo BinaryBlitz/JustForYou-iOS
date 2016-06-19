@@ -72,6 +72,12 @@ static CGFloat heightFooterSection = 10.0f;
     self.count = 1;
 }
 
+- (void)reloadTableView {
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
 - (void)updateTableViewWithArrayObjects:(NSArray *)objects {
     self.objects = objects;
     self.count = [objects count];
@@ -141,8 +147,10 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.keyModule == kSharesModule) {
-        BBStock *stock = [self.objects objectAtIndex:section];
-        return [stock dateForUI];
+        if ([self.objects count] > 0) {
+            BBStock *stock = [self.objects objectAtIndex:section];
+            return [stock dateForUI];
+        }
     }
     return @"";
 }
@@ -161,10 +169,19 @@ static CGFloat heightFooterSection = 10.0f;
         self.keyModule == kMyAddressForOrderModule || self.keyModule == kAboutModule) {
         return 1;
     }
-    return self.count;
+    if (self.count != 0) {
+        return self.count;
+    }
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
+    accessoryCell.setRadius = YES;
+    accessoryCell.kSideCornerRadius = kAllCornerRadius;
+    accessoryCell.accessoryImageView.hidden = YES;
+    accessoryCell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
+    
     if (self.keyModule == kMyProgramModule) {
         BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
         return cell;
@@ -172,25 +189,17 @@ static CGFloat heightFooterSection = 10.0f;
         BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
         return cell;
     } else if (self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
-        BBAccessoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-        cell.setRadius = YES;
-        cell.kSideCornerRadius = kAllCornerRadius;
-        cell.accessoryImageView.hidden = YES;
         NSString *addressString = @"У вас пока нет ни одного адреса";
         if ([self.objects count] != 0) {
             BBAddress *address = [self.objects objectAtIndex:indexPath.section];
             addressString = address.address;
         }
-        cell.textLabel.text = addressString;
-        return cell;
+        accessoryCell.textLabel.text = addressString;
+        return accessoryCell;
     } else if (self.keyModule == kSharesModule) {
         if ([self.objects count] == 0) {
-            BBAccessoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
-            cell.setRadius = YES;
-            cell.kSideCornerRadius = kAllCornerRadius;
-            cell.accessoryImageView.hidden = YES;
-            cell.textLabel.text = @"В настоящий момент акций нет";
-            return cell;
+            accessoryCell.textLabel.text = @"В настоящий момент акций нет";
+            return accessoryCell;
         }
         BBStockTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kStockCellIdentifire];
         [cell setStockForUI:[self.objects objectAtIndex:indexPath.section]];
@@ -198,10 +207,16 @@ static CGFloat heightFooterSection = 10.0f;
     } else if (self.keyModule == kAboutModule) {
         BBAboutTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAboutCellIdentifire];
         return cell;
-    }  else {
+    }  else if (self.keyModule == kMyPayCardModule) {
+        if ([self.objects count] == 0) {
+            accessoryCell.textLabel.text = @"У вас нет привязанных карт";
+            return accessoryCell;
+        }
         BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];
         return cell;
     }
+    accessoryCell.textLabel.text = @"Произошла ошибка. Повторите позже";
+    return accessoryCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

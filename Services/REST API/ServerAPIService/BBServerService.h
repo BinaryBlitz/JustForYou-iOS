@@ -61,5 +61,8 @@ typedef void (^ReceiveData)(NSData* data);
 
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 
+#pragma  mark - PayCard Methods
+
+- (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 
 @end

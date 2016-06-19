@@ -14,6 +14,7 @@
 #import "BBProgram.h"
 #import "BBDay.h"
 #import "BBOrder.h"
+#import "BBPayCard.h"
 
 @interface BBDataBaseService : NSObject
 
@@ -39,5 +40,11 @@
 
 - (void)addOrUpdateOrdersFromArray:(NSArray *)objects;
 - (NSArray *)ordersInRealm;
+
+#pragma mark - PayCard
+
+- (NSArray *)curentPayCards;
+- (void)addOrUpdatePayCardsUserWithArray:(NSArray *)objects;
+- (void)deleteAllPayCardsUser;
 
 @end
