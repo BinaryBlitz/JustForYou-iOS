@@ -50,6 +50,13 @@ static NSString *kUserReplacement = @"kUserReplacement";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)updateUserWithUser:(BBUser *)user {
+    BBUser *oldUser = [self currentUser];
+    user.ordersProgramArray = oldUser.ordersProgramArray;
+    user.addressArray = oldUser.addressArray;
+    [self saveCurrentUser:user];
+}
+
 - (void)logOutUser {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kApiTokenUser];

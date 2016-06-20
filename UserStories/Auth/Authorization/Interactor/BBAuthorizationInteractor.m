@@ -12,6 +12,7 @@
 
 #import "BBServerService.h"
 #import "BBUserService.h"
+#import "BBDataBaseService.h"
 
 @implementation BBAuthorizationInteractor
 
@@ -57,6 +58,11 @@
                 [[BBServerService sharedService] listAddressUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
                     [[BBUserService sharedService] addAddressUserFromArray:objects];
                     [self.output userSuccessfullAuthorizate];
+                }];
+                [[BBServerService sharedService] listPaymentCardsUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+                    HQDispatchToMainQueue(^{
+                        [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
+                    });
                 }];
             } else {
                 [self.output errorServer];

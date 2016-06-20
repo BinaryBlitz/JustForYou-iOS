@@ -25,6 +25,10 @@
 
 - (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card {
     BBUser *user = [[BBUserService sharedService] currentUser];
+    __block NSInteger cardId = 0;
+    HQDispatchToMainQueue(^{
+        cardId = card.payCardId;
+    });
     [[BBServerService sharedService] createOrderWithOrders:user.ordersProgramArray apiToken:[[BBUserService sharedService] tokenUser] numberPhone:user.numberPhone completion:^(BBServerResponse *response, NSInteger orderId, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (response.responseCode == 201) {
@@ -35,7 +39,7 @@
                         }
                     }];
                 } else {
-                    [[BBServerService sharedService] createPaymentsWithPayCard:card orderId:orderId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BOOL paid, NSError *error) {
+                    [[BBServerService sharedService] createPaymentsWithPayCard:cardId orderId:orderId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BOOL paid, NSError *error) {
                         if (paid) {
                             [self.output paymentSuccessfull];
                         } else {

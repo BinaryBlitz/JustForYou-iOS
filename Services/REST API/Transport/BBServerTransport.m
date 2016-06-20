@@ -174,11 +174,11 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
-- (void)createPaymentsWithPayCard:(BBPayCard *)card orderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+- (void)createPaymentsWithPayCard:(NSInteger)cardId orderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/orders/%@/payment", kServerURL, orderId]];
-    NSDictionary *cardDict = @{@"payment_card_id" : [NSNumber numberWithInteger:card.payCardId]};
     
+    NSDictionary *cardDict = @{@"payment_card_id" : [NSNumber numberWithInteger:cardId]};
     NSDictionary* parameters = @{@"api_token" : apiToken,
                                  @"payment"   : cardDict};
     request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];

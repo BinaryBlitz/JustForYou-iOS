@@ -76,7 +76,7 @@ static CGFloat alphaView = 0.7f;
 
 - (void)payCardWithCard:(BBPayCard *)card {
     [self.view showBackgroundLoaderViewWithAlpha:alphaView];
-    [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:nil];
+    [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card];
 }
 
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {

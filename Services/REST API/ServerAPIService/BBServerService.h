@@ -58,7 +58,8 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion;
-- (void)createPaymentsWithPayCard:(BBPayCard *)card orderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentBoolCompletion)completion;
+- (void)createPaymentsWithPayCard:(NSInteger)cardId orderId:(NSInteger)orderId apiToken:(NSString *)apiToken
+                       completion:(PaymentBoolCompletion)completion;
 
 #pragma mark - Stock Methods
 

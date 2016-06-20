@@ -20,6 +20,7 @@
 
 - (BBUser *)currentUser;
 - (void)saveCurrentUser:(BBUser *)user;
+- (void)updateUserWithUser:(BBUser *)user;
 - (void)logOutUser;
 
 - (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays;

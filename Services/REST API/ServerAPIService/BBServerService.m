@@ -226,9 +226,9 @@
     }];
 }
 
-- (void)createPaymentsWithPayCard:(BBPayCard *)card orderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentBoolCompletion)completion {
+- (void)createPaymentsWithPayCard:(NSInteger)cardId orderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentBoolCompletion)completion {
     [self _checkNetworkConnection];
-    [self.transport createPaymentsWithPayCard:card orderId:[NSString stringWithFormat:@"%ld", (long)orderId] apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.transport createPaymentsWithPayCard:cardId orderId:[NSString stringWithFormat:@"%ld", (long)orderId] apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         BOOL payment = NO;
         if (!error) {

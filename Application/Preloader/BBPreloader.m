@@ -17,6 +17,8 @@
 #import <Realm/Realm.h>
 
 #import "BBUserService.h"
+#import "BBServerService.h"
+#import "BBDataBaseService.h"
 
 @interface BBPreloader () <BBNavigationModuleOutput, BBTabbarModuleOutput>
 
@@ -58,9 +60,21 @@ static NSInteger shemaVersionRealm = 21;
     BBUser *user = [[BBUserService sharedService] currentUser];
     if (user) {
         [self.tabbarModule presentInWindow:self.window];
+        [self _updateUserOnDataBase];
     } else {
         [self.navigationModule presentInWindow:self.window];
     }
+}
+
+- (void)_updateUserOnDataBase {
+    [[BBServerService sharedService] showUserWithUserToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
+        [[BBUserService sharedService] updateUserWithUser:user];
+    }];
+    [[BBServerService sharedService] listPaymentCardsUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        HQDispatchToMainQueue(^{
+            [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
+        });
+    }];
 }
 
 #pragma mark - методы BBNavigationModuleOutput
