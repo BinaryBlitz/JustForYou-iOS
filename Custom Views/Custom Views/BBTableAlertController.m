@@ -109,6 +109,7 @@ static CGFloat heightContentCell = 50.0f;
     if ([self.contentArray count] > 0) {
         if ([self.delegate respondsToSelector:@selector(cellDidSelectWithPayCard:)]) {
             [self.delegate cellDidSelectWithPayCard:[self.contentArray objectAtIndex:indexPath.row]];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }

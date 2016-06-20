@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.contentView.backgroundColor = [BBConstantAndColor applicationGreenBankColor];
     // Initialization code
 }
 
@@ -20,6 +19,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+- (void)setCard:(BBPayCard *)card {
+    _card = card;
+    HQDispatchToMainQueue(^{
+        self.numberCardLabel.text = card.number;
+        self.nameBankLabel.text = card.holder;
+    });
 }
 
 - (void)layoutSubviews {
@@ -40,6 +48,8 @@
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadiusCell, cornerRadiusCell)];
     maskLayer.path = maskPath.CGPath;
     borderLayer.path  = maskPath.CGPath;
+    self.contentView.layer.backgroundColor = [BBConstantAndColor applicationGreenBankColor].CGColor;
+//    borderLayer.backgroundColor = [BBConstantAndColor applicationGreenBankColor].CGColor;
     self.contentView.layer.mask = maskLayer;
     [self.contentView.layer addSublayer:borderLayer];
 

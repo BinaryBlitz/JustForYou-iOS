@@ -213,6 +213,7 @@ static CGFloat heightFooterSection = 10.0f;
             return accessoryCell;
         }
         BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];
+        cell.card = [self.objects objectAtIndex:indexPath.row];
         return cell;
     }
     accessoryCell.textLabel.text = @"Произошла ошибка. Повторите позже";

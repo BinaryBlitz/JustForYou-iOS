@@ -62,7 +62,7 @@
 }
 
 + (UIColor *)applicationGreenBankColor {
-    return [self colorForR:62.0f G:177.0f B:79.0f alpha:1.0f];
+    return [self colorForR:171.0f G:240.0f B:0.0f alpha:1.0f];
 }
 
 + (UIColor *)colorForIdBlock:(NSInteger)blockId {

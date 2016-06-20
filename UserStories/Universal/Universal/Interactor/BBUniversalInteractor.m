@@ -47,8 +47,10 @@
 - (void)listPayCardsUser {
     [[BBServerService sharedService] listPaymentCardsUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
         if (response.responseCode == 200) {
-            [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
-            [self.output currentPayCardsUserWithArray:[[BBDataBaseService sharedService] curentPayCards]];
+            HQDispatchToMainQueue(^{
+                [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
+                [self.output currentPayCardsUserWithArray:[[BBDataBaseService sharedService] curentPayCards]];
+            });
         }
     }];
 }
