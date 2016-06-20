@@ -195,6 +195,7 @@
 		3AE5460C1D16A13A006A1CDD /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5460B1D16A13A006A1CDD /* BBOrder.m */; };
 		3AE5460F1D16CC0A006A1CDD /* BBStock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5460E1D16CC0A006A1CDD /* BBStock.m */; };
 		3AE546121D172E05006A1CDD /* BBPayCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546111D172E05006A1CDD /* BBPayCard.m */; };
+		3AE5461F1D17D6C7006A1CDD /* BBTableAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
 		3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F491D0CBA4E004972FC /* BBCalendarService.m */; };
@@ -678,6 +679,8 @@
 		3AE5460E1D16CC0A006A1CDD /* BBStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStock.m; sourceTree = "<group>"; };
 		3AE546101D172E05006A1CDD /* BBPayCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPayCard.h; sourceTree = "<group>"; };
 		3AE546111D172E05006A1CDD /* BBPayCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPayCard.m; sourceTree = "<group>"; };
+		3AE5461D1D17D6C7006A1CDD /* BBTableAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTableAlertController.h; sourceTree = "<group>"; };
+		3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTableAlertController.m; sourceTree = "<group>"; };
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
 		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
@@ -1225,9 +1228,9 @@
 		3A2D54D91CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D54DC1CF075D200A8EFF5 /* BBBasketRouterInput.h */,
 				3A2D54DA1CF075D200A8EFF5 /* BBBasketRouter.h */,
 				3A2D54DB1CF075D200A8EFF5 /* BBBasketRouter.m */,
-				3A2D54DC1CF075D200A8EFF5 /* BBBasketRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2364,6 +2367,8 @@
 				3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */,
 				3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */,
 				3A1320191CFDF6240046CFBD /* BBLoaderView.xib */,
+				3AE5461D1D17D6C7006A1CDD /* BBTableAlertController.h */,
+				3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -2930,6 +2935,7 @@
 				3A2D56781CF075D200A8EFF5 /* BBBlocksAssembly.m in Sources */,
 				3AF26F501D0CBA4E004972FC /* BBValidationService.m in Sources */,
 				3AF26F751D0DC256004972FC /* BBMenu.m in Sources */,
+				3AE5461F1D17D6C7006A1CDD /* BBTableAlertController.m in Sources */,
 				3A2D56821CF075D200A8EFF5 /* BBCardProgramRouter.m in Sources */,
 				3A2D56E91CF07F5E00A8EFF5 /* NSData+BBParserAPI.m in Sources */,
 				3A2D56C01CF075D200A8EFF5 /* BBProfileRouter.m in Sources */,

@@ -16,4 +16,11 @@
 
 - (void)paymentDidStartWithPayment:(BBPayment *)payment;
 
+- (void)paymentSuccessfull;
+- (void)paymentError;
+
+- (void)errorServer;
+- (void)errorNetwork;
+
 @end
+

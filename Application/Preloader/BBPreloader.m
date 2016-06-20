@@ -48,9 +48,6 @@ static NSInteger shemaVersionRealm = 21;
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         // We haven’t migrated anything yet, so oldSchemaVersion == 0
         if (oldSchemaVersion < shemaVersionRealm) {
-            // Nothing to do!
-            // Realm will automatically detect new properties and removed properties
-            // And will update the schema on disk automatically
         }
     };
     [RLMRealmConfiguration setDefaultConfiguration:config];

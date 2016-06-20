@@ -142,9 +142,10 @@ static CGFloat bottomOffsetCells = 10.0f;
 #pragma mark - Title And Message Alert
 
 static NSString *kNoteTitle = @"Внимание";
+static NSString *kErrorTitle = @"Ошибка";
 
 static NSString *kErrorServer = @"Ошибка сервера. Повторите позже";
-static NSString *kErrorClient = @"Ошибка сервера. Повторите позже";
+static NSString *kErrorClient = @"Ошибка сервера. Возможно неверно введены данные";
 static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
 
 

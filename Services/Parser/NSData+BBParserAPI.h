@@ -47,6 +47,7 @@ typedef enum : NSUInteger {
 #pragma mark - Payments Methods
 
 - (BBPayment *)parsePaymentWithData;
+- (BOOL)parsePaymentInCardWithData;
 
 #pragma mark - Stock Methods
 

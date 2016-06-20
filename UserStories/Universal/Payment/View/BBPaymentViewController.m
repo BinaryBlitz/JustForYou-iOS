@@ -44,7 +44,7 @@
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    NSLog(@"%@", self.webView.URL);
+    [self.output webViewDidChangeURLWithURL:self.webView.URL];
 }
 
 #pragma mark - Lazy Load

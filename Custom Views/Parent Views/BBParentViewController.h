@@ -22,6 +22,9 @@
 - (void)showBackgroundLoaderView;
 - (void)hideBackgroundLoaderView;
 
+- (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
+- (void)hideBackgroundLoaderViewWithAlpha;
+
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel;
 - (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel;

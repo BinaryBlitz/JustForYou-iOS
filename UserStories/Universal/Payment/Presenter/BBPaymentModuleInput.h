@@ -14,6 +14,6 @@
 
 - (void)configureModule;
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule payment:(BBPayment *)payment;
+- (void)pushModuleWithNavigationModule:(id)navigationModule basketModule:(id)basketModule payment:(BBPayment *)payment;
 
 @end

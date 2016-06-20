@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBPayCard.h"
+
 @protocol BBBasketViewOutput <NSObject>
 
 - (void)didTriggerViewReadyEvent;
@@ -18,5 +20,10 @@
 
 - (void)closeButtonDidTap;
 - (void)payButtonDidTap;
+
+- (void)payNewCardButtonDidTap;
+- (void)payCardWithCard:(BBPayCard *)card;
+
+- (void)okCancelButtonDidTap;
 
 @end

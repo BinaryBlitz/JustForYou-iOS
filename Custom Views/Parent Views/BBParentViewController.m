@@ -77,6 +77,27 @@ CGFloat sizeBar = 44.0f;
     });
 }
 
+- (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha {
+    if (self.badConstant) {
+        [self.view addSubview:self.backGroungView];
+        self.badConstant = NO;
+    }
+    HQDispatchToMainQueue(^{
+        self.backGroungView.hidden = NO;
+        [self.backGroungView setBackgroundColor:[self.backGroungView.backgroundColor colorWithAlphaComponent:alpha]];
+        self.backGroungView.alpha = alpha;
+        [self.backgroungLoaderView.activityIndicator startAnimating];
+    });
+}
+
+- (void)hideBackgroundLoaderViewWithAlpha {
+    HQDispatchToMainQueue(^{
+        self.backGroungView.hidden = YES;
+        self.backGroungView.alpha = 1.0f;
+        [self.backgroungLoaderView.activityIndicator stopAnimating];
+    });
+}
+
 #pragma mark - AlertController Methods
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {

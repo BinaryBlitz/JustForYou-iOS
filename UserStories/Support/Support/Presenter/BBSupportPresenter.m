@@ -22,8 +22,6 @@
 
 static NSString *kNumberPhoneManager = @"+74957075353";
 
-static NSString *kErrorTitle = @"Ошибка";
-
 static NSString *kErrorSendEmail = @"Не удалось отправить письмо";
 static NSString *kErrorCallManager = @"Произошла внутренняя ошибка приложения";
 static NSString *kErrorOpenEmail = @"В приложении \"Почта\" вашего устройства не привязан аккаунт";

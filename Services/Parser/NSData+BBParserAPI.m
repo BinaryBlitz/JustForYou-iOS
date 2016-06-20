@@ -104,6 +104,13 @@
     return payment;
 }
 
+- (BOOL)parsePaymentInCardWithData {
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    BOOL paid = NO;
+    paid = [[JSONObj objectForKey: @"paid"] boolValue];
+    return paid;
+}
+
 
 #pragma mark - Stock Methods
 

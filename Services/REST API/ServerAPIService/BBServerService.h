@@ -13,6 +13,7 @@
 @class BBUser;
 @class BBOrder;
 @class BBPayment;
+@class BBPayCard;
 
 typedef void (^AuthCompletion)(BBServerResponse *response, NSString *token, NSError *error);
 typedef void (^RegistrationCompletion)(BBServerResponse *response, BBUser *user, NSError *error);
@@ -21,6 +22,8 @@ typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *obje
 
 typedef void (^OrderCompletion)(BBServerResponse *response, NSInteger orderId, NSError *error);
 typedef void (^PaymentCompletion)(BBServerResponse *response, BBPayment *payment, NSError *error);
+typedef void (^PaymentBoolCompletion)(BBServerResponse *response, BOOL paid, NSError *error) ;
+
 typedef void (^ReceiveData)(NSData* data);
 
 @interface BBServerService : NSObject
@@ -55,7 +58,7 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion;
-
+- (void)createPaymentsWithPayCard:(BBPayCard *)card orderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentBoolCompletion)completion;
 
 #pragma mark - Stock Methods
 

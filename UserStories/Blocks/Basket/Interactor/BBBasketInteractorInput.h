@@ -8,12 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBPayCard.h"
+
+typedef enum : NSUInteger {
+    kTypeNewPayment,
+    kTypeCardPayment
+}BBTypePayment;
+
 @protocol BBBasketInteractorInput <NSObject>
 
 - (void)currentOrdersInBasket;
 
 - (NSArray *)deleteOrderProgramOnUserArray:(BBOrderProgram *)orderProgram;
 
-- (void)createOrderOnServer;
+- (void)deleteAllOrderProgramsOnUser;
+
+- (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card;
+
+- (NSArray *)currentUserPayCards;
 
 @end

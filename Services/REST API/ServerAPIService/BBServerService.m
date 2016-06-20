@@ -226,6 +226,22 @@
     }];
 }
 
+- (void)createPaymentsWithPayCard:(BBPayCard *)card orderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentBoolCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createPaymentsWithPayCard:card orderId:[NSString stringWithFormat:@"%ld", (long)orderId] apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BOOL payment = NO;
+        if (!error) {
+            payment = [data parsePaymentInCardWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, payment, error);
+        }
+    }];
+}
+
+
 #pragma mark - Stock Methods
 
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {

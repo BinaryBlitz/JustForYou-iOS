@@ -97,7 +97,7 @@ static NSString *kImageNameBasket = @"basket";
 
 - (void)errorClient {
     if (self.isEmptyRealm) {
-        [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorClient];
     }
 }
 

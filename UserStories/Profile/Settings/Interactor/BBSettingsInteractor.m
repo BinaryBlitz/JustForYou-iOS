@@ -11,6 +11,7 @@
 #import "BBSettingsInteractorOutput.h"
 
 #import "BBServerService.h"
+#import "BBDataBaseService.h"
 
 @implementation BBSettingsInteractor
 
@@ -37,7 +38,8 @@
 }
 
 - (void)logoutUser {
-//    [[BBUserService sharedService] logOutUser];
+    [[BBUserService sharedService] logOutUser];
+    [[BBDataBaseService sharedService] deleteAllPayCardsUser];
     [self.output userLogoutSuccessfully];
 }
 

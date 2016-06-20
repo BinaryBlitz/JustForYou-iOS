@@ -24,6 +24,13 @@
 
 @end
 
+static NSString *messagePayAlert = @"Выберите карту которой хотите оплатить";
+
+static NSString *paymentSuccessfull = @"Оплата успешно произведена";
+static NSString *paymentError = @"Произошла ошибка оплаты. Проверьте баланс своей карты или попробуйте позже";
+
+static CGFloat alphaView = 0.7f;
+
 @implementation BBBasketPresenter
 
 #pragma mark - Методы BBBasketModuleInput
@@ -35,6 +42,12 @@
 - (id)currentViewWithModule:(id)module {
     self.navigationModule = module;
     return self.view;
+}
+
+- (void)paySucces {
+    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+    [self.interactor deleteAllOrderProgramsOnUser];
+    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:@"Ок"];
 }
 
 
@@ -53,12 +66,26 @@
 }
 
 - (void)payButtonDidTap {
-    [self.interactor createOrderOnServer];
+    [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+}
+
+- (void)payNewCardButtonDidTap {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaView];
+    [self.interactor createOrderOnServerWithTypePayment:kTypeNewPayment payCard:nil];
+}
+
+- (void)payCardWithCard:(BBPayCard *)card {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaView];
+    [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:nil];
 }
 
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {
     NSArray *objects = [self.interactor deleteOrderProgramOnUserArray:order];
     [self.view updateTableViewWithDelete:objects];
+}
+
+- (void)okCancelButtonDidTap {
+    [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBBasketInteractorOutput
@@ -68,7 +95,29 @@
 }
 
 - (void)paymentDidStartWithPayment:(BBPayment *)payment {
-    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule payment:payment];
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
+}
+
+- (void)paymentSuccessfull {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.interactor deleteAllOrderProgramsOnUser];
+    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:@"Ок"];
+}
+
+- (void)paymentError {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kErrorTitle message:paymentError];
+}
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
 

@@ -31,11 +31,17 @@ static NSString *kNameCrossImage = @"crossIcon";
 - (void)setProgram:(BBProgram *)program {
     _program = program;
     self.nameLabel.text = program.name;
+    
 }
 
 - (void)setOrderProgram:(BBOrderProgram *)orderProgram {
     _orderProgram = orderProgram;
     self.countLabel.text = [NSString stringWithFormat:@"%ld", (long)orderProgram.countDays];
+    if (self.orderProgram.countDays >= 2) {
+        [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
+    } else {
+        [self _changeBackgroundImageInButtonWithName:kNameCrossImage];
+    }
 }
 
 #pragma mark - UI Methods
