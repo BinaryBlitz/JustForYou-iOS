@@ -16,4 +16,9 @@
 
 - (void)elemetnDidDeleteWithNewArray:(NSArray *)array;
 
+- (void)replacementCategoryInArray:(NSArray *)categories;
+
+- (void)errorNetwork;
+- (void)errorServer;
+
 @end

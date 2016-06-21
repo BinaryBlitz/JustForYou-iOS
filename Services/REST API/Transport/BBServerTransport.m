@@ -206,6 +206,35 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+
+#pragma mark - Replacement Methods
+
+- (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/product_types?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
+- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSString *)productId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/products/%@/substitutions", kServerURL, productId]];
+    
+    NSDictionary* parameters = @{@"api_token" : apiToken};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
+
+- (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/substitutions?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
+
 #pragma mark - Geolocation
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion {

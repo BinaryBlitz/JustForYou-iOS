@@ -10,6 +10,8 @@
 
 #import "BBReplacementViewOutput.h"
 
+#import "BBReplacementCategory.h"
+
 @interface BBReplacementViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,6 +21,7 @@
 @property (assign, nonatomic) BBTypeReplacementController kType;
 
 @property (strong, nonatomic) NSArray *replacement;
+@property (strong, nonatomic) NSArray *category;
 
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
@@ -40,8 +43,6 @@ static CGFloat heightHeaderSection = 10.0f;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    
-    self.countCell = 3;
     
 	[self.output didTriggerViewReadyEvent];
 }
@@ -83,30 +84,50 @@ static CGFloat heightHeaderSection = 10.0f;
     });
 }
 
+- (void)updateWithCategory:(NSArray *)category {
+    self.category = category;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
 - (void)presentAlertControllerWithMessage:(NSString *)message {
     [self presentAlertControllerWithTitle:@"Внимание" message:message];
 }
 
 - (void)endUpdateTableViewWithNewReplacement:(NSArray *)replacement {
     [self _setNewReplasement:replacement];
-    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
-    if ([replacement count] != 0) {
-        [self.tableView beginUpdates];
+    NSInteger update = self.countCell - [self.replacement count];
+    
+    NSIndexSet *section;
+    [self.tableView beginUpdates];
+    if ([self.replacement count] == 0) {
+        section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, update - 1)];
         [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView endUpdates];
+        
     } else {
-        [self.tableView beginUpdates];
-        [self.tableView reloadData];
-        [self.tableView endUpdates];
+        section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, update)];
     }
+    
+    if ([replacement count] != 0) {
+        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        [self.tableView reloadData];
+    }
+    [self.tableView endUpdates];
 }
 
 - (void)_setNewReplasement:(NSArray *)replacement {
+    self.countCell = [self.replacement count];
     if (replacement) {
         self.replacement = replacement;
     } else {
         self.replacement = [NSArray array];
     }
+}
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
 }
 
 #pragma mark - TableView Methods
@@ -130,14 +151,15 @@ static CGFloat heightHeaderSection = 10.0f;
         }
         return 1;
     }
-    return self.countCell;
+    return [self.category count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.kType == kViewReplacementType) {
         return 1;
     }
-    return self.countCell;
+    BBReplacementCategory *category = [self.category objectAtIndex:section];
+    return [category.products count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -150,7 +172,8 @@ static CGFloat heightHeaderSection = 10.0f;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.kType == kAddReplacementType) {
-        return @"Молочные продукты";
+        BBReplacementCategory *category = [self.category objectAtIndex:section];
+        return category.nameCategory;
     }
     return @"";
 }
@@ -167,19 +190,22 @@ static CGFloat heightHeaderSection = 10.0f;
             cell.textLabel.text = @"У Вас нет ни одной замены";
             cell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
         } else {
-            cell.textLabel.text = [self.replacement objectAtIndex:indexPath.section];
+            BBReplacementProduct *product = [self.replacement objectAtIndex:indexPath.section];
+            cell.textLabel.text = product.nameProduct;
             cell.textLabel.textColor = [UIColor blackColor];
         }
     } else {
+        BBReplacementCategory *category = [self.category objectAtIndex:indexPath.section];
+        BBReplacementProduct *product = [category.products objectAtIndex:indexPath.row];
         if (indexPath.row == 0) {
             cell.kSideCornerRadius = kTopCornerRadius;
-        } else if (indexPath.row == self.countCell-1) {
+        } else if (indexPath.row == ([category.products count]-1)) {
             cell.kSideCornerRadius = kBottomCornerRadius;
         } else {
             cell.setRadius = NO;
             cell.kSideCornerRadius = kNoneCornerRadius;
         }
-        cell.textLabel.text = [NSString stringWithFormat:@"Молоко #%ld", (long)indexPath.row];
+        cell.textLabel.text = product.nameProduct;
     }
     
     return cell;
@@ -188,8 +214,9 @@ static CGFloat heightHeaderSection = 10.0f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.kType == kAddReplacementType) {
-        BBAccessoryTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self.output cellDidSelectWithText:cell.textLabel.text];
+        BBReplacementCategory *category = [self.category objectAtIndex:indexPath.section];
+        BBReplacementProduct *product = [category.products objectAtIndex:indexPath.row];
+        [self.output cellDidSelectWithText:product];
     }
 }
 
@@ -209,8 +236,8 @@ static CGFloat heightHeaderSection = 10.0f;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         self.indexPath = indexPath;
-        BBAccessoryTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self.output deleteElementWithText:cell.textLabel.text];
+        BBReplacementProduct *product = [self.replacement objectAtIndex:indexPath.section];
+        [self.output deleteElementWithText:product];
     }
 }
 

@@ -22,7 +22,8 @@ typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *obje
 
 typedef void (^OrderCompletion)(BBServerResponse *response, NSInteger orderId, NSError *error);
 typedef void (^PaymentCompletion)(BBServerResponse *response, BBPayment *payment, NSError *error);
-typedef void (^PaymentBoolCompletion)(BBServerResponse *response, BOOL paid, NSError *error) ;
+typedef void (^PaymentBoolCompletion)(BBServerResponse *response, BOOL paid, NSError *error);
+typedef void (^Completion)(BBServerResponse *response, NSError *error);
 
 typedef void (^ReceiveData)(NSData* data);
 
@@ -64,6 +65,12 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Stock Methods
 
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+
+#pragma mark - Replacement Methods
+
+- (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(Completion)completion;
+- (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 
 #pragma  mark - PayCard Methods
 

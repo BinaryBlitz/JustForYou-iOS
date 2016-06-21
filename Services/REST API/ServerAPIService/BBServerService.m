@@ -259,6 +259,50 @@
     }];
 }
 
+
+#pragma mark - Replacement Methods
+
+- (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listProductsForReplasementWithToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseProductsForReplacementWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
+
+- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(Completion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createReplacementWithApiToken:apiToken productId:[NSString stringWithFormat:@"%ld", (long)productId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        
+        if (completion) {
+            completion(responseServer, error);
+        }
+    }];
+}
+
+- (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listUserReplasementWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseUserReplacementWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
+
 #pragma  mark - PayCard Methods
 
 - (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {

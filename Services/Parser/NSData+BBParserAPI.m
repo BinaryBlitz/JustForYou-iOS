@@ -140,6 +140,32 @@
     return result;
 }
 
+#pragma mark - Replacement Methods
+
+- (NSArray *)parseProductsForReplacementWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            BBReplacementCategory *card = [[BBReplacementCategory alloc] initWithJSON:obj];
+            [result addObject:card];
+        }
+    }
+    return result;
+}
+
+- (NSArray *)parseUserReplacementWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            id json = [obj objectForKey:@"product"];
+            BBReplacementProduct *card = [[BBReplacementProduct alloc] initWithJSON:json];
+            [result addObject:card];
+        }
+    }
+    return result;
+}
 
 #pragma mark - Map Methods
 

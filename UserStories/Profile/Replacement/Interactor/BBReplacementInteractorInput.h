@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBReplacementCategory.h"
+
 @protocol BBReplacementInteractorInput <NSObject>
 
 - (void)currentReplacementUser;
 
-- (void)deleteElementInArrayWithElement:(NSString *)element;
+- (void)deleteElementInArrayWithElement:(BBReplacementProduct *)element;
 
-- (void)addInCurrentArrayReplacementNewElement:(NSString *)element;
+- (void)addInCurrentArrayReplacementNewElement:(BBReplacementProduct *)element;
+
+- (void)listReplacementOnServer;
 
 @end

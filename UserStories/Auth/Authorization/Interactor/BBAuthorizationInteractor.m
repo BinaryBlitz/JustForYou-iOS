@@ -55,14 +55,26 @@
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (user) {
                 [[BBUserService sharedService] saveCurrentUser:user];
+                
                 [[BBServerService sharedService] listAddressUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
-                    [[BBUserService sharedService] addAddressUserFromArray:objects];
+                    if (response.serverError == kServerErrorSuccessfull) {
+                        [[BBUserService sharedService] addAddressUserFromArray:objects];
+                    }
                     [self.output userSuccessfullAuthorizate];
                 }];
+                
+                [[BBServerService sharedService] listUserReplasementWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+                    if (response.serverError == kServerErrorSuccessfull) {
+                        [[BBUserService sharedService] updateReplasementWithArray:objects];
+                    }
+                }];
+                
                 [[BBServerService sharedService] listPaymentCardsUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
-                    HQDispatchToMainQueue(^{
-                        [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
-                    });
+                    if (response.serverError == kServerErrorSuccessfull) {
+                        HQDispatchToMainQueue(^{
+                            [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
+                        });
+                    }
                 }];
             } else {
                 [self.output errorServer];

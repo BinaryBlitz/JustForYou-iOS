@@ -10,6 +10,7 @@
 #import "BBUser.h"
 #import "BBAddress.h"
 #import "BBOrderProgram.h"
+#import "BBReplacementCategory.h"
 
 @interface BBUserService : NSObject
 
@@ -35,5 +36,7 @@
 - (void)saveCurrentReplacement:(NSArray *)replacement;
 
 - (NSArray *)currentReplacementUser;
+- (void)updateReplasementWithArray:(NSArray *)replacement;
+- (void)updateReplasementWithProduct:(BBReplacementProduct *)product;
 
 @end

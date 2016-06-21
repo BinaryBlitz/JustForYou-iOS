@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BBReplacementCategory.h"
+
 @protocol BBReplacementViewOutput <NSObject>
 
 - (void)didTriggerViewReadyEvent;
@@ -16,8 +18,8 @@
 
 - (void)addBarButtonDidTap;
 
-- (void)deleteElementWithText:(NSString *)text;
+- (void)deleteElementWithText:(BBReplacementProduct *)product;
 
-- (void)cellDidSelectWithText:(NSString *)text;
+- (void)cellDidSelectWithText:(BBReplacementProduct *)product;
 
 @end

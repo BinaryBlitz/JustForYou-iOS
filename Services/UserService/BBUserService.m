@@ -60,6 +60,7 @@ static NSString *kUserReplacement = @"kUserReplacement";
 - (void)logOutUser {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kApiTokenUser];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserReplacement];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -160,12 +161,28 @@ static NSString *kUserReplacement = @"kUserReplacement";
 #pragma mark - Other Methods
 
 - (void)saveCurrentReplacement:(NSArray *)replacement {
-    [[NSUserDefaults standardUserDefaults] setObject:replacement forKey:kUserReplacement];
+    NSData* replace = [NSKeyedArchiver archivedDataWithRootObject:replacement];
+    [[NSUserDefaults standardUserDefaults] setObject:replace forKey:kUserReplacement];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSArray *)currentReplacementUser {
-    return  [[NSUserDefaults standardUserDefaults] objectForKey:kUserReplacement];
+    NSData* replace = [[NSUserDefaults standardUserDefaults] objectForKey:kUserReplacement];
+    if (replace) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:replace];
+    }
+    return  nil;
 }
 
+- (void)updateReplasementWithArray:(NSArray *)replacement {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserReplacement];
+    [self saveCurrentReplacement:replacement];
+}
+
+- (void)updateReplasementWithProduct:(BBReplacementProduct *)product {
+    NSArray *replacement = [self currentReplacementUser];
+    NSMutableArray *newArray = [NSMutableArray arrayWithArray:replacement];
+    [newArray addObject:product];
+    [self saveCurrentReplacement:newArray];
+}
 @end

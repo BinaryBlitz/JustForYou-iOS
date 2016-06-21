@@ -22,4 +22,10 @@
 
 - (void)endUpdateTableViewWithNewReplacement:(NSArray *)replacement;
 
+- (void)updateWithCategory:(NSArray *)category;
+
+- (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
+- (void)hideBackgroundLoaderViewWithAlpha;
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end

@@ -21,9 +21,12 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBReplacementModuleInput> replacementModule;
 
+@property (strong, nonatomic) NSArray *category;
 @property (assign, nonatomic) BBTypeReplacementController keyType;
 
 @end
+
+static CGFloat alphaBackground = 0.7f;
 
 @implementation BBReplacementPresenter
 
@@ -33,6 +36,14 @@
     
 }
 
+- (void)pushModuleWithNavigationModule:(id)navigationModule withType:(BBTypeReplacementController)type replacementCatgory:(NSArray *)category {
+    self.navigationModule = navigationModule;
+    self.category = category;
+    self.keyType = type;
+    [self.view typeForController:type];
+    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
 - (void)pushModuleWithNavigationModule:(id)navigationModule withType:(BBTypeReplacementController)type {
     self.navigationModule = navigationModule;
     self.keyType = type;
@@ -40,9 +51,6 @@
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
-- (void)_currentReplacementUser {
-    [self.interactor currentReplacementUser];
-}
 
 #pragma mark - Методы BBReplacementViewOutput
 
@@ -52,24 +60,28 @@
 
 - (void)viewWillAppear {
     if (self.keyType == kViewReplacementType) {
-        [self _currentReplacementUser];
+        [self.interactor currentReplacementUser];
+    } else {
+        [self.view updateWithCategory:self.category];
     }
 }
 
 - (void)addBarButtonDidTap {
     if ([self.view countReplacementInTableView] < 3) {
-        [self.replacementModule pushModuleWithNavigationModule:self.navigationModule withType:kAddReplacementType];
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackground];
+        [self.interactor listReplacementOnServer];
     } else {
         [self.view presentAlertControllerWithMessage:@"Вы не можете добавить еще одну замену. Пожалуйста, удалите одну или несколько замен"];
     }
 }
 
-- (void)cellDidSelectWithText:(NSString *)text {
-    [self.interactor addInCurrentArrayReplacementNewElement:text];
+- (void)cellDidSelectWithText:(BBReplacementProduct *)product {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackground];
+    [self.interactor addInCurrentArrayReplacementNewElement:product];
 }
 
-- (void)deleteElementWithText:(NSString *)text {
-    [self.interactor deleteElementInArrayWithElement:text];
+- (void)deleteElementWithText:(BBReplacementProduct *)product {
+    [self.interactor deleteElementInArrayWithElement:product];
 }
 
 #pragma mark - Методы BBReplacementInteractorOutput
@@ -79,12 +91,29 @@
 }
 
 - (void)currentReplacementUpdate {
+    [self.view hideBackgroundLoaderViewWithAlpha];
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 - (void)elemetnDidDeleteWithNewArray:(NSArray *)array {
     [self.view endUpdateTableViewWithNewReplacement:array];
 }
+
+- (void)replacementCategoryInArray:(NSArray *)categories {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.replacementModule pushModuleWithNavigationModule:self.navigationModule withType:kAddReplacementType replacementCatgory:categories];
+}
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
+
 
 #pragma mark - Lazy Load
 

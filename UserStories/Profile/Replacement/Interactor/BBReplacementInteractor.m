@@ -11,6 +11,7 @@
 #import "BBReplacementInteractorOutput.h"
 
 #import "BBUserService.h"
+#import "BBServerService.h"
 
 @implementation BBReplacementInteractor
 
@@ -21,21 +22,47 @@
     [self.output currentReplacementInData:replacement];
 }
 
-- (void)addInCurrentArrayReplacementNewElement:(NSString *)element {
-    NSArray *replacement = [[BBUserService sharedService] currentReplacementUser];
-    NSMutableArray *newArray = [NSMutableArray arrayWithArray:replacement];
-    [newArray addObject:element];
-    [[BBUserService sharedService] saveCurrentReplacement:newArray];
-    [self.output currentReplacementUpdate];
-}
+- (void)addInCurrentArrayReplacementNewElement:(BBReplacementProduct *)element {
+    __block BBReplacementProduct *product = element;
+    [[BBServerService sharedService] createReplacementWithApiToken:[[BBUserService sharedService] tokenUser] productId:element.productId completion:^(BBServerResponse *response, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.serverError == kServerErrorSuccessfull) {
+                [[BBUserService sharedService] updateReplasementWithProduct:product];
+                [self.output currentReplacementUpdate];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output errorNetwork];
+        }
+    }];
+    }
 
-- (void)deleteElementInArrayWithElement:(NSString *)element {
+- (void)deleteElementInArrayWithElement:(BBReplacementProduct *)element {
     NSArray *replacement = [[BBUserService sharedService] currentReplacementUser];
     NSMutableArray *newArray = [NSMutableArray arrayWithArray:replacement];
-    [newArray removeObject:element];
+    for (BBReplacementProduct *old in replacement) {
+        if (old.productId == element.productId) {
+            [newArray removeObject:old];
+        }
+    }
     [[BBUserService sharedService] saveCurrentReplacement:newArray];
     [self.output elemetnDidDeleteWithNewArray:newArray];
 
+}
+
+- (void)listReplacementOnServer {
+    [[BBServerService sharedService] listProductsForReplasementWithToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.serverError == kServerErrorSuccessfull) {
+                [self.output replacementCategoryInArray:objects];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output errorNetwork];
+        }
+    }];
 }
 
 @end
