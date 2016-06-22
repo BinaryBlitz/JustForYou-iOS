@@ -43,6 +43,10 @@ typedef void (^ReceiveData)(NSData* data);
 
 - (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 
+#pragma mark - Push Methods
+
+- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSString *)deviceToken completion:(Completion)completion;
+
 #pragma mark - Blocks And Programs
 
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;

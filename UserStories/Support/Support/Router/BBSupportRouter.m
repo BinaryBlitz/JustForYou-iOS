@@ -29,7 +29,6 @@
     }
 }
 
-
 - (void)presentMailController {
     UIViewController *vc = (UIViewController *)self.presenter.view;
     if ([MFMailComposeViewController canSendMail]) {
@@ -39,6 +38,10 @@
     } else {
         [self.presenter errorOpenEmailController];
     }
+}
+
+- (void)presentITunseWithAppUrl:(NSString *)appURL {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appURL]];
 }
 
 #pragma mark - MailController Delegate

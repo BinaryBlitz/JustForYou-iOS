@@ -15,4 +15,6 @@
 
 - (void)callManagerOnPhone:(NSString *)phoneManager;
 
+- (void)presentITunseWithAppUrl:(NSString *)appURL;
+
 @end

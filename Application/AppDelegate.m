@@ -14,6 +14,8 @@
 #import <Crashlytics/Crashlytics.h>
 
 #import "BBAddressService.h"
+#import "BBServerService.h"
+#import "BBUserService.h"
 
 @import GoogleMaps;
 
@@ -28,6 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    if ([[BBUserService sharedService] currentUser]) {
+        [self _addPushNotification];
+    }
     self.window.backgroundColor = [UIColor whiteColor];
     self.preloader = [[BBPreloader alloc] initWithWindow:self.window];
     
@@ -36,6 +41,25 @@
     [GMSServices provideAPIKey:[[BBAddressService sharedService] currentApiKeyMap]];
     
     return YES;
+}
+
+- (void)_addPushNotification {
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    const void *devTokenBytes = [devToken bytes];
+    NSString *token = [NSString stringWithUTF8String:devTokenBytes];
+    [[BBServerService sharedService] updateDeviceTokenWithApiToken:[[BBUserService sharedService] tokenUser] deviceToken:token completion:^(BBServerResponse *response, NSError *error) {
+        NSLog(@"Response token = %lu", (unsigned long)response.responseCode);
+    }];
+
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    NSLog(@"Error in registration. Error: %@", err);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

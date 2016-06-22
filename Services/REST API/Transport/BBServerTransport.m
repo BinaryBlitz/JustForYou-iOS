@@ -85,7 +85,19 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+#pragma mark - Push Methods
 
+- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSString *)deviceToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
+    
+    NSDictionary *user = @{@"device_token" : deviceToken};
+    
+    NSDictionary* parameters = @{@"api_token"    : apiToken,
+                                 @"user"         : user};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:PATCH];
+    [self sendRequest:request completion:completion];
+}
 
 #pragma mark - Blocks And Programs
 

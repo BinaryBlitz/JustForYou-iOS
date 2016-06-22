@@ -16,4 +16,6 @@
 
 - (void)callManagerButtonDidTap;
 
+- (void)feedbackButtonDidTap;
+
 @end

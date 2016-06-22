@@ -29,7 +29,7 @@ static NSString *kErrorOpenEmail = @"В приложении \"Почта\" ва
 static NSString *kMailSuccessSend = @"Ваше письмо успешно отправлено";
 
 
-static NSString *kURLBundleRoskont = @"https://itunes.apple.com/us/app/roskontrol/id998320930?l=ru&ls=1&mt=8";
+static NSString *kURLBundleJFY = @"https://itunes.apple.com/us/app/justforyou/id1123372509?l=ru&ls=1&mt=8";
 
 @implementation BBSupportPresenter
 
@@ -77,6 +77,9 @@ static NSString *kURLBundleRoskont = @"https://itunes.apple.com/us/app/roskontro
     [self.router callManagerOnPhone:kNumberPhoneManager];
 }
 
+- (void)feedbackButtonDidTap {
+    [self.router presentITunseWithAppUrl:kURLBundleJFY];
+}
 
 #pragma mark - Методы BBSupportInteractorOutput
 

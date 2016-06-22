@@ -25,6 +25,9 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 - (void)showUser:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)updateUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 
+#pragma mark - Push Methods
+
+- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSString *)deviceToken completion:(CompletionBlock)completion;
 
 #pragma mark - Blocks And Programs
 

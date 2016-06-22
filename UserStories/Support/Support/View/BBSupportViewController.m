@@ -46,7 +46,8 @@ static CGFloat bottomInset = 30.0f;
 
 
 - (IBAction)feedbackButtonAction:(id)sender {
-    
+    [self _stopTapControlsWithTimer];
+    [self.output feedbackButtonDidTap];
 }
 
 - (void)_stopTapControlsWithTimer {
