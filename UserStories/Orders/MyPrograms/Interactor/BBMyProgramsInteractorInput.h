@@ -10,4 +10,6 @@
 
 @protocol BBMyProgramsInteractorInput <NSObject>
 
+- (void)listPurchasesUser;
+
 @end

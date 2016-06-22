@@ -14,4 +14,6 @@
 
 - (id)currentViewWithModule:(id)module;
 
+- (void)popViewControllerWithStatus:(BBStatusCreateDelivery)status;
+
 @end

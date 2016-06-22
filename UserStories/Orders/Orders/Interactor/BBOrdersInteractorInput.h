@@ -10,4 +10,6 @@
 
 @protocol BBOrdersInteractorInput <NSObject>
 
+- (void)listPurchasesUser;
+
 @end

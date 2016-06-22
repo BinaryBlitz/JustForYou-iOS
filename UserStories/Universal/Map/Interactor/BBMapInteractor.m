@@ -15,6 +15,7 @@
 
 #import "BBAddressService.h"
 #import "BBUserService.h"
+#import "BBServerService.h"
 
 @interface BBMapInteractor ()
 
@@ -69,8 +70,18 @@
 }
 
 - (void)addAddressToUserAddressArray {
-    BOOL status = [[BBUserService sharedService] addAddressToUserWithAddress:self.currentAddres];
-    [self.output addressDidSaveWithStatus:status];
+    [[BBServerService sharedService] createAddressWithApiToken:[[BBUserService sharedService] tokenUser] address:self.currentAddres completion:^(BBServerResponse *response, BBAddress *address, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.serverError == kServerErrorSuccessfull) {
+                BOOL status = [[BBUserService sharedService] addAddressToUserWithAddress:self.currentAddres];
+                [self.output addressDidSaveWithStatus:status];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output errorNetwork];
+        }
+    }];
 }
 
 @end

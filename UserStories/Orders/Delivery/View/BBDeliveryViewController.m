@@ -19,6 +19,9 @@
 
 @property (strong, nonatomic) BBCalendarDeliveryTableViewCell *calendarCell;
 
+@property (strong, nonatomic) BBPurchases *purchase;
+@property (strong, nonatomic) NSArray *selectionDates;
+
 @end
 
 static CGFloat estimatedRowHeight = 50.0f;
@@ -33,8 +36,18 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+    self.selectionDates = [NSArray array];
 	[self.output didTriggerViewReadyEvent];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.output viewWillDisappear];
 }
 
 #pragma mark - Методы BBDeliveryViewInput
@@ -45,11 +58,26 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     self.navigationItem.titleView = self.calendarMenu;
 }
 
+- (void)purchaseForCalendar:(BBPurchases *)purchase {
+    self.purchase = purchase;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (NSArray *)currentSelectionDates {
+    return self.selectionDates;
+}
+
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
     self.calendarMenu.titleLabel.text = currentName;
 }
 
-- (void)showAlertViewWithMessage:(NSString *)message {
+- (void)currentArraySelectionDays:(NSArray *)selectionDays {
+    self.selectionDates = selectionDays;
+}
+
+-(void)showAlertViewWithMessage:(NSString *)message {
     [self presentAlertControllerWithTitle:@"Внимание" message:message];
 }
 
@@ -83,8 +111,10 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     UITableViewCell *cell;
     
     if (indexPath.section == 0) {
-        BBCalendarDeliveryTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarDeliveryCellIdentifire];
-        calendarCell.countDayInOrder = 10;
+        BBCalendarDeliveryTableViewCell *calendarCell = [[NSBundle mainBundle] loadNibNamed:kNibNameCalendarDeliveryCell
+                                                                            owner:self options:nil].lastObject;
+        calendarCell.countDayInOrder = self.purchase.numberDays;
+        calendarCell.purchaseColor = self.purchase.elementBlock.colorBlock;
         self.calendarCell = calendarCell;
         [self _setDelegates];
         cell = calendarCell;
@@ -132,6 +162,8 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 - (void)rightButtonDidTap {
     [self.delegate rightCalendarMenuButtonDidTap];
 }
+
+
 
 #pragma mark - Lazy Load
 

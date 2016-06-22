@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBPurchases.h"
+
 typedef enum : NSUInteger {
     kProgramCellModeCornerRadius,
     kProgramCellModeDefault
@@ -20,5 +22,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UILabel *subNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countDayLabel;
 @property (assign, nonatomic) BBKeyProgramCellMode keyMode;
+
+@property (strong, nonatomic) BBPurchases *purchases;
 
 @end

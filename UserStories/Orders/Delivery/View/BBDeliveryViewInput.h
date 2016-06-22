@@ -12,4 +12,8 @@
 
 - (void)setupInitialState;
 
+- (void)purchaseForCalendar:(BBPurchases *)purchase;
+
+- (NSArray *)currentSelectionDates;
+
 @end

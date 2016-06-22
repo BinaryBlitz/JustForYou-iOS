@@ -18,6 +18,10 @@
 @property (strong, nonatomic) BBCommentTableViewCell *commentCell;
 @property (strong, nonatomic) BBAccessoryTableViewCell *adressCell;
 
+@property (strong, nonatomic) BBPurchases *purchase;
+@property (assign, nonatomic) NSInteger selectionDaysCount;
+@property (strong, nonatomic) NSString *address;
+
 @end
 
 
@@ -39,6 +43,11 @@ static CGFloat topInsetForTableView = - 35.0f;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutToOrderButton];
@@ -47,7 +56,7 @@ static CGFloat topInsetForTableView = - 35.0f;
 #pragma mark - Actions Methods
 
 - (IBAction)toOrderButtonAction:(id)sender {
-    
+    [self.output toOrderButtonDidTapWithComment:self.commentCell.textView.text];
 }
 
 - (void)_resignFirstResponderWithTap {
@@ -58,8 +67,20 @@ static CGFloat topInsetForTableView = - 35.0f;
 
 - (void)setupInitialState {
 	[self _settingsTableViewAndRegisterNib];
+    self.address = @"";
     self.navigationItem.title = kNameTitleNewOrderModule;
     [self _registerNotificationKeyboard];
+}
+
+- (void)countsDaysInCalendar:(NSInteger)counts {
+    self.selectionDaysCount = counts;
+}
+
+- (void)purchaseWithPurchase:(BBPurchases *)purchase {
+    self.purchase = purchase;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)_registerNotificationKeyboard {
@@ -78,7 +99,22 @@ static CGFloat topInsetForTableView = - 35.0f;
 }
 
 - (void)adressForAdressTableViewCell:(NSString *)adress {
-    self.adressCell.textLabel.text = adress;
+    self.address = adress;
+}
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
+
+- (void)presentFinishAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alert = [self alertControllerWithTitle:title message:message];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self.output alertOkDidTap];
+    }];
+    [alert addAction:action];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alert animated:YES completion:nil];
+    });
 }
 
 #pragma mark - TableView Methods
@@ -125,23 +161,29 @@ static CGFloat topInsetForTableView = - 35.0f;
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         BBMyProgramTableViewCell *myProgramCell = [self.tableView dequeueReusableCellWithIdentifier:kMyProgramCellIdentifire];
+        myProgramCell.purchases = self.purchase;
         cell = myProgramCell;
     } else if (indexPath.section == 1) {
         BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
         if (indexPath.row == 0) {
             accessoryCell.textLabel.text = @"Количество дней";
             accessoryCell.countLabel.hidden = NO;
+            accessoryCell.countLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectionDaysCount];
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kTopCornerRadius;
         } else {
-            accessoryCell.textLabel.text = @"Адрес";
+            if (![self.address isEqualToString:@""] && ![self.address isEqualToString:@" "]) {
+                accessoryCell.textLabel.text = self.address;
+            } else {
+                accessoryCell.textLabel.text = @"Адрес";
+            }
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kBottomCornerRadius;
             self.adressCell = accessoryCell;
         }
         cell = accessoryCell;
     } else {
-        BBCommentTableViewCell *commentCell = [self.tableView dequeueReusableCellWithIdentifier:kCommentCellIdentifire];
+        BBCommentTableViewCell *commentCell  = [[NSBundle mainBundle] loadNibNamed:kNibNameCommentCell owner:self options:nil].lastObject;
         commentCell.delegate = self;
         cell = commentCell;
     }

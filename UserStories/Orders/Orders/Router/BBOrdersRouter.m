@@ -12,10 +12,10 @@
 
 #pragma mark - BBOrdersRouterInput
 
-- (void)presentFromWindow:(UIWindow *)window {
+
+- (void)popViewControllerWithNavigationController:(UINavigationController *)nc {
     HQDispatchToMainQueue(^{
-        [window setRootViewController:(UIViewController *)self.presenter.view];
-        [window makeKeyAndVisible];
+        [nc popViewControllerAnimated:YES];
     });
 }
 

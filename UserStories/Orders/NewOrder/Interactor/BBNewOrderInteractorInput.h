@@ -10,4 +10,6 @@
 
 @protocol BBNewOrderInteractorInput <NSObject>
 
+- (void)createDeliveryOnServerWithDays:(NSArray *)days address:(BBAddress *)address purchase:(BBPurchases *)purchase coment:(NSString *)coment;
+
 @end

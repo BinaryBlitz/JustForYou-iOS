@@ -29,7 +29,7 @@
 
 @end
 
-static NSInteger shemaVersionRealm = 21;
+static NSInteger shemaVersionRealm = 23;
 
 @implementation BBPreloader
 
@@ -74,6 +74,9 @@ static NSInteger shemaVersionRealm = 21;
         HQDispatchToMainQueue(^{
             [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
         });
+    }];
+    [[BBServerService sharedService] listAddressUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        [[BBUserService sharedService] addAddressUserFromArray:objects];
     }];
 }
 

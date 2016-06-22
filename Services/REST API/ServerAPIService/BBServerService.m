@@ -193,6 +193,22 @@
 
 #pragma mark - Deliveries Methods
 
+- (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listPurchasesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parsePurchasesWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+
+    }];
+}
+
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listDeliveriesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -206,6 +222,21 @@
             completion(responseServer, result, error);
         }
 
+    }];
+}
+
+- (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createDeliveriesWithApiToken:apiToken purchId:purchaseId arrayDeliveries:deliveries completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseDeliveriesWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
     }];
 }
 
@@ -300,6 +331,25 @@
         if (completion) {
             completion(responseServer, result, error);
         }
+    }];
+}
+
+#pragma mark - Address Methods
+
+
+- (void)createAddressWithApiToken:(NSString *)apiToken address:(BBAddress *)address completion:(AddressCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createAddressWithApiToken:apiToken address:address completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBAddress *result = nil;
+        if (!error) {
+            result = [data parseAddressWithData];
+        }
+
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+        
     }];
 }
 

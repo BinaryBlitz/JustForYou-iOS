@@ -10,8 +10,9 @@
 
 @interface BBOrder : RLMObject
 
-@property NSInteger programId;
+@property NSInteger orderId;
 @property NSDate *scheduledDay;
+@property NSString *commentOrder;
 @property UIColor *colorProgram;
 
 - (instancetype)initWithJSON:(id)JSONObj;

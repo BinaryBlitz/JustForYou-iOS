@@ -8,6 +8,8 @@
 
 #import "BBStock.h"
 
+#import "BBCalendarService.h"
+
 @implementation BBStock
 
 - (instancetype)initWithJSON:(id)JSONObj {
@@ -16,19 +18,11 @@
         self.stockId = [[JSONObj objectForKey:@"id"] integerValue];
         self.name = [JSONObj objectForKey:@"name"];
         self.descript = [JSONObj objectForKey:@"description"];
-        self.date = [self dateForString:[JSONObj objectForKey:@"created_at"]];
+        self.date = [[BBCalendarService sharedService] dateForString:[JSONObj objectForKey:@"created_at"]];
     }
     return self;
 }
 
-- (NSDate *)dateForString:(NSString *)dateString {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSLocale *posix = [NSLocale systemLocale];//[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    [formatter setLocale:posix];
-    NSDate *date = [formatter dateFromString:dateString];
-    return date;
-}
 
 - (NSString *)dateForUI {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];

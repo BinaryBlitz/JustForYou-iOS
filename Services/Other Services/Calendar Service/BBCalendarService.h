@@ -14,4 +14,8 @@
 
 + (instancetype) sharedService;
 
+- (NSDate *)dateForString:(NSString *)dateString;
+
+- (NSString *)stringForDate:(NSDate *)date;
+
 @end

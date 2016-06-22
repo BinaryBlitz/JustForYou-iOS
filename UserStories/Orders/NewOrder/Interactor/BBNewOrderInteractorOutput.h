@@ -10,4 +10,9 @@
 
 @protocol BBNewOrderInteractorOutput <NSObject>
 
+- (void)errorNetwork;
+- (void)errorServer;
+
+- (void)deliveriesCreateSuccessfull;
+
 @end

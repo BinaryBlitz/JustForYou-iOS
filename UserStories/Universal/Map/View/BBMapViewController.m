@@ -108,6 +108,10 @@
     });
 }
 
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
+
 #pragma mark - Search Delegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {

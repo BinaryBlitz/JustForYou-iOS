@@ -86,13 +86,6 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 }
 
 
-- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/addresses?api_token=%@", kServerURL, apiToken]];
-    
-    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
-    [self sendRequest:request completion:completion];
-}
 
 #pragma mark - Blocks And Programs
 
@@ -150,6 +143,14 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 
 #pragma mark - Deliveries Methods
 
+- (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/purchases?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/deliveries?api_token=%@", kServerURL, apiToken]];
@@ -159,8 +160,14 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 }
 
 
-- (void)createDeliveriesWithArrayDeliveries:(NSArray *)deliveries apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
-
+- (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/purchases/%@/deliveries", kServerURL, purchaseId]];
+    
+    NSDictionary* parameters = @{@"api_token"  : apiToken,
+                                 @"deliveries" : deliveries};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
 }
 
 #pragma mark - Payments Methods
@@ -234,6 +241,28 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+#pragma mark - Address Methods
+
+- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/addresses?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
+- (void)createAddressWithApiToken:(NSString *)apiToken address:(BBAddress *)address completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/addresses", kServerURL]];
+    
+    NSDictionary *adr = @{@"content"   : address.address,
+                          @"latitude"  : [NSNumber numberWithDouble:address.coordinate.latitude],
+                          @"longitude"  : [NSNumber numberWithDouble:address.coordinate.longitude]};
+    NSDictionary* parameters = @{@"api_token" : apiToken,
+                                 @"address"   : adr};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
 
 #pragma mark - Geolocation
 

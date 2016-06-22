@@ -198,6 +198,8 @@
 		3AE5461F1D17D6C7006A1CDD /* BBTableAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */; };
 		3AE546231D188A52006A1CDD /* BBReplacementCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546221D188A52006A1CDD /* BBReplacementCategory.m */; };
 		3AE546261D188A6E006A1CDD /* BBReplacementProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546251D188A6E006A1CDD /* BBReplacementProduct.m */; };
+		3AE546291D196899006A1CDD /* BBPurchases.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546281D196899006A1CDD /* BBPurchases.m */; };
+		3AE5462C1D1975C4006A1CDD /* BBElementBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
 		3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F491D0CBA4E004972FC /* BBCalendarService.m */; };
@@ -687,6 +689,10 @@
 		3AE546221D188A52006A1CDD /* BBReplacementCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBReplacementCategory.m; sourceTree = "<group>"; };
 		3AE546241D188A6E006A1CDD /* BBReplacementProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBReplacementProduct.h; sourceTree = "<group>"; };
 		3AE546251D188A6E006A1CDD /* BBReplacementProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBReplacementProduct.m; sourceTree = "<group>"; };
+		3AE546271D196899006A1CDD /* BBPurchases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPurchases.h; sourceTree = "<group>"; };
+		3AE546281D196899006A1CDD /* BBPurchases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPurchases.m; sourceTree = "<group>"; };
+		3AE5462A1D1975C4006A1CDD /* BBElementBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBElementBlock.h; sourceTree = "<group>"; };
+		3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBElementBlock.m; sourceTree = "<group>"; };
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
 		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
@@ -1758,10 +1764,10 @@
 		3A2D55921CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55931CF075D200A8EFF5 /* BBMyProgramsInteractor.h */,
-				3A2D55941CF075D200A8EFF5 /* BBMyProgramsInteractor.m */,
 				3A2D55951CF075D200A8EFF5 /* BBMyProgramsInteractorInput.h */,
 				3A2D55961CF075D200A8EFF5 /* BBMyProgramsInteractorOutput.h */,
+				3A2D55931CF075D200A8EFF5 /* BBMyProgramsInteractor.h */,
+				3A2D55941CF075D200A8EFF5 /* BBMyProgramsInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1884,10 +1890,10 @@
 		3A2D55BE1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55BF1CF075D200A8EFF5 /* BBOrdersInteractor.h */,
-				3A2D55C01CF075D200A8EFF5 /* BBOrdersInteractor.m */,
 				3A2D55C11CF075D200A8EFF5 /* BBOrdersInteractorInput.h */,
 				3A2D55C21CF075D200A8EFF5 /* BBOrdersInteractorOutput.h */,
+				3A2D55BF1CF075D200A8EFF5 /* BBOrdersInteractor.h */,
+				3A2D55C01CF075D200A8EFF5 /* BBOrdersInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1905,9 +1911,9 @@
 		3A2D55C71CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D55CA1CF075D200A8EFF5 /* BBOrdersRouterInput.h */,
 				3A2D55C81CF075D200A8EFF5 /* BBOrdersRouter.h */,
 				3A2D55C91CF075D200A8EFF5 /* BBOrdersRouter.m */,
-				3A2D55CA1CF075D200A8EFF5 /* BBOrdersRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2541,6 +2547,10 @@
 				3AE546221D188A52006A1CDD /* BBReplacementCategory.m */,
 				3AE546241D188A6E006A1CDD /* BBReplacementProduct.h */,
 				3AE546251D188A6E006A1CDD /* BBReplacementProduct.m */,
+				3AE546271D196899006A1CDD /* BBPurchases.h */,
+				3AE546281D196899006A1CDD /* BBPurchases.m */,
+				3AE5462A1D1975C4006A1CDD /* BBElementBlock.h */,
+				3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2986,9 +2996,11 @@
 				3A2D56711CF075D200A8EFF5 /* BBBasketAssembly.m in Sources */,
 				3A2D56AD1CF075D200A8EFF5 /* BBNewOrderAssembly.m in Sources */,
 				3A2D56631CF075D200A8EFF5 /* BBInfoRegistTableViewCell.m in Sources */,
+				3AE5462C1D1975C4006A1CDD /* BBElementBlock.m in Sources */,
 				3A2D56CD1CF075D200A8EFF5 /* BBSupportPresenter.m in Sources */,
 				3A2D56651CF075D200A8EFF5 /* BBNumberPhoneTableViewCell.m in Sources */,
 				3A2D570D1CF331C300A8EFF5 /* BBMyProgramTableViewCell.m in Sources */,
+				3AE546291D196899006A1CDD /* BBPurchases.m in Sources */,
 				3A2D56D61CF075D200A8EFF5 /* BBUniversalInteractor.m in Sources */,
 				3A2D56BB1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.m in Sources */,
 				3A2D56991CF075D200A8EFF5 /* BBNavigationRouter.m in Sources */,

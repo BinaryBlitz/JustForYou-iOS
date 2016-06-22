@@ -26,8 +26,6 @@
 
 @end
 
-static CGFloat alphaBackground = 0.7f;
-
 @implementation BBReplacementPresenter
 
 #pragma mark - Методы BBReplacementModuleInput
@@ -68,7 +66,7 @@ static CGFloat alphaBackground = 0.7f;
 
 - (void)addBarButtonDidTap {
     if ([self.view countReplacementInTableView] < 3) {
-        [self.view showBackgroundLoaderViewWithAlpha:alphaBackground];
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
         [self.interactor listReplacementOnServer];
     } else {
         [self.view presentAlertControllerWithMessage:@"Вы не можете добавить еще одну замену. Пожалуйста, удалите одну или несколько замен"];
@@ -76,7 +74,7 @@ static CGFloat alphaBackground = 0.7f;
 }
 
 - (void)cellDidSelectWithText:(BBReplacementProduct *)product {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaBackground];
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
     [self.interactor addInCurrentArrayReplacementNewElement:product];
 }
 

@@ -56,6 +56,11 @@ static CGFloat estimatedRowHeight = 100.0f;
     self.calendarMenu.titleLabel.text = currentName;
 }
 
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
+
+
 #pragma mark - TableView Methods
 
 - (void)_registerNibWithIdentifireCell {

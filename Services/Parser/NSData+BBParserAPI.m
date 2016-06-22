@@ -12,7 +12,6 @@
 #import "BBProgram.h"
 #import "BBDay.h"
 
-
 #import "BBDataBaseService.h"
 
 @implementation NSData (BBParserAPI)
@@ -85,12 +84,26 @@
 
 #pragma mark - Deliveries Methods
 
+- (NSArray *)parsePurchasesWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            BBPurchases *purchases = [[BBPurchases alloc] initWithJSON:obj];
+            [result addObject:purchases];
+        }
+    }
+    return result;
+}
+
+
 - (NSArray *)parseDeliveriesWithData {
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
         for (id obj in JSONObj) {
-#warning LOOK THIS
+            BBOrder *order = [[BBOrder alloc] initWithJSON:obj];
+            [result addObject:order];
         }
     }
     return result;
@@ -165,6 +178,14 @@
         }
     }
     return result;
+}
+
+#pragma mark - Address Methods 
+
+- (BBAddress *)parseAddressWithData {
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    BBAddress *address = [[BBAddress alloc] initWithJSON:JSONObj];
+    return address;
 }
 
 #pragma mark - Map Methods

@@ -91,7 +91,11 @@ static CGFloat heightFooterSection = 10.0f;
     self.count = [objects count];
     NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
     [self.tableView beginUpdates];
-    [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+    if ([objects count] != 0) {
+        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        [self.tableView reloadData];
+    }
     [self.tableView endUpdates];
 }
 
@@ -223,8 +227,9 @@ static CGFloat heightFooterSection = 10.0f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.keyModule == kMyAddressForOrderModule) {
-        BBAccessoryTableViewCell *adressCell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self.output cellDidSelectWithAdress:adressCell.textLabel.text];
+        if ([self.objects count] != 0) {
+            [self.output cellDidSelectWithAdress:[self.objects objectAtIndex:indexPath.section]];
+        }
     } else if (self.keyModule == kSharesModule) {
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         if ([cell isKindOfClass:[BBStockTableViewCell class]]) {

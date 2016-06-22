@@ -92,6 +92,13 @@ typedef enum : NSUInteger {
 }BBPartOfDay;
 
 
+// Статус создания доставки
+typedef enum : NSUInteger {
+    kStatusNone,
+    kStatusCreate,
+    kStatusError
+}BBStatusCreateDelivery;
+
 // Сделать запрос и обновить данные или сделать запрос и положить их в базу
 typedef enum : NSUInteger {
     kStateUpdateData,
@@ -137,6 +144,7 @@ static CGFloat cornerRadiusCell = 4.0f;
 static CGFloat sideOffsetCell = 14.0f;
 static CGFloat borderWightLineCell = 1.0f;
 static CGFloat bottomOffsetCells = 10.0f;
+static CGFloat alphaBackgroundLoader = 0.7f;
 
 
 #pragma mark - Title And Message Alert
@@ -144,7 +152,7 @@ static CGFloat bottomOffsetCells = 10.0f;
 static NSString *kNoteTitle = @"Внимание";
 static NSString *kErrorTitle = @"Ошибка";
 
-static NSString *kErrorServer = @"Ошибка сервера. Повторите позже";
+static NSString *kErrorServer = @"Ошибка сервера. Повторите позже или обратитесь в службу поддержки";
 static NSString *kErrorClient = @"Ошибка сервера. Возможно неверно введены данные";
 static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
 

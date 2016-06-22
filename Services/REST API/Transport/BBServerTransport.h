@@ -25,7 +25,6 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 - (void)showUser:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)updateUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 
-- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 
 #pragma mark - Blocks And Programs
 
@@ -39,7 +38,9 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 #pragma mark - Deliveries Methods
 
+- (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+- (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(CompletionBlock)completion;
 
 #pragma mark - Payments Methods
 
@@ -61,6 +62,12 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 - (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSString *)productId completion:(CompletionBlock)completion;
 - (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+
+
+#pragma mark - Address Methods
+
+- (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+- (void)createAddressWithApiToken:(NSString *)apiToken address:(BBAddress *)address completion:(CompletionBlock)completion;
 
 #pragma mark - Geolocation
 

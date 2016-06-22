@@ -29,7 +29,6 @@ static NSString *messagePayAlert = @"Выберите карту которой 
 static NSString *paymentSuccessfull = @"Оплата успешно произведена";
 static NSString *paymentError = @"Произошла ошибка оплаты. Проверьте баланс своей карты или попробуйте позже";
 
-static CGFloat alphaView = 0.7f;
 
 @implementation BBBasketPresenter
 
@@ -70,12 +69,12 @@ static CGFloat alphaView = 0.7f;
 }
 
 - (void)payNewCardButtonDidTap {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaView];
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
     [self.interactor createOrderOnServerWithTypePayment:kTypeNewPayment payCard:nil];
 }
 
 - (void)payCardWithCard:(BBPayCard *)card {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaView];
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
     [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card];
 }
 

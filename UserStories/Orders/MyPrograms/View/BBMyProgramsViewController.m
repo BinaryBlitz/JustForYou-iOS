@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSArray *purchases;
+
 @end
 
 static CGFloat estimatedHeightCell = 80.0f;
@@ -29,6 +31,11 @@ static CGFloat verticalInset = 10.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 #pragma mark - Методы BBMyProgramsViewInput
 
 - (void)setupInitialState {
@@ -36,6 +43,19 @@ static CGFloat verticalInset = 10.0f;
     self.navigationItem.title = kNameTitleMyProgramModule;
 }
 
+- (void)purchasesWithArray:(NSArray *)array {
+    self.purchases = array;
+}
+
+- (void)reloadTableView {
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
 
 #pragma mark - TableView Methods
 
@@ -48,17 +68,18 @@ static CGFloat verticalInset = 10.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [self.purchases count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBMyProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyProgramCellIdentifire];
     cell.keyMode = kProgramCellModeCornerRadius;
+    cell.purchases = [self.purchases objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.output didSelectRowWithProgram:2];
+    [self.output didSelectRowWithPurchase:[self.purchases objectAtIndex:indexPath.row]];
 }
 
 @end

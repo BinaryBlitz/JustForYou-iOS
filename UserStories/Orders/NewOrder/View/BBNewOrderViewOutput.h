@@ -12,7 +12,13 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+
 - (void)countDayCellDidTap;
 - (void)adresCellDidTap;
+
+- (void)toOrderButtonDidTapWithComment:(NSString *)comment;
+
+- (void)alertOkDidTap;
 
 @end

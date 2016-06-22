@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) NSString *nameMonth;
 
-@property (strong, nonatomic) UIColor *selectedDayViewColor;
 @property (strong, nonatomic) NSMutableArray *datesSelected;
 @property (assign, nonatomic) BOOL selectDays;
 @property (assign, nonatomic) BOOL selectWeekend;
@@ -26,6 +25,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self _initCalendarManager];
+    self.purchaseColor = [BBConstantAndColor applicationGreenColor];
     self.selectDays = NO;
     self.selectWeekend = NO;
     self.countDayInOrder = 0;
@@ -35,6 +35,10 @@
     [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state
+}
+
+- (NSArray *)selectedDays {
+    return self.datesSelected;
 }
 
 - (void)layoutSubviews {
@@ -122,7 +126,7 @@
     // Selected date
     if([self isInDatesSelected:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = self.selectedDayViewColor;
+        dayView.circleView.backgroundColor = self.purchaseColor;
     } else {
         dayView.circleView.backgroundColor = [UIColor clearColor];
     }
@@ -195,6 +199,9 @@
         return [d1 compare:d2];
     }];
     self.datesSelected = [NSMutableArray arrayWithArray:sortedArray];
+    if ([self.delegate respondsToSelector:@selector(currentArraySelectionDays:)]) {
+        [self.delegate currentArraySelectionDays:self.datesSelected];
+    }
 }
 
 - (void)_setTextInLabel {
@@ -208,13 +215,6 @@
         _calendarManager = [[JTCalendarManager alloc] init];
     }
     return _calendarManager;
-}
-
-- (UIColor *)selectedDayViewColor {
-    if (!_selectedDayViewColor) {
-        _selectedDayViewColor = [BBConstantAndColor applicationGreenColor];//[UIColor colorWithWhite:0.7 alpha:0.7];
-    }
-    return _selectedDayViewColor;
 }
 
 - (NSMutableArray *)datesSelected {

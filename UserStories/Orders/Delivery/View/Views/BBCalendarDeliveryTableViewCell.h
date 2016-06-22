@@ -21,9 +21,12 @@
 @property (strong, nonatomic) id<BBCalendarDeliveryCellDelegate> delegate;
 
 @property (assign, nonatomic) NSInteger countDayInOrder;
+@property (strong, nonatomic) UIColor *purchaseColor;
 
 - (void)successivelySelectedDay;
 - (void)successivelySelectedDayWithoutWeekend;
+
+- (NSArray *)selectedDays;
 
 @end
 
@@ -31,5 +34,8 @@
 
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName;
 - (void)showAlertViewWithMessage:(NSString *)message;
+
+@optional
+- (void)currentArraySelectionDays:(NSArray *)selectionDays;
 
 @end

@@ -12,6 +12,8 @@
 
 - (void)didTriggerViewReadyEvent;
 
-- (void)didSelectRowWithProgram:(NSInteger)program;
+- (void)didSelectRowWithPurchase:(BBPurchases *)purchase;
+
+- (void)viewWillAppear;
 
 @end

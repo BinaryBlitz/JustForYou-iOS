@@ -19,4 +19,10 @@
     });
 }
 
+- (void)popViewControllerWithNavigationController:(UINavigationController *)nc {
+    HQDispatchToMainQueue(^{
+        [nc popViewControllerAnimated:YES];
+    });
+}
+
 @end

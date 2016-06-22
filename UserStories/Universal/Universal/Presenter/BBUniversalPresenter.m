@@ -91,7 +91,7 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 	[self.view setupInitialState];
 }
 
-- (void)cellDidSelectWithAdress:(NSString *)adress {
+- (void)cellDidSelectWithAdress:(BBAddress *)adress {
     [self.parentNewOrderModule popAdressModuleWithAdress:adress];
 }
 

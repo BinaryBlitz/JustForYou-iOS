@@ -136,6 +136,12 @@ CGFloat sizeBar = 44.0f;
     return alertController;
 }
 
+- (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alertController = [self _alertController];
+    alertController.title = title;
+    alertController.message = message;
+    return alertController;
+}
 
 #pragma mark - Init Alert Methods
 

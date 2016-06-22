@@ -24,6 +24,8 @@
 
 @end
 
+static NSString *kPurchasesEmpty = @"Вы не можете создать новый заказ так как у вас нет купленных программ";
+
 @implementation BBOrdersPresenter
 
 #pragma mark - Методы BBBlocksModuleInput
@@ -36,6 +38,11 @@
     self.navigModule = module;
     return self.view;
 }
+
+- (void)popViewControllerWithStatus:(BBStatusCreateDelivery)status {
+    [self.router popViewControllerWithNavigationController:[self.navigModule currentView]];
+}
+
 #pragma mark - Методы BBOrdersViewOutput
 
 - (void)didTriggerViewReadyEvent {
@@ -47,10 +54,30 @@
 }
 
 - (void)addNewOrderButtonDidTap {
-    [self.myProgramModule pushModuleWithNavigationModule:self.navigModule];
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor listPurchasesUser];
 }
 
 #pragma mark - Методы BBOrdersInteractorOutput
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
+
+- (void)currentPurchasesUserWithArray:(NSArray *)array {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    if ([array count] > 0) {
+        [self.myProgramModule pushModuleWithNavigationModule:self.navigModule parent:self purchasesArray:array];
+    } else {
+        [self.view presentAlertWithTitle:nil message:kPurchasesEmpty];
+    }
+}
 
 #pragma  mark - Lazy Load
 

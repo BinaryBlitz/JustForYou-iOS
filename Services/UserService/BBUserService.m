@@ -130,11 +130,7 @@ static NSString *kUserReplacement = @"kUserReplacement";
 - (BOOL)addAddressToUserWithAddress:(BBAddress *)address {
     BBUser *user = [self currentUser];
     NSMutableArray *array = [NSMutableArray arrayWithArray:user.addressArray];
-    for (BBAddress *oldAddr in user.addressArray) {
-        if ([oldAddr.address isEqualToString:address.address]) {
-            return NO;
-        }
-    }
+
     [array addObject:address];
     if (user.addressArray == nil) {
         user.addressArray = [NSArray array];
@@ -147,10 +143,9 @@ static NSString *kUserReplacement = @"kUserReplacement";
 - (void)deleteAddressOnUser:(BBAddress *)address {
     BBUser *user = [self currentUser];
     NSMutableArray *array = [NSMutableArray arrayWithArray:user.addressArray];
-    for (int i = 0; i < [array count]; i++) {
+    for (int i = 0; i < [user.addressArray count]; i++) {
         BBAddress *removeAd = [user.addressArray objectAtIndex:i];
-        if ((address.coordinate.longitude == removeAd.coordinate.longitude) &&
-            (address.coordinate.latitude == removeAd.coordinate.latitude)) {
+        if (removeAd.addressId == address.addressId) {
             [array removeObjectAtIndex:i];
         }
     }

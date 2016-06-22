@@ -14,7 +14,7 @@
 
 - (void)viewWillAppear;
 
-- (void)cellDidSelectWithAdress:(NSString *)adress;
+- (void)cellDidSelectWithAdress:(BBAddress *)adress;
 
 - (void)cellDidSelectWithStock:(BBStock *)stock;
 

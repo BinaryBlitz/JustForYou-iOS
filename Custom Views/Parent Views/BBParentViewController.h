@@ -28,5 +28,6 @@
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel;
 - (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message titleCancel:(NSString *)titleCancel;
+- (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

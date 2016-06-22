@@ -88,4 +88,14 @@
     [self.parentModule popMapModuleWithStatus:status];
 }
 
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
+
 @end

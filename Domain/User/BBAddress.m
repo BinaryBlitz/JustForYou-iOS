@@ -13,6 +13,7 @@ NSString* const kLongitudeCoordinate = @"kLongitudeCoordinate";
 NSString* const kCountry = @"kCountry";
 NSString* const kCity = @"kCity";
 NSString* const kAddress = @"kAddress";
+NSString* const kAddressId = @"kAddressId";
 
 @implementation BBAddress
 
@@ -23,8 +24,8 @@ NSString* const kAddress = @"kAddress";
         self.address = [JSONObj objectForKey:@"content"];
         self.country = @"Россия";
         self.city = @"Москва";
-        double lat = 3;
-        double lng = 3;
+        double lat = [[JSONObj objectForKey:@"latitude"] doubleValue];
+        double lng = [[JSONObj objectForKey:@"longitude"] doubleValue];
         self.coordinate = CLLocationCoordinate2DMake(lat, lng);
     }
     return self;
@@ -54,6 +55,7 @@ NSString* const kAddress = @"kAddress";
         self.country = [coder decodeObjectForKey:kCountry];
         self.city = [coder decodeObjectForKey:kCity];
         self.address = [coder decodeObjectForKey:kAddress];
+        self.addressId = [coder decodeIntegerForKey:kAddressId];
     }
     return self;
 }
@@ -64,6 +66,7 @@ NSString* const kAddress = @"kAddress";
     [aCoder encodeObject:self.country forKey:kCountry];
     [aCoder encodeObject:self.city forKey:kCity];
     [aCoder encodeObject:self.address forKey:kAddress];
+    [aCoder encodeInteger:self.addressId forKey:kAddressId];
 }
 
 @end

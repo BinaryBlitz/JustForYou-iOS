@@ -11,6 +11,6 @@
 
 @protocol BBOrdersRouterInput <NSObject>
 
-- (void)presentFromWindow:(UIWindow *)window;
+- (void)popViewControllerWithNavigationController:(UINavigationController *)nc;
 
 @end

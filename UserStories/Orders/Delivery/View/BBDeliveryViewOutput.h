@@ -12,4 +12,7 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+- (void)viewWillDisappear;
+
 @end
