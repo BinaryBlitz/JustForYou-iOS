@@ -10,6 +10,9 @@
 
 @protocol BBOrdersInteractorOutput <NSObject>
 
+- (void)currentMyDeliveriesWithArray:(NSArray *)array;
+- (void)updateDeliveriesWithArray:(NSArray *)array;
+
 - (void)errorNetwork;
 - (void)errorServer;
 

@@ -12,6 +12,7 @@
 
 #import "BBUserService.h"
 #import "BBServerService.h"
+#import "BBDataBaseService.h"
 
 @interface BBOrdersInteractor()
 
@@ -20,6 +21,26 @@
 @implementation BBOrdersInteractor
 
 #pragma mark - Методы BBOrdersInteractorInput
+
+- (void)listMyDeliveriesOnDataBase {
+    HQDispatchToMainQueue(^{
+        [self.output currentMyDeliveriesWithArray:[[BBDataBaseService sharedService] ordersInRealm]];
+    });
+}
+
+- (void)myDeliveriesOnServer {
+    [[BBServerService sharedService] listDeliveriesWithApiToken:[[BBUserService sharedService] tokenUser]
+                                                     completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+                                                         if (response.kConnectionServer == kSuccessfullyConnection) {
+                                                             if (response.serverError == kServerErrorSuccessfull) {
+                                                                 HQDispatchToMainQueue(^{
+                                                                     [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects];
+                                                                     [self.output updateDeliveriesWithArray:[[BBDataBaseService sharedService] ordersInRealm]];
+                                                                 });
+                                                             }
+                                                         }
+    }];
+}
 
 - (void)listPurchasesUser {
     [[BBServerService sharedService] listPurchasesWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {

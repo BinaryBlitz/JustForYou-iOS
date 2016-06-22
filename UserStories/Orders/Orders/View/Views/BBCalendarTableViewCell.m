@@ -10,6 +10,8 @@
 
 #import <JTCalendar/JTCalendar.h>
 
+#import "BBOrder.h"
+
 @interface BBCalendarTableViewCell () <JTCalendarDelegate>
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
@@ -31,6 +33,7 @@
     [super awakeFromNib];
     [self _createRandomEvents];
     [self _initCalendarManager];
+    self.ordersForCalendar = [NSArray array];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -42,6 +45,21 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.delegate updateNameMonthPreviousName:@"" currentName:self.nameMonth nextName:@""];
+}
+
+- (void)setOrdersForCalendar:(NSArray *)ordersForCalendar {
+    _ordersForCalendar = ordersForCalendar;
+//    [self updateEventsByDate];
+//    [self.calendarManager reload];
+}
+
+- (void)updateEventsByDate {
+    self.eventsByDate = [NSMutableDictionary dictionary];
+    for (BBOrder *order in self.ordersForCalendar) {
+        NSDate *date = order.scheduledDay;
+        NSString *key = [[self _dateFormatter] stringFromDate:date];
+        [self.eventsByDate setObject:date forKey:key];
+    }
 }
 
 #pragma mark - BBOrderViewControllerDelegate Methods
@@ -101,6 +119,7 @@
 }
 
 #pragma mark - Calendar Delegate Methods
+
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView {
     
     dayView.hidden = NO;
@@ -170,7 +189,7 @@
     
     NSString *key = [[self _dateFormatter] stringFromDate:date];
     
-    if(_eventsByDate[key] && [_eventsByDate[key] count] > 0){
+    if(self.eventsByDate[key] && [self.eventsByDate[key] count] > 0){
         return YES;
     }
     return NO;

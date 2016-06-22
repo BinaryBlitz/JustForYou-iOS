@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) BBCalendarTableViewCell *calendarCell;
 
+@property (strong, nonatomic) NSArray *deliveriesArray;
 @property (strong, nonatomic) NSArray *ordersArray;
 
 @end
@@ -54,6 +55,13 @@ static CGFloat estimatedRowHeight = 100.0f;
 
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
     self.calendarMenu.titleLabel.text = currentName;
+}
+
+- (void)updateDeliveriesWithArray:(NSArray *)deliveries {
+    self.deliveriesArray = deliveries;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
@@ -90,6 +98,7 @@ static CGFloat estimatedRowHeight = 100.0f;
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         BBCalendarTableViewCell *calendarCell = [self.tableView dequeueReusableCellWithIdentifier:kCalendarCellIdentifire];
+        calendarCell.ordersForCalendar = self.deliveriesArray;
         self.calendarCell = calendarCell;
         [self _setDelegates];
         cell = calendarCell;

@@ -23,6 +23,8 @@
 
 @property (strong, nonatomic) id<BBCalendarTableViewCellDelegate> delegate;
 
+@property (strong, nonatomic) NSArray *ordersForCalendar;
+
 @end
 
 @protocol BBCalendarTableViewCellDelegate <NSObject>

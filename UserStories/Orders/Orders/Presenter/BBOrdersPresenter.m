@@ -25,6 +25,7 @@
 @end
 
 static NSString *kPurchasesEmpty = @"Вы не можете создать новый заказ так как у вас нет купленных программ";
+static NSString *kDeliveriesEmpty = @"У вас нет созданных заказов";
 
 @implementation BBOrdersPresenter
 
@@ -50,7 +51,7 @@ static NSString *kPurchasesEmpty = @"Вы не можете создать но�
 }
 
 - (void)viewWillAppear {
-    
+    [self.interactor listMyDeliveriesOnDataBase];
 }
 
 - (void)addNewOrderButtonDidTap {
@@ -59,6 +60,19 @@ static NSString *kPurchasesEmpty = @"Вы не можете создать но�
 }
 
 #pragma mark - Методы BBOrdersInteractorOutput
+
+- (void)currentMyDeliveriesWithArray:(NSArray *)array {
+    if ([array count] == 0) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kDeliveriesEmpty];
+    } else {
+        [self.view updateDeliveriesWithArray:array];
+    }
+    [self.interactor myDeliveriesOnServer];
+}
+
+- (void)updateDeliveriesWithArray:(NSArray *)array {
+    [self.view updateDeliveriesWithArray:array];
+}
 
 - (void)errorNetwork {
     [self.view hideBackgroundLoaderViewWithAlpha];

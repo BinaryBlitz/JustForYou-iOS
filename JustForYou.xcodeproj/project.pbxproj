@@ -200,6 +200,7 @@
 		3AE546261D188A6E006A1CDD /* BBReplacementProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546251D188A6E006A1CDD /* BBReplacementProduct.m */; };
 		3AE546291D196899006A1CDD /* BBPurchases.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546281D196899006A1CDD /* BBPurchases.m */; };
 		3AE5462C1D1975C4006A1CDD /* BBElementBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */; };
+		3AE546351D1B0E93006A1CDD /* BBDelivery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546341D1B0E93006A1CDD /* BBDelivery.m */; };
 		3AE69BB21CEB5F0600B5A674 /* BBStringConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */; };
 		3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F461D0CBA4E004972FC /* BBAddressService.m */; };
 		3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26F491D0CBA4E004972FC /* BBCalendarService.m */; };
@@ -693,6 +694,8 @@
 		3AE546281D196899006A1CDD /* BBPurchases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPurchases.m; sourceTree = "<group>"; };
 		3AE5462A1D1975C4006A1CDD /* BBElementBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBElementBlock.h; sourceTree = "<group>"; };
 		3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBElementBlock.m; sourceTree = "<group>"; };
+		3AE546331D1B0E93006A1CDD /* BBDelivery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDelivery.h; sourceTree = "<group>"; };
+		3AE546341D1B0E93006A1CDD /* BBDelivery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDelivery.m; sourceTree = "<group>"; };
 		3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHeaderFiles.h; sourceTree = "<group>"; };
 		3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStringConstant.h; sourceTree = "<group>"; };
 		3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStringConstant.m; sourceTree = "<group>"; };
@@ -2551,6 +2554,8 @@
 				3AE546281D196899006A1CDD /* BBPurchases.m */,
 				3AE5462A1D1975C4006A1CDD /* BBElementBlock.h */,
 				3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */,
+				3AE546331D1B0E93006A1CDD /* BBDelivery.h */,
+				3AE546341D1B0E93006A1CDD /* BBDelivery.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2924,6 +2929,7 @@
 				3A2D56DE1CF075D200A8EFF5 /* BBStockTableViewCell.m in Sources */,
 				3AF26F4E1D0CBA4E004972FC /* BBAddressService.m in Sources */,
 				3A2D569E1CF075D200A8EFF5 /* BBTabbarRouter.m in Sources */,
+				3AE546351D1B0E93006A1CDD /* BBDelivery.m in Sources */,
 				3A2D56AA1CF075D200A8EFF5 /* BBMyProgramsPresenter.m in Sources */,
 				3A2D56A61CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.m in Sources */,
 				3AF26F4F1D0CBA4E004972FC /* BBCalendarService.m in Sources */,

@@ -10,6 +10,9 @@
 
 @protocol BBOrdersInteractorInput <NSObject>
 
+- (void)listMyDeliveriesOnDataBase;
+- (void)myDeliveriesOnServer;
+
 - (void)listPurchasesUser;
 
 @end
