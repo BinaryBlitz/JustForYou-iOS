@@ -16,8 +16,8 @@ NSString* const kPorouctId = @"kPorouctId";
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.productId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.nameProduct = [JSONObj objectForKey:@"name"];
+        self.productId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.nameProduct = [JSONObj valueForKey:@"name"];
     }
     return self;
 }

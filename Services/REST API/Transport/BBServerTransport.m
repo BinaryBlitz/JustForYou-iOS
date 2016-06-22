@@ -119,7 +119,7 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 
 #pragma mark - Order Methods
 
-- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(CompletionBlock)completion {
+- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone useBonuses:(BOOL)use completion:(CompletionBlock)completion {
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/orders", kServerURL]];
@@ -133,6 +133,7 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
         [array addObject:par];
     }
     NSDictionary* parameters = @{@"phone_number"          : phone,
+                                 @"use_balance"           : [NSNumber numberWithBool:use],
                                  @"line_items_attributes" : array};
     NSDictionary *param = @{@"api_token" : token,
                             @"order" : parameters};

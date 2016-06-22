@@ -29,14 +29,14 @@
 - (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url {
     self = [super init];
     if (self) {
-        self.programId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.name = [JSONObj objectForKey:@"name"];
-        self.descript = [JSONObj objectForKey:@"description"];
-        self.threshold = [[JSONObj objectForKey:@"threshold"] integerValue];
-        self.primaryPrice = [[JSONObj objectForKey:@"primary_price"] integerValue];
-        self.secondaryPrice = [[JSONObj objectForKey:@"secondary_price"] integerValue];
-        self.previewImage = [JSONObj objectForKey:@"preview_image_url"];
-        [self _initPrescriptionArrayWithJSON:[JSONObj objectForKey:@"prescription"]];
+        self.programId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.name = [JSONObj valueForKey:@"name"];
+        self.descript = [JSONObj valueForKey:@"description"];
+        self.threshold = [[JSONObj valueForKey:@"threshold"] integerValue];
+        self.primaryPrice = [[JSONObj valueForKey:@"primary_price"] integerValue];
+        self.secondaryPrice = [[JSONObj valueForKey:@"secondary_price"] integerValue];
+        self.previewImage = [JSONObj valueForKey:@"preview_image_url"];
+        [self _initPrescriptionArrayWithJSON:[JSONObj valueForKey:@"prescription"]];
     }
     return self;
 }

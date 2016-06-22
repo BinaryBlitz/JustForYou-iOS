@@ -13,16 +13,16 @@
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.purchasesId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.numberDays = [[JSONObj objectForKey:@"number_of_days"] integerValue];
+        self.purchasesId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.numberDays = [[JSONObj valueForKey:@"number_of_days"] integerValue];
         [self initProgramOptionsWithPorgram:[JSONObj objectForKey:@"program"]];
     }
     return self;
 }
 
 - (void)initProgramOptionsWithPorgram:(id)prog {
-    self.programId = [[prog objectForKey:@"id"] integerValue];
-    self.nameProgram = [prog objectForKey:@"name"];
+    self.programId = [[prog valueForKey:@"id"] integerValue];
+    self.nameProgram = [prog valueForKey:@"name"];
     self.elementBlock = [[BBElementBlock alloc] initWithProgramId:self.programId];
 }
 

@@ -175,9 +175,9 @@
 
 #pragma mark - Order Methods
 
-- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone completion:(OrderCompletion)completion {
+- (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone useBonuses:(BOOL)use completion:(OrderCompletion)completion {
     [self _checkNetworkConnection];
-    [self.transport createOrderWithOrders:orders apiToken:token numberPhone:phone completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.transport createOrderWithOrders:orders apiToken:token numberPhone:phone useBonuses:use completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSInteger orderId = 0;
         if (!error) {

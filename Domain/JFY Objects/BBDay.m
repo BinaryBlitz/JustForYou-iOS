@@ -26,8 +26,8 @@
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.dayId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.position = [[JSONObj objectForKey:@"position"] integerValue];
+        self.dayId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.position = [[JSONObj valueForKey:@"position"] integerValue];
 //        [self _setMenuToDayWithJSON:[JSONObj objectForKey:@"items"] withDay:self];
     }
     return self;

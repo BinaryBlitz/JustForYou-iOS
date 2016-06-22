@@ -15,10 +15,10 @@
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.stockId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.name = [JSONObj objectForKey:@"name"];
-        self.descript = [JSONObj objectForKey:@"description"];
-        self.date = [[BBCalendarService sharedService] dateForString:[JSONObj objectForKey:@"created_at"]];
+        self.stockId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.name = [JSONObj valueForKey:@"name"];
+        self.descript = [JSONObj valueForKey:@"description"];
+        self.date = [[BBCalendarService sharedService] dateForString:[JSONObj valueForKey:@"created_at"]];
     }
     return self;
 }

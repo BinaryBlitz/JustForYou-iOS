@@ -8,6 +8,8 @@
 
 #import "BBMenu.h"
 
+#import "BBCalendarService.h"
+
 typedef enum : NSInteger {
     BBStartSegment,
     BBEndSegment
@@ -19,22 +21,18 @@ typedef enum : NSInteger {
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.menuId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.content = [JSONObj objectForKey:@"content"];
-        self.weight = [[JSONObj objectForKey:@"weight"] integerValue];
-        self.calories = [[JSONObj objectForKey:@"calories"] integerValue];
-        [self _createDateWithString:[JSONObj objectForKey:@"starts_at"] keySegment:BBStartSegment];
-        [self _createDateWithString:[JSONObj objectForKey:@"ends_at"] keySegment:BBEndSegment];
+        self.menuId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.content = [JSONObj valueForKey:@"content"];
+        self.weight = [[JSONObj valueForKey:@"weight"] integerValue];
+        self.calories = [[JSONObj valueForKey:@"calories"] integerValue];
+        [self _createDateWithString:[JSONObj valueForKey:@"starts_at"] keySegment:BBStartSegment];
+        [self _createDateWithString:[JSONObj valueForKey:@"ends_at"] keySegment:BBEndSegment];
     }
     return self;
 }
 
 -(void)_createDateWithString:(NSString *)dateString keySegment:(BBPieceSegment)segment {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSLocale *posix = [NSLocale systemLocale];//[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    [formatter setLocale:posix];
-    NSDate *date = [formatter dateFromString:dateString];
+    NSDate *date = [[BBCalendarService sharedService] dateForString:dateString];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];

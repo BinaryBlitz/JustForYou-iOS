@@ -17,9 +17,9 @@
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.payCardId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.holder = [JSONObj objectForKey:@"holder"];
-        self.number = [JSONObj objectForKey:@"number"];
+        self.payCardId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.holder = [JSONObj valueForKey:@"holder"];
+        self.number = [JSONObj valueForKey:@"number"];
     }
     return self;
 }

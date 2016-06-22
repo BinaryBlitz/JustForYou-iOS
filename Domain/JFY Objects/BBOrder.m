@@ -20,10 +20,10 @@
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.orderId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.scheduledDay = [[BBCalendarService sharedService] dateForString:[JSONObj objectForKey:@"scheduled_for"]];
+        self.orderId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.scheduledDay = [[BBCalendarService sharedService] dateForString:[JSONObj valueForKey:@"scheduled_for"]];
 //        self.colorProgram = [BBConstantAndColor colorForIdBlock:self.programId];
-        self.commentOrder = [JSONObj objectForKey:@"comment"];
+        self.commentOrder = [JSONObj valueForKey:@"comment"];
     }
     return self;
 }

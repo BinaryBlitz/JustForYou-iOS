@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
+@property (strong, nonatomic) BBSwitchTableViewCell *switchCell;
+
 @property (strong, nonatomic) NSArray *programOrders;
 @property (strong, nonatomic) NSIndexPath *removeIndexPath;
 @property (strong, nonatomic) BBOrderProgram *removeOrder;
@@ -51,7 +53,7 @@ static CGFloat topInsetForTableView = -35.0f;
 #pragma mark - Actions Methods
 
 - (IBAction)payButtonAction:(id)sender {
-    [self.output payButtonDidTap];
+    [self.output payButtonDidTapWithBonusesEnable:[self.switchCell.bonusSwitch isOn] countPayments:[self.programOrders count]];
 }
 
 - (IBAction)closeButtonAction:(id)sender {
@@ -138,6 +140,7 @@ static CGFloat topInsetForTableView = -35.0f;
     if (indexPath.section == 0) {
         BBSwitchTableViewCell *switchCell = [self.tableView dequeueReusableCellWithIdentifier:kSwitchCellIdentifire];
         switchCell.customTextLabel.text = @"Использовать бонусы";
+        self.switchCell = switchCell;
         cell = switchCell;
     } else {
         BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];

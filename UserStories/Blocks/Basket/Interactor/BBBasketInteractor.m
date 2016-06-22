@@ -23,13 +23,17 @@
     [self.output currentOrders:user.ordersProgramArray];
 }
 
-- (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card {
+- (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card useBonuses:(BOOL)use {
     BBUser *user = [[BBUserService sharedService] currentUser];
     __block NSInteger cardId = 0;
     HQDispatchToMainQueue(^{
         cardId = card.payCardId;
     });
-    [[BBServerService sharedService] createOrderWithOrders:user.ordersProgramArray apiToken:[[BBUserService sharedService] tokenUser] numberPhone:user.numberPhone completion:^(BBServerResponse *response, NSInteger orderId, NSError *error) {
+    [[BBServerService sharedService] createOrderWithOrders:user.ordersProgramArray
+                                                  apiToken:[[BBUserService sharedService] tokenUser]
+                                               numberPhone:user.numberPhone
+                                                useBonuses:use
+                                                completion:^(BBServerResponse *response, NSInteger orderId, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (response.responseCode == 201) {
                 if (type == kTypeNewPayment) {

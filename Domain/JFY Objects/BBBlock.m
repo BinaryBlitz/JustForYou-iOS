@@ -25,10 +25,10 @@
 - (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url {
     self = [super init];
     if (self) {
-        self.blockId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.name = [JSONObj objectForKey:@"name"];
-        self.image = [JSONObj objectForKey:@"image_url"];
-        self.programs_count = [[JSONObj objectForKey:@"programs_count"] integerValue];
+        self.blockId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.name = [JSONObj valueForKey:@"name"];
+        self.image = [JSONObj valueForKey:@"image_url"];
+        self.programs_count = [[JSONObj valueForKey:@"programs_count"] integerValue];
     }
     return self;
 }

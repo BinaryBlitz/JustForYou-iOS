@@ -22,10 +22,13 @@
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBPaymentModuleInput> paymentModule;
 
+@property (assign, nonatomic) BOOL switchBonuses;
+
 @end
 
 static NSString *messagePayAlert = @"Выберите карту которой хотите оплатить";
 
+static NSString *basketIsEmpty = @"Выберите программу которую хотите купить";
 static NSString *paymentSuccessfull = @"Оплата успешно произведена";
 static NSString *paymentError = @"Произошла ошибка оплаты. Проверьте баланс своей карты или попробуйте позже";
 
@@ -64,18 +67,23 @@ static NSString *paymentError = @"Произошла ошибка оплаты. 
     [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
 }
 
-- (void)payButtonDidTap {
-    [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+- (void)payButtonDidTapWithBonusesEnable:(BOOL)enable countPayments:(NSInteger)count {
+    if (count > 0) {
+        self.switchBonuses = enable;
+        [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+    } else {
+        [self.view presentAlertWithTitle:kNoteTitle message:basketIsEmpty];
+    }
 }
 
 - (void)payNewCardButtonDidTap {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor createOrderOnServerWithTypePayment:kTypeNewPayment payCard:nil];
+    [self.interactor createOrderOnServerWithTypePayment:kTypeNewPayment payCard:nil useBonuses:self.switchBonuses];
 }
 
 - (void)payCardWithCard:(BBPayCard *)card {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card];
+    [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card useBonuses:self.switchBonuses];
 }
 
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {

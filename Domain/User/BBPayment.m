@@ -13,8 +13,8 @@
 -(instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.paymentId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.paymentURL = [JSONObj objectForKey:@"payment_url"];
+        self.paymentId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.paymentURL = [JSONObj valueForKey:@"payment_url"];
     }
     return self;
 }

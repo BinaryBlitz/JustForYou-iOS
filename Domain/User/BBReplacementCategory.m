@@ -13,9 +13,9 @@
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.categoryId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.nameCategory = [JSONObj objectForKey:@"name"];
-        self.products = [self parseProductsWithJSON:[JSONObj objectForKey:@"products"]];
+        self.categoryId = [[JSONObj valueForKey:@"id"] integerValue];
+        self.nameCategory = [JSONObj valueForKey:@"name"];
+        self.products = [self parseProductsWithJSON:[JSONObj valueForKey:@"products"]];
     }
     return self;
 }

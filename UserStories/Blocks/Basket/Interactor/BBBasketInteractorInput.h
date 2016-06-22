@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
 
 - (void)deleteAllOrderProgramsOnUser;
 
-- (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card;
+- (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card useBonuses:(BOOL)use;
 
 - (NSArray *)currentUserPayCards;
 

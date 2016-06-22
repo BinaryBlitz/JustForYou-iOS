@@ -151,7 +151,11 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.keyModule == kSharesModule) {
+        id obj;
         if ([self.objects count] > 0) {
+            obj = self.objects.firstObject;
+        }
+        if ([self.objects count] > 0 && (obj && [obj isKindOfClass:[BBStock class]])) {
             BBStock *stock = [self.objects objectAtIndex:section];
             return [stock dateForUI];
         }
@@ -186,6 +190,11 @@ static CGFloat heightFooterSection = 10.0f;
     accessoryCell.accessoryImageView.hidden = YES;
     accessoryCell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
     
+    id obj;
+    if ([self.objects count] > 0) {
+        obj = self.objects.firstObject;
+    }
+    
     if (self.keyModule == kMyProgramModule) {
         BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
         return cell;
@@ -201,7 +210,7 @@ static CGFloat heightFooterSection = 10.0f;
         accessoryCell.textLabel.text = addressString;
         return accessoryCell;
     } else if (self.keyModule == kSharesModule) {
-        if ([self.objects count] == 0) {
+        if ([self.objects count] == 0 || (obj && ![obj isKindOfClass:[BBStock class]])) {
             accessoryCell.textLabel.text = @"В настоящий момент акций нет";
             return accessoryCell;
         }

@@ -8,6 +8,8 @@
 
 #import "BBProfileTableViewCell.h"
 
+#import "BBUserService.h"
+
 @implementation BBProfileTableViewCell
 
 - (void)awakeFromNib {
@@ -19,6 +21,7 @@
     [super layoutSubviews];
     [self _layoutImageView];
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
