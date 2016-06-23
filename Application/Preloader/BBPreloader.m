@@ -59,6 +59,7 @@ static NSInteger shemaVersionRealm = 23;
 - (void)_setStartControllerToRoot {
     BBUser *user = [[BBUserService sharedService] currentUser];
     if (user) {
+        [self _addPushNotification];
         [self.tabbarModule presentInWindow:self.window];
         [self _updateUserOnDataBase];
     } else {
@@ -80,9 +81,16 @@ static NSInteger shemaVersionRealm = 23;
     }];
 }
 
+- (void)_addPushNotification {
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
 #pragma mark - методы BBNavigationModuleOutput
 
 - (void)userRegistrationFulfilled {
+    [self _addPushNotification];
     UIViewController *vc = [self.tabbarModule currentView];
     __weak typeof(self)weakSelf = self;
     HQDispatchToMainQueue(^{

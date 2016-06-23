@@ -45,7 +45,7 @@ typedef void (^ReceiveData)(NSData* data);
 
 #pragma mark - Push Methods
 
-- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSString *)deviceToken completion:(Completion)completion;
+- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSData *)deviceToken completion:(Completion)completion;
 
 #pragma mark - Blocks And Programs
 

@@ -127,7 +127,7 @@
 
 #pragma mark - Push Methods
 
-- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSString *)deviceToken completion:(Completion)completion {
+- (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSData *)deviceToken completion:(Completion)completion {
     [self _checkNetworkConnection];
     [self.transport updateDeviceTokenWithApiToken:apiToken deviceToken:deviceToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];

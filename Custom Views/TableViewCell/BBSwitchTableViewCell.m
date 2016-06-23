@@ -8,6 +8,9 @@
 
 #import "BBSwitchTableViewCell.h"
 
+#import "BBServerService.h"
+#import "BBUserService.h"
+
 @implementation BBSwitchTableViewCell
 
 - (void)awakeFromNib {
@@ -15,6 +18,8 @@
     self.setRadius = NO;
     self.kSideCornerRadius = kNoneCornerRadius;
     self.kStyleContentCell = kStandartContentCell;
+    self.keySwitch = kBonusesSwitch;
+    [self.bonusSwitch addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,6 +27,22 @@
 
     // Configure the view for the selected state
 }
+
+- (void)setState:(id)sender {
+    BOOL state = [sender isOn];
+    
+    if (self.keySwitch == kPushNotificationSwitch) {
+        if (state == NO) {
+            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+            [[BBServerService sharedService] updateDeviceTokenWithApiToken:[[BBUserService sharedService] tokenUser] deviceToken:nil completion:^(BBServerResponse *response, NSError *error) {
+            }];
+        } else {
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+        }
+        
+    }
+}
+
 
 - (void)layoutSubviews {
     [super layoutSubviews];

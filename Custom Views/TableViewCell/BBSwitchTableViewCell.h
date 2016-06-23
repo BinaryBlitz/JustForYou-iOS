@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    kBonusesSwitch,
+    kPushNotificationSwitch
+}BBKeyForSwitch;
+
 @interface BBSwitchTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UISwitch *bonusSwitch;
@@ -16,5 +21,6 @@
 @property (nonatomic) BOOL setRadius;
 @property (nonatomic) BBKeyCornerRadius kSideCornerRadius;
 @property (nonatomic) BBKeyStyleContentCell kStyleContentCell;
+@property (nonatomic) BBKeyForSwitch keySwitch;
 
 @end

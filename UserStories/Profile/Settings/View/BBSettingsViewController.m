@@ -132,6 +132,7 @@ static CGFloat heightFooterSection = 1.0f;
         switchCell.setRadius = YES;
         switchCell.kSideCornerRadius = kAllCornerRadius;
         switchCell.kStyleContentCell = kCardContentCell;
+        switchCell.keySwitch = kPushNotificationSwitch;
         cell = switchCell;
     } else {
         if (indexPath.section == 0) {
