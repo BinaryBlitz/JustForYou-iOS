@@ -23,7 +23,11 @@
 
 - (void)reloadUIWithProgram:(BBProgram *)program {
     self.program = program;
-    self.nameLabel.text = program.name;
+    if (program.name) {
+        self.nameLabel.text = program.name;
+    } else {
+        self.nameLabel.text = @"";
+    }
     NSString *day = @"";
     if (self.program.threshold == 1) {
         day = [NSString stringWithFormat:@"При заказе от %ld дня: %ld Р",(long)program.threshold, (long)program.secondaryPrice];

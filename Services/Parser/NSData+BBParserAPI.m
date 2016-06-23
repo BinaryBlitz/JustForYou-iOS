@@ -67,7 +67,9 @@
         }
         if (key == kTypeDayInData) {
             if ([result count] > 0) {
-                [[BBDataBaseService sharedService] addOrUpdateDaysFromArray:result parentId:parentId];
+                HQDispatchToMainQueue(^{
+                    [[BBDataBaseService sharedService] addOrUpdateDaysFromArray:result parentId:parentId];
+                });
             }
         }
     }

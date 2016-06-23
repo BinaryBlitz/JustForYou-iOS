@@ -26,6 +26,15 @@
     self.first = first;
     self.second = second;
     self.third = third;
+    if (!first) {
+        first = @"";
+    }
+    if (!second) {
+        second = @"";
+    }
+    if (!third) {
+        third = @"";
+    }
     self.descriptLabel.text = [NSString stringWithFormat:@"1. %@\n\n2. %@\n\n3. %@\n", first, second, third];
 }
 

@@ -53,10 +53,10 @@ static NSString *kImageNameBasket = @"basket";
 
 - (void)viewWillAppear {
     [self.interactor checkBasket];
+    [self.interactor programInDataBaseWithParentId:self.programId];
     NSArray *res = [self.interactor checkDaysInDataBaseWith:self.programId];
     if (res && [res count] > 0) {
         self.clearData = NO;
-        [self.interactor programInDataBaseWithParentId:self.programId];
         [self.interactor listDaysWithParentId:self.programId];
     } else {
         self.clearData = YES;
