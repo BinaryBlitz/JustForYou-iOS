@@ -13,6 +13,7 @@
 #import "BBDay.h"
 
 #import "BBDataBaseService.h"
+#import "BBUserService.h"
 
 @implementation NSData (BBParserAPI)
 
@@ -175,7 +176,9 @@
     if ([JSONObj isKindOfClass:[NSArray class]]) {
         for (id obj in JSONObj) {
             id json = [obj objectForKey:@"product"];
+            NSInteger substId = [[obj valueForKey:@"id"] integerValue];
             BBReplacementProduct *card = [[BBReplacementProduct alloc] initWithJSON:json];
+            card.substId = substId;
             [result addObject:card];
         }
     }

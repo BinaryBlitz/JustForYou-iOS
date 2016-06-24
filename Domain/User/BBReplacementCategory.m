@@ -8,6 +8,8 @@
 
 #import "BBReplacementCategory.h"
 
+#import "BBUserService.h"
+
 @implementation BBReplacementCategory
 
 - (instancetype)initWithJSON:(id)JSONObj {
@@ -22,10 +24,19 @@
 
 - (NSArray *)parseProductsWithJSON:(id)JSONObj {
     NSMutableArray *products = [NSMutableArray array];
+    NSArray *arrayUser = [[BBUserService sharedService] currentReplacementUser];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
         for (id obj in JSONObj) {
             BBReplacementProduct *product = [[BBReplacementProduct alloc] initWithJSON:obj];
-            [products addObject:product];
+            if ([arrayUser count] != 0) {
+                for (BBReplacementProduct *userProd in arrayUser) {
+                    if (userProd.productId != product.productId) {
+                        [products addObject:product];
+                    }
+                }
+            } else {
+                [products addObject:product];
+            }
         }
     }
     return products;

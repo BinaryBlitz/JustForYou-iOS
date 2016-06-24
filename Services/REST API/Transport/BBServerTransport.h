@@ -65,7 +65,7 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 - (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSString *)productId completion:(CompletionBlock)completion;
 - (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
-
+- (void)deleteUserReplacementWithApiToken:(NSString *)apiToken replacementId:(NSString *)replacementId completion:(CompletionBlock)completion;
 
 #pragma mark - Address Methods
 

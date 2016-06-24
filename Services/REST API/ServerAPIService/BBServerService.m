@@ -321,13 +321,16 @@
     }];
 }
 
-- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(Completion)completion {
+- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(OrderCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createReplacementWithApiToken:apiToken productId:[NSString stringWithFormat:@"%ld", (long)productId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
-        
+        NSInteger prodId = 0;
+        if (!error) {
+            prodId = [data parseCreatingOrderPrograms];
+        }
         if (completion) {
-            completion(responseServer, error);
+            completion(responseServer, prodId, error);
         }
     }];
 }
@@ -343,6 +346,16 @@
         
         if (completion) {
             completion(responseServer, result, error);
+        }
+    }];
+}
+
+- (void)deleteUserReplacementWithApiToken:(NSString *)apiToken replacementId:(NSString *)replacementId completion:(Completion)completion {
+    [self _checkNetworkConnection];
+    [self.transport deleteUserReplacementWithApiToken:apiToken replacementId:replacementId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        if (completion) {
+            completion(responseServer, error);
         }
     }];
 }

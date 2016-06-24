@@ -269,6 +269,15 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+
+- (void)deleteUserReplacementWithApiToken:(NSString *)apiToken replacementId:(NSString *)replacementId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/substitutions/%@?api_token=%@", kServerURL, replacementId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:DELETE];
+    [self sendRequest:request completion:completion];
+}
+
 #pragma mark - Address Methods
 
 - (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {

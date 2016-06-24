@@ -97,24 +97,25 @@ static CGFloat heightHeaderSection = 10.0f;
 
 - (void)endUpdateTableViewWithNewReplacement:(NSArray *)replacement {
     [self _setNewReplasement:replacement];
-    NSInteger update = self.countCell - [self.replacement count];
-    
-    NSIndexSet *section;
-    [self.tableView beginUpdates];
-    if ([self.replacement count] == 0) {
-        section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, update - 1)];
-        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+    HQDispatchToMainQueue(^{
+        NSInteger update = self.countCell - [self.replacement count];
+        NSIndexSet *section;
+        [self.tableView beginUpdates];
+        if ([self.replacement count] == 0) {
+            section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, update - 1)];
+            [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+        } else {
+            section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, update)];
+        }
         
-    } else {
-        section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, update)];
-    }
-    
-    if ([replacement count] != 0) {
-        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
-    } else {
-        [self.tableView reloadData];
-    }
-    [self.tableView endUpdates];
+        if ([replacement count] != 0) {
+            [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+        } else {
+            [self.tableView reloadData];
+        }
+        [self.tableView endUpdates];
+    });
 }
 
 - (void)_setNewReplasement:(NSArray *)replacement {

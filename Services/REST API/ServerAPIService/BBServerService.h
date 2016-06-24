@@ -76,9 +76,9 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Replacement Methods
 
 - (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
-- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(Completion)completion;
+- (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(OrderCompletion)completion;
 - (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
-
+- (void)deleteUserReplacementWithApiToken:(NSString *)apiToken replacementId:(NSString *)replacementId completion:(Completion)completion;
 
 #pragma mark - Address Methods
 

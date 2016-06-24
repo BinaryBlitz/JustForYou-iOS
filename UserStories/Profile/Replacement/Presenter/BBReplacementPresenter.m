@@ -79,6 +79,7 @@
 }
 
 - (void)deleteElementWithText:(BBReplacementProduct *)product {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
     [self.interactor deleteElementInArrayWithElement:product];
 }
 
@@ -94,6 +95,7 @@
 }
 
 - (void)elemetnDidDeleteWithNewArray:(NSArray *)array {
+    [self.view hideBackgroundLoaderViewWithAlpha];
     [self.view endUpdateTableViewWithNewReplacement:array];
 }
 
