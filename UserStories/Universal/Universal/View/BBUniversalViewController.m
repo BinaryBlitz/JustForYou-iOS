@@ -88,15 +88,17 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (void)updateTableViewWithDeletedObjects:(NSArray *)objects {
     self.objects = objects;
-    self.count = [objects count];
-    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
-    [self.tableView beginUpdates];
-    if ([objects count] != 0) {
-        [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
-    } else {
-        [self.tableView reloadData];
-    }
-    [self.tableView endUpdates];
+    HQDispatchToMainQueue(^{
+        self.count = [objects count];
+        NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
+        [self.tableView beginUpdates];
+        if ([objects count] != 0) {
+            [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+        } else {
+            [self.tableView reloadData];
+        }
+        [self.tableView endUpdates];
+    });
 }
 
 

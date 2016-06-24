@@ -83,6 +83,7 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Address Methods
 
 - (void)createAddressWithApiToken:(NSString *)apiToken address:(BBAddress *)address completion:(AddressCompletion)completion;
+- (void)deleteAddressWithApiToken:(NSString *)apiToken addressId:(NSString *)addressId completion:(Completion)completion;
 
 #pragma  mark - PayCard Methods
 

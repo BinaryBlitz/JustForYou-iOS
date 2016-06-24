@@ -25,9 +25,22 @@
     [self.output currentAddressArray:user.addressArray];
 }
 
-- (NSArray *)deleteAddress:(BBAddress *)address {
-    [[BBUserService sharedService] deleteAddressOnUser:address];
-    return [[BBUserService sharedService] currentUser].addressArray;
+- (void)deleteAddress:(BBAddress *)address {
+    __block BBAddress *addr = address;
+    [[BBServerService sharedService] deleteAddressWithApiToken:[[BBUserService sharedService] tokenUser]
+                                                     addressId:[NSString stringWithFormat:@"%ld", (long)address.addressId]
+                                                    completion:^(BBServerResponse *response, NSError *error) {
+                                                        if (response.kConnectionServer == kSuccessfullyConnection) {
+                                                            if (response.serverError == kServerErrorSuccessfull) {
+                                                                [[BBUserService sharedService] deleteAddressOnUser:addr];
+                                                                [self.output currentAddressArrayWithDeletedAddress:[[BBUserService sharedService] currentUser].addressArray];
+                                                            } else {
+                                                                [self.output errorServer];
+                                                            }
+                                                        } else {
+                                                            [self.output errorNetwork];
+                                                        }
+    }];
 }
 
 #pragma mark - Stocks

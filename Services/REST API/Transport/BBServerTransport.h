@@ -71,6 +71,7 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 
 - (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)createAddressWithApiToken:(NSString *)apiToken address:(BBAddress *)address completion:(CompletionBlock)completion;
+- (void)deleteAddressWithApiToken:(NSString *)apiToken addressId:(NSString *)addressId completion:(CompletionBlock)completion;
 
 #pragma mark - Geolocation
 

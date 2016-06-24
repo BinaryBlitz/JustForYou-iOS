@@ -18,6 +18,8 @@
 
 - (void)showLoaderView;
 - (void)hideLoaderView;
+- (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
+- (void)hideBackgroundLoaderViewWithAlpha;
 
 - (void)updateTableViewWithArrayObjects:(NSArray *)objects;
 - (void)updateTableViewWithDeletedObjects:(NSArray *)objects;

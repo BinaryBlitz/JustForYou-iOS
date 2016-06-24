@@ -366,6 +366,17 @@
     }];
 }
 
+- (void)deleteAddressWithApiToken:(NSString *)apiToken addressId:(NSString *)addressId completion:(Completion)completion {
+    [self _checkNetworkConnection];
+    [self.transport deleteAddressWithApiToken:apiToken addressId:addressId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        if (completion) {
+            completion(responseServer, error);
+        }
+    }];
+}
+
+
 #pragma  mark - PayCard Methods
 
 - (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {

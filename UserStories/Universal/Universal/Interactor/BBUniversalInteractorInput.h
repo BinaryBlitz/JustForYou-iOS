@@ -14,7 +14,7 @@
 
 - (void)currentAddressArray;
 
-- (NSArray *)deleteAddress:(BBAddress *)address;
+- (void)deleteAddress:(BBAddress *)address;
 
 #pragma mark - Stock
 

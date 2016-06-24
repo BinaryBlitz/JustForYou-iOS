@@ -292,6 +292,14 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)deleteAddressWithApiToken:(NSString *)apiToken addressId:(NSString *)addressId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/addresses/%@?api_token=%@", kServerURL, addressId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:DELETE];
+    [self sendRequest:request completion:completion];
+}
+
 #pragma mark - Geolocation
 
 - (void)searchGeolocationWithURL:(NSURL *)url completion:(CompletionBlock)completion {

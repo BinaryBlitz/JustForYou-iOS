@@ -119,8 +119,8 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 }
 
 - (void)deletedCellWithAddress:(BBAddress *)address {
-    NSArray *objects = [self.interactor deleteAddress:address];
-    [self.view updateTableViewWithDeletedObjects:objects];
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor deleteAddress:address];
 }
 
 - (void)addBarButtonDidTap {
@@ -142,6 +142,21 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 - (void)currentPayCardsUserWithArray:(NSArray *)array {
     [self.view hideLoaderView];
     [self.view updateTableViewWithArrayObjects:array];
+}
+
+- (void)currentAddressArrayWithDeletedAddress:(NSArray *)array {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view updateTableViewWithDeletedObjects:array];
+}
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
 #pragma mark - Lazy Load
