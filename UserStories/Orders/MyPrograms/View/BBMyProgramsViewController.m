@@ -64,7 +64,7 @@ static CGFloat verticalInset = 10.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimatedHeightCell;
     self.tableView.contentInset = UIEdgeInsetsMake(verticalInset, 0, verticalInset, 0);
-    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
+//    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,7 +72,7 @@ static CGFloat verticalInset = 10.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBMyProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyProgramCellIdentifire];
+    BBMyProgramTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:kNibNameMyProgramCell owner:self options:nil].lastObject;
     cell.keyMode = kProgramCellModeCornerRadius;
     cell.purchases = [self.purchases objectAtIndex:indexPath.row];
     return cell;

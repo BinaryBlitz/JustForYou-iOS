@@ -11,4 +11,6 @@
 
 @protocol BBProfileRouterInput <NSObject>
 
+- (void)popViewControllerWithNavigationController:(UINavigationController *)nc;
+
 @end

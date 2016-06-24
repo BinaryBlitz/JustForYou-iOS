@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" generatesPrototypingConstraints="YES" useTraitCollections="YES" colorMatched="NO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -55,16 +56,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G1R-N7-2h0">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="535"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G1R-N7-2h0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="534"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6MD-d2-3LA" id="EFK-9a-eIF"/>
                                     <outlet property="delegate" destination="6MD-d2-3LA" id="juH-zN-7jk"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-OC-rEq">
-                                <rect key="frame" x="76" y="535" width="448" height="43"/>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-OC-rEq">
+                                <rect key="frame" x="76" y="534" width="448" height="43"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.32156862749999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ВЫЙТИ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,6 +132,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acu-Mc-KTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1913" y="2739"/>
+        </scene>
+        <!--List My Prog View Controller-->
+        <scene sceneID="xRH-1c-5F9">
+            <objects>
+                <viewController storyboardIdentifier="BBListMyProgViewController" id="ICP-aC-NEa" customClass="BBListMyProgViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i1l-XX-gB0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ti8-H1-anb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aTb-ul-kYr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8n-W0-bG1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ICP-aC-NEa" id="cHY-LH-5n2"/>
+                                    <outlet property="delegate" destination="ICP-aC-NEa" id="fw0-ku-Wkj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o8n-W0-bG1" firstAttribute="top" secondItem="aTb-ul-kYr" secondAttribute="top" id="36u-3j-x8e"/>
+                            <constraint firstItem="Ti8-H1-anb" firstAttribute="top" secondItem="o8n-W0-bG1" secondAttribute="bottom" id="HyE-wH-BoL"/>
+                            <constraint firstItem="o8n-W0-bG1" firstAttribute="leading" secondItem="aTb-ul-kYr" secondAttribute="leading" id="lXE-lr-XtM"/>
+                            <constraint firstAttribute="trailing" secondItem="o8n-W0-bG1" secondAttribute="trailing" id="pTh-II-kft"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="o8n-W0-bG1" id="m60-ER-H0a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVZ-uF-RdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2717" y="2739"/>
         </scene>
     </scenes>
 </document>

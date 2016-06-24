@@ -16,6 +16,9 @@ NSString * const DELETE = @"DELETE";
 
 NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 
+@interface BBServerTransport () <NSURLConnectionDelegate>
+
+@end
 
 @implementation BBServerTransport
 

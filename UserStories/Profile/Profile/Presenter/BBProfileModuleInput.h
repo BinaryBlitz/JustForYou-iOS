@@ -14,4 +14,6 @@
 
 - (id)currentViewWithModule:(id)module;
 
+- (void)popModule;
+
 @end

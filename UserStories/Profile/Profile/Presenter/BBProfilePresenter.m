@@ -23,12 +23,16 @@
 #import "BBReplacementAssembly.h"
 #import "BBReplacementModuleInput.h"
 
+#import "BBListMyProgAssembly.h"
+#import "BBListMyProgModuleInput.h"
+
 @interface BBProfilePresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBSettingsModuleInput> settingsModule;
 @property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
 @property (strong, nonatomic) id<BBReplacementModuleInput> replacementModule;
+@property (strong, nonatomic) id<BBListMyProgModuleInput> myListProgramModule;
 
 @end
 
@@ -43,6 +47,10 @@
 - (id)currentViewWithModule:(id)module {
     self.navigationModule = module;
     return self.view;
+}
+
+- (void)popModule {
+    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBProfileViewOutput
@@ -63,7 +71,11 @@
     if (key == kReplacementModule) {
         [self.replacementModule pushModuleWithNavigationModule:self.navigationModule withType:kViewReplacementType];
     } else {
-        [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
+        if (key == kMyProgramModule) {
+            [self.myListProgramModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
+        } else {
+            [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
+        }
     }
 }
 
@@ -94,6 +106,13 @@
         _replacementModule = [BBReplacementAssembly createModule];
     }
     return _replacementModule;
+}
+
+- (id<BBListMyProgModuleInput>)myListProgramModule {
+    if (!_myListProgramModule) {
+        _myListProgramModule = [BBListMyProgAssembly createModule];
+    }
+    return _myListProgramModule;
 }
 
 @end
