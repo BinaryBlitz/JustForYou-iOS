@@ -18,4 +18,6 @@
 
 - (void)updateTableViewWithArrayObjects:(NSArray *)objects;
 
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle;
+
 @end

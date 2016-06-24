@@ -13,6 +13,6 @@
 @property (strong, nonatomic) NSString *nameBlock;
 @property (strong, nonatomic) UIColor *colorBlock;
 
-- (instancetype)initWithProgramId:(NSInteger)programId;
+- (instancetype)initWithBlockId:(NSInteger)blockId;
 
 @end

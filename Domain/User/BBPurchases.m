@@ -23,7 +23,7 @@
 - (void)initProgramOptionsWithPorgram:(id)prog {
     self.programId = [[prog valueForKey:@"id"] integerValue];
     self.nameProgram = [prog valueForKey:@"name"];
-    self.elementBlock = [[BBElementBlock alloc] initWithProgramId:self.programId];
+    self.elementBlock = [[BBElementBlock alloc] initWithBlockId:[[prog valueForKey:@"block_id"] integerValue]];
 }
 
 @end

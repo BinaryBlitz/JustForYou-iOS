@@ -8,6 +8,10 @@
 
 #import "BBMyOldProgramTableViewCell.h"
 
+@interface BBMyOldProgramTableViewCell()
+
+@end
+
 @implementation BBMyOldProgramTableViewCell
 
 - (void)awakeFromNib {
@@ -27,7 +31,9 @@
 }
 
 - (IBAction)extendButtonAction:(id)sender {
-    
+    if ([self.delegate respondsToSelector:@selector(extendButtonDidTap)]) {
+        [self.delegate extendButtonDidTap];
+    }
 }
 
 #pragma mark - Draw Methods

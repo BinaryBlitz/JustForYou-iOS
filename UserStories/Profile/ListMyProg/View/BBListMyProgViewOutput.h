@@ -14,4 +14,6 @@
 
 - (void)viewWillAppear;
 
+- (void)okButtonDidTapWithCountDays:(NSInteger)count programId:(NSInteger)programId;
+
 @end

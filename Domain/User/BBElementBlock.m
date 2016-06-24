@@ -10,12 +10,12 @@
 
 @implementation BBElementBlock
 
-- (instancetype)initWithProgramId:(NSInteger)programId {
+- (instancetype)initWithBlockId:(NSInteger)blockId {
     self = [super init];
     if (self) {
-        BBProgram *program = [BBProgram objectsWhere:[NSString stringWithFormat:@"programId=%ld", (long)programId]].firstObject;
-        self.colorBlock = [BBConstantAndColor colorForIdBlock:program.block.blockId];
-        self.nameBlock = program.block.name;
+        BBBlock *block = [BBBlock objectsWhere:[NSString stringWithFormat:@"blockId=%ld", (long)blockId]].firstObject;
+        self.colorBlock = [BBConstantAndColor colorForIdBlock:blockId];
+        self.nameBlock = block.name;
     }
     return self;
 }

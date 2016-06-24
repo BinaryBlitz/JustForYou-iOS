@@ -10,9 +10,13 @@
 
 #import "BBListMyProgViewOutput.h"
 
-@interface BBListMyProgViewController() <UITableViewDelegate, UITableViewDataSource>
+#import "BBAddBasketViewPopover.h"
+
+@interface BBListMyProgViewController() <UITableViewDelegate, UITableViewDataSource, BBAddBasketViewDelegate, BBMyOldProgramCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
 @property (strong, nonatomic) NSArray *objects;
 
@@ -57,6 +61,13 @@ static CGFloat contentInset = 20.0f;
     [self presentAlertControllerWithTitle:title message:message];
 }
 
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
+    //    self.addInBasketButton.enabled = NO;
+    [self.addBasketPopover removeFromSuperview];
+    
+    [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
+}
+
 #pragma mark - TableView Methods
 
 - (void)_settingTableView {
@@ -73,8 +84,32 @@ static CGFloat contentInset = 20.0f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
+    cell.delegate = self;
     return cell;
 }
 
+#pragma mark - Delegate Methods
+
+- (void)extendButtonDidTap {
+    [self _showAddInBasketPopover];
+}
+
+- (void)_showAddInBasketPopover {
+    [self.view addSubview:self.addBasketPopover];
+}
+
+- (void)okButtonDidTapWithCountDays:(NSInteger)count {
+//    [self.output okButtonDidTapWithCountDays:count];
+}
+
+#pragma mark - Lazy Load
+
+- (BBAddBasketViewPopover *)addBasketPopover {
+    if (!_addBasketPopover) {
+        _addBasketPopover = [[BBAddBasketViewPopover alloc] initWithFrame:self.view.bounds];
+        _addBasketPopover.delegate = self;
+    }
+    return _addBasketPopover;
+}
 
 @end

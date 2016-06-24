@@ -10,8 +10,14 @@
 
 #import "BBListMyProgInteractorOutput.h"
 
+#import "BBUserService.h"
+
 @implementation BBListMyProgInteractor
 
 #pragma mark - Методы BBListMyProgInteractorInput
+
+- (void)addInOrdersUserOrderWithProgramId:(NSInteger)programId countDay:(NSInteger)countDay {
+    [[BBUserService sharedService] addOrderProgramToUserWithProgramId:programId countDays:countDay];
+}
 
 @end

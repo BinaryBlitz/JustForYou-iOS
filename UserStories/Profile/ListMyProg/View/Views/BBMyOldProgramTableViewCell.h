@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BBMyOldProgramCellDelegate;
+
 @interface BBMyOldProgramTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
@@ -16,5 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *replaceButton;
 @property (weak, nonatomic) IBOutlet UIButton *extendButton;
 
+@property (strong, nonatomic) id<BBMyOldProgramCellDelegate> delegate;
+
+@end
+
+@protocol BBMyOldProgramCellDelegate <NSObject>
+
+- (void)extendButtonDidTap;
 
 @end
