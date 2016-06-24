@@ -200,9 +200,6 @@ static CGFloat heightFooterSection = 10.0f;
     if (self.keyModule == kMyProgramModule) {
         BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
         return cell;
-    } else if (self.keyModule == kMyHystoryPaymentModule) {
-        BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
-        return cell;
     } else if (self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
         NSString *addressString = @"У вас пока нет ни одного адреса";
         if ([self.objects count] != 0) {

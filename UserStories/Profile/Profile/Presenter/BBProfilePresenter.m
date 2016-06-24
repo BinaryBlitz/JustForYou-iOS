@@ -26,6 +26,9 @@
 #import "BBListMyProgAssembly.h"
 #import "BBListMyProgModuleInput.h"
 
+#import "BBMyHistoryAssembly.h"
+#import "BBMyHistoryModuleInput.h"
+
 @interface BBProfilePresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
@@ -33,6 +36,7 @@
 @property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
 @property (strong, nonatomic) id<BBReplacementModuleInput> replacementModule;
 @property (strong, nonatomic) id<BBListMyProgModuleInput> myListProgramModule;
+@property (strong, nonatomic) id<BBMyHistoryModuleInput> myHistoryModule;
 
 @end
 
@@ -73,6 +77,8 @@
     } else {
         if (key == kMyProgramModule) {
             [self.myListProgramModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
+        } else if (key == kMyHystoryPaymentModule) {
+            [self.myHistoryModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
         } else {
             [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
         }
@@ -113,6 +119,13 @@
         _myListProgramModule = [BBListMyProgAssembly createModule];
     }
     return _myListProgramModule;
+}
+
+- (id<BBMyHistoryModuleInput>)myHistoryModule {
+    if (!_myHistoryModule) {
+        _myHistoryModule = [BBMyHistoryAssembly createModule];
+    }
+    return _myHistoryModule;
 }
 
 @end

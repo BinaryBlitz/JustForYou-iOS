@@ -170,5 +170,42 @@
             </objects>
             <point key="canvasLocation" x="2717" y="2739"/>
         </scene>
+        <!--My History View Controller-->
+        <scene sceneID="3he-tY-INJ">
+            <objects>
+                <viewController storyboardIdentifier="BBMyHistoryViewController" id="rYd-3e-zTh" customClass="BBMyHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3OS-fR-FWE"/>
+                        <viewControllerLayoutGuide type="bottom" id="pdZ-Iq-Uz8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yc3-VQ-tkk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G72-j4-TNR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rYd-3e-zTh" id="js5-z4-3hE"/>
+                                    <outlet property="delegate" destination="rYd-3e-zTh" id="S6w-Pb-fOq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G72-j4-TNR" firstAttribute="leading" secondItem="Yc3-VQ-tkk" secondAttribute="leading" id="I2M-Qn-uAl"/>
+                            <constraint firstItem="pdZ-Iq-Uz8" firstAttribute="top" secondItem="G72-j4-TNR" secondAttribute="bottom" id="PEy-1I-pvV"/>
+                            <constraint firstAttribute="trailing" secondItem="G72-j4-TNR" secondAttribute="trailing" id="QsB-42-Ltn"/>
+                            <constraint firstItem="G72-j4-TNR" firstAttribute="top" secondItem="Yc3-VQ-tkk" secondAttribute="top" id="nqc-6T-hH0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="G72-j4-TNR" id="vLw-Wf-iBh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WG1-53-deP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3495" y="2739"/>
+        </scene>
     </scenes>
 </document>
