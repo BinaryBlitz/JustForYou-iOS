@@ -169,6 +169,14 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 }
 
 
+- (void)listOrdersWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/orders?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:GET];
+    [self sendRequest:request completion:completion];
+}
+
 #pragma mark - Deliveries Methods
 
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {

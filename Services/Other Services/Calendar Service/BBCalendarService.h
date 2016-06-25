@@ -17,5 +17,6 @@
 - (NSDate *)dateForString:(NSString *)dateString;
 
 - (NSString *)stringForDate:(NSDate *)date;
+- (NSString *)stringWithDateForDate:(NSDate *)date;
 
 @end

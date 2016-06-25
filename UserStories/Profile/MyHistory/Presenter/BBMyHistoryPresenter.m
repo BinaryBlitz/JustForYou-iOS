@@ -44,9 +44,26 @@
 }
 
 - (void)viewWillAppear {
-    
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor listMyHistoryOrder];
 }
 
 #pragma mark - Методы BBMyHistoryInteractorOutput
+
+- (void)ordersWithArray:(NSArray *)orders {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view updateTableViewWithArrayObjects:orders];
+}
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
+
 
 @end

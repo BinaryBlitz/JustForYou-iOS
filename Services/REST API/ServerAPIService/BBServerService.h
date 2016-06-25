@@ -56,6 +56,7 @@ typedef void (^ReceiveData)(NSData* data);
 #pragma mark - Order Methods
 
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone useBonuses:(BOOL)use completion:(OrderCompletion)completion;
+- (void)listOrdersWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 
 #pragma mark - Deliveries Methods
 

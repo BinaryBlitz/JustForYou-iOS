@@ -10,4 +10,9 @@
 
 @protocol BBMyHistoryInteractorOutput <NSObject>
 
+- (void)ordersWithArray:(NSArray *)orders;
+
+- (void)errorNetwork;
+- (void)errorServer;
+
 @end

@@ -85,6 +85,23 @@
     return [[JSONObj objectForKey:@"id"] integerValue];
 }
 
+- (NSArray *)parseOrderListWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            id programs = [obj valueForKey:@"programs"];
+            if ([programs isKindOfClass:[NSArray class]]) {
+                for (id prog in programs) {
+                    BBProgramHistory *history = [[BBProgramHistory alloc] initWithJSON:obj program:prog];
+                    [result addObject:history];
+                }
+            }
+        }
+    }
+    return result;
+}
+
 #pragma mark - Deliveries Methods
 
 - (NSArray *)parsePurchasesWithData {

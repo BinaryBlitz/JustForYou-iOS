@@ -203,6 +203,21 @@
     }];
 }
 
+- (void)listOrdersWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listOrdersWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseOrderListWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
+        }
+    }];
+}
+
 
 #pragma mark - Deliveries Methods
 

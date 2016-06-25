@@ -8,6 +8,8 @@
 
 #import "BBPaymentHistoryTableViewCell.h"
 
+#import "BBCalendarService.h"
+
 @interface BBPaymentHistoryTableViewCell()
 
 @end
@@ -23,6 +25,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setProgram:(BBProgramHistory *)program {
+    _program = program;
+    self.nameLabel.text = program.nameProgram;
+    self.indicatorView.backgroundColor = program.elementBlock.colorBlock;
+    self.subnameLabel.text = program.elementBlock.nameBlock;
+    NSString *date = [[BBCalendarService sharedService] stringWithDateForDate:program.dateCreate];
+    self.dayLabel.text = date;
+    self.costLabel.text = [NSString stringWithFormat:@"%ld P", (long)program.totalPrice];
 }
 
 #pragma mark - Draw Methods

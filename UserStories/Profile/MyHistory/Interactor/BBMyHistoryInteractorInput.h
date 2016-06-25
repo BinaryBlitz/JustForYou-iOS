@@ -10,4 +10,6 @@
 
 @protocol BBMyHistoryInteractorInput <NSObject>
 
+- (void)listMyHistoryOrder;
+
 @end
