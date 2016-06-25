@@ -11,6 +11,7 @@
 #import <JTCalendar/JTCalendar.h>
 
 #import "BBOrder.h"
+#import "BBCalendarService.h"
 
 @interface BBCalendarTableViewCell () <JTCalendarDelegate>
 
@@ -31,7 +32,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self _createRandomEvents];
+//    [self _createRandomEvents];
     [self _initCalendarManager];
     self.ordersForCalendar = [NSArray array];
 }
@@ -49,8 +50,8 @@
 
 - (void)setOrdersForCalendar:(NSArray *)ordersForCalendar {
     _ordersForCalendar = ordersForCalendar;
-//    [self updateEventsByDate];
-//    [self.calendarManager reload];
+    [self updateEventsByDate];
+    [self.calendarManager reload];
 }
 
 - (void)updateEventsByDate {
@@ -58,7 +59,15 @@
     for (BBOrder *order in self.ordersForCalendar) {
         NSDate *date = order.scheduledDay;
         NSString *key = [[self _dateFormatter] stringFromDate:date];
-        [self.eventsByDate setObject:date forKey:key];
+        if (!self.eventsByDate[key]) {
+            NSMutableArray *programs = [NSMutableArray array];
+            [programs addObject:order];
+            [self.eventsByDate setObject:programs forKey:key];
+        } else {
+            NSMutableArray *prog = [self.eventsByDate objectForKey:key];
+            [prog addObject:order];
+            [self.eventsByDate setObject:prog forKey:key];
+        }
     }
 }
 
@@ -129,16 +138,7 @@
         dayView.hidden = YES;
     }
     else if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        dayView.circleView.hidden = NO;
-        dayView.dotView.hidden = YES;
-        if (self.dateSelected && [self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:dayView.date]) {
-            dayView.circleView.setBorderForView = NO;
-            dayView.circleView.backgroundColor = self.selectedDayViewColor;
-        } else {
-            dayView.circleView.setBorderForView = YES;
-            dayView.circleView.colorForBorderView = [BBConstantAndColor applicationGrayColor];
-        }
-        [dayView initAndLayoutDotViewWithCountDots:2 withColorSForDots:@[[BBConstantAndColor applicationOrangeColor], [BBConstantAndColor applicationOrangeColor]]];
+        
     }
     // Selected date
     else if(self.dateSelected && [self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:dayView.date]){
@@ -151,9 +151,22 @@
     
     if([self _haveEventForDay:dayView.date] /*&& ![self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]*/){
         dayView.circleView.hidden = NO;
-//        dayView.circleView.backgroundColor = [UIColor clearColor];
-        [dayView initAndLayoutDotViewWithCountDots:3
-                                 withColorSForDots:@[[BBConstantAndColor applicationOrangeColor], [BBConstantAndColor applicationGreenColor], [BBConstantAndColor applicationOrangeColor]]];
+        dayView.dotView.hidden = YES;
+        NSArray *programs = [self programsInDay:dayView.date];
+
+        NSMutableArray *colors = [NSMutableArray array];
+        for (BBOrder *order in programs) {
+            UIColor *color = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
+            [colors addObject:color];
+        }
+        [dayView initAndLayoutDotViewWithCountDots:[colors count] withColorSForDots:colors];
+        if(self.dateSelected && [self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:dayView.date]){
+            dayView.circleView.setBorderForView = NO;
+            dayView.circleView.backgroundColor = self.selectedDayViewColor;
+        } else if (![[BBCalendarService sharedService] compareTwoDatesWithDay:dayView.date]) {
+            dayView.circleView.setBorderForView = YES;
+            dayView.circleView.colorForBorderView = [BBConstantAndColor applicationGrayColor];
+        }
 
     } else{
         dayView.dotView.hidden = NO;
@@ -166,7 +179,8 @@
         return;
     }
     self.dateSelected = dayView.date;
-    [self.delegate dayViewDidTapWithOrders:dayView.dots];
+    NSArray *programs = [self programsInDay:dayView.date];
+    [self.delegate dayViewDidTapWithOrders:programs];
     dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
     [UIView transitionWithView:dayView
                       duration:.3
@@ -189,10 +203,16 @@
     
     NSString *key = [[self _dateFormatter] stringFromDate:date];
     
-    if(self.eventsByDate[key] && [self.eventsByDate[key] count] > 0){
+    if(self.eventsByDate[key]){
         return YES;
     }
     return NO;
+}
+
+
+- (NSArray *)programsInDay:(NSDate *)date {
+    NSString *key = [[self _dateFormatter] stringFromDate:date];
+    return [self.eventsByDate objectForKey:key];
 }
 
 - (BOOL)isInDatesSelected:(NSDate *)date {

@@ -25,6 +25,15 @@
     // Configure the view for the selected state
 }
 
+
+- (void)setOrder:(BBOrder *)order {
+    _order = order;
+    self.nameProgramLabel.text = order.nameProgram;
+    self.descriptLabel.text = order.nameBlock;
+    self.indicatorView.backgroundColor = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
+    self.adresLabel.text = order.address;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.indicatorView.layer.masksToBounds = YES;

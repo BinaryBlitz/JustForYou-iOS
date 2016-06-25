@@ -105,8 +105,7 @@ static CGFloat estimatedRowHeight = 100.0f;
     } else {
         BBPreviewOrderTableViewCell *previewCell = [[NSBundle mainBundle] loadNibNamed:kNibNamePreviewOrderCell owner:self options:nil].lastObject;
         if ([self.ordersArray count] > 0) {
-            UIView *dot = [self.ordersArray objectAtIndex:indexPath.row];
-            previewCell.indicatorView.backgroundColor = dot.backgroundColor;
+            previewCell.order = [self.ordersArray objectAtIndex:indexPath.row];
         }
         cell = previewCell;
     }
@@ -122,6 +121,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 #pragma mark - BBCalendarTableViewCellDelegate 
 
 - (void)dayViewDidTapWithOrders:(NSArray *)orders {
+    
     self.ordersArray = orders;
     NSRange range = NSMakeRange(1, 1);
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];

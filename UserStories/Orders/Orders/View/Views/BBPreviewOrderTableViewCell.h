@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBOrder.h"
+
 @interface BBPreviewOrderTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameProgramLabel;
@@ -15,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *adresLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (strong, nonatomic) BBOrder *order;
 
 @end
