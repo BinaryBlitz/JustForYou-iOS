@@ -44,15 +44,30 @@
 }
 
 - (void)viewWillAppear {
-    
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor listPurchasesUser];
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count programId:(NSInteger)programId {
-//    [self.interactor addInOrdersUserOrderWithProgramId:programId countDay:count];
+    [self.interactor addInOrdersUserOrderWithProgramId:programId countDay:count];
     [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину. Для продления пройдите в корзину для оплаты" cancelTitle:@"Продолжить"];
-    
 }
 
 #pragma mark - Методы BBListMyProgInteractorOutput
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+}
+
+- (void)currentPurchasesUserWithArray:(NSArray *)array {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view updateTableViewWithArrayObjects:array];
+}
 
 @end

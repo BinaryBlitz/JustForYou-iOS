@@ -12,4 +12,6 @@
 
 - (void)addInOrdersUserOrderWithProgramId:(NSInteger)programId countDay:(NSInteger)countDay;
 
+- (void)listPurchasesUser;
+
 @end

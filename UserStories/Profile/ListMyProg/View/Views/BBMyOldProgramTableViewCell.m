@@ -24,6 +24,17 @@
 
     // Configure the view for the selected state
 }
+
+
+- (void)setPurchase:(BBPurchases *)purchase {
+    _purchase = purchase;
+    self.nameLabel.text = purchase.nameProgram;
+    self.indicatorView.backgroundColor = purchase.elementBlock.colorBlock;
+    self.subnameLabel.text = purchase.elementBlock.nameBlock;
+     NSString *days = [BBConstantAndColor getNumberEndingWith:purchase.numberDays andEndings:@[@"день", @"дня", @"дней"]];
+    self.coundDayLabel.text = [NSString stringWithFormat:@"%ld %@", (long)purchase.numberDays, days];
+}
+
 #pragma mark - Actions Methods
 
 - (IBAction)replaceButtonAction:(id)sender {

@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) id<BBMyOldProgramCellDelegate> delegate;
 
+@property (strong, nonatomic) BBPurchases *purchase;
+
 @end
 
 @protocol BBMyOldProgramCellDelegate <NSObject>

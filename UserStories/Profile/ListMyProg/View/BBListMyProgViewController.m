@@ -62,7 +62,6 @@ static CGFloat contentInset = 20.0f;
 }
 
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
-    //    self.addInBasketButton.enabled = NO;
     [self.addBasketPopover removeFromSuperview];
     
     [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
@@ -79,11 +78,12 @@ static CGFloat contentInset = 20.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [self.objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
+    cell.purchase = [self.objects objectAtIndex:indexPath.row];
     cell.delegate = self;
     return cell;
 }
