@@ -30,6 +30,7 @@
 
 - (void)setProgramInUI:(BBProgram *)program {
     self.program = program;
+    self.shortDescription.text = self.program.shortDescript;
     NSString *day = @"";
     if (self.program.threshold == 1) {
         day = [NSString stringWithFormat:@"При заказе от %ld дня: %ld Р",(long)self.program.threshold, (long)self.program.secondaryPrice];

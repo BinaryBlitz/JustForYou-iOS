@@ -16,6 +16,7 @@
 @property NSInteger parentId;
 @property NSString *name;
 @property NSString *descript;
+@property NSString *shortDescript;
 @property NSInteger threshold;
 @property NSInteger primaryPrice;
 @property NSInteger secondaryPrice;

@@ -32,6 +32,7 @@
         self.programId = [[JSONObj valueForKey:@"id"] integerValue];
         self.name = [JSONObj valueForKey:@"name"];
         self.descript = [JSONObj valueForKey:@"description"];
+        self.shortDescript = [JSONObj valueForKey:@"preview"];
         self.threshold = [[JSONObj valueForKey:@"threshold"] integerValue];
         self.primaryPrice = [[JSONObj valueForKey:@"primary_price"] integerValue];
         self.secondaryPrice = [[JSONObj valueForKey:@"secondary_price"] integerValue];

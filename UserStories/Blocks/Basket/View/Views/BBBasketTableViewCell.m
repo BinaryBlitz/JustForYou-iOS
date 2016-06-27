@@ -31,7 +31,7 @@ static NSString *kNameCrossImage = @"crossIcon";
 - (void)setProgram:(BBProgram *)program {
     _program = program;
     self.nameLabel.text = program.name;
-    
+    self.costLabel.text = [NSString stringWithFormat:@"%ld P", (long)program.primaryPrice];
 }
 
 - (void)setOrderProgram:(BBOrderProgram *)orderProgram {

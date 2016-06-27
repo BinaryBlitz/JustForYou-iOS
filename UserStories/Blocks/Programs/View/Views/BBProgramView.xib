@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" generatesPrototypingConstraints="YES" useTraitCollections="YES" colorMatched="NO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBProgramView">
             <connections>
-                <outlet property="bigCostProgram" destination="EGC-ee-Yfw" id="eja-Rd-juv"/>
-                <outlet property="contentView" destination="iN0-l3-epB" id="h2Q-dO-zHP"/>
+                <outlet property="bigCostProgram" destination="EGC-ee-Yfw" id="cCv-qh-VW0"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="yO5-Gx-SLh"/>
+                <outlet property="costProgram" destination="Iyv-7Q-WYp" id="ZUN-xF-JZQ"/>
+                <outlet property="descriptionProgram" destination="YVE-Ye-tWt" id="fjl-eL-wTb"/>
+                <outlet property="nameProgram" destination="ehH-pO-iVz" id="gM7-bR-UaS"/>
+                <outlet property="shortDescription" destination="gdl-8T-XDl" id="ltS-Il-mBc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,10 +27,27 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-5x-2eb">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="342"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehH-pO-iVz">
+                                    <rect key="frame" x="30" y="30" width="240" height="43"/>
+                                    <string key="text">1300 Ккал без мяса
+и птицы</string>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена за 1 день: 5800 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-7Q-WYp">
-                                    <rect key="frame" x="30" y="83" width="144" height="15"/>
+                                    <rect key="frame" x="30" y="83" width="143" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="503-RX-bHA"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                    <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При заказе от 1 дней: 5500 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGC-ee-Yfw">
+                                    <rect key="frame" x="30" y="104" width="182" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="M0P-4G-73K"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,23 +71,6 @@
                                     <string key="text">Программа «1300 Ккал без мяса и птицы» – сбалансированная программа с низким содержанием сахара, без блюд из мяса и птицы. Может использоваться в</string>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                     <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehH-pO-iVz">
-                                    <rect key="frame" x="30" y="30" width="240" height="43"/>
-                                    <string key="text">1300 Ккал без мяса
-и птицы</string>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При заказе от 1 дней: 5500 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGC-ee-Yfw">
-                                    <rect key="frame" x="30" y="104" width="182" height="15"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="15" id="M0P-4G-73K"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                    <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -108,12 +113,6 @@
                 <constraint firstAttribute="bottom" secondItem="16B-Zg-07U" secondAttribute="bottom" id="xBT-WZ-Le3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="costProgram" destination="Iyv-7Q-WYp" id="TB0-lO-trU"/>
-                <outlet property="descriptionProgram" destination="YVE-Ye-tWt" id="Qvi-dd-07q"/>
-                <outlet property="nameProgram" destination="ehH-pO-iVz" id="YzB-5B-EUS"/>
-                <outlet property="shortDescription" destination="gdl-8T-XDl" id="KAN-yi-XxB"/>
-            </connections>
             <point key="canvasLocation" x="353" y="201"/>
         </view>
     </objects>
