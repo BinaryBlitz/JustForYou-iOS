@@ -18,4 +18,6 @@
 - (void)hideBackgroundLoaderViewWithAlpha;
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
+- (void)createAndPresentTableAlertWithMessage:(NSString *)message;
+
 @end

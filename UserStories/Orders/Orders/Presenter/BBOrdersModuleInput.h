@@ -15,5 +15,6 @@
 - (id)currentViewWithModule:(id)module;
 
 - (void)popViewControllerWithStatus:(BBStatusCreateDelivery)status;
+- (void)paySucces;
 
 @end

@@ -1,5 +1,5 @@
 PODS:
-  - Crashlytics (3.7.1):
+  - Crashlytics (3.7.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
   - GoogleMaps (1.13.2)
@@ -31,11 +31,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   JTCalendar:
-    :commit: ce1943dd7032763554303f91900ec73a284fcacd
+    :commit: 6b143727142eae0e10ef96c6b527d633e7a6465f
     :git: https://github.com/tercteberc/JTCalendar.git
 
 SPEC CHECKSUMS:
-  Crashlytics: 3cdd4c9655be68032a0cf0379e0fb5ef6af22cad
+  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   Haneke: 01454a67322faa0dd9d81fc0f447885044e71521

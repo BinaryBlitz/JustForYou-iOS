@@ -137,29 +137,31 @@
     if([dayView isFromAnotherMonth]){
         dayView.hidden = YES;
     }
-    else if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        
-    }
     // Selected date
     else if(self.dateSelected && [self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = self.selectedDayViewColor;
+        
     } else {
+        dayView.circleView.hidden = YES;
         dayView.circleView.backgroundColor = [UIColor clearColor];
     }
 
-    
     if([self _haveEventForDay:dayView.date] /*&& ![self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]*/){
         dayView.circleView.hidden = NO;
         dayView.dotView.hidden = YES;
         NSArray *programs = [self programsInDay:dayView.date];
 
         NSMutableArray *colors = [NSMutableArray array];
-        for (BBOrder *order in programs) {
-            UIColor *color = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
-            [colors addObject:color];
+        if ([dayView.dots count] < 1) {
+            for (BBOrder *order in programs) {
+                UIColor *color = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
+                [colors addObject:color];
+            }
+            dayView.dots = [NSMutableArray array];
+            [dayView initAndLayoutDotViewWithCountDots:[colors count] withColorSForDots:colors];
+            [dayView layoutDots];
         }
-        [dayView initAndLayoutDotViewWithCountDots:[colors count] withColorSForDots:colors];
         if(self.dateSelected && [self.calendarManager.dateHelper date:self.dateSelected isTheSameDayThan:dayView.date]){
             dayView.circleView.setBorderForView = NO;
             dayView.circleView.backgroundColor = self.selectedDayViewColor;
@@ -168,8 +170,10 @@
             dayView.circleView.colorForBorderView = [BBConstantAndColor applicationGrayColor];
         }
 
-    } else{
+    } else {
+        dayView.dots = [NSMutableArray array];
         dayView.dotView.hidden = NO;
+        [dayView layoutIfNeeded];
     }
 }
 

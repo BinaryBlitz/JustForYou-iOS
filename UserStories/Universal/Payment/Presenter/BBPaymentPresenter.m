@@ -15,11 +15,15 @@
 #import "BBNavigationModuleInput.h"
 
 #import "BBBasketModuleInput.h"
+#import "BBBasketPresenter.h"
+
+#import "BBOrdersModuleInput.h"
+#import "BBOrdersPresenter.h"
 
 @interface BBPaymentPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-@property (strong, nonatomic) id<BBBasketModuleInput> basketModule;
+@property (strong, nonatomic) id parentModule;
 
 @property (strong, nonatomic) BBPayment *payment;
 
@@ -35,7 +39,7 @@
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule basketModule:(id)basketModule payment:(BBPayment *)payment {
     self.navigationModule = navigationModule;
-    self.basketModule = basketModule;
+    self.parentModule = basketModule;
     self.payment = payment;
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
@@ -53,7 +57,13 @@
     NSRange range = [urlString rangeOfString:@"success" options:NSLiteralSearch];
     NSLog(@"%@", NSStringFromRange(range));
     if (range.length > 3) {
-        [self.basketModule paySucces];
+        if ([self.parentModule isKindOfClass:[BBBasketPresenter class]]) {
+            id<BBBasketModuleInput> basket = self.parentModule;
+            [basket paySucces];
+        } else if ([self.parentModule isKindOfClass:[BBBasketPresenter class]]) {
+            id<BBOrdersModuleInput> orders = self.parentModule;
+            [orders paySucces];
+        }
     }
 }
 

@@ -15,4 +15,7 @@
 
 - (void)viewWillAppear;
 
+- (void)payNewCardButtonDidTap;
+- (void)payCardWithCard:(BBPayCard *)card;
+
 @end

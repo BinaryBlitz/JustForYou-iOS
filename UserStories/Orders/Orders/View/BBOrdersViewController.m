@@ -12,8 +12,9 @@
 
 #import "BBCalendarMenuView.h"
 #import "BBDottedBorderButton.h"
+#import "BBTableAlertController.h"
 
-@interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate>
+@interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate, BBTableAlertControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -140,6 +141,24 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)rightButtonDidTap {
     [self.delegate rightCalendarMenuButtonDidTap];
 }
+
+#pragma mark - TableAlert Methods
+
+- (void)createAndPresentTableAlertWithMessage:(NSString *)message {
+    BBTableAlertController *alert = [BBTableAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    alert.delegate = self;
+    [self presentViewController:alert animated:YES completion:nil];
+    alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+}
+
+- (void)cellDidSelectWithPayCard:(BBPayCard *)card {
+    [self.output payCardWithCard:card];
+}
+
+- (void)payNewCardDidTap {
+    [self.output payNewCardButtonDidTap];
+}
+
 
 #pragma mark - Lazy Load
 

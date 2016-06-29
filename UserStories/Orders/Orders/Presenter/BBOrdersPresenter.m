@@ -17,10 +17,19 @@
 #import "BBMyProgramsAssembly.h"
 #import "BBMyProgramsModuleInput.h"
 
+#import "BBPaymentAssembly.h"
+#import "BBPaymentModuleInput.h"
+
+#import "BBPayment.h"
+
 @interface BBOrdersPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
 @property (strong, nonatomic) id<BBMyProgramsModuleInput> myProgramModule;
+@property (strong, nonatomic) id<BBPaymentModuleInput> paymentModule;
+
+@property (assign, nonatomic) NSInteger payId;
+@property (strong, nonatomic) NSString *payURL;
 
 @end
 
@@ -44,6 +53,12 @@ static NSString *kDeliveriesEmpty = @"У вас нет созданных зак
     [self.router popViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
+- (void)paySucces {
+    [self.router popViewControllerWithNavigationController:[self.navigModule currentView]];
+    [self.view presentAlertWithTitle:nil message:paymentSuccessfull];
+}
+
+
 #pragma mark - Методы BBOrdersViewOutput
 
 - (void)didTriggerViewReadyEvent {
@@ -56,10 +71,31 @@ static NSString *kDeliveriesEmpty = @"У вас нет созданных зак
 
 - (void)addNewOrderButtonDidTap {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor listPurchasesUser];
+    [self.interactor checkMyDeliveryInvoices];
+}
+
+- (void)payNewCardButtonDidTap {
+    BBPayment *payment = [[BBPayment alloc] init];
+    payment.paymentId = self.payId;
+    payment.paymentURL = self.payURL;
+    [self.paymentModule pushModuleWithNavigationModule:self.navigModule basketModule:self payment:payment];
+}
+
+- (void)payCardWithCard:(BBPayCard *)card {
+    [self.interactor payOnServerWithPayCard:card paiId:self.payId];
 }
 
 #pragma mark - Методы BBOrdersInteractorOutput
+
+- (void)deliveryInvoicesWithPayId:(NSInteger)payId payURL:(NSString *)url {
+    self.payId = payId;
+    self.payURL = url;
+    [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+}
+
+- (void)deliveryInvoicesNil {
+    [self.interactor listPurchasesUser];
+}
 
 - (void)currentMyDeliveriesWithArray:(NSArray *)array {
     if ([array count] == 0) {
@@ -84,6 +120,15 @@ static NSString *kDeliveriesEmpty = @"У вас нет созданных зак
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
+- (void)paymentSuccessfull {
+    [self.interactor listPurchasesUser];
+}
+
+- (void)paymentError {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kErrorTitle message:paymentError];
+}
+
 - (void)currentPurchasesUserWithArray:(NSArray *)array {
     [self.view hideBackgroundLoaderViewWithAlpha];
     if ([array count] > 0) {
@@ -100,6 +145,14 @@ static NSString *kDeliveriesEmpty = @"У вас нет созданных зак
         _myProgramModule = [BBMyProgramsAssembly createModule];
     }
     return _myProgramModule;
+}
+
+
+- (id<BBPaymentModuleInput>)paymentModule {
+    if (!_paymentModule) {
+        _paymentModule = [BBPaymentAssembly createModule];
+    }
+    return _paymentModule;
 }
 
 @end

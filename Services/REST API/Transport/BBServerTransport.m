@@ -179,6 +179,23 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 
 #pragma mark - Deliveries Methods
 
+- (void)checkDeliveryInvoicesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/delivery_invoices?api_token=%@", kServerURL, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
+
+- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString
+                                        stringWithFormat:@"%@//api/delivery_invoices/%@/payment?api_token=%@", kServerURL, inId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
+
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/purchases?api_token=%@", kServerURL, apiToken]];

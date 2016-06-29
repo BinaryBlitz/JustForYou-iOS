@@ -221,6 +221,28 @@
 
 #pragma mark - Deliveries Methods
 
+- (void)checkDeliveryInvoicesWithApiToken:(NSString *)apiToken completion:(ReceiveData)completion {
+    [self _checkNetworkConnection];
+    [self.transport checkDeliveryInvoicesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        if (completion) {
+            completion(responseServer, data, error);
+        }
+    }];
+}
+
+- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId completion:(ReceiveData)completion {
+    [self _checkNetworkConnection];
+    [self.transport payDeliveryInvoicesWithApiToken:apiToken
+                                         invoicesId:inId
+                                         completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                             BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+                                             if (completion) {
+                                                 completion(responseServer, data, error);
+                                             }
+    }];
+}
+
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listPurchasesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {

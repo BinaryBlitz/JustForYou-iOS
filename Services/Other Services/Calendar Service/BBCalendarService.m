@@ -107,8 +107,8 @@
     NSInteger monthT = [componentsToday month];
     NSInteger dayT = [componentsToday day];
     if (day < dayT) {
-        if (month < monthT) {
-            if (year < yearT) {
+        if (month <= monthT) {
+            if (year <= yearT) {
                 return NO;
             }
         }

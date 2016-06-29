@@ -26,12 +26,7 @@
 
 @end
 
-static NSString *messagePayAlert = @"Выберите карту которой хотите оплатить";
-
 static NSString *basketIsEmpty = @"Выберите программу которую хотите купить";
-static NSString *paymentSuccessfull = @"Оплата успешно произведена";
-static NSString *paymentError = @"Произошла ошибка оплаты. Проверьте баланс своей карты или попробуйте позже";
-
 
 @implementation BBBasketPresenter
 

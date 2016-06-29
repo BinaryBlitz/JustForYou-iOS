@@ -10,11 +10,18 @@
 
 @protocol BBOrdersInteractorOutput <NSObject>
 
+- (void)deliveryInvoicesWithPayId:(NSInteger)payId payURL:(NSString *)url;
+- (void)deliveryInvoicesNil;
+
 - (void)currentMyDeliveriesWithArray:(NSArray *)array;
 - (void)updateDeliveriesWithArray:(NSArray *)array;
 
 - (void)errorNetwork;
 - (void)errorServer;
+
+- (void)paymentSuccessfull;
+- (void)paymentError;
+
 
 - (void)currentPurchasesUserWithArray:(NSArray *)array;
 
