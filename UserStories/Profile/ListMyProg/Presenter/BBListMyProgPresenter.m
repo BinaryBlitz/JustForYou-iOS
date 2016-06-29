@@ -15,11 +15,16 @@
 #import "BBNavigationModuleInput.h"
 #import "BBProfileModuleInput.h"
 
+#import "BBReplaceProgramAssembly.h"
+#import "BBReplaceProgramModuleInput.h"
 
 @interface BBListMyProgPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBProfileModuleInput> parentModule;
+@property (strong, nonatomic) id<BBReplaceProgramModuleInput> replaceProgramModule;
+
+@property (strong, nonatomic) BBPurchases *purchase;
 
 @end
 
@@ -48,6 +53,11 @@
     [self.interactor listPurchasesUser];
 }
 
+- (void)replaceButtonDidTapWithPurchase:(BBPurchases *)purchase {
+    self.purchase = purchase;
+    [self.replaceProgramModule pushModuleWithNavigationModule:self.navigationModule purchase:purchase];
+}
+
 - (void)okButtonDidTapWithCountDays:(NSInteger)count programId:(NSInteger)programId {
     [self.interactor addInOrdersUserOrderWithProgramId:programId countDay:count];
     [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину. Для продления пройдите в корзину для оплаты" cancelTitle:@"Продолжить"];
@@ -68,6 +78,15 @@
 - (void)currentPurchasesUserWithArray:(NSArray *)array {
     [self.view hideBackgroundLoaderViewWithAlpha];
     [self.view updateTableViewWithArrayObjects:array];
+}
+
+#pragma mark - Lazy Load
+
+- (id<BBReplaceProgramModuleInput>)replaceProgramModule {
+    if (!_replaceProgramModule) {
+        _replaceProgramModule = [BBReplaceProgramAssembly createModule];
+    }
+    return _replaceProgramModule;
 }
 
 @end

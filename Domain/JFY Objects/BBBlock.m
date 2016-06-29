@@ -22,7 +22,7 @@
              };
 }
 
-- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url {
+- (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
         self.blockId = [[JSONObj valueForKey:@"id"] integerValue];

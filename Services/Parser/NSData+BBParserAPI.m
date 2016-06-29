@@ -50,16 +50,16 @@
 
 #pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId urlServer:(NSString *)url {
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId {
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
         for (id obj in JSONObj) {
             if (key == kTypeBlockInData) {
-                BBBlock *block = [[BBBlock alloc] initWithJSON:obj andUrlServer:url];
+                BBBlock *block = [[BBBlock alloc] initWithJSON:obj];
                 [result addObject:block];
             } else if (key == kTypeProgramInData) {
-                BBProgram *program = [[BBProgram alloc] initWithJSON:obj andUrlServer:url];
+                BBProgram *program = [[BBProgram alloc] initWithJSON:obj];
                 program.parentId = parentId;
                 [result addObject:program];
             } else {
@@ -197,6 +197,21 @@
             BBReplacementProduct *card = [[BBReplacementProduct alloc] initWithJSON:json];
             card.substId = substId;
             [result addObject:card];
+        }
+    }
+    return result;
+}
+
+#pragma mark - Exchanges Methods
+
+- (NSArray *)parseAllProgramsWithData {
+    NSMutableArray *result = [NSMutableArray array];
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([JSONObj isKindOfClass:[NSArray class]]) {
+        for (id obj in JSONObj) {
+            BBProgram *program = [[BBProgram alloc] initWithJSON:obj];
+            program.parentId = [[obj valueForKey:@"block_id"] integerValue];
+            [result addObject:program];
         }
     }
     return result;

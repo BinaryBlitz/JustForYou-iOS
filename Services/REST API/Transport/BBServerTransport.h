@@ -48,6 +48,10 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(CompletionBlock)completion;
 
+#pragma mark - Exchanges Methods
+
+- (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSString *)orderId apiToken:(NSString *)apiToken completion:(CompletionBlock)completion;

@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) NSArray *objects;
 
+@property (strong, nonatomic) BBPurchases *selectPurchase;
+
 @end
 
 static CGFloat estimatedRowHeight = 50.0f;
@@ -90,8 +92,13 @@ static CGFloat contentInset = 20.0f;
 
 #pragma mark - Delegate Methods
 
-- (void)extendButtonDidTap {
+- (void)extendButtonDidTapWithPurchase:(BBPurchases *)purchase {
+    self.selectPurchase = purchase;
     [self _showAddInBasketPopover];
+}
+
+- (void)replaceButtonDidTapWithPurchase:(BBPurchases *)purchase {
+    [self.output replaceButtonDidTapWithPurchase:purchase];
 }
 
 - (void)_showAddInBasketPopover {
@@ -99,7 +106,7 @@ static CGFloat contentInset = 20.0f;
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
-//    [self.output okButtonDidTapWithCountDays:count];
+    [self.output okButtonDidTapWithCountDays:count programId:self.selectPurchase.programId];
 }
 
 #pragma mark - Lazy Load

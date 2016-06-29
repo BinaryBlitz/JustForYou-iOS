@@ -37,7 +37,7 @@ typedef enum : NSUInteger {
 
 #pragma mark - Blocks And Program Methods
 
-- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId urlServer:(NSString *)url;
+- (NSArray *)parseArrayWithDataAndKey:(BBTypeObjectInData)key parentId:(NSInteger)parentId;
 
 #pragma mark - Orders Methods
 
@@ -66,6 +66,10 @@ typedef enum : NSUInteger {
 
 - (NSArray *)parseProductsForReplacementWithData;
 - (NSArray *)parseUserReplacementWithData;
+
+#pragma mark - Exchanges Methods
+
+- (NSArray *)parseAllProgramsWithData;
 
 #pragma mark - Address Methods
 

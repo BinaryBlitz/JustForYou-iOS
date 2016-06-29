@@ -63,6 +63,10 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 - (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(ArrayObjectsCompletion)completion;
 
+#pragma mark - Exchanges Methods
+
+- (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+
 #pragma mark - Payments Methods
 
 - (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion;

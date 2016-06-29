@@ -26,6 +26,7 @@
 
 @protocol BBMyOldProgramCellDelegate <NSObject>
 
-- (void)extendButtonDidTap;
+- (void)extendButtonDidTapWithPurchase:(BBPurchases *)purchase;
+- (void)replaceButtonDidTapWithPurchase:(BBPurchases *)purchase;
 
 @end

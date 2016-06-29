@@ -146,7 +146,7 @@
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSArray *result = nil;
         if (!error) {
-            result = [data parseArrayWithDataAndKey:kTypeBlockInData parentId:0 urlServer:[self.transport HOSTServer]];
+            result = [data parseArrayWithDataAndKey:kTypeBlockInData parentId:0];
         }
         
         if (completion) {
@@ -162,7 +162,7 @@
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSArray *result = nil;
         if (!error) {
-            result = [data parseArrayWithDataAndKey:kTypeProgramInData parentId:blockId urlServer:[self.transport HOSTServer]];
+            result = [data parseArrayWithDataAndKey:kTypeProgramInData parentId:blockId];
         }
         
         if (completion) {
@@ -177,7 +177,7 @@
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         NSArray *result = nil;
         if (!error) {
-            result = [data parseArrayWithDataAndKey:kTypeDayInData parentId:programId urlServer:[self.transport HOSTServer]];
+            result = [data parseArrayWithDataAndKey:kTypeDayInData parentId:programId];
         }
         
         if (completion) {
@@ -393,6 +393,23 @@
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         if (completion) {
             completion(responseServer, error);
+        }
+    }];
+}
+
+#pragma mark - Exchanges Methods
+
+- (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport listAllProgramsWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        NSArray *result = nil;
+        if (!error) {
+            result = [data parseAllProgramsWithData];
+        }
+        
+        if (completion) {
+            completion(responseServer, result, error);
         }
     }];
 }

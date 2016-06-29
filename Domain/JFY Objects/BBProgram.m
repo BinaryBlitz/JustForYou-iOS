@@ -26,7 +26,7 @@
     return @[@"parentId"];
 }
 
-- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url {
+- (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
         self.programId = [[JSONObj valueForKey:@"id"] integerValue];

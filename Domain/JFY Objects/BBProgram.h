@@ -28,8 +28,7 @@
 @property BBBlock *block;
 @property (readonly) RLMLinkingObjects *days;
 
-- (instancetype)initWithJSON:(id)JSONObj andUrlServer:(NSString *)url;
-
+- (instancetype)initWithJSON:(id)JSONObj;
 @end
 
 // This protocol enables typed collections. i.e.:

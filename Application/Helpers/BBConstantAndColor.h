@@ -169,6 +169,7 @@ static NSString *kNameTitleGreetingModule = @"JustForYou";
 static NSString *kNameTitleProgramModule = @"Программы";
 static NSString *kNameTitleBasketModule = @"Корзина";
 static NSString *kNameTitleMyProgramModule = @"Мои программы";
+static NSString *kNameTitleReplaceProgramModule = @"Замена";
 static NSString *kNameTitlePaymentModule = @"Оплата";
 
 

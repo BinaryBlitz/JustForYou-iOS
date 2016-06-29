@@ -25,6 +25,7 @@
 - (void)setPurchases:(BBPurchases *)purchases {
     _purchases = purchases;
     self.nameLabel.text = purchases.nameProgram;
+    self.countDayLabel.textColor = [UIColor blackColor];
     NSString *days = [BBConstantAndColor getNumberEndingWith:purchases.numberDays andEndings:@[@"день", @"дня", @"дней"]];
     self.countDayLabel.text = [NSString stringWithFormat:@"%ld %@", (long)purchases.numberDays, days];
     self.indicatorView.backgroundColor = purchases.elementBlock.colorBlock;

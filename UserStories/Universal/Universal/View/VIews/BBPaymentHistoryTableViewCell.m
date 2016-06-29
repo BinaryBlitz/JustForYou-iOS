@@ -34,7 +34,7 @@
     self.subnameLabel.text = program.elementBlock.nameBlock;
     NSString *date = [[BBCalendarService sharedService] stringWithDateForDate:program.dateCreate];
     self.dayLabel.text = date;
-    self.costLabel.text = [NSString stringWithFormat:@"%ld P", (long)program.totalPrice];
+    self.costLabel.text = [NSString stringWithFormat:@"-%ld P", (long)program.totalPrice];
 }
 
 #pragma mark - Draw Methods

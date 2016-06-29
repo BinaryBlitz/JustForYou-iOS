@@ -16,4 +16,7 @@
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count programId:(NSInteger)programId;
 
+- (void)replaceButtonDidTapWithPurchase:(BBPurchases *)purchase;
+
+
 @end

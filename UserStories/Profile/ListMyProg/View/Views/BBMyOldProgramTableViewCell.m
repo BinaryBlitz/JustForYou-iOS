@@ -38,12 +38,14 @@
 #pragma mark - Actions Methods
 
 - (IBAction)replaceButtonAction:(id)sender {
-    
+    if ([self.delegate respondsToSelector:@selector(replaceButtonDidTapWithPurchase:)]) {
+        [self.delegate replaceButtonDidTapWithPurchase:self.purchase];
+    }
 }
 
 - (IBAction)extendButtonAction:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(extendButtonDidTap)]) {
-        [self.delegate extendButtonDidTap];
+    if ([self.delegate respondsToSelector:@selector(extendButtonDidTapWithPurchase:)]) {
+        [self.delegate extendButtonDidTapWithPurchase:self.purchase];
     }
 }
 
