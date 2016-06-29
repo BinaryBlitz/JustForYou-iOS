@@ -30,6 +30,8 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 - (void)setProgram:(BBProgram *)program {
     _program = program;
+    self.subnameLabel.text = program.block.name;
+    self.indicatorView.backgroundColor = [BBConstantAndColor colorForIdBlock:program.block.blockId];
     self.nameLabel.text = program.name;
     self.costLabel.text = [NSString stringWithFormat:@"%ld P", (long)program.primaryPrice];
 }
