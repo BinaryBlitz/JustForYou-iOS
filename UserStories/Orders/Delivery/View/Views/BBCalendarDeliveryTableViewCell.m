@@ -146,18 +146,21 @@
                         } completion:^(BOOL finished) {
                             dayView.circleView.transform = CGAffineTransformIdentity;
                         }];
-    }
-    else{
-        [self _addDayInArray:dayView.date];
-        
-        dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-        [UIView transitionWithView:dayView
-                          duration:.3
-                           options:0
-                        animations:^{
-                            [_calendarManager reload];
-                            dayView.circleView.transform = CGAffineTransformIdentity;
-                        } completion:nil];
+    } else {
+        if ([self.datesSelected count] < self.countDayInOrder) {
+            [self _addDayInArray:dayView.date];
+            
+            dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+            [UIView transitionWithView:dayView
+                              duration:.3
+                               options:0
+                            animations:^{
+                                [_calendarManager reload];
+                                dayView.circleView.transform = CGAffineTransformIdentity;
+                            } completion:nil];
+        } else {
+            [self.delegate showAlertViewWithMessage:@"Вы не можете больше выбирать дни"];
+        }
     }
     
 }
