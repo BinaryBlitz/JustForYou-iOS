@@ -10,9 +10,13 @@
 
 #import "BBReplaceProgramViewOutput.h"
 
-@interface BBReplaceProgramViewController() <UITableViewDelegate, UITableViewDataSource>
+#import "BBTableAlertController.h"
+
+@interface BBReplaceProgramViewController() <UITableViewDelegate, UITableViewDataSource, BBTableAlertControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray *programs;
 
 @end
 
@@ -29,11 +33,40 @@ static CGFloat verticalInset = 10.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 #pragma mark - Методы BBReplaceProgramViewInput
 
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleReplaceProgramModule;
     [self _settingTableView];
+}
+
+- (void)updateTableViewWithArray:(NSArray *)programs {
+    self.programs = programs;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
+}
+
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleAction:(NSString *)titleAction {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *canc = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.output okCancelButtonDidTap];
+    }];
+    alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    [alert addAction:canc];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alert animated:YES completion:nil];
+        alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    });
 }
 
 #pragma mark - TableView Methods
@@ -46,13 +79,46 @@ static CGFloat verticalInset = 10.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return [self.programs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBMyProgramTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:kNibNameMyProgramCell owner:self options:nil].lastObject;
-    
+    cell.keyMode = kProgramCellModeCornerRadius;
+    BBProgram *program = [self.programs objectAtIndex:indexPath.row];
+    cell.nameLabel.text = program.name;
+    BBBlock *block = [BBBlock objectsWhere:[NSString stringWithFormat:@"blockId=%ld", (long)program.parentId]].lastObject;
+    cell.indicatorView.backgroundColor = [BBConstantAndColor colorForIdBlock:block.blockId];
+    cell.subNameLabel.text = block.name;
+    cell.countDayLabel.textColor = [BBConstantAndColor applicationOrangeColor];
+    cell.countDayLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+    cell.countDayLabel.text = [NSString stringWithFormat:@"%ld P", (long)program.primaryPrice];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.output cellDidSelectRowWithProgram:[self.programs objectAtIndex:indexPath.row]];
+}
+
+
+#pragma mark - TableAlert Methods
+
+- (void)createAndPresentTableAlertWithMessage:(NSString *)message {
+    BBTableAlertController *alert = [BBTableAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    alert.delegate = self;
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alert animated:YES completion:nil];
+        alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    });
+}
+
+- (void)cellDidSelectWithPayCard:(BBPayCard *)card {
+    [self.output payCardWithCard:card];
+}
+
+- (void)payNewCardDidTap {
+    [self.output payNewCardButtonDidTap];
+}
+
 
 @end

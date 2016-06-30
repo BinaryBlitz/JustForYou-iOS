@@ -84,7 +84,7 @@ static CGFloat contentInset = 20.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
+    BBMyOldProgramTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:kNibNameMyOldProgramCell owner:self options:nil].lastObject;
     cell.purchase = [self.objects objectAtIndex:indexPath.row];
     cell.delegate = self;
     return cell;

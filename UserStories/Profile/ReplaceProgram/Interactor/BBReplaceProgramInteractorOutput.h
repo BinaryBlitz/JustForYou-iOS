@@ -10,4 +10,13 @@
 
 @protocol BBReplaceProgramInteractorOutput <NSObject>
 
+- (void)allProgramsWithArray:(NSArray *)programs;
+
+- (void)exchangeWithPayId:(NSInteger)payId payURL:(NSString *)url;
+
+- (void)errorNetwork;
+- (void)errorServer;
+- (void)paymentSuccessfull;
+- (void)paymentError;
+
 @end

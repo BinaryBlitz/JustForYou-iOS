@@ -414,6 +414,30 @@
     }];
 }
 
+- (void)createExchangesWithApiToken:(NSString *)token purchase:(NSString *)purcId program:(NSNumber *)progId completion:(ExchangeCompletion)completion {
+    [self _checkNetworkConnection];
+    [self.transport createExchangesWithApiToken:token purchase:purcId program:progId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBExchange *exchange = nil;
+        if (!error) {
+            exchange = [data parseExchangeWithData];
+        }
+        if (completion) {
+            completion(responseServer, exchange, error);
+        }
+    }];
+}
+
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange completion:(ReceiveData)completion {
+    [self _checkNetworkConnection];
+    [self.transport payExchangeWithApiToken:apiToken exchange:exchange completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        if (completion) {
+            completion(responseServer, data, error);
+        }
+    }];
+}
+
 #pragma mark - Address Methods
 
 

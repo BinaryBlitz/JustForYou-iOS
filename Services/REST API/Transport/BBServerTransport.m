@@ -233,6 +233,27 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)createExchangesWithApiToken:(NSString *)token purchase:(NSString *)purcId program:(NSNumber *)progId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/purchases/%@/exchanges", kServerURL, purcId]];
+    
+    NSDictionary *exchange = @{@"program_id" : progId};
+    NSDictionary* parameters = @{@"api_token"  : token,
+                                 @"exchange"   : exchange};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
+
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchang completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/exchanges/%ld/payment", kServerURL, (long)exchang.exchangeId]];
+    
+    NSDictionary *exchange = @{@"program_id" : [NSNumber numberWithInteger:exchang.programId]};
+    NSDictionary* parameters = @{@"api_token"  : apiToken,
+                                 @"exchange"   : exchange};
+    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    [self sendRequest:request completion:completion];
+}
 
 #pragma mark - Payments Methods
 

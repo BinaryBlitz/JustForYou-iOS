@@ -217,6 +217,12 @@
     return result;
 }
 
+- (BBExchange *)parseExchangeWithData {
+    id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    BBExchange *exchange = [[BBExchange alloc] initWithJSON:JSONObj];
+    return exchange;
+}
+
 #pragma mark - Address Methods 
 
 - (BBAddress *)parseAddressWithData {

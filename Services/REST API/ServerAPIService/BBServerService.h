@@ -15,12 +15,14 @@
 @class BBPayment;
 @class BBPayCard;
 @class BBAddress;
+@class BBExchange;
 
 typedef void (^AuthCompletion)(BBServerResponse *response, NSString *token, NSError *error);
 typedef void (^RegistrationCompletion)(BBServerResponse *response, BBUser *user, NSError *error);
 typedef void (^ArrayObjectsCompletion)(BBServerResponse *response, NSArray *objects, NSError *error);
 typedef void (^OrderCompletion)(BBServerResponse *response, NSInteger orderId, NSError *error);
 typedef void (^PaymentCompletion)(BBServerResponse *response, BBPayment *payment, NSError *error);
+typedef void (^ExchangeCompletion)(BBServerResponse *response, BBExchange *exchande, NSError *error);
 typedef void (^AddressCompletion)(BBServerResponse *response, BBAddress *address, NSError *error);
 typedef void (^PaymentBoolCompletion)(BBServerResponse *response, BOOL paid, NSError *error);
 typedef void (^Completion)(BBServerResponse *response, NSError *error);
@@ -66,6 +68,8 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 #pragma mark - Exchanges Methods
 
 - (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+- (void)createExchangesWithApiToken:(NSString *)token purchase:(NSString *)purcId program:(NSNumber *)progId completion:(ExchangeCompletion)completion;
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange completion:(ReceiveData)completion;
 
 #pragma mark - Payments Methods
 

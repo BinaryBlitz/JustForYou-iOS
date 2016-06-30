@@ -16,6 +16,7 @@
 #import "BBReplacementCategory.h"
 #import "BBPurchases.h"
 #import "BBProgramHistory.h"
+#import "BBExchange.h"
 
 typedef enum : NSUInteger {
     kTypeBlockInData,
@@ -70,6 +71,7 @@ typedef enum : NSUInteger {
 #pragma mark - Exchanges Methods
 
 - (NSArray *)parseAllProgramsWithData;
+- (BBExchange *)parseExchangeWithData;
 
 #pragma mark - Address Methods
 

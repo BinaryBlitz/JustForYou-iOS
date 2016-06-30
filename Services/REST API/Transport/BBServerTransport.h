@@ -10,6 +10,7 @@
 
 #import "BBUser.h"
 #import "BBPayCard.h"
+#import "BBExchange.h"
 
 typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* error);
 
@@ -51,6 +52,8 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 #pragma mark - Exchanges Methods
 
 - (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+- (void)createExchangesWithApiToken:(NSString *)token purchase:(NSString *)purcId program:(NSNumber *)progId completion:(CompletionBlock)completion;
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchang completion:(CompletionBlock)completion;
 
 #pragma mark - Payments Methods
 

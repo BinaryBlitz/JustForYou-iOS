@@ -147,8 +147,10 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)createAndPresentTableAlertWithMessage:(NSString *)message {
     BBTableAlertController *alert = [BBTableAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     alert.delegate = self;
-    [self presentViewController:alert animated:YES completion:nil];
-    alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alert animated:YES completion:nil];
+        alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    });
 }
 
 - (void)cellDidSelectWithPayCard:(BBPayCard *)card {

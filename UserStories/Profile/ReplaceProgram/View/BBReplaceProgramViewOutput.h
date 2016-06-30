@@ -11,5 +11,14 @@
 @protocol BBReplaceProgramViewOutput <NSObject>
 
 - (void)didTriggerViewReadyEvent;
+- (void)viewWillAppear;
+
+- (void)cellDidSelectRowWithProgram:(BBProgram *)program;
+
+- (void)okCancelButtonDidTap;
+
+
+- (void)payNewCardButtonDidTap;
+- (void)payCardWithCard:(BBPayCard *)card;
 
 @end

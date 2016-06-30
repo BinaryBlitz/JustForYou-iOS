@@ -54,6 +54,8 @@
                                                                                   }
                         }];
                     }
+                }  else {
+                    [self.output errorServer];
                 }
             } else {
                 [self.output deliveryInvoicesNil];

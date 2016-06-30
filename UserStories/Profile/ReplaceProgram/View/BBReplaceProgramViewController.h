@@ -12,7 +12,7 @@
 
 @protocol BBReplaceProgramViewOutput;
 
-@interface BBReplaceProgramViewController : UIViewController <BBReplaceProgramViewInput>
+@interface BBReplaceProgramViewController : BBParentViewController <BBReplaceProgramViewInput>
 
 @property (weak, nonatomic) id<BBReplaceProgramViewOutput> output;
 

@@ -136,7 +136,7 @@
         <!--List My Prog View Controller-->
         <scene sceneID="xRH-1c-5F9">
             <objects>
-                <viewController storyboardIdentifier="BBListMyProgViewController" id="ICP-aC-NEa" customClass="BBListMyProgViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BBListMyProgViewController" hidesBottomBarWhenPushed="YES" id="ICP-aC-NEa" customClass="BBListMyProgViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i1l-XX-gB0"/>
                         <viewControllerLayoutGuide type="bottom" id="Ti8-H1-anb"/>
