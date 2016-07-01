@@ -8,6 +8,8 @@
 
 #import "BBCalendarDeliveryTableViewCell.h"
 
+#import "BBCalendarService.h"
+
 @interface BBCalendarDeliveryTableViewCell() <JTCalendarDelegate>
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
@@ -147,19 +149,23 @@
                             dayView.circleView.transform = CGAffineTransformIdentity;
                         }];
     } else {
-        if ([self.datesSelected count] < self.countDayInOrder) {
-            [self _addDayInArray:dayView.date];
-            
-            dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-            [UIView transitionWithView:dayView
-                              duration:.3
-                               options:0
-                            animations:^{
-                                [_calendarManager reload];
-                                dayView.circleView.transform = CGAffineTransformIdentity;
-                            } completion:nil];
+        if ([[BBCalendarService sharedService] compareTwoDatesWithDay:dayView.date]) {
+            if ([self.datesSelected count] < self.countDayInOrder) {
+                [self _addDayInArray:dayView.date];
+                
+                dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+                [UIView transitionWithView:dayView
+                                  duration:.3
+                                   options:0
+                                animations:^{
+                                    [_calendarManager reload];
+                                    dayView.circleView.transform = CGAffineTransformIdentity;
+                                } completion:nil];
+            } else {
+                [self.delegate showAlertViewWithMessage:@"Вы не можете больше выбирать дни"];
+            }
         } else {
-            [self.delegate showAlertViewWithMessage:@"Вы не можете больше выбирать дни"];
+             [self.delegate showAlertViewWithMessage:@"Вы не можете выбрать прошедший день"];
         }
     }
     

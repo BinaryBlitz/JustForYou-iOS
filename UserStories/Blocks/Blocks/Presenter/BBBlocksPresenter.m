@@ -39,19 +39,8 @@ static NSString *kImageNameBasket = @"basket";
 #pragma mark - Методы BBBlocksModuleInput
 
 - (void)configureModule {
-//    [self _deleteBD];
-    
-    self.isEmptyRealm = [self.interactor checkObjectsInDataBase];
+
 }
-
-#warning delete after test
-
-- (void)_deleteBD {
-    [[RLMRealm defaultRealm] beginWriteTransaction];
-    [[RLMRealm defaultRealm] deleteAllObjects];
-    [[RLMRealm defaultRealm] commitWriteTransaction];
-}
-
 - (id)currentViewWithModule:(id)module {
     self.navigModule = module;
     return self.view;

@@ -34,7 +34,7 @@
 @end
 
 static NSString *kPurchasesEmpty = @"Вы не можете создать новый заказ так как у вас нет купленных программ";
-static NSString *kDeliveriesEmpty = @"У вас нет созданных заказов";
+static NSString *kDeliveriesEmpty = @"Вы можете распределить оставшиеся дни вашей программы нажав кнопку новый заказ";
 
 @implementation BBOrdersPresenter
 

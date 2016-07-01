@@ -18,7 +18,7 @@
 
 - (void)myLocationButtonDidTap;
 
-- (void)addButtonDidTap;
+- (void)addButtonDidTapWithAddress:(NSString *)addressText;
 
 - (void)textFieldDidBeginEditing;
 

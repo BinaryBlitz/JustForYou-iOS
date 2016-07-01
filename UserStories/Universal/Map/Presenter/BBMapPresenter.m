@@ -45,8 +45,8 @@
     [self.view moveCameraToCoordinateWithMyLocation];
 }
 
-- (void)addButtonDidTap {
-    [self.interactor addAddressToUserAddressArray];
+- (void)addButtonDidTapWithAddress:(NSString *)addressText {
+    [self.interactor addAddressToUserAddressArrayWithAddressText:addressText];
 }
 
 - (void)textFieldDidBeginEditing {

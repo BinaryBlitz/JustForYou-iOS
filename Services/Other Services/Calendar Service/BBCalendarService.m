@@ -92,28 +92,7 @@
 }
 
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date {
-    NSDate *today = [NSDate date];
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
-    NSInteger year = [components year];
-    NSInteger month = [components month];
-    NSInteger day = [components day];
-    
-
-    NSDateComponents *componentsToday = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:today];
-    NSInteger yearT = [componentsToday year];
-    NSInteger monthT = [componentsToday month];
-    NSInteger dayT = [componentsToday day];
-    if (day < dayT) {
-        if (month <= monthT) {
-            if (year <= yearT) {
-                return NO;
-            }
-        }
-    }
-    return YES;
+    return ([date timeIntervalSinceNow] > 0);
 }
 
 @end

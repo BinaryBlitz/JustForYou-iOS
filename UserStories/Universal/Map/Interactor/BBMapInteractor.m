@@ -69,11 +69,15 @@
     }];
 }
 
-- (void)addAddressToUserAddressArray {
+- (void)addAddressToUserAddressArrayWithAddressText:(NSString *)addressText {
+    if (!self.currentAddres) {
+        self.currentAddres = [[BBAddress alloc] init];
+        self.currentAddres.address = addressText;
+    }
     [[BBServerService sharedService] createAddressWithApiToken:[[BBUserService sharedService] tokenUser] address:self.currentAddres completion:^(BBServerResponse *response, BBAddress *address, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (response.serverError == kServerErrorSuccessfull) {
-                BOOL status = [[BBUserService sharedService] addAddressToUserWithAddress:self.currentAddres];
+                BOOL status = [[BBUserService sharedService] addAddressToUserWithAddress:address];
                 [self.output addressDidSaveWithStatus:status];
             } else {
                 [self.output errorServer];

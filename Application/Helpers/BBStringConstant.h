@@ -59,7 +59,7 @@ static NSString *kNibNameSwitchCell = @"BBSwitchTableViewCell";
 
 // T
 static NSString *kNibNameTextCell = @"BBTextTableViewCell";
-
+static NSString *kNibNameTotalCell = @"BBTotalTableViewCell";
 
 #pragma mark - Cell Identifire
 
@@ -111,4 +111,5 @@ static NSString *kSwitchCellIdentifire = @"switchTableViewCell";
 
 // T
 static NSString *kTextFieldCellIdentifire = @"textFieldCell";
+static NSString *kTotalCellIdentifire = @"totalTableViewCell";
 

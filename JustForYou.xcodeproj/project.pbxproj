@@ -189,6 +189,8 @@
 		3A7438B11D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7438AF1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib */; };
 		3A7438B41D1DFDB100FD6351 /* BBProgramHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */; };
 		3A8F678E1D24E79400AF6FEF /* BBExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F678D1D24E79400AF6FEF /* BBExchange.m */; };
+		3A8F67951D2574D400AF6FEF /* BBTotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F67931D2574D400AF6FEF /* BBTotalTableViewCell.m */; };
+		3A8F67961D2574D400AF6FEF /* BBTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F67941D2574D400AF6FEF /* BBTotalTableViewCell.xib */; };
 		3AB21D101CFA066B0090F436 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D0F1CFA066B0090F436 /* Reachability.m */; };
 		3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D171CFA130A0090F436 /* BBParentViewController.m */; };
 		3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */; };
@@ -697,6 +699,9 @@
 		3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramHistory.m; sourceTree = "<group>"; };
 		3A8F678C1D24E79400AF6FEF /* BBExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExchange.h; sourceTree = "<group>"; };
 		3A8F678D1D24E79400AF6FEF /* BBExchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExchange.m; sourceTree = "<group>"; };
+		3A8F67921D2574D400AF6FEF /* BBTotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTotalTableViewCell.h; sourceTree = "<group>"; };
+		3A8F67931D2574D400AF6FEF /* BBTotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTotalTableViewCell.m; sourceTree = "<group>"; };
+		3A8F67941D2574D400AF6FEF /* BBTotalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBTotalTableViewCell.xib; sourceTree = "<group>"; };
 		3AB21D0E1CFA066B0090F436 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3AB21D0F1CFA066B0090F436 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3AB21D161CFA130A0090F436 /* BBParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentViewController.h; sourceTree = "<group>"; };
@@ -1370,6 +1375,9 @@
 				3A2D54E31CF075D200A8EFF5 /* BBBasketTableViewCell.h */,
 				3A2D54E41CF075D200A8EFF5 /* BBBasketTableViewCell.m */,
 				3A2D54E51CF075D200A8EFF5 /* BBBasketTableViewCell.xib */,
+				3A8F67921D2574D400AF6FEF /* BBTotalTableViewCell.h */,
+				3A8F67931D2574D400AF6FEF /* BBTotalTableViewCell.m */,
+				3A8F67941D2574D400AF6FEF /* BBTotalTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3083,6 +3091,7 @@
 				3A2D56BC1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.xib in Resources */,
 				3A2D57171CF3321500A8EFF5 /* BBAddBasketViewPopover.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
+				3A8F67961D2574D400AF6FEF /* BBTotalTableViewCell.xib in Resources */,
 				3A2D56661CF075D200A8EFF5 /* BBNumberPhoneTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3291,6 +3300,7 @@
 				3AE5460C1D16A13A006A1CDD /* BBOrder.m in Sources */,
 				3A2D56BE1CF075D200A8EFF5 /* BBProfileInteractor.m in Sources */,
 				3A2D56791CF075D200A8EFF5 /* BBBlocksInteractor.m in Sources */,
+				3A8F67951D2574D400AF6FEF /* BBTotalTableViewCell.m in Sources */,
 				3A2D56971CF075D200A8EFF5 /* BBNavigationInteractor.m in Sources */,
 				3A2D57071CF331C300A8EFF5 /* BBContainerView.m in Sources */,
 				3A2D56721CF075D200A8EFF5 /* BBBasketInteractor.m in Sources */,

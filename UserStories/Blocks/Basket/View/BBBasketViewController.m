@@ -14,21 +14,29 @@
 #import "BBOrderProgram.h"
 #import "BBTableAlertController.h"
 
+#import "BBUserService.h"
+
 @interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate, BBTableAlertControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 
 @property (strong, nonatomic) BBSwitchTableViewCell *switchCell;
+@property (strong, nonatomic) BBTotalTableViewCell *totalCell;
 
 @property (strong, nonatomic) NSArray *programOrders;
 @property (strong, nonatomic) NSIndexPath *removeIndexPath;
 @property (strong, nonatomic) BBOrderProgram *removeOrder;
 
+@property (assign, nonatomic) NSInteger totalPrice;
+
 @end
 
 static CGFloat estimatedHeightCell = 44.0f;
 static CGFloat topInsetForTableView = -35.0f;
+
+static CGFloat heightFooter = 13.0f;
+static CGFloat minHeightFooter = 1.0f;
 
 @implementation BBBasketViewController
 
@@ -75,6 +83,7 @@ static CGFloat topInsetForTableView = -35.0f;
 #pragma mark - Методы BBBasketViewInput
 
 - (void)setupInitialState {
+    self.totalPrice = 0;
     self.navigationItem.title = kNameTitleBasketModule;
     self.programOrders = [NSArray array];
     [self _settingsTableViewAndRegisterNib];
@@ -82,6 +91,7 @@ static CGFloat topInsetForTableView = -35.0f;
 
 - (void)updateTableViewWithOrders:(NSArray *)orders {
     self.programOrders = orders;
+    self.totalPrice = 0;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
     });
@@ -89,10 +99,12 @@ static CGFloat topInsetForTableView = -35.0f;
 
 - (void)updateTableViewWithDelete:(NSArray *)objects {
     self.programOrders = objects;
+    self.totalPrice = 0;
     HQDispatchToMainQueue(^{
         [self.tableView beginUpdates];
         [self.tableView deleteRowsAtIndexPaths:@[self.removeIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
+        [self.tableView reloadData];
     });
 }
 
@@ -122,17 +134,28 @@ static CGFloat topInsetForTableView = -35.0f;
     self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameSwitchCell bundle:nil] forCellReuseIdentifier:kSwitchCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameBasketCell bundle:nil] forCellReuseIdentifier:kBasketCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameTotalCell bundle:nil] forCellReuseIdentifier:kTotalCellIdentifire];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     }
+    if (section == 1) {
+        return 1;
+    }
     return [self.programOrders count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 0) {
+        return minHeightFooter;
+    }
+    return heightFooter;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,6 +165,10 @@ static CGFloat topInsetForTableView = -35.0f;
         switchCell.customTextLabel.text = @"Использовать бонусы";
         self.switchCell = switchCell;
         cell = switchCell;
+    } else if (indexPath.section == 1) {
+        BBTotalTableViewCell *totalCell = [self.tableView dequeueReusableCellWithIdentifier:kTotalCellIdentifire];
+        self.totalCell = totalCell;
+        cell = totalCell;
     } else {
         BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];
         BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
@@ -149,8 +176,10 @@ static CGFloat topInsetForTableView = -35.0f;
         basketCell.program = program;
         basketCell.orderProgram = orderP;
         basketCell.delegate = self;
+        self.totalPrice += [basketCell totalForCountDays];
         cell = basketCell;
     }
+    [self _updateTotalTableViewCell];
     return cell;
 }
 
@@ -160,6 +189,21 @@ static CGFloat topInsetForTableView = -35.0f;
     [self _presentAlertWithProgram:cell.program];
 }
 
+- (void)oldTotal:(NSInteger)oldTotal newTotal:(NSInteger)newTotal {
+    self.totalPrice = self.totalPrice - oldTotal + newTotal;
+    [self _updateTotalTableViewCell];
+}
+
+- (void)_updateTotalTableViewCell {
+    if (self.totalCell) {
+        self.totalCell.totalLabel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
+        NSInteger totalBonuses = 0;
+        if ([self.switchCell.bonusSwitch isOn]) {
+            totalBonuses = [[BBUserService sharedService] userBonuses];
+        }   
+        self.totalCell.totalBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (self.totalPrice - totalBonuses)];
+    }
+}
 
 #pragma mark - TableAlert Methods
 

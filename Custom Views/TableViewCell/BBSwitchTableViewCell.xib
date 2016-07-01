@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oF-FV-AEo">
-                        <rect key="frame" x="21" y="12" width="167" height="20"/>
+                        <rect key="frame" x="16" y="12" width="167" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="166.5" id="jeO-tV-Jnt"/>
                         </constraints>
@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jnN-Lh-DpA">
-                        <rect key="frame" x="251" y="6" width="51" height="31"/>
+                        <rect key="frame" x="255" y="6" width="51" height="31"/>
                         <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,9 +35,9 @@
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="6oF-FV-AEo" secondAttribute="bottom" priority="250" constant="13" id="QFt-BI-pxI"/>
-                    <constraint firstItem="6oF-FV-AEo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="RpU-Tf-Qjq"/>
+                    <constraint firstItem="6oF-FV-AEo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="RpU-Tf-Qjq"/>
                     <constraint firstItem="jnN-Lh-DpA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="X9J-dY-NZY"/>
-                    <constraint firstAttribute="trailing" secondItem="jnN-Lh-DpA" secondAttribute="trailing" constant="20" id="htW-Sa-NZw"/>
+                    <constraint firstAttribute="trailing" secondItem="jnN-Lh-DpA" secondAttribute="trailing" constant="16" id="htW-Sa-NZw"/>
                     <constraint firstItem="6oF-FV-AEo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zNu-ar-zdO"/>
                     <constraint firstItem="6oF-FV-AEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="12.5" id="ziD-MW-ZVP"/>
                 </constraints>

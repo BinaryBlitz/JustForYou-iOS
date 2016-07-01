@@ -30,11 +30,14 @@
 @property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (strong, nonatomic) BBProgram *program;
 
+- (NSInteger)totalForCountDays;
+
 @end
 
 
 @protocol BBBasketCellDelegate <NSObject>
 
 - (void)closeButtonDidTapWithBasketCell:(BBBasketTableViewCell *)cell;
+- (void)oldTotal:(NSInteger)oldTotal newTotal:(NSInteger)newTotal;
 
 @end

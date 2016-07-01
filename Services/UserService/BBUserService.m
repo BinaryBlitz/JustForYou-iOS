@@ -57,6 +57,11 @@ static NSString *kUserReplacement = @"kUserReplacement";
     [self saveCurrentUser:user];
 }
 
+- (NSInteger)userBonuses {
+    BBUser *user = [self currentUser];
+    return user.balance;
+}
+
 - (void)logOutUser {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kApiTokenUser];
