@@ -15,8 +15,7 @@
 
 - (void)cellDidSelectRowWithProgram:(BBProgram *)program;
 
-- (void)okCancelButtonDidTap;
-
+- (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key;
 
 - (void)payNewCardButtonDidTap;
 - (void)payCardWithCard:(BBPayCard *)card;

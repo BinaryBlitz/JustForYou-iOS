@@ -36,22 +36,27 @@
     [[BBServerService sharedService] createExchangesWithApiToken:[[BBUserService sharedService] tokenUser] purchase:[NSString stringWithFormat:@"%ld", (long)purchase.purchasesId] program:[NSNumber numberWithInteger:program.programId] completion:^(BBServerResponse *response, BBExchange *exchange, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (response.serverError == kServerErrorSuccessfull) {
-                [[BBServerService sharedService] payExchangeWithApiToken:[[BBUserService sharedService] tokenUser] exchange:exchange completion:^(BBServerResponse *response, NSData *data, NSError *error) {
-                    if (response.kConnectionServer == kSuccessfullyConnection) {
-                        id Obj = [NSJSONSerialization
-                                  JSONObjectWithData:data
-                                  options:0
-                                  error:nil];
-                        NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
-                        NSString *payUrl = [Obj valueForKey:@"payment_url"];
-                        [self.output exchangeWithPayId:payId payURL:payUrl];
-                    } else {
-                        [self.output errorNetwork];
-                    }
-                }];
+                [self.output exchangeDidCreate:exchange];
             } else {
                 [self.output errorServer];
             }
+        } else {
+            [self.output errorNetwork];
+        }
+    }];
+}
+
+
+- (void)payWithExchange:(BBExchange *)exchange {
+    [[BBServerService sharedService] payExchangeWithApiToken:[[BBUserService sharedService] tokenUser] exchange:exchange completion:^(BBServerResponse *response, NSData *data, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            id Obj = [NSJSONSerialization
+                      JSONObjectWithData:data
+                      options:0
+                      error:nil];
+            NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
+            NSString *payUrl = [Obj valueForKey:@"payment_url"];
+            [self.output exchangeWithPayId:payId payURL:payUrl];
         } else {
             [self.output errorNetwork];
         }

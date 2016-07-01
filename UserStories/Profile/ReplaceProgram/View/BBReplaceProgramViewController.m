@@ -56,13 +56,33 @@ static CGFloat verticalInset = 10.0f;
     [self presentAlertControllerWithTitle:title message:message];
 }
 
-- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleAction:(NSString *)titleAction {
+//- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleAction:(NSString *)titleAction {
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *canc = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        [self.output okCancelButtonDidTap];
+//    }];
+//    alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+//    [alert addAction:canc];
+//    HQDispatchToMainQueue(^{
+//        [self presentViewController:alert animated:YES completion:nil];
+//        alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+//    });
+//}
+
+- (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message
+                            titleAction:(NSString *)titleAction cancelTitle:(NSString *)cancel key:(BBKeyForOkButtonAlert)key {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *canc = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [self.output okCancelButtonDidTap];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.output okCancelButtonDidTapWithKey:key];
     }];
+    if (cancel) {
+        UIAlertAction *canc = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.output okCancelButtonDidTapWithKey:kPayCancelButton];
+        }];
+        [alert addAction:canc];
+    }
     alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
-    [alert addAction:canc];
+    [alert addAction:ok];
     HQDispatchToMainQueue(^{
         [self presentViewController:alert animated:YES completion:nil];
         alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];

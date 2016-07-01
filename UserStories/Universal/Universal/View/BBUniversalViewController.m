@@ -64,7 +64,7 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (void)settingView {
-    if (self.keyModule == kMyAddressModule) {
+    if (self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
         self.navigationItem.rightBarButtonItem = self.addBarButton;
     } else {
         self.navigationItem.rightBarButtonItem = nil;

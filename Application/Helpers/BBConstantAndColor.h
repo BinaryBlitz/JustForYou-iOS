@@ -99,6 +99,14 @@ typedef enum : NSUInteger {
     kStatusError
 }BBStatusCreateDelivery;
 
+
+//тип action у alert в контроллере
+typedef enum : NSUInteger {
+    kPopController,
+    kPayOkButton,
+    kPayCancelButton
+}BBKeyForOkButtonAlert;
+
 // Сделать запрос и обновить данные или сделать запрос и положить их в базу
 typedef enum : NSUInteger {
     kStateUpdateData,

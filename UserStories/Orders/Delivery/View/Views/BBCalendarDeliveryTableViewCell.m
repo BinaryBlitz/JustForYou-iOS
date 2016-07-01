@@ -20,6 +20,8 @@
 @property (assign, nonatomic) BOOL selectDays;
 @property (assign, nonatomic) BOOL selectWeekend;
 
+@property (assign, nonatomic) BOOL loadNextPage;
+
 @end
 
 @implementation BBCalendarDeliveryTableViewCell
@@ -30,6 +32,7 @@
     self.purchaseColor = [BBConstantAndColor applicationGreenColor];
     self.selectDays = NO;
     self.selectWeekend = NO;
+    self.loadNextPage = YES;
     self.countDayInOrder = 0;
 }
 
@@ -50,6 +53,7 @@
 }
 
 - (void)successivelySelectedDay {
+    self.loadNextPage = YES;
     if ([self.datesSelected count] > 0 ) {
         if ([self.datesSelected count] < self.countDayInOrder) {
             self.datesSelected = [self.calendarManager.dateHelper daysFromCurrentDatesArray:self.datesSelected forInterval:self.countDayInOrder - [self.datesSelected count]];
@@ -64,6 +68,7 @@
 }
 
 - (void)successivelySelectedDayWithoutWeekend {
+    self.loadNextPage = YES;
     if ([self.datesSelected count] > 0) {
         if ([self.datesSelected count] < self.countDayInOrder) {
             self.datesSelected = [self.calendarManager.dateHelper daysWithoutWeekendFromCurrentDatesArray:self.datesSelected
@@ -131,6 +136,16 @@
         dayView.circleView.backgroundColor = self.purchaseColor;
     } else {
         dayView.circleView.backgroundColor = [UIColor clearColor];
+    }
+    
+    
+    if([self isInDatesSelected:dayView.date] && ![self.calendarManager.dateHelper date:self.calendarView.date isTheSameMonthThan:dayView.date]) {
+        if (self.loadNextPage) {
+            if([self.calendarView.date compare:dayView.date] == NSOrderedAscending){
+                [self.calendarView loadNextPageWithAnimation];
+            }
+            self.loadNextPage = NO;
+        }
     }
 }
 

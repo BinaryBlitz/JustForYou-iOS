@@ -25,12 +25,15 @@
 @property (strong, nonatomic) id<BBPaymentModuleInput> paymentModule;
 
 @property (strong, nonatomic) BBPurchases *purchase;
+@property (strong, nonatomic) BBProgram *program;
 
 @property (assign, nonatomic) NSInteger payId;
 @property (strong, nonatomic) NSString *payURL;
+@property (strong, nonatomic) BBExchange *exchange;
 
 @end
 
+static NSString *kConfirmationTitle = @"Подтверждение";
 static NSString *kEmptyPrograms = @"Произошла ошибка получения спика программ. Повторите позже или обратитесь в службу поддержки";
 
 @implementation BBReplaceProgramPresenter
@@ -60,11 +63,18 @@ static NSString *kEmptyPrograms = @"Произошла ошибка получе
 
 - (void)cellDidSelectRowWithProgram:(BBProgram *)program {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    self.program = program;
     [self.interactor createReplaceWithPurchase:self.purchase program:program];
 }
 
-- (void)okCancelButtonDidTap {
-    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+- (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
+    if (key == kPopController) {
+        [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+    } else if (key == kPayOkButton) {
+        [self.interactor payWithExchange:self.exchange];
+    } else {
+        [self.view hideBackgroundLoaderViewWithAlpha];
+    }
 }
 
 - (void)payNewCardButtonDidTap {
@@ -85,7 +95,7 @@ static NSString *kEmptyPrograms = @"Произошла ошибка получе
     if ([programs count] > 0) {
         [self.view updateTableViewWithArray:programs];
     } else {
-        [self.view presentAlertControllerWithTitle:kNoteTitle message:kEmptyPrograms titleAction:@"Ok"];
+        [self.view presentAlertControllerWithTitle:kNoteTitle message:kEmptyPrograms titleAction:@"Ok" cancelTitle:nil key:kPopController];
     }
 }
 
@@ -95,24 +105,35 @@ static NSString *kEmptyPrograms = @"Произошла ошибка получе
     [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
 }
 
+- (void)exchangeDidCreate:(BBExchange *)exchange {
+    self.exchange = exchange;
+    NSString *message;
+    if (exchange.pengingBalanse > 0) {
+        message = [NSString stringWithFormat:@"Вам нужно дополнительно оплатить: %ld", (long)exchange.pengingBalanse];
+    } else {
+         message = @"Вы уверенны что хотите обменять?";
+    }
+    [self.view presentAlertControllerWithTitle:kConfirmationTitle message:message titleAction:@"Продолжить" cancelTitle:@"Отмена" key:kPayOkButton];
+}
+
 - (void)errorNetwork {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorConnectNetwork titleAction:@"Ok"];
+    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorConnectNetwork titleAction:@"Ok" cancelTitle:nil key:kPopController];
 }
 
 - (void)errorServer {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorServer titleAction:@"Ok"];
+    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorServer titleAction:@"Ok" cancelTitle:nil key:kPopController];
 }
 
 - (void)paymentSuccessfull {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kNoteTitle message:paymentSuccessfull titleAction:@"Ok"];
+    [self.view presentAlertControllerWithTitle:kNoteTitle message:paymentSuccessfull titleAction:@"Ok" cancelTitle:nil key:kPopController];
 }
 
 - (void)paymentError {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kErrorTitle message:paymentError titleAction:@"Ok"];
+    [self.view presentAlertControllerWithTitle:kErrorTitle message:paymentError titleAction:@"Ok" cancelTitle:nil key:kPopController];
 }
 
 #pragma  mark - Lazy Load
