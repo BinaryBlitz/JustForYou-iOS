@@ -140,5 +140,8 @@ static CGFloat verticalInset = 10.0f;
     [self.output payNewCardButtonDidTap];
 }
 
+- (void)cancelButtonDidTap {
+    [self.output cancelButtonDidTap];
+}
 
 @end

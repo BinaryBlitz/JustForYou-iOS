@@ -22,5 +22,6 @@
 
 - (void)cellDidSelectWithPayCard:(BBPayCard *)card;
 - (void)payNewCardDidTap;
+- (void)cancelButtonDidTap;
 
 @end

@@ -14,5 +14,6 @@
 
 - (void)viewWillAppear;
 - (void)viewWillDisappear;
+- (void)readyButtonDidTap;
 
 @end

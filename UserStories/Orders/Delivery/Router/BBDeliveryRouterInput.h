@@ -12,5 +12,6 @@
 @protocol BBDeliveryRouterInput <NSObject>
 
 - (void)pushViewControllerWithNavigationController:(UINavigationController *)nc;
+- (void)popViewControllerWithNavigationController:(UINavigationController *)nc;
 
 @end

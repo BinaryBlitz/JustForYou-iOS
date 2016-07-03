@@ -17,5 +17,5 @@
 
 - (void)payNewCardButtonDidTap;
 - (void)payCardWithCard:(BBPayCard *)card;
-
+- (void)cancelButtonDidTap;
 @end

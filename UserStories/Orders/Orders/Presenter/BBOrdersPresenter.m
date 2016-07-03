@@ -85,6 +85,10 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
     [self.interactor payOnServerWithPayCard:card paiId:self.payId];
 }
 
+- (void)cancelButtonDidTap {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+}
+
 #pragma mark - Методы BBOrdersInteractorOutput
 
 - (void)deliveryInvoicesWithPayId:(NSInteger)payId payURL:(NSString *)url {

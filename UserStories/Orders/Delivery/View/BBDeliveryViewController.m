@@ -50,9 +50,14 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     [self.output viewWillDisappear];
 }
 
+- (void)_readyButtonAction:(id)sender {
+    [self.output readyButtonDidTap];
+}
+
 #pragma mark - Методы BBDeliveryViewInput
 
 - (void)setupInitialState {
+    self.navigationItem.rightBarButtonItem = [self readyButton];
     [self _registerCellIdentifireInTableView];
     [self _settingTableView];
     self.navigationItem.titleView = self.calendarMenu;
@@ -174,5 +179,16 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     }
     return _calendarMenu;
 }
+
+
+- (UIBarButtonItem *)readyButton {
+    UIBarButtonItem *ready = [[UIBarButtonItem alloc] initWithTitle:@"Готово"
+                                                              style:UIBarButtonItemStylePlain
+                                                             target:self
+                                                             action:@selector(_readyButtonAction:)];
+    ready.tintColor = [UIColor blackColor];
+    return ready;
+}
+
 
 @end

@@ -50,7 +50,9 @@ static CGFloat heightContentCell = 50.0f;
    
     [self setValue:self.contentController forKey:@"contentViewController"];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        
+        if ([self.delegate respondsToSelector:@selector(cancelButtonDidTap)]) {
+            [self.delegate cancelButtonDidTap];
+        }
     }];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"Оплатить новой" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         if ([self.delegate respondsToSelector:@selector(payNewCardDidTap)]) {

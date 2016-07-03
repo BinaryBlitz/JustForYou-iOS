@@ -53,6 +53,11 @@
     [self.output viewWillAppear];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.addBasketPopover removeFromSuperview];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
@@ -281,6 +286,14 @@
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
     [self.output okButtonDidTapWithCountDays:count];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInView:self.addBasketPopover.popoverView];
+    if (![self.addBasketPopover.popoverView pointInside:touchLocation withEvent:event]) {
+        [self.addBasketPopover removeFromSuperview];
+    }
 }
 
 #pragma mark - Init Methods

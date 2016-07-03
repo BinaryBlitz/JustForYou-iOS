@@ -81,6 +81,10 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
     [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card useBonuses:self.switchBonuses];
 }
 
+- (void)cancelButtonDidTap {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+}
+
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {
     NSArray *objects = [self.interactor deleteOrderProgramOnUserArray:order];
     [self.view updateTableViewWithDelete:objects];

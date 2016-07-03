@@ -222,6 +222,10 @@ static CGFloat minHeightFooter = 1.0f;
     [self.output payNewCardButtonDidTap];
 }
 
+- (void)cancelButtonDidTap {
+    [self.output cancelButtonDidTap];
+}
+
 #pragma mark - Layout Methods
 
 - (void)_layoutPayButton {

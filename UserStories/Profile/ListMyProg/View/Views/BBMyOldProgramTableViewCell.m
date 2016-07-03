@@ -31,7 +31,7 @@
     self.nameLabel.text = purchase.nameProgram;
     self.indicatorView.backgroundColor = purchase.elementBlock.colorBlock;
     self.subnameLabel.text = purchase.elementBlock.nameBlock;
-     NSString *days = [BBConstantAndColor getNumberEndingWith:purchase.numberDays andEndings:@[@"день", @"дня", @"дней"]];
+    NSString *days = [BBConstantAndColor getNumberEndingWith:purchase.numberDays andEndings:@[@"день", @"дня", @"дней"]];
     self.coundDayLabel.text = [NSString stringWithFormat:@"%ld %@", (long)purchase.numberDays, days];
 }
 

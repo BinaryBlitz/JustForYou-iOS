@@ -53,6 +53,15 @@
 }
 
 - (void)viewWillDisappear {
+    [self saveDates];
+}
+
+- (void)readyButtonDidTap {
+    [self saveDates];
+    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
+- (void)saveDates {
     NSArray *dates = [self.view currentSelectionDates];
     [self.parentModule selectionDates:dates];
 }

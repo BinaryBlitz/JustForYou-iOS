@@ -23,6 +23,7 @@
 
 - (void)payNewCardButtonDidTap;
 - (void)payCardWithCard:(BBPayCard *)card;
+- (void)cancelButtonDidTap;
 
 - (void)okCancelButtonDidTap;
 

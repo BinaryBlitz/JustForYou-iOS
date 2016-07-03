@@ -33,7 +33,7 @@
 }
 
 - (void)createReplaceWithPurchase:(BBPurchases *)purchase program:(BBProgram *)program {
-    [[BBServerService sharedService] createExchangesWithApiToken:[[BBUserService sharedService] tokenUser] purchase:[NSString stringWithFormat:@"%ld", (long)purchase.purchasesId] program:[NSNumber numberWithInteger:program.programId] completion:^(BBServerResponse *response, BBExchange *exchange, NSError *error) {
+    [[BBServerService sharedService] createExchangesWithApiToken:[[BBUserService sharedService] tokenUser] purchase:[NSString stringWithFormat:@"%ld", (long)purchase.purchasesId] program:[NSNumber numberWithInteger:program.programId] completion:^(BBServerResponse *response, BBExchange *exchange, NSData *data, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (response.serverError == kServerErrorSuccessfull) {
                 [self.output exchangeDidCreate:exchange];

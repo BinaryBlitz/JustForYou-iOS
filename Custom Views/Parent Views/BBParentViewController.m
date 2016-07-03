@@ -34,12 +34,10 @@ CGFloat sizeBar = 44.0f;
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Init Methods
 
 - (void)_settingLoaderView {
     [self.view addSubview:self.loaderView];
-    [self _layoutLoadView];
     self.loaderView.hidden = YES;
 }
 
@@ -164,16 +162,14 @@ CGFloat sizeBar = 44.0f;
 
 #pragma mark - Layout Views
 
-- (void)_layoutLoadView {
-    CGRect mainScreen = [[UIScreen mainScreen] bounds];
-    self.loaderView.center = CGPointMake(CGRectGetMidX(mainScreen), CGRectGetMidY(mainScreen) - sizeBar);
-}
 
 #pragma mark - Lazy Load
 
 - (BBLoaderView *)loaderView {
     if (!_loaderView) {
         _loaderView = [[BBLoaderView alloc] initWithFrame:CGRectMake(0, 0, sizeLoader, sizeLoader)];
+        CGRect mainScreen = [[UIScreen mainScreen] bounds];
+        self.loaderView.center = CGPointMake(CGRectGetMidX(mainScreen), CGRectGetMidY(mainScreen) - sizeBar);
     }
     return _loaderView;
 }

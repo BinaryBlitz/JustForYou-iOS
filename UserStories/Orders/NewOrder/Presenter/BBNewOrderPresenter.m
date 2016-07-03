@@ -35,6 +35,8 @@
 @property (strong, nonatomic) BBAddress *address;
 @property (assign, nonatomic) BBStatusCreateDelivery statusServer;
 
+@property (assign, nonatomic) BOOL deleteDays;
+
 @end
 
 static NSString *kErrorEmptyDays = @"Вы должны выбрать хотя бы один день";
@@ -49,6 +51,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 
 - (void)configureModule {
     self.selectionDates = [NSArray array];
+    self.deleteDays = YES;
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule purchase:(BBPurchases *)purchase parentModule:(id)parent {
@@ -67,6 +70,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 
 - (void)selectionDates:(NSArray *)array {
     self.selectionDates = array;
+    self.deleteDays = NO;
 }
 
 #pragma mark - Методы BBNewOrderViewOutput
@@ -76,6 +80,11 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 }
 
 - (void)viewWillAppear {
+    if (self.deleteDays) {
+        self.selectionDates = [NSArray array];
+    } else {
+        self.deleteDays = YES;
+    }
     [self.view countsDaysInCalendar:[self.selectionDates count]];
     [self.view purchaseWithPurchase:self.purchase];
 }

@@ -161,6 +161,9 @@ static CGFloat estimatedRowHeight = 100.0f;
     [self.output payNewCardButtonDidTap];
 }
 
+- (void)cancelButtonDidTap {
+    [self.output cancelButtonDidTap];
+}
 
 #pragma mark - Lazy Load
 

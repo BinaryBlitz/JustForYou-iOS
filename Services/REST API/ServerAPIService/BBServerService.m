@@ -423,7 +423,7 @@
             exchange = [data parseExchangeWithData];
         }
         if (completion) {
-            completion(responseServer, exchange, error);
+            completion(responseServer, exchange, data, error);
         }
     }];
 }

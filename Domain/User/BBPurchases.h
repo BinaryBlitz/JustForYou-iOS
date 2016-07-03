@@ -14,6 +14,7 @@
 
 @property (assign, nonatomic) NSInteger purchasesId;
 @property (assign, nonatomic) NSInteger numberDays;
+@property (assign, nonatomic) NSInteger deliveriesCount;
 @property (assign, nonatomic) NSInteger programId;
 @property (strong, nonatomic) NSString *nameProgram;
 @property (strong, nonatomic) BBElementBlock *elementBlock;

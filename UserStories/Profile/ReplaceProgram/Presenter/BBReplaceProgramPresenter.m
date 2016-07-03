@@ -35,6 +35,7 @@
 
 static NSString *kConfirmationTitle = @"Подтверждение";
 static NSString *kEmptyPrograms = @"Произошла ошибка получения спика программ. Повторите позже или обратитесь в службу поддержки";
+static NSString *kErrorIdentyProgram = @"Вы не можете заменять одинаковые программы";
 
 @implementation BBReplaceProgramPresenter
 
@@ -62,9 +63,13 @@ static NSString *kEmptyPrograms = @"Произошла ошибка получе
 }
 
 - (void)cellDidSelectRowWithProgram:(BBProgram *)program {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    self.program = program;
-    [self.interactor createReplaceWithPurchase:self.purchase program:program];
+    if (self.purchase.programId == program.programId) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorIdentyProgram];
+    } else {
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+        self.program = program;
+        [self.interactor createReplaceWithPurchase:self.purchase program:program];
+    }
 }
 
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
@@ -86,6 +91,10 @@ static NSString *kEmptyPrograms = @"Произошла ошибка получе
 
 - (void)payCardWithCard:(BBPayCard *)card {
     [self.interactor payOnServerWithPayCard:card paiId:self.payId];
+}
+
+- (void)cancelButtonDidTap {
+    [self.view hideBackgroundLoaderViewWithAlpha];
 }
 
 #pragma mark - Методы BBReplaceProgramInteractorOutput

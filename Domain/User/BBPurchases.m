@@ -15,6 +15,7 @@
     if (self) {
         self.purchasesId = [[JSONObj valueForKey:@"id"] integerValue];
         self.numberDays = [[JSONObj valueForKey:@"number_of_days"] integerValue];
+        self.deliveriesCount = [[JSONObj valueForKey:@"deliveries_count"] integerValue];
         [self initProgramOptionsWithPorgram:[JSONObj objectForKey:@"program"]];
     }
     return self;
