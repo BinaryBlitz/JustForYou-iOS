@@ -31,6 +31,9 @@
 @property (assign, nonatomic) NSInteger payId;
 @property (strong, nonatomic) NSString *payURL;
 
+@property (assign, nonatomic) NSInteger total;
+@property (assign, nonatomic) NSInteger invoicesId;
+
 @end
 
 static NSString *kPurchasesEmpty = @"Вы не можете создать новый заказ так как у вас нет купленных программ";
@@ -74,6 +77,14 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
     [self.interactor checkMyDeliveryInvoices];
 }
 
+- (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
+    if (key == kContinueButton) {
+        [self.interactor payDeliveriesWithTotal:self.total invoicesId:self.invoicesId];
+    } else {
+        [self.view hideBackgroundLoaderViewWithAlpha];
+    }
+}
+
 - (void)payNewCardButtonDidTap {
     BBPayment *payment = [[BBPayment alloc] init];
     payment.paymentId = self.payId;
@@ -112,6 +123,16 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 
 - (void)updateDeliveriesWithArray:(NSArray *)array {
     [self.view updateDeliveriesWithArray:array];
+}
+
+- (void)createPayDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId {
+    self.invoicesId = invoicesId;
+    self.total = total;
+    [self.view presentAlertControllerWithTitle:kNoteTitle
+                                       message:[NSString stringWithFormat:@"Вы не можете создать новую доставку: у вас остались неоплаченные заказы. Оплатить %ld Р", (long)total]
+                                   titleAction:@"Оплатить"
+                                   cancelTitle:@"Отмена"
+                                           key:kContinueButton];
 }
 
 - (void)errorNetwork {

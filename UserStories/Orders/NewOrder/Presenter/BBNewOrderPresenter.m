@@ -63,6 +63,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 }
 
 - (void)popAdressModuleWithAdress:(BBAddress *)address {
+    self.deleteDays = NO;
     self.address = address;
     [self.view adressForAdressTableViewCell:address.address];
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];

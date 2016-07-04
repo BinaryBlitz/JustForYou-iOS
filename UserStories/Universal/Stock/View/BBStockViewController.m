@@ -30,12 +30,12 @@
 #pragma mark - Методы BBStockViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = self.stock.name;
-    self.textView.text = self.stock.descript;
 }
 
 - (void)stockForUI:(BBStock *)stock {
     self.stock = stock;
+    self.navigationItem.title = self.stock.name;
+    self.textView.text = self.stock.descript;
 }
 
 @end

@@ -15,6 +15,7 @@
 @property (assign, nonatomic) NSInteger purchaseId;
 @property (assign, nonatomic) BOOL paid;
 @property (assign, nonatomic) NSInteger pengingBalanse;
+@property (assign, nonatomic) NSInteger totalPrice;
 
 - (instancetype)initWithJSON:(id)JSONObj;
 

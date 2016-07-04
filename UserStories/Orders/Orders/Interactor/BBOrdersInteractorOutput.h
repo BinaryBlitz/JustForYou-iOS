@@ -16,6 +16,8 @@
 - (void)currentMyDeliveriesWithArray:(NSArray *)array;
 - (void)updateDeliveriesWithArray:(NSArray *)array;
 
+- (void)createPayDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId;
+
 - (void)errorNetwork;
 - (void)errorServer;
 

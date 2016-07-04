@@ -103,6 +103,7 @@ typedef enum : NSUInteger {
 //тип action у alert в контроллере
 typedef enum : NSUInteger {
     kPopController,
+    kContinueButton,
     kPayOkButton,
     kPayCancelButton
 }BBKeyForOkButtonAlert;

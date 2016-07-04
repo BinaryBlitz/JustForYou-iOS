@@ -66,17 +66,49 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
     if (self.purchase.programId == program.programId) {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorIdentyProgram];
     } else {
-        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
         self.program = program;
-        [self.interactor createReplaceWithPurchase:self.purchase program:program];
+        [self.view presentAlertControllerWithTitle:kConfirmationTitle message:[self _calculatePrice] titleAction:@"Продолжить" cancelTitle:@"Отмена" key:kContinueButton];
     }
+}
+
+
+- (NSString *)_calculatePrice {
+    NSString *message;
+    NSInteger old, new, result;
+    if ([self _calculateThresholdWithThreshold:self.purchase.threshold]) {
+        old = self.purchase.countDays * self.purchase.secondaryPrice;
+    } else {
+        old = self.purchase.countDays * self.purchase.primaryPrice;
+    }
+    if ([self _calculateThresholdWithThreshold:self.program.threshold]) {
+        new = self.purchase.countDays * self.program.secondaryPrice;
+    } else {
+        new = self.purchase.countDays * self.program.primaryPrice;
+    }
+    result = new - old;
+    if (result <= 0) {
+        message = [NSString stringWithFormat:@"При замене на данную программу вам будет начисленно %ld бонусов", (long)result];
+    } else {
+        message = [NSString stringWithFormat:@"При замене на данную программу вам нужно будет доплатить %ld P", (long)result];
+    }
+    return message;
+}
+
+- (BOOL)_calculateThresholdWithThreshold:(NSInteger)threshold {
+    if (self.purchase.countDays >= threshold) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
     if (key == kPopController) {
         [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+    } else if (key == kContinueButton) {
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+        [self.interactor createReplaceWithPurchase:self.purchase program:self.program];
     } else if (key == kPayOkButton) {
-        [self.interactor payWithExchange:self.exchange];
+    
     } else {
         [self.view hideBackgroundLoaderViewWithAlpha];
     }
@@ -117,12 +149,12 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 - (void)exchangeDidCreate:(BBExchange *)exchange {
     self.exchange = exchange;
     NSString *message;
-    if (exchange.pengingBalanse > 0) {
-        message = [NSString stringWithFormat:@"Вам нужно дополнительно оплатить: %ld", (long)exchange.pengingBalanse];
+    if (exchange.paid) {
+        message = [NSString stringWithFormat:@"Замена успешно произведена. Вам начисленно бонусов %ld", (long)exchange.pengingBalanse];
+        [self.view presentAlertControllerWithTitle:kNoteTitle message:message titleAction:@"Ok" cancelTitle:nil key:kPopController];
     } else {
-         message = @"Вы уверенны что хотите обменять?";
+        [self.interactor payWithExchange:self.exchange];
     }
-    [self.view presentAlertControllerWithTitle:kConfirmationTitle message:message titleAction:@"Продолжить" cancelTitle:@"Отмена" key:kPayOkButton];
 }
 
 - (void)errorNetwork {

@@ -36,24 +36,7 @@
                 if (response.serverError == kServerErrorSuccessfull) {
                     NSInteger invoicesId = [[JSONObj valueForKey:@"id"] integerValue];
                     NSInteger total = [[JSONObj valueForKey:@"total_price"] integerValue];
-                    if (total >= 0) {
-                        [[BBServerService sharedService] payDeliveryInvoicesWithApiToken:[[BBUserService sharedService] tokenUser]
-                                                                              invoicesId:[NSString stringWithFormat:@"%ld", (long)invoicesId]
-                                                                              completion:^(BBServerResponse *response, NSData *data, NSError *error) {
-                                                                                  if (response.kConnectionServer == kSuccessfullyConnection) {
-                                                                                      id Obj = [NSJSONSerialization
-                                                                                                JSONObjectWithData:data
-                                                                                                options:0
-                                                                                                error:nil];
-                                                                                      NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
-                                                                                      NSString *payUrl = [Obj valueForKey:@"payment_url"];
-                                                                                      [self.output deliveryInvoicesWithPayId:payId
-                                                                                                                      payURL:payUrl];
-                                                                                  } else {
-                                                                                      [self.output errorNetwork];
-                                                                                  }
-                        }];
-                    }
+                    [self.output createPayDeliveriesWithTotal:total invoicesId:invoicesId];
                 }  else {
                     [self.output errorServer];
                 }
@@ -66,6 +49,29 @@
     }];
 }
 
+- (void)payDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId {
+    [[BBServerService sharedService] payDeliveryInvoicesWithApiToken:[[BBUserService sharedService] tokenUser]
+                                                          invoicesId:[NSString stringWithFormat:@"%ld", (long)invoicesId]
+                                                          completion:^(BBServerResponse *response, NSData *data, NSError *error) {
+                                                              if (response.kConnectionServer == kSuccessfullyConnection) {
+                                                                  if (response.serverError == kServerErrorSuccessfull) {
+                                                                      id Obj = [NSJSONSerialization
+                                                                                JSONObjectWithData:data
+                                                                                options:0
+                                                                                error:nil];
+                                                                      NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
+                                                                      NSString *payUrl = [Obj valueForKey:@"payment_url"];
+                                                                      [self.output deliveryInvoicesWithPayId:payId
+                                                                                                      payURL:payUrl];
+                                                                  } else {
+                                                                      [self.output errorServer];
+                                                                  }
+                                                              } else {
+                                                                  [self.output errorNetwork];
+                                                              }
+                                                          }];
+
+}
 
 - (void)payOnServerWithPayCard:(BBPayCard *)card paiId:(NSInteger)paiId {
     [[BBServerService sharedService] createPaymentsWithPayCard:card.payCardId orderId:paiId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BOOL paid, NSError *error) {

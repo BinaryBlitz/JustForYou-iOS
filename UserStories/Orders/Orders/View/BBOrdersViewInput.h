@@ -19,5 +19,10 @@
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
 - (void)createAndPresentTableAlertWithMessage:(NSString *)message;
+- (void)presentAlertControllerWithTitle:(NSString *)title
+                                message:(NSString *)message
+                            titleAction:(NSString *)titleAction
+                            cancelTitle:(NSString *)cancel
+                                    key:(BBKeyForOkButtonAlert)key;
 
 @end
