@@ -51,7 +51,7 @@
                                 <constraint firstAttribute="height" constant="40" id="3GT-if-bHR"/>
                                 <constraint firstAttribute="width" constant="40" id="uAw-sV-KKT"/>
                             </constraints>
-                            <state key="normal" backgroundImage="minusIcon"/>
+                            <state key="normal" backgroundImage="crossIcon"/>
                             <connections>
                                 <action selector="minusButtonAction:" destination="-1" eventType="touchUpInside" id="ZCW-DL-Awj"/>
                             </connections>
@@ -122,7 +122,7 @@
         </view>
     </objects>
     <resources>
-        <image name="minusIcon" width="30" height="30"/>
+        <image name="crossIcon" width="30" height="30"/>
         <image name="plusIcon" width="30" height="30"/>
     </resources>
 </document>

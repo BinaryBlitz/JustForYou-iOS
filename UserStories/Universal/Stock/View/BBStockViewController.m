@@ -27,6 +27,11 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillLayoutSubviews {
+    self.navigationItem.title = self.stock.name;
+    self.textView.text = self.stock.descript;
+}
+
 #pragma mark - Методы BBStockViewInput
 
 - (void)setupInitialState {
@@ -34,8 +39,6 @@
 
 - (void)stockForUI:(BBStock *)stock {
     self.stock = stock;
-    self.navigationItem.title = self.stock.name;
-    self.textView.text = self.stock.descript;
 }
 
 @end

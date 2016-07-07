@@ -77,10 +77,9 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
 - (void)updateUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(CompletionBlock)completion {
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user?api_token=%@", kServerURL, apiToken]];
     
-    NSDictionary* parameters = @{@"api_token"    : apiToken,
-                                 @"phone_number" : user.numberPhone,
+    NSDictionary* parameters = @{@"phone_number" : user.numberPhone,
                                  @"first_name"   : user.name,
                                  @"last_name"    : user.surname,
                                  @"email"        : user.email};
@@ -95,6 +94,7 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/user", kServerURL]];
     
     NSDictionary *parametrs;
+    NSDictionary *user;
     if (deviceToken) {
         NSString * deviceTokenString = [[[[deviceToken description]
                                           stringByReplacingOccurrencesOfString: @"<" withString: @""]
@@ -102,14 +102,12 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
                                         stringByReplacingOccurrencesOfString: @" " withString: @""];
         
         //    NSString* newStr = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
-        
-        NSDictionary *user = @{@"device_token" : deviceTokenString};
-        
-        parametrs = @{@"api_token"    : apiToken,
-                      @"user"         : user};
+       user = @{@"device_token" : deviceTokenString};
     } else {
-        parametrs = @{@"api_token"    : apiToken};
+        user = @{@"device_token" : [NSNull null]};
     }
+    parametrs = @{@"api_token": apiToken,
+                  @"user"     : user};
     request = [self _settingRequestWithRequest:request parametrs:parametrs HTTPMethod:PATCH];
     [self sendRequest:request completion:completion];
 }

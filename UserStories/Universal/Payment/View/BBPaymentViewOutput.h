@@ -12,6 +12,8 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+
 - (void)webViewDidChangeURLWithURL:(NSURL *)url;
 
 @end

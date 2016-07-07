@@ -29,7 +29,7 @@
 
 @end
 
-static NSInteger shemaVersionRealm = 26;
+static NSInteger shemaVersionRealm = 27;
 
 @implementation BBPreloader
 

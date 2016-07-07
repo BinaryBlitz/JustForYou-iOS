@@ -39,7 +39,11 @@
         } else {
             [[UIApplication sharedApplication] registerForRemoteNotifications];
         }
-        
+    } else {
+        [[BBUserService sharedService] setEnableBonuses:state];
+        if ([self.delegate respondsToSelector:@selector(changeStateWithState:)]) {
+            [self.delegate changeStateWithState:state];
+        }
     }
 }
 

@@ -12,6 +12,8 @@
 
 - (void)didTriggerViewReadyEvent;
 
+- (void)viewWillAppear;
+
 - (void)nextButtonDidPress;
 
 - (void)backButtonDidTap;

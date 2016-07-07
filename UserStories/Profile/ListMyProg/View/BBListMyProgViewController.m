@@ -65,7 +65,7 @@ static CGFloat contentInset = 20.0f;
 
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
     [self.addBasketPopover removeFromSuperview];
-    
+    self.addBasketPopover = nil;
     [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
 }
 
@@ -114,6 +114,7 @@ static CGFloat contentInset = 20.0f;
     CGPoint touchLocation = [touch locationInView:self.addBasketPopover.popoverView];
     if (![self.addBasketPopover.popoverView pointInside:touchLocation withEvent:event]) {
         [self.addBasketPopover removeFromSuperview];
+        self.addBasketPopover = nil;
     }
 }
 

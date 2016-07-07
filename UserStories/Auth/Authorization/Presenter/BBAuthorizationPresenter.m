@@ -60,6 +60,10 @@ static NSString *kErrorData = @"Ошибка данных. Проверьте п
 	[self.view setupInitialState];
 }
 
+- (void)viewWillAppear {
+    [self.view keyForTableView:kNumberPhoneStyleTableView];
+}
+
 - (void)nextButtonDidPress {
     [self.view getCodeUser];
 }

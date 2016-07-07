@@ -71,7 +71,9 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 }
 
 - (NSArray *)currentSelectionDates {
-    return self.selectionDates;
+    NSArray *array = self.selectionDates;
+    self.selectionDates = [NSArray array];
+    return array;
 }
 
 - (void)updateNameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
@@ -118,7 +120,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     if (indexPath.section == 0) {
         BBCalendarDeliveryTableViewCell *calendarCell = [[NSBundle mainBundle] loadNibNamed:kNibNameCalendarDeliveryCell
                                                                             owner:self options:nil].lastObject;
-        calendarCell.countDayInOrder = self.purchase.numberDays;
+        calendarCell.countDayInOrder = self.purchase.countDays;
         calendarCell.purchaseColor = self.purchase.elementBlock.colorBlock;
         self.calendarCell = calendarCell;
         [self _setDelegates];

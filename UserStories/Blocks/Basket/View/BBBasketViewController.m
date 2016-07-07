@@ -16,7 +16,7 @@
 
 #import "BBUserService.h"
 
-@interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate, BBTableAlertControllerDelegate>
+@interface BBBasketViewController() <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate, BBTableAlertControllerDelegate, BBSwitchCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
@@ -164,6 +164,8 @@ static CGFloat minHeightFooter = 1.0f;
         BBSwitchTableViewCell *switchCell = [self.tableView dequeueReusableCellWithIdentifier:kSwitchCellIdentifire];
         switchCell.customTextLabel.text = @"Использовать бонусы";
         self.switchCell = switchCell;
+        self.switchCell.bonusSwitch.on = [[BBUserService sharedService] enableBonuses];
+        switchCell.delegate = self;
         cell = switchCell;
     } else if (indexPath.section == 1) {
         BBTotalTableViewCell *totalCell = [self.tableView dequeueReusableCellWithIdentifier:kTotalCellIdentifire];
@@ -199,10 +201,21 @@ static CGFloat minHeightFooter = 1.0f;
         self.totalCell.totalLabel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
         NSInteger totalBonuses = 0;
         if ([self.switchCell.bonusSwitch isOn]) {
-            totalBonuses = [[BBUserService sharedService] userBonuses];
-        }   
-        self.totalCell.totalBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (self.totalPrice - totalBonuses)];
+            if ([self.programOrders count] > 0) {
+                totalBonuses = [[BBUserService sharedService] userBonuses];
+            }
+        }
+        NSInteger result = self.totalPrice - totalBonuses;
+        if (result < 0) {
+            result = 0;
+        }
+        self.totalCell.totalBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
     }
+}
+
+
+- (void)changeStateWithState:(BOOL)state {
+    [self _updateTotalTableViewCell];
 }
 
 #pragma mark - TableAlert Methods

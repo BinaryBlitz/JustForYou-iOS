@@ -13,7 +13,7 @@
 
 @protocol BBReplaceProgramInteractorInput <NSObject>
 
-- (void)listAllPrograms;
+- (void)listAllProgramsWithProgramId:(NSInteger)programId;
 
 - (void)createReplaceWithPurchase:(BBPurchases *)purchase program:(BBProgram *)program;
 - (void)payWithExchange:(BBExchange *)exchange;

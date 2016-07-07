@@ -179,13 +179,13 @@
 
 - (void)addOrUpdateOrdersFromArray:(NSArray *)objects {
     RLMRealm *standartRealm = [RLMRealm defaultRealm];
-    RLMResults *old = [BBOrder allObjectsInRealm:standartRealm];
-    
+//    RLMResults *old = [BBOrder allObjectsInRealm:standartRealm];
+//    
+//    [standartRealm beginWriteTransaction];
+//    [standartRealm deleteObjects:old];
+//    [standartRealm commitWriteTransaction];
     [standartRealm beginWriteTransaction];
-    [standartRealm deleteObjects:old];
-    [standartRealm commitWriteTransaction];
-    [standartRealm beginWriteTransaction];
-    [standartRealm addObjects:objects];
+    [standartRealm addOrUpdateObjectsFromArray:objects];
     [standartRealm commitWriteTransaction];
 }
 

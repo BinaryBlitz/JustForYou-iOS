@@ -17,12 +17,13 @@
 
 #pragma mark - Методы BBReplaceProgramInteractorInput
 
-- (void)listAllPrograms {
+- (void)listAllProgramsWithProgramId:(NSInteger)programId {
+    __block NSInteger progId = programId;
     [[BBServerService sharedService] listAllProgramsWithApiToken:[[BBUserService sharedService] tokenUser]
                                                       completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
                                                           if (response.kConnectionServer == kSuccessfullyConnection) {
                                                               if (response.serverError == kServerErrorSuccessfull) {
-                                                                  [self.output allProgramsWithArray:objects];
+                                                                  [self removeProgramWithProgramId:progId programs:objects];
                                                               } else {
                                                                   [self.output errorServer];
                                                               }
@@ -30,6 +31,16 @@
                                                               [self.output errorNetwork];
                                                           }
     }];
+}
+
+- (void)removeProgramWithProgramId:(NSInteger)programId programs:(NSArray *)programs {
+    NSMutableArray *result = [NSMutableArray arrayWithArray:programs];
+    for (BBProgram *progr in programs) {
+        if (progr.programId == programId) {
+            [result removeObject:progr];
+        }
+    }
+    [self.output allProgramsWithArray:result];
 }
 
 - (void)createReplaceWithPurchase:(BBPurchases *)purchase program:(BBProgram *)program {

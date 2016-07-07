@@ -59,7 +59,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 
 - (void)viewWillAppear {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor listAllPrograms];
+    [self.interactor listAllProgramsWithProgramId:self.purchase.programId];
 }
 
 - (void)cellDidSelectRowWithProgram:(BBProgram *)program {

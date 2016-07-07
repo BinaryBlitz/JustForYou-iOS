@@ -16,6 +16,7 @@ NSString* const kNumberPhone = @"kNumberPhone";
 NSString* const kOrdersProgramArray = @"kOrdersProgramArray";
 NSString* const kAddressArray = @"kAddressArray";
 NSString* const kBalance = @"kBalance";
+NSString* const kEnableBonuses = @"kEnableBonuses";
 
 @implementation BBUser
 
@@ -30,6 +31,7 @@ NSString* const kBalance = @"kBalance";
         self.balance = [[JSONObj valueForKey:@"balance"] integerValue];
         self.addressArray = [NSArray array];
         self.ordersProgramArray = [NSArray array];
+        self.enableBonuses = YES;
     }
     return self;
 }
@@ -45,6 +47,7 @@ NSString* const kBalance = @"kBalance";
         self.ordersProgramArray = [coder decodeObjectForKey:kOrdersProgramArray];
         self.addressArray = [coder decodeObjectForKey:kAddressArray];
         self.balance = [coder decodeIntegerForKey:kBalance];
+        self.enableBonuses = [coder decodeBoolForKey:kEnableBonuses];
     }
     return self;
 }
@@ -58,6 +61,7 @@ NSString* const kBalance = @"kBalance";
     [aCoder encodeObject:self.ordersProgramArray forKey:kOrdersProgramArray];
     [aCoder encodeObject:self.addressArray forKey:kAddressArray];
     [aCoder encodeInteger:self.balance forKey:kBalance];
+    [aCoder encodeBool:self.enableBonuses forKey:kEnableBonuses];
 }
 
 

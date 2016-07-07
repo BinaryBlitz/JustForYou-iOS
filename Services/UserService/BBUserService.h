@@ -23,6 +23,8 @@
 - (void)saveCurrentUser:(BBUser *)user;
 - (void)updateUserWithUser:(BBUser *)user;
 - (NSInteger)userBonuses;
+- (BOOL)enableBonuses;
+- (void)setEnableBonuses:(BOOL)state;
 - (void)logOutUser;
 
 - (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays;

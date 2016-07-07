@@ -23,6 +23,7 @@ typedef enum : NSUInteger {
 - (void)getCodeUser;
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key;
+- (void)keyForTableView:(BBKeyStyleTableViewRegist)key;
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

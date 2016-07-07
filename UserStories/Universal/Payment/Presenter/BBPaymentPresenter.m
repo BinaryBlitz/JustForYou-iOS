@@ -48,6 +48,9 @@
 
 - (void)didTriggerViewReadyEvent {
 	[self.view setupInitialState];
+}
+
+- (void)viewWillAppear {
     [self.view loadWebViewWithPayment:self.payment];
 }
 

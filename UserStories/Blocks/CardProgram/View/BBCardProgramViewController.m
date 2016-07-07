@@ -56,6 +56,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.addBasketPopover removeFromSuperview];
+    self.addBasketPopover = nil;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -107,7 +108,7 @@
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
 //    self.addInBasketButton.enabled = NO;
     [self.addBasketPopover removeFromSuperview];
-    
+    self.addBasketPopover = nil;
     [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
 }
 
@@ -293,6 +294,7 @@
     CGPoint touchLocation = [touch locationInView:self.addBasketPopover.popoverView];
     if (![self.addBasketPopover.popoverView pointInside:touchLocation withEvent:event]) {
         [self.addBasketPopover removeFromSuperview];
+        self.addBasketPopover = nil;
     }
 }
 

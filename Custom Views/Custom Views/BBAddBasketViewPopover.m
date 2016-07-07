@@ -30,6 +30,12 @@ static NSString *kNameCrossImage = @"crossIcon";
     return self;
 }
 
+//- (void)layoutSubviews {
+//    self.countDays = 1;
+//    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
+//    [self _changeBackgroundImageInButtonWithName:kNameCrossImage];
+//}
+
 - (void) createSelfFromNib {
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"BBAddBasketViewPopover"
                                                           owner:self options:nil];
@@ -71,7 +77,8 @@ static NSString *kNameCrossImage = @"crossIcon";
 }
 
 - (void)_changeBackgroundImageInButtonWithName:(NSString *)image {
-    [self.minusButton setBackgroundImage:[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]forState:UIControlStateNormal];
+    [self.minusButton setBackgroundImage:[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                forState:UIControlStateNormal];
 }
 
 @end

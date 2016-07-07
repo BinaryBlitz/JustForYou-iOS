@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *numberPhone;
 @property (assign, nonatomic) NSInteger balance;
-
+@property (assign, nonatomic) BOOL enableBonuses;
 @property (strong, nonatomic) NSArray *ordersProgramArray;
 @property (strong, nonatomic) NSArray *addressArray;
 

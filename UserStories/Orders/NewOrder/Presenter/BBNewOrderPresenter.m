@@ -91,6 +91,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 }
 
 - (void)countDayCellDidTap {
+    self.selectionDates = [NSArray array];
     [self.deliveryModule pushModuleWithNavigationModule:self.navigationModule parent:self purchase:self.purchase];
 }
 

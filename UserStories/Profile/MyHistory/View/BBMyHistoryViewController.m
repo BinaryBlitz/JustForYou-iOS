@@ -71,7 +71,7 @@ static CGFloat contentInset = 20.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBPaymentHistoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kPaymentHistoryCellIdentifire];
+    BBPaymentHistoryTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:kNibNamePaymentHistoryCell owner:self options:nil].lastObject;
     cell.program = [self.objects objectAtIndex:indexPath.row];
     return cell;
 }

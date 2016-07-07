@@ -12,6 +12,9 @@
 
 @implementation BBOrder
 
++ (NSString *)primaryKey {
+    return @"orderId";
+}
 
 - (instancetype)initWithJSON:(id)JSONObj {
     self = [super init];

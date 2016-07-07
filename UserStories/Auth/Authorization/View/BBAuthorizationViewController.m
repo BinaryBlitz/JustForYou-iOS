@@ -49,6 +49,11 @@ static CGFloat offsetBottom = 10.0f;
     [self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.output viewWillAppear];
+}
+
 - (void)viewDidLayoutSubviews {
     [self layoutYouView];
 }
@@ -82,6 +87,22 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
     [self presentAlertControllerWithTitle:title message:message];
+}
+
+- (void)keyForTableView:(BBKeyStyleTableViewRegist)key {
+    self.keyStyleTableView = key;
+    HQDispatchToMainQueue(^{
+        if (key == kSendCodeStyleTableView) {
+            self.navigationItem.rightBarButtonItem = self.rightBarButton;
+            self.navigationItem.leftBarButtonItem = self.backBarButton;
+            self.informationLabel.text = kTextForSendCode;
+        } else {
+            self.navigationItem.leftBarButtonItem = nil;
+            self.navigationItem.rightBarButtonItem = nil;
+            self.informationLabel.text = kTextForEnterPhone;
+        }
+        [self.tableView reloadData];
+    });
 }
 
 - (void)updateTableViewWithKeyTableView:(BBKeyStyleTableViewRegist)key {
@@ -147,9 +168,10 @@ static CGFloat offsetBottom = 10.0f;
     infoCell.delegate = self;
     if (self.keyStyleTableView == kNumberPhoneStyleTableView) {
         if (indexPath.row == 0) {
-            BBNumberPhoneTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberCellIdentifire];
+            BBNumberPhoneTableViewCell *numberCell = [[NSBundle mainBundle] loadNibNamed:kNibNameNumberPhoneCell
+                                                                                   owner:self options:nil].lastObject;
             self.numberCell = numberCell;
-            numberCell.numberTextField.text = self.numberPhone;
+            numberCell.numberTextField.text = @"";
             cell = numberCell;
         } else {
             infoCell.keyStyleCell = kBigInfoRegistCellStyle;
@@ -162,6 +184,7 @@ static CGFloat offsetBottom = 10.0f;
             textCell.textField.keyboardType = UIKeyboardTypeNumberPad;
             textCell.textField.placeholder = @"1234";
             self.textCell = textCell;
+            textCell.textField.text = @"";
             cell = textCell;
         } else {
             infoCell.keyStyleCell = kFinishRegistCellStyle;

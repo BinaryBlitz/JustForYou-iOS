@@ -189,6 +189,17 @@ static CGFloat offsetBottom = 10.0f;
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isEqual:self.nameCell.textField] || [textField isEqual:self.surnameCell.textField]) {
+        if (![string isEqualToString:@""]) {
+            if (textField.text.length >= 15) {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
 -(void) keyboardWillShow:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;

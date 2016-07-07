@@ -46,7 +46,11 @@
 }
 
 - (void)addButtonDidTapWithAddress:(NSString *)addressText {
-    [self.interactor addAddressToUserAddressArrayWithAddressText:addressText];
+    if ([addressText isEqualToString:@""] || [addressText isEqualToString:@" "]) {
+        [self.view presentAlertWithTitle:kNoteTitle message:@"Введите адрес"];
+    } else {
+        [self.interactor addAddressToUserAddressArrayWithAddressText:addressText];
+    }
 }
 
 - (void)textFieldDidBeginEditing {

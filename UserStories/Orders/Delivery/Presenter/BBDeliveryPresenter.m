@@ -57,7 +57,7 @@
 }
 
 - (void)readyButtonDidTap {
-    [self saveDates];
+//    [self saveDates];
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 

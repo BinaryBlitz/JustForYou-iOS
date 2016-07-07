@@ -153,12 +153,15 @@
         NSArray *programs = [self programsInDay:dayView.date];
 
         NSMutableArray *colors = [NSMutableArray array];
-        if ([dayView.dots count] < 1) {
+        if ([dayView.dots count] < 1 || [dayView.dots count] < [programs count]) {
             for (BBOrder *order in programs) {
                 UIColor *color = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
                 [colors addObject:color];
             }
             dayView.dots = [NSMutableArray array];
+            if ([dayView.dots count] < [programs count]) {
+                [dayView layoutIfNeeded];
+            }
             [dayView initAndLayoutDotViewWithCountDots:[colors count] withColorSForDots:colors];
             [dayView layoutDots];
         }
