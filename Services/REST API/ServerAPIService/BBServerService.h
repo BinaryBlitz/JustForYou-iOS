@@ -60,7 +60,7 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 #pragma mark - Deliveries Methods
 
 - (void)checkDeliveryInvoicesWithApiToken:(NSString *)apiToken completion:(ReceiveData)completion;
-- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId completion:(ReceiveData)completion;
+- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(ReceiveData)completion;
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 - (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(ArrayObjectsCompletion)completion;
@@ -69,7 +69,7 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 
 - (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 - (void)createExchangesWithApiToken:(NSString *)token purchase:(NSString *)purcId program:(NSNumber *)progId completion:(ExchangeCompletion)completion;
-- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange completion:(ReceiveData)completion;
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange payId:(NSInteger)payId completion:(ReceiveData)completion;
 
 #pragma mark - Payments Methods
 

@@ -185,12 +185,20 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
-- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId completion:(CompletionBlock)completion {
+- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString
                                         stringWithFormat:@"%@//api/delivery_invoices/%@/payment?api_token=%@", kServerURL, inId, apiToken]];
     
-    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:POST];
+    NSDictionary *payment;
+    NSDictionary *parameters;
+    if (cardId != -1) {
+        payment = @{@"payment_card_id" : [NSNumber numberWithInteger:cardId]};
+        parameters = @{@"payment" : payment};
+        request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    } else {
+        request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:POST];
+    }
     [self sendRequest:request completion:completion];
 }
 
@@ -242,14 +250,18 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
-- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchang completion:(CompletionBlock)completion {
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchang paymentId:(NSInteger)paiId completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/exchanges/%ld/payment", kServerURL, (long)exchang.exchangeId]];
-    
-    NSDictionary *exchange = @{@"program_id" : [NSNumber numberWithInteger:exchang.programId]};
-    NSDictionary* parameters = @{@"api_token"  : apiToken,
-                                 @"exchange"   : exchange};
-    request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/exchanges/%ld/payment?api_token=%@", kServerURL, (long)exchang.exchangeId, apiToken]];
+    NSDictionary *payment;
+    NSDictionary *parameters;
+    if (paiId != -1) {
+        payment = @{@"payment_card_id" : [NSNumber numberWithInteger:paiId]};
+        parameters = @{@"payment" : payment};
+        request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];
+    } else {
+        request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:POST];
+    }
     [self sendRequest:request completion:completion];
 }
 

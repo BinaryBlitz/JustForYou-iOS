@@ -171,6 +171,7 @@
         } else if (![[BBCalendarService sharedService] compareTwoDatesWithDay:dayView.date]) {
             dayView.circleView.setBorderForView = YES;
             dayView.circleView.colorForBorderView = [BBConstantAndColor applicationGrayColor];
+            [dayView.circleView setNeedsDisplay];
         }
 
     } else {

@@ -49,9 +49,10 @@
     }];
 }
 
-- (void)payDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId {
+- (void)payDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId card:(BBPayCard *)card {
     [[BBServerService sharedService] payDeliveryInvoicesWithApiToken:[[BBUserService sharedService] tokenUser]
                                                           invoicesId:[NSString stringWithFormat:@"%ld", (long)invoicesId]
+                                                              cardId:card.payCardId
                                                           completion:^(BBServerResponse *response, NSData *data, NSError *error) {
                                                               if (response.kConnectionServer == kSuccessfullyConnection) {
                                                                   if (response.serverError == kServerErrorSuccessfull) {
@@ -61,8 +62,14 @@
                                                                                 error:nil];
                                                                       NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
                                                                       NSString *payUrl = [Obj valueForKey:@"payment_url"];
-                                                                      [self.output deliveryInvoicesWithPayId:payId
-                                                                                                      payURL:payUrl];
+                                                                      BOOL paid = [[Obj valueForKey:@"paid"] boolValue];
+                                                                      if (paid) {
+                                                                          [self.output paymentSuccessfull];
+                                                                      } else {
+                                                                          [self.output deliveryInvoicesWithPayId:payId payURL:payUrl];
+                                                                      }
+                                                                  } else if (response.responseCode == 422) {
+                                                                      [self.output paymentSuccessfull];
                                                                   } else {
                                                                       [self.output errorServer];
                                                                   }

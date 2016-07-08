@@ -16,7 +16,7 @@
 - (void)listPurchasesUser;
 
 - (void)checkMyDeliveryInvoices;
-- (void)payDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId;
+- (void)payDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId card:(BBPayCard *)card;
 - (void)payOnServerWithPayCard:(BBPayCard *)card paiId:(NSInteger)paiId;
 
 @end

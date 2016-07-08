@@ -87,8 +87,9 @@
 
 - (void)updateViewWithProgram:(NSInteger)programId {
     self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
-    self.daysInProgram = self.myProgram.days;
-    self.positionDay = 1;
+    self.daysInProgram = [self.myProgram.days sortedResultsUsingProperty:@"position" ascending:YES];
+//    self.daysInProgram = self.myProgram.days;
+    self.positionDay = 0;
     [self _updateCurrentDay];
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
@@ -96,7 +97,12 @@
 }
 
 - (void)_updateCurrentDay {
-    self.currentDay = [self.daysInProgram objectsWhere:[NSString stringWithFormat:@"position=%ld", (long)self.positionDay]].firstObject;
+    if ([self.daysInProgram count] != 0) {
+        self.currentDay = [self.daysInProgram objectAtIndex:self.positionDay];
+    } else {
+        self.currentDay = nil;
+    }
+//    self.currentDay = [self.daysInProgram objectsWhere:[NSString stringWithFormat:@"position=%ld", (long)self.positionDay]].firstObject;
     RLMResults *res = self.currentDay.items;
     self.currentMenu = [res sortedResultsUsingProperty:[NSString stringWithFormat:@"startsHour"] ascending:YES];
 }
@@ -267,20 +273,21 @@
 #pragma mark - Cell Delegates Methods 
 
 - (void)leftButtonDidTap {
-    if (self.positionDay > 1) {
+    if (self.positionDay > 0) {
         self.positionDay--;
         [self _updateCurrentDay];
-        [self.numberDayCell updateDayLabelWithNumber:self.positionDay];
+        BBDay *day = [self.daysInProgram objectAtIndex:self.positionDay];
+        [self.numberDayCell updateDayLabelWithNumber:day.position];
         [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationRight];
-    } else {
     }
 }
 
 - (void)rightButtonDidTap {
-    if (self.positionDay < [self.daysInProgram count]) {
+    if (self.positionDay + 1 < [self.daysInProgram count]) {
         self.positionDay++;
         [self _updateCurrentDay];
-        [self.numberDayCell updateDayLabelWithNumber:self.positionDay];
+        BBDay *day = [self.daysInProgram objectAtIndex:self.positionDay];
+        [self.numberDayCell updateDayLabelWithNumber:day.position];
         [self _updateTableViewWithIndex:2 range:1 animation:UITableViewRowAnimationLeft];
     }
 }

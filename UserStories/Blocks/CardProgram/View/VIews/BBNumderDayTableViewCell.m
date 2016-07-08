@@ -23,7 +23,7 @@
 }
 
 - (void)setDaysAndUpdateUI:(RLMResults *)days {
-    self.days = [days sortedResultsUsingProperty:@"position" ascending:YES];
+    self.days = days;
 }
 
 - (IBAction)rightButtonAction:(id)sender {
@@ -36,9 +36,9 @@
 
 - (void)updateDayLabelWithNumber:(NSInteger)number {
     if (([self.days count] > 0) && (number > 0)) {
-        BBDay *day = [self.days objectAtIndex:(number-1)];
+        BBDay *day = [self.days objectsWhere:[NSString stringWithFormat:@"position=%ld", number]].firstObject;
         self.caloriesLabel.text = [NSString stringWithFormat:@"%ld Ккал", (long)day.calories];
-        self.numberDayLabel.text = [NSString stringWithFormat:@"%ld день", (long)number];
+        self.numberDayLabel.text = [NSString stringWithFormat:@"%ld день", (long)day.position];
     } else {
         self.caloriesLabel.text = [NSString stringWithFormat:@"%d Ккал", 0];
         self.numberDayLabel.text = [NSString stringWithFormat:@"%ld день", (long)number];

@@ -79,21 +79,20 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
     if (key == kContinueButton) {
-        [self.interactor payDeliveriesWithTotal:self.total invoicesId:self.invoicesId];
+        [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
     } else {
         [self.view hideBackgroundLoaderViewWithAlpha];
     }
 }
 
 - (void)payNewCardButtonDidTap {
-    BBPayment *payment = [[BBPayment alloc] init];
-    payment.paymentId = self.payId;
-    payment.paymentURL = self.payURL;
-    [self.paymentModule pushModuleWithNavigationModule:self.navigModule basketModule:self payment:payment];
+    BBPayCard *card = [[BBPayCard alloc] init];
+    card.payCardId = -1;
+    [self.interactor payDeliveriesWithTotal:self.total invoicesId:self.invoicesId card:card];
 }
 
 - (void)payCardWithCard:(BBPayCard *)card {
-    [self.interactor payOnServerWithPayCard:card paiId:self.payId];
+    [self.interactor payDeliveriesWithTotal:self.total invoicesId:self.invoicesId card:card];
 }
 
 - (void)cancelButtonDidTap {
@@ -105,7 +104,10 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 - (void)deliveryInvoicesWithPayId:(NSInteger)payId payURL:(NSString *)url {
     self.payId = payId;
     self.payURL = url;
-    [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+    BBPayment *payment = [[BBPayment alloc] init];
+    payment.paymentId = payId;
+    payment.paymentURL = url;
+    [self.paymentModule pushModuleWithNavigationModule:self.navigModule basketModule:self payment:payment];
 }
 
 - (void)deliveryInvoicesNil {

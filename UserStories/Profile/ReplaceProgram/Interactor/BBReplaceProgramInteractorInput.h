@@ -16,8 +16,6 @@
 - (void)listAllProgramsWithProgramId:(NSInteger)programId;
 
 - (void)createReplaceWithPurchase:(BBPurchases *)purchase program:(BBProgram *)program;
-- (void)payWithExchange:(BBExchange *)exchange;
-
-- (void)payOnServerWithPayCard:(BBPayCard *)card paiId:(NSInteger)paiId;
+- (void)payWithExchange:(BBExchange *)exchange card:(BBPayCard *)card;
 
 @end

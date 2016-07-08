@@ -58,30 +58,29 @@
 }
 
 
-- (void)payWithExchange:(BBExchange *)exchange {
-    [[BBServerService sharedService] payExchangeWithApiToken:[[BBUserService sharedService] tokenUser] exchange:exchange completion:^(BBServerResponse *response, NSData *data, NSError *error) {
+- (void)payWithExchange:(BBExchange *)exchange card:(BBPayCard *)card {
+    [[BBServerService sharedService] payExchangeWithApiToken:[[BBUserService sharedService] tokenUser] exchange:exchange payId:card.payCardId completion:^(BBServerResponse *response, NSData *data, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
-            id Obj = [NSJSONSerialization
-                      JSONObjectWithData:data
-                      options:0
-                      error:nil];
-            NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
-            NSString *payUrl = [Obj valueForKey:@"payment_url"];
-            [self.output exchangeWithPayId:payId payURL:payUrl];
+            if (response.serverError == kServerErrorSuccessfull) {
+                id Obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                NSInteger payId = [[Obj valueForKey:@"id"] integerValue];
+                NSString *payUrl = [Obj valueForKey:@"payment_url"];
+                BOOL paid = [[Obj valueForKey:@"paid"] boolValue];
+                if (paid) {
+                    [self.output paymentSuccessfull];
+                } else {
+                    [self.output exchangeWithPayId:payId payURL:payUrl];
+                }
+            } else if (response.responseCode == 422) {
+                [self.output paymentSuccessfull];
+            } else {
+                [self.output errorServer];
+            }
         } else {
             [self.output errorNetwork];
         }
     }];
-}
 
-- (void)payOnServerWithPayCard:(BBPayCard *)card paiId:(NSInteger)paiId {
-    [[BBServerService sharedService] createPaymentsWithPayCard:card.payCardId orderId:paiId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BOOL paid, NSError *error) {
-        if (paid) {
-            [self.output paymentSuccessfull];
-        } else {
-            [self.output paymentError];
-        }
-    }];
 }
 
 @end

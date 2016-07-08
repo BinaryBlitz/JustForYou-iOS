@@ -231,15 +231,13 @@
     }];
 }
 
-- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId completion:(ReceiveData)completion {
+- (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(ReceiveData)completion {
     [self _checkNetworkConnection];
-    [self.transport payDeliveryInvoicesWithApiToken:apiToken
-                                         invoicesId:inId
-                                         completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                             BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
-                                             if (completion) {
-                                                 completion(responseServer, data, error);
-                                             }
+    [self.transport payDeliveryInvoicesWithApiToken:apiToken invoicesId:inId cardId:cardId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        if (completion) {
+            completion(responseServer, data, error);
+        }
     }];
 }
 
@@ -428,9 +426,9 @@
     }];
 }
 
-- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange completion:(ReceiveData)completion {
+- (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange payId:(NSInteger)payId completion:(ReceiveData)completion {
     [self _checkNetworkConnection];
-    [self.transport payExchangeWithApiToken:apiToken exchange:exchange completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.transport payExchangeWithApiToken:apiToken exchange:exchange paymentId:payId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
         if (completion) {
             completion(responseServer, data, error);

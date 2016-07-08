@@ -87,7 +87,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
     }
     result = new - old;
     if (result <= 0) {
-        message = [NSString stringWithFormat:@"При замене на данную программу вам будет начисленно %ld бонусов", (long)result];
+        message = [NSString stringWithFormat:@"При замене на данную программу вам будет начисленно %ld бонусов", (long)result*(-1)];
     } else {
         message = [NSString stringWithFormat:@"При замене на данную программу вам нужно будет доплатить %ld P", (long)result];
     }
@@ -115,14 +115,13 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 }
 
 - (void)payNewCardButtonDidTap {
-    BBPayment *payment = [[BBPayment alloc] init];
-    payment.paymentId = self.payId;
-    payment.paymentURL = self.payURL;
-    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
+    BBPayCard *card = [[BBPayCard alloc] init];
+    card.payCardId = -1;
+    [self.interactor payWithExchange:self.exchange card:card];
 }
 
 - (void)payCardWithCard:(BBPayCard *)card {
-    [self.interactor payOnServerWithPayCard:card paiId:self.payId];
+    [self.interactor payWithExchange:self.exchange card:card];
 }
 
 - (void)cancelButtonDidTap {
@@ -143,7 +142,11 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 - (void)exchangeWithPayId:(NSInteger)payId payURL:(NSString *)url {
     self.payId = payId;
     self.payURL = url;
-    [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+    BBPayment *payment = [[BBPayment alloc] init];
+    payment.paymentId = payId;
+    payment.paymentURL = url;
+    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
+
 }
 
 - (void)exchangeDidCreate:(BBExchange *)exchange {
@@ -153,7 +156,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
         message = [NSString stringWithFormat:@"Замена успешно произведена. Вам начисленно бонусов %ld", (long)exchange.pengingBalanse];
         [self.view presentAlertControllerWithTitle:kNoteTitle message:message titleAction:@"Ok" cancelTitle:nil key:kPopController];
     } else {
-        [self.interactor payWithExchange:self.exchange];
+        [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
     }
 }
 
