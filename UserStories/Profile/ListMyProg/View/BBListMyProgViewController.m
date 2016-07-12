@@ -102,6 +102,9 @@ static CGFloat contentInset = 20.0f;
 }
 
 - (void)_showAddInBasketPopover {
+    [self.addBasketPopover setPrimaryPrice:self.selectPurchase.primaryPrice
+                                 secondary:self.selectPurchase.secondaryPrice
+                                 threshold:self.selectPurchase.threshold];
     [self.view addSubview:self.addBasketPopover];
 }
 

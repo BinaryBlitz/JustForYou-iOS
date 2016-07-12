@@ -102,7 +102,7 @@ CGFloat sizeBar = 44.0f;
     UIAlertController *alertController = [self _alertController];
     alertController.title = title;
     alertController.message = message;
-    UIAlertAction *action = [self _cancelActionWithTitle:@"Ok"];
+    UIAlertAction *action = [self _cancelActionWithTitle:kNextButton];
     [alertController addAction:action];
     HQDispatchToMainQueue(^{
         [self presentViewController:alertController animated:YES completion:nil];

@@ -10,6 +10,7 @@
 
 @protocol BBProfileInteractorInput <NSObject>
 
+- (void)updateUser;
 - (void)currentUser;
 
 @end

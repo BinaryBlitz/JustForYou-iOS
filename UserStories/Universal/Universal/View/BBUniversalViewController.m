@@ -9,6 +9,7 @@
 #import "BBUniversalViewController.h"
 
 #import "BBUniversalViewOutput.h"
+#import "BBCalendarService.h"
 #import "BBStock.h"
 
 @interface BBUniversalViewController() <UITableViewDelegate, UITableViewDataSource>
@@ -159,7 +160,7 @@ static CGFloat heightFooterSection = 10.0f;
         }
         if ([self.objects count] > 0 && (obj && [obj isKindOfClass:[BBStock class]])) {
             BBStock *stock = [self.objects objectAtIndex:section];
-            return [stock dateForUI];
+            return [[BBCalendarService sharedService] dateForUIWithDate:stock.date];
         }
     }
     return @"";

@@ -21,7 +21,7 @@ typedef enum : NSUInteger{
 
 @property (weak, nonatomic) IBOutlet BBUnderlineButton *sendAgainButton;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UIButton *sendCodeButton;
+@property (weak, nonatomic) IBOutlet UILabel *firstInfoLabel;
 
 @property (nonatomic) BBKeyStyleInfoRegistCell keyStyleCell;
 @property (weak, nonatomic) id<BBInfoRegistrateCellDelegate> delegate;
@@ -31,7 +31,6 @@ typedef enum : NSUInteger{
 
 @protocol BBInfoRegistrateCellDelegate <NSObject>
 
-- (void)sendCodeButtonDidTap;
 - (void)sengAgainButtonDidTap;
 
 @end

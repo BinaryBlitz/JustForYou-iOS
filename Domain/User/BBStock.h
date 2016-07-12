@@ -17,6 +17,4 @@
 
 - (instancetype)initWithJSON:(id)JSONObj;
 
-- (NSString *)dateForUI;
-
 @end

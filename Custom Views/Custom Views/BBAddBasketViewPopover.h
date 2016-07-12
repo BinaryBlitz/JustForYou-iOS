@@ -21,8 +21,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *plusButton;
 @property (weak, nonatomic) IBOutlet UIView *separatorView;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UILabel *totalCost;
 
 @property (strong, nonatomic) id<BBAddBasketViewDelegate> delegate;
+
+- (void)setPrimaryPrice:(NSInteger)primary secondary:(NSInteger)secondary threshold:(NSInteger)threshold;
 
 @end
 

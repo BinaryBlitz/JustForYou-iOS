@@ -23,6 +23,7 @@
 @property (strong, nonatomic) id<BBPaymentModuleInput> paymentModule;
 
 @property (assign, nonatomic) BOOL switchBonuses;
+@property (assign, nonatomic) BOOL switchTap;
 
 @end
 
@@ -44,7 +45,7 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 - (void)paySucces {
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
     [self.interactor deleteAllOrderProgramsOnUser];
-    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:@"Ок"];
+    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
 
 
@@ -60,6 +61,17 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 
 - (void)closeButtonDidTap {
     [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
+}
+
+- (void)changeStateWithState:(BOOL)state {
+    if (state) {
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+        self.switchTap = YES;
+        [self.interactor updateUserAndShowCurrentBonuses];
+    } else {
+        [self.view updateSwichInCellForState:state];
+        [self.view updateTotalTableViewCell];
+    }
 }
 
 - (void)payButtonDidTapWithBonusesEnable:(BOOL)enable countPayments:(NSInteger)count {
@@ -100,6 +112,12 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
     [self.view updateTableViewWithOrders:orders];
 }
 
+- (void)bonusesUpdate {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view updateSwichInCellForState:YES];
+    [self.view updateTotalTableViewCell];
+}
+
 - (void)paymentDidStartWithPayment:(BBPayment *)payment {
     [self.view hideBackgroundLoaderViewWithAlpha];
     [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
@@ -108,7 +126,7 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 - (void)paymentSuccessfull {
     [self.view hideBackgroundLoaderViewWithAlpha];
     [self.interactor deleteAllOrderProgramsOnUser];
-    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:@"Ок"];
+    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
 
 - (void)paymentError {
@@ -118,14 +136,22 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 
 - (void)errorNetwork {
     [self.view hideBackgroundLoaderViewWithAlpha];
+    [self _changeSwitch];
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
 }
 
 - (void)errorServer {
     [self.view hideBackgroundLoaderViewWithAlpha];
+    [self _changeSwitch];
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
+- (void)_changeSwitch {
+    if (self.switchTap) {
+        self.switchTap = NO;
+        [self.view updateSwichInCellForState:NO];
+    }
+}
 
 #pragma mark - Lazy Load
 

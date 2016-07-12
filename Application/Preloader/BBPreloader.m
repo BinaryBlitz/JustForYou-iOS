@@ -91,6 +91,7 @@ static NSInteger shemaVersionRealm = 27;
 
 - (void)userRegistrationFulfilled {
     [self _addPushNotification];
+    [self _migrationRealm];
     UIViewController *vc = [self.tabbarModule currentView];
     __weak typeof(self)weakSelf = self;
     HQDispatchToMainQueue(^{

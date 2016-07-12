@@ -20,6 +20,7 @@ typedef enum : NSUInteger {
 - (void)currentOrdersInBasket;
 
 - (NSArray *)deleteOrderProgramOnUserArray:(BBOrderProgram *)orderProgram;
+- (void)updateUserAndShowCurrentBonuses;
 
 - (void)deleteAllOrderProgramsOnUser;
 

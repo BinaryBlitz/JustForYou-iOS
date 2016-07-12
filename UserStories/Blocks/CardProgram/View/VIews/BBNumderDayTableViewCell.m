@@ -36,7 +36,7 @@
 
 - (void)updateDayLabelWithNumber:(NSInteger)number {
     if (([self.days count] > 0) && (number > 0)) {
-        BBDay *day = [self.days objectsWhere:[NSString stringWithFormat:@"position=%ld", number]].firstObject;
+        BBDay *day = [self.days objectsWhere:[NSString stringWithFormat:@"position=%ld", (long)number]].firstObject;
         self.caloriesLabel.text = [NSString stringWithFormat:@"%ld Ккал", (long)day.calories];
         self.numberDayLabel.text = [NSString stringWithFormat:@"%ld день", (long)day.position];
     } else {

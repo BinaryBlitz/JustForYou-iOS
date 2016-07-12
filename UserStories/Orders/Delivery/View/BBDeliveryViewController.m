@@ -63,8 +63,9 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     self.navigationItem.titleView = self.calendarMenu;
 }
 
-- (void)purchaseForCalendar:(BBPurchases *)purchase {
+- (void)purchaseForCalendar:(BBPurchases *)purchase selectionDates:(NSArray *)days {
     self.purchase = purchase;
+    self.selectionDates = days;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
     });
@@ -124,6 +125,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
         calendarCell.purchaseColor = self.purchase.elementBlock.colorBlock;
         self.calendarCell = calendarCell;
         [self _setDelegates];
+        [calendarCell setSelectionDays:self.selectionDates];
         cell = calendarCell;
     } else {
         BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];

@@ -27,7 +27,7 @@
     self.nameLabel.text = purchases.nameProgram;
     self.countDayLabel.textColor = [UIColor blackColor];
     self.countDayLabel.font = [UIFont systemFontOfSize:15.0f];
-    NSString *days = [BBConstantAndColor getNumberEndingWith:purchases.numberDays andEndings:@[@"день", @"дня", @"дней"]];
+    NSString *days = [BBConstantAndColor getNumberEndingWith:purchases.countDays andEndings:@[@"день", @"дня", @"дней"]];
     self.countDayLabel.text = [NSString stringWithFormat:@"%ld %@", (long)purchases.countDays, days];
     self.indicatorView.backgroundColor = purchases.elementBlock.colorBlock;
     self.subNameLabel.text = purchases.elementBlock.nameBlock;

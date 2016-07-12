@@ -24,6 +24,7 @@
 @property (strong, nonatomic) id<BBNewOrderModuleInput> parentModule;
 
 @property (assign, nonatomic) BBPurchases *purchase;
+@property (strong, nonatomic) NSArray *selectionDays;
 
 @end
 
@@ -35,10 +36,11 @@
     
 }
 
-- (void)pushModuleWithNavigationModule:(id)navigationModule parent:(id)parent purchase:(BBPurchases *)purchase {
+- (void)pushModuleWithNavigationModule:(id)navigationModule parent:(id)parent purchase:(BBPurchases *)purchase daysArray:(NSArray *)days {
     self.navigationModule = navigationModule;
     self.parentModule = parent;
     self.purchase = purchase;
+    self.selectionDays = days;
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
@@ -49,7 +51,7 @@
 }
 
 - (void)viewWillAppear {
-    [self.view purchaseForCalendar:self.purchase];
+    [self.view purchaseForCalendar:self.purchase selectionDates:self.selectionDays];
 }
 
 - (void)viewWillDisappear {

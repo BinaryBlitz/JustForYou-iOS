@@ -36,7 +36,10 @@
         self.threshold = [[JSONObj valueForKey:@"threshold"] integerValue];
         self.primaryPrice = [[JSONObj valueForKey:@"primary_price"] integerValue];
         self.secondaryPrice = [[JSONObj valueForKey:@"secondary_price"] integerValue];
-        self.previewImage = [JSONObj valueForKey:@"preview_image_url"];
+        self.previewImage = [JSONObj valueForKey:@"image_url"];
+        if (self.previewImage == [NSNull class]) {
+            self.previewImage = nil;
+        }
         [self _initPrescriptionArrayWithJSON:[JSONObj valueForKey:@"prescription"]];
     }
     return self;

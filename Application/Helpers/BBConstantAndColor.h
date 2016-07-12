@@ -161,6 +161,8 @@ static CGFloat alphaBackgroundLoader = 0.7f;
 static NSString *kNoteTitle = @"Внимание";
 static NSString *kErrorTitle = @"Ошибка";
 
+static NSString *kNextButton = @"Продолжить";
+
 static NSString *kErrorServer = @"Ошибка сервера. Повторите позже или обратитесь в службу поддержки";
 static NSString *kErrorClient = @"Ошибка сервера. Возможно неверно введены данные";
 static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";

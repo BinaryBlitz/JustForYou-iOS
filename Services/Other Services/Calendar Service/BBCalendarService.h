@@ -18,6 +18,7 @@
 
 - (NSString *)stringForDate:(NSDate *)date;
 - (NSString *)stringWithDateForDate:(NSDate *)date;
+- (NSString *)dateForUIWithDate:(NSDate *)date;
 
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date;
 

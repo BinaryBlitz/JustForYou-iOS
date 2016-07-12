@@ -38,37 +38,32 @@
                             <action selector="sendAgainButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2V0-hs-smJ"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZl-CV-pnp">
-                        <rect key="frame" x="66" y="20" width="188" height="39"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На этот номер телефона будет выслан код для регистрации в приложении" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewd-Pq-c8S">
+                        <rect key="frame" x="8" y="13" width="304" height="39"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="39" id="BAg-6a-ggR"/>
-                            <constraint firstAttribute="width" constant="188" id="yk6-Ig-8Fk"/>
+                            <constraint firstAttribute="height" constant="39" id="fPe-3p-zPO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <state key="normal" title="ПОЛУЧИТЬ КОД">
-                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="sendCodeButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pjK-o0-wuH"/>
-                        </connections>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="Ewd-Pq-c8S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Em8-no-Zmq"/>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="top" secondItem="i53-OM-1eM" secondAttribute="bottom" id="IIq-TP-ORt"/>
+                    <constraint firstAttribute="trailing" secondItem="Ewd-Pq-c8S" secondAttribute="trailing" constant="8" id="NSE-AG-9ib"/>
+                    <constraint firstItem="Ewd-Pq-c8S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Txt-P7-daZ"/>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aN5-Id-q1Q"/>
-                    <constraint firstItem="fZl-CV-pnp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="b5c-l5-mGU"/>
-                    <constraint firstItem="fZl-CV-pnp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="7.25" id="eGJ-Vl-Zzm"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qT7-G5-xDc"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ysL-WV-tFu"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="firstInfoLabel" destination="Ewd-Pq-c8S" id="CuD-Yb-IKk"/>
                 <outlet property="infoLabel" destination="i53-OM-1eM" id="Ps1-Vf-3JN"/>
                 <outlet property="sendAgainButton" destination="UPG-fu-Prd" id="lSH-X3-i51"/>
-                <outlet property="sendCodeButton" destination="fZl-CV-pnp" id="odn-pI-KFf"/>
             </connections>
             <point key="canvasLocation" x="7" y="129.5"/>
         </tableViewCell>

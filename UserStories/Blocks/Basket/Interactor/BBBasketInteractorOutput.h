@@ -14,6 +14,8 @@
 
 - (void)currentOrders:(NSArray *)orders;
 
+- (void)bonusesUpdate;
+
 - (void)paymentDidStartWithPayment:(BBPayment *)payment;
 
 - (void)paymentSuccessfull;

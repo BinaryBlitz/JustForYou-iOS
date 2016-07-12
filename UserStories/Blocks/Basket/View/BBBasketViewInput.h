@@ -15,6 +15,9 @@
 - (void)updateTableViewWithOrders:(NSArray *)orders;
 - (void)updateTableViewWithDelete:(NSArray *)objects;
 
+- (void)updateTotalTableViewCell;
+- (void)updateSwichInCellForState:(BOOL)state;
+
 - (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
 - (void)hideBackgroundLoaderViewWithAlpha;
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;

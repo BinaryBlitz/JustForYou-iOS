@@ -31,17 +31,21 @@
 - (void)checkMyDeliveryInvoices {
     [[BBServerService sharedService] checkDeliveryInvoicesWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSData *data, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
-            id JSONObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            if (response.responseCode != 422) {
-                if (response.serverError == kServerErrorSuccessfull) {
-                    NSInteger invoicesId = [[JSONObj valueForKey:@"id"] integerValue];
-                    NSInteger total = [[JSONObj valueForKey:@"total_price"] integerValue];
-                    [self.output createPayDeliveriesWithTotal:total invoicesId:invoicesId];
-                }  else {
-                    [self.output errorServer];
+            if (data) {
+                id JSONObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                if (response.responseCode != 422) {
+                    if (response.serverError == kServerErrorSuccessfull) {
+                        NSInteger invoicesId = [[JSONObj valueForKey:@"id"] integerValue];
+                        NSInteger total = [[JSONObj valueForKey:@"total_price"] integerValue];
+                        [self.output createPayDeliveriesWithTotal:total invoicesId:invoicesId];
+                    }  else {
+                        [self.output errorServer];
+                    }
+                } else {
+                    [self.output deliveryInvoicesNil];
                 }
             } else {
-                [self.output deliveryInvoicesNil];
+                [self.output errorServer];
             }
         } else {
             [self.output errorNetwork];

@@ -164,7 +164,7 @@ static CGFloat minHeightFooter = 1.0f;
         BBSwitchTableViewCell *switchCell = [self.tableView dequeueReusableCellWithIdentifier:kSwitchCellIdentifire];
         switchCell.customTextLabel.text = @"Использовать бонусы";
         self.switchCell = switchCell;
-        self.switchCell.bonusSwitch.on = [[BBUserService sharedService] enableBonuses];
+        self.switchCell.bonusSwitch.on = NO;
         switchCell.delegate = self;
         cell = switchCell;
     } else if (indexPath.section == 1) {
@@ -181,7 +181,7 @@ static CGFloat minHeightFooter = 1.0f;
         self.totalPrice += [basketCell totalForCountDays];
         cell = basketCell;
     }
-    [self _updateTotalTableViewCell];
+    [self updateTotalTableViewCell];
     return cell;
 }
 
@@ -193,12 +193,11 @@ static CGFloat minHeightFooter = 1.0f;
 
 - (void)oldTotal:(NSInteger)oldTotal newTotal:(NSInteger)newTotal {
     self.totalPrice = self.totalPrice - oldTotal + newTotal;
-    [self _updateTotalTableViewCell];
+    [self updateTotalTableViewCell];
 }
 
-- (void)_updateTotalTableViewCell {
+- (void)updateTotalTableViewCell {
     if (self.totalCell) {
-        self.totalCell.totalLabel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
         NSInteger totalBonuses = 0;
         if ([self.switchCell.bonusSwitch isOn]) {
             if ([self.programOrders count] > 0) {
@@ -209,14 +208,25 @@ static CGFloat minHeightFooter = 1.0f;
         if (result < 0) {
             result = 0;
         }
-        self.totalCell.totalBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
+        HQDispatchToMainQueue(^{
+            self.totalCell.totalLabel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
+            self.totalCell.totalBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
+        });
     }
 }
 
 
 - (void)changeStateWithState:(BOOL)state {
-    [self _updateTotalTableViewCell];
+    [self.output changeStateWithState:state];
+//    [self _updateTotalTableViewCell];
 }
+
+- (void)updateSwichInCellForState:(BOOL)state {
+    HQDispatchToMainQueue(^{
+        self.switchCell.bonusSwitch.on = state;
+    });
+}
+
 
 #pragma mark - TableAlert Methods
 

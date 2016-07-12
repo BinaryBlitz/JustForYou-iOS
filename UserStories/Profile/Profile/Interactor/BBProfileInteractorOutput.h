@@ -14,4 +14,8 @@
 
 - (void)currentUserWithUser:(BBUser *)user;
 
+- (void)userSuccsessfulUpdate;
+- (void)errorNetwork;
+- (void)errorServer;
+
 @end

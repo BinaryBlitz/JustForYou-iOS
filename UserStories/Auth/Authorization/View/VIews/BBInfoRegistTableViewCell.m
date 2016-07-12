@@ -28,20 +28,6 @@
     // Configure the view for the selected state
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.sendCodeButton.layer.masksToBounds = YES;
-    self.sendCodeButton.layer.cornerRadius = CGRectGetHeight(self.sendCodeButton.frame)/2;
-}
-
-- (IBAction)sendCodeButtonAction:(id)sender {
-    self.sendCodeButton.enabled = NO;
-    HQDispatchAfter(5, ^{
-        self.sendCodeButton.enabled = YES;
-    });
-    [self.delegate sendCodeButtonDidTap];
-}
-
 - (IBAction)sendAgainButton:(id)sender {
     self.sendAgainButton.enabled = NO;
     HQDispatchAfter(5, ^{
@@ -54,11 +40,11 @@
     if (self.keyStyleCell == kBigInfoRegistCellStyle) {
         self.infoLabel.hidden = YES;
         self.sendAgainButton.hidden = YES;
-        self.sendCodeButton.hidden = NO;
+        self.firstInfoLabel.hidden = NO;
     } else {
         self.infoLabel.hidden = NO;
         self.sendAgainButton.hidden = NO;
-        self.sendCodeButton.hidden = YES;
+        self.firstInfoLabel.hidden = YES;
     }
 }
 

@@ -46,6 +46,12 @@
     return self.datesSelected;
 }
 
+- (void)setSelectionDays:(NSArray *)days {
+    self.datesSelected = [NSMutableArray arrayWithArray:days];
+    [self _sortedDateArray];
+    [self.calendarManager reload];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.delegate updateNameMonthPreviousName:@"" currentName:self.nameMonth nextName:@""];
@@ -146,6 +152,14 @@
             }
             self.loadNextPage = NO;
         }
+    }
+    
+    if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+        CGFloat size = dayView.textLabel.font.pointSize;
+        dayView.textLabel.font = [UIFont boldSystemFontOfSize:size];
+    } else {
+        CGFloat size = dayView.textLabel.font.pointSize;
+        dayView.textLabel.font = [UIFont systemFontOfSize:size];
     }
 }
 

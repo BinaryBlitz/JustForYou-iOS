@@ -12,7 +12,7 @@
 
 - (void)setupInitialState;
 
-- (void)purchaseForCalendar:(BBPurchases *)purchase;
+- (void)purchaseForCalendar:(BBPurchases *)purchase selectionDates:(NSArray *)days;
 
 - (NSArray *)currentSelectionDates;
 

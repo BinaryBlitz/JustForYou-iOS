@@ -21,6 +21,8 @@
 - (void)closeButtonDidTap;
 - (void)payButtonDidTapWithBonusesEnable:(BOOL)enable countPayments:(NSInteger)count;
 
+- (void)changeStateWithState:(BOOL)state;
+
 - (void)payNewCardButtonDidTap;
 - (void)payCardWithCard:(BBPayCard *)card;
 - (void)cancelButtonDidTap;

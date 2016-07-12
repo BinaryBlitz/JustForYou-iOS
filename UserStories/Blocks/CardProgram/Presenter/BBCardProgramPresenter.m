@@ -60,7 +60,7 @@ static NSString *kImageNameBasket = @"basket";
         [self.interactor listDaysWithParentId:self.programId];
     } else {
         self.clearData = YES;
-        [self.view showLoaderView];
+//        [self.view showLoaderView];
         [self.interactor listDaysWithParentId:self.programId];
     }
 }

@@ -9,11 +9,13 @@
 #import "BBStockViewController.h"
 
 #import "BBStockViewOutput.h"
+#import "BBCalendarService.h"
 
 @interface BBStockViewController()
 
 @property (strong, nonatomic) BBStock *stock;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -30,6 +32,7 @@
 - (void)viewWillLayoutSubviews {
     self.navigationItem.title = self.stock.name;
     self.textView.text = self.stock.descript;
+    self.dateLabel.text = [[BBCalendarService sharedService] dateForUIWithDate:self.stock.date];
 }
 
 #pragma mark - Методы BBStockViewInput

@@ -59,6 +59,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 
 - (void)viewWillAppear {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.view setPurchaseForReplace:self.purchase];
     [self.interactor listAllProgramsWithProgramId:self.purchase.programId];
 }
 
@@ -67,7 +68,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorIdentyProgram];
     } else {
         self.program = program;
-        [self.view presentAlertControllerWithTitle:kConfirmationTitle message:[self _calculatePrice] titleAction:@"Продолжить" cancelTitle:@"Отмена" key:kContinueButton];
+        [self.view presentAlertControllerWithTitle:kConfirmationTitle message:[self _calculatePrice] titleAction:kNextButton cancelTitle:@"Отмена" key:kContinueButton];
     }
 }
 
@@ -135,7 +136,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
     if ([programs count] > 0) {
         [self.view updateTableViewWithArray:programs];
     } else {
-        [self.view presentAlertControllerWithTitle:kNoteTitle message:kEmptyPrograms titleAction:@"Ok" cancelTitle:nil key:kPopController];
+        [self.view presentAlertControllerWithTitle:kNoteTitle message:kEmptyPrograms titleAction:kNextButton cancelTitle:nil key:kPopController];
     }
 }
 
@@ -154,7 +155,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
     NSString *message;
     if (exchange.paid) {
         message = [NSString stringWithFormat:@"Замена успешно произведена. Вам начисленно бонусов %ld", (long)exchange.pengingBalanse];
-        [self.view presentAlertControllerWithTitle:kNoteTitle message:message titleAction:@"Ok" cancelTitle:nil key:kPopController];
+        [self.view presentAlertControllerWithTitle:kNoteTitle message:message titleAction:kNextButton cancelTitle:nil key:kPopController];
     } else {
         [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
     }
@@ -162,22 +163,22 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 
 - (void)errorNetwork {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorConnectNetwork titleAction:@"Ok" cancelTitle:nil key:kPopController];
+    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorConnectNetwork titleAction:kNextButton cancelTitle:nil key:kPopController];
 }
 
 - (void)errorServer {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorServer titleAction:@"Ok" cancelTitle:nil key:kPopController];
+    [self.view presentAlertControllerWithTitle:kNoteTitle message:kErrorServer titleAction:kNextButton cancelTitle:nil key:kPopController];
 }
 
 - (void)paymentSuccessfull {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kNoteTitle message:paymentSuccessfull titleAction:@"Ok" cancelTitle:nil key:kPopController];
+    [self.view presentAlertControllerWithTitle:kNoteTitle message:paymentSuccessfull titleAction:kNextButton cancelTitle:nil key:kPopController];
 }
 
 - (void)paymentError {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertControllerWithTitle:kErrorTitle message:paymentError titleAction:@"Ok" cancelTitle:nil key:kPopController];
+    [self.view presentAlertControllerWithTitle:kErrorTitle message:paymentError titleAction:kNextButton cancelTitle:nil key:kPopController];
 }
 
 #pragma  mark - Lazy Load

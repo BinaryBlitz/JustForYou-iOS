@@ -23,29 +23,4 @@
     return self;
 }
 
-
-- (NSString *)dateForUI {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self.date];
-    NSInteger day = [components day];
-    NSInteger month = [components month];
-    NSInteger year = [components year];
-    NSString *dayS= @"";
-    NSString *monthS= @"";
-    if (day < 10) {
-        dayS = [NSString stringWithFormat:@"0%ld", (long)day];
-    } else {
-        dayS = [NSString stringWithFormat:@"%ld", (long)day];
-    }
-    
-    if (month < 10) {
-        monthS = [NSString stringWithFormat:@"0%ld", (long)month];
-    } else {
-        monthS = [NSString stringWithFormat:@"%ld", (long)month];
-    }
-    
-    return [NSString stringWithFormat:@"%@.%@.%ld", dayS, monthS, (long)year];
-}
-
 @end

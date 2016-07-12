@@ -39,19 +39,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5880" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1z4-c1-ciw">
-                        <rect key="frame" x="19" y="83" width="85" height="18"/>
+                        <rect key="frame" x="19" y="83" width="165" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="85" id="Wfg-c4-7gW"/>
                             <constraint firstAttribute="height" constant="18" id="Yn0-4u-RnH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWl-0K-tyM">
-                        <rect key="frame" x="180" y="83" width="41" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWl-0K-tyM">
+                        <rect key="frame" x="192" y="83" width="29" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="41" id="iec-kV-iiF"/>
+                            <constraint firstAttribute="width" constant="29" id="iec-kV-iiF"/>
                             <constraint firstAttribute="height" constant="18" id="vqJ-RP-gnQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -107,6 +106,7 @@
                     <constraint firstItem="1z4-c1-ciw" firstAttribute="leading" secondItem="Jki-dT-Zqp" secondAttribute="leading" id="fEm-MG-DrD"/>
                     <constraint firstItem="Jki-dT-Zqp" firstAttribute="leading" secondItem="peG-Xe-77u" secondAttribute="leading" id="fMi-2O-hq7"/>
                     <constraint firstAttribute="bottom" secondItem="1z4-c1-ciw" secondAttribute="bottom" priority="250" constant="30" id="l3I-is-Wmk"/>
+                    <constraint firstItem="fWl-0K-tyM" firstAttribute="leading" secondItem="1z4-c1-ciw" secondAttribute="trailing" constant="8" id="oM3-BQ-HdT"/>
                     <constraint firstItem="peG-Xe-77u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oqJ-O8-YiY"/>
                     <constraint firstItem="Zsz-y9-bqZ" firstAttribute="trailing" secondItem="peG-Xe-77u" secondAttribute="trailing" id="p34-T6-JUY"/>
                     <constraint firstItem="3vk-X0-Czc" firstAttribute="centerY" secondItem="1z4-c1-ciw" secondAttribute="centerY" id="pLs-Hm-VVq"/>
@@ -126,7 +126,7 @@
                 <outlet property="rightButton" destination="Zsz-y9-bqZ" id="4dA-Ow-X5r"/>
                 <outlet property="subnameLabel" destination="fdk-7W-Kve" id="PB1-Fz-R0g"/>
             </connections>
-            <point key="canvasLocation" x="482" y="134"/>
+            <point key="canvasLocation" x="482" y="133.5"/>
         </tableViewCell>
     </objects>
     <resources>

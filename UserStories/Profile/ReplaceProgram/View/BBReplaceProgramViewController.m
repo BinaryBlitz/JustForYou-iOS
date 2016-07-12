@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *programs;
+@property (strong, nonatomic) BBPurchases *purchase;
 
 @end
 
@@ -50,6 +51,10 @@ static CGFloat verticalInset = 10.0f;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
     });
+}
+
+- (void)setPurchaseForReplace:(BBPurchases *)purchase {
+    self.purchase = purchase;
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
@@ -112,8 +117,16 @@ static CGFloat verticalInset = 10.0f;
     cell.subNameLabel.text = block.name;
     cell.countDayLabel.textColor = [BBConstantAndColor applicationOrangeColor];
     cell.countDayLabel.font = [UIFont boldSystemFontOfSize:13.0f];
-    cell.countDayLabel.text = [NSString stringWithFormat:@"%ld P", (long)program.primaryPrice];
+    [self setTotalCostForLabel:cell.countDayLabel program:program];
     return cell;
+}
+
+- (void)setTotalCostForLabel:(UILabel *)label program:(BBProgram *)program {
+    if (self.purchase.countDays >= program.threshold) {
+        label.text = [NSString stringWithFormat:@"%ld P", (long)program.secondaryPrice];
+    } else {
+        label.text = [NSString stringWithFormat:@"%ld P", (long)program.primaryPrice];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

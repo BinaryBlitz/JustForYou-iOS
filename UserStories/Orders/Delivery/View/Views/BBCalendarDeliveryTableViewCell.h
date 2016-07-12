@@ -23,6 +23,8 @@
 @property (assign, nonatomic) NSInteger countDayInOrder;
 @property (strong, nonatomic) UIColor *purchaseColor;
 
+- (void)setSelectionDays:(NSArray *)days;
+
 - (void)successivelySelectedDay;
 - (void)successivelySelectedDayWithoutWeekend;
 

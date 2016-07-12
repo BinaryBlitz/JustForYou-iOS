@@ -13,6 +13,7 @@
 - (void)setupInitialState;
 
 - (void)updateTableViewWithArray:(NSArray *)programs;
+- (void)setPurchaseForReplace:(BBPurchases *)purchase;
 
 - (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
 - (void)hideBackgroundLoaderViewWithAlpha;

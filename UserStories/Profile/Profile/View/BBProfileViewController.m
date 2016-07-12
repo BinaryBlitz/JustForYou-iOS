@@ -51,9 +51,13 @@ static NSInteger numberOfRowsInSecondSection = 5;
 
 - (void)currentUser:(BBUser *)user {
     self.currentUser = user;
-    [self.tableView beginUpdates];
-    [self.tableView reloadData];
-    [self.tableView endUpdates];
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self presentAlertControllerWithTitle:title message:message];
 }
 
 #pragma mark - TableView Methods

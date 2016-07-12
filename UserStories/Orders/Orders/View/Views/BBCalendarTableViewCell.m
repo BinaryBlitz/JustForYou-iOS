@@ -179,6 +179,14 @@
         dayView.dotView.hidden = NO;
         [dayView layoutIfNeeded];
     }
+    
+    if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+        CGFloat size = dayView.textLabel.font.pointSize;
+        dayView.textLabel.font = [UIFont boldSystemFontOfSize:size];
+    } else {
+        CGFloat size = dayView.textLabel.font.pointSize;
+        dayView.textLabel.font = [UIFont systemFontOfSize:size];
+    }
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView {

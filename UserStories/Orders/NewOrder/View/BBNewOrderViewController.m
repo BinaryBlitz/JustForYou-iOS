@@ -72,6 +72,10 @@ static CGFloat topInsetForTableView = - 35.0f;
     [self _registerNotificationKeyboard];
 }
 
+- (void)deleteAddress {
+    self.address = @"";
+}
+
 - (void)countsDaysInCalendar:(NSInteger)counts {
     self.selectionDaysCount = counts;
 }
@@ -108,7 +112,7 @@ static CGFloat topInsetForTableView = - 35.0f;
 
 - (void)presentFinishAlertWithTitle:(NSString *)title message:(NSString *)message {
     UIAlertController *alert = [self alertControllerWithTitle:title message:message];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *action = [UIAlertAction actionWithTitle:kNextButton style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self.output alertOkDidTap];
     }];
     [alert addAction:action];

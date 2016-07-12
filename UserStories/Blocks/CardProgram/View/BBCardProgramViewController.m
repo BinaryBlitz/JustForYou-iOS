@@ -108,6 +108,9 @@
 }
 
 - (void)showAddInBasketPopover {
+    [self.addBasketPopover setPrimaryPrice:self.myProgram.primaryPrice
+                                 secondary:self.myProgram.secondaryPrice
+                                 threshold:self.myProgram.threshold];
     [self.view addSubview:self.addBasketPopover];
 }
 

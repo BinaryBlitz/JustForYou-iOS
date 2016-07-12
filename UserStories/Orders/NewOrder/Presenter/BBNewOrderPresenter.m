@@ -83,6 +83,8 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 - (void)viewWillAppear {
     if (self.deleteDays) {
         self.selectionDates = [NSArray array];
+        [self.view deleteAddress];
+        self.address = nil;
     } else {
         self.deleteDays = YES;
     }
@@ -91,11 +93,12 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 }
 
 - (void)countDayCellDidTap {
+    [self.deliveryModule pushModuleWithNavigationModule:self.navigationModule parent:self purchase:self.purchase daysArray:self.selectionDates];
     self.selectionDates = [NSArray array];
-    [self.deliveryModule pushModuleWithNavigationModule:self.navigationModule parent:self purchase:self.purchase];
 }
 
 - (void)adresCellDidTap {
+    self.deleteDays = NO;
     [self.universalModule pushModuleWithNavigationModule:self.navigationModule parentModule:self keyModule:kMyAddressForOrderModule];
 }
 

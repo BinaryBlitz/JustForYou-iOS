@@ -117,13 +117,14 @@
         BBProgramView *view = [[BBProgramView alloc] initWithFrame: CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame))];
         BBProgram *program = [self.programsArray objectAtIndex:i];
         [view setProgramInUI:program];
-        [self.urlsArray addObject:program.previewImage];
+        if (program.previewImage) {
+            [self.urlsArray addObject:program.previewImage];
+        }
         [self.scrollView addSubview:view];
         [self.arrayViews addObject:view];
     }
     if ([self.urlsArray count] > 0) {
         [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[0]];
-//        [self updateImageViewsWithIndex:0];
     }
     self.scrollView.contentOffset = CGPointZero;
 }
@@ -157,19 +158,12 @@
         double d, drob;
         drob = modf(ratio, &d);
         
-//        NSLog(@"%f, часть какая то = %f", ratio, drob);
-//        self.secondImageView.alpha = drob;
-        
-        //    NSInteger offsetLooping = 1;
         NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
         self.pageControl.currentPage = (page % self.countPage);
-        [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:nil stringURL:self.urlsArray[self.pageControl.currentPage]];
+        if ([self.urlsArray count] > 0) {
+            [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:nil stringURL:self.urlsArray[self.pageControl.currentPage]];
+        }
         
-//        if (drob == 0.0000) {
-//            self.firstImageView.image = self.secondImageView.image;
-//            self.secondImageView.alpha = 0.0;
-//            [self updateImageViewsWithIndex:self.pageControl.currentPage];
-//        }
     }
 }
 

@@ -18,6 +18,7 @@
 - (void)countsDaysInCalendar:(NSInteger)counts;
 
 - (void)adressForAdressTableViewCell:(NSString *)adress;
+- (void)deleteAddress;
 
 - (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
 - (void)hideBackgroundLoaderViewWithAlpha;

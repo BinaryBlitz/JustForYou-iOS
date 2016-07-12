@@ -16,4 +16,8 @@
 
 - (void)currentUser:(BBUser *)user;
 
+- (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
+- (void)hideBackgroundLoaderViewWithAlpha;
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end

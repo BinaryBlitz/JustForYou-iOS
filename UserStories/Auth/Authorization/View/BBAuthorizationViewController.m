@@ -12,7 +12,7 @@
 
 #import "BBUnderlineButton.h"
 
-@interface BBAuthorizationViewController() <UITableViewDelegate, UITableViewDataSource, BBInfoRegistrateCellDelegate>
+@interface BBAuthorizationViewController() <UITableViewDelegate, UITableViewDataSource, BBInfoRegistrateCellDelegate, BBNumberCellDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *youView;
 @property (weak, nonatomic) IBOutlet UILabel *informationLabel;
@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIBarButtonItem *backBarButton;
-@property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 
 @property (nonatomic) BBKeyStyleTableViewRegist keyStyleTableView;
 @property (strong, nonatomic) NSString *numberPhone;
@@ -93,7 +92,6 @@ static CGFloat offsetBottom = 10.0f;
     self.keyStyleTableView = key;
     HQDispatchToMainQueue(^{
         if (key == kSendCodeStyleTableView) {
-            self.navigationItem.rightBarButtonItem = self.rightBarButton;
             self.navigationItem.leftBarButtonItem = self.backBarButton;
             self.informationLabel.text = kTextForSendCode;
         } else {
@@ -109,7 +107,6 @@ static CGFloat offsetBottom = 10.0f;
     self.keyStyleTableView = key;
     HQDispatchToMainQueue(^{
         if (key == kSendCodeStyleTableView) {
-            self.navigationItem.rightBarButtonItem = self.rightBarButton;
             self.navigationItem.leftBarButtonItem = self.backBarButton;
             self.informationLabel.text = kTextForSendCode;
         } else {
@@ -130,9 +127,6 @@ static CGFloat offsetBottom = 10.0f;
 
 #pragma mark - Actions Methods
 
-- (void)_nextButtonAction {
-    [self.output nextButtonDidPress];
-}
 
 - (void)_resignFirstResponderWithTap {
     [self.numberCell.numberTextField resignFirstResponder];
@@ -145,11 +139,6 @@ static CGFloat offsetBottom = 10.0f;
 
 #pragma mark - Cell Delegate Methods
 
-- (void)sendCodeButtonDidTap {
-    [self.numberCell.numberTextField resignFirstResponder];
-    self.numberPhone = self.numberCell.numberTextField.text;
-    [self.output sendCodeButtonDidTapWithValidField:self.numberCell.validationOk andNumberPhone:self.numberPhone];
-}
 
 - (void)sengAgainButtonDidTap {
     [self.output sengAgainButtonDidTap];
@@ -168,8 +157,8 @@ static CGFloat offsetBottom = 10.0f;
     infoCell.delegate = self;
     if (self.keyStyleTableView == kNumberPhoneStyleTableView) {
         if (indexPath.row == 0) {
-            BBNumberPhoneTableViewCell *numberCell = [[NSBundle mainBundle] loadNibNamed:kNibNameNumberPhoneCell
-                                                                                   owner:self options:nil].lastObject;
+            BBNumberPhoneTableViewCell *numberCell = [[NSBundle mainBundle] loadNibNamed:kNibNameNumberPhoneCell owner:self options:nil].lastObject;
+            numberCell.delegate = self;
             self.numberCell = numberCell;
             numberCell.numberTextField.text = @"";
             cell = numberCell;
@@ -183,6 +172,7 @@ static CGFloat offsetBottom = 10.0f;
             textCell.textField.textAlignment = NSTextAlignmentCenter;
             textCell.textField.keyboardType = UIKeyboardTypeNumberPad;
             textCell.textField.placeholder = @"1234";
+            textCell.textField.delegate = self;
             self.textCell = textCell;
             textCell.textField.text = @"";
             cell = textCell;
@@ -211,6 +201,14 @@ static CGFloat offsetBottom = 10.0f;
     self.tableView.estimatedRowHeight = estimateRowHeight;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField.text.length == 3 && ![string isEqualToString:@""]) {
+        textField.text = [NSString stringWithFormat:@"%@%@", textField.text, string];
+        [self.output nextButtonDidPress];
+    }
+    return YES;
+}
+
 #pragma mark - Notification Methods
 
 -(void) keyboardWillShow:(NSNotification *)notification {
@@ -225,6 +223,12 @@ static CGFloat offsetBottom = 10.0f;
     [self.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
+
+- (void)numberPhoneValidate {
+    [self.numberCell.numberTextField resignFirstResponder];
+    self.numberPhone = self.numberCell.numberTextField.text;
+    [self.output sendCodeButtonDidTapWithValidField:self.numberCell.validationOk andNumberPhone:self.numberPhone];
+}
 
 #pragma mark - Layout Views
 
@@ -242,17 +246,6 @@ static CGFloat offsetBottom = 10.0f;
                                                       action:@selector(_backBarButtonAction)];
     }
     return _backBarButton;
-}
-
-- (UIBarButtonItem *)rightBarButton {
-    if (!_rightBarButton) {
-        _rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Продолжить"
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(_nextButtonAction)];
-        _rightBarButton.tintColor = [UIColor blackColor];
-    }
-    return _rightBarButton;
 }
 
 @end

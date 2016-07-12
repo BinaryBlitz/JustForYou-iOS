@@ -13,14 +13,14 @@
 #import "BBTextField.h"
 
 #import "BBSearchTableViewController.h"
-
+#import "BBUnderlineButton.h"
 
 @interface BBMapViewController() <GMSMapViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, BBSearchTableControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet BBTextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *myLocationImageView;
-@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet BBUnderlineButton *addButton;
 
 @property (strong, nonatomic) BBAddress *currentAddres;
 

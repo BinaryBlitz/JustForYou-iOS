@@ -40,6 +40,9 @@
 
 @end
 
+static NSString *errorConnectServer = @"Ошибка соединения. Данные пользователя могут быть некорректны. Проверьте пожалуйста подключение к интернету";
+static NSString *errorServerUpdate = @"Ошибка сервера. Данные пользователя могут быть некорректны. Повторите позже или обратитесь в службу поддержки";
+
 @implementation BBProfilePresenter
 
 #pragma mark - Методы BBProfileModuleInput
@@ -64,7 +67,8 @@
 }
 
 - (void)viewWillAppear {
-    [self.interactor currentUser];
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor updateUser];
 }
 
 - (void)settingsButtonDidTap {
@@ -88,7 +92,22 @@
 #pragma mark - Методы BBProfileInteractorOutput
 
 - (void)currentUserWithUser:(BBUser *)user {
+    [self.view hideBackgroundLoaderViewWithAlpha];
     [self.view currentUser:user];
+}
+
+- (void)userSuccsessfulUpdate {
+    [self.interactor currentUser];
+}
+
+- (void)errorNetwork {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:errorConnectServer];
+}
+
+- (void)errorServer {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view presentAlertWithTitle:kNoteTitle message:errorServerUpdate];
 }
 
 #pragma mark - Lazy Load

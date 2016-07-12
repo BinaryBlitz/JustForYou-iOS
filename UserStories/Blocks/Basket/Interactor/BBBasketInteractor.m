@@ -18,6 +18,23 @@
 
 #pragma mark - Методы BBBasketInteractorInput
 
+- (void)updateUserAndShowCurrentBonuses {
+    [[BBServerService sharedService] showUserWithUserToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.serverError == kServerErrorSuccessfull) {
+                BBUser *oldUser = [[BBUserService sharedService] currentUser];
+                oldUser.balance = user.balance;
+                [[BBUserService sharedService] saveCurrentUser:oldUser];
+                [self.output bonusesUpdate];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output errorNetwork];
+        }
+    }];
+}
+
 - (void)currentOrdersInBasket {
     BBUser *user = [[BBUserService sharedService] currentUser];
     [self.output currentOrders:user.ordersProgramArray];
