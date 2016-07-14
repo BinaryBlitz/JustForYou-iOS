@@ -68,6 +68,14 @@ static CGFloat estimatedRowHeight = 100.0f;
     });
 }
 
+- (void)clearOrdersArray {
+    self.ordersArray = [NSArray array];
+    HQDispatchToMainQueue(^{
+        NSRange range = NSMakeRange(1, 1);
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
+    });
+}
+
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
     [self presentAlertControllerWithTitle:title message:message];
 }
@@ -177,12 +185,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 }
 
 - (void)deleteButtonDidTapWithOrder:(BBOrder *)order {
-    self.ordersArray = [NSArray array];
     [self.output deleteButtonDidTapWithOrder:order];
-    HQDispatchToMainQueue(^{
-        NSRange range = NSMakeRange(1, 1);
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
-    });
 }
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message

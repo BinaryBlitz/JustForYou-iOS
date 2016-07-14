@@ -35,6 +35,8 @@
 @property (assign, nonatomic) NSInteger total;
 @property (assign, nonatomic) NSInteger invoicesId;
 
+@property (strong, nonatomic) BBOrder *order;
+
 @end
 
 static NSString *kPurchasesEmpty = @"Вы не можете создать новый заказ так как у вас нет купленных программ";
@@ -84,14 +86,22 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
     } else if ([[BBCalendarService sharedService] timeForDate:order.scheduledDay] == BBstatusTodayTime) {
         [self.view presentAlertWithTitle:kNoteTitle message:@"Вы не можете отменить доставку до которой осталось меньше 36 часов"];
     } else {
-        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-        [self.interactor deleteOrderWithOrder:order];
+        self.order = order;
+        [self.view presentAlertControllerWithTitle:kNoteTitle
+                                           message:@"Вы уверены что хотите отменить доставку?"
+                                       titleAction:@"Да"
+                                       cancelTitle:@"Нет"
+                                               key:kPayOkButton];
     }
 }
 
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
     if (key == kContinueButton) {
         [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+    } else if (key == kPayOkButton) {
+        [self.view clearOrdersArray];
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+        [self.interactor deleteOrderWithOrder:self.order];
     } else {
         [self.view hideBackgroundLoaderViewWithAlpha];
     }
