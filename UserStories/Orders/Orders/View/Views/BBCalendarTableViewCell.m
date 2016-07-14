@@ -32,7 +32,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    [self _createRandomEvents];
     [self _initCalendarManager];
     self.ordersForCalendar = [NSArray array];
 }
@@ -96,26 +95,6 @@
     [self.calendarManager setDate:[NSDate date]];
 }
 
-
-- (void)_createRandomEvents {
-    
-    self.eventsByDate = [NSMutableDictionary new];
-//    for(int i = 0; i < ; ++i){
-        // Generate 30 random dates between now and 60 days later
-        NSDate *randomDate = [NSDate dateWithTimeInterval:-(3600 * 24) sinceDate:[NSDate date]];
-        
-        // Use the date as key for eventsByDate
-        NSString *key = [[self _dateFormatter] stringFromDate:randomDate];
-        
-        if(!self.eventsByDate[key]){
-            self.eventsByDate[key] = [NSMutableArray new];
-        }
-    
-        [self.eventsByDate[key] addObject:randomDate];
-//    }
-}
-
-// Used only to have a key for _eventsByDate
 - (NSDateFormatter *)_dateFormatter {
     
     static NSDateFormatter *dateFormatter;
@@ -151,7 +130,7 @@
         dayView.circleView.hidden = NO;
         dayView.dotView.hidden = YES;
         NSArray *programs = [self programsInDay:dayView.date];
-
+        
         NSMutableArray *colors = [NSMutableArray array];
         if ([dayView.dots count] < 1 || [dayView.dots count] < [programs count]) {
             for (BBOrder *order in programs) {
@@ -216,10 +195,8 @@
 }
 
 - (BOOL)_haveEventForDay:(NSDate *)date {
-    
     NSString *key = [[self _dateFormatter] stringFromDate:date];
-    
-    if(self.eventsByDate[key]){
+    if(self.eventsByDate[key]) {
         return YES;
     }
     return NO;

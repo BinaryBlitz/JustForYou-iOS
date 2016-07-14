@@ -33,6 +33,6 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic, readonly) BBServerServiceConnection kConnectionServer;
 
 
-- (instancetype)initWithResponse:(NSURLResponse *)responseServer keyConnection:(BBServerServiceConnection)key;
+- (instancetype)initWithResponse:(NSURLResponse *)responseServer keyConnection:(BBServerServiceConnection)key data:(NSData *)data;
 
 @end

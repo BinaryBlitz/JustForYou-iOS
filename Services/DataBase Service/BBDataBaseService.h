@@ -16,6 +16,8 @@
 #import "BBOrder.h"
 #import "BBPayCard.h"
 
+typedef void (^CallBack)(void);
+
 @interface BBDataBaseService : NSObject
 
 + (instancetype) sharedService;
@@ -38,7 +40,8 @@
 
 #pragma mark - Orders
 
-- (void)addOrUpdateOrdersFromArray:(NSArray *)objects;
+- (void)addOrUpdateOrdersFromArray:(NSArray *)objects callback:(CallBack)callback;
+- (void)deleteOrderForOrderId:(NSInteger)orderId callback:(CallBack)callback;
 - (NSArray *)ordersInRealm;
 
 #pragma mark - PayCard

@@ -29,7 +29,7 @@
 
 @end
 
-static NSInteger shemaVersionRealm = 27;
+static NSInteger shemaVersionRealm = 28;
 
 @implementation BBPreloader
 
@@ -100,6 +100,7 @@ static NSInteger shemaVersionRealm = 27;
 }
 
 - (void)userLogout {
+    [[BBUserService sharedService] logOutUser];
     UIViewController *vc = [self.navigationModule currentViewWithLoadModule:BBRegistrationModule];
     __weak typeof(self)weakSelf = self;
     HQDispatchToMainQueue(^{

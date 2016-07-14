@@ -28,7 +28,7 @@
         self.nameProgram = [program valueForKey:@"name"];
         NSInteger blockId = [[program valueForKey:@"block_id"] integerValue];
         BBBlock *block = [BBBlock objectsWhere:[NSString stringWithFormat:@"blockId=%ld", (long)blockId]].firstObject;
-        [self setColorWithColor:[BBConstantAndColor colorForIdBlock:blockId]];
+        [self setColorWithColor:[BBConstantAndColor colorForR:block.red G:block.green B:block.blue alpha:1.0f]];
         self.nameBlock = block.name;
     }
     return self;

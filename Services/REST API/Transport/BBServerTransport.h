@@ -44,6 +44,7 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 #pragma mark - Deliveries Methods
 
 - (void)checkDeliveryInvoicesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
+- (void)cancelDeliveryWithApiToken:(NSString *)apiToken deliveryId:(NSString *)deliveryId completion:(CompletionBlock)completion;
 - (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(CompletionBlock)completion;
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;

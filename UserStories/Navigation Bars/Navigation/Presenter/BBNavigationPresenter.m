@@ -32,6 +32,8 @@
 #import "BBBasketAssembly.h"
 #import "BBBasketModuleInput.h"
 
+#import "BBUserService.h"
+
 @interface BBNavigationPresenter()
 
 @property (strong, nonatomic) id<BBTabbarModuleOutput> tabbarModule;
@@ -52,8 +54,13 @@
 
 #pragma mark - Методы BBNavigationModuleInput
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationLogOutUser object:nil];
+}
+
 - (void)configureModule {
     self.loadModule = BBRegistrationModule;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOutUserNotification) name:kNotificationLogOutUser object:nil];
 }
 
 - (id)currentViewWithLoadModule:(BBLoadModule) loadModule {
@@ -63,6 +70,10 @@
 
 - (id)currentView {
     return self.view;
+}
+
+- (void)logOutUserNotification {
+    [self.tabbarModule userLogout];
 }
 
 - (void)pushViewControllerWithView:(id)view {
@@ -75,6 +86,7 @@
 
 - (void)userRegistrationFulfilled {
     [self.output userRegistrationFulfilled];
+    [self.router popToRootViewController];
 }
 
 - (void)userLogout {

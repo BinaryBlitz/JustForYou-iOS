@@ -58,17 +58,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testBack" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-aY-H1h">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testBack" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-aY-H1h">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Gmj-aY-H1h" secondAttribute="height" multiplier="3:2" id="3aa-K3-RpI"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5TA-fP-BZM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="5TA-fP-BZM" secondAttribute="height" multiplier="3:2" id="lBB-je-tEI"/>
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcD-3V-odh">
@@ -100,11 +93,8 @@
                         <constraints>
                             <constraint firstItem="TcD-3V-odh" firstAttribute="centerY" secondItem="dIV-A0-MsX" secondAttribute="centerY" id="08D-6h-avB"/>
                             <constraint firstItem="TcD-3V-odh" firstAttribute="leading" secondItem="dIV-A0-MsX" secondAttribute="leading" id="1Zh-cy-jIs"/>
-                            <constraint firstItem="5TA-fP-BZM" firstAttribute="leading" secondItem="dIV-A0-MsX" secondAttribute="leading" id="3wp-Zv-cgm"/>
                             <constraint firstItem="znc-hm-dck" firstAttribute="centerX" secondItem="dIV-A0-MsX" secondAttribute="centerX" id="6zt-0Y-XFi"/>
-                            <constraint firstItem="5TA-fP-BZM" firstAttribute="top" secondItem="dIV-A0-MsX" secondAttribute="top" id="CkH-qg-d5B"/>
                             <constraint firstItem="Gmj-aY-H1h" firstAttribute="leading" secondItem="dIV-A0-MsX" secondAttribute="leading" id="Cpl-5R-vrC"/>
-                            <constraint firstAttribute="trailing" secondItem="5TA-fP-BZM" secondAttribute="trailing" id="D8f-z8-jDc"/>
                             <constraint firstItem="TcD-3V-odh" firstAttribute="height" secondItem="dIV-A0-MsX" secondAttribute="height" multiplier="373:667" id="L2a-tc-3dB"/>
                             <constraint firstItem="Gmj-aY-H1h" firstAttribute="top" secondItem="dIV-A0-MsX" secondAttribute="top" id="Oti-GG-wYQ"/>
                             <constraint firstAttribute="trailing" secondItem="Gmj-aY-H1h" secondAttribute="trailing" id="S79-0y-oER"/>
@@ -119,7 +109,6 @@
                         <outlet property="moreButton" destination="iFM-kg-BUO" id="0zK-7I-aYh"/>
                         <outlet property="pageControl" destination="znc-hm-dck" id="vvz-z4-XDU"/>
                         <outlet property="scrollView" destination="TcD-3V-odh" id="wqc-iQ-qpW"/>
-                        <outlet property="secondImageView" destination="5TA-fP-BZM" id="58v-wH-Otj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7s-8f-ZZt" userLabel="First Responder" sceneMemberID="firstResponder"/>

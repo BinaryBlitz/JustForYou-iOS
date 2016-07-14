@@ -20,5 +20,6 @@
 - (void)cancelButtonDidTap;
 
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key;
+- (void)deleteButtonDidTapWithOrder:(BBOrder *)order;
 
 @end

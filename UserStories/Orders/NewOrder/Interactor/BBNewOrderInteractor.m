@@ -34,8 +34,10 @@
                                                       if (response.kConnectionServer == kSuccessfullyConnection) {
                                                           if (response.serverError == kServerErrorSuccessfull) {
                                                               HQDispatchToMainQueue(^{
-                                                                  [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects];
-                                                                  [self.output deliveriesCreateSuccessfull];
+                                                                  [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects callback:^{
+                                                                      [self.output deliveriesCreateSuccessfull];
+                                                                  }];
+//                                                                  [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects];
                                                               });
                                                           } else {
                                                               [self.output errorServer];

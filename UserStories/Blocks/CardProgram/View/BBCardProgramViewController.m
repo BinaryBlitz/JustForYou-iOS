@@ -21,12 +21,15 @@
 @property (weak, nonatomic) IBOutlet UIView *gradientVIew;
 @property (weak, nonatomic) IBOutlet UIView *addInBasketView;
 
+@property (strong, nonatomic) UIImageView *bigImageView;
+
 @property (strong, nonatomic) BBProgram *myProgram;
 @property (strong, nonatomic) RLMResults *daysInProgram;
 
 @property (strong, nonatomic) BBDay *currentDay;
 @property (strong, nonatomic) RLMResults *currentMenu;
 @property (nonatomic) NSInteger positionDay;
+@property (nonatomic) CGRect sizeBigImageView;
 
 @property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 
@@ -57,12 +60,16 @@
     [super viewWillDisappear:animated];
     [self.addBasketPopover removeFromSuperview];
     self.addBasketPopover = nil;
+    [self didTapBigImage];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
     [self _layoutBasketButton];
+    CGRect frame = [UIScreen mainScreen].bounds;
+    frame.size.height = frame.size.height - sizeNavigationBar;
+    self.sizeBigImageView = frame;
 }
 
 
@@ -308,6 +315,22 @@
     }
 }
 
+- (void)imageViewDidTapWithImage:(UIImage *)image {
+    self.bigImageView.image = image;
+    self.bigImageView.hidden = NO;
+    [UIView animateWithDuration:animateTime animations:^{
+        self.bigImageView.frame = self.sizeBigImageView;
+    }];
+}
+
+- (void)didTapBigImage {
+    [UIView animateWithDuration:animateTime animations:^{
+        self.bigImageView.frame = CGRectMake(self.view.center.x, self.view.center.y, 0, 0);
+    } completion:^(BOOL finished) {
+        self.bigImageView.hidden = YES;
+    }];
+}
+
 #pragma mark - Init Methods
 
 - (void)_initRightBarButton {
@@ -333,5 +356,21 @@
     return _addBasketPopover;
 }
 
+- (UIImageView *)bigImageView {
+    if (!_bigImageView) {
+        _bigImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 0, 0)];
+        _bigImageView.backgroundColor = [UIColor whiteColor];
+        _bigImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _bigImageView.hidden = YES;
+        _bigImageView.userInteractionEnabled = YES;
+        [self.view addSubview:_bigImageView];
+        [self.view bringSubviewToFront:_bigImageView];
+        UITapGestureRecognizer *bigTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapBigImage)];
+        bigTap.numberOfTouchesRequired = 1;
+        bigTap.numberOfTapsRequired = 1;
+        [_bigImageView addGestureRecognizer:bigTap];
+    }
+    return _bigImageView;
+}
 
 @end

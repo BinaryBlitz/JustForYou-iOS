@@ -14,7 +14,7 @@
 #import "BBDottedBorderButton.h"
 #import "BBTableAlertController.h"
 
-@interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate, BBTableAlertControllerDelegate>
+@interface BBOrdersViewController() <BBCalendarMenuViewDelegate, UITableViewDelegate, UITableViewDataSource, BBCalendarTableViewCellDelegate, BBTableAlertControllerDelegate, BBPreviewOrderCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -62,6 +62,9 @@ static CGFloat estimatedRowHeight = 100.0f;
     self.deliveriesArray = deliveries;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
+//        [self.tableView beginUpdates];
+        [self.tableView setContentOffset:CGPointZero animated:YES];
+//        [self.tableView endUpdates];
     });
 }
 
@@ -108,6 +111,7 @@ static CGFloat estimatedRowHeight = 100.0f;
         if ([self.ordersArray count] > 0) {
             previewCell.order = [self.ordersArray objectAtIndex:indexPath.row];
         }
+        previewCell.delegate = self;
         cell = previewCell;
     }
     
@@ -122,10 +126,17 @@ static CGFloat estimatedRowHeight = 100.0f;
 #pragma mark - BBCalendarTableViewCellDelegate 
 
 - (void)dayViewDidTapWithOrders:(NSArray *)orders {
-    
-    self.ordersArray = orders;
-    NSRange range = NSMakeRange(1, 1);
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
+    NSMutableArray *array = [NSMutableArray array];
+    for (BBOrder *order in orders) {
+        if (![order isInvalidated]) {
+            [array addObject:order];
+        }
+    }
+    self.ordersArray = array;
+    if ([self.ordersArray count] > 0) {
+        NSRange range = NSMakeRange(1, 1);
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (void)addNewOrderButtonDidTap {
@@ -165,7 +176,14 @@ static CGFloat estimatedRowHeight = 100.0f;
     [self.output cancelButtonDidTap];
 }
 
-
+- (void)deleteButtonDidTapWithOrder:(BBOrder *)order {
+    self.ordersArray = [NSArray array];
+    [self.output deleteButtonDidTapWithOrder:order];
+    HQDispatchToMainQueue(^{
+        NSRange range = NSMakeRange(1, 1);
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
+    });
+}
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message
                             titleAction:(NSString *)titleAction cancelTitle:(NSString *)cancel key:(BBKeyForOkButtonAlert)key {

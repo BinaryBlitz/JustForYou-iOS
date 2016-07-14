@@ -8,6 +8,7 @@
 
 #import "BBConstantAndColor.h"
 
+
 @implementation BBConstantAndColor
 
 #pragma mark - Helper Numbers
@@ -63,21 +64,6 @@
 
 + (UIColor *)applicationGreenBankColor {
     return [self colorForR:171.0f G:240.0f B:0.0f alpha:1.0f];
-}
-
-+ (UIColor *)colorForIdBlock:(NSInteger)blockId {
-    if (blockId == 1) {
-        return [self programBrownColor];
-    } else if (blockId == 2) {
-        return [self programGreenColor];
-    } else if (blockId == 3) {
-        return [self programBlueColor];
-    } else if (blockId == 4) {
-        return [self programRedColor];
-    } else if (blockId == 5) {
-        return [self programPurpleColor];
-    }
-    return [self programYellowColor];
 }
 
 + (UIColor *)programGreenColor {

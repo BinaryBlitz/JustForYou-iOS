@@ -14,7 +14,7 @@
 - (void)presentFromWindow:(UIWindow *)window;
 
 - (void)rootVC:(id)view;
-
+- (void)popToRootViewController;
 - (void)pushViewController:(id)view;
 
 @end

@@ -28,10 +28,17 @@
 
 - (void)setOrder:(BBOrder *)order {
     _order = order;
-    self.nameProgramLabel.text = order.nameProgram;
-    self.descriptLabel.text = order.nameBlock;
-    self.indicatorView.backgroundColor = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
-    self.adresLabel.text = order.address;
+    if (![order isInvalidated]) {
+        self.nameProgramLabel.text = order.nameProgram;
+        self.descriptLabel.text = order.nameBlock;
+        self.indicatorView.backgroundColor = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
+        self.adresLabel.text = order.address;
+    }
+}
+- (IBAction)deleteButtonAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(deleteButtonDidTapWithOrder:)]) {
+        [self.delegate deleteButtonDidTapWithOrder:self.order];
+    }
 }
 
 - (void)layoutSubviews {

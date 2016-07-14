@@ -18,6 +18,8 @@
 
 - (void)createPayDeliveriesWithTotal:(NSInteger)total invoicesId:(NSInteger)invoicesId;
 
+
+- (void)deliveriesDeleted;
 - (void)errorNetwork;
 - (void)errorServer;
 

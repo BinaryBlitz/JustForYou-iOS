@@ -60,6 +60,7 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 #pragma mark - Deliveries Methods
 
 - (void)checkDeliveryInvoicesWithApiToken:(NSString *)apiToken completion:(ReceiveData)completion;
+- (void)cancelDeliveryWithApiToken:(NSString *)apiToken deliveryId:(NSString *)deliveryId completion:(Completion)completion;
 - (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(ReceiveData)completion;
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;

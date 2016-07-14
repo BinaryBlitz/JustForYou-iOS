@@ -16,6 +16,11 @@ Runs all the tests
 fastlane ios beta
 ```
 
+### ios anton
+```
+fastlane ios anton
+```
+
 ### ios testflight
 ```
 fastlane ios testflight

@@ -197,6 +197,7 @@
 		3ABAA0D91D003DC00042BD56 /* BBAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */; };
 		3AC92B091D10D53C00036E70 /* BBPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC92B081D10D53C00036E70 /* BBPayment.m */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
+		3AE273E01D3504E6008C0C36 /* BBParentPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE273DF1D3504E6008C0C36 /* BBParentPresenter.m */; };
 		3AE546071D1695D2006A1CDD /* BBAboutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546051D1695D2006A1CDD /* BBAboutTableViewCell.m */; };
 		3AE546081D1695D2006A1CDD /* BBAboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE546061D1695D2006A1CDD /* BBAboutTableViewCell.xib */; };
 		3AE5460C1D16A13A006A1CDD /* BBOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5460B1D16A13A006A1CDD /* BBOrder.m */; };
@@ -713,6 +714,9 @@
 		3AC92B081D10D53C00036E70 /* BBPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPayment.m; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
+		3AE273DE1D3504E6008C0C36 /* BBParentPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentPresenter.h; sourceTree = "<group>"; };
+		3AE273DF1D3504E6008C0C36 /* BBParentPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBParentPresenter.m; sourceTree = "<group>"; };
+		3AE273E21D35067A008C0C36 /* BBParentInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentInteractorOutput.h; sourceTree = "<group>"; };
 		3AE546041D1695D2006A1CDD /* BBAboutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAboutTableViewCell.h; sourceTree = "<group>"; };
 		3AE546051D1695D2006A1CDD /* BBAboutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAboutTableViewCell.m; sourceTree = "<group>"; };
 		3AE546061D1695D2006A1CDD /* BBAboutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAboutTableViewCell.xib; sourceTree = "<group>"; };
@@ -2544,6 +2548,9 @@
 			children = (
 				3AB21D161CFA130A0090F436 /* BBParentViewController.h */,
 				3AB21D171CFA130A0090F436 /* BBParentViewController.m */,
+				3AE273DE1D3504E6008C0C36 /* BBParentPresenter.h */,
+				3AE273DF1D3504E6008C0C36 /* BBParentPresenter.m */,
+				3AE273E21D35067A008C0C36 /* BBParentInteractorOutput.h */,
 			);
 			path = "Parent Views";
 			sourceTree = "<group>";
@@ -3245,6 +3252,7 @@
 				3AF26F751D0DC256004972FC /* BBMenu.m in Sources */,
 				3AE5461F1D17D6C7006A1CDD /* BBTableAlertController.m in Sources */,
 				3A2D56821CF075D200A8EFF5 /* BBCardProgramRouter.m in Sources */,
+				3AE273E01D3504E6008C0C36 /* BBParentPresenter.m in Sources */,
 				3A7438B41D1DFDB100FD6351 /* BBProgramHistory.m in Sources */,
 				3A2D56E91CF07F5E00A8EFF5 /* NSData+BBParserAPI.m in Sources */,
 				3A2D56C01CF075D200A8EFF5 /* BBProfileRouter.m in Sources */,

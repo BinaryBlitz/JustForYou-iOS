@@ -24,6 +24,13 @@
     nc.viewControllers = @[view];
 }
 
+- (void)popToRootViewController {
+    UINavigationController *nc = (UINavigationController *)self.presenter.view;
+    HQDispatchToMainQueue(^{
+        [nc popToRootViewControllerAnimated:NO];
+    });
+}
+
 - (void)pushViewController:(id)view {
     UINavigationController *nc = (UINavigationController *)self.presenter.view;
     HQDispatchToMainQueue(^{

@@ -12,6 +12,7 @@
 
 - (void)listMyDeliveriesOnDataBase;
 - (void)myDeliveriesOnServer;
+- (void)deleteOrderWithOrder:(BBOrder *)order;
 
 - (void)listPurchasesUser;
 

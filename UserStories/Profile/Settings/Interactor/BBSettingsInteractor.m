@@ -41,7 +41,6 @@
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
     [[BBServerService sharedService] updateDeviceTokenWithApiToken:[[BBUserService sharedService] tokenUser] deviceToken:nil completion:^(BBServerResponse *response, NSError *error) {
     }];
-    [[BBUserService sharedService] logOutUser];
     [[BBDataBaseService sharedService] deleteAllPayCardsUser];
     [self.output userLogoutSuccessfully];
 }

@@ -185,6 +185,14 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)cancelDeliveryWithApiToken:(NSString *)apiToken deliveryId:(NSString *)deliveryId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/deliveries/%@/cancel?api_token=%@", kServerURL, deliveryId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:PATCH];
+    [self sendRequest:request completion:completion];
+}
+
 - (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(CompletionBlock)completion {
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString

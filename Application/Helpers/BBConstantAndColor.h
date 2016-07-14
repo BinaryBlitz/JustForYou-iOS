@@ -140,8 +140,6 @@ typedef enum : NSUInteger {
 
 + (UIColor *)applicationGreenBankColor;
 
-+ (UIColor *)colorForIdBlock:(NSInteger)blockId;
-
 + (kModelIPhone)modelDevice;
 
 @end
@@ -154,7 +152,10 @@ static CGFloat sideOffsetCell = 14.0f;
 static CGFloat borderWightLineCell = 1.0f;
 static CGFloat bottomOffsetCells = 10.0f;
 static CGFloat alphaBackgroundLoader = 0.7f;
+static CGFloat sizeNavigationBar = 64.0f;
+static CGFloat animateTime = 0.25f;
 
+static NSString *kNotificationLogOutUser = @"kNotificationLogOutUser";
 
 #pragma mark - Title And Message Alert
 
@@ -202,4 +203,3 @@ static NSString *kNameTitleAboutModule = @"Что такое Just For You?";
 static NSString *kNameTitleMapModule = @"Выберите адрес";
 
 static NSString *kNameTitleNoneModule = @"";
-

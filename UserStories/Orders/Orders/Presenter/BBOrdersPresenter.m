@@ -21,6 +21,7 @@
 #import "BBPaymentModuleInput.h"
 
 #import "BBPayment.h"
+#import "BBCalendarService.h"
 
 @interface BBOrdersPresenter()
 
@@ -75,6 +76,17 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 - (void)addNewOrderButtonDidTap {
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
     [self.interactor checkMyDeliveryInvoices];
+}
+
+- (void)deleteButtonDidTapWithOrder:(BBOrder *)order {
+    if ([[BBCalendarService sharedService] timeForDate:order.scheduledDay] == BBStatusPassedTime) {
+        [self.view presentAlertWithTitle:kNoteTitle message:@"Вы не можете отменить доставку на прошедший день"];
+    } else if ([[BBCalendarService sharedService] timeForDate:order.scheduledDay] == BBstatusTodayTime) {
+        [self.view presentAlertWithTitle:kNoteTitle message:@"Вы не можете отменить доставку до которой осталось меньше 36 часов"];
+    } else {
+        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+        [self.interactor deleteOrderWithOrder:order];
+    }
 }
 
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
@@ -135,6 +147,12 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
                                    titleAction:@"Оплатить"
                                    cancelTitle:@"Отмена"
                                            key:kContinueButton];
+}
+
+- (void)deliveriesDeleted {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.interactor listMyDeliveriesOnDataBase];
+    [self.view presentAlertWithTitle:kNoteTitle message:@"Доставка успешно удалена"];
 }
 
 - (void)errorNetwork {

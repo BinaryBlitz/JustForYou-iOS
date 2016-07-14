@@ -25,5 +25,6 @@
 @optional
 
 - (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex)segmentedIndex;
+- (void)imageViewDidTapWithImage:(UIImage *)image;
 
 @end

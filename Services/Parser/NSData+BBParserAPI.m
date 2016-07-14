@@ -32,6 +32,10 @@
     BBUser *user = nil;
     if ([JSONObj count] > 1) {
         user = [[BBUser alloc] initWithJSON:JSONObj];
+        NSString *apiToken = [JSONObj valueForKey:@"api_token"];
+        if (apiToken) {
+            [[BBUserService sharedService] saveUserApiToken:apiToken];
+        }
     }
     return user;
 }

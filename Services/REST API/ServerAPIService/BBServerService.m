@@ -38,7 +38,7 @@
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport sendUserNumberPhoneWithString:numberPhone completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         
         NSString *token = nil;
         if (!error) {
@@ -54,7 +54,7 @@
 - (void)verificationUserWithNumberPhohe:(NSString *)phone codeSMS:(NSString *)code verificateToken:(NSString *)token completion:(AuthCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport verificationUserWithNumberPhohe:phone codeSMS:code verificateToken:token completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         
         NSString *token = nil;
         if (!error) {
@@ -70,7 +70,7 @@
 - (void)createUserWithUser:(BBUser *)user completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createUser:user completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         
         BBUser *user = nil;
         
@@ -87,7 +87,7 @@
 - (void)showUserWithUserToken:(NSString *)apiToken completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport showUser:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         
         BBUser *user = nil;
         if (!error) {
@@ -102,7 +102,7 @@
 - (void)updateUserWithUser:(BBUser *)user apiToken:(NSString *)apiToken completion:(RegistrationCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport updateUser:user apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         if (completion) {
             completion(responseServer, user, error);
         }
@@ -113,7 +113,7 @@
 - (void)listAddressUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listAddressUserWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseUserAddressWithData];
@@ -130,7 +130,7 @@
 - (void)updateDeviceTokenWithApiToken:(NSString *)apiToken deviceToken:(NSData *)deviceToken completion:(Completion)completion {
     [self _checkNetworkConnection];
     [self.transport updateDeviceTokenWithApiToken:apiToken deviceToken:deviceToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         
         if (completion) {
             completion(responseServer, error);
@@ -143,7 +143,7 @@
 - (void)listBlocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listBlocksWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseArrayWithDataAndKey:kTypeBlockInData parentId:0];
@@ -159,7 +159,7 @@
 - (void)listProgramsWithApiToken:(NSString *)apiToken blockId:(NSInteger)blockId completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listProgramsWithApiToken:apiToken blockId:[NSString stringWithFormat:@"%ld", (long)blockId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseArrayWithDataAndKey:kTypeProgramInData parentId:blockId];
@@ -174,7 +174,7 @@
 - (void)listDaysInProgramId:(NSInteger)programId apiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listDaysWithApiToken:apiToken programId:[NSString stringWithFormat:@"%ld", (long)programId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseArrayWithDataAndKey:kTypeDayInData parentId:programId];
@@ -191,7 +191,7 @@
 - (void)createOrderWithOrders:(NSArray *)orders apiToken:(NSString *)token numberPhone:(NSString *)phone useBonuses:(BOOL)use completion:(OrderCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createOrderWithOrders:orders apiToken:token numberPhone:phone useBonuses:use completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSInteger orderId = 0;
         if (!error) {
             orderId = [data parseCreatingOrderPrograms];
@@ -206,7 +206,7 @@
 - (void)listOrdersWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listOrdersWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseOrderListWithData];
@@ -224,9 +224,20 @@
 - (void)checkDeliveryInvoicesWithApiToken:(NSString *)apiToken completion:(ReceiveData)completion {
     [self _checkNetworkConnection];
     [self.transport checkDeliveryInvoicesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         if (completion) {
             completion(responseServer, data, error);
+        }
+    }];
+}
+
+- (void)cancelDeliveryWithApiToken:(NSString *)apiToken deliveryId:(NSString *)deliveryId completion:(Completion)completion {
+    [self _checkNetworkConnection];
+    [self.transport cancelDeliveryWithApiToken:apiToken deliveryId:deliveryId
+                                    completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
+        if (completion) {
+            completion(responseServer, error);
         }
     }];
 }
@@ -234,7 +245,7 @@
 - (void)payDeliveryInvoicesWithApiToken:(NSString *)apiToken invoicesId:(NSString *)inId cardId:(NSInteger)cardId completion:(ReceiveData)completion {
     [self _checkNetworkConnection];
     [self.transport payDeliveryInvoicesWithApiToken:apiToken invoicesId:inId cardId:cardId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         if (completion) {
             completion(responseServer, data, error);
         }
@@ -244,7 +255,7 @@
 - (void)listPurchasesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listPurchasesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parsePurchasesWithData];
@@ -260,7 +271,7 @@
 - (void)listDeliveriesWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listDeliveriesWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseDeliveriesWithData];
@@ -276,7 +287,7 @@
 - (void)createDeliveriesWithApiToken:(NSString *)apiToken purchId:(NSString *)purchaseId arrayDeliveries:(NSArray *)deliveries completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createDeliveriesWithApiToken:apiToken purchId:purchaseId arrayDeliveries:deliveries completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseDeliveriesWithData];
@@ -293,7 +304,7 @@
 - (void)createPaymentsWithOrderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createPaymentsWithOrderId:[NSString stringWithFormat:@"%ld", (long)orderId] apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         BBPayment *payment = nil;
         if (!error) {
             payment = [data parsePaymentWithData];
@@ -308,7 +319,7 @@
 - (void)createPaymentsWithPayCard:(NSInteger)cardId orderId:(NSInteger)orderId apiToken:(NSString *)apiToken completion:(PaymentBoolCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createPaymentsWithPayCard:cardId orderId:[NSString stringWithFormat:@"%ld", (long)orderId] apiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         BOOL payment = NO;
         if (!error) {
             payment = [data parsePaymentInCardWithData];
@@ -326,7 +337,7 @@
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listStocksWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseStocksWithData];
@@ -344,7 +355,7 @@
 - (void)listProductsForReplasementWithToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listProductsForReplasementWithToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseProductsForReplacementWithData];
@@ -359,7 +370,7 @@
 - (void)createReplacementWithApiToken:(NSString *)apiToken productId:(NSInteger)productId completion:(OrderCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createReplacementWithApiToken:apiToken productId:[NSString stringWithFormat:@"%ld", (long)productId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSInteger prodId = 0;
         if (!error) {
             prodId = [data parseCreatingOrderPrograms];
@@ -373,7 +384,7 @@
 - (void)listUserReplasementWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listUserReplasementWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseUserReplacementWithData];
@@ -388,7 +399,7 @@
 - (void)deleteUserReplacementWithApiToken:(NSString *)apiToken replacementId:(NSString *)replacementId completion:(Completion)completion {
     [self _checkNetworkConnection];
     [self.transport deleteUserReplacementWithApiToken:apiToken replacementId:replacementId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         if (completion) {
             completion(responseServer, error);
         }
@@ -400,7 +411,7 @@
 - (void)listAllProgramsWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listAllProgramsWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parseAllProgramsWithData];
@@ -415,7 +426,7 @@
 - (void)createExchangesWithApiToken:(NSString *)token purchase:(NSString *)purcId program:(NSNumber *)progId completion:(ExchangeCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createExchangesWithApiToken:token purchase:purcId program:progId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         BBExchange *exchange = nil;
         if (!error) {
             exchange = [data parseExchangeWithData];
@@ -429,7 +440,7 @@
 - (void)payExchangeWithApiToken:(NSString *)apiToken exchange:(BBExchange *)exchange payId:(NSInteger)payId completion:(ReceiveData)completion {
     [self _checkNetworkConnection];
     [self.transport payExchangeWithApiToken:apiToken exchange:exchange paymentId:payId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         if (completion) {
             completion(responseServer, data, error);
         }
@@ -442,7 +453,7 @@
 - (void)createAddressWithApiToken:(NSString *)apiToken address:(BBAddress *)address completion:(AddressCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport createAddressWithApiToken:apiToken address:address completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         BBAddress *result = nil;
         if (!error) {
             result = [data parseAddressWithData];
@@ -458,7 +469,7 @@
 - (void)deleteAddressWithApiToken:(NSString *)apiToken addressId:(NSString *)addressId completion:(Completion)completion {
     [self _checkNetworkConnection];
     [self.transport deleteAddressWithApiToken:apiToken addressId:addressId completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         if (completion) {
             completion(responseServer, error);
         }
@@ -471,7 +482,7 @@
 - (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion {
     [self _checkNetworkConnection];
     [self.transport listPaymentCardsUserWithApiToken:apiToken completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection];
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
         NSArray *result = nil;
         if (!error) {
             result = [data parsePaymentsCardUserWithData];

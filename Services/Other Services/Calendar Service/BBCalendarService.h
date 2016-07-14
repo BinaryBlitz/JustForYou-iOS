@@ -10,6 +10,12 @@
 
 #import <JTCalendar/JTCalendar.h>
 
+typedef enum : NSUInteger {
+    BBStatusPassedTime,
+    BBstatusTodayTime,
+    BBStatusFutureTime
+}BBStatusOrderTime;
+
 @interface BBCalendarService : NSObject
 
 + (instancetype) sharedService;
@@ -21,5 +27,7 @@
 - (NSString *)dateForUIWithDate:(NSDate *)date;
 
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date;
+
+- (BBStatusOrderTime)timeForDate:(NSDate *)date;
 
 @end

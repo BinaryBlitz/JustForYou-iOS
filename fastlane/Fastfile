@@ -26,6 +26,17 @@ platform :ios do
     )
   end
 
+  lane :anton do
+    sigh(development: true, output_path: "/tmp")
+    gym(scheme: 'JustForYou', use_legacy_build_api: true)
+    crashlytics(
+      api_token: ENV["CRASHLYTICS_API_TOKEN"],
+      build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
+      notes: "",
+      emails: [‘anton@binaryblitz.ru’]
+    )
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :testflight do

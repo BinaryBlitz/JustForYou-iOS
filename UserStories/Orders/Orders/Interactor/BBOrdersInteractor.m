@@ -28,6 +28,28 @@
     });
 }
 
+- (void)deleteOrderWithOrder:(BBOrder *)order {
+    __block NSInteger orderId = order.orderId;
+    [[BBServerService sharedService] cancelDeliveryWithApiToken:[[BBUserService sharedService] tokenUser]
+                                                     deliveryId:[NSString stringWithFormat:@"%ld", (long)order.orderId]
+                                                     completion:^(BBServerResponse *response, NSError *error) {
+                                                         if (response.kConnectionServer == kSuccessfullyConnection) {
+                                                             if (response.serverError == kServerErrorSuccessfull) {
+                                                                 HQDispatchToMainQueue(^{
+                                                                     [[BBDataBaseService sharedService] deleteOrderForOrderId:orderId callback:^{
+                                                                         [self.output deliveriesDeleted];
+                                                                     }];
+                                                                 });
+//                                                                 [[BBDataBaseService sharedService] deleteOrderForOrderId:orderId];
+                                                             } else {
+                                                                 [self.output errorServer];
+                                                             }
+                                                         } else {
+                                                             [self.output errorNetwork];
+                                                         }
+    }];
+}
+
 - (void)checkMyDeliveryInvoices {
     [[BBServerService sharedService] checkDeliveryInvoicesWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSData *data, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
@@ -101,8 +123,12 @@
                                                          if (response.kConnectionServer == kSuccessfullyConnection) {
                                                              if (response.serverError == kServerErrorSuccessfull) {
                                                                  HQDispatchToMainQueue(^{
-                                                                     [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects];
-                                                                     [self.output updateDeliveriesWithArray:[[BBDataBaseService sharedService] ordersInRealm]];
+                                                                     [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects callback:^{
+                                                                         HQDispatchToMainQueue(^{
+                                                                             [self.output updateDeliveriesWithArray:[[BBDataBaseService sharedService] ordersInRealm]];
+                                                                         });
+                                                                     }];
+//                                                                     [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects];
                                                                  });
                                                              }
                                                          }

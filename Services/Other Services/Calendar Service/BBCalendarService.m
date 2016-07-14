@@ -119,4 +119,18 @@
     return ([date timeIntervalSinceNow] > 0);
 }
 
+- (BBStatusOrderTime)timeForDate:(NSDate *)date {
+    if ([date timeIntervalSinceNow] < 0) {
+        return BBStatusPassedTime;
+    }
+    NSDate *today = [NSDate date];
+    NSTimeInterval distanceBetweenDates = [date timeIntervalSinceDate:today];
+    double secondsInAnHour = 3600;
+    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+    if (hoursBetweenDates <= 36) {
+        return BBstatusTodayTime;
+    }
+    return BBStatusFutureTime;
+}
+
 @end

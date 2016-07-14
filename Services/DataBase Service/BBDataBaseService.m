@@ -177,24 +177,39 @@
 
 #pragma mark - Orders
 
-- (void)addOrUpdateOrdersFromArray:(NSArray *)objects {
+- (void)addOrUpdateOrdersFromArray:(NSArray *)objects callback:(CallBack)callback {
     RLMRealm *standartRealm = [RLMRealm defaultRealm];
-//    RLMResults *old = [BBOrder allObjectsInRealm:standartRealm];
-//    
+    RLMResults *old = [BBOrder allObjectsInRealm:standartRealm];
+    
+    [standartRealm transactionWithBlock:^{
+        [standartRealm deleteObjects:old];
+        [standartRealm addOrUpdateObjectsFromArray:objects];
+        callback();
+    }];
 //    [standartRealm beginWriteTransaction];
-//    [standartRealm deleteObjects:old];
+//    
 //    [standartRealm commitWriteTransaction];
-    [standartRealm beginWriteTransaction];
-    [standartRealm addOrUpdateObjectsFromArray:objects];
-    [standartRealm commitWriteTransaction];
+//    [standartRealm beginWriteTransaction];
+//    
+//    [standartRealm commitWriteTransaction];
+}
+
+- (void)deleteOrderForOrderId:(NSInteger)orderId callback:(CallBack)callback {
+    RLMRealm *standartRealm = [RLMRealm defaultRealm];
+    BBOrder *order = [BBOrder objectsWhere:[NSString stringWithFormat:@"orderId=%ld", (long)orderId]].firstObject;
+    
+    [standartRealm transactionWithBlock:^{
+        [standartRealm deleteObject:order];
+        callback();
+    }];
+//    [standartRealm beginWriteTransaction];
+//    [standartRealm commitWriteTransaction];
 }
 
 - (NSArray *)ordersInRealm {
     RLMResults *res = [BBOrder allObjectsInRealm:[RLMRealm defaultRealm]];
     return [self _RLMResultsToNSArray:res];
 }
-
-
 
 
 #pragma mark - PayCard

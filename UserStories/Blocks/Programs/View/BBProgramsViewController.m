@@ -15,10 +15,12 @@
 @interface BBProgramsViewController() <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButton;
+
+@property (strong, nonatomic) UIImageView *bigImageView;
 
 @property (strong, nonatomic) NSArray *programsArray;
 @property (strong, nonatomic) NSMutableArray *idArray;
@@ -27,13 +29,14 @@
 @property (nonatomic) CGFloat wightProgramView;
 @property (nonatomic) CGFloat insetfForView;
 
+@property (nonatomic) CGRect sizeBigImageView;
+
 @property (nonatomic) CGFloat currentPage;
 @property (nonatomic) NSInteger countPage;
 
 @property (strong, nonatomic) NSMutableArray *arrayViews;
 
 @end
-
 
 @implementation BBProgramsViewController
 
@@ -42,6 +45,9 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _resizeViewOnScrollView];
+    CGRect frame = [UIScreen mainScreen].bounds;
+    frame.size.height = frame.size.height - sizeNavigationBar;
+    self.sizeBigImageView = frame;
 }
 
 - (void)viewDidLoad {
@@ -53,6 +59,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self didTapBigImage];
 }
 
 #pragma mark - Actions
@@ -70,12 +81,35 @@
 - (void)setupInitialState {
     self.scrollView.delegate = self;
     self.countPage = 1;
-    self.secondImageView.alpha = 0.0;
     self.pageControl.numberOfPages = self.countPage;
     self.pageControl.enabled = NO;
 //    [self _reloadViewsInScrollView];
     [self _initRightBarButton];
     [self _initWightProgramView];
+    [self addSmalTapForImage];
+}
+
+- (void)addSmalTapForImage {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapSmallImage)];
+    tap.numberOfTouchesRequired = 1;
+    tap.numberOfTapsRequired = 1;
+    [self.firstImageView addGestureRecognizer:tap];
+}
+
+- (void)didTapSmallImage {
+    self.bigImageView.image = self.firstImageView.image;
+    self.bigImageView.hidden = NO;
+    [UIView animateWithDuration:animateTime animations:^{
+        self.bigImageView.frame = self.sizeBigImageView;
+    }];
+}
+
+- (void)didTapBigImage {
+    [UIView animateWithDuration:animateTime animations:^{
+        self.bigImageView.frame = CGRectMake(self.view.center.x, self.view.center.y, 0, 0);
+    } completion:^(BOOL finished) {
+        self.bigImageView.hidden = YES;
+    }];
 }
 
 - (void)programsForTableView:(NSArray *)programs {
@@ -135,11 +169,11 @@
 
 - (void)updateImageViewsWithIndex:(NSInteger)index {
     if (index+1 == [self.urlsArray count]) {
-        [[BBImageViewService sharedService] setImageForImageView:self.secondImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[index]];
+        [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[index]];
         return;
     }
     if (index < [self.urlsArray count]) {
-        [[BBImageViewService sharedService] setImageForImageView:self.secondImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[index+1]];
+        [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[index+1]];
     }
 }
 
@@ -230,6 +264,23 @@
         _arrayViews = [NSMutableArray array];
     }
     return _arrayViews;
+}
+
+- (UIImageView *)bigImageView {
+    if (!_bigImageView) {
+        _bigImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 0, 0)];
+        _bigImageView.backgroundColor = [UIColor whiteColor];
+        _bigImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _bigImageView.hidden = YES;
+        _bigImageView.userInteractionEnabled = YES;
+        [self.view addSubview:_bigImageView];
+        [self.view bringSubviewToFront:_bigImageView];
+        UITapGestureRecognizer *bigTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapBigImage)];
+        bigTap.numberOfTouchesRequired = 1;
+        bigTap.numberOfTapsRequired = 1;
+        [_bigImageView addGestureRecognizer:bigTap];
+    }
+    return _bigImageView;
 }
 
 @end

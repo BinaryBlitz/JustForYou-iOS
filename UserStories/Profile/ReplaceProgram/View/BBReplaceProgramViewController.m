@@ -113,7 +113,7 @@ static CGFloat verticalInset = 10.0f;
     BBProgram *program = [self.programs objectAtIndex:indexPath.row];
     cell.nameLabel.text = program.name;
     BBBlock *block = [BBBlock objectsWhere:[NSString stringWithFormat:@"blockId=%ld", (long)program.parentId]].lastObject;
-    cell.indicatorView.backgroundColor = [BBConstantAndColor colorForIdBlock:block.blockId];
+    cell.indicatorView.backgroundColor = [BBConstantAndColor colorForR:block.red G:block.green B:block.blue alpha:1.0f];
     cell.subNameLabel.text = block.name;
     cell.countDayLabel.textColor = [BBConstantAndColor applicationOrangeColor];
     cell.countDayLabel.font = [UIFont boldSystemFontOfSize:13.0f];

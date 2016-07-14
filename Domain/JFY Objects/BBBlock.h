@@ -14,6 +14,9 @@
 @property NSString *name;
 @property NSString *image;
 @property NSInteger programs_count;
+@property CGFloat red;
+@property CGFloat green;
+@property CGFloat blue;
 
 //@property RLMArray<BBProgram> *programs;
 
