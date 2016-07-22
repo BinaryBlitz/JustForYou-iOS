@@ -28,9 +28,9 @@
                             <constraint firstAttribute="height" constant="42" id="IP2-Rp-oLv"/>
                         </constraints>
                         <segments>
+                            <segment title="ДЛЯ КОГО"/>
                             <segment title="ОПИСАНИЕ"/>
                             <segment title="МЕНЮ"/>
-                            <segment title="ДЛЯ КОГО"/>
                         </segments>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>

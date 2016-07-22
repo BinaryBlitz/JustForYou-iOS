@@ -31,6 +31,12 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.scrollView.contentOffset = CGPointZero;
+    self.pageControl.currentPage = 0;
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutNextButton];

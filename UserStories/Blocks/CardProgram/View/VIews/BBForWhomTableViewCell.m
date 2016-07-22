@@ -38,6 +38,24 @@
     self.descriptLabel.text = [NSString stringWithFormat:@"1. %@\n\n2. %@\n\n3. %@\n", first, second, third];
 }
 
+- (void)reloadUIWithProgram:(BBProgram *)program {
+    self.program = program;
+    if (program.name) {
+        self.nameLabel.text = program.name;
+    } else {
+        self.nameLabel.text = @"";
+    }
+    NSString *day = @"";
+    if (self.program.threshold == 1) {
+        day = [NSString stringWithFormat:@"При заказе от %ld дня: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+    } else {
+        day = [NSString stringWithFormat:@"При заказе от %ld дней: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+    }
+    self.costLabel.text = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)self.program.primaryPrice];
+    self.bigCostLabel.text = day;
+
+}
+
 //- (void)layoutSubviews {
 //    [super layoutSubviews];
 //    CGRect contentViewFrame = self.contentView.frame;

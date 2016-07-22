@@ -41,9 +41,11 @@
 }
 
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
-    [[BBServerService sharedService] updateDeviceTokenWithApiToken:[[BBUserService sharedService] tokenUser] deviceToken:devToken completion:^(BBServerResponse *response, NSError *error) {
-        
-    }];
+    NSString *tokenUser = [[BBUserService sharedService] tokenUser];
+    if (tokenUser) {
+        [[BBServerService sharedService] updateDeviceTokenWithApiToken:tokenUser deviceToken:devToken completion:^(BBServerResponse *response, NSError *error) {
+        }];
+    }
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {

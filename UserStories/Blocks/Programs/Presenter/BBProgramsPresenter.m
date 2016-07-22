@@ -32,6 +32,8 @@
 static NSString *kImageNameBasketFull = @"basketFull";
 static NSString *kImageNameBasket = @"basket";
 
+static NSString *kErrorOpenProgram = @"Произошла ошибка при открытии программы. Попробуйте еще раз";
+
 @implementation BBProgramsPresenter
 
 #pragma mark - Методы BBProgramsModuleInput
@@ -69,6 +71,10 @@ static NSString *kImageNameBasket = @"basket";
 
 - (void)programDidTapWithProgram:(NSInteger)programId {
     [self.cardProgramModule pushModuleWithNavigationModule:self.navigModule prog:programId];
+}
+
+- (void)errorOpenProgram {
+    [self.view presentAlertWithTitle:kErrorOpenProgram message:kNoteTitle];
 }
 
 - (void)basketButtonDidTap {

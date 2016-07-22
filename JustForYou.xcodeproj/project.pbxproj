@@ -185,6 +185,8 @@
 		3A311FFF1CF74EA800D179D1 /* BBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A311FFE1CF74EA800D179D1 /* BBTextField.m */; };
 		3A36B6F01D03652D00A32B51 /* BBServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */; };
 		3A36B6F71D04B1EE00A32B51 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6F61D04B1EE00A32B51 /* BBRootViewController.m */; };
+		3A65F5411D42206A00F00707 /* BBClearOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */; };
+		3A65F5421D42206A00F00707 /* BBClearOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */; };
 		3A7438B01D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438AE1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m */; };
 		3A7438B11D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7438AF1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib */; };
 		3A7438B41D1DFDB100FD6351 /* BBProgramHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */; };
@@ -692,6 +694,9 @@
 		3A36B6F11D03813C00A32B51 /* BBTabbarModuleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabbarModuleOutput.h; sourceTree = "<group>"; };
 		3A36B6F51D04B1EE00A32B51 /* BBRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRootViewController.h; sourceTree = "<group>"; };
 		3A36B6F61D04B1EE00A32B51 /* BBRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRootViewController.m; sourceTree = "<group>"; };
+		3A65F53E1D42206A00F00707 /* BBClearOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBClearOrderTableViewCell.h; sourceTree = "<group>"; };
+		3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClearOrderTableViewCell.m; sourceTree = "<group>"; };
+		3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBClearOrderTableViewCell.xib; sourceTree = "<group>"; };
 		3A71C0DCF1C9170ABADC7D35 /* BBMyHistoryInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBMyHistoryInteractor.m; sourceTree = "<group>"; };
 		3A7438AD1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyOldProgramTableViewCell.h; sourceTree = "<group>"; };
 		3A7438AE1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyOldProgramTableViewCell.m; sourceTree = "<group>"; };
@@ -2060,6 +2065,9 @@
 				3A2D55D81CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.h */,
 				3A2D55D91CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.m */,
 				3A2D55DA1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.xib */,
+				3A65F53E1D42206A00F00707 /* BBClearOrderTableViewCell.h */,
+				3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */,
+				3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3061,6 +3069,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A65F5421D42206A00F00707 /* BBClearOrderTableViewCell.xib in Resources */,
 				3A2D56DF1CF075D200A8EFF5 /* BBStockTableViewCell.xib in Resources */,
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
 				3A311FEF1CF6DE9A00D179D1 /* Orders.storyboard in Resources */,
@@ -3181,6 +3190,7 @@
 				3A2D56911CF075D200A8EFF5 /* BBProgramsPresenter.m in Sources */,
 				3A2D56D01CF075D200A8EFF5 /* BBPaymentAssembly.m in Sources */,
 				3A2D56A51CF075D200A8EFF5 /* BBDeliveryViewController.m in Sources */,
+				3A65F5411D42206A00F00707 /* BBClearOrderTableViewCell.m in Sources */,
 				3A2D56751CF075D200A8EFF5 /* BBBasketViewController.m in Sources */,
 				3A2D56901CF075D200A8EFF5 /* BBProgramsInteractor.m in Sources */,
 				3A2D56831CF075D200A8EFF5 /* BBCardProgramViewController.m in Sources */,

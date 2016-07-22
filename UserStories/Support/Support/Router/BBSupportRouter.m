@@ -16,6 +16,8 @@
 
 @end
 
+static NSString *mailForSupport = @"info@justforyou.ru";
+
 @implementation BBSupportRouter
 
 #pragma mark - BBSupportRouterInput
@@ -63,7 +65,7 @@
         _mailController.mailComposeDelegate = self;
         [_mailController setSubject:@"iOS Приложение"];
         [_mailController setMessageBody:@"" isHTML:YES];
-        [_mailController setToRecipients:[NSArray arrayWithObjects:@"justforyouav@gmail.com",nil]];
+        [_mailController setToRecipients:[NSArray arrayWithObjects:mailForSupport, nil]];
         [_mailController becomeFirstResponder];
     }
     return _mailController;

@@ -38,6 +38,8 @@
 @property (strong, nonatomic) id<BBListMyProgModuleInput> myListProgramModule;
 @property (strong, nonatomic) id<BBMyHistoryModuleInput> myHistoryModule;
 
+@property (nonatomic) BOOL updateUser;
+
 @end
 
 static NSString *errorConnectServer = @"Ошибка соединения. Данные пользователя могут быть некорректны. Проверьте пожалуйста подключение к интернету";
@@ -67,6 +69,8 @@ static NSString *errorServerUpdate = @"Ошибка сервера. Данные
 }
 
 - (void)viewWillAppear {
+    self.updateUser = YES;
+    [self.interactor currentUser];
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
     [self.interactor updateUser];
 }
@@ -92,7 +96,11 @@ static NSString *errorServerUpdate = @"Ошибка сервера. Данные
 #pragma mark - Методы BBProfileInteractorOutput
 
 - (void)currentUserWithUser:(BBUser *)user {
-    [self.view hideBackgroundLoaderViewWithAlpha];
+    if (self.updateUser) {
+        self.updateUser = NO;
+    } else {
+        [self.view hideBackgroundLoaderViewWithAlpha];
+    }
     [self.view currentUser:user];
 }
 

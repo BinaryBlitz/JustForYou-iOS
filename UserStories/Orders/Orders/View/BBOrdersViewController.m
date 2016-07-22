@@ -86,6 +86,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)_registerNibWithIdentifireCell {
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameCalendarCell bundle:nil] forCellReuseIdentifier:kCalendarCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNamePreviewOrderCell bundle:nil] forCellReuseIdentifier:kPreviewOrderCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameClearOrderCell bundle:nil] forCellReuseIdentifier:kClearOrderCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -103,7 +104,10 @@ static CGFloat estimatedRowHeight = 100.0f;
     if (section == 0) {
         return 1;
     }
-    return [self.ordersArray count];
+    if ([self.ordersArray count] > 0) {
+        return [self.ordersArray count];
+    }
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,12 +119,17 @@ static CGFloat estimatedRowHeight = 100.0f;
         [self _setDelegates];
         cell = calendarCell;
     } else {
-        BBPreviewOrderTableViewCell *previewCell = [[NSBundle mainBundle] loadNibNamed:kNibNamePreviewOrderCell owner:self options:nil].lastObject;
         if ([self.ordersArray count] > 0) {
-            previewCell.order = [self.ordersArray objectAtIndex:indexPath.row];
+            BBPreviewOrderTableViewCell *previewCell = [[NSBundle mainBundle] loadNibNamed:kNibNamePreviewOrderCell owner:self options:nil].lastObject;
+            if ([self.ordersArray count] > 0) {
+                previewCell.order = [self.ordersArray objectAtIndex:indexPath.row];
+            }
+            previewCell.delegate = self;
+            cell = previewCell;
+        } else {
+            BBClearOrderTableViewCell *clearCell = [[NSBundle mainBundle] loadNibNamed:kNibNameClearOrderCell owner:self options:nil].lastObject;
+            cell = clearCell;
         }
-        previewCell.delegate = self;
-        cell = previewCell;
     }
     
     return cell;
@@ -141,10 +150,10 @@ static CGFloat estimatedRowHeight = 100.0f;
         }
     }
     self.ordersArray = array;
-    if ([self.ordersArray count] > 0) {
+//    if ([self.ordersArray count] > 0) {
         NSRange range = NSMakeRange(1, 1);
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
-    }
+//    }
 }
 
 - (void)addNewOrderButtonDidTap {

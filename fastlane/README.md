@@ -21,6 +21,11 @@ fastlane ios beta
 fastlane ios anton
 ```
 
+### ios screenshot
+```
+fastlane ios screenshot
+```
+Take screenshots
 ### ios testflight
 ```
 fastlane ios testflight

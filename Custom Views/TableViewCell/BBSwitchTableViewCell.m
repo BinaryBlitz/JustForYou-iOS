@@ -34,8 +34,13 @@
     if (self.keySwitch == kPushNotificationSwitch) {
         if (state == NO) {
             [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-            [[BBServerService sharedService] updateDeviceTokenWithApiToken:[[BBUserService sharedService] tokenUser] deviceToken:nil completion:^(BBServerResponse *response, NSError *error) {
-            }];
+            NSString *tokenUser = [[BBUserService sharedService] tokenUser];
+            if (tokenUser) {
+                [[BBServerService sharedService] updateDeviceTokenWithApiToken:tokenUser deviceToken:nil completion:^(BBServerResponse *response, NSError *error) {
+                }];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogOutUser object:nil];
+            }
         } else {
             [[UIApplication sharedApplication] registerForRemoteNotifications];
         }

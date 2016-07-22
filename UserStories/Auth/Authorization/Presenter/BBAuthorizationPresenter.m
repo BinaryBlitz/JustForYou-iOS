@@ -17,12 +17,16 @@
 
 #import "BBNavigationModuleInput.h"
 
+#import "BBGreetingAssembly.h"
+#import "BBGreetingModuleInput.h"
+
 #import "BBValidationService.h"
 
 @interface BBAuthorizationPresenter()
 
 @property (strong, nonatomic) id<BBRegistrationModuleInput> registModule;
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id<BBGreetingModuleInput> greetingModule;
 
 @property (strong, nonatomic) NSString *authToken;
 @property (strong, nonatomic) NSString *numberPhone;
@@ -118,7 +122,7 @@ static NSString *kErrorData = @"Ошибка данных. Проверьте п
 
 - (void)userSuccessfullAuthorizate {
     [self.view hideLoaderView];
-    [self.navigationModule userRegistrationFulfilled];
+    [self.greetingModule pushModuleWithNavigationModule:self.navigationModule];
 }
 
 - (void)noConnectionNetwork {
@@ -139,6 +143,13 @@ static NSString *kErrorData = @"Ошибка данных. Проверьте п
         _registModule = [BBRegistrationAssembly createModule];
     }
     return _registModule;
+}
+
+- (id<BBGreetingModuleInput>)greetingModule {
+    if (!_greetingModule) {
+        _greetingModule = [BBGreetingAssembly createModule];
+    }
+    return _greetingModule;
 }
 
 @end

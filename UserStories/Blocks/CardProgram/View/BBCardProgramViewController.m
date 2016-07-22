@@ -87,7 +87,7 @@
 #pragma mark - Методы BBCardProgramViewInput
 
 - (void)setupInitialState {
-    self.segmentedIndex = BBDescriptionSegmentedIndex;
+    self.segmentedIndex = BBForWhomSegmentedIndex;
     [self _settingTableView];
     [self _initRightBarButton];
 }
@@ -200,6 +200,7 @@
         } else if (self.segmentedIndex == BBForWhomSegmentedIndex) {
             BBForWhomTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kForWhomCellIdentifire];
             [cell setDescriptions:self.myProgram.firstPrescription :self.myProgram.secondPrescription :self.myProgram.thirdPrescription];
+            [cell reloadUIWithProgram:self.myProgram]; 
             return cell;
         } else {
             BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
@@ -259,9 +260,9 @@
     NSInteger oldSeg = self.segmentedIndex;
     self.segmentedIndex = segmentedIndex;
     [self _changeBackgroundTableView];
-    if (segmentedIndex == BBDescriptionSegmentedIndex) {
+    if (segmentedIndex == BBForWhomSegmentedIndex) {
         [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
-    } else if (segmentedIndex == BBMenuSegmentedIndex) {
+    } else if (segmentedIndex == BBDescriptionSegmentedIndex) {
         if (oldSeg < self.segmentedIndex) {
             [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
         } else {

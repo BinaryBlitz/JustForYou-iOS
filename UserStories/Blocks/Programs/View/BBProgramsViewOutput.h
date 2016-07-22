@@ -15,6 +15,8 @@
 
 - (void)programDidTapWithProgram:(NSInteger)programId;
 
+- (void)errorOpenProgram;
+
 - (void)basketButtonDidTap;
 
 - (void)viewWillAppear;

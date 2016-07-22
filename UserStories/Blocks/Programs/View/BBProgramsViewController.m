@@ -73,7 +73,13 @@
 }
 
 - (IBAction)moreButtonAction:(id)sender {
-    [self.output programDidTapWithProgram:[[self.idArray objectAtIndex:self.pageControl.currentPage] integerValue]];
+    @try {
+        [self.output programDidTapWithProgram:[[self.idArray objectAtIndex:self.pageControl.currentPage] integerValue]];
+    } @catch (NSException *exception) {
+        [self.output errorOpenProgram];
+    } @finally {
+        
+    }
 }
 
 #pragma mark - Методы BBProgramsViewInput

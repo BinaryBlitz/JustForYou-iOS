@@ -57,10 +57,10 @@ static CGFloat heightUnderLine = 2.f;
     CGContextSetLineWidth(context, heightUnderLine);
     CGContextSetStrokeColorWithColor(context, [BBConstantAndColor applicationOrangeColor].CGColor);
     
-    if (self.selectedSegmentIndex == BBDescriptionSegmentedIndex) {
+    if (self.selectedSegmentIndex == BBForWhomSegmentedIndex) {
         CGContextMoveToPoint(context, self.centerPointForFirstSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
         CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-    } else if (self.selectedSegmentIndex == BBMenuSegmentedIndex) {
+    } else if (self.selectedSegmentIndex == BBDescriptionSegmentedIndex) {
         CGContextMoveToPoint(context, self.centerPointForSecondSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
         CGContextAddLineToPoint(context, self.centerPointForSecondSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
     } else {

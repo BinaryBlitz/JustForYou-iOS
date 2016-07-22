@@ -25,6 +25,7 @@
 #import "BBCalendarDeliveryTableViewCell.h"
 #import "BBCalendarTableViewCell.h"
 #import "BBCommentTableViewCell.h"
+#import "BBClearOrderTableViewCell.h"
 
 // D
 #import "BBDescriptionTableViewCell.h"

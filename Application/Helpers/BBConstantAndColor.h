@@ -56,9 +56,9 @@ typedef enum : NSUInteger {
 
 // Индекс SegmentedControl-а в карточке программы
 typedef enum : NSUInteger {
+    BBForWhomSegmentedIndex,
     BBDescriptionSegmentedIndex,
-    BBMenuSegmentedIndex,
-    BBForWhomSegmentedIndex
+    BBMenuSegmentedIndex
 }BBCardProgramSegmentedIndex;
 
 // модель телефона

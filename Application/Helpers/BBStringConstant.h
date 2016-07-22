@@ -24,6 +24,7 @@ static NSString *kNibNameBlockCell = @"BBBlockTableViewCell";
 static NSString *kNibNameCalendarCell = @"BBCalendarTableViewCell";
 static NSString *kNibNameCalendarDeliveryCell = @"BBCalendarDeliveryTableViewCell";
 static NSString *kNibNameCommentCell = @"BBCommentTableViewCell";
+static NSString *kNibNameClearOrderCell = @"BBClearOrderTableViewCell";
 
 // D
 static NSString *kNibNameDescriptionCell = @"BBDescriptionTableViewCell";
@@ -76,6 +77,7 @@ static NSString *kBlockCellIdentifire = @"blockTableViewCell";
 static NSString *kCalendarDeliveryCellIdentifire = @"calendarDeliveryTableViewCell";
 static NSString *kCalendarCellIdentifire = @"calendarTableViewCell";
 static NSString *kCommentCellIdentifire = @"commentTableViewCell";
+static NSString *kClearOrderCellIdentifire = @"clearOrderTableViewCell";
 
 // D
 static NSString *kDescriptionCellIdentifire = @"descriptionTableViewCell";
