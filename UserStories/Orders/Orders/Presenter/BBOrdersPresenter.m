@@ -42,6 +42,12 @@
 static NSString *kPurchasesEmpty = @"Вы не можете создать новый заказ так как у вас нет купленных программ";
 static NSString *kDeliveriesEmpty = @"Вы можете распределить оставшиеся дни вашей программы нажав кнопку новый заказ";
 
+static NSString *kRemoveDeliver = @"Доставка успешно отменена";
+
+static NSString *kErrorDeleteDeliveryDay = @"Вы не можете отменить доставку на прошедший день";
+static NSString *kErrorTimeRemoveDelivery = @"Вы не можете отменить доставку до которой осталось меньше 36 часов";
+static NSString *kRealyRemoveDelivery = @"Вы уверены что хотите отменить доставку?";
+
 @implementation BBOrdersPresenter
 
 #pragma mark - Методы BBBlocksModuleInput
@@ -82,13 +88,13 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 
 - (void)deleteButtonDidTapWithOrder:(BBOrder *)order {
     if ([[BBCalendarService sharedService] timeForDate:order.scheduledDay] == BBStatusPassedTime) {
-        [self.view presentAlertWithTitle:kNoteTitle message:@"Вы не можете отменить доставку на прошедший день"];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorDeleteDeliveryDay];
     } else if ([[BBCalendarService sharedService] timeForDate:order.scheduledDay] == BBstatusTodayTime) {
-        [self.view presentAlertWithTitle:kNoteTitle message:@"Вы не можете отменить доставку до которой осталось меньше 36 часов"];
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorTimeRemoveDelivery];
     } else {
         self.order = order;
         [self.view presentAlertControllerWithTitle:kNoteTitle
-                                           message:@"Вы уверены что хотите отменить доставку?"
+                                           message:kRealyRemoveDelivery
                                        titleAction:@"Да"
                                        cancelTitle:@"Нет"
                                                key:kPayOkButton];
@@ -138,7 +144,7 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 
 - (void)currentMyDeliveriesWithArray:(NSArray *)array {
     if ([array count] == 0) {
-        [self.view presentAlertWithTitle:kNoteTitle message:kDeliveriesEmpty];
+//        [self.view presentAlertWithTitle:kNoteTitle message:kDeliveriesEmpty];
     } else {
         [self.view updateDeliveriesWithArray:array];
     }
@@ -162,7 +168,7 @@ static NSString *kDeliveriesEmpty = @"Вы можете распределить
 - (void)deliveriesDeleted {
     [self.view hideBackgroundLoaderViewWithAlpha];
     [self.interactor listMyDeliveriesOnDataBase];
-    [self.view presentAlertWithTitle:kNoteTitle message:@"Доставка успешно удалена"];
+    [self.view presentAlertWithTitle:kNoteTitle message:kRemoveDeliver];
 }
 
 - (void)errorNetwork {

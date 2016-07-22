@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="376"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16B-Zg-07U">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16B-Zg-07U">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="376"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-5x-2eb">
@@ -74,7 +74,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="YVE-Ye-tWt" firstAttribute="top" secondItem="gdl-8T-XDl" secondAttribute="bottom" constant="27" id="Iy4-VG-s09"/>
                                 <constraint firstItem="ehH-pO-iVz" firstAttribute="leading" secondItem="IHT-5x-2eb" secondAttribute="leading" constant="30" id="Jbf-Kl-MZR"/>

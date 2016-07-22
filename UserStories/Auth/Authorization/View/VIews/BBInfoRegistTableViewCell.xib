@@ -43,7 +43,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="fPe-3p-zPO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -51,11 +51,12 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="Ewd-Pq-c8S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Em8-no-Zmq"/>
+                    <constraint firstItem="Ewd-Pq-c8S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17.5" id="G0O-jy-xgm"/>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="top" secondItem="i53-OM-1eM" secondAttribute="bottom" id="IIq-TP-ORt"/>
                     <constraint firstAttribute="trailing" secondItem="Ewd-Pq-c8S" secondAttribute="trailing" constant="8" id="NSE-AG-9ib"/>
                     <constraint firstItem="UPG-fu-Prd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aN5-Id-q1Q"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qT7-G5-xDc"/>
-                    <constraint firstAttribute="bottom" secondItem="Ewd-Pq-c8S" secondAttribute="bottom" constant="8" id="rHH-Jm-P8S"/>
+                    <constraint firstAttribute="bottom" secondItem="Ewd-Pq-c8S" secondAttribute="bottom" priority="750" constant="8" id="rHH-Jm-P8S"/>
                     <constraint firstItem="i53-OM-1eM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ysL-WV-tFu"/>
                 </constraints>
             </tableViewCellContentView>
