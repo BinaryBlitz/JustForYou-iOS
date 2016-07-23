@@ -13,6 +13,7 @@
                 <outlet property="costProgram" destination="Iyv-7Q-WYp" id="ZUN-xF-JZQ"/>
                 <outlet property="descriptionProgram" destination="YVE-Ye-tWt" id="fjl-eL-wTb"/>
                 <outlet property="nameProgram" destination="ehH-pO-iVz" id="gM7-bR-UaS"/>
+                <outlet property="scrollView" destination="16B-Zg-07U" id="zIO-qe-bUT"/>
                 <outlet property="shortDescription" destination="gdl-8T-XDl" id="ltS-Il-mBc"/>
             </connections>
         </placeholder>

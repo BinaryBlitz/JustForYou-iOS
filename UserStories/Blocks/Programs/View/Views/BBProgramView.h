@@ -12,6 +12,7 @@
 
 @interface BBProgramView : UIView
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *nameProgram;
 @property (weak, nonatomic) IBOutlet UILabel *costProgram;
 @property (weak, nonatomic) IBOutlet UILabel *bigCostProgram;

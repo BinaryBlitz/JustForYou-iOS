@@ -161,6 +161,7 @@ static CGFloat offsetBottom = 10.0f;
             numberCell.delegate = self;
             self.numberCell = numberCell;
             numberCell.numberTextField.text = @"";
+            [numberCell.numberTextField becomeFirstResponder];
             cell = numberCell;
         } else {
             infoCell.keyStyleCell = kBigInfoRegistCellStyle;

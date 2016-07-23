@@ -63,9 +63,9 @@ static NSString *kNameCrossImage = @"crossIcon";
 - (void)changeTotalCost {
     NSString *total;
     if (self.countDays >= self.threshold) {
-        total = [NSString stringWithFormat:@"%ld*%lu = %lu P", (long)self.secondary, (unsigned long)self.countDays, (self.secondary * self.countDays)];
+        total = [NSString stringWithFormat:@"%ld*%lu = %lu P", (long)self.secondary, (unsigned long)self.countDays, (unsigned long)(self.secondary * self.countDays)];
     } else {
-        total = [NSString stringWithFormat:@"%ld*%lu = %lu P", (long)self.primary, (unsigned long)self.countDays, (self.primary * self.countDays)];
+        total = [NSString stringWithFormat:@"%ld*%lu = %lu P", (long)self.primary, (unsigned long)self.countDays, (unsigned long)(self.primary * self.countDays)];
     }
     self.totalCost.text = total;
 }
