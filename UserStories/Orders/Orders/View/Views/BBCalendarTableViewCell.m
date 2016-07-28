@@ -113,6 +113,7 @@
     dayView.hidden = NO;
     dayView.circleView.backgroundColor = [UIColor clearColor];
     // Other month
+    
     if([dayView isFromAnotherMonth]){
         dayView.hidden = YES;
     }
@@ -124,15 +125,23 @@
     } else {
         dayView.circleView.hidden = YES;
         dayView.circleView.backgroundColor = [UIColor clearColor];
+        //Today
+        if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+            dayView.circleView.backgroundColor = [BBConstantAndColor applicationOrangeColorWithAlpha:0.3f];
+        }
     }
-
+    
     if([self _haveEventForDay:dayView.date] /*&& ![self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]*/){
         dayView.circleView.hidden = NO;
         dayView.dotView.hidden = YES;
         NSArray *programs = [self programsInDay:dayView.date];
-        
+        if ([programs count] > 3) {
+            NSMutableArray *array = [NSMutableArray arrayWithArray:programs];
+            [array removeLastObject];
+            programs = array;
+        }
         NSMutableArray *colors = [NSMutableArray array];
-        if ([dayView.dots count] < 1 || [dayView.dots count] < [programs count]) {
+        if ([dayView.dots count] < 1 || [dayView.dots count] < [programs count] || [dayView.dots count] > [programs count]) {
             for (BBOrder *order in programs) {
                 UIColor *color = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
                 [colors addObject:color];
@@ -158,14 +167,6 @@
         dayView.dotView.hidden = NO;
         [dayView layoutIfNeeded];
     }
-    
-    if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        CGFloat size = dayView.textLabel.font.pointSize;
-        dayView.textLabel.font = [UIFont boldSystemFontOfSize:size];
-    } else {
-        CGFloat size = dayView.textLabel.font.pointSize;
-        dayView.textLabel.font = [UIFont systemFontOfSize:size];
-    }
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView {
@@ -189,9 +190,7 @@
 
 - (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
     [self.delegate updateNameMonthPreviousName:previousName currentName:currentName nextName:nextName];
-    if (!self.nameMonth || [self.nameMonth isEqualToString:@""]) {
-        self.nameMonth = currentName;
-    }
+    self.nameMonth = currentName;
 }
 
 - (BOOL)_haveEventForDay:(NSDate *)date {

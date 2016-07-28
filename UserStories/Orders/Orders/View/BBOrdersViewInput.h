@@ -18,7 +18,7 @@
 - (void)hideBackgroundLoaderViewWithAlpha;
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
 
-- (void)clearOrdersArray;
+- (void)clearOrdersArrayWithOrder:(BBOrder *)order;
 
 - (void)createAndPresentTableAlertWithMessage:(NSString *)message;
 - (void)presentAlertControllerWithTitle:(NSString *)title

@@ -93,6 +93,7 @@
     [self _initRightBarButton];
     [self _initWightProgramView];
     [self addSmalTapForImage];
+    [self addSwipeForBigImage];
 }
 
 - (void)addSmalTapForImage {
@@ -100,6 +101,19 @@
     tap.numberOfTouchesRequired = 1;
     tap.numberOfTapsRequired = 1;
     [self.firstImageView addGestureRecognizer:tap];
+}
+
+- (void)addSwipeForBigImage {
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionRight];
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionUp];
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionDown];
+}
+
+- (void)gestureForDirection:(UISwipeGestureRecognizerDirection)direction {
+    UISwipeGestureRecognizer* gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didTapBigImage)];
+    gesture.direction = direction;
+    [self.bigImageView addGestureRecognizer:gesture];
 }
 
 - (void)didTapSmallImage {

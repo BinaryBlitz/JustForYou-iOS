@@ -63,9 +63,13 @@
     [self didTapBigImage];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self segmentedControlValueChange:BBForWhomSegmentedIndex];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
     [self _layoutBasketButton];
     CGRect frame = [UIScreen mainScreen].bounds;
     frame.size.height = frame.size.height - sizeNavigationBar;
@@ -90,6 +94,7 @@
     self.segmentedIndex = BBForWhomSegmentedIndex;
     [self _settingTableView];
     [self _initRightBarButton];
+    [self addSwipeForBigImage];
 }
 
 - (void)updateViewWithProgram:(NSInteger)programId {
@@ -185,10 +190,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        BBHeaderTableViewCell *headerCell = [self.tableView dequeueReusableCellWithIdentifier:kHeaderCellIdentifire];
+        
+        BBHeaderTableViewCell *headerCell = [[NSBundle mainBundle] loadNibNamed:kNibNameHeaderCell owner:self options:nil].lastObject;
         headerCell.delegate = self;
         [[BBImageViewService sharedService] setImageForImageView:headerCell.imageProgram placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.myProgram.previewImage];
-        
+        headerCell.segmentedControl.selectedSegmentIndex = self.segmentedIndex;
+//        [headerCell.segmentedControl drawRect:headerCell.segmentedControl.frame];
         return headerCell;
     }
     if (indexPath.section == 1) {
@@ -330,6 +337,19 @@
     } completion:^(BOOL finished) {
         self.bigImageView.hidden = YES;
     }];
+}
+
+- (void)addSwipeForBigImage {
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionRight];
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionUp];
+    [self gestureForDirection:UISwipeGestureRecognizerDirectionDown];
+}
+
+- (void)gestureForDirection:(UISwipeGestureRecognizerDirection)direction {
+    UISwipeGestureRecognizer* gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didTapBigImage)];
+    gesture.direction = direction;
+    [self.bigImageView addGestureRecognizer:gesture];
 }
 
 #pragma mark - Init Methods

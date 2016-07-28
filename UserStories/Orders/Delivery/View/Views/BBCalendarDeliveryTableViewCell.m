@@ -109,6 +109,7 @@
     self.calendarManager.settings.formatDay = JTCalendarFormatDayShortDay;
     self.calendarManager.settings.weekDayFormat = JTCalendarWeekDayFormatSingle;
     self.calendarManager.dateHelper.calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ru_RU"];
+    self.calendarManager.dateHelper.calendar.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     
     [self.calendarManager setContentView:self.calendarView];
     [self.calendarManager setDate:[NSDate date]];
@@ -144,6 +145,10 @@
         dayView.circleView.backgroundColor = [UIColor clearColor];
     }
     
+    if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]) {
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [BBConstantAndColor applicationOrangeColorWithAlpha:0.3f];
+    }
     
     if([self isInDatesSelected:dayView.date] && ![self.calendarManager.dateHelper date:self.calendarView.date isTheSameMonthThan:dayView.date]) {
         if (self.loadNextPage) {
@@ -152,14 +157,6 @@
             }
             self.loadNextPage = NO;
         }
-    }
-    
-    if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        CGFloat size = dayView.textLabel.font.pointSize;
-        dayView.textLabel.font = [UIFont boldSystemFontOfSize:size];
-    } else {
-        CGFloat size = dayView.textLabel.font.pointSize;
-        dayView.textLabel.font = [UIFont systemFontOfSize:size];
     }
 }
 
@@ -202,9 +199,7 @@
 
 - (void)nameMonthPreviousName:(NSString *)previousName currentName:(NSString *)currentName nextName:(NSString *)nextName {
     [self.delegate updateNameMonthPreviousName:previousName currentName:currentName nextName:nextName];
-    if (!self.nameMonth || [self.nameMonth isEqualToString:@""]) {
-        self.nameMonth = currentName;
-    }
+    self.nameMonth = currentName;
 }
 
 

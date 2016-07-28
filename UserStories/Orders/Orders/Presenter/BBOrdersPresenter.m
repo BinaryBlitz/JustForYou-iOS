@@ -105,7 +105,7 @@ static NSString *kRealyRemoveDelivery = @"Вы уверены что хотит�
     if (key == kContinueButton) {
         [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
     } else if (key == kPayOkButton) {
-        [self.view clearOrdersArray];
+        [self.view clearOrdersArrayWithOrder:self.order];
         [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
         [self.interactor deleteOrderWithOrder:self.order];
     } else {

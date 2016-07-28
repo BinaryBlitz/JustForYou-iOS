@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic) NSArray *deliveriesArray;
 @property (strong, nonatomic) NSArray *ordersArray;
+@property (strong, nonatomic) NSMutableArray *ordersId;
 
 @end
 
@@ -46,6 +47,10 @@ static CGFloat estimatedRowHeight = 100.0f;
     [self.output viewWillAppear];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 #pragma mark - Методы BBOrdersViewInput
 
 - (void)setupInitialState {
@@ -60,16 +65,31 @@ static CGFloat estimatedRowHeight = 100.0f;
 
 - (void)updateDeliveriesWithArray:(NSArray *)deliveries {
     self.deliveriesArray = deliveries;
+    NSMutableArray *array = [NSMutableArray array];
+    for (BBOrder *order in self.deliveriesArray) {
+        for (NSNumber *number in self.ordersId) {
+            NSInteger orderId = [number integerValue];
+            if (orderId == order.orderId) {
+                [array addObject:order];
+            }
+        }
+    }
+    self.ordersArray = array;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
-//        [self.tableView beginUpdates];
         [self.tableView setContentOffset:CGPointZero animated:YES];
-//        [self.tableView endUpdates];
     });
 }
 
-- (void)clearOrdersArray {
-    self.ordersArray = [NSArray array];
+- (void)clearOrdersArrayWithOrder:(BBOrder *)order {
+    NSMutableArray *array = [NSMutableArray arrayWithArray:self.ordersArray];
+    [array removeObject:order];
+    self.ordersArray = array;
+    self.ordersId = [NSMutableArray array];
+    for (BBOrder *order in self.ordersArray) {
+        NSNumber *number = [NSNumber numberWithInteger:order.orderId];
+        [self.ordersId addObject:number];
+    }
     HQDispatchToMainQueue(^{
         NSRange range = NSMakeRange(1, 1);
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];

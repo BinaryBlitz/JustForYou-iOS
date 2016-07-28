@@ -74,7 +74,7 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
 }
 
 - (void)errorOpenProgram {
-    [self.view presentAlertWithTitle:kErrorOpenProgram message:kNoteTitle];
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorOpenProgram];
 }
 
 - (void)basketButtonDidTap {
