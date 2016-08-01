@@ -104,6 +104,8 @@ static NSString *kRealyRemoveDelivery = @"Вы уверены что хотит�
 - (void)okCancelButtonDidTapWithKey:(BBKeyForOkButtonAlert)key {
     if (key == kContinueButton) {
         [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+    } else if (key == kPopController) {
+        [self.router presentFirstItemOnTabbar];
     } else if (key == kPayOkButton) {
         [self.view clearOrdersArrayWithOrder:self.order];
         [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
@@ -195,7 +197,12 @@ static NSString *kRealyRemoveDelivery = @"Вы уверены что хотит�
     if ([array count] > 0) {
         [self.myProgramModule pushModuleWithNavigationModule:self.navigModule parent:self purchasesArray:array];
     } else {
-        [self.view presentAlertWithTitle:nil message:kPurchasesEmpty];
+//        [self.view presentAlertWithTitle:nil message:kPurchasesEmpty];
+        [self.view presentAlertControllerWithTitle:nil
+                                           message:kPurchasesEmpty
+                                       titleAction:kNextButton
+                                       cancelTitle:nil
+                                               key:kPopController];
     }
 }
 

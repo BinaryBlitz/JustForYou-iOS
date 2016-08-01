@@ -127,6 +127,7 @@
         dayView.circleView.backgroundColor = [UIColor clearColor];
         //Today
         if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+            dayView.circleView.hidden = NO;
             dayView.circleView.backgroundColor = [BBConstantAndColor applicationOrangeColorWithAlpha:0.3f];
         }
     }

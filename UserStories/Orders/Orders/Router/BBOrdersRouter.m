@@ -19,4 +19,11 @@
     });
 }
 
+- (void)presentFirstItemOnTabbar {
+    HQDispatchToMainQueue(^{
+        UIViewController *view = (UIViewController *)self.presenter.view;
+        [view.tabBarController setSelectedIndex:0];
+    });
+}
+
 @end
