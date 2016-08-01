@@ -26,14 +26,14 @@ platform :ios do
     )
   end
 
-  lane :anton do
+  lane :JustForYou_beta do
     sigh(development: true, output_path: "/tmp")
     gym(scheme: 'JustForYou', use_legacy_build_api: true)
     crashlytics(
       api_token: ENV["CRASHLYTICS_API_TOKEN"],
       build_secret: ENV["CRASHLYTICS_BUILD_SECRET"],
       notes: "",
-      emails: [‘anton@binaryblitz.ru’]
+      groups: ['justforyou', 'justforyoutesters']
     )
   end
 
