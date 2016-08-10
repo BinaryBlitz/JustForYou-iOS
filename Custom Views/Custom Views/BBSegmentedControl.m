@@ -11,14 +11,16 @@
 
 @interface BBSegmentedControl()
 
+@property (strong, nonatomic) UIFont *fontForTitle;
+
 @property (nonatomic) CGFloat centerPointForFirstSegment;
 @property (nonatomic) CGFloat centerPointForSecondSegment;
 @property (nonatomic) CGFloat centerPointForThirdSegment;
 
 @end
 
-static CGFloat wightUnderLine = 41.f;
 static CGFloat heightUnderLine = 2.f;
+static CGFloat fontSize = 12.0f;
 
 @implementation BBSegmentedControl
 
@@ -33,15 +35,15 @@ static CGFloat heightUnderLine = 2.f;
 }
 
 - (void)_setTestAtributed {
-    UIFont *systemFont = [UIFont boldSystemFontOfSize:12.0f];
+    self.fontForTitle = [UIFont boldSystemFontOfSize:fontSize];
     
     [self setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                   [BBConstantAndColor applicationDarkColor], NSForegroundColorAttributeName,
-                                  systemFont, NSFontAttributeName, nil] forState:UIControlStateNormal];
+                                  self.fontForTitle, NSFontAttributeName, nil] forState:UIControlStateNormal];
     
     [self setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                   [BBConstantAndColor applicationOrangeColor], NSForegroundColorAttributeName,
-                                  systemFont, NSFontAttributeName, nil] forState:UIControlStateSelected];
+                                  self.fontForTitle, NSFontAttributeName, nil] forState:UIControlStateSelected];
 }
 
 - (void)layoutSubviews {
@@ -57,15 +59,20 @@ static CGFloat heightUnderLine = 2.f;
     CGContextSetLineWidth(context, heightUnderLine);
     CGContextSetStrokeColorWithColor(context, [BBConstantAndColor applicationOrangeColor].CGColor);
     
+    NSString *title = [self titleForSegmentAtIndex:self.selectedSegmentIndex];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:self.fontForTitle, NSFontAttributeName, nil];
+    CGFloat widhtTitle = [[[NSAttributedString alloc] initWithString:title attributes:attributes] size].width;
+    
     if (self.selectedSegmentIndex == BBForWhomSegmentedIndex) {
-        CGContextMoveToPoint(context, self.centerPointForFirstSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-        CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextMoveToPoint(context, self.centerPointForFirstSegment - (widhtTitle/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextAddLineToPoint(context, self.centerPointForFirstSegment + (widhtTitle/2), CGRectGetHeight(self.frame) - heightUnderLine);
     } else if (self.selectedSegmentIndex == BBDescriptionSegmentedIndex) {
-        CGContextMoveToPoint(context, self.centerPointForSecondSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-        CGContextAddLineToPoint(context, self.centerPointForSecondSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextMoveToPoint(context, self.centerPointForSecondSegment - (widhtTitle/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextAddLineToPoint(context, self.centerPointForSecondSegment + (widhtTitle/2), CGRectGetHeight(self.frame) - heightUnderLine);
     } else {
-        CGContextMoveToPoint(context, self.centerPointForThirdSegment - (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
-        CGContextAddLineToPoint(context, self.centerPointForThirdSegment + (wightUnderLine/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextMoveToPoint(context, self.centerPointForThirdSegment - (widhtTitle/2), CGRectGetHeight(self.frame) - heightUnderLine);
+        CGContextAddLineToPoint(context, self.centerPointForThirdSegment + (widhtTitle/2), CGRectGetHeight(self.frame) - heightUnderLine);
     }
     CGContextStrokePath(context);
 }

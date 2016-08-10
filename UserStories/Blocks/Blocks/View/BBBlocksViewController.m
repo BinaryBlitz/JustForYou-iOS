@@ -21,6 +21,7 @@
 @end
 
 static CGFloat correlationCoefficientForCell = 1.12f;
+static CGFloat sideOffset = 35.0f;
 
 @implementation BBBlocksViewController
 
@@ -47,7 +48,7 @@ static CGFloat correlationCoefficientForCell = 1.12f;
 
 - (void)setupInitialState {
     self.navigationItem.title = kNameTitleProgramModule;
-    [self.tableView setContentInset:UIEdgeInsetsMake(bottomOffsetForBlockTableView, 0, 0, 0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(sideOffset, 0, 0, 0)];
     [self _initRightBarButton];
     [self _registrateIdentifireCell];
 }

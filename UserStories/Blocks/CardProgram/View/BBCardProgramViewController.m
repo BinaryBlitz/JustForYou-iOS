@@ -99,6 +99,11 @@
 
 - (void)updateViewWithProgram:(NSInteger)programId {
     self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
+    if (![self.myProgram isInvalidated]) {
+        self.navigationItem.title = self.myProgram.block.name;
+    } else {
+        self.navigationItem.title = kNameTitleNoneModule;
+    }
     self.daysInProgram = [self.myProgram.days sortedResultsUsingProperty:@"position" ascending:YES];
 //    self.daysInProgram = self.myProgram.days;
     self.positionDay = 0;

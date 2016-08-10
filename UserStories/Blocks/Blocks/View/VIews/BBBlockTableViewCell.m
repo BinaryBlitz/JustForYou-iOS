@@ -8,7 +8,7 @@
 
 #import "BBBlockTableViewCell.h"
 
-static CGFloat sideOffset = 27.0f;
+static CGFloat sideOffset = 35.0f;
 
 @implementation BBBlockTableViewCell
 
@@ -32,7 +32,7 @@ static CGFloat sideOffset = 27.0f;
     CGRect contentViewFrame = self.contentView.frame;
     contentViewFrame.origin.x = sideOffset;
     contentViewFrame.size.width = CGRectGetWidth(contentViewFrame) - sideOffset*2;
-    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - sideOffsetCell;
+    contentViewFrame.size.height = CGRectGetHeight(contentViewFrame) - sideOffset;
     self.contentView.frame = contentViewFrame;
 }
 

@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet BBTextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *myLocationImageView;
-@property (weak, nonatomic) IBOutlet BBUnderlineButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (strong, nonatomic) BBAddress *currentAddres;
 
@@ -50,6 +50,7 @@
 - (void)viewWillLayoutSubviews {
     [self _layoutAddressTextField];
     [self _layoutMyLocationImageView];
+    [self _layoutAddButton];
 }
 
 #pragma mark - Actions Methods
@@ -165,6 +166,11 @@
 - (void)_layoutMyLocationImageView {
     self.myLocationImageView.image = [self.myLocationImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.myLocationImageView.tintColor = [BBConstantAndColor applicationOrangeColor];
+}
+
+- (void)_layoutAddButton {
+    self.addButton.layer.masksToBounds = YES;
+    [self.addButton.layer setCornerRadius:CGRectGetHeight(self.addButton.frame)/2];
 }
 
 #pragma mark - Lazy Load

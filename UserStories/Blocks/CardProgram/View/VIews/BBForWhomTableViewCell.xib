@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,13 +15,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqq-Rj-Bk7">
-                        <rect key="frame" x="20" y="25" width="280" height="25.5"/>
+                        <rect key="frame" x="20" y="16" width="280" height="25.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-AE-z1G">
-                        <rect key="frame" x="20" y="51.5" width="0.0" height="14.5"/>
+                        <rect key="frame" x="20" y="44.5" width="0.0" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="kGH-9f-k0M"/>
                         </constraints>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpF-h0-NQ7">
-                        <rect key="frame" x="20" y="68.5" width="0.0" height="14.5"/>
+                        <rect key="frame" x="20" y="61.5" width="0.0" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="lxk-tW-Gtu"/>
                         </constraints>
@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Для тех кто хочет похудеть" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-o5-Dy8">
-                        <rect key="frame" x="20" y="91" width="280" height="22.5"/>
+                        <rect key="frame" x="20" y="79" width="280" height="34.5"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,13 +49,13 @@
                 <constraints>
                     <constraint firstItem="GpF-h0-NQ7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2vg-RI-qBJ"/>
                     <constraint firstAttribute="trailing" secondItem="e5F-o5-Dy8" secondAttribute="trailing" constant="20" id="6jx-aE-4zb"/>
-                    <constraint firstItem="mcS-AE-z1G" firstAttribute="top" secondItem="nqq-Rj-Bk7" secondAttribute="bottom" constant="1" id="A6h-qF-eQi"/>
+                    <constraint firstItem="mcS-AE-z1G" firstAttribute="top" secondItem="nqq-Rj-Bk7" secondAttribute="bottom" constant="3" id="A6h-qF-eQi"/>
                     <constraint firstItem="nqq-Rj-Bk7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IXL-lK-F9p"/>
-                    <constraint firstItem="nqq-Rj-Bk7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="KiY-y6-4St"/>
-                    <constraint firstItem="GpF-h0-NQ7" firstAttribute="top" secondItem="mcS-AE-z1G" secondAttribute="bottom" constant="2" id="Ljz-n8-e3v"/>
+                    <constraint firstItem="nqq-Rj-Bk7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="KiY-y6-4St"/>
+                    <constraint firstItem="GpF-h0-NQ7" firstAttribute="top" secondItem="mcS-AE-z1G" secondAttribute="bottom" constant="3" id="Ljz-n8-e3v"/>
                     <constraint firstItem="mcS-AE-z1G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="UJF-mV-js1"/>
                     <constraint firstAttribute="trailing" secondItem="nqq-Rj-Bk7" secondAttribute="trailing" constant="20" id="Ygj-u8-ksy"/>
-                    <constraint firstItem="e5F-o5-Dy8" firstAttribute="top" secondItem="GpF-h0-NQ7" secondAttribute="bottom" constant="8" id="ffv-jF-TMu"/>
+                    <constraint firstItem="e5F-o5-Dy8" firstAttribute="top" secondItem="GpF-h0-NQ7" secondAttribute="bottom" constant="3" id="ffv-jF-TMu"/>
                     <constraint firstItem="e5F-o5-Dy8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="j3E-24-86i"/>
                     <constraint firstAttribute="bottom" secondItem="e5F-o5-Dy8" secondAttribute="bottom" constant="8" id="jBo-qt-ov0"/>
                 </constraints>

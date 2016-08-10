@@ -139,6 +139,8 @@
     [self getIdInPrograms];
     HQDispatchToMainQueue(^{
         if ([self.programsArray count] > 0) {
+            BBProgram *program = [self.programsArray firstObject];
+            self.navigationItem.title = program.block.name;
             if (self.countPage < 2) {
                 self.pageControl.hidden = YES;
             } else {
@@ -146,6 +148,8 @@
                 self.pageControl.numberOfPages = self.countPage;
             }
             [self _reloadViewsInScrollView];
+        } else {
+            self.navigationItem.title = kNameTitleNoneModule;
         }
     });
 }

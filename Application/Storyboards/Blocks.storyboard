@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
@@ -143,9 +143,9 @@
                                         <rect key="frame" x="0.0" y="29" width="600" height="74"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76V-mc-JGH">
-                                                <rect key="frame" x="45" y="10" width="510" height="35"/>
+                                                <rect key="frame" x="45" y="19" width="510" height="36"/>
                                                 <color key="backgroundColor" red="0.56470588239999997" green="0.59999999999999998" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <state key="normal" title="ДОБАВИТЬ В КОРЗИНУ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -156,10 +156,10 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="76V-mc-JGH" firstAttribute="top" secondItem="f4h-TI-kFs" secondAttribute="top" constant="10" id="3Nd-VV-nb0"/>
+                                            <constraint firstItem="76V-mc-JGH" firstAttribute="top" secondItem="f4h-TI-kFs" secondAttribute="top" constant="19" id="3Nd-VV-nb0"/>
                                             <constraint firstAttribute="trailing" secondItem="76V-mc-JGH" secondAttribute="trailing" constant="45" id="Nrx-VE-Aeb"/>
                                             <constraint firstItem="76V-mc-JGH" firstAttribute="leading" secondItem="f4h-TI-kFs" secondAttribute="leading" constant="45" id="bdt-je-eRl"/>
-                                            <constraint firstAttribute="bottom" secondItem="76V-mc-JGH" secondAttribute="bottom" constant="29" id="cfI-CZ-Efe"/>
+                                            <constraint firstAttribute="bottom" secondItem="76V-mc-JGH" secondAttribute="bottom" constant="19" id="cfI-CZ-Efe"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="we6-7i-lgk" customClass="BBGradientView">
