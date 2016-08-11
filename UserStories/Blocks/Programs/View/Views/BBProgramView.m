@@ -28,6 +28,12 @@
     self.contentView.frame = self.bounds;
 }
 
+- (IBAction)moreButtonAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(moreButtonDidTap)]) {
+        [self.delegate moreButtonDidTap];
+    }
+}
+
 - (void)setProgramInUI:(BBProgram *)program {
     self.program = program;
     self.shortDescription.text = self.program.shortDescript;
@@ -45,7 +51,6 @@
 
 - (void)_setValuesForView:(BBProgramView *)view dayString:(NSString *)day {
     view.nameProgram.text = self.program.name;
-    view.descriptionProgram.text = self.program.descript;
     view.costProgram.text = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)self.program.primaryPrice];
     view.bigCostProgram.text = day;
 }

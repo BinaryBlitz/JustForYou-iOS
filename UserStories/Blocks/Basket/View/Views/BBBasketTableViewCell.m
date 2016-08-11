@@ -50,12 +50,13 @@ static NSString *kNameCrossImage = @"crossIcon";
 - (NSInteger)totalForCountDays {
     NSString *totalString;
     NSInteger total = 0;
+    NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
     if (self.orderProgram.countDays >= self.program.threshold) {
         total = self.program.secondaryPrice*self.orderProgram.countDays;
-        totalString = [NSString stringWithFormat:@"%ld*%ld = %ld", (long)self.program.secondaryPrice, (long)self.orderProgram.countDays, (long)total];
+        totalString = [NSString stringWithFormat:@"%ld*%ld %@ = %ld", (long)self.program.secondaryPrice, (long)self.orderProgram.countDays, days, (long)total];
     } else {
         total = self.program.primaryPrice*self.orderProgram.countDays;
-        totalString = [NSString stringWithFormat:@"%ld*%ld = %ld", (long)self.program.primaryPrice, (long)self.orderProgram.countDays, (long)total];
+        totalString = [NSString stringWithFormat:@"%ld*%ld %@ = %ld", (long)self.program.primaryPrice, (long)self.orderProgram.countDays, days, (long)total];
     }
     self.costLabel.text = totalString;
     oldTotal = total;

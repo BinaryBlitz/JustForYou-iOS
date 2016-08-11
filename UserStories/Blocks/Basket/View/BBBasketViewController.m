@@ -20,9 +20,10 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property (weak, nonatomic) IBOutlet UILabel *totalLebel;
+@property (weak, nonatomic) IBOutlet UILabel *totalWithBonusesLabel;
 
 @property (strong, nonatomic) BBSwitchTableViewCell *switchCell;
-@property (strong, nonatomic) BBTotalTableViewCell *totalCell;
 
 @property (strong, nonatomic) NSArray *programOrders;
 @property (strong, nonatomic) NSIndexPath *removeIndexPath;
@@ -134,18 +135,14 @@ static CGFloat minHeightFooter = 1.0f;
     self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameSwitchCell bundle:nil] forCellReuseIdentifier:kSwitchCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameBasketCell bundle:nil] forCellReuseIdentifier:kBasketCellIdentifire];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibNameTotalCell bundle:nil] forCellReuseIdentifier:kTotalCellIdentifire];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
-    }
-    if (section == 1) {
         return 1;
     }
     return [self.programOrders count];
@@ -167,10 +164,6 @@ static CGFloat minHeightFooter = 1.0f;
         self.switchCell.bonusSwitch.on = NO;
         switchCell.delegate = self;
         cell = switchCell;
-    } else if (indexPath.section == 1) {
-        BBTotalTableViewCell *totalCell = [self.tableView dequeueReusableCellWithIdentifier:kTotalCellIdentifire];
-        self.totalCell = totalCell;
-        cell = totalCell;
     } else {
         BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];
         BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
@@ -197,22 +190,20 @@ static CGFloat minHeightFooter = 1.0f;
 }
 
 - (void)updateTotalTableViewCell {
-    if (self.totalCell) {
-        NSInteger totalBonuses = 0;
-        if ([self.switchCell.bonusSwitch isOn]) {
-            if ([self.programOrders count] > 0) {
-                totalBonuses = [[BBUserService sharedService] userBonuses];
-            }
+    NSInteger totalBonuses = 0;
+    if ([self.switchCell.bonusSwitch isOn]) {
+        if ([self.programOrders count] > 0) {
+            totalBonuses = [[BBUserService sharedService] userBonuses];
         }
-        NSInteger result = self.totalPrice - totalBonuses;
-        if (result < 0) {
-            result = 0;
-        }
-        HQDispatchToMainQueue(^{
-            self.totalCell.totalLabel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
-            self.totalCell.totalBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
-        });
     }
+    NSInteger result = self.totalPrice - totalBonuses;
+    if (result < 0) {
+        result = 0;
+    }
+    HQDispatchToMainQueue(^{
+        self.totalLebel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
+        self.totalWithBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
+    });
 }
 
 

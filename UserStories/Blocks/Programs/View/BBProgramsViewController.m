@@ -12,13 +12,12 @@
 
 #import "BBProgramView.h"
 
-@interface BBProgramsViewController() <UIScrollViewDelegate>
+@interface BBProgramsViewController() <UIScrollViewDelegate, BBProgramViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreButton;
 
 @property (strong, nonatomic) UIImageView *bigImageView;
 
@@ -72,7 +71,7 @@
     [self.output basketButtonDidTap];
 }
 
-- (IBAction)moreButtonAction:(id)sender {
+- (void)moreButtonDidTap {
     @try {
         [self.output programDidTapWithProgram:[[self.idArray objectAtIndex:self.pageControl.currentPage] integerValue]];
     } @catch (NSException *exception) {
@@ -117,6 +116,8 @@
 }
 
 - (void)didTapSmallImage {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(didTapBigImage)];
+    self.navigationItem.leftBarButtonItem.tintColor = [BBConstantAndColor applicationGrayColor];
     self.bigImageView.image = self.firstImageView.image;
     self.bigImageView.hidden = NO;
     [UIView animateWithDuration:animateTime animations:^{
@@ -125,6 +126,7 @@
 }
 
 - (void)didTapBigImage {
+    self.navigationItem.leftBarButtonItem = nil;
     [UIView animateWithDuration:animateTime animations:^{
         self.bigImageView.frame = CGRectMake(self.view.center.x, self.view.center.y, 0, 0);
     } completion:^(BOOL finished) {
@@ -173,6 +175,7 @@
         CGFloat x = self.wightProgramView*i + self.insetfForView*2 + self.insetfForView *i;
         
         BBProgramView *view = [[BBProgramView alloc] initWithFrame: CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame))];
+        view.delegate = self;
         BBProgram *program = [self.programsArray objectAtIndex:i];
         [view setProgramInUI:program];
         if (program.previewImage) {

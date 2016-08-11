@@ -329,6 +329,8 @@
 }
 
 - (void)imageViewDidTapWithImage:(UIImage *)image {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(didTapBigImage)];
+    self.navigationItem.leftBarButtonItem.tintColor = [BBConstantAndColor applicationGrayColor];
     self.bigImageView.image = image;
     self.bigImageView.hidden = NO;
     [UIView animateWithDuration:animateTime animations:^{
@@ -337,6 +339,7 @@
 }
 
 - (void)didTapBigImage {
+    self.navigationItem.leftBarButtonItem = nil;
     [UIView animateWithDuration:animateTime animations:^{
         self.bigImageView.frame = CGRectMake(self.view.center.x, self.view.center.y, 0, 0);
     } completion:^(BOOL finished) {
