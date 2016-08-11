@@ -39,7 +39,8 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 - (void)setOrderProgram:(BBOrderProgram *)orderProgram {
     _orderProgram = orderProgram;
-    self.countLabel.text = [NSString stringWithFormat:@"%ld", (long)orderProgram.countDays];
+    NSString *days = [BBConstantAndColor getNumberEndingWith:orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
+    self.countLabel.text = [NSString stringWithFormat:@"%ld %@", (long)orderProgram.countDays, days];
     if (self.orderProgram.countDays >= 2) {
         [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
     } else {
@@ -118,7 +119,8 @@ static NSString *kNameCrossImage = @"crossIcon";
     }
     [[BBUserService sharedService] updateOrderProgramWithOrderProgram:self.orderProgram];
     [self _recalculationTotal];
-    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.orderProgram.countDays];
+    NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
+    self.countLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)self.orderProgram.countDays, days];
 }
 
 - (IBAction)rightButtonAction:(id)sender {
@@ -128,7 +130,8 @@ static NSString *kNameCrossImage = @"crossIcon";
     self.orderProgram.countDays++;
     [[BBUserService sharedService] updateOrderProgramWithOrderProgram:self.orderProgram];
     [self _recalculationTotal];
-    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.orderProgram.countDays];
+    NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
+    self.countLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)self.orderProgram.countDays, days];
 }
 
 - (void)_recalculationTotal {
