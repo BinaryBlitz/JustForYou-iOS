@@ -82,6 +82,7 @@ static NSString *kUserReplacement = @"kUserReplacement";
 
 - (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays {
     BBUser *user = [self currentUser];
+
     NSMutableArray *array = [NSMutableArray arrayWithArray:user.ordersProgramArray];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"programId==%d", programId];

@@ -16,9 +16,9 @@ Runs all the tests
 fastlane ios beta
 ```
 
-### ios anton
+### ios JustForYou_beta
 ```
-fastlane ios anton
+fastlane ios JustForYou_beta
 ```
 
 ### ios screenshot
