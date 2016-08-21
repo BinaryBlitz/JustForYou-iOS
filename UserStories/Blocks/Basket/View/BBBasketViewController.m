@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalLebel;
 @property (weak, nonatomic) IBOutlet UILabel *totalWithBonusesLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *bonusesSwitch;
 
 @property (strong, nonatomic) BBSwitchTableViewCell *switchCell;
 
@@ -34,10 +35,10 @@
 @end
 
 static CGFloat estimatedHeightCell = 44.0f;
-static CGFloat topInsetForTableView = -35.0f;
+static CGFloat topInsetForTableView = -20.0f;
 
 static CGFloat heightFooter = 13.0f;
-static CGFloat minHeightFooter = 1.0f;
+
 
 @implementation BBBasketViewController
 
@@ -57,12 +58,13 @@ static CGFloat minHeightFooter = 1.0f;
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutPayButton];
+    [self _layoutBonusesSwitch];
 }
 
 #pragma mark - Actions Methods
 
 - (IBAction)payButtonAction:(id)sender {
-    [self.output payButtonDidTapWithBonusesEnable:[self.switchCell.bonusSwitch isOn] countPayments:[self.programOrders count]];
+    [self.output payButtonDidTapWithBonusesEnable:[self.bonusesSwitch isOn] countPayments:[self.programOrders count]];
 }
 
 - (IBAction)closeButtonAction:(id)sender {
@@ -88,11 +90,13 @@ static CGFloat minHeightFooter = 1.0f;
     self.navigationItem.title = kNameTitleBasketModule;
     self.programOrders = [NSArray array];
     [self _settingsTableViewAndRegisterNib];
+    [self.bonusesSwitch addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)updateTableViewWithOrders:(NSArray *)orders {
     self.programOrders = orders;
     self.totalPrice = 0;
+    self.bonusesSwitch.on = NO;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
     });
@@ -138,44 +142,27 @@ static CGFloat minHeightFooter = 1.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }
     return [self.programOrders count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 0) {
-        return minHeightFooter;
-    }
     return heightFooter;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    if (indexPath.section == 0) {
-        BBSwitchTableViewCell *switchCell = [self.tableView dequeueReusableCellWithIdentifier:kSwitchCellIdentifire];
-        switchCell.customTextLabel.text = @"Использовать бонусы";
-        self.switchCell = switchCell;
-        self.switchCell.bonusSwitch.on = NO;
-        switchCell.delegate = self;
-        cell = switchCell;
-    } else {
-        BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];
-        BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
-        BBProgram *program = [BBProgram objectsWhere:@"programId=%d", orderP.programId].firstObject;
-        basketCell.program = program;
-        basketCell.orderProgram = orderP;
-        basketCell.delegate = self;
-        self.totalPrice += [basketCell totalForCountDays];
-        cell = basketCell;
-    }
+    BBBasketTableViewCell *basketCell = [self.tableView dequeueReusableCellWithIdentifier:kBasketCellIdentifire];
+    BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
+    BBProgram *program = [BBProgram objectsWhere:@"programId=%d", orderP.programId].firstObject;
+    basketCell.program = program;
+    basketCell.orderProgram = orderP;
+    basketCell.delegate = self;
+    self.totalPrice += [basketCell totalForCountDays];
     [self updateTotalTableViewCell];
-    return cell;
+    return basketCell;
 }
 
 - (void)closeButtonDidTapWithBasketCell:(BBBasketTableViewCell *)cell {
@@ -191,7 +178,7 @@ static CGFloat minHeightFooter = 1.0f;
 
 - (void)updateTotalTableViewCell {
     NSInteger totalBonuses = 0;
-    if ([self.switchCell.bonusSwitch isOn]) {
+    if ([self.bonusesSwitch isOn]) {
         if ([self.programOrders count] > 0) {
             totalBonuses = [[BBUserService sharedService] userBonuses];
         }
@@ -200,24 +187,24 @@ static CGFloat minHeightFooter = 1.0f;
     if (result < 0) {
         result = 0;
     }
+    if (result == 0) {
+        result = 1;
+    }
     HQDispatchToMainQueue(^{
         self.totalLebel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
         self.totalWithBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
     });
 }
 
-
-- (void)changeStateWithState:(BOOL)state {
-    [self.output changeStateWithState:state];
-//    [self _updateTotalTableViewCell];
-}
-
 - (void)updateSwichInCellForState:(BOOL)state {
     HQDispatchToMainQueue(^{
-        self.switchCell.bonusSwitch.on = state;
+        self.bonusesSwitch.on = state;
     });
 }
 
+- (void)setState:(id)sender {
+    [self.output changeStateWithState:[sender isOn]];
+}
 
 #pragma mark - TableAlert Methods
 
@@ -245,6 +232,11 @@ static CGFloat minHeightFooter = 1.0f;
 - (void)_layoutPayButton {
     self.payButton.layer.masksToBounds = YES;
     self.payButton.layer.cornerRadius = CGRectGetHeight(self.payButton.frame)/2;
+}
+
+- (void)_layoutBonusesSwitch {
+    self.bonusesSwitch.layer.masksToBounds = YES;
+    self.bonusesSwitch.layer.cornerRadius = CGRectGetHeight(self.bonusesSwitch.frame)/2;
 }
 
 @end

@@ -222,7 +222,7 @@
         NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
         self.pageControl.currentPage = (page % self.countPage);
         if ([self.urlsArray count] > 0) {
-            [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:nil stringURL:self.urlsArray[self.pageControl.currentPage]];
+            [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[self.pageControl.currentPage]];
         }
         
     }

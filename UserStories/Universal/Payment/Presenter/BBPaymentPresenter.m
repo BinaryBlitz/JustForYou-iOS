@@ -20,6 +20,9 @@
 #import "BBOrdersModuleInput.h"
 #import "BBOrdersPresenter.h"
 
+#import "BBReplaceProgramModuleInput.h"
+#import "BBReplaceProgramPresenter.h"
+
 @interface BBPaymentPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
@@ -55,19 +58,31 @@
 }
 
 - (void)webViewDidChangeURLWithURL:(NSURL *)url {
-    NSLog(@"%@", url);
     NSString *urlString = url.absoluteString;
+    NSLog(@"%@", urlString);
     NSRange range = [urlString rangeOfString:@"success" options:NSLiteralSearch];
     NSLog(@"%@", NSStringFromRange(range));
     if (range.length > 3) {
-        if ([self.parentModule isKindOfClass:[BBBasketPresenter class]]) {
-            id<BBBasketModuleInput> basket = self.parentModule;
-            [basket paySucces];
-        } else if ([self.parentModule isKindOfClass:[BBBasketPresenter class]]) {
-            id<BBOrdersModuleInput> orders = self.parentModule;
-            [orders paySucces];
-        }
+        [self popController];
     }
+    range = [urlString rangeOfString:@"draft/ok" options:NSLiteralSearch];
+    if (range.length > 3) {
+        [self popController];
+    }
+}
+
+- (void)popController {
+    if ([self.parentModule isKindOfClass:[BBBasketPresenter class]]) {
+        id<BBBasketModuleInput> basket = self.parentModule;
+        [basket paySucces];
+    } else if ([self.parentModule isKindOfClass:[BBOrdersPresenter class]]) {
+        id<BBOrdersModuleInput> orders = self.parentModule;
+        [orders paySucces];
+    } else if ([self.parentModule isKindOfClass:[BBReplaceProgramPresenter class]]) {
+        id<BBReplaceProgramModuleInput> replacement = self.parentModule;
+        [replacement paySucces];
+    }
+
 }
 
 #pragma mark - Методы BBPaymentInteractorOutput

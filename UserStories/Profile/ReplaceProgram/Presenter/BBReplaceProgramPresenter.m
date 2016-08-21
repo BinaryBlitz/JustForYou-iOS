@@ -51,6 +51,11 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
+- (void)paySucces {
+    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+    [self.view presentAlertWithTitle:nil message:paymentSuccessfull];
+}
+
 #pragma mark - Методы BBReplaceProgramViewOutput
 
 - (void)didTriggerViewReadyEvent {

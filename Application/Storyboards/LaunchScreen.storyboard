@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jfu_circle" translatesAutoresizingMaskIntoConstraints="NO" id="LmH-hQ-EXU">
-                                <rect key="frame" x="237.5" y="60" width="125" height="125"/>
+                                <rect key="frame" x="235" y="78" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="Spl-9n-Jz0"/>
                                     <constraint firstAttribute="width" constant="125" id="hGf-mq-pfW"/>
@@ -28,8 +28,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="LmH-hQ-EXU" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="40" id="MHT-1D-osp"/>
-                            <constraint firstItem="LmH-hQ-EXU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="awe-I7-xdc"/>
+                            <constraint firstItem="LmH-hQ-EXU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-2.5" id="awe-I7-xdc"/>
+                            <constraint firstItem="LmH-hQ-EXU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="78" id="lTc-jl-7nv"/>
                         </constraints>
                     </view>
                 </viewController>

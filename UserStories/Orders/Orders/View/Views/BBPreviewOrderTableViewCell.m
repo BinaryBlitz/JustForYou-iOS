@@ -8,6 +8,8 @@
 
 #import "BBPreviewOrderTableViewCell.h"
 
+#import "BBCalendarService.h"
+
 @interface BBPreviewOrderTableViewCell()
 
 @end
@@ -33,6 +35,11 @@
         self.descriptLabel.text = order.nameBlock;
         self.indicatorView.backgroundColor = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
         self.adresLabel.text = order.address;
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:order.scheduledDay];
+        NSInteger startHour = [components hour];
+        NSInteger endHour = startHour + 1;
+        self.timeLabel.text = [NSString stringWithFormat:@"%ld:00 - %ld:00", (long)startHour, (long)endHour];
     }
 }
 - (IBAction)deleteButtonAction:(id)sender {

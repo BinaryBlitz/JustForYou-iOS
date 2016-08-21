@@ -202,7 +202,7 @@ static CGFloat heightFooterSection = 10.0f;
         BBMyOldProgramTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyOldProgramCellIdentifire];
         return cell;
     } else if (self.keyModule == kMyAddressModule || self.keyModule == kMyAddressForOrderModule) {
-        NSString *addressString = @"У вас пока нет ни одного адреса";
+        NSString *addressString = @"У Вас пока нет ни одного адреса";
         if ([self.objects count] != 0) {
             BBAddress *address = [self.objects objectAtIndex:indexPath.section];
             addressString = address.address;
@@ -222,7 +222,7 @@ static CGFloat heightFooterSection = 10.0f;
         return cell;
     }  else if (self.keyModule == kMyPayCardModule) {
         if ([self.objects count] == 0) {
-            accessoryCell.textLabel.text = @"У вас нет привязанных карт";
+            accessoryCell.textLabel.text = @"У Вас нет привязанных карт";
             return accessoryCell;
         }
         BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];

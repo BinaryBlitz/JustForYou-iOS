@@ -14,7 +14,7 @@ pod 'Crashlytics'
 
 # UI
 pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
-pod 'Haneke'
+#pod 'Haneke'
 pod 'SDWebImage'
 
 # Maps

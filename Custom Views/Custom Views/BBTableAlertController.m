@@ -80,7 +80,7 @@ static CGFloat heightContentCell = 50.0f;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     if ([self.contentArray count] == 0) {
-        cell.textLabel.text = @"У вас нет привязанных карт";
+        cell.textLabel.text = @"У Вас нет привязанных карт";
         cell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
         cell.selected = NO;
     } else {

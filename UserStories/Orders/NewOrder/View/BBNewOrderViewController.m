@@ -10,7 +10,7 @@
 
 #import "BBNewOrderViewOutput.h"
 
-@interface BBNewOrderViewController() <UITableViewDataSource, UITableViewDelegate, BBCommentTableViewCellDelegate>
+@interface BBNewOrderViewController() <UITableViewDataSource, UITableViewDelegate, BBCommentTableViewCellDelegate, BBTimeCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *toOrderButton;
@@ -131,6 +131,7 @@ static CGFloat topInsetForTableView = - 35.0f;
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyProgramCell bundle:nil] forCellReuseIdentifier:kMyProgramCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameAccessoryCell bundle:nil] forCellReuseIdentifier:kAccessoryCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameCommentCell bundle:nil] forCellReuseIdentifier:kCommentCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameTimeCell bundle:nil] forCellReuseIdentifier:kTimeCellIdentifire];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -139,7 +140,7 @@ static CGFloat topInsetForTableView = - 35.0f;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 1) {
-        return 2;
+        return 3;
     }
     return 1;
 }
@@ -168,24 +169,30 @@ static CGFloat topInsetForTableView = - 35.0f;
         myProgramCell.purchases = self.purchase;
         cell = myProgramCell;
     } else if (indexPath.section == 1) {
-        BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
         if (indexPath.row == 0) {
+            BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
             accessoryCell.textLabel.text = @"Количество дней";
             accessoryCell.countLabel.hidden = NO;
             accessoryCell.countLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectionDaysCount];
             accessoryCell.setRadius = YES;
             accessoryCell.kSideCornerRadius = kTopCornerRadius;
-        } else {
+            cell = accessoryCell;
+        } else if (indexPath.row == 1) {
+            BBAccessoryTableViewCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:kAccessoryCellIdentifire];
             if (![self.address isEqualToString:@""] && ![self.address isEqualToString:@" "]) {
                 accessoryCell.textLabel.text = self.address;
             } else {
                 accessoryCell.textLabel.text = @"Адрес";
             }
-            accessoryCell.setRadius = YES;
-            accessoryCell.kSideCornerRadius = kBottomCornerRadius;
+//            accessoryCell.setRadius = YES;
+//            accessoryCell.kSideCornerRadius = kNoneCornerRadius;
             self.adressCell = accessoryCell;
+            cell = accessoryCell;
+        } else {
+            BBTimeTableViewCell *timeCell = [self.tableView dequeueReusableCellWithIdentifier:kTimeCellIdentifire];
+            timeCell.delegate = self;
+            cell = timeCell;
         }
-        cell = accessoryCell;
     } else {
         BBCommentTableViewCell *commentCell  = [[NSBundle mainBundle] loadNibNamed:kNibNameCommentCell owner:self options:nil].lastObject;
         commentCell.delegate = self;
@@ -229,6 +236,11 @@ static CGFloat topInsetForTableView = - 35.0f;
 -(void) keyboardWillHide:(NSNotification *)notification {
     self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
     [self.tableView setContentOffset:CGPointMake(0, -topInsetForTableView) animated:YES];
+}
+
+
+- (void)presentAlertForMessage:(NSString *)message {
+    
 }
 
 #pragma mark - Layout Methods

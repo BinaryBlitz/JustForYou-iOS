@@ -33,7 +33,7 @@
 
 @end
 
-static NSString *kErrorAddAddress = @"Вы пытаетесь добавить адрес который уже есть в вашем списке адресов";
+static NSString *kErrorAddAddress = @"Вы пытаетесь добавить адрес который уже есть в Вашем списке адресов";
 
 @implementation BBUniversalPresenter
 

@@ -187,6 +187,8 @@
 		3A36B6F71D04B1EE00A32B51 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6F61D04B1EE00A32B51 /* BBRootViewController.m */; };
 		3A65F5411D42206A00F00707 /* BBClearOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */; };
 		3A65F5421D42206A00F00707 /* BBClearOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */; };
+		3A71DCEA1D69F30800EB19BF /* BBTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCE81D69F30800EB19BF /* BBTimeTableViewCell.m */; };
+		3A71DCEB1D69F30800EB19BF /* BBTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A71DCE91D69F30800EB19BF /* BBTimeTableViewCell.xib */; };
 		3A7438B01D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438AE1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m */; };
 		3A7438B11D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7438AF1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib */; };
 		3A7438B41D1DFDB100FD6351 /* BBProgramHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */; };
@@ -698,6 +700,9 @@
 		3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClearOrderTableViewCell.m; sourceTree = "<group>"; };
 		3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBClearOrderTableViewCell.xib; sourceTree = "<group>"; };
 		3A71C0DCF1C9170ABADC7D35 /* BBMyHistoryInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBMyHistoryInteractor.m; sourceTree = "<group>"; };
+		3A71DCE71D69F30800EB19BF /* BBTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTimeTableViewCell.h; sourceTree = "<group>"; };
+		3A71DCE81D69F30800EB19BF /* BBTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTimeTableViewCell.m; sourceTree = "<group>"; };
+		3A71DCE91D69F30800EB19BF /* BBTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBTimeTableViewCell.xib; sourceTree = "<group>"; };
 		3A7438AD1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyOldProgramTableViewCell.h; sourceTree = "<group>"; };
 		3A7438AE1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyOldProgramTableViewCell.m; sourceTree = "<group>"; };
 		3A7438AF1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMyOldProgramTableViewCell.xib; sourceTree = "<group>"; };
@@ -1980,6 +1985,7 @@
 		3A2D55B51CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A71DCE61D69F2EE00EB19BF /* Views */,
 				3A2D55B81CF075D200A8EFF5 /* BBNewOrderViewInput.h */,
 				3A2D55B91CF075D200A8EFF5 /* BBNewOrderViewOutput.h */,
 				3A2D55B61CF075D200A8EFF5 /* BBNewOrderViewController.h */,
@@ -2530,6 +2536,16 @@
 				3A2D57041CF331C300A8EFF5 /* BBTextTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		3A71DCE61D69F2EE00EB19BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DCE71D69F30800EB19BF /* BBTimeTableViewCell.h */,
+				3A71DCE81D69F30800EB19BF /* BBTimeTableViewCell.m */,
+				3A71DCE91D69F30800EB19BF /* BBTimeTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3A7438AC1D1D1F9200FD6351 /* Views */ = {
@@ -3102,6 +3118,7 @@
 				3A2D570E1CF331C300A8EFF5 /* BBMyProgramTableViewCell.xib in Resources */,
 				3A2D568C1CF075D200A8EFF5 /* BBNumderDayTableViewCell.xib in Resources */,
 				3A2D56641CF075D200A8EFF5 /* BBInfoRegistTableViewCell.xib in Resources */,
+				3A71DCEB1D69F30800EB19BF /* BBTimeTableViewCell.xib in Resources */,
 				3A2D56C31CF075D200A8EFF5 /* BBProfileTableViewCell.xib in Resources */,
 				3AE546081D1695D2006A1CDD /* BBAboutTableViewCell.xib in Resources */,
 				3A2D56BC1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.xib in Resources */,
@@ -3375,6 +3392,7 @@
 				A4FADD3BA19F4599D053248A /* BBMyHistoryRouter.m in Sources */,
 				25467DB883D20A85A1CAEB93 /* BBReplaceProgramAssembly.m in Sources */,
 				9728B3883C200BC2D89B88EE /* BBReplaceProgramViewController.m in Sources */,
+				3A71DCEA1D69F30800EB19BF /* BBTimeTableViewCell.m in Sources */,
 				D167AE7A151A83D7E17540DD /* BBReplaceProgramPresenter.m in Sources */,
 				65B7D6FEC1C7856F3088E775 /* BBReplaceProgramInteractor.m in Sources */,
 				DEC5240A124819687336258B /* BBReplaceProgramRouter.m in Sources */,

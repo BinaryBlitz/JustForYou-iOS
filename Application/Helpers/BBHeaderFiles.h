@@ -62,5 +62,6 @@
 // T
 #import "BBTextTableViewCell.h"
 #import "BBTotalTableViewCell.h"
+#import "BBTimeTableViewCell.h"
 
 #endif /* BBHeaderFiles_h */

@@ -41,18 +41,14 @@
 - (void)pushModuleWithNavigationModule:(id)navigationModule parent:(id)parent purchasesArray:(NSArray *)purchases {
     self.navigationModule = navigationModule;
     self.purchasesArray = purchases;
+    self.parentModule = parent;
     [self.view purchasesWithArray:purchases];
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 - (void)popViewControllerWithStatus:(BBStatusCreateDelivery)status {
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
-    if (status == kStatusError || status == kStatusNone) {
-        [self.parentModule popViewControllerWithStatus:status];
-    } else {
-        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-        [self.interactor listPurchasesUser];
-    }
+    [self.parentModule popViewControllerWithStatus:status];
 }
 
 #pragma mark - Методы BBMyProgramsViewOutput

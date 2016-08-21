@@ -15,5 +15,6 @@
 - (void)configureModule;
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule purchase:(BBPurchases *)purchase;
+- (void)paySucces;
 
 @end
