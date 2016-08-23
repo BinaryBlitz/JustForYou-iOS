@@ -186,12 +186,6 @@
         [standartRealm addOrUpdateObjectsFromArray:objects];
         callback();
     }];
-//    [standartRealm beginWriteTransaction];
-//    
-//    [standartRealm commitWriteTransaction];
-//    [standartRealm beginWriteTransaction];
-//    
-//    [standartRealm commitWriteTransaction];
 }
 
 - (void)deleteOrderForOrderId:(NSInteger)orderId callback:(CallBack)callback {
@@ -202,8 +196,6 @@
         [standartRealm deleteObject:order];
         callback();
     }];
-//    [standartRealm beginWriteTransaction];
-//    [standartRealm commitWriteTransaction];
 }
 
 - (NSArray *)ordersInRealm {

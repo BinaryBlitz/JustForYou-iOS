@@ -139,12 +139,9 @@
     
     // Selected date
     if([self isInDatesSelected:dayView.date]){
-//        dayView.circleView.hidden = NO;
-//        dayView.circleView.backgroundColor = self.purchaseColor;
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = self.purchaseColor;
     } else {
-//        dayView.circleView.backgroundColor = [UIColor clearColor];
         dayView.circleView.hidden = YES;
         dayView.circleView.backgroundColor = [UIColor clearColor];
         //Today

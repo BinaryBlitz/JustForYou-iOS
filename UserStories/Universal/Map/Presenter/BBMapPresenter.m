@@ -50,7 +50,6 @@
         [self.view presentAlertWithTitle:kNoteTitle message:@"Введите улицу"];
     } else {
         [self.parentModule popMapModuleWithAddress:[self.interactor currentInteractorAddress] addressText:addressText];
-//        [self.interactor addAddressToUserAddressArrayWithAddressText:addressText];
     }
 }
 
@@ -88,10 +87,6 @@
 - (void)searchAddressInArray:(NSArray *)arrayAddress {
     [self.view updateResultSearchControllerWithArray:arrayAddress];
 }
-
-//- (void)addressDidSaveWithStatus:(BOOL)status {
-//    [self.parentModule popMapModuleWithStatus:status];
-//}
 
 - (void)errorNetwork {
     [self.view hideBackgroundLoaderViewWithAlpha];

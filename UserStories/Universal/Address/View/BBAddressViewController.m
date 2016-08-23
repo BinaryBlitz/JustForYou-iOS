@@ -190,15 +190,6 @@ static CGFloat heightHeaderSection = 10.0f;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-//    if ([textField isEqual:self.houseCell.textField]) {
-//        self.currentAddress.house = [textField.text integerValue];
-//    } else if ([textField isEqual:self.entranceCell.textField]) {
-//        self.currentAddress.entrance = [textField.text integerValue];
-//    } else if ([textField isEqual:self.floorCell.textField]) {
-//        self.currentAddress.floor = [textField.text integerValue];
-//    } else if ([textField isEqual:self.apartmentCell.textField]) {
-//        self.currentAddress.apartment = [textField.text integerValue];
-//    }
     return YES;
 }
 
