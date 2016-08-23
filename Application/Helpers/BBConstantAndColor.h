@@ -192,6 +192,7 @@ static NSString *kNameTitleSupportModule = @"Поддержка";
 
 static NSString *kNameTitleProfileModule = @"Профиль";
 static NSString *kNameTitleAddressModule = @"Адреса";
+static NSString *kNameTitlNeweAddressModule = @"Новый адрес";
 static NSString *kNameTitleHystoryPaymentsModule = @"История платежей";
 static NSString *kNameTitleReplacementModule = @"Замены";
 static NSString *kNameTitleSharesModule = @"Акции";

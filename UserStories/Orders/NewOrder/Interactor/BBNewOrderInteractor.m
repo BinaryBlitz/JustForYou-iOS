@@ -19,9 +19,10 @@
 
 #pragma mark - Методы BBNewOrderInteractorInput
 
-- (void)createDeliveryOnServerWithDays:(NSArray *)days address:(BBAddress *)address purchase:(BBPurchases *)purchase coment:(NSString *)coment {
+- (void)createDeliveryOnServerWithDays:(NSArray *)days address:(BBAddress *)address purchase:(BBPurchases *)purchase coment:(NSString *)coment hour:(NSInteger)hour minute:(NSInteger)minute {
     NSMutableArray *arrayForTransport = [NSMutableArray array];
-    for (NSDate *date in days) {
+    for (NSDate __strong *date in days) {
+        date = [[BBCalendarService sharedService] addTimeForDate:date hour:hour minute:minute];
         NSString *dat = [[BBCalendarService sharedService] stringForDate:date];
         NSDictionary *params = @{@"scheduled_for" : dat,
                                  @"address_id"    : [NSNumber numberWithInteger:address.addressId],

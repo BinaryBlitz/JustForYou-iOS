@@ -367,9 +367,13 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/addresses", kServerURL]];
     
-    NSDictionary *adr = @{@"content"   : address.address,
+    NSDictionary *adr = @{@"content"   : address.street,
+                          @"house"     : [NSNumber numberWithInteger:address.house],
+                          @"entrance"     : [NSNumber numberWithInteger:address.entrance],
+                          @"floor"     : [NSNumber numberWithInteger:address.floor],
+                          @"apartment"     : [NSNumber numberWithInteger:address.apartment],
                           @"latitude"  : [NSNumber numberWithDouble:address.coordinate.latitude],
-                          @"longitude"  : [NSNumber numberWithDouble:address.coordinate.longitude]};
+                          @"longitude" : [NSNumber numberWithDouble:address.coordinate.longitude]};
     NSDictionary* parameters = @{@"api_token" : apiToken,
                                  @"address"   : adr};
     request = [self _settingRequestWithRequest:request parametrs:parameters HTTPMethod:POST];

@@ -18,6 +18,6 @@
 
 - (void)searchGeopositionForAddress:(NSString *)searchText;
 
-- (void)addAddressToUserAddressArrayWithAddressText:(NSString *)addressText;
+- (BBAddress *)currentInteractorAddress;
 
 @end

@@ -151,6 +151,15 @@
     return eventsByDate;
 }
 
+- (NSDate *)addTimeForDate:(NSDate *)date hour:(NSInteger)hour minute:(NSInteger)minute {
+    NSDateComponents *components= [[NSDateComponents alloc] init];
+    [components setMinute:minute];
+    [components setHour:hour];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    date = [calendar dateByAddingComponents:components toDate:date options:0];
+    return date;
+}
+
 - (NSDateFormatter *)dateFormatter {
     static NSDateFormatter *dateFormatter;
     if(!dateFormatter){

@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) BBCommentTableViewCell *commentCell;
 @property (strong, nonatomic) BBAccessoryTableViewCell *adressCell;
+@property (strong, nonatomic) BBTimeTableViewCell *timeCell;
 
 @property (strong, nonatomic) BBPurchases *purchase;
 @property (assign, nonatomic) NSInteger selectionDaysCount;
@@ -56,7 +57,7 @@ static CGFloat topInsetForTableView = - 35.0f;
 #pragma mark - Actions Methods
 
 - (IBAction)toOrderButtonAction:(id)sender {
-    [self.output toOrderButtonDidTapWithComment:self.commentCell.textView.text];
+    [self.timeCell startHourAndMinute];
 }
 
 - (void)_resignFirstResponderWithTap {
@@ -191,6 +192,7 @@ static CGFloat topInsetForTableView = - 35.0f;
         } else {
             BBTimeTableViewCell *timeCell = [self.tableView dequeueReusableCellWithIdentifier:kTimeCellIdentifire];
             timeCell.delegate = self;
+            self.timeCell = timeCell;
             cell = timeCell;
         }
     } else {
@@ -240,7 +242,11 @@ static CGFloat topInsetForTableView = - 35.0f;
 
 
 - (void)presentAlertForMessage:(NSString *)message {
-    
+    [self presentAlertWithTitle:kNoteTitle message:message];
+}
+
+- (void)startHour:(NSInteger)startHour startMinute:(NSInteger)startMinute {
+    [self.output toOrderButtonDidTapWithComment:self.commentCell.textView.text startHour:startHour startMinute:startMinute];
 }
 
 #pragma mark - Layout Methods

@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="30" id="FfA-re-fn6"/>
                                     <constraint firstAttribute="width" constant="140" id="rZY-1R-FeO"/>
                                 </constraints>
-                                <state key="normal" title="ДОБАВИТЬ">
+                                <state key="normal" title="ГОТОВО">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -110,19 +110,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Bh-TJ-wi2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Bh-TJ-wi2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="549"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bnu-bC-rlU" id="r9J-rh-LYv"/>
+                                    <outlet property="delegate" destination="bnu-bC-rlU" id="Hmr-E3-FEP"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-u1-YTf">
+                                <rect key="frame" x="230" y="550" width="140" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="VDE-jS-B7f"/>
+                                    <constraint firstAttribute="height" constant="30" id="v2J-xf-tzA"/>
+                                </constraints>
+                                <state key="normal" title="ДОБАВИТЬ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonAction:" destination="Ugl-GC-nV2" eventType="touchUpInside" id="JJn-kU-ouh"/>
+                                    <action selector="addButtonAction:" destination="bnu-bC-rlU" eventType="touchUpInside" id="QVC-PL-Dv1"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mjJ-cR-r9K" firstAttribute="top" secondItem="2Bh-TJ-wi2" secondAttribute="bottom" id="OoA-Qu-R66"/>
+                            <constraint firstItem="3pG-u1-YTf" firstAttribute="centerX" secondItem="HlA-Vn-YfH" secondAttribute="centerX" id="5d9-ev-tMv"/>
+                            <constraint firstItem="3pG-u1-YTf" firstAttribute="top" secondItem="2Bh-TJ-wi2" secondAttribute="bottom" constant="1" id="GR8-YD-QzX"/>
+                            <constraint firstItem="mjJ-cR-r9K" firstAttribute="top" secondItem="3pG-u1-YTf" secondAttribute="bottom" constant="20" id="MxI-RK-apy"/>
                             <constraint firstItem="2Bh-TJ-wi2" firstAttribute="leading" secondItem="HlA-Vn-YfH" secondAttribute="leading" id="WDj-8T-EPx"/>
                             <constraint firstAttribute="trailing" secondItem="2Bh-TJ-wi2" secondAttribute="trailing" id="fag-bh-olE"/>
                             <constraint firstItem="2Bh-TJ-wi2" firstAttribute="top" secondItem="HlA-Vn-YfH" secondAttribute="top" id="rpU-XB-c9P"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="3pG-u1-YTf" id="iHi-k2-z1r"/>
+                        <outlet property="tableView" destination="2Bh-TJ-wi2" id="iFa-Sj-Qoc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufa-mo-FCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

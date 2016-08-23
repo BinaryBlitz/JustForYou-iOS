@@ -36,10 +36,15 @@
         self.indicatorView.backgroundColor = [UIColor colorWithRed:order.red green:order.green blue:order.blue alpha:1.0f];
         self.adresLabel.text = order.address;
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:order.scheduledDay];
+        NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:order.scheduledDay];
         NSInteger startHour = [components hour];
+        NSInteger startMinute = [components minute];
         NSInteger endHour = startHour + 1;
-        self.timeLabel.text = [NSString stringWithFormat:@"%ld:00 - %ld:00", (long)startHour, (long)endHour];
+        if (startMinute == 0) {
+            self.timeLabel.text = [NSString stringWithFormat:@"%ld:00 - %ld:00", (long)startHour, (long)endHour];
+        } else {
+            self.timeLabel.text = [NSString stringWithFormat:@"%ld:%ld - %ld:%ld", (long)startHour, (long)startMinute, (long)endHour, (long)startMinute];
+        }
     }
 }
 - (IBAction)deleteButtonAction:(id)sender {

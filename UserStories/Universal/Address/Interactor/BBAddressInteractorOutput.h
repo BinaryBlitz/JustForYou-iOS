@@ -10,4 +10,9 @@
 
 @protocol BBAddressInteractorOutput <NSObject>
 
+- (void)addressDidSaveWithStatus:(BOOL)status;
+
+- (void)errorNetwork;
+- (void)errorServer;
+
 @end

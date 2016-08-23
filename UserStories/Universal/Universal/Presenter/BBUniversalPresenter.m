@@ -33,8 +33,6 @@
 
 @end
 
-static NSString *kErrorAddAddress = @"Вы пытаетесь добавить адрес который уже есть в Вашем списке адресов";
-
 @implementation BBUniversalPresenter
 
 #pragma mark - Методы BBUniversalModuleInput
@@ -56,13 +54,6 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
     self.moduleKey = key;
     [self _detectTitleForNavigationWithKey:key];
     [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
-}
-
-- (void)popMapModuleWithStatus:(BOOL)status {
-    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
-    if (!status) {
-        [self.view presentAlertWithTitle:kNoteTitle message:kErrorAddAddress];
-    }
 }
 
 - (void)_detectTitleForNavigationWithKey:(BBKeyModuleForUniversalModule)key {

@@ -12,7 +12,11 @@ NSString* const kLatitudeCoordinate = @"kLatitudeCoordinate";
 NSString* const kLongitudeCoordinate = @"kLongitudeCoordinate";
 NSString* const kCountry = @"kCountry";
 NSString* const kCity = @"kCity";
-NSString* const kAddress = @"kAddress";
+NSString* const kStreet = @"kStreet";
+NSString* const kHouse = @"kHouse";
+NSString* const kApartment = @"kApartment";
+NSString* const kFloor = @"kFloor";
+NSString* const kEntrance = @"kEntrance";
 NSString* const kAddressId = @"kAddressId";
 
 @implementation BBAddress
@@ -20,30 +24,49 @@ NSString* const kAddressId = @"kAddressId";
 -(instancetype)initWithJSON:(id)JSONObj {
     self = [super init];
     if (self) {
-        self.addressId = [[JSONObj objectForKey:@"id"] integerValue];
-        self.address = [JSONObj objectForKey:@"content"];
+        self.addressId = [[JSONObj valueForKey:@"id"] integerValue];
         self.country = @"Россия";
         self.city = @"Москва";
-        double lat = [[JSONObj objectForKey:@"latitude"] doubleValue];
-        double lng = [[JSONObj objectForKey:@"longitude"] doubleValue];
+        self.street = [JSONObj valueForKey:@"content"];
+        id object = [JSONObj valueForKey:@"house"];
+        if (object && object != (id)[NSNull null]) {
+            self.house = [object integerValue];
+        }
+        object = [JSONObj valueForKey:@"apartment"];
+        if (object && object != (id)[NSNull null]) {
+            self.apartment = [object integerValue];
+        }
+        object = [JSONObj valueForKey:@"floor"];
+        if (object && object != (id)[NSNull null]) {
+            self.floor = [object integerValue];
+        }
+        object = [JSONObj valueForKey:@"entrance"];
+        if (object && object != (id)[NSNull null]) {
+            self.entrance = [object integerValue];
+        }
+        double lat = [[JSONObj valueForKey:@"latitude"] doubleValue];
+        double lng = [[JSONObj valueForKey:@"longitude"] doubleValue];
         self.coordinate = CLLocationCoordinate2DMake(lat, lng);
     }
     return self;
 }
 
-- (instancetype)initWithCoordinate:(CLLocationCoordinate2D )coordinate country:(NSString *)country city:(NSString *)city address:(NSString *)address {
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D )coordinate country:(NSString *)country city:(NSString *)city street:(NSString *)street house:(NSString *)house {
     self = [super init];
     if (self) {
         self.coordinate = coordinate;
         self.city = city;
         self.country = country;
-        self.address = address;
+        self.street = street;
+        if (house) {
+            self.house = [house integerValue];
+        }
     }
     return self;
 }
 
 - (NSString *)formatedDescription {
-    return [NSString  stringWithFormat:@"%@", self.address];
+    return [NSString  stringWithFormat:@"%@ %ld", self.street, (long)self.house];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -54,7 +77,11 @@ NSString* const kAddressId = @"kAddressId";
         self.coordinate = CLLocationCoordinate2DMake(lat, lng);
         self.country = [coder decodeObjectForKey:kCountry];
         self.city = [coder decodeObjectForKey:kCity];
-        self.address = [coder decodeObjectForKey:kAddress];
+        self.street = [coder decodeObjectForKey:kStreet];
+        self.house = [coder decodeIntegerForKey:kHouse];
+        self.apartment = [coder decodeIntegerForKey:kApartment];
+        self.floor = [coder decodeIntegerForKey:kFloor];
+        self.entrance = [coder decodeIntegerForKey:kEntrance];
         self.addressId = [coder decodeIntegerForKey:kAddressId];
     }
     return self;
@@ -65,7 +92,11 @@ NSString* const kAddressId = @"kAddressId";
     [aCoder encodeDouble:self.coordinate.longitude forKey:kLongitudeCoordinate];
     [aCoder encodeObject:self.country forKey:kCountry];
     [aCoder encodeObject:self.city forKey:kCity];
-    [aCoder encodeObject:self.address forKey:kAddress];
+    [aCoder encodeObject:self.street forKey:kStreet];
+    [aCoder encodeInteger:self.house forKey:kHouse];
+    [aCoder encodeInteger:self.apartment forKey:kApartment];
+    [aCoder encodeInteger:self.floor forKey:kFloor];
+    [aCoder encodeInteger:self.entrance forKey:kEntrance];
     [aCoder encodeInteger:self.addressId forKey:kAddressId];
 }
 

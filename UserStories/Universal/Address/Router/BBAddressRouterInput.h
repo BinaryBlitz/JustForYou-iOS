@@ -12,5 +12,6 @@
 @protocol BBAddressRouterInput <NSObject>
 
 - (void)pushViewControllerWithNavigationController:(UINavigationController *)nc;
+- (void)popViewControllerWithNavigationController:(UINavigationController *)nc;
 
 @end

@@ -14,12 +14,12 @@
 
 #import "BBNavigationModuleInput.h"
 
-#import "BBUniversalModuleInput.h"
+#import "BBAddressModuleInput.h"
 
 @interface BBMapPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-@property (strong, nonatomic) id<BBUniversalModuleInput> parentModule;
+@property (strong, nonatomic) id<BBAddressModuleInput> parentModule;
 
 @end
 
@@ -47,9 +47,10 @@
 
 - (void)addButtonDidTapWithAddress:(NSString *)addressText {
     if ([addressText isEqualToString:@""] || [addressText isEqualToString:@" "]) {
-        [self.view presentAlertWithTitle:kNoteTitle message:@"Введите адрес"];
+        [self.view presentAlertWithTitle:kNoteTitle message:@"Введите улицу"];
     } else {
-        [self.interactor addAddressToUserAddressArrayWithAddressText:addressText];
+        [self.parentModule popMapModuleWithAddress:[self.interactor currentInteractorAddress] addressText:addressText];
+//        [self.interactor addAddressToUserAddressArrayWithAddressText:addressText];
     }
 }
 
@@ -88,9 +89,9 @@
     [self.view updateResultSearchControllerWithArray:arrayAddress];
 }
 
-- (void)addressDidSaveWithStatus:(BOOL)status {
-    [self.parentModule popMapModuleWithStatus:status];
-}
+//- (void)addressDidSaveWithStatus:(BOOL)status {
+//    [self.parentModule popMapModuleWithStatus:status];
+//}
 
 - (void)errorNetwork {
     [self.view hideBackgroundLoaderViewWithAlpha];

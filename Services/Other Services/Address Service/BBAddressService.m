@@ -40,17 +40,12 @@ static NSString *kStatusOK = @"OK";
 
 - (BBAddress *)addressFromAddress:(LMAddress *)addr {
     NSString *route = [self component:@"route" inArray:addr.lines ofType:@"short_name"];
-    NSString *streetName = nil;
-    
+    BBAddress *address = nil;
     if (route && addr.streetNumber) {
-        streetName = [NSString stringWithFormat:@"%@, %@", route, addr.streetNumber];
+        address = [[BBAddress alloc] initWithCoordinate:addr.coordinate country:addr.country city:addr.locality street:route house:addr.streetNumber];
     } else if (route) {
-        streetName = [NSString stringWithFormat:@"%@", route];
-    } else {
-        return nil;
+        address = [[BBAddress alloc] initWithCoordinate:addr.coordinate country:addr.country city:addr.locality street:route house:nil];
     }
-    
-    BBAddress *address = [[BBAddress alloc] initWithCoordinate:addr.coordinate country:addr.country city:addr.locality address:streetName];
     
     return address;
 }
@@ -101,13 +96,14 @@ static NSString *kStatusOK = @"OK";
         if ([addressArray count] > 0) {
             searchAdr = [NSMutableArray array];
             for (NSDictionary *address in addressArray) {
-                NSString *addr = [address objectForKey:@"formatted_address"];
+                NSDictionary *shortAdr = [[address objectForKey:@"address_components"] firstObject];
+                NSString *addr = [shortAdr objectForKey:@"short_name"];
                 NSDictionary *location = [[address objectForKey:@"geometry"] objectForKey:@"location"];
                 
                 double lat = [location[@"lat"] doubleValue];
                 double lng = [location[@"lng"] doubleValue];
                 CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(lat, lng);
-                BBAddress *adr = [[BBAddress alloc] initWithCoordinate:coordinate country:@"Россия" city:@"" address:addr];
+                BBAddress *adr = [[BBAddress alloc] initWithCoordinate:coordinate country:@"Россия" city:@"Москва" street:addr house:nil];
                 [searchAdr addObject:adr];
             }
         }

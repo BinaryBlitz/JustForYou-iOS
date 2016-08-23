@@ -32,6 +32,8 @@
 
 @end
 
+static CGFloat cornerRadiusTextField = 5.0f;
+
 @implementation BBMapViewController
 
 #pragma mark - Методы жизненного цикла
@@ -160,7 +162,7 @@
 
 - (void)_layoutAddressTextField {
     self.addressTextField.layer.masksToBounds = YES;
-    self.addressTextField.layer.cornerRadius = 5.0f;
+    self.addressTextField.layer.cornerRadius = cornerRadiusTextField;
 }
 
 - (void)_layoutMyLocationImageView {

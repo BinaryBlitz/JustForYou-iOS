@@ -16,8 +16,6 @@
 
 - (void)searchAddressInArray:(NSArray *)arrayAddress;
 
-- (void)addressDidSaveWithStatus:(BOOL)status;
-
 - (void)errorNetwork;
 - (void)errorServer;
 

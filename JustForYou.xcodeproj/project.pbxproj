@@ -2594,10 +2594,10 @@
 		3A71DCF01D6A3DD400EB19BF /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A71DCF11D6A3DD400EB19BF /* BBAddressInteractor.h */,
-				3A71DCF21D6A3DD400EB19BF /* BBAddressInteractor.m */,
 				3A71DCF31D6A3DD400EB19BF /* BBAddressInteractorInput.h */,
 				3A71DCF41D6A3DD400EB19BF /* BBAddressInteractorOutput.h */,
+				3A71DCF11D6A3DD400EB19BF /* BBAddressInteractor.h */,
+				3A71DCF21D6A3DD400EB19BF /* BBAddressInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";

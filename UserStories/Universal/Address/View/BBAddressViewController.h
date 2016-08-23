@@ -12,7 +12,7 @@
 
 @protocol BBAddressViewOutput;
 
-@interface BBAddressViewController : UIViewController <BBAddressViewInput>
+@interface BBAddressViewController : BBParentViewController <BBAddressViewInput>
 
 @property (weak, nonatomic) id<BBAddressViewOutput> output;
 

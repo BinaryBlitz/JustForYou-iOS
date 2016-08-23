@@ -205,7 +205,11 @@ static CGFloat heightFooterSection = 10.0f;
         NSString *addressString = @"У Вас пока нет ни одного адреса";
         if ([self.objects count] != 0) {
             BBAddress *address = [self.objects objectAtIndex:indexPath.section];
-            addressString = address.address;
+            if (address.house != 0) {
+                addressString = [NSString stringWithFormat:@"%@ %ld", address.street, (long)address.house];
+            } else {
+                addressString = [NSString stringWithFormat:@"%@", address.street];
+            }
         }
         accessoryCell.textLabel.text = addressString;
         return accessoryCell;

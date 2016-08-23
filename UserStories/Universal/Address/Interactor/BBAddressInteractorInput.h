@@ -10,4 +10,6 @@
 
 @protocol BBAddressInteractorInput <NSObject>
 
+- (void)addAddressToUserAddressArrayWithAddressText:(BBAddress *)address;
+
 @end

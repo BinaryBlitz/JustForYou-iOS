@@ -101,6 +101,12 @@ static NSString *errorTimeMessage = @"Время доставки может б�
     [self updateTimeLabel];
 }
 
+- (void)startHourAndMinute {
+    if ([self.delegate respondsToSelector:@selector(startHour:startMinute:)]) {
+        [self.delegate startHour:self.startHour startMinute:self.startMinute];
+    }
+}
+
 - (void)updateTimeLabel {
     if (self.startMinute == 0) {
         self.timeLabel.text = [NSString stringWithFormat:@"%ld:00 - %ld:00", (long)self.startHour, self.startHour+1];

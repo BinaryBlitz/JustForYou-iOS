@@ -16,6 +16,4 @@
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule parentModule:(id)parentModule keyModule:(BBKeyModuleForUniversalModule)key;
 
-- (void)popMapModuleWithStatus:(BOOL)status;
-
 @end

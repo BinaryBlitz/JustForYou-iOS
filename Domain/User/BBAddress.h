@@ -16,11 +16,15 @@
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic) NSString *country;
 @property (strong, nonatomic) NSString *city;
-@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *street;
+@property (nonatomic) NSInteger house;
+@property (nonatomic) NSInteger apartment;
+@property (nonatomic) NSInteger floor;
+@property (nonatomic) NSInteger entrance;
 
 -(instancetype)initWithJSON:(id)JSONObj;
 
-- (instancetype)initWithCoordinate:(CLLocationCoordinate2D )coordinate country:(NSString *)country city:(NSString *)city address:(NSString *)address;
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D )coordinate country:(NSString *)country city:(NSString *)city street:(NSString *)street house:(NSString *)house;
 
 - (NSString *)formatedDescription;
 

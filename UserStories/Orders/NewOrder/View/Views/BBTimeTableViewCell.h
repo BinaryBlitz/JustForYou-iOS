@@ -19,10 +19,13 @@
 
 @property (strong, nonatomic) id<BBTimeCellDelegate> delegate;
 
+- (void)startHourAndMinute;
+
 @end
 
 @protocol BBTimeCellDelegate <NSObject>
 
 - (void)presentAlertForMessage:(NSString *)message;
+- (void)startHour:(NSInteger)startHour startMinute:(NSInteger)startMinute;
 
 @end

@@ -65,7 +65,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 - (void)popAdressModuleWithAdress:(BBAddress *)address {
     self.deleteDays = NO;
     self.address = address;
-    [self.view adressForAdressTableViewCell:address.address];
+    [self.view adressForAdressTableViewCell:address.street];
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
@@ -102,7 +102,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
     [self.universalModule pushModuleWithNavigationModule:self.navigationModule parentModule:self keyModule:kMyAddressForOrderModule];
 }
 
-- (void)toOrderButtonDidTapWithComment:(NSString *)comment {
+- (void)toOrderButtonDidTapWithComment:(NSString *)comment startHour:(NSInteger)hour startMinute:(NSInteger)minute {
     if ([self.selectionDates count] == 0) {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorEmptyDays];
         return;
@@ -112,7 +112,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
         return;
     }
     [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor createDeliveryOnServerWithDays:self.selectionDates address:self.address purchase:self.purchase coment:comment];
+    [self.interactor createDeliveryOnServerWithDays:self.selectionDates address:self.address purchase:self.purchase coment:comment hour:hour minute:minute];
 }
 
 - (void)alertOkDidTap {

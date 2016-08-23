@@ -12,4 +12,12 @@
 
 - (void)setupInitialState;
 
+- (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
+
+- (void)updateTableViewWithAddress:(BBAddress *)address;
+
+
+- (void)showBackgroundLoaderViewWithAlpha:(CGFloat)alpha;
+- (void)hideBackgroundLoaderViewWithAlpha;
+
 @end

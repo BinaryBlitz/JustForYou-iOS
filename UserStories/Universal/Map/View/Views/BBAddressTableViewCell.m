@@ -22,7 +22,7 @@
 }
 
 - (void)updateTextLabelWithAddress {
-    self.textLabel.text = self.address.address;
+    self.textLabel.text = self.address.street;
 }
 
 @end
