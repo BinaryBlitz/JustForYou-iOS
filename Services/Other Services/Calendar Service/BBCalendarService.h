@@ -26,6 +26,10 @@ typedef enum : NSUInteger {
 - (NSString *)stringWithDateForDate:(NSDate *)date;
 - (NSString *)dateForUIWithDate:(NSDate *)date;
 
+
+- (NSMutableDictionary *)updateEventsByDateForOrders:(NSArray *)ordersForCalendar events:(NSMutableDictionary *)eventsByDate;
+- (NSDateFormatter *)dateFormatter;
+
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date;
 
 - (BBStatusOrderTime)timeForDate:(NSDate *)date;

@@ -133,4 +133,31 @@
     return BBStatusFutureTime;
 }
 
+- (NSMutableDictionary *)updateEventsByDateForOrders:(NSArray *)ordersForCalendar events:(NSMutableDictionary *)eventsByDate {
+    eventsByDate = [NSMutableDictionary dictionary];
+    for (BBOrder *order in ordersForCalendar) {
+        NSDate *date = order.scheduledDay;
+        NSString *key = [[self dateFormatter] stringFromDate:date];
+        if (!eventsByDate[key]) {
+            NSMutableArray *programs = [NSMutableArray array];
+            [programs addObject:order];
+            [eventsByDate setObject:programs forKey:key];
+        } else {
+            NSMutableArray *prog = [eventsByDate objectForKey:key];
+            [prog addObject:order];
+            [eventsByDate setObject:prog forKey:key];
+        }
+    }
+    return eventsByDate;
+}
+
+- (NSDateFormatter *)dateFormatter {
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"dd-MM-yyyy";
+    }
+    return dateFormatter;
+}
+
 @end

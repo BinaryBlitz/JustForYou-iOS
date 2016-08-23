@@ -16,18 +16,18 @@
 
 #import "BBNewOrderModuleInput.h"
 
-#import "BBMapAssembly.h"
-#import "BBMapModuleInput.h"
-
 #import "BBStockAssembly.h"
 #import "BBStockModuleInput.h"
+
+#import "BBAddressAssembly.h"
+#import "BBAddressModuleInput.h"
 
 @interface BBUniversalPresenter()
 
 @property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id<BBNewOrderModuleInput> parentNewOrderModule;
 @property (strong, nonatomic) id<BBStockModuleInput> stockModule;
-@property (strong, nonatomic) id<BBMapModuleInput> mapModule;
+@property (strong, nonatomic) id<BBAddressModuleInput> addressModule;
 
 @property (nonatomic) BBKeyModuleForUniversalModule moduleKey;
 
@@ -124,7 +124,7 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 }
 
 - (void)addBarButtonDidTap {
-    [self.mapModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
+    [self.addressModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
 }
 
 
@@ -161,11 +161,11 @@ static NSString *kErrorAddAddress = @"Вы пытаетесь добавить �
 
 #pragma mark - Lazy Load
 
-- (id<BBMapModuleInput>)mapModule {
-    if (!_mapModule) {
-        _mapModule = [BBMapAssembly  createModule];
+- (id<BBAddressModuleInput>) addressModule {
+    if (!_addressModule) {
+        _addressModule = [BBAddressAssembly  createModule];
     }
-    return _mapModule;
+    return _addressModule;
 }
 
 - (id<BBStockModuleInput>)stockModule {

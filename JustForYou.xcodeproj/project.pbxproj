@@ -189,6 +189,11 @@
 		3A65F5421D42206A00F00707 /* BBClearOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */; };
 		3A71DCEA1D69F30800EB19BF /* BBTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCE81D69F30800EB19BF /* BBTimeTableViewCell.m */; };
 		3A71DCEB1D69F30800EB19BF /* BBTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A71DCE91D69F30800EB19BF /* BBTimeTableViewCell.xib */; };
+		3A71DD021D6A3DD400EB19BF /* BBAddressAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCEF1D6A3DD400EB19BF /* BBAddressAssembly.m */; };
+		3A71DD031D6A3DD400EB19BF /* BBAddressInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCF21D6A3DD400EB19BF /* BBAddressInteractor.m */; };
+		3A71DD041D6A3DD400EB19BF /* BBAddressPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCF81D6A3DD400EB19BF /* BBAddressPresenter.m */; };
+		3A71DD051D6A3DD400EB19BF /* BBAddressRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCFB1D6A3DD400EB19BF /* BBAddressRouter.m */; };
+		3A71DD061D6A3DD400EB19BF /* BBAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCFF1D6A3DD400EB19BF /* BBAddressViewController.m */; };
 		3A7438B01D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438AE1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m */; };
 		3A7438B11D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7438AF1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib */; };
 		3A7438B41D1DFDB100FD6351 /* BBProgramHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */; };
@@ -703,6 +708,22 @@
 		3A71DCE71D69F30800EB19BF /* BBTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTimeTableViewCell.h; sourceTree = "<group>"; };
 		3A71DCE81D69F30800EB19BF /* BBTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTimeTableViewCell.m; sourceTree = "<group>"; };
 		3A71DCE91D69F30800EB19BF /* BBTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBTimeTableViewCell.xib; sourceTree = "<group>"; };
+		3A71DCEE1D6A3DD400EB19BF /* BBAddressAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressAssembly.h; sourceTree = "<group>"; };
+		3A71DCEF1D6A3DD400EB19BF /* BBAddressAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressAssembly.m; sourceTree = "<group>"; };
+		3A71DCF11D6A3DD400EB19BF /* BBAddressInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressInteractor.h; sourceTree = "<group>"; };
+		3A71DCF21D6A3DD400EB19BF /* BBAddressInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressInteractor.m; sourceTree = "<group>"; };
+		3A71DCF31D6A3DD400EB19BF /* BBAddressInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressInteractorInput.h; sourceTree = "<group>"; };
+		3A71DCF41D6A3DD400EB19BF /* BBAddressInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressInteractorOutput.h; sourceTree = "<group>"; };
+		3A71DCF61D6A3DD400EB19BF /* BBAddressModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressModuleInput.h; sourceTree = "<group>"; };
+		3A71DCF71D6A3DD400EB19BF /* BBAddressPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressPresenter.h; sourceTree = "<group>"; };
+		3A71DCF81D6A3DD400EB19BF /* BBAddressPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressPresenter.m; sourceTree = "<group>"; };
+		3A71DCFA1D6A3DD400EB19BF /* BBAddressRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressRouter.h; sourceTree = "<group>"; };
+		3A71DCFB1D6A3DD400EB19BF /* BBAddressRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressRouter.m; sourceTree = "<group>"; };
+		3A71DCFC1D6A3DD400EB19BF /* BBAddressRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressRouterInput.h; sourceTree = "<group>"; };
+		3A71DCFE1D6A3DD400EB19BF /* BBAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressViewController.h; sourceTree = "<group>"; };
+		3A71DCFF1D6A3DD400EB19BF /* BBAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAddressViewController.m; sourceTree = "<group>"; };
+		3A71DD001D6A3DD400EB19BF /* BBAddressViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressViewInput.h; sourceTree = "<group>"; };
+		3A71DD011D6A3DD400EB19BF /* BBAddressViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAddressViewOutput.h; sourceTree = "<group>"; };
 		3A7438AD1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyOldProgramTableViewCell.h; sourceTree = "<group>"; };
 		3A7438AE1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyOldProgramTableViewCell.m; sourceTree = "<group>"; };
 		3A7438AF1D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMyOldProgramTableViewCell.xib; sourceTree = "<group>"; };
@@ -2316,6 +2337,7 @@
 				3A2D56281CF075D200A8EFF5 /* Payment */,
 				3A2D563E1CF075D200A8EFF5 /* Universal */,
 				A74A9D76E1B144C36F861F30 /* Map */,
+				3A71DCEC1D6A3DD400EB19BF /* Address */,
 				84B759E8D91E4C1BAC029C9F /* Stock */,
 			);
 			path = Universal;
@@ -2546,6 +2568,69 @@
 				3A71DCE91D69F30800EB19BF /* BBTimeTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3A71DCEC1D6A3DD400EB19BF /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DCED1D6A3DD400EB19BF /* Assembly */,
+				3A71DCFD1D6A3DD400EB19BF /* View */,
+				3A71DCF51D6A3DD400EB19BF /* Presenter */,
+				3A71DCF01D6A3DD400EB19BF /* Interactor */,
+				3A71DCF91D6A3DD400EB19BF /* Router */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		3A71DCED1D6A3DD400EB19BF /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DCEE1D6A3DD400EB19BF /* BBAddressAssembly.h */,
+				3A71DCEF1D6A3DD400EB19BF /* BBAddressAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		3A71DCF01D6A3DD400EB19BF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DCF11D6A3DD400EB19BF /* BBAddressInteractor.h */,
+				3A71DCF21D6A3DD400EB19BF /* BBAddressInteractor.m */,
+				3A71DCF31D6A3DD400EB19BF /* BBAddressInteractorInput.h */,
+				3A71DCF41D6A3DD400EB19BF /* BBAddressInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3A71DCF51D6A3DD400EB19BF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DCF61D6A3DD400EB19BF /* BBAddressModuleInput.h */,
+				3A71DCF71D6A3DD400EB19BF /* BBAddressPresenter.h */,
+				3A71DCF81D6A3DD400EB19BF /* BBAddressPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3A71DCF91D6A3DD400EB19BF /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DCFC1D6A3DD400EB19BF /* BBAddressRouterInput.h */,
+				3A71DCFA1D6A3DD400EB19BF /* BBAddressRouter.h */,
+				3A71DCFB1D6A3DD400EB19BF /* BBAddressRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3A71DCFD1D6A3DD400EB19BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A71DD001D6A3DD400EB19BF /* BBAddressViewInput.h */,
+				3A71DD011D6A3DD400EB19BF /* BBAddressViewOutput.h */,
+				3A71DCFE1D6A3DD400EB19BF /* BBAddressViewController.h */,
+				3A71DCFF1D6A3DD400EB19BF /* BBAddressViewController.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3A7438AC1D1D1F9200FD6351 /* Views */ = {
@@ -3202,6 +3287,7 @@
 				3A2D56AF1CF075D200A8EFF5 /* BBNewOrderPresenter.m in Sources */,
 				3A2D57061CF331C300A8EFF5 /* BBUnderlineButton.m in Sources */,
 				3A7438B01D1D1F9200FD6351 /* BBMyOldProgramTableViewCell.m in Sources */,
+				3A71DD041D6A3DD400EB19BF /* BBAddressPresenter.m in Sources */,
 				3A2D56C21CF075D200A8EFF5 /* BBProfileTableViewCell.m in Sources */,
 				3A2D56931CF075D200A8EFF5 /* BBProgramsViewController.m in Sources */,
 				3A2D56911CF075D200A8EFF5 /* BBProgramsPresenter.m in Sources */,
@@ -3309,6 +3395,7 @@
 				3A2D56C81CF075D200A8EFF5 /* BBSettingsViewController.m in Sources */,
 				3A1AB2881C9D98B70070E065 /* BBPreloader.m in Sources */,
 				3AF26F6A1D0D7062004972FC /* BBDay.m in Sources */,
+				3A71DD061D6A3DD400EB19BF /* BBAddressViewController.m in Sources */,
 				3A2D570F1CF331C300A8EFF5 /* BBSwitchTableViewCell.m in Sources */,
 				3A1347551CA6B643007A83ED /* BBUserService.m in Sources */,
 				3A2D56D41CF075D200A8EFF5 /* BBPaymentViewController.m in Sources */,
@@ -3325,12 +3412,14 @@
 				3A2D56CD1CF075D200A8EFF5 /* BBSupportPresenter.m in Sources */,
 				3A2D56651CF075D200A8EFF5 /* BBNumberPhoneTableViewCell.m in Sources */,
 				3A2D570D1CF331C300A8EFF5 /* BBMyProgramTableViewCell.m in Sources */,
+				3A71DD021D6A3DD400EB19BF /* BBAddressAssembly.m in Sources */,
 				3AE546291D196899006A1CDD /* BBPurchases.m in Sources */,
 				3A2D56D61CF075D200A8EFF5 /* BBUniversalInteractor.m in Sources */,
 				3A2D56BB1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.m in Sources */,
 				3A2D56991CF075D200A8EFF5 /* BBNavigationRouter.m in Sources */,
 				3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */,
 				3A2D56A31CF075D200A8EFF5 /* BBDeliveryPresenter.m in Sources */,
+				3A71DD031D6A3DD400EB19BF /* BBAddressInteractor.m in Sources */,
 				3A2D56871CF075D200A8EFF5 /* BBHeaderTableViewCell.m in Sources */,
 				3AE5460C1D16A13A006A1CDD /* BBOrder.m in Sources */,
 				3A2D56BE1CF075D200A8EFF5 /* BBProfileInteractor.m in Sources */,
@@ -3346,6 +3435,7 @@
 				3A2D569C1CF075D200A8EFF5 /* BBTabbarInteractor.m in Sources */,
 				3A2D56BF1CF075D200A8EFF5 /* BBProfilePresenter.m in Sources */,
 				3A2D56811CF075D200A8EFF5 /* BBCardProgramPresenter.m in Sources */,
+				3A71DD051D6A3DD400EB19BF /* BBAddressRouter.m in Sources */,
 				3A2D56A01CF075D200A8EFF5 /* BBTabBar.m in Sources */,
 				3A2D567A1CF075D200A8EFF5 /* BBBlocksPresenter.m in Sources */,
 				3A2D57081CF331C300A8EFF5 /* BBSegmentedControl.m in Sources */,

@@ -49,25 +49,8 @@
 
 - (void)setOrdersForCalendar:(NSArray *)ordersForCalendar {
     _ordersForCalendar = ordersForCalendar;
-    [self updateEventsByDate];
+    self.eventsByDate = [[BBCalendarService sharedService] updateEventsByDateForOrders:self.ordersForCalendar events:self.eventsByDate];
     [self.calendarManager reload];
-}
-
-- (void)updateEventsByDate {
-    self.eventsByDate = [NSMutableDictionary dictionary];
-    for (BBOrder *order in self.ordersForCalendar) {
-        NSDate *date = order.scheduledDay;
-        NSString *key = [[self _dateFormatter] stringFromDate:date];
-        if (!self.eventsByDate[key]) {
-            NSMutableArray *programs = [NSMutableArray array];
-            [programs addObject:order];
-            [self.eventsByDate setObject:programs forKey:key];
-        } else {
-            NSMutableArray *prog = [self.eventsByDate objectForKey:key];
-            [prog addObject:order];
-            [self.eventsByDate setObject:prog forKey:key];
-        }
-    }
 }
 
 #pragma mark - BBOrderViewControllerDelegate Methods
@@ -93,17 +76,6 @@
     
     [self.calendarManager setContentView:self.calendarView];
     [self.calendarManager setDate:[NSDate date]];
-}
-
-- (NSDateFormatter *)_dateFormatter {
-    
-    static NSDateFormatter *dateFormatter;
-    if(!dateFormatter){
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.dateFormat = @"dd-MM-yyyy";
-    }
-    
-    return dateFormatter;
 }
 
 #pragma mark - Calendar Delegate Methods
@@ -195,7 +167,7 @@
 }
 
 - (BOOL)_haveEventForDay:(NSDate *)date {
-    NSString *key = [[self _dateFormatter] stringFromDate:date];
+    NSString *key = [[[BBCalendarService sharedService] dateFormatter] stringFromDate:date];
     if(self.eventsByDate[key]) {
         return YES;
     }
@@ -204,7 +176,7 @@
 
 
 - (NSArray *)programsInDay:(NSDate *)date {
-    NSString *key = [[self _dateFormatter] stringFromDate:date];
+    NSString *key = [[[BBCalendarService sharedService] dateFormatter] stringFromDate:date];
     return [self.eventsByDate objectForKey:key];
 }
 
