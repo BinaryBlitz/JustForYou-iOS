@@ -30,7 +30,7 @@ NSString* const kAddressId = @"kAddressId";
         self.street = [JSONObj valueForKey:@"content"];
         id object = [JSONObj valueForKey:@"house"];
         if (object && object != (id)[NSNull null]) {
-            self.house = [object integerValue];
+            self.house = object;
         }
         object = [JSONObj valueForKey:@"apartment"];
         if (object && object != (id)[NSNull null]) {
@@ -59,14 +59,14 @@ NSString* const kAddressId = @"kAddressId";
         self.country = country;
         self.street = street;
         if (house) {
-            self.house = [house integerValue];
+            self.house = house;
         }
     }
     return self;
 }
 
 - (NSString *)formatedDescription {
-    return [NSString  stringWithFormat:@"%@ %ld", self.street, (long)self.house];
+    return [NSString  stringWithFormat:@"%@ %@", self.street, self.house];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -78,7 +78,7 @@ NSString* const kAddressId = @"kAddressId";
         self.country = [coder decodeObjectForKey:kCountry];
         self.city = [coder decodeObjectForKey:kCity];
         self.street = [coder decodeObjectForKey:kStreet];
-        self.house = [coder decodeIntegerForKey:kHouse];
+        self.house = [coder decodeObjectForKey:kHouse];
         self.apartment = [coder decodeIntegerForKey:kApartment];
         self.floor = [coder decodeIntegerForKey:kFloor];
         self.entrance = [coder decodeIntegerForKey:kEntrance];
@@ -93,7 +93,7 @@ NSString* const kAddressId = @"kAddressId";
     [aCoder encodeObject:self.country forKey:kCountry];
     [aCoder encodeObject:self.city forKey:kCity];
     [aCoder encodeObject:self.street forKey:kStreet];
-    [aCoder encodeInteger:self.house forKey:kHouse];
+    [aCoder encodeObject:self.house forKey:kHouse];
     [aCoder encodeInteger:self.apartment forKey:kApartment];
     [aCoder encodeInteger:self.floor forKey:kFloor];
     [aCoder encodeInteger:self.entrance forKey:kEntrance];

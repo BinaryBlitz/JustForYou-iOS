@@ -77,7 +77,7 @@ static NSString *kEmptyApartment = @"Добавьте номер квартир�
 - (void)addAddressButtonDidTapWithAddress:(BBAddress *)address {
     if (!address.street || [address.street isEqualToString:@""] || [address.street isEqualToString:@" "]) {
         [self.view presentAlertWithTitle:kNoteTitle message:kEmptyStreet];
-    } else if (address.house <= 0) {
+    } else if (!address.house || [address.house isEqualToString:@""] || [address.house isEqualToString:@" "]) {
         [self.view presentAlertWithTitle:kNoteTitle message:kEmptyHouse];
     }  else if (address.entrance <= 0) {
         [self.view presentAlertWithTitle:kNoteTitle message:kEmptyEntrance];

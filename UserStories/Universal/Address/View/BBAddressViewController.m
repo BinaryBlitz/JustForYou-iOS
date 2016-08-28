@@ -141,8 +141,8 @@ static CGFloat heightHeaderSection = 10.0f;
         textCell.textField.text = @"";
         if (indexPath.section == 1) {
             textCell.textField.placeholder = @"Номер дома";
-            if (self.currentAddress.house != 0) {
-                textCell.textField.text = [NSString stringWithFormat:@"%ld", (long)self.currentAddress.house];
+            if (self.currentAddress.house && ![self.currentAddress.house isEqualToString:@""]) {
+                textCell.textField.text = self.currentAddress.house;
             }
             self.houseCell = textCell;
         } else if (indexPath.section == 2) {
@@ -199,7 +199,7 @@ static CGFloat heightHeaderSection = 10.0f;
     }
     textField.text = [NSString stringWithFormat:@"%@%@", textField.text, string];
     if ([textField isEqual:self.houseCell.textField]) {
-        self.currentAddress.house = [textField.text integerValue];
+        self.currentAddress.house = textField.text;
     } else if ([textField isEqual:self.entranceCell.textField]) {
         self.currentAddress.entrance = [textField.text integerValue];
     } else if ([textField isEqual:self.floorCell.textField]) {

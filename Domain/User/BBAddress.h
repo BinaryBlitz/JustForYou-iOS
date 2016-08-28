@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSString *country;
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *street;
-@property (nonatomic) NSInteger house;
+@property (strong, nonatomic) NSString *house;
 @property (nonatomic) NSInteger apartment;
 @property (nonatomic) NSInteger floor;
 @property (nonatomic) NSInteger entrance;
