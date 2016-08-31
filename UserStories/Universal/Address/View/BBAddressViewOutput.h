@@ -17,4 +17,6 @@
 
 - (void)addAddressButtonDidTapWithAddress:(BBAddress *)address;
 
+- (BOOL)apartmentFieldBeginEditingWithSymbol:(NSString *)symbol textInField:(NSString *)text;
+
 @end

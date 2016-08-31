@@ -31,6 +31,8 @@
 
 static NSString *kErrorAddAddress = @"Вы пытаетесь добавить адрес который уже есть в Вашем списке адресов";
 
+static NSString *kErrorNumberSymbol = @"В данное поле можно вводить только цифры";
+
 static NSString *kEmptyStreet = @"Добавьте улицу";
 static NSString *kEmptyHouse = @"Добавьте номер дома";
 static NSString *kEmptyEntrance = @"Добавьте подъезд";
@@ -91,15 +93,35 @@ static NSString *kEmptyApartment = @"Добавьте номер квартир�
     }
 }
 
+- (BOOL)apartmentFieldBeginEditingWithSymbol:(NSString *)symbol textInField:(NSString *)text {
+    if ([self validateApartmentFieldWithSymbol:symbol]) {
+        [self.view presentAlertWithTitle:kNoteTitle message:kErrorNumberSymbol];
+        return NO;
+    } else {
+        [self.view saveApartmentWithString:[NSString stringWithFormat:@"%@%@", text, symbol]];
+    }
+    return YES;
+}
+
+- (BOOL)validateApartmentFieldWithSymbol:(NSString *)symbol {
+    NSCharacterSet* validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSArray* components = [symbol componentsSeparatedByCharactersInSet:validationSet];
+    if ([components count] > 1) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - Методы BBAddressInteractorOutput
 
 - (void)addressDidSaveWithStatus:(BOOL)status {
+    [self.view hideBackgroundLoaderViewWithAlpha];
     if (!status) {
         [self.view presentAlertWithTitle:kNoteTitle message:kErrorAddAddress];
     } else {
+        [self.view clearFields];
         [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
     }
-    
 }
 
 - (void)errorNetwork {

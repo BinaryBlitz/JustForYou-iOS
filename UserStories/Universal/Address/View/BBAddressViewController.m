@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
+@property (strong, nonatomic) BBAccessoryTableViewCell *streetCell;
 @property (strong, nonatomic) BBTextTableViewCell *houseCell;
 @property (strong, nonatomic) BBTextTableViewCell *entranceCell;
 @property (strong, nonatomic) BBTextTableViewCell *floorCell;
@@ -91,6 +92,17 @@ static CGFloat heightHeaderSection = 10.0f;
     });
 }
 
+- (void)clearFields {
+    self.currentAddress = nil;
+    HQDispatchToMainQueue(^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)saveApartmentWithString:(NSString *)apartment {
+    self.currentAddress.apartment = [apartment integerValue];
+}
+
 #pragma mark - UITableView
 
 - (void)_registerCellIdentifireInTableView {
@@ -129,6 +141,7 @@ static CGFloat heightHeaderSection = 10.0f;
         } else {
             accessoryCell.textLabel.text = @"Улица";
         }
+        self.streetCell = accessoryCell;
         return accessoryCell;
     } else {
         BBTextTableViewCell *textCell = [[NSBundle mainBundle] loadNibNamed:kNibNameTextCell owner:self options:nil].lastObject;
@@ -160,7 +173,7 @@ static CGFloat heightHeaderSection = 10.0f;
             }
             self.floorCell = textCell;
         } else {
-            textCell.textField.keyboardType = UIKeyboardTypeNumberPad;
+            textCell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
             textCell.textField.placeholder = @"Квартира";
             if (self.currentAddress.apartment != 0) {
                 textCell.textField.text = [NSString stringWithFormat:@"%ld", (long)self.currentAddress.apartment];
@@ -197,7 +210,6 @@ static CGFloat heightHeaderSection = 10.0f;
     if ([string isEqualToString:@""]) {
         return YES;
     }
-    textField.text = [NSString stringWithFormat:@"%@%@", textField.text, string];
     if ([textField isEqual:self.houseCell.textField]) {
         self.currentAddress.house = textField.text;
     } else if ([textField isEqual:self.entranceCell.textField]) {
@@ -205,8 +217,11 @@ static CGFloat heightHeaderSection = 10.0f;
     } else if ([textField isEqual:self.floorCell.textField]) {
         self.currentAddress.floor = [textField.text integerValue];
     } else if ([textField isEqual:self.apartmentCell.textField]) {
-        self.currentAddress.apartment = [textField.text integerValue];
+        if (![self.output apartmentFieldBeginEditingWithSymbol:string textInField:textField.text]) {
+            return NO;
+        }
     }
+    textField.text = [NSString stringWithFormat:@"%@%@", textField.text, string];
     return NO;
 }
 
