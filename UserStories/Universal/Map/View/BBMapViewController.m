@@ -150,8 +150,9 @@ static CGFloat cornerRadiusTextField = 5.0f;
 #pragma mark - Load Methods
 
 - (void)_settingMapView {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.75708318
-                                                            longitude:37.60244361
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.754194
+                                                            longitude:37.620139
                                                                  zoom:17];
     self.mapView.camera = camera;
     self.mapView.myLocationEnabled = YES;
