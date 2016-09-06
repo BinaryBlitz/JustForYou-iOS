@@ -169,7 +169,7 @@ static NSString *kErrorClient = @"Ошибка сервера. Возможно 
 static NSString *kErrorConnectNetwork = @"Ошибка соединения. Проверьте пожалуйста подключение к интернету";
 
 static NSString *messagePayAlert = @"Выберите карту которой хотите оплатить";
-static NSString *paymentSuccessfull = @"Оплата успешно произведена";
+static NSString *paymentSuccessfull = @"Благодарим Вас за покупку!";
 static NSString *paymentError = @"Произошла ошибка оплаты. Проверьте баланс своей карты или попробуйте позже";
 
 #pragma mark - Name Title Module
