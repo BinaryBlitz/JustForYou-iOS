@@ -213,9 +213,9 @@ static CGFloat heightHeaderSection = 10.0f;
     if ([textField isEqual:self.houseCell.textField]) {
         self.currentAddress.house = textField.text;
     } else if ([textField isEqual:self.entranceCell.textField]) {
-        self.currentAddress.entrance = [textField.text integerValue];
+        self.currentAddress.entrance = [[NSString stringWithFormat:@"%@%@", textField.text, string] integerValue];
     } else if ([textField isEqual:self.floorCell.textField]) {
-        self.currentAddress.floor = [textField.text integerValue];
+        self.currentAddress.floor = [[NSString stringWithFormat:@"%@%@", textField.text, string] integerValue];
     } else if ([textField isEqual:self.apartmentCell.textField]) {
         if (![self.output apartmentFieldBeginEditingWithSymbol:string textInField:textField.text]) {
             return NO;

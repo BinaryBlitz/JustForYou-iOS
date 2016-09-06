@@ -212,14 +212,15 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([self.arrayViews count] > 1) {
-        CGFloat curX = scrollView.contentOffset.x;
-        CGFloat pageWidth = scrollView.frame.size.width;
+//        CGFloat pageWidth = scrollView.frame.size.width;
+//        NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
         
+        CGFloat curX = scrollView.contentOffset.x;
         CGFloat ratio = curX/self.wightProgramView;
         double d, drob;
         drob = modf(ratio, &d);
+        NSInteger page = round(ratio);
         
-        NSInteger page = round((scrollView.contentOffset.x + (0.5f * self.wightProgramView)) / pageWidth);
         self.pageControl.currentPage = (page % self.countPage);
         if ([self.urlsArray count] > 0) {
             [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[self.pageControl.currentPage]];
