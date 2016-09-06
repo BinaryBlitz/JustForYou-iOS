@@ -109,9 +109,9 @@ static NSString *errorTimeMessage = @"Время доставки может б�
 
 - (void)updateTimeLabel {
     if (self.startMinute == 0) {
-        self.timeLabel.text = [NSString stringWithFormat:@"%ld:00 - %ld:00", (long)self.startHour, self.startHour+1];
+        self.timeLabel.text = [NSString stringWithFormat:@"%ld:00 - %ld:00", (long)self.startHour, (long)self.startHour+1];
     } else {
-        self.timeLabel.text = [NSString stringWithFormat:@"%ld:30 - %ld:30", (long)self.startHour, self.startHour+1];
+        self.timeLabel.text = [NSString stringWithFormat:@"%ld:30 - %ld:30", (long)self.startHour, (long)self.startHour+1];
     }
 }
 

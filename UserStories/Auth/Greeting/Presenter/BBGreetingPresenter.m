@@ -20,7 +20,7 @@
 
 @end
 
-static NSInteger countPage = 3;
+static NSInteger countPage = 6;
 
 @implementation BBGreetingPresenter
 

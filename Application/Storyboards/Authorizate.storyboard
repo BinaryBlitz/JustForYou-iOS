@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Authorization View Controller-->
@@ -225,22 +226,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-tI-WT5">
-                                <rect key="frame" x="281" y="477" width="39" height="37"/>
+                                <rect key="frame" x="280.5" y="491" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAZ-Kn-W8F">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="469"/>
-                                <connections>
-                                    <outlet property="delegate" destination="NKz-m9-SZO" id="WDx-Tn-5Th"/>
-                                </connections>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ava-9H-2Ld">
-                                <rect key="frame" x="208" y="522" width="185" height="44"/>
+                                <rect key="frame" x="207.5" y="536" width="185" height="22"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="d71-aR-kOA"/>
-                                    <constraint firstAttribute="height" constant="44" id="eyp-cj-hOe"/>
+                                    <constraint firstAttribute="height" constant="22" id="eyp-cj-hOe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="ПРОДОЛЖИТЬ">
@@ -250,13 +245,20 @@
                                     <action selector="nextButtonAction:" destination="NKz-m9-SZO" eventType="touchUpInside" id="BNB-tv-yZn"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAZ-Kn-W8F">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="483"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NKz-m9-SZO" id="WDx-Tn-5Th"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ava-9H-2Ld" firstAttribute="centerX" secondItem="TZe-lD-1dd" secondAttribute="centerX" id="7yU-h5-ctr"/>
-                            <constraint firstItem="em3-fN-Qok" firstAttribute="top" secondItem="Ava-9H-2Ld" secondAttribute="bottom" constant="34" id="I8I-9p-0od"/>
+                            <constraint firstItem="em3-fN-Qok" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ava-9H-2Ld" secondAttribute="bottom" priority="750" id="I8I-9p-0od"/>
                             <constraint firstAttribute="trailing" secondItem="rAZ-Kn-W8F" secondAttribute="trailing" id="QVD-Ji-nOx"/>
                             <constraint firstItem="rAZ-Kn-W8F" firstAttribute="top" secondItem="TZe-lD-1dd" secondAttribute="top" id="S9m-xa-Qv7"/>
+                            <constraint firstItem="rAZ-Kn-W8F" firstAttribute="height" secondItem="TZe-lD-1dd" secondAttribute="height" multiplier="457:568" id="WBP-Do-Icx"/>
                             <constraint firstItem="rAZ-Kn-W8F" firstAttribute="leading" secondItem="TZe-lD-1dd" secondAttribute="leading" id="ae3-Io-jgK"/>
                             <constraint firstItem="Ava-9H-2Ld" firstAttribute="top" secondItem="mvS-tI-WT5" secondAttribute="bottom" constant="8" id="bq9-9H-pvO"/>
                             <constraint firstItem="mvS-tI-WT5" firstAttribute="centerX" secondItem="TZe-lD-1dd" secondAttribute="centerX" id="hCv-Un-emD"/>

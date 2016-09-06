@@ -80,7 +80,7 @@
         CGFloat x = widht*i;
         
         UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, widht, height)];
-        view.image = [UIImage imageNamed:@"TestIconBlock"];
+        view.image = [UIImage imageNamed:[NSString stringWithFormat:@"Onbording-Step-%d", i+1]];
         [self.scrollView addSubview:view];
         [self.arrayViews addObject:view];
     }
