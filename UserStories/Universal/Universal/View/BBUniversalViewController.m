@@ -129,6 +129,8 @@ static CGFloat heightFooterSection = 10.0f;
          forCellReuseIdentifier:kAccessoryCellIdentifire];
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameAboutCell bundle:nil]
          forCellReuseIdentifier:kAboutCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameBAgreementCell bundle:nil]
+         forCellReuseIdentifier:kAgreementCellIdentifire];
 }
 
 - (void)_settingTableView {
@@ -171,6 +173,8 @@ static CGFloat heightFooterSection = 10.0f;
         if (self.count != 0) {
             return self.count;
         }
+    } else if (self.keyModule == kMyPayCardModule) {
+        return 2;
     }
     return 1;
 }
@@ -179,9 +183,13 @@ static CGFloat heightFooterSection = 10.0f;
     if (self.keyModule == kSharesModule || self.keyModule == kMyAddressModule ||
         self.keyModule == kMyAddressForOrderModule || self.keyModule == kAboutModule) {
         return 1;
-    }
-    if (self.count != 0) {
-        return self.count;
+    } else if (self.keyModule == kMyPayCardModule) {
+        if(section == 0) {
+            if (self.count != 0) {
+                return self.count;
+            }
+        }
+        return 1;
     }
     return 1;
 }
@@ -225,13 +233,18 @@ static CGFloat heightFooterSection = 10.0f;
         BBAboutTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kAboutCellIdentifire];
         return cell;
     }  else if (self.keyModule == kMyPayCardModule) {
-        if ([self.objects count] == 0) {
-            accessoryCell.textLabel.text = @"У Вас нет привязанных карт";
-            return accessoryCell;
+        if (indexPath.section == 0) {
+            if ([self.objects count] == 0) {
+                accessoryCell.textLabel.text = @"У Вас нет привязанных карт";
+                return accessoryCell;
+            }
+            BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];
+            cell.card = [self.objects objectAtIndex:indexPath.row];
+            return cell;
+        } else {
+            BBAgreementTableViewCell *agreementCell = [self.tableView dequeueReusableCellWithIdentifier:kAgreementCellIdentifire];
+            return agreementCell;
         }
-        BBMyCardTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMyPayCardCellIdentifire];
-        cell.card = [self.objects objectAtIndex:indexPath.row];
-        return cell;
     }
     accessoryCell.textLabel.text = @"Произошла ошибка. Повторите позже";
     return accessoryCell;

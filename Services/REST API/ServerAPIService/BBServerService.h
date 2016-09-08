@@ -32,6 +32,8 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 
 + (instancetype) sharedService;
 
+- (NSString *)HOSTServer;
+
 #pragma mark - User
 
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion;

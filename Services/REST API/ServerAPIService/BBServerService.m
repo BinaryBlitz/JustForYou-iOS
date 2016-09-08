@@ -33,6 +33,11 @@
     return service;
 }
 
+- (NSString *)HOSTServer {
+    return [self.transport HOSTServer];
+}
+
+
 #pragma mark - Authorizate Methods
 
 - (void)userNumberPhoneWithString:(NSString *)numberPhone completion:(AuthCompletion)completion {
