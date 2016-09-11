@@ -202,6 +202,8 @@
 		3A8F678E1D24E79400AF6FEF /* BBExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F678D1D24E79400AF6FEF /* BBExchange.m */; };
 		3A8F67951D2574D400AF6FEF /* BBTotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F67931D2574D400AF6FEF /* BBTotalTableViewCell.m */; };
 		3A8F67961D2574D400AF6FEF /* BBTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F67941D2574D400AF6FEF /* BBTotalTableViewCell.xib */; };
+		3AA5A20D1D857F5800A44EDB /* BBLabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5A20B1D857F5800A44EDB /* BBLabelTableViewCell.m */; };
+		3AA5A20E1D857F5800A44EDB /* BBLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5A20C1D857F5800A44EDB /* BBLabelTableViewCell.xib */; };
 		3AB21D101CFA066B0090F436 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D0F1CFA066B0090F436 /* Reachability.m */; };
 		3AB21D181CFA130A0090F436 /* BBParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB21D171CFA130A0090F436 /* BBParentViewController.m */; };
 		3ABAA0D81D003DC00042BD56 /* BBAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */; };
@@ -739,6 +741,9 @@
 		3A8F67921D2574D400AF6FEF /* BBTotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTotalTableViewCell.h; sourceTree = "<group>"; };
 		3A8F67931D2574D400AF6FEF /* BBTotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTotalTableViewCell.m; sourceTree = "<group>"; };
 		3A8F67941D2574D400AF6FEF /* BBTotalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBTotalTableViewCell.xib; sourceTree = "<group>"; };
+		3AA5A20A1D857F5800A44EDB /* BBLabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLabelTableViewCell.h; sourceTree = "<group>"; };
+		3AA5A20B1D857F5800A44EDB /* BBLabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLabelTableViewCell.m; sourceTree = "<group>"; };
+		3AA5A20C1D857F5800A44EDB /* BBLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLabelTableViewCell.xib; sourceTree = "<group>"; };
 		3AB21D0E1CFA066B0090F436 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3AB21D0F1CFA066B0090F436 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3AB21D161CFA130A0090F436 /* BBParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentViewController.h; sourceTree = "<group>"; };
@@ -2651,6 +2656,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3AA5A2091D857EDE00A44EDB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AA5A20A1D857F5800A44EDB /* BBLabelTableViewCell.h */,
+				3AA5A20B1D857F5800A44EDB /* BBLabelTableViewCell.m */,
+				3AA5A20C1D857F5800A44EDB /* BBLabelTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3AB21D0D1CFA066B0090F436 /* Network Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -2901,6 +2916,7 @@
 		8BD8B9C12DC306DEADB2EDA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3AA5A2091D857EDE00A44EDB /* Views */,
 				2184E90496E20CE1DE3865A6 /* BBReplacementViewInput.h */,
 				D154A66CF04BC44AB1975E2E /* BBReplacementViewOutput.h */,
 				97025F24973963EB0A3203A7 /* BBReplacementViewController.h */,
@@ -3216,6 +3232,7 @@
 				3A2D56C31CF075D200A8EFF5 /* BBProfileTableViewCell.xib in Resources */,
 				3AE546081D1695D2006A1CDD /* BBAboutTableViewCell.xib in Resources */,
 				3A2D56BC1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.xib in Resources */,
+				3AA5A20E1D857F5800A44EDB /* BBLabelTableViewCell.xib in Resources */,
 				3A2D57171CF3321500A8EFF5 /* BBAddBasketViewPopover.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
 				3A8F67961D2574D400AF6FEF /* BBTotalTableViewCell.xib in Resources */,
@@ -3305,6 +3322,7 @@
 				3A65F5411D42206A00F00707 /* BBClearOrderTableViewCell.m in Sources */,
 				3A2D56751CF075D200A8EFF5 /* BBBasketViewController.m in Sources */,
 				3A2D56901CF075D200A8EFF5 /* BBProgramsInteractor.m in Sources */,
+				3AA5A20D1D857F5800A44EDB /* BBLabelTableViewCell.m in Sources */,
 				3A2D56831CF075D200A8EFF5 /* BBCardProgramViewController.m in Sources */,
 				3A2D56C51CF075D200A8EFF5 /* BBSettingsInteractor.m in Sources */,
 				3A2D566E1CF075D200A8EFF5 /* BBRegistrationPresenter.m in Sources */,

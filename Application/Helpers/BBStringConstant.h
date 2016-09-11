@@ -38,6 +38,9 @@ static NSString *kNibNameHeaderCell = @"BBHeaderTableViewCell";
 // I
 static NSString *kNibNameInfoRegistCell = @"BBInfoRegistTableViewCell";
 
+// L
+static NSString *kNibNameLabelCell = @"BBLabelTableViewCell";
+
 // M
 static NSString *kNibNameMenuCell = @"BBMenuTableViewCell";
 static NSString *kNibNameMyProgramCell = @"BBMyProgramTableViewCell";
@@ -91,6 +94,9 @@ static NSString *kHeaderCellIdentifire = @"headerTableViewCell";
 
 // I
 static NSString *kInfoRegistCellIdentifire = @"infoRegistTableViewCell";
+
+// L
+static NSString *kLabelCellIdentifire = @"LabelTableViewCell";
 
 // M
 static NSString *kMenuCellIdentifire = @"menuTableViewCell";

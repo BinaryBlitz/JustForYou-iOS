@@ -57,6 +57,7 @@
 }
 
 - (void)viewWillAppear {
+    [self.view updateTableInsets];
     if (self.keyType == kViewReplacementType) {
         [self.interactor currentReplacementUser];
     } else {

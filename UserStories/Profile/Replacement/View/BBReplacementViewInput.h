@@ -12,6 +12,8 @@
 
 - (void)setupInitialState;
 
+- (void)updateTableInsets;
+
 - (NSInteger)countReplacementInTableView;
 
 - (void)currentReplacementArray:(NSArray *)replacement;

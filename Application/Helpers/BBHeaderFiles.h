@@ -40,6 +40,9 @@
 // I
 #import "BBInfoRegistTableViewCell.h"
 
+// L
+#import "BBLabelTableViewCell.h"
+
 // M
 #import "BBMenuTableViewCell.h"
 #import "BBMyProgramTableViewCell.h"

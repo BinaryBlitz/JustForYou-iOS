@@ -30,12 +30,12 @@
 @end
 
 static CGFloat estimatedRowHeight = 50.0f;
-
 static CGFloat contentInset = 20.0f;
-
+static CGFloat heightFirstHeaderSection = 1.0f;
 static CGFloat heightHeaderSection = 10.0f;
 //static CGFloat heightFooterSection = 10.0f;
 
+static NSString *infoText = @"На данном экране вы можете выбрать до трех продуктов, которые вы не употребляете";
 
 @implementation BBReplacementViewController
 
@@ -82,6 +82,14 @@ static CGFloat heightHeaderSection = 10.0f;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
     });
+}
+
+- (void)updateTableInsets {
+    if (self.kType == kViewReplacementType) {
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, contentInset, 0);
+    } else {
+        self.tableView.contentInset = UIEdgeInsetsMake(contentInset, 0, contentInset, 0);
+    }
 }
 
 - (void)updateWithCategory:(NSArray *)category {
@@ -136,21 +144,22 @@ static CGFloat heightHeaderSection = 10.0f;
 - (void)_registerCellIdentifireInTableView {
     [self.tableView registerNib:[UINib nibWithNibName:kNibNameAccessoryCell bundle:nil]
          forCellReuseIdentifier:kAccessoryCellIdentifire];
+    [self.tableView registerNib:[UINib nibWithNibName:kNibNameLabelCell bundle:nil]
+         forCellReuseIdentifier:kLabelCellIdentifire];
 }
 
 - (void)_settingTableView {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimatedRowHeight;
-    self.tableView.contentInset = UIEdgeInsetsMake(contentInset, 0, contentInset, 0);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.kType == kViewReplacementType) {
         if ([self.replacement count] != 0) {
-            return [self.replacement count];
+            return [self.replacement count] + 1;
         }
-        return 1;
+        return 2;
     }
     return [self.category count];
 }
@@ -168,6 +177,9 @@ static CGFloat heightHeaderSection = 10.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0 && self.kType == kViewReplacementType) {
+        return heightFirstHeaderSection;
+    }
     return heightHeaderSection;
 }
 
@@ -185,15 +197,21 @@ static CGFloat heightHeaderSection = 10.0f;
     cell.accessoryImageView.hidden = YES;
 
     if (self.kType == kViewReplacementType) {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.kSideCornerRadius = kAllCornerRadius;
-        if ([self.replacement count] == 0) {
-            cell.textLabel.text = @"У Вас нет ни одной замены";
-            cell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
+        if (indexPath.section == 0) {
+            BBLabelTableViewCell *labelCell = [self.tableView dequeueReusableCellWithIdentifier:kLabelCellIdentifire];
+            labelCell.label.text = infoText;
+            return labelCell;
         } else {
-            BBReplacementProduct *product = [self.replacement objectAtIndex:indexPath.section];
-            cell.textLabel.text = product.nameProduct;
-            cell.textLabel.textColor = [UIColor blackColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.kSideCornerRadius = kAllCornerRadius;
+            if ([self.replacement count] == 0) {
+                cell.textLabel.text = @"У Вас нет ни одной замены";
+                cell.textLabel.textColor = [BBConstantAndColor applicationGrayColor];
+            } else {
+                BBReplacementProduct *product = [self.replacement objectAtIndex:indexPath.section-1];
+                cell.textLabel.text = product.nameProduct;
+                cell.textLabel.textColor = [UIColor blackColor];
+            }
         }
     } else {
         BBReplacementCategory *category = [self.category objectAtIndex:indexPath.section];
@@ -237,7 +255,7 @@ static CGFloat heightHeaderSection = 10.0f;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         self.indexPath = indexPath;
-        BBReplacementProduct *product = [self.replacement objectAtIndex:indexPath.section];
+        BBReplacementProduct *product = [self.replacement objectAtIndex:indexPath.section-1];
         [self.output deleteElementWithText:product];
     }
 }
