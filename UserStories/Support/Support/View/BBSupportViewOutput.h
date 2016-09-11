@@ -18,4 +18,7 @@
 
 - (void)feedbackButtonDidTap;
 
+- (void)facebookButtonDidTap;
+- (void)instagramButtonDidTap;
+
 @end

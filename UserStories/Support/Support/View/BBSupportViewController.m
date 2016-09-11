@@ -18,10 +18,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *writeManagerButton;
 @property (weak, nonatomic) IBOutlet BBDottedBorderButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
+@property (weak, nonatomic) IBOutlet UIButton *instagramButton;
 
 @end
 
-static CGFloat bottomInset = 30.0f;
+static CGFloat bottomInsetIphone5 = 80.0f;
+static CGFloat bottomInsetIphone4 = 168.0f;
+static CGFloat heightIPhone5 = 568.0f;
+static CGFloat heightIPhone4 = 480.0f;
 
 @implementation BBSupportViewController
 
@@ -49,6 +54,15 @@ static CGFloat bottomInset = 30.0f;
     [self _stopTapControlsWithTimer];
     [self.output feedbackButtonDidTap];
 }
+
+- (IBAction)facebookButtonAction:(id)sender {
+    [self.output facebookButtonDidTap];
+}
+
+- (IBAction)instagramButtonAction:(id)sender {
+    [self.output instagramButtonDidTap];
+}
+
 
 - (void)_stopTapControlsWithTimer {
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
@@ -85,7 +99,14 @@ static CGFloat bottomInset = 30.0f;
 }
 
 - (void)_settingScrollView {
-    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomInset, 0);
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    if (screenRect.size.height == heightIPhone5) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomInsetIphone5, 0);
+    } else if (screenRect.size.height == heightIPhone4) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, bottomInsetIphone4, 0);
+    }else {
+        self.scrollView.contentInset = UIEdgeInsetsZero;
+    }
 }
 
 @end

@@ -46,6 +46,15 @@ static NSString *mailForSupport = @"info@justforyou.ru";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appURL]];
 }
 
+- (void)openFacebookSocialGroup {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kFacebookSocialGroup]];
+}
+
+- (void)openInstagamSocialGroup {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kInstagramSocialGroup]];
+}
+
+
 #pragma mark - MailController Delegate
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {

@@ -81,6 +81,14 @@ static NSString *kURLBundleJFY = @"https://itunes.apple.com/us/app/justforyou/id
     [self.router presentITunseWithAppUrl:kURLBundleJFY];
 }
 
+- (void)facebookButtonDidTap {
+    [self.router openFacebookSocialGroup];
+}
+
+- (void)instagramButtonDidTap {
+    [self.router openInstagamSocialGroup];
+}
+
 #pragma mark - Методы BBSupportInteractorOutput
 
 @end

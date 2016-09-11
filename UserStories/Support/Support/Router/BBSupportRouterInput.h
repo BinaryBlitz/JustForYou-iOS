@@ -17,4 +17,7 @@
 
 - (void)presentITunseWithAppUrl:(NSString *)appURL;
 
+- (void)openFacebookSocialGroup;
+- (void)openInstagamSocialGroup;
+
 @end
