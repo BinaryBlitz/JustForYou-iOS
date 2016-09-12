@@ -70,9 +70,6 @@ static NSInteger shemaVersionRealm = 28;
 - (void)_updateUserOnDataBase {
     [[BBServerService sharedService] showUserWithUserToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
         [[BBUserService sharedService] updateUserWithUser:user];
-        [[BBServerService sharedService] listPurchasesWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
-            
-        }];
     }];
     [[BBServerService sharedService] listPaymentCardsUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
         HQDispatchToMainQueue(^{

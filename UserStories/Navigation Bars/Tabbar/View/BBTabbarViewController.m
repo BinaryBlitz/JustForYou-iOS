@@ -82,7 +82,7 @@ static CGFloat labelInset = 5.0f;
         self.indicatorLabel.textColor = [UIColor whiteColor];
         self.indicatorLabel.textAlignment = NSTextAlignmentCenter;
         self.indicatorLabel.font = [UIFont systemFontOfSize:sizeFont];
-        self.indicatorLabel.text = @"44";
+        self.indicatorLabel.text = @"0";
         self.indicatorLabel.layer.masksToBounds = YES;
         self.indicatorLabel.layer.cornerRadius = CGRectGetHeight(_indicatorLabel.frame)/2;
     }
