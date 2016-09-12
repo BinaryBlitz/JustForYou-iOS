@@ -499,6 +499,37 @@
     }];
 }
 
+- (void)deletePaymentCardWithApiToken:(NSString *)apiToken cardId:(NSInteger)cardId completion:(Completion)completion {
+    [self _checkNetworkConnection];
+    [self.transport deletePaymentCardWithApiToken:apiToken cardId:[NSString stringWithFormat:@"%ld", (long)cardId] completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        BBServerResponse *responseServer = [[BBServerResponse alloc] initWithResponse:response keyConnection:self.keyConnection data:data];
+        if (completion) {
+            completion(responseServer, error);
+        }
+    }];
+}
+
+#pragma mark - Other Methods
+
+- (void)updateUserCountsPurchasesWithUserToken:(NSString *)token tabbar:(BBTabbarViewController *)tabbar {
+    [self listPurchasesWithApiToken:token completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            if (response.responseCode == kResponce200) {
+                if ([objects count] > 0) {
+                    tabbar.indicatorLabel.hidden = NO;
+                    tabbar.indicatorLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[objects count]];
+                } else {
+                    tabbar.indicatorLabel.hidden = YES;
+                }
+            } else {
+                tabbar.indicatorLabel.hidden = YES;
+            }
+        } else {
+            tabbar.indicatorLabel.hidden = YES;
+        }
+    }];
+}
+
 #pragma mark - Check Network
 
 - (void)_checkNetworkConnection {

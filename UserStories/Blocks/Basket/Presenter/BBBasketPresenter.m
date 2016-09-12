@@ -45,6 +45,7 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 - (void)paySucces {
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
     [self.interactor deleteAllOrderProgramsOnUser];
+    [self.router updateCountPurchasesUser];
     [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
 
@@ -126,6 +127,7 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 - (void)paymentSuccessfull {
     [self.view hideBackgroundLoaderViewWithAlpha];
     [self.interactor deleteAllOrderProgramsOnUser];
+    [self.router updateCountPurchasesUser];
     [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
 

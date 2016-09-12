@@ -48,6 +48,7 @@ typedef void (^CallBack)(void);
 
 - (NSArray *)curentPayCards;
 - (void)addOrUpdatePayCardsUserWithArray:(NSArray *)objects;
+- (void)deletePayCard:(BBPayCard *)card;
 - (void)deleteAllPayCardsUser;
 
 @end

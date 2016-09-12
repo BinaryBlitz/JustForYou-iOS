@@ -13,6 +13,7 @@
 #import "BBTabBar.h"
 
 #import "BBItemService.h"
+#import "BBUserService.h"
 
 @interface BBTabbarViewController()
 
@@ -46,6 +47,12 @@ static CGFloat labelInset = 5.0f;
 
 - (void)presentFirstItem {
     [self setSelectedIndex:0];
+    self.indicatorLabel.hidden = YES;
+    NSInteger count = [[BBUserService sharedService] currentUser].countPurchases;
+    if (count > 0) {
+        self.indicatorLabel.hidden = NO;
+        self.indicatorLabel.text = [NSString stringWithFormat:@"%ld", (long)count];
+    }
 }
 
 - (void)setItemsBar:(NSArray *)items {

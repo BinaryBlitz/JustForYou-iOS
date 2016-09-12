@@ -52,6 +52,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 }
 
 - (void)paySucces {
+    [self.router updateCountPurchasesUser];
     [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
     [self.view presentAlertWithTitle:nil message:paymentSuccessfull];
 }
@@ -160,6 +161,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
     NSString *message;
     if (exchange.paid) {
         message = [NSString stringWithFormat:@"Замена успешно произведена. Вам начисленно бонусов %ld", (long)exchange.pengingBalanse];
+        [self.router updateCountPurchasesUser];
         [self.view presentAlertControllerWithTitle:kNoteTitle message:message titleAction:kNextButton cancelTitle:nil key:kPopController];
     } else {
         [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
@@ -178,6 +180,7 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 
 - (void)paymentSuccessfull {
     [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.router updateCountPurchasesUser];
     [self.view presentAlertControllerWithTitle:kNoteTitle message:paymentSuccessfull titleAction:kNextButton cancelTitle:nil key:kPopController];
 }
 

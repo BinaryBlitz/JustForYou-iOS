@@ -16,6 +16,7 @@
 - (void)currentSharesWithArray:(NSArray *)array;
 
 - (void)currentPayCardsUserWithArray:(NSArray *)array;
+- (void)currentPayCardArrayWithDeletedCard:(NSArray *)array;
 
 - (void)errorNetwork;
 - (void)errorServer;

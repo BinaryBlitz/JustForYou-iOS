@@ -69,7 +69,7 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 #pragma  mark - PayCard Methods
 
 - (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
-
+- (void)deletePaymentCardWithApiToken:(NSString *)apiToken cardId:(NSString *)cardId completion:(CompletionBlock)completion;
 
 #pragma mark - Replacement Methods
 

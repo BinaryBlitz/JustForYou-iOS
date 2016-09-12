@@ -20,6 +20,8 @@
 
 - (void)deletedCellWithAddress:(BBAddress *)address;
 
+- (void)deletedCellWithPayCard:(BBPayCard *)card;
+
 - (void)addBarButtonDidTap;
 
 @end

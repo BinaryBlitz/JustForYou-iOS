@@ -48,7 +48,7 @@
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.contentView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadiusCell, cornerRadiusCell)];
     maskLayer.path = maskPath.CGPath;
     borderLayer.path  = maskPath.CGPath;
-    self.contentView.layer.backgroundColor = [BBConstantAndColor applicationGreenBankColor].CGColor;
+    self.contentView.layer.backgroundColor = [UIColor whiteColor].CGColor;//[BBConstantAndColor applicationGreenBankColor].CGColor;
 //    borderLayer.backgroundColor = [BBConstantAndColor applicationGreenBankColor].CGColor;
     self.contentView.layer.mask = maskLayer;
     [self.contentView.layer addSublayer:borderLayer];

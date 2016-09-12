@@ -316,6 +316,13 @@ NSString * const kServerURL = @"https://justforyou-production.herokuapp.com";
     [self sendRequest:request completion:completion];
 }
 
+- (void)deletePaymentCardWithApiToken:(NSString *)apiToken cardId:(NSString *)cardId completion:(CompletionBlock)completion {
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/payment_cards/%@?api_token=%@", kServerURL, cardId, apiToken]];
+    
+    request = [self _settingRequestWithRequest:request parametrs:nil HTTPMethod:DELETE];
+    [self sendRequest:request completion:completion];
+}
 
 #pragma mark - Replacement Methods
 

@@ -14,4 +14,6 @@
 - (void)dissmissViewControllerWithNavigation:(UINavigationController *)nc;
 - (void)popViewControllerWithNavigationController:(UINavigationController *)nc;
 
+- (void)updateCountPurchasesUser;
+
 @end

@@ -14,6 +14,12 @@
 #import "BBServerService.h"
 #import "BBDataBaseService.h"
 
+@interface BBUniversalInteractor()
+
+@property (strong, nonatomic) NSMutableArray *array;
+
+@end
+
 @implementation BBUniversalInteractor
 
 #pragma mark - Методы BBUniversalInteractorInput
@@ -64,6 +70,23 @@
                 [[BBDataBaseService sharedService] addOrUpdatePayCardsUserWithArray:objects];
                 [self.output currentPayCardsUserWithArray:[[BBDataBaseService sharedService] curentPayCards]];
             });
+        }
+    }];
+}
+
+- (void)deletePaymentCardWithCard:(BBPayCard *)card {
+    __block BBPayCard *oldCard = card;
+    [[BBServerService sharedService] deletePaymentCardWithApiToken:[[BBUserService sharedService] tokenUser] cardId:card.payCardId completion:^(BBServerResponse *response, NSError *error) {
+        if (response.kConnectionServer == kSuccessfullyConnection) {
+            NSLog(@"%lu", (unsigned long)response.responseCode);
+            if (response.serverError == kServerErrorSuccessfull) {
+                [[BBDataBaseService sharedService] deletePayCard:oldCard];
+                [self.output currentPayCardsUserWithArray:[[BBDataBaseService sharedService] curentPayCards]];
+            } else {
+                [self.output errorServer];
+            }
+        } else {
+            [self.output errorNetwork];
         }
     }];
 }

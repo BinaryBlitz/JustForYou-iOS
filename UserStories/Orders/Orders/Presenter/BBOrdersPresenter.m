@@ -78,6 +78,7 @@ static NSString *kRealyRemoveDelivery = @"Вы уверены что хотит�
 }
 
 - (void)viewWillAppear {
+    [self.router updateCountPurchasesUser];
     [self.interactor listMyDeliveriesOnDataBase];
 }
 
@@ -169,6 +170,7 @@ static NSString *kRealyRemoveDelivery = @"Вы уверены что хотит�
 
 - (void)deliveriesDeleted {
     [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.router updateCountPurchasesUser];
     [self.interactor listMyDeliveriesOnDataBase];
     [self.view presentAlertWithTitle:kNoteTitle message:kRemoveDeliver];
 }

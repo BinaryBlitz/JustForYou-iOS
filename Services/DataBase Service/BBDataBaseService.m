@@ -230,6 +230,14 @@
     [standartRealm commitWriteTransaction];
 }
 
+- (void)deletePayCard:(BBPayCard *)card {
+    RLMRealm *standartRealm = [RLMRealm defaultRealm];
+    BBPayCard *oldCard = [BBPayCard objectsWhere:[NSString stringWithFormat:@"%ld", (long)card.payCardId]].firstObject;
+    [standartRealm beginWriteTransaction];
+    [standartRealm deleteObject:oldCard];
+    [standartRealm commitWriteTransaction];
+}
+
 - (void)deleteAllPayCardsUser {
     RLMResults *res = [BBPayCard allObjectsInRealm:[RLMRealm defaultRealm]];
     [[RLMRealm defaultRealm] beginWriteTransaction];

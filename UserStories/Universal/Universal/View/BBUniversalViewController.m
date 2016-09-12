@@ -91,14 +91,24 @@ static CGFloat heightFooterSection = 10.0f;
     self.objects = objects;
     HQDispatchToMainQueue(^{
         self.count = [objects count];
-        NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
-        [self.tableView beginUpdates];
-        if ([objects count] != 0) {
-            [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (self.keyModule == kMyPayCardModule) {
+            [self.tableView beginUpdates];
+            if ([objects count] != 0) {
+                [self.tableView deleteRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            } else {
+                [self.tableView reloadData];
+            }
+            [self.tableView endUpdates];
         } else {
-            [self.tableView reloadData];
+            NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.indexPath.section, 1)];
+            [self.tableView beginUpdates];
+            if ([objects count] != 0) {
+                [self.tableView deleteSections:section withRowAnimation:UITableViewRowAnimationAutomatic];
+            } else {
+                [self.tableView reloadData];
+            }
+            [self.tableView endUpdates];
         }
-        [self.tableView endUpdates];
     });
 }
 
@@ -270,6 +280,15 @@ static CGFloat heightFooterSection = 10.0f;
     if (self.keyModule == kMyAddressModule) {
         return UITableViewCellEditingStyleDelete;
     }
+    if (self.keyModule == kMyPayCardModule) {
+        if (indexPath.section == 0) {
+            return UITableViewCellEditingStyleDelete;
+        } else {
+            if ([self.objects count] != 0) {
+                return UITableViewCellEditingStyleDelete;
+            }
+        }
+    }
     return UITableViewCellEditingStyleNone;
 }
 
@@ -278,9 +297,17 @@ static CGFloat heightFooterSection = 10.0f;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        self.indexPath = indexPath;
-        [self.output deletedCellWithAddress:[self.objects objectAtIndex:indexPath.section]];
+    if (self.keyModule == kMyAddressModule) {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            self.indexPath = indexPath;
+            [self.output deletedCellWithAddress:[self.objects objectAtIndex:indexPath.section]];
+        }
+    }
+    if (self.keyModule == kMyPayCardModule) {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            self.indexPath = indexPath;
+            [self.output deletedCellWithPayCard:[self.objects objectAtIndex:indexPath.row]];
+        }
     }
 }
 

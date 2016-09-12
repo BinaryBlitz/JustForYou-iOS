@@ -8,6 +8,10 @@
 
 #import "BBBasketRouter.h"
 
+#import "BBServerService.h"
+#import "BBUserService.h"
+#import "BBTabbarViewController.h"
+
 @interface BBBasketRouter()
 
 @end
@@ -26,6 +30,11 @@
     HQDispatchToMainQueue(^{
         [nc popViewControllerAnimated:YES];
     });
+}
+
+- (void)updateCountPurchasesUser {
+    UIViewController *view = (UIViewController *)self.presenter.view;
+    [[BBServerService sharedService] updateUserCountsPurchasesWithUserToken:[[BBUserService sharedService] tokenUser] tabbar:(BBTabbarViewController *)view.tabBarController];
 }
 
 @end

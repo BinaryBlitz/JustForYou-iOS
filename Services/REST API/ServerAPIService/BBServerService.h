@@ -10,6 +10,8 @@
 
 #import "BBServerResponse.h"
 
+#import "BBTabbarViewController.h"
+
 @class BBUser;
 @class BBOrder;
 @class BBPayment;
@@ -99,5 +101,10 @@ typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *e
 #pragma  mark - PayCard Methods
 
 - (void)listPaymentCardsUserWithApiToken:(NSString *)apiToken completion:(ArrayObjectsCompletion)completion;
+- (void)deletePaymentCardWithApiToken:(NSString *)apiToken cardId:(NSInteger)cardId completion:(Completion)completion;
+
+#pragma mark - Other Methods
+
+- (void)updateUserCountsPurchasesWithUserToken:(NSString *)token tabbar:(BBTabbarViewController *)tabbar;
 
 @end

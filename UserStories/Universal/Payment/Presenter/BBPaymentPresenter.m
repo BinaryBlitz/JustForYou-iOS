@@ -59,9 +59,7 @@
 
 - (void)webViewDidChangeURLWithURL:(NSURL *)url {
     NSString *urlString = url.absoluteString;
-    NSLog(@"%@", urlString);
     NSRange range = [urlString rangeOfString:@"success" options:NSLiteralSearch];
-    NSLog(@"%@", NSStringFromRange(range));
     if (range.length > 3) {
         [self popController];
     }

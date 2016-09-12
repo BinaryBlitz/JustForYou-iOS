@@ -114,6 +114,11 @@
     [self.interactor deleteAddress:address];
 }
 
+- (void)deletedCellWithPayCard:(BBPayCard *)card {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor deletePaymentCardWithCard:card];
+}
+
 - (void)addBarButtonDidTap {
     [self.addressModule pushModuleWithNavigationModule:self.navigationModule parentModule:self];
 }
@@ -136,6 +141,11 @@
 }
 
 - (void)currentAddressArrayWithDeletedAddress:(NSArray *)array {
+    [self.view hideBackgroundLoaderViewWithAlpha];
+    [self.view updateTableViewWithDeletedObjects:array];
+}
+
+- (void)currentPayCardArrayWithDeletedCard:(NSArray *)array {
     [self.view hideBackgroundLoaderViewWithAlpha];
     [self.view updateTableViewWithDeletedObjects:array];
 }

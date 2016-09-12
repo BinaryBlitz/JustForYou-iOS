@@ -8,6 +8,10 @@
 
 #import "BBOrdersRouter.h"
 
+#import "BBServerService.h"
+#import "BBUserService.h"
+#import "BBTabbarViewController.h"
+
 @implementation BBOrdersRouter
 
 #pragma mark - BBOrdersRouterInput
@@ -24,6 +28,11 @@
         UIViewController *view = (UIViewController *)self.presenter.view;
         [view.tabBarController setSelectedIndex:0];
     });
+}
+
+- (void)updateCountPurchasesUser {
+    UIViewController *view = (UIViewController *)self.presenter.view;
+    [[BBServerService sharedService] updateUserCountsPurchasesWithUserToken:[[BBUserService sharedService] tokenUser] tabbar:(BBTabbarViewController *)view.tabBarController];
 }
 
 @end

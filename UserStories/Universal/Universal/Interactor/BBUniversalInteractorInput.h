@@ -26,4 +26,6 @@
 
 - (void)listPayCardsUser;
 
+- (void)deletePaymentCardWithCard:(BBPayCard *)card;
+
 @end

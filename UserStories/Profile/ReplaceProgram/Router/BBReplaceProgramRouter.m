@@ -8,6 +8,10 @@
 
 #import "BBReplaceProgramRouter.h"
 
+#import "BBServerService.h"
+#import "BBUserService.h"
+#import "BBTabbarViewController.h"
+
 @implementation BBReplaceProgramRouter
 
 #pragma mark - BBReplaceProgramRouterInput
@@ -23,6 +27,11 @@
     HQDispatchToMainQueue(^{
         [nc popViewControllerAnimated:YES];
     });
+}
+
+- (void)updateCountPurchasesUser {
+    UIViewController *view = (UIViewController *)self.presenter.view;
+    [[BBServerService sharedService] updateUserCountsPurchasesWithUserToken:[[BBUserService sharedService] tokenUser] tabbar:(BBTabbarViewController *)view.tabBarController];
 }
 
 @end
