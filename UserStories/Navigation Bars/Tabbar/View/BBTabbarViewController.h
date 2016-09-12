@@ -16,4 +16,6 @@
 
 @property (weak, nonatomic) id<BBTabbarViewOutput> output;
 
+@property (strong, nonatomic) UILabel *indicatorLabel;
+
 @end

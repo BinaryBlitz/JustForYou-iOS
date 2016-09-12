@@ -14,6 +14,8 @@
 
 #import "BBDay.h"
 
+#import "BBItemService.h"
+
 @interface BBCardProgramViewController() <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell, BBAddBasketViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -79,11 +81,6 @@
 
 #pragma mark - Actions
 
-- (void)_basketButtonAction {
-    [self.output basketButtonDidTap];
-}
-
-
 - (IBAction)addInBasketButtonAction:(id)sender {
     [self.output addInBasketButtonDidTap];
 }
@@ -143,7 +140,7 @@
 }
 
 - (void)updateBasketButtonImageWithImageName:(NSString *)name {
-    self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[BBItemService sharedService] updateImageInBarButtonItem:self.navigationItem.rightBarButtonItem forImage:name];
 }
 
 #pragma mark - TableView Methods
@@ -363,8 +360,9 @@
 #pragma mark - Init Methods
 
 - (void)_initRightBarButton {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(_basketButtonAction)];
-    
+    UIBarButtonItem *item = [[BBItemService sharedService] basketItemWithCallback:^{
+        [self.output basketButtonDidTap];
+    }];
     self.navigationItem.rightBarButtonItem = item;
 }
 

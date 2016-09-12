@@ -55,7 +55,9 @@
         if (response.kConnectionServer == kSuccessfullyConnection) {
             if (user) {
                 [[BBUserService sharedService] saveCurrentUser:user];
-                
+                [[BBServerService sharedService] listPurchasesWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+                    
+                }];
                 [[BBServerService sharedService] listAddressUserWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
                     if (response.serverError == kServerErrorSuccessfull) {
                         [[BBUserService sharedService] addAddressUserFromArray:objects];

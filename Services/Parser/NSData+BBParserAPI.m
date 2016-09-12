@@ -112,10 +112,15 @@
     NSMutableArray *result = [NSMutableArray array];
     id JSONObj = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
     if ([JSONObj isKindOfClass:[NSArray class]]) {
+        NSInteger count = 0;
         for (id obj in JSONObj) {
             BBPurchases *purchases = [[BBPurchases alloc] initWithJSON:obj];
             [result addObject:purchases];
+            count++;
         }
+        BBUser *user = [[BBUserService sharedService] currentUser];
+        user.countPurchases = count;
+        [[BBUserService sharedService] saveCurrentUser:user];
     }
     return result;
 }

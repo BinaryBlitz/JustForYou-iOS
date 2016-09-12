@@ -12,6 +12,8 @@
 
 #import "BBProgramView.h"
 
+#import "BBItemService.h"
+
 @interface BBProgramsViewController() <UIScrollViewDelegate, BBProgramViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
@@ -66,10 +68,6 @@
 }
 
 #pragma mark - Actions
-
-- (void)_basketButtonAction {
-    [self.output basketButtonDidTap];
-}
 
 - (void)moreButtonDidTap {
     @try {
@@ -205,7 +203,7 @@
 }
 
 - (void)updateBasketButtonImageWithImageName:(NSString *)name {
-    self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[BBItemService sharedService] updateImageInBarButtonItem:self.navigationItem.rightBarButtonItem forImage:name];
 }
 
 #pragma mark - ScrollViewDelegate
@@ -251,8 +249,9 @@
 #pragma mark - Init Methods
 
 - (void)_initRightBarButton {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(_basketButtonAction)];
-    
+    UIBarButtonItem *item = [[BBItemService sharedService] basketItemWithCallback:^{
+        [self.output basketButtonDidTap];
+    }];
     self.navigationItem.rightBarButtonItem = item;
 }
 

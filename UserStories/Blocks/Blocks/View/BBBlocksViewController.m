@@ -12,6 +12,8 @@
 
 #import "BBBlock.h"
 
+#import "BBItemService.h"
+
 @interface BBBlocksViewController() <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -38,12 +40,12 @@ static CGFloat sideOffset = 35.0f;
     [self.output viewWillAppear];
 }
 
-#pragma mark - Actions
-
-- (void)_basketButtonAction {
-    [self.output basketButtonDidTap];
-}
-
+//#pragma mark - Actions
+//
+//- (void)_basketButtonAction {
+//    
+//}
+//
 #pragma mark - Методы BBBlocksViewInput
 
 - (void)setupInitialState {
@@ -65,7 +67,8 @@ static CGFloat sideOffset = 35.0f;
 }
 
 - (void)updateBasketButtonImageWithImageName:(NSString *)name {
-     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[BBItemService sharedService] updateImageInBarButtonItem:self.navigationItem.rightBarButtonItem forImage:name];
+//     self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 #pragma mark - TableView
@@ -110,8 +113,9 @@ static CGFloat sideOffset = 35.0f;
 #pragma mark - Init Methods
 
 - (void)_initRightBarButton {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"basket"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(_basketButtonAction)];
-    
+    UIBarButtonItem *item = [[BBItemService sharedService] basketItemWithCallback:^{
+        [self.output basketButtonDidTap];
+    }];
     self.navigationItem.rightBarButtonItem = item;
 }
 
