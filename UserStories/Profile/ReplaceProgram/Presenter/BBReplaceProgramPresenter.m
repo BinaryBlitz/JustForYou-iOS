@@ -37,6 +37,7 @@ static NSString *kConfirmationTitle = @"Подтверждение";
 static NSString *kEmptyPrograms = @"Произошла ошибка получения спика программ. Повторите позже или обратитесь в службу поддержки";
 static NSString *kErrorIdentyProgram = @"Вы не можете заменять одинаковые программы";
 
+
 @implementation BBReplaceProgramPresenter
 
 #pragma mark - Методы BBReplaceProgramModuleInput
@@ -147,13 +148,17 @@ static NSString *kErrorIdentyProgram = @"Вы не можете заменять
 }
 
 - (void)exchangeWithPayId:(NSInteger)payId payURL:(NSString *)url {
-    self.payId = payId;
-    self.payURL = url;
-    BBPayment *payment = [[BBPayment alloc] init];
-    payment.paymentId = payId;
-    payment.paymentURL = url;
-    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
-
+    if ([[url class] isEqual:[NSNull class]]) {
+        [self.view hideBackgroundLoaderViewWithAlpha];
+        [self.view presentAlertWithTitle:kNoteTitle message:paymentError];
+    } else {
+        self.payId = payId;
+        self.payURL = url;
+        BBPayment *payment = [[BBPayment alloc] init];
+        payment.paymentId = payId;
+        payment.paymentURL = url;
+        [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
+    }
 }
 
 - (void)exchangeDidCreate:(BBExchange *)exchange {

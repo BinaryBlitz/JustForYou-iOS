@@ -78,10 +78,11 @@
     __block BBPayCard *oldCard = card;
     [[BBServerService sharedService] deletePaymentCardWithApiToken:[[BBUserService sharedService] tokenUser] cardId:card.payCardId completion:^(BBServerResponse *response, NSError *error) {
         if (response.kConnectionServer == kSuccessfullyConnection) {
-            NSLog(@"%lu", (unsigned long)response.responseCode);
             if (response.serverError == kServerErrorSuccessfull) {
-                [[BBDataBaseService sharedService] deletePayCard:oldCard];
-                [self.output currentPayCardsUserWithArray:[[BBDataBaseService sharedService] curentPayCards]];
+                HQDispatchToMainQueue(^{
+                    [[BBDataBaseService sharedService] deletePayCard:oldCard];
+                    [self.output currentPayCardsUserWithArray:[[BBDataBaseService sharedService] curentPayCards]];
+                });
             } else {
                 [self.output errorServer];
             }
