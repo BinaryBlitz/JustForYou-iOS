@@ -10,12 +10,12 @@
 
 //#import <Haneke.h>
 
-
+#import "BBImageWithLoader.h"
 
 @interface BBImageViewService : NSObject
 
 + (instancetype) sharedService;
 
-- (void) setImageForImageView:(UIImageView *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url;
+- (void) setImageForImageView:(BBImageWithLoader *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url;
 
 @end

@@ -14,9 +14,11 @@
 
 #import "BBItemService.h"
 
+#import "BBImageWithLoader.h"
+
 @interface BBProgramsViewController() <UIScrollViewDelegate, BBProgramViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
+@property (weak, nonatomic) IBOutlet BBImageWithLoader *firstImageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;

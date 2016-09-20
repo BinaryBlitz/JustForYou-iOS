@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BBImageWithLoader.h"
+
 @interface BBBlockTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageBlock;
+@property (weak, nonatomic) IBOutlet BBImageWithLoader *imageBlock;
 @property (weak, nonatomic) IBOutlet UILabel *nameBlock;
 @property (weak, nonatomic) IBOutlet UILabel *numberProgramInBlock;
 

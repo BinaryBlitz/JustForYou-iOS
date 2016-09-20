@@ -187,6 +187,7 @@
 		3A36B6F71D04B1EE00A32B51 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A36B6F61D04B1EE00A32B51 /* BBRootViewController.m */; };
 		3A372D6D1D818B6100E07090 /* BBAgreementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A372D6B1D818B6100E07090 /* BBAgreementTableViewCell.m */; };
 		3A372D6E1D818B6100E07090 /* BBAgreementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A372D6C1D818B6100E07090 /* BBAgreementTableViewCell.xib */; };
+		3A4FAC261D91B205007A1A14 /* BBImageWithLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FAC251D91B205007A1A14 /* BBImageWithLoader.m */; };
 		3A65F5411D42206A00F00707 /* BBClearOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */; };
 		3A65F5421D42206A00F00707 /* BBClearOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */; };
 		3A71DCEA1D69F30800EB19BF /* BBTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A71DCE81D69F30800EB19BF /* BBTimeTableViewCell.m */; };
@@ -710,6 +711,8 @@
 		3A372D6A1D818B6100E07090 /* BBAgreementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAgreementTableViewCell.h; sourceTree = "<group>"; };
 		3A372D6B1D818B6100E07090 /* BBAgreementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAgreementTableViewCell.m; sourceTree = "<group>"; };
 		3A372D6C1D818B6100E07090 /* BBAgreementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAgreementTableViewCell.xib; sourceTree = "<group>"; };
+		3A4FAC241D91B205007A1A14 /* BBImageWithLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBImageWithLoader.h; sourceTree = "<group>"; };
+		3A4FAC251D91B205007A1A14 /* BBImageWithLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImageWithLoader.m; sourceTree = "<group>"; };
 		3A65F53E1D42206A00F00707 /* BBClearOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBClearOrderTableViewCell.h; sourceTree = "<group>"; };
 		3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClearOrderTableViewCell.m; sourceTree = "<group>"; };
 		3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBClearOrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -2555,6 +2558,8 @@
 				3A1320191CFDF6240046CFBD /* BBLoaderView.xib */,
 				3AE5461D1D17D6C7006A1CDD /* BBTableAlertController.h */,
 				3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */,
+				3A4FAC241D91B205007A1A14 /* BBImageWithLoader.h */,
+				3A4FAC251D91B205007A1A14 /* BBImageWithLoader.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -3371,6 +3376,7 @@
 				3A2D56B41CF075D200A8EFF5 /* BBOrdersPresenter.m in Sources */,
 				3A2D570B1CF331C300A8EFF5 /* BBCommentTableViewCell.m in Sources */,
 				3A2D56CB1CF075D200A8EFF5 /* BBSupportAssembly.m in Sources */,
+				3A4FAC261D91B205007A1A14 /* BBImageWithLoader.m in Sources */,
 				3A2D56961CF075D200A8EFF5 /* BBNavigationAssembly.m in Sources */,
 				3A2D569F1CF075D200A8EFF5 /* BBTabbarViewController.m in Sources */,
 				3A2D56691CF075D200A8EFF5 /* BBGreetingPresenter.m in Sources */,

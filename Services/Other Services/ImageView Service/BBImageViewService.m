@@ -22,8 +22,17 @@ static NSString *kNameFormat = @"cache";
     return service;
 }
 
-- (void)setImageForImageView:(UIImageView *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url {
-    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder];
+- (void)setImageForImageView:(BBImageWithLoader *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url {
+//    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder];
+    imageView.indicatorView.hidden = NO;
+    if (!imageView.indicatorView.isAnimating) {
+        [imageView.indicatorView startAnimating];
+    }
+    [imageView sd_setImageWithURL: [NSURL URLWithString:url]
+                      placeholderImage:nil
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                 imageView.indicatorView.hidden = YES;
+                             }];
 }
 
 @end

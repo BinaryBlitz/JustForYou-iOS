@@ -58,7 +58,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testBack" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-aY-H1h">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testBack" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-aY-H1h" customClass="BBImageWithLoader">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Gmj-aY-H1h" secondAttribute="height" multiplier="3:2" id="3aa-K3-RpI"/>
