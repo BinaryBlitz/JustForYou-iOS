@@ -117,6 +117,14 @@ static CGFloat heightFooter = 13.0f;
     [self presentAlertControllerWithTitle:title message:message];
 }
 
+- (void)presentNoteAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alert = [self alertControllerWithTitle:title message:message titleCancel:kNextButton];
+    HQDispatchToMainQueue(^{
+        [self presentViewController:alert animated:YES completion:nil];
+        alert.view.tintColor = [BBConstantAndColor applicationOrangeColor];
+    });
+}
+
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message titleAction:(NSString *)titleAction {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *canc = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

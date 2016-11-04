@@ -29,6 +29,8 @@
 
 static NSString *basketIsEmpty = @"Выберите программу которую хотите купить";
 
+static NSString *basketAlertDelivery = @"Доставка осуществляется только в пределах Москвы и Московской области";
+
 @implementation BBBasketPresenter
 
 #pragma mark - Методы BBBasketModuleInput
@@ -57,6 +59,7 @@ static NSString *basketIsEmpty = @"Выберите программу кото�
 }
 
 - (void)viewWillAppear {
+    [self.view presentNoteAlertWithTitle:kNoteTitle message:basketAlertDelivery];
     [self.interactor currentOrdersInBasket];
 }
 
