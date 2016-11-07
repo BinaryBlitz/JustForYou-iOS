@@ -39,7 +39,7 @@ static NSString *kStatusOK = @"OK";
 }
 
 - (BBAddress *)addressFromAddress:(LMAddress *)addr {
-    NSString *route = [self component:@"route" inArray:addr.lines ofType:@"short_name"];
+    NSString *route = [addr valueForKey:@"route"];//[self component:@"route" inArray:addr.lines ofType:@"short_name"];
     BBAddress *address = nil;
     if (route && addr.streetNumber) {
         address = [[BBAddress alloc] initWithCoordinate:addr.coordinate country:addr.country city:addr.locality street:route house:addr.streetNumber];

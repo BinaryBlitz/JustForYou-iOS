@@ -12,6 +12,8 @@
 
 #import "BBImageViewService.h"
 
+#import "BBAppAnalitics.h"
+
 @interface BBParentViewController : UIViewController
 
 @property (strong, nonatomic) BBLoaderView *loaderView;

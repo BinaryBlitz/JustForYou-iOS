@@ -35,6 +35,7 @@
     [super viewWillAppear:animated];
     self.scrollView.contentOffset = CGPointZero;
     self.pageControl.currentPage = 0;
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleGreetingModule];
 }
 
 - (void)viewWillLayoutSubviews {

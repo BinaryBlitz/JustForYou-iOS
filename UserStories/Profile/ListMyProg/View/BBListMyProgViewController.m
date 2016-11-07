@@ -41,6 +41,7 @@ static CGFloat contentInset = 20.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleMyProgramModule];
 }
 
 #pragma mark - Методы BBListMyProgViewInput

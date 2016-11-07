@@ -213,6 +213,7 @@
 		3ABAA0D91D003DC00042BD56 /* BBAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */; };
 		3AC92B091D10D53C00036E70 /* BBPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC92B081D10D53C00036E70 /* BBPayment.m */; };
 		3AC988621CAB14940069DE52 /* BBConstantAndColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC988611CAB14940069DE52 /* BBConstantAndColor.m */; };
+		3AD0A5C61DD0CBE1002ECB00 /* BBAppAnalitics.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0A5C51DD0CBE1002ECB00 /* BBAppAnalitics.m */; };
 		3AE273E01D3504E6008C0C36 /* BBParentPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE273DF1D3504E6008C0C36 /* BBParentPresenter.m */; };
 		3AE546071D1695D2006A1CDD /* BBAboutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE546051D1695D2006A1CDD /* BBAboutTableViewCell.m */; };
 		3AE546081D1695D2006A1CDD /* BBAboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE546061D1695D2006A1CDD /* BBAboutTableViewCell.xib */; };
@@ -764,6 +765,8 @@
 		3AC92B081D10D53C00036E70 /* BBPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPayment.m; sourceTree = "<group>"; };
 		3AC988601CAB14940069DE52 /* BBConstantAndColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstantAndColor.h; sourceTree = "<group>"; };
 		3AC988611CAB14940069DE52 /* BBConstantAndColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstantAndColor.m; sourceTree = "<group>"; };
+		3AD0A5C41DD0CBE1002ECB00 /* BBAppAnalitics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppAnalitics.h; sourceTree = "<group>"; };
+		3AD0A5C51DD0CBE1002ECB00 /* BBAppAnalitics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppAnalitics.m; sourceTree = "<group>"; };
 		3AE273DE1D3504E6008C0C36 /* BBParentPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentPresenter.h; sourceTree = "<group>"; };
 		3AE273DF1D3504E6008C0C36 /* BBParentPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBParentPresenter.m; sourceTree = "<group>"; };
 		3AE273E21D35067A008C0C36 /* BBParentInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParentInteractorOutput.h; sourceTree = "<group>"; };
@@ -1042,6 +1045,8 @@
 				3A1AB2811C9D917A0070E065 /* PrefixHeader.pch */,
 				3A1AB26C1C9D8F6B0070E065 /* AppDelegate.h */,
 				3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */,
+				3AD0A5C41DD0CBE1002ECB00 /* BBAppAnalitics.h */,
+				3AD0A5C51DD0CBE1002ECB00 /* BBAppAnalitics.m */,
 				3A1AB2821C9D97800070E065 /* Preloader */,
 				3A1AB27C1C9D91450070E065 /* Helpers */,
 				3A1AB26F1C9D8F6B0070E065 /* Storyboards */,
@@ -3493,6 +3498,7 @@
 				3A2D57081CF331C300A8EFF5 /* BBSegmentedControl.m in Sources */,
 				3AB21D101CFA066B0090F436 /* Reachability.m in Sources */,
 				3A2D56921CF075D200A8EFF5 /* BBProgramsRouter.m in Sources */,
+				3AD0A5C61DD0CBE1002ECB00 /* BBAppAnalitics.m in Sources */,
 				3A2D56B21CF075D200A8EFF5 /* BBOrdersAssembly.m in Sources */,
 				3A372D6D1D818B6100E07090 /* BBAgreementTableViewCell.m in Sources */,
 				3A2D56621CF075D200A8EFF5 /* BBAuthorizationViewController.m in Sources */,

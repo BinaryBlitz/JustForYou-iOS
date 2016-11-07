@@ -38,6 +38,7 @@ static CGFloat sideOffset = 35.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleProgramModule];
 }
 
 //#pragma mark - Actions
@@ -107,6 +108,7 @@ static CGFloat sideOffset = 35.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BBBlockTableViewCell *blockCell = [tableView cellForRowAtIndexPath:indexPath];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"go_to_types" action:blockCell.nameBlock.text label:@""];
     [self.output didSelectRowWithBlockId:blockCell.blockId];
 }
 

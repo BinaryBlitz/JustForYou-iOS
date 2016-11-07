@@ -44,6 +44,7 @@ static CGFloat heightHeaderSection = 10.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitlNeweAddressModule];
 }
 
 - (void)viewDidLayoutSubviews {

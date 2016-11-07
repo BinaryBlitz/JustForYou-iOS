@@ -121,6 +121,7 @@ static NSString *kNameCrossImage = @"crossIcon";
     [self _recalculationTotal];
     NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
     self.countLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)self.orderProgram.countDays, days];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"minus" label:self.program.name];
 }
 
 - (IBAction)rightButtonAction:(id)sender {
@@ -132,6 +133,7 @@ static NSString *kNameCrossImage = @"crossIcon";
     [self _recalculationTotal];
     NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
     self.countLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long)self.orderProgram.countDays, days];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"plus" label:self.program.name];
 }
 
 - (void)_recalculationTotal {

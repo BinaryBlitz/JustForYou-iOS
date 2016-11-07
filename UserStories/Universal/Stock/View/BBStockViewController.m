@@ -29,6 +29,11 @@
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[BBAppAnalitics sharedService] sendControllerWithName:self.stock.name];
+}
+
 - (void)viewWillLayoutSubviews {
     self.navigationItem.title = self.stock.name;
     self.textView.text = self.stock.descript;

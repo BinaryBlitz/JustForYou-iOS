@@ -32,11 +32,13 @@ static NSInteger numberOfRowsInSecondSection = 5;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleProfileModule];
 }
 
 #pragma mark - Actions
 
 - (void)_settingsBarButtonAction {
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"settings" action:@"click" label:@""];
     [self.output settingsButtonDidTap];
 }
 

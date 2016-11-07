@@ -40,6 +40,7 @@ static CGFloat heightFooterSection = 1.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleSettingsModule];
 }
 
 - (void)viewWillLayoutSubviews {

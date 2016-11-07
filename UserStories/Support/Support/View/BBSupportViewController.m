@@ -38,20 +38,28 @@ static CGFloat heightIPhone4 = 480.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleSupportModule];
+}
+
 #pragma mark - Actions Mathods
 
 - (IBAction)callManagerButtonAction:(id)sender {
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"manager_call" action:@"click" label:@""];
     [self.output callManagerButtonDidTap];
 }
 
 - (IBAction)writeManagerButtonAction:(id)sender {
     [self _stopTapControlsWithTimer];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"manager_letter" action:@"click" label:@""];
     [self.output writeManagerButtonDidTap];
 }
 
 
 - (IBAction)feedbackButtonAction:(id)sender {
     [self _stopTapControlsWithTimer];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"otzyv" action:@"click" label:@""];
     [self.output feedbackButtonDidTap];
 }
 

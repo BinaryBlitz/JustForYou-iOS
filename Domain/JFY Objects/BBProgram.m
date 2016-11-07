@@ -37,6 +37,8 @@
         self.primaryPrice = [[JSONObj valueForKey:@"primary_price"] integerValue];
         self.secondaryPrice = [[JSONObj valueForKey:@"secondary_price"] integerValue];
         self.previewImage = [JSONObj valueForKey:@"image_url"];
+        self.unit = [JSONObj valueForKey:@"unit"];
+        self.individualPrice = [[JSONObj valueForKey:@"individual_price"] boolValue];
         if (self.previewImage == [NSNull class]) {
             self.previewImage = nil;
         }
@@ -47,13 +49,13 @@
 
 - (void)_initPrescriptionArrayWithJSON:(id)JSONArray {
     if (JSONArray && [JSONArray isKindOfClass:[NSArray class]]) {
-        if (JSONArray[0]) {
+        if ([JSONArray count] > 0) {
             self.firstPrescription = JSONArray[0];
         }
-        if (JSONArray[1]) {
+        if ([JSONArray count] > 1) {
             self.secondPrescription = JSONArray[1];
         }
-        if (JSONArray[2]) {
+        if ([JSONArray count] > 2) {
             self.thirdPrescription = JSONArray[2];
         }
     }

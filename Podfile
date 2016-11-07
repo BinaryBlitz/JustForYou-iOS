@@ -22,6 +22,9 @@ pod 'GoogleMaps'
 pod 'LMGeocoder'
 pod 'INTULocationManager'
 
+# Google Analytics
+pod 'Google/Analytics'
+
 # Network
 #pod 'AFNetworking', '~> 3.0'
 

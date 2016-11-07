@@ -137,6 +137,7 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 - (void)deliveriesCreateSuccessfull {
     [self.view hideBackgroundLoaderViewWithAlpha];
     self.statusServer = kStatusCreate;
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"dostavkа" action:@"ok" label:@""];
     [self.view presentFinishAlertWithTitle:kNoteTitle message:kDeliveryCreateMessage];
 }
 

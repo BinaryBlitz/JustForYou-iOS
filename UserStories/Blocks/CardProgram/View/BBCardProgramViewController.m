@@ -83,6 +83,7 @@
 
 - (IBAction)addInBasketButtonAction:(id)sender {
     [self.output addInBasketButtonDidTap];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart_click" action:self.myProgram.name label:@""];
 }
 
 #pragma mark - Методы BBCardProgramViewInput
@@ -98,6 +99,7 @@
     self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
     if (![self.myProgram isInvalidated]) {
         self.navigationItem.title = self.myProgram.block.name;
+        [[BBAppAnalitics sharedService] sendControllerWithName:self.myProgram.block.name];
     } else {
         self.navigationItem.title = kNameTitleNoneModule;
     }
@@ -132,6 +134,7 @@
 //    self.addInBasketButton.enabled = NO;
     [self.addBasketPopover removeFromSuperview];
     self.addBasketPopover = nil;
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"click" action:@"prodolzhit" label:@""];
     [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
 }
 
@@ -270,14 +273,17 @@
     self.segmentedIndex = segmentedIndex;
     [self _changeBackgroundTableView];
     if (segmentedIndex == BBForWhomSegmentedIndex) {
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"click" action:@"dlya_kogo" label:@""];
         [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
     } else if (segmentedIndex == BBDescriptionSegmentedIndex) {
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"click" action:@"opisanie" label:@""];
         if (oldSeg < self.segmentedIndex) {
             [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
         } else {
             [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationRight];
         }
     } else {
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"click" action:@"menu" label:@""];
         [self _updateTableViewWithIndex:1 range:2 animation:UITableViewRowAnimationLeft];
     }
 }
@@ -314,6 +320,7 @@
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
     [self.output okButtonDidTapWithCountDays:count];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart" action:self.myProgram.name label:[NSString stringWithFormat:@"%ld", (long)count]];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
@@ -362,6 +369,7 @@
 - (void)_initRightBarButton {
     UIBarButtonItem *item = [[BBItemService sharedService] basketItemWithCallback:^{
         [self.output basketButtonDidTap];
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"go_to_cart" action:@"click" label:@""];
     }];
     self.navigationItem.rightBarButtonItem = item;
 }

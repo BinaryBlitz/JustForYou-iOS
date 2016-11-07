@@ -53,6 +53,7 @@ static CGFloat heightFooter = 13.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleBasketModule];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -65,6 +66,7 @@ static CGFloat heightFooter = 13.0f;
 
 - (IBAction)payButtonAction:(id)sender {
     [self.output payButtonDidTapWithBonusesEnable:[self.bonusesSwitch isOn] countPayments:[self.programOrders count]];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"oplatit" action:@"click" label:@""];
 }
 
 - (IBAction)closeButtonAction:(id)sender {
@@ -176,6 +178,7 @@ static CGFloat heightFooter = 13.0f;
 - (void)closeButtonDidTapWithBasketCell:(BBBasketTableViewCell *)cell {
     self.removeIndexPath = [self.tableView indexPathForCell:cell];
     self.removeOrder = cell.orderProgram;
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"delete" label:cell.program.name];
     [self _presentAlertWithProgram:cell.program];
 }
 
@@ -207,6 +210,7 @@ static CGFloat heightFooter = 13.0f;
 - (void)updateSwichInCellForState:(BOOL)state {
     HQDispatchToMainQueue(^{
         self.bonusesSwitch.on = state;
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"bonus" label:@""];
     });
 }
 
@@ -224,14 +228,17 @@ static CGFloat heightFooter = 13.0f;
 }
 
 - (void)cellDidSelectWithPayCard:(BBPayCard *)card {
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"oplata" action:@"connected_card" label:@""];
     [self.output payCardWithCard:card];
 }
 
 - (void)payNewCardDidTap {
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"oplata" action:@"new_card" label:@""];
     [self.output payNewCardButtonDidTap];
 }
 
 - (void)cancelButtonDidTap {
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"oplata_otmena" action:@"click" label:@""];
     [self.output cancelButtonDidTap];
 }
 

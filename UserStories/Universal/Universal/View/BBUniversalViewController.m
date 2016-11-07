@@ -61,6 +61,7 @@ static CGFloat heightFooterSection = 10.0f;
 
 - (void)navigationTitle:(NSString *)title keyModule:(BBKeyModuleForUniversalModule)key {
     self.navigationItem.title = title;
+    [[BBAppAnalitics sharedService] sendControllerWithName:title];
     self.keyModule = key;
 }
 

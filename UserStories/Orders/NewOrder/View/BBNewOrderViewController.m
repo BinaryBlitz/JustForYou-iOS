@@ -47,6 +47,7 @@ static CGFloat topInsetForTableView = - 35.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleNewOrderModule];
 }
 
 - (void)viewWillLayoutSubviews {

@@ -34,6 +34,7 @@ static CGFloat verticalInset = 10.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleMyProgramModule];
 }
 
 #pragma mark - Методы BBMyProgramsViewInput

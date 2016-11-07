@@ -199,6 +199,7 @@ static NSString *kRealyRemoveDelivery = @"Вы уверены что хотит�
     if ([array count] > 0) {
         [self.myProgramModule pushModuleWithNavigationModule:self.navigModule parent:self purchasesArray:array];
     } else {
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"dostavkа" action:@"regected" label:@""];
 //        [self.view presentAlertWithTitle:nil message:kPurchasesEmpty];
         [self.view presentAlertControllerWithTitle:nil
                                            message:kPurchasesEmpty

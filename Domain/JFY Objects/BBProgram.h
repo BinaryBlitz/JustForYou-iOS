@@ -24,6 +24,8 @@
 @property NSString *secondPrescription;
 @property NSString *thirdPrescription;
 @property NSString *previewImage;
+@property BOOL individualPrice;
+@property NSString *unit;
 
 @property BBBlock *block;
 @property (readonly) RLMLinkingObjects *days;

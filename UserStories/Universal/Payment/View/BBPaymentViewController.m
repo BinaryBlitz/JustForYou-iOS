@@ -30,6 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitlePaymentModule];
 }
 
 #pragma mark - Методы BBPaymentViewInput

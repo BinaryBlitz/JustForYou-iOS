@@ -49,6 +49,11 @@ static CGFloat offsetBottom = 10.0f;
 	[self.output didTriggerViewReadyEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleRegistrationModule];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutYouView];

@@ -50,6 +50,7 @@ static NSString *infoText = @"На данном экране вы можете �
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleReplacementModule];
 }
 
 #pragma mark - Actions Methods

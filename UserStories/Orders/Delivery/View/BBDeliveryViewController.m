@@ -43,6 +43,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:@"Создание заказа"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

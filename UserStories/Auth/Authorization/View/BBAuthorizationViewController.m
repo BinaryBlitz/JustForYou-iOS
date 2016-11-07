@@ -51,6 +51,7 @@ static CGFloat offsetBottom = 10.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleAuthorizateModule];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -200,6 +201,14 @@ static CGFloat offsetBottom = 10.0f;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = estimateRowHeight;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (self.keyStyleTableView == kNumberPhoneStyleTableView) {
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"phone" action:@"field" label:@""];
+    } else {
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"code" action:@"field" label:@""];
+    }
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

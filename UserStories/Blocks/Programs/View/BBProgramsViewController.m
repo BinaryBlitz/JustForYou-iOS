@@ -62,6 +62,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleProgramModule];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -74,6 +75,8 @@
 - (void)moreButtonDidTap {
     @try {
         [self.output programDidTapWithProgram:[[self.idArray objectAtIndex:self.pageControl.currentPage] integerValue]];
+        BBProgram *program = [BBProgram objectsWhere:@"programId=%d", [self.idArray objectAtIndex:self.pageControl.currentPage]].firstObject;
+        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"go_to_programm" action:program.name label:@""];
     } @catch (NSException *exception) {
         [self.output errorOpenProgram];
     } @finally {

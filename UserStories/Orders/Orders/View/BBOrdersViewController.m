@@ -45,6 +45,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [[BBAppAnalitics sharedService] sendControllerWithName:@"Заказы"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -177,6 +178,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 }
 
 - (void)addNewOrderButtonDidTap {
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"oformit_dostavky" action:@"click" label:@""];
     [self.output addNewOrderButtonDidTap];
 }
 
