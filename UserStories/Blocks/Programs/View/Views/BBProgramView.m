@@ -37,22 +37,16 @@
 - (void)setProgramInUI:(BBProgram *)program {
     self.program = program;
     self.shortDescription.text = self.program.shortDescript;
-    NSString *day = @"";
-    if (self.program.threshold == 1) {
-        day = [NSString stringWithFormat:@"При заказе от %ld дня: %ld Р",(long)self.program.threshold, (long)self.program.secondaryPrice];
-    } else {
-        day = [NSString stringWithFormat:@"При заказе от %ld дней: %ld Р",(long)self.program.threshold, (long)self.program.secondaryPrice];
-    }
     for (BBProgramView *view in self.subviews) {
-        [self _setValuesForView:view dayString:day];
+        [self _setValuesForView:view];
     }
-    [self _setValuesForView:self dayString:day];
+    [self _setValuesForView:self];
 }
 
-- (void)_setValuesForView:(BBProgramView *)view dayString:(NSString *)day {
+- (void)_setValuesForView:(BBProgramView *)view {
     view.nameProgram.text = self.program.name;
-    view.costProgram.text = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)self.program.primaryPrice];
-    view.bigCostProgram.text = day;
+    view.costProgram.text = [BBConstantAndColor formatedStringForOneDayWithProgram:self.program];
+    view.bigCostProgram.text = [BBConstantAndColor formatedStringForAnyDayWithProgram:self.program];
 }
 
 @end

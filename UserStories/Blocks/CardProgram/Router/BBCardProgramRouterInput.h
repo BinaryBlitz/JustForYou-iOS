@@ -16,4 +16,6 @@
 - (void)presentBasketViewControllerWithController:(UINavigationController *)basketNC
                          withNavigationController:(UINavigationController *)nc;
 
+- (void)callManagerOnPhone:(NSString *)phoneManager;
+
 @end

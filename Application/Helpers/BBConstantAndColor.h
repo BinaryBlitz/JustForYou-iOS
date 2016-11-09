@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class BBProgram;
+
 #pragma mark - Typedef Key
 
 // Для старта с нужного контроллера
@@ -122,6 +124,11 @@ typedef enum : NSUInteger {
 
 + (NSString *)getNumberEndingWith:(NSInteger)numberInArray andEndings:(NSArray *)endingArray;
 
+#pragma mark - Helper Formated String
+
++ (NSString *)formatedStringForOneDayWithProgram:(BBProgram *)program;
++ (NSString *)formatedStringForAnyDayWithProgram:(BBProgram *)program;
+
 #pragma mark - Colors
 
 + (UIColor *)colorForR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b alpha:(CGFloat)alpha;
@@ -173,6 +180,9 @@ static NSString *messagePayAlert = @"Выберите карту которой 
 static NSString *paymentSuccessfull = @"Благодарим Вас за покупку!";
 static NSString *paymentError = @"Произошла ошибка оплаты. Проверьте баланс своей карты или попробуйте позже";
 
+static NSString *kErrorSendEmail = @"Не удалось отправить письмо";
+static NSString *kErrorCallManager = @"Произошла внутренняя ошибка приложения";
+
 #pragma mark - Name Title Module
 
 static NSString *kNameTitleRegistrationModule = @"Регистрация";
@@ -212,4 +222,4 @@ static NSString *kFacebookSocialGroup = @"https://m.facebook.com/%D0%97%D0%B4%D0
 
 static NSString *kInstagramSocialGroup = @"https://www.instagram.com/justforyou_ru/";
 
-
+static NSString *kNumberPhoneManager = @"+74957075353";

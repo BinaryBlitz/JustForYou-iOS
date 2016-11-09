@@ -32,6 +32,7 @@ static NSString *kNameFormat = @"cache";
                       placeholderImage:nil
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                  imageView.indicatorView.hidden = YES;
+                                 [imageView.indicatorView stopAnimating];
                              }];
 }
 

@@ -27,4 +27,13 @@
 }
 
 
+- (void)callManagerOnPhone:(NSString *)phoneManager {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@", phoneManager]];
+    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:phoneUrl];
+    } else {
+        [self.presenter errorCallManager];
+    }
+}
+
 @end

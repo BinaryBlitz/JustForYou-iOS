@@ -70,14 +70,22 @@ static NSString *kImageNameBasket = @"basket";
                                   withNavigationController:[self.navigModule currentView]];
 }
 
-- (void)addInBasketButtonDidTap {
-    [self.view showAddInBasketPopover];
+- (void)addInBasketButtonDidTapWithProgram:(BBProgram *)program {
+    if (program.individualPrice) {
+        [self.router callManagerOnPhone:kNumberPhoneManager];
+    } else {
+        [self.view showAddInBasketPopover];
+    }
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
     [self.interactor addInOrdersUserOrderWithProgramId:self.programId countDay:count];
     [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
     [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
+}
+
+- (void)errorCallManager {
+    [self.view presentAlertWithTitle:kErrorTitle message:kErrorCallManager];
 }
 
 #pragma mark - Методы BBCardProgramInteractorOutput

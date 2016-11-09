@@ -42,6 +42,9 @@
 
 @end
 
+static NSString * const kCallManagerTitle = @"СВЯЗАТЬСЯ С МЕНЕДЖЕРОМ";
+static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ";
+
 @implementation BBCardProgramViewController
 
 #pragma mark - Методы жизненного цикла
@@ -82,7 +85,7 @@
 #pragma mark - Actions
 
 - (IBAction)addInBasketButtonAction:(id)sender {
-    [self.output addInBasketButtonDidTap];
+    [self.output addInBasketButtonDidTapWithProgram:self.myProgram];
     [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart_click" action:self.myProgram.name label:@""];
 }
 
@@ -95,10 +98,19 @@
     [self addSwipeForBigImage];
 }
 
+- (void)updateAddBusketButton {
+    if (self.myProgram.individualPrice) {
+        [self.addInBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
+    } else {
+        [self.addInBasketButton setTitle:kAddToBasketTitle forState:UIControlStateNormal];
+    }
+}
+
 - (void)updateViewWithProgram:(NSInteger)programId {
     self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
     if (![self.myProgram isInvalidated]) {
         self.navigationItem.title = self.myProgram.block.name;
+        [self updateAddBusketButton];
         [[BBAppAnalitics sharedService] sendControllerWithName:self.myProgram.block.name];
     } else {
         self.navigationItem.title = kNameTitleNoneModule;

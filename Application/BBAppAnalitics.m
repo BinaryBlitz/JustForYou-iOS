@@ -14,8 +14,6 @@ static NSString * const BBErrorInitAssert = @"Use 'instance' instead.";
 
 static NSString *const BBAnaliticsJFYIdentifier = @"UA-86430240-1";
 
-// id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
-
 @implementation BBAppAnalitics
 
 - (instancetype)init {

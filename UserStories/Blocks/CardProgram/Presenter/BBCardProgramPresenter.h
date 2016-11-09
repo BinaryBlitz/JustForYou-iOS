@@ -20,4 +20,6 @@
 @property (strong, nonatomic) id<BBCardProgramInteractorInput> interactor;
 @property (strong, nonatomic) id<BBCardProgramRouterInput> router;
 
+- (void)errorCallManager;
+
 @end

@@ -32,6 +32,46 @@
     return ending;
 }
 
+#pragma mark - Helper Formated String
+
++ (NSString *)formatedStringForOneDayWithProgram:(BBProgram *)program {
+    NSString *day = @"";
+    if (!program.individualPrice) {
+        if (program.unit) {
+            if ([program.unit isEqualToString:BBProgramUnitDay]) {
+                day = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)program.primaryPrice];
+            } else {
+                day = [NSString stringWithFormat:@"Цена: %ld", (long)program.primaryPrice];
+            }
+        } else {
+            day = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)program.primaryPrice];
+        }
+    } else {
+        day = [NSString stringWithFormat:@"Индивидуальная цена"];
+    }
+    return day;
+}
+
++ (NSString *)formatedStringForAnyDayWithProgram:(BBProgram *)program {
+    NSString *day = @"";
+    if (program.threshold == 1) {
+        day = [NSString stringWithFormat:@"При заказе от %ld дня: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+    } else {
+        day = [NSString stringWithFormat:@"При заказе от %ld дней: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+    }
+    
+    if (!program.individualPrice) {
+        if (program.unit) {
+            if ([program.unit isEqualToString:BBProgramUnitPiece]) {
+                day = @"";
+            }
+        }
+    } else {
+        day = @"";
+    }
+    return day;
+}
+
 #pragma mark - Colors
 
 + (UIColor *)applicationOrangeColorWithAlpha:(CGFloat)alpha {
