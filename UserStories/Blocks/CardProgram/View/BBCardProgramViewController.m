@@ -136,9 +136,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
 }
 
 - (void)showAddInBasketPopover {
-    [self.addBasketPopover setPrimaryPrice:self.myProgram.primaryPrice
-                                 secondary:self.myProgram.secondaryPrice
-                                 threshold:self.myProgram.threshold];
+    [self.addBasketPopover setProgramWithProgram:self.myProgram];
     [self.view addSubview:self.addBasketPopover];
 }
 
@@ -228,6 +226,17 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
             return cell;
         } else {
             BBNumderDayTableViewCell *numberCell = [self.tableView dequeueReusableCellWithIdentifier:kNumberDayCellIdentifire];
+            if ([self.myProgram.unit isEqualToString:BBProgramUnitPiece]) {
+                numberCell.numberDayLabel.hidden = YES;
+                numberCell.caloriesLabel.hidden = YES;
+                numberCell.leftButton.hidden = YES;
+                numberCell.rightButton.hidden = YES;
+            } else {
+                numberCell.numberDayLabel.hidden = NO;
+                numberCell.caloriesLabel.hidden = NO;
+                numberCell.leftButton.hidden = NO;
+                numberCell.rightButton.hidden = NO;
+            }
             [numberCell setDaysAndUpdateUI:self.daysInProgram];
             if (!numberCell.delegate) {
                 numberCell.delegate = self;
@@ -259,10 +268,6 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
             return menuCell;
         }
     }
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 - (void)_settingTableView {

@@ -41,7 +41,7 @@
             if ([program.unit isEqualToString:BBProgramUnitDay]) {
                 day = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)program.primaryPrice];
             } else {
-                day = [NSString stringWithFormat:@"Цена: %ld", (long)program.primaryPrice];
+                day = [NSString stringWithFormat:@"Цена за 1 штуку: %ld", (long)program.primaryPrice];
             }
         } else {
             day = [NSString stringWithFormat:@"Цена за 1 день: %ld Р", (long)program.primaryPrice];
@@ -63,7 +63,11 @@
     if (!program.individualPrice) {
         if (program.unit) {
             if ([program.unit isEqualToString:BBProgramUnitPiece]) {
-                day = @"";
+                if (program.threshold == 1) {
+                    day = [NSString stringWithFormat:@"При заказе от %ld штуки: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+                } else {
+                    day = [NSString stringWithFormat:@"При заказе от %ld штук: %ld Р",(long)program.threshold, (long)program.secondaryPrice];
+                }
             }
         }
     } else {

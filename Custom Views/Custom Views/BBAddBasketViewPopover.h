@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) id<BBAddBasketViewDelegate> delegate;
 
+- (void)setProgramWithProgram:(BBProgram *)program;
 - (void)setPrimaryPrice:(NSInteger)primary secondary:(NSInteger)secondary threshold:(NSInteger)threshold;
 
 @end
