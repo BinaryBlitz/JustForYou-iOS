@@ -24,18 +24,6 @@ platform :ios do
     crashlytics
   end
 
-  desc 'Submit a new Beta Build to Apple TestFlight'
-  desc 'This will also make sure the profile is up to date'
-  lane :testflight do
-    # match(type: 'appstore') # more information: https://codesigning.guide
-    # Build your app - more options available
-    gym
-    pilot
-
-    # sh 'your_script.sh'
-    # You can also use other beta testing services here (run `fastlane actions`)
-  end
-
   desc 'Deploy a new version to the App Store'
   lane :appstore do
     # match(type: 'appstore')
