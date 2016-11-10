@@ -1,33 +1,25 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, ‘8.0’
+# platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 #use_frameworks!
 
 target 'JustForYou' do
+  # Database
+  pod 'Realm'
 
-# Data Base
-pod 'Realm'
+  # Fabric
+  pod 'Fabric'
+  pod 'Crashlytics'
 
-# Fabric
-pod 'Fabric'
-pod 'Crashlytics'
+  # UI
+  pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
+  pod 'SDWebImage'
 
-# UI
-pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
-#pod 'Haneke'
-pod 'SDWebImage'
+  # Maps
+  pod 'GoogleMaps'
+  pod 'LMGeocoder'
+  pod 'INTULocationManager'
 
-# Maps
-pod 'GoogleMaps'
-pod 'LMGeocoder'
-pod 'INTULocationManager'
-
-# Google Analytics
-pod 'Google/Analytics'
-
-# Network
-#pod 'AFNetworking', '~> 3.0'
-
-
+  # Google Analytics
+  pod 'Google/Analytics'
 end
-
