@@ -54,6 +54,10 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+-# Generamba
+ -Templates/
+ -Rambafile
+
 # Code Injection
 #
 # After new code Injection tools there's a generated folder /iOSInjectionProject
