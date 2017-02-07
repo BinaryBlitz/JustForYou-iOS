@@ -2,14 +2,15 @@ PODS:
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - FirebaseAnalytics (3.5.1):
+  - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.4):
+  - FirebaseCore (3.4.7):
     - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
   - Google/Analytics (3.0.3):
@@ -26,29 +27,29 @@ PODS:
   - GoogleMaps/Maps (2.1.1):
     - GoogleMaps/Base
   - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - INTULocationManager (4.2.0)
   - JTCalendar (2.1.5)
   - LMGeocoder (1.0.8)
-  - Realm (2.0.3):
-    - Realm/Headers (= 2.0.3)
-  - Realm/Headers (2.0.3)
+  - Realm (2.0.4):
+    - Realm/Headers (= 2.0.4)
+  - Realm/Headers (2.0.4)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
-  - Google/Analytics
-  - GoogleMaps
-  - INTULocationManager
+  - Crashlytics (~> 3.8)
+  - Fabric (~> 1.6)
+  - Google/Analytics (~> 3.0)
+  - GoogleMaps (~> 2.1)
+  - INTULocationManager (~> 4.2)
   - JTCalendar (from `https://github.com/tercteberc/JTCalendar.git`)
-  - LMGeocoder
-  - Realm
-  - SDWebImage
+  - LMGeocoder (~> 1.0)
+  - Realm (~> 2.0.4)
+  - SDWebImage (~> 3.8)
 
 EXTERNAL SOURCES:
   JTCalendar:
@@ -62,21 +63,21 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
-  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
+  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
+  FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   JTCalendar: 57a4420f12d10c93c3b28da96803e7043d1c9281
   LMGeocoder: 7682148ce0bc55e483ceaa0eefdae4494d7102be
-  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: 92ea4b4782c7eb540c6b297c0de8b81e4f79c1ac
+PODFILE CHECKSUM: 747b5a197fa10819c85695b42ce9f8a0f5c616bb
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

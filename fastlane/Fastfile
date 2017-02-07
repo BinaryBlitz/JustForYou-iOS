@@ -1,12 +1,23 @@
-fastlane_version '1.107.0'
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version '2.14.2'
 
 default_platform :ios
 
 platform :ios do
   before_all do
-   # eure_git_status_clean
-   # cocoapods
-   # increment_build_number
+   cocoapods
   end
 
   desc 'Runs all the tests'
@@ -17,10 +28,13 @@ platform :ios do
   lane :beta do
     # Ensure that there that your git status is not dirty
     ensure_git_status_clean
-    # Increment the build number (not the version number)
+    # Increment the build number
     increment_build_number
-    # sigh(development: true, output_path: '/tmp')
-    gym(scheme: 'JustForYou', use_legacy_build_api: true)
+    # Manage code signing
+    match(type: 'development')
+    # Build your app - more options available
+    gym(scheme: 'JustForYou')
+    # Upload to Crashlytics
     crashlytics
   end
 
