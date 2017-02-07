@@ -13,12 +13,17 @@ static CGFloat cornerRadius = 10.0f;
 static NSString *kNameMinusImage = @"minusIcon";
 static NSString *kNameCrossImage = @"crossIcon";
 
+static NSString *kTitleForDay = @"Сколько дней Вы хотите заказать?";
+static NSString *kTitleForPiece = @"Сколько штук Вы хотите заказать?";
+
 @interface BBAddBasketViewPopover()
 
 @property (nonatomic) NSUInteger countDays;
 @property (nonatomic) NSInteger threshold;
 @property (nonatomic) NSInteger primary;
 @property (nonatomic) NSInteger secondary;
+
+@property (nonatomic) BBProgram *program;
 
 @end
 
@@ -51,6 +56,22 @@ static NSString *kNameCrossImage = @"crossIcon";
     self.contentView.frame = self.bounds;
 }
 
+- (void)setProgramWithProgram:(BBProgram *)program {
+    self.primary = program.primaryPrice;
+    self.secondary = program.secondaryPrice;
+    self.threshold = program.threshold;
+    self.countDays = program.threshold;
+    self.program = program;
+    if ([self.program.unit isEqualToString:BBProgramUnitDay]) {
+        self.titleLabel.text = kTitleForDay;
+    } else {
+        self.titleLabel.text = kTitleForPiece;
+    }
+    [self changeTotalCost];
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.countDays];
+    
+}
+
 - (void)setPrimaryPrice:(NSInteger)primary secondary:(NSInteger)secondary threshold:(NSInteger)threshold {
     self.primary = primary;
     self.secondary = secondary;
@@ -62,8 +83,13 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 - (void)changeTotalCost {
     NSString *total;
-    NSString *days = [BBConstantAndColor getNumberEndingWith:self.countDays andEndings:@[@"день", @"дня", @"дней"]];
-
+    
+    NSString *days;
+    if ([self.program.unit isEqualToString:BBProgramUnitDay]) {
+        days = [BBConstantAndColor getNumberEndingWith:self.countDays andEndings:@[@"день", @"дня", @"дней"]];
+    } else {
+        days = [BBConstantAndColor getNumberEndingWith:self.countDays andEndings:@[@"штука", @"штуки", @"штук"]];
+    }
     if (self.countDays >= self.threshold) {
         total = [NSString stringWithFormat:@"%ld*%lu %@ = %lu P", (long)self.secondary, (unsigned long)self.countDays, days, (unsigned long)(self.secondary * self.countDays)];
     } else {
