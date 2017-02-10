@@ -88,12 +88,20 @@ BOOL didLayoutAnimated = NO;
         self.informationLabel.alpha = 1;
         self.tableView.alpha = 1;
         [self.view layoutIfNeeded];
-    } completion:^(BOOL finished){
-        [self.numberCell.numberTextField becomeFirstResponder];
     }];
 }
 
 - (void)_registerNotificationKeyboard {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
     [self.scrollView addGestureRecognizer:tap];
 }
@@ -245,6 +253,18 @@ BOOL didLayoutAnimated = NO;
 }
 
 #pragma mark - Notification Methods
+
+-(void) keyboardWillShow:(NSNotification *)notification {
+    NSDictionary* info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+    CGFloat contentOffsetY = -1*(CGRectGetHeight(self.view.frame)-kbSize.height-CGRectGetMaxY(self.tableView.frame) - offsetBottom);
+    [self.scrollView setContentOffset:CGPointMake(0, contentOffsetY) animated:YES];
+}
+
+-(void) keyboardWillHide:(NSNotification *)notification {
+    [self.scrollView setContentOffset:CGPointZero animated:YES];
+}
 
 - (void)numberPhoneValidate {
     [self.numberCell.numberTextField resignFirstResponder];

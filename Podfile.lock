@@ -48,7 +48,7 @@ DEPENDENCIES:
   - INTULocationManager (~> 4.2)
   - JTCalendar (from `https://github.com/tercteberc/JTCalendar.git`)
   - LMGeocoder (~> 1.0)
-  - Realm (~> 2.0)
+  - Realm (~> 2.4)
   - SDWebImage (~> 3.8)
 
 EXTERNAL SOURCES:
@@ -78,6 +78,6 @@ SPEC CHECKSUMS:
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: '092b9403373ef2da72749f2fb00713c7b3267ed1'
+PODFILE CHECKSUM: 821cea6f4d5fd8b94e8d33135027d4d53696cc61
 
 COCOAPODS: 1.2.0
