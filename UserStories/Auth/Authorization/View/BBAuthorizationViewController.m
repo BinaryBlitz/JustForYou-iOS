@@ -18,8 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *informationLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topYouViewConstraint;
 
 @property (strong, nonatomic) UIBarButtonItem *backBarButton;
+
 
 @property (nonatomic) BBKeyStyleTableViewRegist keyStyleTableView;
 @property (strong, nonatomic) NSString *numberPhone;
@@ -36,26 +38,57 @@ static NSString *kTextForInfoLabel = @"Код отправлен на ";
 static CGFloat estimateRowHeight = 44.0f;
 static CGFloat offsetBottom = 10.0f;
 
+static CGFloat movingAnimationTime = 3.0f;
+
 @implementation BBAuthorizationViewController
+
+BOOL didLayoutAnimated = NO;
 
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+    [super viewDidLoad];
 
     self.keyStyleTableView = kNumberPhoneStyleTableView;
-    
+
     [self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [self layoutAnimatedIfNeeded];
     [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleAuthorizateModule];
 }
 
-- (void)viewDidLayoutSubviews {
+- (void)layoutAnimatedIfNeeded {
+    if (didLayoutAnimated == YES) { return; }
+    didLayoutAnimated = NO;
     [self layoutYouView];
+    [self hideTableView];
+
+    CGFloat topViewConstraintConstant = self.topYouViewConstraint.constant;
+    self.topYouViewConstraint.constant = self.view.frame.size.height;
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:movingAnimationTime animations:^{
+        self.topYouViewConstraint.constant = topViewConstraintConstant;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished){
+        [self showTableView];
+    }];
+}
+
+- (void)hideTableView {
+    self.informationLabel.alpha = 0;
+    self.tableView.alpha = 0;
+}
+
+- (void)showTableView {
+    [UIView animateWithDuration:animateTime animations:^{
+        self.informationLabel.alpha = 1;
+        self.tableView.alpha = 1;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)_registerNotificationKeyboard {
