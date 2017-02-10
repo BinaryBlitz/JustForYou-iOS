@@ -5,7 +5,7 @@ platform :ios, '9.3'
 
 target 'JustForYou' do
   # Database
-  pod 'Realm', '~> 2.0.4'
+  pod 'Realm', '~> 2.4'
 
   # Fabric
   pod 'Fabric', '~> 1.6'
