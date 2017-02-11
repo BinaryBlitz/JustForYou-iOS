@@ -18,8 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *informationLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topYouViewConstraint;
 
 @property (strong, nonatomic) UIBarButtonItem *backBarButton;
+
 
 @property (nonatomic) BBKeyStyleTableViewRegist keyStyleTableView;
 @property (strong, nonatomic) NSString *numberPhone;
@@ -36,26 +38,57 @@ static NSString *kTextForInfoLabel = @"Код отправлен на ";
 static CGFloat estimateRowHeight = 44.0f;
 static CGFloat offsetBottom = 10.0f;
 
+static CGFloat movingAnimationTime = 3.0f;
+
 @implementation BBAuthorizationViewController
+
+BOOL didLayoutAnimated = NO;
 
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+    [super viewDidLoad];
 
     self.keyStyleTableView = kNumberPhoneStyleTableView;
-    
+
     [self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.output viewWillAppear];
+    [self layoutAnimatedIfNeeded];
     [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleAuthorizateModule];
 }
 
-- (void)viewDidLayoutSubviews {
+- (void)layoutAnimatedIfNeeded {
+    if (didLayoutAnimated == YES) { return; }
+    didLayoutAnimated = NO;
     [self layoutYouView];
+    [self hideTableView];
+
+    CGFloat topViewConstraintConstant = self.topYouViewConstraint.constant;
+    self.topYouViewConstraint.constant = self.view.frame.size.height;
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:movingAnimationTime animations:^{
+        self.topYouViewConstraint.constant = topViewConstraintConstant;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished){
+        [self showTableView];
+    }];
+}
+
+- (void)hideTableView {
+    self.informationLabel.alpha = 0;
+    self.tableView.alpha = 0;
+}
+
+- (void)showTableView {
+    [UIView animateWithDuration:animateTime animations:^{
+        self.informationLabel.alpha = 1;
+        self.tableView.alpha = 1;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)_registerNotificationKeyboard {
@@ -63,11 +96,12 @@ static CGFloat offsetBottom = 10.0f;
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
     [self.scrollView addGestureRecognizer:tap];
 }
@@ -162,7 +196,6 @@ static CGFloat offsetBottom = 10.0f;
             numberCell.delegate = self;
             self.numberCell = numberCell;
             numberCell.numberTextField.text = @"";
-            [numberCell.numberTextField becomeFirstResponder];
             cell = numberCell;
         } else {
             infoCell.keyStyleCell = kBigInfoRegistCellStyle;
@@ -224,7 +257,7 @@ static CGFloat offsetBottom = 10.0f;
 -(void) keyboardWillShow:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
+
     CGFloat contentOffsetY = -1*(CGRectGetHeight(self.view.frame)-kbSize.height-CGRectGetMaxY(self.tableView.frame) - offsetBottom);
     [self.scrollView setContentOffset:CGPointMake(0, contentOffsetY) animated:YES];
 }
@@ -232,7 +265,6 @@ static CGFloat offsetBottom = 10.0f;
 -(void) keyboardWillHide:(NSNotification *)notification {
     [self.scrollView setContentOffset:CGPointZero animated:YES];
 }
-
 
 - (void)numberPhoneValidate {
     [self.numberCell.numberTextField resignFirstResponder];

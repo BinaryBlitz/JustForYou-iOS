@@ -331,7 +331,7 @@
 		3A2D54911CF075D200A8EFF5 /* BBAuthorizationRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAuthorizationRouter.m; sourceTree = "<group>"; };
 		3A2D54921CF075D200A8EFF5 /* BBAuthorizationRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationRouterInput.h; sourceTree = "<group>"; };
 		3A2D54941CF075D200A8EFF5 /* BBAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationViewController.h; sourceTree = "<group>"; };
-		3A2D54951CF075D200A8EFF5 /* BBAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAuthorizationViewController.m; sourceTree = "<group>"; };
+		3A2D54951CF075D200A8EFF5 /* BBAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BBAuthorizationViewController.m; sourceTree = "<group>"; tabWidth = 4; };
 		3A2D54961CF075D200A8EFF5 /* BBAuthorizationViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationViewInput.h; sourceTree = "<group>"; };
 		3A2D54971CF075D200A8EFF5 /* BBAuthorizationViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAuthorizationViewOutput.h; sourceTree = "<group>"; };
 		3A2D54991CF075D200A8EFF5 /* BBInfoRegistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInfoRegistTableViewCell.h; sourceTree = "<group>"; };
