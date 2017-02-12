@@ -292,7 +292,7 @@
 		3304FD8D99596FEEFD9612AB /* BBReplacementInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementInteractor.h; sourceTree = "<group>"; };
 		33F5DA6454C776A631140C55 /* BBStockRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBStockRouter.m; sourceTree = "<group>"; };
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
-		37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = JustForYou.entitlements; path = JustForYou.entitlements; sourceTree = "<group>"; };
+		37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustForYou.entitlements; sourceTree = "<group>"; };
 		3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataBaseService.h; sourceTree = "<group>"; };
 		3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataBaseService.m; sourceTree = "<group>"; };
 		3A128BA41D107596001D2D1C /* BBOrderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrderProgram.h; sourceTree = "<group>"; };
@@ -1027,7 +1027,6 @@
 				3AC988641CAB201A0069DE52 /* REST API */,
 				3A1347521CA6B634007A83ED /* UserService */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -1059,7 +1058,6 @@
 				37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */,
 				3A1AB2811C9D917A0070E065 /* PrefixHeader.pch */,
 			);
-			name = JustForYou;
 			path = JustForYou;
 			sourceTree = "<group>";
 		};
@@ -1084,7 +1082,6 @@
 				3A1AB2731C9D8F6B0070E065 /* Info.plist */,
 				3A1AB2741C9D8F6B0070E065 /* main.m */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -1142,7 +1139,6 @@
 				3A2D56101CF075D200A8EFF5 /* Support */,
 				3A2D56271CF075D200A8EFF5 /* Universal */,
 			);
-			name = UserStories;
 			path = UserStories;
 			sourceTree = "<group>";
 		};
@@ -2536,7 +2532,6 @@
 				3AB21D151CFA12E70090F436 /* Parent Views */,
 				3A2D56F51CF331C300A8EFF5 /* TableViewCell */,
 			);
-			name = "Custom Views";
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
@@ -2805,7 +2800,6 @@
 				3AF26F571D0D703A004972FC /* JFY Objects */,
 				3AF26F5E1D0D703A004972FC /* User */,
 			);
-			name = Domain;
 			path = Domain;
 			sourceTree = "<group>";
 		};
@@ -3650,7 +3644,7 @@
 			baseConfigurationReference = 210AF3DD46A1874881C76F17 /* Pods-JustForYou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = JustForYou.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
 				CURRENT_PROJECT_VERSION = 148;
@@ -3658,12 +3652,12 @@
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/PrefixHeader.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JustForYou/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4c1ac5c1-85e4-4acd-901c-6890d575baad";
+				PROVISIONING_PROFILE = "e5fdde05-15e4-420b-83cf-b08a8eb0c8fd";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development ru.binaryblitz.JustForYou";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -3674,14 +3668,14 @@
 			baseConfigurationReference = 3E4D5C9A768BEE391C410894 /* Pods-JustForYou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = JustForYou.entitlements;
+				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
 				CURRENT_PROJECT_VERSION = 148;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/PrefixHeader.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JustForYou/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
