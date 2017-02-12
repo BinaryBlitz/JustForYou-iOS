@@ -3651,8 +3651,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/PrefixHeader.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/JustForYou/Supporting Files/Info.plist";
+				GCC_PREFIX_HEADER = "JustForYou/PrefixHeader.pch";
+				INFOPLIST_FILE = "JustForYou/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
@@ -3674,8 +3674,8 @@
 				CURRENT_PROJECT_VERSION = 148;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Application/PrefixHeader.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/JustForYou/Supporting Files/Info.plist";
+				GCC_PREFIX_HEADER = "JustForYou/PrefixHeader.pch";
+				INFOPLIST_FILE = "JustForYou/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
