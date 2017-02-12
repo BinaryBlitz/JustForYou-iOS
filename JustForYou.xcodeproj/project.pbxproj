@@ -292,7 +292,7 @@
 		3304FD8D99596FEEFD9612AB /* BBReplacementInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementInteractor.h; sourceTree = "<group>"; };
 		33F5DA6454C776A631140C55 /* BBStockRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBStockRouter.m; sourceTree = "<group>"; };
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
-		37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = JustForYou.entitlements; path = ../JustForYou.entitlements; sourceTree = "<group>"; };
+		37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = JustForYou.entitlements; path = JustForYou.entitlements; sourceTree = "<group>"; };
 		3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataBaseService.h; sourceTree = "<group>"; };
 		3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataBaseService.m; sourceTree = "<group>"; };
 		3A128BA41D107596001D2D1C /* BBOrderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOrderProgram.h; sourceTree = "<group>"; };
@@ -906,10 +906,10 @@
 			isa = PBXGroup;
 			children = (
 				7F15211976D5FC703FC4EC10 /* Assembly */,
-				A8999A6F3BAC1422753C87E7 /* View */,
-				67C954BA0BC5BB968877F3CD /* Presenter */,
 				A1A868E5AB46B2DC9264B1F6 /* Interactor */,
+				67C954BA0BC5BB968877F3CD /* Presenter */,
 				03FDB78499A60D821FFD61EE /* Router */,
+				A8999A6F3BAC1422753C87E7 /* View */,
 			);
 			path = ReplaceProgram;
 			sourceTree = "<group>";
@@ -917,9 +917,9 @@
 		03FDB78499A60D821FFD61EE /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3F5515C54CB76D265165155B /* BBReplaceProgramRouterInput.h */,
 				B7B49CD6558823AF641C6AAE /* BBReplaceProgramRouter.h */,
 				873428C385E649C815352982 /* BBReplaceProgramRouter.m */,
+				3F5515C54CB76D265165155B /* BBReplaceProgramRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -927,10 +927,10 @@
 		0474229FC3F03FA4F77AFB13 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				28178AC7F67139EDB0F548E4 /* BBStockViewInput.h */,
-				7B74E56ACAAA4C9049127D86 /* BBStockViewOutput.h */,
 				049C0BF6E2D8164DAB693B58 /* BBStockViewController.h */,
 				5EBFB571D20817312C0EBDF7 /* BBStockViewController.m */,
+				28178AC7F67139EDB0F548E4 /* BBStockViewInput.h */,
+				7B74E56ACAAA4C9049127D86 /* BBStockViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -938,10 +938,10 @@
 		06E363E1822EF2ADD69DB776 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				C9EAC7182538B8E90871FB27 /* BBMyHistoryInteractorInput.h */,
-				083676DD08CB5BD941151B75 /* BBMyHistoryInteractorOutput.h */,
 				0E7DA8083BBDB9F1CA42E554 /* BBMyHistoryInteractor.h */,
 				3A71C0DCF1C9170ABADC7D35 /* BBMyHistoryInteractor.m */,
+				C9EAC7182538B8E90871FB27 /* BBMyHistoryInteractorInput.h */,
+				083676DD08CB5BD941151B75 /* BBMyHistoryInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -950,10 +950,10 @@
 			isa = PBXGroup;
 			children = (
 				E5ABB3436407BA78511C52B8 /* Assembly */,
-				8BD8B9C12DC306DEADB2EDA6 /* View */,
-				BFFF79131549FECCEFF02962 /* Presenter */,
 				F8027C1CD57D28196D43FFCE /* Interactor */,
+				BFFF79131549FECCEFF02962 /* Presenter */,
 				BC75AA7F78D99159F62526E9 /* Router */,
+				8BD8B9C12DC306DEADB2EDA6 /* View */,
 			);
 			path = Replacement;
 			sourceTree = "<group>";
@@ -979,10 +979,10 @@
 			isa = PBXGroup;
 			children = (
 				3A1320211CFE30F30046CFBD /* Views */,
-				A10B52999919865A67DE5826 /* BBMapViewInput.h */,
-				160CE3982CC40331A923105A /* BBMapViewOutput.h */,
 				3BD9E82877E9B7E51871E52E /* BBMapViewController.h */,
 				E5FBB1FECD1371A780F48E8E /* BBMapViewController.m */,
+				A10B52999919865A67DE5826 /* BBMapViewInput.h */,
+				160CE3982CC40331A923105A /* BBMapViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -990,9 +990,9 @@
 		2D47D28D96B721582A37CBD5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				B86E3DBC32661C2FB1D367E2 /* BBMapRouterInput.h */,
 				FBE7710CD85460942B2D5009 /* BBMapRouter.h */,
 				D77277A4FE7AA1AE265FBE80 /* BBMapRouter.m */,
+				B86E3DBC32661C2FB1D367E2 /* BBMapRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1009,11 +1009,11 @@
 		3A1320211CFE30F30046CFBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A1320221CFE30F30046CFBD /* BBSearchTableViewController.h */,
-				3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */,
 				3ABAA0D51D003DC00042BD56 /* BBAddressTableViewCell.h */,
 				3ABAA0D61D003DC00042BD56 /* BBAddressTableViewCell.m */,
 				3ABAA0D71D003DC00042BD56 /* BBAddressTableViewCell.xib */,
+				3A1320221CFE30F30046CFBD /* BBSearchTableViewController.h */,
+				3A1320231CFE30F30046CFBD /* BBSearchTableViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1021,14 +1021,14 @@
 		3A13472F1CA5DFAD007A83ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3AF26F431D0CBA4E004972FC /* Other Services */,
 				3A050EFC1D0864D3000AC0B8 /* DataBase Service */,
-				3A1347521CA6B634007A83ED /* UserService */,
-				3AC988641CAB201A0069DE52 /* REST API */,
+				3AF26F431D0CBA4E004972FC /* Other Services */,
 				3A2D56E61CF07F2400A8EFF5 /* Parser */,
+				3AC988641CAB201A0069DE52 /* REST API */,
+				3A1347521CA6B634007A83ED /* UserService */,
 			);
 			name = Services;
-			path = ../Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3A1347521CA6B634007A83ED /* UserService */ = {
@@ -1051,28 +1051,28 @@
 				3A1AB26F1C9D8F6B0070E065 /* Storyboards */,
 				3A1AB2721C9D8F6B0070E065 /* Supporting Files */,
 				3A2D54801CF075D200A8EFF5 /* UserStories */,
-				37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */,
-				3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */,
-				3A1AB2811C9D917A0070E065 /* PrefixHeader.pch */,
 				3A1AB26C1C9D8F6B0070E065 /* AppDelegate.h */,
 				3A1AB26D1C9D8F6B0070E065 /* AppDelegate.m */,
+				3A1AB26E1C9D8F6B0070E065 /* Assets.xcassets */,
 				3AD0A5C41DD0CBE1002ECB00 /* BBAppAnalitics.h */,
 				3AD0A5C51DD0CBE1002ECB00 /* BBAppAnalitics.m */,
+				37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */,
+				3A1AB2811C9D917A0070E065 /* PrefixHeader.pch */,
 			);
 			name = JustForYou;
-			path = Application;
+			path = JustForYou;
 			sourceTree = "<group>";
 		};
 		3A1AB26F1C9D8F6B0070E065 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				3A1AB2701C9D8F6B0070E065 /* LaunchScreen.storyboard */,
 				3A13474F1CA6B59B007A83ED /* Authorizate.storyboard */,
-				3A1AB2711C9D8F6B0070E065 /* Main.storyboard */,
 				3A311FEC1CF6DE8600D179D1 /* Blocks.storyboard */,
+				3A1AB2701C9D8F6B0070E065 /* LaunchScreen.storyboard */,
+				3A1AB2711C9D8F6B0070E065 /* Main.storyboard */,
 				3A311FEE1CF6DE9A00D179D1 /* Orders.storyboard */,
-				3A311FF01CF6DEAE00D179D1 /* Support.storyboard */,
 				3A311FF21CF6DEFA00D179D1 /* Profile.storyboard */,
+				3A311FF01CF6DEAE00D179D1 /* Support.storyboard */,
 				3A311FF41CF6DF0B00D179D1 /* Universal.storyboard */,
 			);
 			path = Storyboards;
@@ -1085,19 +1085,19 @@
 				3A1AB2741C9D8F6B0070E065 /* main.m */,
 			);
 			name = "Supporting Files";
-			path = "../Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		3A1AB27C1C9D91450070E065 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3A1AB27D1C9D91450070E065 /* HelpQueue.h */,
-				3A1AB27E1C9D91450070E065 /* HelpQueue.m */,
 				3AC988601CAB14940069DE52 /* BBConstantAndColor.h */,
 				3AC988611CAB14940069DE52 /* BBConstantAndColor.m */,
 				3AE69BAF1CEB5E3400B5A674 /* BBHeaderFiles.h */,
 				3AE69BB01CEB5E9000B5A674 /* BBStringConstant.h */,
 				3AE69BB11CEB5F0600B5A674 /* BBStringConstant.m */,
+				3A1AB27D1C9D91450070E065 /* HelpQueue.h */,
+				3A1AB27E1C9D91450070E065 /* HelpQueue.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1116,10 +1116,10 @@
 		3A2A2E651C9D8CE900CA19E1 = {
 			isa = PBXGroup;
 			children = (
-				3A1AB26B1C9D8F6B0070E065 /* JustForYou */,
 				1F94A1FB1291D9AAD2535E32 /* Frameworks */,
-				3A2A2E6F1C9D8CE900CA19E1 /* Products */,
+				3A1AB26B1C9D8F6B0070E065 /* JustForYou */,
 				9A97758BB14ED787FF652F5D /* Pods */,
+				3A2A2E6F1C9D8CE900CA19E1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1134,24 +1134,24 @@
 		3A2D54801CF075D200A8EFF5 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55421CF075D200A8EFF5 /* Navigation Bars */,
 				3A2D54811CF075D200A8EFF5 /* Auth */,
 				3A2D54CB1CF075D200A8EFF5 /* Blocks */,
+				3A2D55421CF075D200A8EFF5 /* Navigation Bars */,
 				3A2D55731CF075D200A8EFF5 /* Orders */,
-				3A2D56101CF075D200A8EFF5 /* Support */,
 				3A2D55DB1CF075D200A8EFF5 /* Profile */,
+				3A2D56101CF075D200A8EFF5 /* Support */,
 				3A2D56271CF075D200A8EFF5 /* Universal */,
 			);
 			name = UserStories;
-			path = ../UserStories;
+			path = UserStories;
 			sourceTree = "<group>";
 		};
 		3A2D54811CF075D200A8EFF5 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				3A2D54821CF075D200A8EFF5 /* Authorization */,
-				3A2D54B51CF075D200A8EFF5 /* Registration */,
 				3A2D549F1CF075D200A8EFF5 /* Greeting */,
+				3A2D54B51CF075D200A8EFF5 /* Registration */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1160,10 +1160,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54831CF075D200A8EFF5 /* Assembly */,
-				3A2D54931CF075D200A8EFF5 /* View */,
-				3A2D548B1CF075D200A8EFF5 /* Presenter */,
 				3A2D54861CF075D200A8EFF5 /* Interactor */,
+				3A2D548B1CF075D200A8EFF5 /* Presenter */,
 				3A2D548F1CF075D200A8EFF5 /* Router */,
+				3A2D54931CF075D200A8EFF5 /* View */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -1180,10 +1180,10 @@
 		3A2D54861CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54891CF075D200A8EFF5 /* BBAuthorizationInteractorInput.h */,
-				3A2D548A1CF075D200A8EFF5 /* BBAuthorizationInteractorOutput.h */,
 				3A2D54871CF075D200A8EFF5 /* BBAuthorizationInteractor.h */,
 				3A2D54881CF075D200A8EFF5 /* BBAuthorizationInteractor.m */,
+				3A2D54891CF075D200A8EFF5 /* BBAuthorizationInteractorInput.h */,
+				3A2D548A1CF075D200A8EFF5 /* BBAuthorizationInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1201,9 +1201,9 @@
 		3A2D548F1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54921CF075D200A8EFF5 /* BBAuthorizationRouterInput.h */,
 				3A2D54901CF075D200A8EFF5 /* BBAuthorizationRouter.h */,
 				3A2D54911CF075D200A8EFF5 /* BBAuthorizationRouter.m */,
+				3A2D54921CF075D200A8EFF5 /* BBAuthorizationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1212,10 +1212,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54981CF075D200A8EFF5 /* VIews */,
-				3A2D54961CF075D200A8EFF5 /* BBAuthorizationViewInput.h */,
-				3A2D54971CF075D200A8EFF5 /* BBAuthorizationViewOutput.h */,
 				3A2D54941CF075D200A8EFF5 /* BBAuthorizationViewController.h */,
 				3A2D54951CF075D200A8EFF5 /* BBAuthorizationViewController.m */,
+				3A2D54961CF075D200A8EFF5 /* BBAuthorizationViewInput.h */,
+				3A2D54971CF075D200A8EFF5 /* BBAuthorizationViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1237,10 +1237,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54A01CF075D200A8EFF5 /* Assembly */,
-				3A2D54B01CF075D200A8EFF5 /* View */,
-				3A2D54A81CF075D200A8EFF5 /* Presenter */,
 				3A2D54A31CF075D200A8EFF5 /* Interactor */,
+				3A2D54A81CF075D200A8EFF5 /* Presenter */,
 				3A2D54AC1CF075D200A8EFF5 /* Router */,
+				3A2D54B01CF075D200A8EFF5 /* View */,
 			);
 			path = Greeting;
 			sourceTree = "<group>";
@@ -1278,9 +1278,9 @@
 		3A2D54AC1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54AF1CF075D200A8EFF5 /* BBGreetingRouterInput.h */,
 				3A2D54AD1CF075D200A8EFF5 /* BBGreetingRouter.h */,
 				3A2D54AE1CF075D200A8EFF5 /* BBGreetingRouter.m */,
+				3A2D54AF1CF075D200A8EFF5 /* BBGreetingRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1288,10 +1288,10 @@
 		3A2D54B01CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54B31CF075D200A8EFF5 /* BBGreetingViewInput.h */,
-				3A2D54B41CF075D200A8EFF5 /* BBGreetingViewOutput.h */,
 				3A2D54B11CF075D200A8EFF5 /* BBGreetingViewController.h */,
 				3A2D54B21CF075D200A8EFF5 /* BBGreetingViewController.m */,
+				3A2D54B31CF075D200A8EFF5 /* BBGreetingViewInput.h */,
+				3A2D54B41CF075D200A8EFF5 /* BBGreetingViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1300,10 +1300,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54B61CF075D200A8EFF5 /* Assembly */,
-				3A2D54C61CF075D200A8EFF5 /* View */,
-				3A2D54BE1CF075D200A8EFF5 /* Presenter */,
 				3A2D54B91CF075D200A8EFF5 /* Interactor */,
+				3A2D54BE1CF075D200A8EFF5 /* Presenter */,
 				3A2D54C21CF075D200A8EFF5 /* Router */,
+				3A2D54C61CF075D200A8EFF5 /* View */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -1320,10 +1320,10 @@
 		3A2D54B91CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54BC1CF075D200A8EFF5 /* BBRegistrationInteractorInput.h */,
-				3A2D54BD1CF075D200A8EFF5 /* BBRegistrationInteractorOutput.h */,
 				3A2D54BA1CF075D200A8EFF5 /* BBRegistrationInteractor.h */,
 				3A2D54BB1CF075D200A8EFF5 /* BBRegistrationInteractor.m */,
+				3A2D54BC1CF075D200A8EFF5 /* BBRegistrationInteractorInput.h */,
+				3A2D54BD1CF075D200A8EFF5 /* BBRegistrationInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1341,9 +1341,9 @@
 		3A2D54C21CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54C51CF075D200A8EFF5 /* BBRegistrationRouterInput.h */,
 				3A2D54C31CF075D200A8EFF5 /* BBRegistrationRouter.h */,
 				3A2D54C41CF075D200A8EFF5 /* BBRegistrationRouter.m */,
+				3A2D54C51CF075D200A8EFF5 /* BBRegistrationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1351,10 +1351,10 @@
 		3A2D54C61CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54C91CF075D200A8EFF5 /* BBRegistrationViewInput.h */,
-				3A2D54CA1CF075D200A8EFF5 /* BBRegistrationViewOutput.h */,
 				3A2D54C71CF075D200A8EFF5 /* BBRegistrationViewController.h */,
 				3A2D54C81CF075D200A8EFF5 /* BBRegistrationViewController.m */,
+				3A2D54C91CF075D200A8EFF5 /* BBRegistrationViewInput.h */,
+				3A2D54CA1CF075D200A8EFF5 /* BBRegistrationViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1364,8 +1364,8 @@
 			children = (
 				3A2D54CC1CF075D200A8EFF5 /* Basket */,
 				3A2D54E61CF075D200A8EFF5 /* Blocks */,
-				3A2D55281CF075D200A8EFF5 /* Programs */,
 				3A2D55001CF075D200A8EFF5 /* CardProgram */,
+				3A2D55281CF075D200A8EFF5 /* Programs */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -1374,10 +1374,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54CD1CF075D200A8EFF5 /* Assembly */,
-				3A2D54DD1CF075D200A8EFF5 /* View */,
-				3A2D54D51CF075D200A8EFF5 /* Presenter */,
 				3A2D54D01CF075D200A8EFF5 /* Interactor */,
+				3A2D54D51CF075D200A8EFF5 /* Presenter */,
 				3A2D54D91CF075D200A8EFF5 /* Router */,
+				3A2D54DD1CF075D200A8EFF5 /* View */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -1394,10 +1394,10 @@
 		3A2D54D01CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54D31CF075D200A8EFF5 /* BBBasketInteractorInput.h */,
-				3A2D54D41CF075D200A8EFF5 /* BBBasketInteractorOutput.h */,
 				3A2D54D11CF075D200A8EFF5 /* BBBasketInteractor.h */,
 				3A2D54D21CF075D200A8EFF5 /* BBBasketInteractor.m */,
+				3A2D54D31CF075D200A8EFF5 /* BBBasketInteractorInput.h */,
+				3A2D54D41CF075D200A8EFF5 /* BBBasketInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1415,9 +1415,9 @@
 		3A2D54D91CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54DC1CF075D200A8EFF5 /* BBBasketRouterInput.h */,
 				3A2D54DA1CF075D200A8EFF5 /* BBBasketRouter.h */,
 				3A2D54DB1CF075D200A8EFF5 /* BBBasketRouter.m */,
+				3A2D54DC1CF075D200A8EFF5 /* BBBasketRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1426,10 +1426,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54E21CF075D200A8EFF5 /* Views */,
-				3A2D54E01CF075D200A8EFF5 /* BBBasketViewInput.h */,
-				3A2D54E11CF075D200A8EFF5 /* BBBasketViewOutput.h */,
 				3A2D54DE1CF075D200A8EFF5 /* BBBasketViewController.h */,
 				3A2D54DF1CF075D200A8EFF5 /* BBBasketViewController.m */,
+				3A2D54E01CF075D200A8EFF5 /* BBBasketViewInput.h */,
+				3A2D54E11CF075D200A8EFF5 /* BBBasketViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1451,10 +1451,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54E71CF075D200A8EFF5 /* Assembly */,
-				3A2D54F71CF075D200A8EFF5 /* View */,
-				3A2D54EF1CF075D200A8EFF5 /* Presenter */,
 				3A2D54EA1CF075D200A8EFF5 /* Interactor */,
+				3A2D54EF1CF075D200A8EFF5 /* Presenter */,
 				3A2D54F31CF075D200A8EFF5 /* Router */,
+				3A2D54F71CF075D200A8EFF5 /* View */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -1471,10 +1471,10 @@
 		3A2D54EA1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54ED1CF075D200A8EFF5 /* BBBlocksInteractorInput.h */,
-				3A2D54EE1CF075D200A8EFF5 /* BBBlocksInteractorOutput.h */,
 				3A2D54EB1CF075D200A8EFF5 /* BBBlocksInteractor.h */,
 				3A2D54EC1CF075D200A8EFF5 /* BBBlocksInteractor.m */,
+				3A2D54ED1CF075D200A8EFF5 /* BBBlocksInteractorInput.h */,
+				3A2D54EE1CF075D200A8EFF5 /* BBBlocksInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1492,9 +1492,9 @@
 		3A2D54F31CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D54F61CF075D200A8EFF5 /* BBBlocksRouterInput.h */,
 				3A2D54F41CF075D200A8EFF5 /* BBBlocksRouter.h */,
 				3A2D54F51CF075D200A8EFF5 /* BBBlocksRouter.m */,
+				3A2D54F61CF075D200A8EFF5 /* BBBlocksRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1503,10 +1503,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D54FC1CF075D200A8EFF5 /* VIews */,
-				3A2D54FA1CF075D200A8EFF5 /* BBBlocksViewInput.h */,
-				3A2D54FB1CF075D200A8EFF5 /* BBBlocksViewOutput.h */,
 				3A2D54F81CF075D200A8EFF5 /* BBBlocksViewController.h */,
 				3A2D54F91CF075D200A8EFF5 /* BBBlocksViewController.m */,
+				3A2D54FA1CF075D200A8EFF5 /* BBBlocksViewInput.h */,
+				3A2D54FB1CF075D200A8EFF5 /* BBBlocksViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1525,10 +1525,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55011CF075D200A8EFF5 /* Assembly */,
-				3A2D55111CF075D200A8EFF5 /* View */,
-				3A2D55091CF075D200A8EFF5 /* Presenter */,
 				3A2D55041CF075D200A8EFF5 /* Interactor */,
+				3A2D55091CF075D200A8EFF5 /* Presenter */,
 				3A2D550D1CF075D200A8EFF5 /* Router */,
+				3A2D55111CF075D200A8EFF5 /* View */,
 			);
 			path = CardProgram;
 			sourceTree = "<group>";
@@ -1545,10 +1545,10 @@
 		3A2D55041CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55071CF075D200A8EFF5 /* BBCardProgramInteractorInput.h */,
-				3A2D55081CF075D200A8EFF5 /* BBCardProgramInteractorOutput.h */,
 				3A2D55051CF075D200A8EFF5 /* BBCardProgramInteractor.h */,
 				3A2D55061CF075D200A8EFF5 /* BBCardProgramInteractor.m */,
+				3A2D55071CF075D200A8EFF5 /* BBCardProgramInteractorInput.h */,
+				3A2D55081CF075D200A8EFF5 /* BBCardProgramInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1566,9 +1566,9 @@
 		3A2D550D1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55101CF075D200A8EFF5 /* BBCardProgramRouterInput.h */,
 				3A2D550E1CF075D200A8EFF5 /* BBCardProgramRouter.h */,
 				3A2D550F1CF075D200A8EFF5 /* BBCardProgramRouter.m */,
+				3A2D55101CF075D200A8EFF5 /* BBCardProgramRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1577,10 +1577,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55161CF075D200A8EFF5 /* VIews */,
-				3A2D55141CF075D200A8EFF5 /* BBCardProgramViewInput.h */,
-				3A2D55151CF075D200A8EFF5 /* BBCardProgramViewOutput.h */,
 				3A2D55121CF075D200A8EFF5 /* BBCardProgramViewController.h */,
 				3A2D55131CF075D200A8EFF5 /* BBCardProgramViewController.m */,
+				3A2D55141CF075D200A8EFF5 /* BBCardProgramViewInput.h */,
+				3A2D55151CF075D200A8EFF5 /* BBCardProgramViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1591,6 +1591,9 @@
 				3A2D55171CF075D200A8EFF5 /* BBDescriptionTableViewCell.h */,
 				3A2D55181CF075D200A8EFF5 /* BBDescriptionTableViewCell.m */,
 				3A2D55191CF075D200A8EFF5 /* BBDescriptionTableViewCell.xib */,
+				3AF26F6B1D0D7B89004972FC /* BBForWhomTableViewCell.h */,
+				3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */,
+				3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */,
 				3A2D551A1CF075D200A8EFF5 /* BBGradientView.h */,
 				3A2D551B1CF075D200A8EFF5 /* BBGradientView.m */,
 				3A2D551C1CF075D200A8EFF5 /* BBHeaderTableViewCell.h */,
@@ -1605,9 +1608,6 @@
 				3A2D55251CF075D200A8EFF5 /* BBPartDayTableViewCell.h */,
 				3A2D55261CF075D200A8EFF5 /* BBPartDayTableViewCell.m */,
 				3A2D55271CF075D200A8EFF5 /* BBPartDayTableViewCell.xib */,
-				3AF26F6B1D0D7B89004972FC /* BBForWhomTableViewCell.h */,
-				3AF26F6C1D0D7B89004972FC /* BBForWhomTableViewCell.m */,
-				3AF26F6D1D0D7B89004972FC /* BBForWhomTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -1616,10 +1616,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55291CF075D200A8EFF5 /* Assembly */,
-				3A2D55391CF075D200A8EFF5 /* View */,
-				3A2D55311CF075D200A8EFF5 /* Presenter */,
 				3A2D552C1CF075D200A8EFF5 /* Interactor */,
+				3A2D55311CF075D200A8EFF5 /* Presenter */,
 				3A2D55351CF075D200A8EFF5 /* Router */,
+				3A2D55391CF075D200A8EFF5 /* View */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -1636,10 +1636,10 @@
 		3A2D552C1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D552F1CF075D200A8EFF5 /* BBProgramsInteractorInput.h */,
-				3A2D55301CF075D200A8EFF5 /* BBProgramsInteractorOutput.h */,
 				3A2D552D1CF075D200A8EFF5 /* BBProgramsInteractor.h */,
 				3A2D552E1CF075D200A8EFF5 /* BBProgramsInteractor.m */,
+				3A2D552F1CF075D200A8EFF5 /* BBProgramsInteractorInput.h */,
+				3A2D55301CF075D200A8EFF5 /* BBProgramsInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1657,9 +1657,9 @@
 		3A2D55351CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55381CF075D200A8EFF5 /* BBProgramsRouterInput.h */,
 				3A2D55361CF075D200A8EFF5 /* BBProgramsRouter.h */,
 				3A2D55371CF075D200A8EFF5 /* BBProgramsRouter.m */,
+				3A2D55381CF075D200A8EFF5 /* BBProgramsRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1668,10 +1668,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D553E1CF075D200A8EFF5 /* Views */,
-				3A2D553C1CF075D200A8EFF5 /* BBProgramsViewInput.h */,
-				3A2D553D1CF075D200A8EFF5 /* BBProgramsViewOutput.h */,
 				3A2D553A1CF075D200A8EFF5 /* BBProgramsViewController.h */,
 				3A2D553B1CF075D200A8EFF5 /* BBProgramsViewController.m */,
+				3A2D553C1CF075D200A8EFF5 /* BBProgramsViewInput.h */,
+				3A2D553D1CF075D200A8EFF5 /* BBProgramsViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1699,10 +1699,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55441CF075D200A8EFF5 /* Assembly */,
-				3A2D55551CF075D200A8EFF5 /* View */,
-				3A2D554C1CF075D200A8EFF5 /* Presenter */,
 				3A2D55471CF075D200A8EFF5 /* Interactor */,
+				3A2D554C1CF075D200A8EFF5 /* Presenter */,
 				3A2D55511CF075D200A8EFF5 /* Router */,
+				3A2D55551CF075D200A8EFF5 /* View */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1741,9 +1741,9 @@
 		3A2D55511CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55541CF075D200A8EFF5 /* BBNavigationRouterInput.h */,
 				3A2D55521CF075D200A8EFF5 /* BBNavigationRouter.h */,
 				3A2D55531CF075D200A8EFF5 /* BBNavigationRouter.m */,
+				3A2D55541CF075D200A8EFF5 /* BBNavigationRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1751,10 +1751,10 @@
 		3A2D55551CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55581CF075D200A8EFF5 /* BBNavigationViewInput.h */,
-				3A2D55591CF075D200A8EFF5 /* BBNavigationViewOutput.h */,
 				3A2D55561CF075D200A8EFF5 /* BBNavigationViewController.h */,
 				3A2D55571CF075D200A8EFF5 /* BBNavigationViewController.m */,
+				3A2D55581CF075D200A8EFF5 /* BBNavigationViewInput.h */,
+				3A2D55591CF075D200A8EFF5 /* BBNavigationViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1763,10 +1763,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D555B1CF075D200A8EFF5 /* Assembly */,
-				3A2D556B1CF075D200A8EFF5 /* View */,
-				3A2D55631CF075D200A8EFF5 /* Presenter */,
 				3A2D555E1CF075D200A8EFF5 /* Interactor */,
+				3A2D55631CF075D200A8EFF5 /* Presenter */,
 				3A2D55671CF075D200A8EFF5 /* Router */,
+				3A2D556B1CF075D200A8EFF5 /* View */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -1805,9 +1805,9 @@
 		3A2D55671CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D556A1CF075D200A8EFF5 /* BBTabbarRouterInput.h */,
 				3A2D55681CF075D200A8EFF5 /* BBTabbarRouter.h */,
 				3A2D55691CF075D200A8EFF5 /* BBTabbarRouter.m */,
+				3A2D556A1CF075D200A8EFF5 /* BBTabbarRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1816,10 +1816,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55701CF075D200A8EFF5 /* Views */,
-				3A2D556E1CF075D200A8EFF5 /* BBTabbarViewInput.h */,
-				3A2D556F1CF075D200A8EFF5 /* BBTabbarViewOutput.h */,
 				3A2D556C1CF075D200A8EFF5 /* BBTabbarViewController.h */,
 				3A2D556D1CF075D200A8EFF5 /* BBTabbarViewController.m */,
+				3A2D556E1CF075D200A8EFF5 /* BBTabbarViewInput.h */,
+				3A2D556F1CF075D200A8EFF5 /* BBTabbarViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1837,9 +1837,9 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55741CF075D200A8EFF5 /* Delivery */,
-				3A2D55BA1CF075D200A8EFF5 /* Orders */,
 				3A2D558E1CF075D200A8EFF5 /* MyPrograms */,
 				3A2D55A41CF075D200A8EFF5 /* NewOrder */,
+				3A2D55BA1CF075D200A8EFF5 /* Orders */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -1848,10 +1848,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55751CF075D200A8EFF5 /* Assembly */,
-				3A2D55851CF075D200A8EFF5 /* View */,
-				3A2D557D1CF075D200A8EFF5 /* Presenter */,
 				3A2D55781CF075D200A8EFF5 /* Interactor */,
+				3A2D557D1CF075D200A8EFF5 /* Presenter */,
 				3A2D55811CF075D200A8EFF5 /* Router */,
+				3A2D55851CF075D200A8EFF5 /* View */,
 			);
 			path = Delivery;
 			sourceTree = "<group>";
@@ -1889,9 +1889,9 @@
 		3A2D55811CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55841CF075D200A8EFF5 /* BBDeliveryRouterInput.h */,
 				3A2D55821CF075D200A8EFF5 /* BBDeliveryRouter.h */,
 				3A2D55831CF075D200A8EFF5 /* BBDeliveryRouter.m */,
+				3A2D55841CF075D200A8EFF5 /* BBDeliveryRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1900,10 +1900,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D558A1CF075D200A8EFF5 /* Views */,
-				3A2D55881CF075D200A8EFF5 /* BBDeliveryViewInput.h */,
-				3A2D55891CF075D200A8EFF5 /* BBDeliveryViewOutput.h */,
 				3A2D55861CF075D200A8EFF5 /* BBDeliveryViewController.h */,
 				3A2D55871CF075D200A8EFF5 /* BBDeliveryViewController.m */,
+				3A2D55881CF075D200A8EFF5 /* BBDeliveryViewInput.h */,
+				3A2D55891CF075D200A8EFF5 /* BBDeliveryViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1922,10 +1922,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D558F1CF075D200A8EFF5 /* Assembly */,
-				3A2D559F1CF075D200A8EFF5 /* View */,
-				3A2D55971CF075D200A8EFF5 /* Presenter */,
 				3A2D55921CF075D200A8EFF5 /* Interactor */,
+				3A2D55971CF075D200A8EFF5 /* Presenter */,
 				3A2D559B1CF075D200A8EFF5 /* Router */,
+				3A2D559F1CF075D200A8EFF5 /* View */,
 			);
 			path = MyPrograms;
 			sourceTree = "<group>";
@@ -1942,10 +1942,10 @@
 		3A2D55921CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55951CF075D200A8EFF5 /* BBMyProgramsInteractorInput.h */,
-				3A2D55961CF075D200A8EFF5 /* BBMyProgramsInteractorOutput.h */,
 				3A2D55931CF075D200A8EFF5 /* BBMyProgramsInteractor.h */,
 				3A2D55941CF075D200A8EFF5 /* BBMyProgramsInteractor.m */,
+				3A2D55951CF075D200A8EFF5 /* BBMyProgramsInteractorInput.h */,
+				3A2D55961CF075D200A8EFF5 /* BBMyProgramsInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1963,9 +1963,9 @@
 		3A2D559B1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D559E1CF075D200A8EFF5 /* BBMyProgramsRouterInput.h */,
 				3A2D559C1CF075D200A8EFF5 /* BBMyProgramsRouter.h */,
 				3A2D559D1CF075D200A8EFF5 /* BBMyProgramsRouter.m */,
+				3A2D559E1CF075D200A8EFF5 /* BBMyProgramsRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -1973,10 +1973,10 @@
 		3A2D559F1CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55A21CF075D200A8EFF5 /* BBMyProgramsViewInput.h */,
-				3A2D55A31CF075D200A8EFF5 /* BBMyProgramsViewOutput.h */,
 				3A2D55A01CF075D200A8EFF5 /* BBMyProgramsViewController.h */,
 				3A2D55A11CF075D200A8EFF5 /* BBMyProgramsViewController.m */,
+				3A2D55A21CF075D200A8EFF5 /* BBMyProgramsViewInput.h */,
+				3A2D55A31CF075D200A8EFF5 /* BBMyProgramsViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1985,10 +1985,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55A51CF075D200A8EFF5 /* Assembly */,
-				3A2D55B51CF075D200A8EFF5 /* View */,
-				3A2D55AD1CF075D200A8EFF5 /* Presenter */,
 				3A2D55A81CF075D200A8EFF5 /* Interactor */,
+				3A2D55AD1CF075D200A8EFF5 /* Presenter */,
 				3A2D55B11CF075D200A8EFF5 /* Router */,
+				3A2D55B51CF075D200A8EFF5 /* View */,
 			);
 			path = NewOrder;
 			sourceTree = "<group>";
@@ -2005,10 +2005,10 @@
 		3A2D55A81CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55AB1CF075D200A8EFF5 /* BBNewOrderInteractorInput.h */,
-				3A2D55AC1CF075D200A8EFF5 /* BBNewOrderInteractorOutput.h */,
 				3A2D55A91CF075D200A8EFF5 /* BBNewOrderInteractor.h */,
 				3A2D55AA1CF075D200A8EFF5 /* BBNewOrderInteractor.m */,
+				3A2D55AB1CF075D200A8EFF5 /* BBNewOrderInteractorInput.h */,
+				3A2D55AC1CF075D200A8EFF5 /* BBNewOrderInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2026,9 +2026,9 @@
 		3A2D55B11CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55B41CF075D200A8EFF5 /* BBNewOrderRouterInput.h */,
 				3A2D55B21CF075D200A8EFF5 /* BBNewOrderRouter.h */,
 				3A2D55B31CF075D200A8EFF5 /* BBNewOrderRouter.m */,
+				3A2D55B41CF075D200A8EFF5 /* BBNewOrderRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2037,10 +2037,10 @@
 			isa = PBXGroup;
 			children = (
 				3A71DCE61D69F2EE00EB19BF /* Views */,
-				3A2D55B81CF075D200A8EFF5 /* BBNewOrderViewInput.h */,
-				3A2D55B91CF075D200A8EFF5 /* BBNewOrderViewOutput.h */,
 				3A2D55B61CF075D200A8EFF5 /* BBNewOrderViewController.h */,
 				3A2D55B71CF075D200A8EFF5 /* BBNewOrderViewController.m */,
+				3A2D55B81CF075D200A8EFF5 /* BBNewOrderViewInput.h */,
+				3A2D55B91CF075D200A8EFF5 /* BBNewOrderViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2049,10 +2049,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55BB1CF075D200A8EFF5 /* Assembly */,
-				3A2D55CB1CF075D200A8EFF5 /* View */,
-				3A2D55C31CF075D200A8EFF5 /* Presenter */,
 				3A2D55BE1CF075D200A8EFF5 /* Interactor */,
+				3A2D55C31CF075D200A8EFF5 /* Presenter */,
 				3A2D55C71CF075D200A8EFF5 /* Router */,
+				3A2D55CB1CF075D200A8EFF5 /* View */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -2069,10 +2069,10 @@
 		3A2D55BE1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55C11CF075D200A8EFF5 /* BBOrdersInteractorInput.h */,
-				3A2D55C21CF075D200A8EFF5 /* BBOrdersInteractorOutput.h */,
 				3A2D55BF1CF075D200A8EFF5 /* BBOrdersInteractor.h */,
 				3A2D55C01CF075D200A8EFF5 /* BBOrdersInteractor.m */,
+				3A2D55C11CF075D200A8EFF5 /* BBOrdersInteractorInput.h */,
+				3A2D55C21CF075D200A8EFF5 /* BBOrdersInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2090,9 +2090,9 @@
 		3A2D55C71CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55CA1CF075D200A8EFF5 /* BBOrdersRouterInput.h */,
 				3A2D55C81CF075D200A8EFF5 /* BBOrdersRouter.h */,
 				3A2D55C91CF075D200A8EFF5 /* BBOrdersRouter.m */,
+				3A2D55CA1CF075D200A8EFF5 /* BBOrdersRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2101,11 +2101,11 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55D11CF075D200A8EFF5 /* Views */,
-				3A2D55CE1CF075D200A8EFF5 /* BBOrdersViewInput.h */,
-				3A2D55CF1CF075D200A8EFF5 /* BBOrdersViewOutput.h */,
 				3A2D55D01CF075D200A8EFF5 /* BBOrderViewControllerDelegate.h */,
 				3A2D55CC1CF075D200A8EFF5 /* BBOrdersViewController.h */,
 				3A2D55CD1CF075D200A8EFF5 /* BBOrdersViewController.m */,
+				3A2D55CE1CF075D200A8EFF5 /* BBOrdersViewInput.h */,
+				3A2D55CF1CF075D200A8EFF5 /* BBOrdersViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2119,12 +2119,12 @@
 				3A2D55D51CF075D200A8EFF5 /* BBCalendarTableViewCell.h */,
 				3A2D55D61CF075D200A8EFF5 /* BBCalendarTableViewCell.m */,
 				3A2D55D71CF075D200A8EFF5 /* BBCalendarTableViewCell.xib */,
-				3A2D55D81CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.h */,
-				3A2D55D91CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.m */,
-				3A2D55DA1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.xib */,
 				3A65F53E1D42206A00F00707 /* BBClearOrderTableViewCell.h */,
 				3A65F53F1D42206A00F00707 /* BBClearOrderTableViewCell.m */,
 				3A65F5401D42206A00F00707 /* BBClearOrderTableViewCell.xib */,
+				3A2D55D81CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.h */,
+				3A2D55D91CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.m */,
+				3A2D55DA1CF075D200A8EFF5 /* BBPreviewOrderTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2132,12 +2132,12 @@
 		3A2D55DB1CF075D200A8EFF5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55DC1CF075D200A8EFF5 /* Profile */,
-				3A2D55F61CF075D200A8EFF5 /* Settings */,
-				19E19EEF7F94283019B96AAD /* Replacement */,
 				A64FC4339EE43C79C87CC32F /* ListMyProg */,
 				AFA03F5752E841E321169AE3 /* MyHistory */,
+				3A2D55DC1CF075D200A8EFF5 /* Profile */,
 				0055BC47268F285AD080BAC4 /* ReplaceProgram */,
+				19E19EEF7F94283019B96AAD /* Replacement */,
+				3A2D55F61CF075D200A8EFF5 /* Settings */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -2146,10 +2146,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55DD1CF075D200A8EFF5 /* Assembly */,
-				3A2D55ED1CF075D200A8EFF5 /* View */,
-				3A2D55E51CF075D200A8EFF5 /* Presenter */,
 				3A2D55E01CF075D200A8EFF5 /* Interactor */,
+				3A2D55E51CF075D200A8EFF5 /* Presenter */,
 				3A2D55E91CF075D200A8EFF5 /* Router */,
+				3A2D55ED1CF075D200A8EFF5 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -2166,10 +2166,10 @@
 		3A2D55E01CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55E31CF075D200A8EFF5 /* BBProfileInteractorInput.h */,
-				3A2D55E41CF075D200A8EFF5 /* BBProfileInteractorOutput.h */,
 				3A2D55E11CF075D200A8EFF5 /* BBProfileInteractor.h */,
 				3A2D55E21CF075D200A8EFF5 /* BBProfileInteractor.m */,
+				3A2D55E31CF075D200A8EFF5 /* BBProfileInteractorInput.h */,
+				3A2D55E41CF075D200A8EFF5 /* BBProfileInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2187,9 +2187,9 @@
 		3A2D55E91CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55EC1CF075D200A8EFF5 /* BBProfileRouterInput.h */,
 				3A2D55EA1CF075D200A8EFF5 /* BBProfileRouter.h */,
 				3A2D55EB1CF075D200A8EFF5 /* BBProfileRouter.m */,
+				3A2D55EC1CF075D200A8EFF5 /* BBProfileRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2198,10 +2198,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55F21CF075D200A8EFF5 /* Views */,
-				3A2D55F01CF075D200A8EFF5 /* BBProfileViewInput.h */,
-				3A2D55F11CF075D200A8EFF5 /* BBProfileViewOutput.h */,
 				3A2D55EE1CF075D200A8EFF5 /* BBProfileViewController.h */,
 				3A2D55EF1CF075D200A8EFF5 /* BBProfileViewController.m */,
+				3A2D55F01CF075D200A8EFF5 /* BBProfileViewInput.h */,
+				3A2D55F11CF075D200A8EFF5 /* BBProfileViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2220,10 +2220,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D55F71CF075D200A8EFF5 /* Assembly */,
-				3A2D56071CF075D200A8EFF5 /* View */,
-				3A2D55FF1CF075D200A8EFF5 /* Presenter */,
 				3A2D55FA1CF075D200A8EFF5 /* Interactor */,
+				3A2D55FF1CF075D200A8EFF5 /* Presenter */,
 				3A2D56031CF075D200A8EFF5 /* Router */,
+				3A2D56071CF075D200A8EFF5 /* View */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2240,10 +2240,10 @@
 		3A2D55FA1CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D55FD1CF075D200A8EFF5 /* BBSettingsInteractorInput.h */,
-				3A2D55FE1CF075D200A8EFF5 /* BBSettingsInteractorOutput.h */,
 				3A2D55FB1CF075D200A8EFF5 /* BBSettingsInteractor.h */,
 				3A2D55FC1CF075D200A8EFF5 /* BBSettingsInteractor.m */,
+				3A2D55FD1CF075D200A8EFF5 /* BBSettingsInteractorInput.h */,
+				3A2D55FE1CF075D200A8EFF5 /* BBSettingsInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2261,9 +2261,9 @@
 		3A2D56031CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56061CF075D200A8EFF5 /* BBSettingsRouterInput.h */,
 				3A2D56041CF075D200A8EFF5 /* BBSettingsRouter.h */,
 				3A2D56051CF075D200A8EFF5 /* BBSettingsRouter.m */,
+				3A2D56061CF075D200A8EFF5 /* BBSettingsRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2272,10 +2272,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D560C1CF075D200A8EFF5 /* Views */,
-				3A2D560A1CF075D200A8EFF5 /* BBSettingsViewInput.h */,
-				3A2D560B1CF075D200A8EFF5 /* BBSettingsViewOutput.h */,
 				3A2D56081CF075D200A8EFF5 /* BBSettingsViewController.h */,
 				3A2D56091CF075D200A8EFF5 /* BBSettingsViewController.m */,
+				3A2D560A1CF075D200A8EFF5 /* BBSettingsViewInput.h */,
+				3A2D560B1CF075D200A8EFF5 /* BBSettingsViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2302,10 +2302,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D56121CF075D200A8EFF5 /* Assembly */,
-				3A2D56221CF075D200A8EFF5 /* View */,
-				3A2D561A1CF075D200A8EFF5 /* Presenter */,
 				3A2D56151CF075D200A8EFF5 /* Interactor */,
+				3A2D561A1CF075D200A8EFF5 /* Presenter */,
 				3A2D561E1CF075D200A8EFF5 /* Router */,
+				3A2D56221CF075D200A8EFF5 /* View */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -2322,10 +2322,10 @@
 		3A2D56151CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56181CF075D200A8EFF5 /* BBSupportInteractorInput.h */,
-				3A2D56191CF075D200A8EFF5 /* BBSupportInteractorOutput.h */,
 				3A2D56161CF075D200A8EFF5 /* BBSupportInteractor.h */,
 				3A2D56171CF075D200A8EFF5 /* BBSupportInteractor.m */,
+				3A2D56181CF075D200A8EFF5 /* BBSupportInteractorInput.h */,
+				3A2D56191CF075D200A8EFF5 /* BBSupportInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2343,9 +2343,9 @@
 		3A2D561E1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56211CF075D200A8EFF5 /* BBSupportRouterInput.h */,
 				3A2D561F1CF075D200A8EFF5 /* BBSupportRouter.h */,
 				3A2D56201CF075D200A8EFF5 /* BBSupportRouter.m */,
+				3A2D56211CF075D200A8EFF5 /* BBSupportRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2353,10 +2353,10 @@
 		3A2D56221CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56251CF075D200A8EFF5 /* BBSupportViewInput.h */,
-				3A2D56261CF075D200A8EFF5 /* BBSupportViewOutput.h */,
 				3A2D56231CF075D200A8EFF5 /* BBSupportViewController.h */,
 				3A2D56241CF075D200A8EFF5 /* BBSupportViewController.m */,
+				3A2D56251CF075D200A8EFF5 /* BBSupportViewInput.h */,
+				3A2D56261CF075D200A8EFF5 /* BBSupportViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2364,11 +2364,11 @@
 		3A2D56271CF075D200A8EFF5 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56281CF075D200A8EFF5 /* Payment */,
-				3A2D563E1CF075D200A8EFF5 /* Universal */,
-				A74A9D76E1B144C36F861F30 /* Map */,
 				3A71DCEC1D6A3DD400EB19BF /* Address */,
+				A74A9D76E1B144C36F861F30 /* Map */,
+				3A2D56281CF075D200A8EFF5 /* Payment */,
 				84B759E8D91E4C1BAC029C9F /* Stock */,
+				3A2D563E1CF075D200A8EFF5 /* Universal */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -2377,10 +2377,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D56291CF075D200A8EFF5 /* Assembly */,
-				3A2D56391CF075D200A8EFF5 /* View */,
-				3A2D56311CF075D200A8EFF5 /* Presenter */,
 				3A2D562C1CF075D200A8EFF5 /* Interactor */,
+				3A2D56311CF075D200A8EFF5 /* Presenter */,
 				3A2D56351CF075D200A8EFF5 /* Router */,
+				3A2D56391CF075D200A8EFF5 /* View */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -2418,9 +2418,9 @@
 		3A2D56351CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56381CF075D200A8EFF5 /* BBPaymentRouterInput.h */,
 				3A2D56361CF075D200A8EFF5 /* BBPaymentRouter.h */,
 				3A2D56371CF075D200A8EFF5 /* BBPaymentRouter.m */,
+				3A2D56381CF075D200A8EFF5 /* BBPaymentRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2428,10 +2428,10 @@
 		3A2D56391CF075D200A8EFF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D563C1CF075D200A8EFF5 /* BBPaymentViewInput.h */,
-				3A2D563D1CF075D200A8EFF5 /* BBPaymentViewOutput.h */,
 				3A2D563A1CF075D200A8EFF5 /* BBPaymentViewController.h */,
 				3A2D563B1CF075D200A8EFF5 /* BBPaymentViewController.m */,
+				3A2D563C1CF075D200A8EFF5 /* BBPaymentViewInput.h */,
+				3A2D563D1CF075D200A8EFF5 /* BBPaymentViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2440,10 +2440,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D563F1CF075D200A8EFF5 /* Assembly */,
-				3A2D564F1CF075D200A8EFF5 /* View */,
-				3A2D56471CF075D200A8EFF5 /* Presenter */,
 				3A2D56421CF075D200A8EFF5 /* Interactor */,
+				3A2D56471CF075D200A8EFF5 /* Presenter */,
 				3A2D564B1CF075D200A8EFF5 /* Router */,
+				3A2D564F1CF075D200A8EFF5 /* View */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -2460,10 +2460,10 @@
 		3A2D56421CF075D200A8EFF5 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56451CF075D200A8EFF5 /* BBUniversalInteractorInput.h */,
-				3A2D56461CF075D200A8EFF5 /* BBUniversalInteractorOutput.h */,
 				3A2D56431CF075D200A8EFF5 /* BBUniversalInteractor.h */,
 				3A2D56441CF075D200A8EFF5 /* BBUniversalInteractor.m */,
+				3A2D56451CF075D200A8EFF5 /* BBUniversalInteractorInput.h */,
+				3A2D56461CF075D200A8EFF5 /* BBUniversalInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2481,9 +2481,9 @@
 		3A2D564B1CF075D200A8EFF5 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D564E1CF075D200A8EFF5 /* BBUniversalRouterInput.h */,
 				3A2D564C1CF075D200A8EFF5 /* BBUniversalRouter.h */,
 				3A2D564D1CF075D200A8EFF5 /* BBUniversalRouter.m */,
+				3A2D564E1CF075D200A8EFF5 /* BBUniversalRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2492,10 +2492,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D56541CF075D200A8EFF5 /* VIews */,
-				3A2D56521CF075D200A8EFF5 /* BBUniversalViewInput.h */,
-				3A2D56531CF075D200A8EFF5 /* BBUniversalViewOutput.h */,
 				3A2D56501CF075D200A8EFF5 /* BBUniversalViewController.h */,
 				3A2D56511CF075D200A8EFF5 /* BBUniversalViewController.m */,
+				3A2D56521CF075D200A8EFF5 /* BBUniversalViewInput.h */,
+				3A2D56531CF075D200A8EFF5 /* BBUniversalViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2503,18 +2503,18 @@
 		3A2D56541CF075D200A8EFF5 /* VIews */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56581CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.h */,
-				3A2D56591CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.m */,
-				3A2D565A1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.xib */,
-				3A2D565B1CF075D200A8EFF5 /* BBStockTableViewCell.h */,
-				3A2D565C1CF075D200A8EFF5 /* BBStockTableViewCell.m */,
-				3A2D565D1CF075D200A8EFF5 /* BBStockTableViewCell.xib */,
 				3AE546041D1695D2006A1CDD /* BBAboutTableViewCell.h */,
 				3AE546051D1695D2006A1CDD /* BBAboutTableViewCell.m */,
 				3AE546061D1695D2006A1CDD /* BBAboutTableViewCell.xib */,
 				3A372D6A1D818B6100E07090 /* BBAgreementTableViewCell.h */,
 				3A372D6B1D818B6100E07090 /* BBAgreementTableViewCell.m */,
 				3A372D6C1D818B6100E07090 /* BBAgreementTableViewCell.xib */,
+				3A2D56581CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.h */,
+				3A2D56591CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.m */,
+				3A2D565A1CF075D200A8EFF5 /* BBPaymentHistoryTableViewCell.xib */,
+				3A2D565B1CF075D200A8EFF5 /* BBStockTableViewCell.h */,
+				3A2D565C1CF075D200A8EFF5 /* BBStockTableViewCell.m */,
+				3A2D565D1CF075D200A8EFF5 /* BBStockTableViewCell.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -2531,24 +2531,24 @@
 		3A2D56EA1CF331C300A8EFF5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				3AB21D151CFA12E70090F436 /* Parent Views */,
 				3A2D56EB1CF331C300A8EFF5 /* Buttons */,
 				3A2D56F01CF331C300A8EFF5 /* Custom Views */,
+				3AB21D151CFA12E70090F436 /* Parent Views */,
 				3A2D56F51CF331C300A8EFF5 /* TableViewCell */,
 			);
 			name = "Custom Views";
-			path = "../Custom Views";
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		3A2D56EB1CF331C300A8EFF5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3AA5A2131D85BEBF00A44EDB /* BBButtonWithIndicator.h */,
+				3AA5A2141D85BEBF00A44EDB /* BBButtonWithIndicator.m */,
 				3A2D56EC1CF331C300A8EFF5 /* BBDottedBorderButton.h */,
 				3A2D56ED1CF331C300A8EFF5 /* BBDottedBorderButton.m */,
 				3A2D56EE1CF331C300A8EFF5 /* BBUnderlineButton.h */,
 				3A2D56EF1CF331C300A8EFF5 /* BBUnderlineButton.m */,
-				3AA5A2131D85BEBF00A44EDB /* BBButtonWithIndicator.h */,
-				3AA5A2141D85BEBF00A44EDB /* BBButtonWithIndicator.m */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -2556,22 +2556,22 @@
 		3A2D56F01CF331C300A8EFF5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56F11CF331C300A8EFF5 /* BBContainerView.h */,
-				3A2D56F21CF331C300A8EFF5 /* BBContainerView.m */,
-				3A311FFD1CF74EA700D179D1 /* BBTextField.h */,
-				3A311FFE1CF74EA800D179D1 /* BBTextField.m */,
-				3A2D56F31CF331C300A8EFF5 /* BBSegmentedControl.h */,
-				3A2D56F41CF331C300A8EFF5 /* BBSegmentedControl.m */,
 				3A2D57131CF331FA00A8EFF5 /* BBAddBasketViewPopover.h */,
 				3A2D57141CF331FA00A8EFF5 /* BBAddBasketViewPopover.m */,
 				3A2D57161CF3321500A8EFF5 /* BBAddBasketViewPopover.xib */,
+				3A2D56F11CF331C300A8EFF5 /* BBContainerView.h */,
+				3A2D56F21CF331C300A8EFF5 /* BBContainerView.m */,
+				3A4FAC241D91B205007A1A14 /* BBImageWithLoader.h */,
+				3A4FAC251D91B205007A1A14 /* BBImageWithLoader.m */,
 				3A13201B1CFDF63E0046CFBD /* BBLoaderView.h */,
 				3A13201C1CFDF63E0046CFBD /* BBLoaderView.m */,
 				3A1320191CFDF6240046CFBD /* BBLoaderView.xib */,
+				3A2D56F31CF331C300A8EFF5 /* BBSegmentedControl.h */,
+				3A2D56F41CF331C300A8EFF5 /* BBSegmentedControl.m */,
 				3AE5461D1D17D6C7006A1CDD /* BBTableAlertController.h */,
 				3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */,
-				3A4FAC241D91B205007A1A14 /* BBImageWithLoader.h */,
-				3A4FAC251D91B205007A1A14 /* BBImageWithLoader.m */,
+				3A311FFD1CF74EA700D179D1 /* BBTextField.h */,
+				3A311FFE1CF74EA800D179D1 /* BBTextField.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -2612,10 +2612,10 @@
 			isa = PBXGroup;
 			children = (
 				3A71DCED1D6A3DD400EB19BF /* Assembly */,
-				3A71DCFD1D6A3DD400EB19BF /* View */,
-				3A71DCF51D6A3DD400EB19BF /* Presenter */,
 				3A71DCF01D6A3DD400EB19BF /* Interactor */,
+				3A71DCF51D6A3DD400EB19BF /* Presenter */,
 				3A71DCF91D6A3DD400EB19BF /* Router */,
+				3A71DCFD1D6A3DD400EB19BF /* View */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -2632,10 +2632,10 @@
 		3A71DCF01D6A3DD400EB19BF /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3A71DCF31D6A3DD400EB19BF /* BBAddressInteractorInput.h */,
-				3A71DCF41D6A3DD400EB19BF /* BBAddressInteractorOutput.h */,
 				3A71DCF11D6A3DD400EB19BF /* BBAddressInteractor.h */,
 				3A71DCF21D6A3DD400EB19BF /* BBAddressInteractor.m */,
+				3A71DCF31D6A3DD400EB19BF /* BBAddressInteractorInput.h */,
+				3A71DCF41D6A3DD400EB19BF /* BBAddressInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2653,9 +2653,9 @@
 		3A71DCF91D6A3DD400EB19BF /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3A71DCFC1D6A3DD400EB19BF /* BBAddressRouterInput.h */,
 				3A71DCFA1D6A3DD400EB19BF /* BBAddressRouter.h */,
 				3A71DCFB1D6A3DD400EB19BF /* BBAddressRouter.m */,
+				3A71DCFC1D6A3DD400EB19BF /* BBAddressRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2663,10 +2663,10 @@
 		3A71DCFD1D6A3DD400EB19BF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A71DD001D6A3DD400EB19BF /* BBAddressViewInput.h */,
-				3A71DD011D6A3DD400EB19BF /* BBAddressViewOutput.h */,
 				3A71DCFE1D6A3DD400EB19BF /* BBAddressViewController.h */,
 				3A71DCFF1D6A3DD400EB19BF /* BBAddressViewController.m */,
+				3A71DD001D6A3DD400EB19BF /* BBAddressViewInput.h */,
+				3A71DD011D6A3DD400EB19BF /* BBAddressViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2712,11 +2712,11 @@
 		3AB21D151CFA12E70090F436 /* Parent Views */ = {
 			isa = PBXGroup;
 			children = (
-				3AB21D161CFA130A0090F436 /* BBParentViewController.h */,
-				3AB21D171CFA130A0090F436 /* BBParentViewController.m */,
+				3AE273E21D35067A008C0C36 /* BBParentInteractorOutput.h */,
 				3AE273DE1D3504E6008C0C36 /* BBParentPresenter.h */,
 				3AE273DF1D3504E6008C0C36 /* BBParentPresenter.m */,
-				3AE273E21D35067A008C0C36 /* BBParentInteractorOutput.h */,
+				3AB21D161CFA130A0090F436 /* BBParentViewController.h */,
+				3AB21D171CFA130A0090F436 /* BBParentViewController.m */,
 			);
 			path = "Parent Views";
 			sourceTree = "<group>";
@@ -2734,10 +2734,10 @@
 		3AC988651CAB201A0069DE52 /* ServerAPIService */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D56E01CF07D9000A8EFF5 /* BBServerService.h */,
-				3A2D56E11CF07D9000A8EFF5 /* BBServerService.m */,
 				3A36B6EE1D03652D00A32B51 /* BBServerResponse.h */,
 				3A36B6EF1D03652D00A32B51 /* BBServerResponse.m */,
+				3A2D56E01CF07D9000A8EFF5 /* BBServerService.h */,
+				3A2D56E11CF07D9000A8EFF5 /* BBServerService.m */,
 			);
 			path = ServerAPIService;
 			sourceTree = "<group>";
@@ -2806,7 +2806,7 @@
 				3AF26F5E1D0D703A004972FC /* User */,
 			);
 			name = Domain;
-			path = ../Domain;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		3AF26F571D0D703A004972FC /* JFY Objects */ = {
@@ -2814,14 +2814,14 @@
 			children = (
 				3AF26F581D0D703A004972FC /* BBBlock.h */,
 				3AF26F591D0D703A004972FC /* BBBlock.m */,
-				3AF26F5C1D0D703A004972FC /* BBProgram.h */,
-				3AF26F5D1D0D703A004972FC /* BBProgram.m */,
 				3AF26F681D0D7062004972FC /* BBDay.h */,
 				3AF26F691D0D7062004972FC /* BBDay.m */,
 				3AF26F731D0DC256004972FC /* BBMenu.h */,
 				3AF26F741D0DC256004972FC /* BBMenu.m */,
 				3AE5460A1D16A13A006A1CDD /* BBOrder.h */,
 				3AE5460B1D16A13A006A1CDD /* BBOrder.m */,
+				3AF26F5C1D0D703A004972FC /* BBProgram.h */,
+				3AF26F5D1D0D703A004972FC /* BBProgram.m */,
 			);
 			path = "JFY Objects";
 			sourceTree = "<group>";
@@ -2831,30 +2831,30 @@
 			children = (
 				3AF26F5F1D0D703A004972FC /* BBAddress.h */,
 				3AF26F601D0D703A004972FC /* BBAddress.m */,
-				3AF26F611D0D703A004972FC /* BBUser.h */,
-				3AF26F621D0D703A004972FC /* BBUser.m */,
+				3AE546331D1B0E93006A1CDD /* BBDelivery.h */,
+				3AE546341D1B0E93006A1CDD /* BBDelivery.m */,
+				3AE5462A1D1975C4006A1CDD /* BBElementBlock.h */,
+				3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */,
+				3A8F678C1D24E79400AF6FEF /* BBExchange.h */,
+				3A8F678D1D24E79400AF6FEF /* BBExchange.m */,
 				3A128BA41D107596001D2D1C /* BBOrderProgram.h */,
 				3A128BA51D107596001D2D1C /* BBOrderProgram.m */,
-				3AC92B071D10D53C00036E70 /* BBPayment.h */,
-				3AC92B081D10D53C00036E70 /* BBPayment.m */,
-				3AE5460D1D16CC0A006A1CDD /* BBStock.h */,
-				3AE5460E1D16CC0A006A1CDD /* BBStock.m */,
 				3AE546101D172E05006A1CDD /* BBPayCard.h */,
 				3AE546111D172E05006A1CDD /* BBPayCard.m */,
+				3AC92B071D10D53C00036E70 /* BBPayment.h */,
+				3AC92B081D10D53C00036E70 /* BBPayment.m */,
+				3A7438B21D1DFDB100FD6351 /* BBProgramHistory.h */,
+				3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */,
+				3AE546271D196899006A1CDD /* BBPurchases.h */,
+				3AE546281D196899006A1CDD /* BBPurchases.m */,
 				3AE546211D188A52006A1CDD /* BBReplacementCategory.h */,
 				3AE546221D188A52006A1CDD /* BBReplacementCategory.m */,
 				3AE546241D188A6E006A1CDD /* BBReplacementProduct.h */,
 				3AE546251D188A6E006A1CDD /* BBReplacementProduct.m */,
-				3AE546271D196899006A1CDD /* BBPurchases.h */,
-				3AE546281D196899006A1CDD /* BBPurchases.m */,
-				3AE5462A1D1975C4006A1CDD /* BBElementBlock.h */,
-				3AE5462B1D1975C4006A1CDD /* BBElementBlock.m */,
-				3AE546331D1B0E93006A1CDD /* BBDelivery.h */,
-				3AE546341D1B0E93006A1CDD /* BBDelivery.m */,
-				3A7438B21D1DFDB100FD6351 /* BBProgramHistory.h */,
-				3A7438B31D1DFDB100FD6351 /* BBProgramHistory.m */,
-				3A8F678C1D24E79400AF6FEF /* BBExchange.h */,
-				3A8F678D1D24E79400AF6FEF /* BBExchange.m */,
+				3AE5460D1D16CC0A006A1CDD /* BBStock.h */,
+				3AE5460E1D16CC0A006A1CDD /* BBStock.m */,
+				3AF26F611D0D703A004972FC /* BBUser.h */,
+				3AF26F621D0D703A004972FC /* BBUser.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2871,9 +2871,9 @@
 		49E87835A26E25C0C2F15CE7 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				D1AAB1F63DD3AAFA3DE95EFE /* BBStockRouterInput.h */,
 				97105373087B2B463D70B339 /* BBStockRouter.h */,
 				33F5DA6454C776A631140C55 /* BBStockRouter.m */,
+				D1AAB1F63DD3AAFA3DE95EFE /* BBStockRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2881,9 +2881,9 @@
 		5A5D6300DB795CA5720B7361 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				75FA7ADC88668B429D941F21 /* BBMyHistoryRouterInput.h */,
 				75EAA9E484CCF8F49225A338 /* BBMyHistoryRouter.h */,
 				9C2F966C1E85ED13AFCDD7C2 /* BBMyHistoryRouter.m */,
+				75FA7ADC88668B429D941F21 /* BBMyHistoryRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2911,9 +2911,9 @@
 		6CA5AD8B2BAD3099F4E16D9C /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				77EEE1D0B21CEB5D5140361D /* BBListMyProgRouterInput.h */,
 				45AC8F91188EB04953713653 /* BBListMyProgRouter.h */,
 				2105D52EAA0321FA1EBDD2BE /* BBListMyProgRouter.m */,
+				77EEE1D0B21CEB5D5140361D /* BBListMyProgRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -2941,10 +2941,10 @@
 			isa = PBXGroup;
 			children = (
 				22B1FC5E0611920B2C9777B4 /* Assembly */,
-				0474229FC3F03FA4F77AFB13 /* View */,
-				7887512FBA93EC714D1E3979 /* Presenter */,
 				C85089748BF3FBEFEF7D835B /* Interactor */,
+				7887512FBA93EC714D1E3979 /* Presenter */,
 				49E87835A26E25C0C2F15CE7 /* Router */,
+				0474229FC3F03FA4F77AFB13 /* View */,
 			);
 			path = Stock;
 			sourceTree = "<group>";
@@ -2953,10 +2953,10 @@
 			isa = PBXGroup;
 			children = (
 				3AA5A2091D857EDE00A44EDB /* Views */,
-				2184E90496E20CE1DE3865A6 /* BBReplacementViewInput.h */,
-				D154A66CF04BC44AB1975E2E /* BBReplacementViewOutput.h */,
 				97025F24973963EB0A3203A7 /* BBReplacementViewController.h */,
 				37932034B94B932735789C3C /* BBReplacementViewController.m */,
+				2184E90496E20CE1DE3865A6 /* BBReplacementViewInput.h */,
+				D154A66CF04BC44AB1975E2E /* BBReplacementViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2964,10 +2964,10 @@
 		8E0FDF34B88F085385C26DE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ECF4E3E0C8631864C6499AB4 /* BBMyHistoryViewInput.h */,
-				12DD721124F5DBCFE7C849BE /* BBMyHistoryViewOutput.h */,
 				1CD6DC7D626676380C708D67 /* BBMyHistoryViewController.h */,
 				C71B9469F6002529581BF6FF /* BBMyHistoryViewController.m */,
+				ECF4E3E0C8631864C6499AB4 /* BBMyHistoryViewInput.h */,
+				12DD721124F5DBCFE7C849BE /* BBMyHistoryViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2976,10 +2976,10 @@
 			isa = PBXGroup;
 			children = (
 				3A7438AC1D1D1F9200FD6351 /* Views */,
-				A56ED8D688EE311AFBD5DEE0 /* BBListMyProgViewInput.h */,
-				0F28C350D038296CA538A75C /* BBListMyProgViewOutput.h */,
 				C9E461D556EB6E9EC8B9D685 /* BBListMyProgViewController.h */,
 				10FCED747707297B2C1B7CAC /* BBListMyProgViewController.m */,
+				A56ED8D688EE311AFBD5DEE0 /* BBListMyProgViewInput.h */,
+				0F28C350D038296CA538A75C /* BBListMyProgViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2996,10 +2996,10 @@
 		A1A868E5AB46B2DC9264B1F6 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				A702B7D53D56C45FB40FD013 /* BBReplaceProgramInteractorInput.h */,
-				107FDF334D9AFC31D0F8474B /* BBReplaceProgramInteractorOutput.h */,
 				D7FD1C4298F9191442A46AA5 /* BBReplaceProgramInteractor.h */,
 				CBF5FA6DA003A30229C27005 /* BBReplaceProgramInteractor.m */,
+				A702B7D53D56C45FB40FD013 /* BBReplaceProgramInteractorInput.h */,
+				107FDF334D9AFC31D0F8474B /* BBReplaceProgramInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -3008,10 +3008,10 @@
 			isa = PBXGroup;
 			children = (
 				3BA552742D867E01177E868E /* Assembly */,
-				8F8D6ADDBF6C9B647E7DE154 /* View */,
-				E6C10F32A69C61C3ED6CCEB3 /* Presenter */,
 				F4EC7A60251F655DA22567BC /* Interactor */,
+				E6C10F32A69C61C3ED6CCEB3 /* Presenter */,
 				6CA5AD8B2BAD3099F4E16D9C /* Router */,
+				8F8D6ADDBF6C9B647E7DE154 /* View */,
 			);
 			path = ListMyProg;
 			sourceTree = "<group>";
@@ -3020,10 +3020,10 @@
 			isa = PBXGroup;
 			children = (
 				D2C41BA7896B7608DD79AABA /* Assembly */,
-				24BC59BBBD215185B110F518 /* View */,
-				F52A6AEAF0B63676CF1000FF /* Presenter */,
 				B18A7EBD9BE20DC19227C150 /* Interactor */,
+				F52A6AEAF0B63676CF1000FF /* Presenter */,
 				2D47D28D96B721582A37CBD5 /* Router */,
+				24BC59BBBD215185B110F518 /* View */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -3031,10 +3031,10 @@
 		A8999A6F3BAC1422753C87E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				58EA8D4A414CAA7342C8CA4D /* BBReplaceProgramViewInput.h */,
-				B6AB3AF83859623B8EF6FAD5 /* BBReplaceProgramViewOutput.h */,
 				D22A2D263BC033FF5877C4A1 /* BBReplaceProgramViewController.h */,
 				44CEC927911CF0C7EF42FE24 /* BBReplaceProgramViewController.m */,
+				58EA8D4A414CAA7342C8CA4D /* BBReplaceProgramViewInput.h */,
+				B6AB3AF83859623B8EF6FAD5 /* BBReplaceProgramViewOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3043,10 +3043,10 @@
 			isa = PBXGroup;
 			children = (
 				F835CAA4BA61E80E8A15EA68 /* Assembly */,
-				8E0FDF34B88F085385C26DE6 /* View */,
-				6935421DE1CE6EA5B617B828 /* Presenter */,
 				06E363E1822EF2ADD69DB776 /* Interactor */,
+				6935421DE1CE6EA5B617B828 /* Presenter */,
 				5A5D6300DB795CA5720B7361 /* Router */,
+				8E0FDF34B88F085385C26DE6 /* View */,
 			);
 			path = MyHistory;
 			sourceTree = "<group>";
@@ -3054,10 +3054,10 @@
 		B18A7EBD9BE20DC19227C150 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				89D8531F0673C97E2486C942 /* BBMapInteractorInput.h */,
-				8FC20412B70361BD9FDCE5CE /* BBMapInteractorOutput.h */,
 				0F9F2517B7F8811898AF1F00 /* BBMapInteractor.h */,
 				BE22289C35A4687B1EA6DC7D /* BBMapInteractor.m */,
+				89D8531F0673C97E2486C942 /* BBMapInteractorInput.h */,
+				8FC20412B70361BD9FDCE5CE /* BBMapInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -3065,9 +3065,9 @@
 		BC75AA7F78D99159F62526E9 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				936D0CB7ED3A86CFB2914E99 /* BBReplacementRouterInput.h */,
 				3B674AE35FA53969A699922E /* BBReplacementRouter.h */,
 				FAF05A6AB8B377EDEFDB01ED /* BBReplacementRouter.m */,
+				936D0CB7ED3A86CFB2914E99 /* BBReplacementRouterInput.h */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -3085,10 +3085,10 @@
 		C85089748BF3FBEFEF7D835B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				2A43C8BAE4B2B5C932AB2C19 /* BBStockInteractorInput.h */,
-				9E852CF2564CAC32F2B5CAE0 /* BBStockInteractorOutput.h */,
 				0F3086BBAB4E424377F1A3BF /* BBStockInteractor.h */,
 				2B2082299A34244C2B487E14 /* BBStockInteractor.m */,
+				2A43C8BAE4B2B5C932AB2C19 /* BBStockInteractorInput.h */,
+				9E852CF2564CAC32F2B5CAE0 /* BBStockInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -3124,10 +3124,10 @@
 		F4EC7A60251F655DA22567BC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				F65A95F664E5C813357A360F /* BBListMyProgInteractorInput.h */,
-				78AF44667C969A5F279D3DFA /* BBListMyProgInteractorOutput.h */,
 				74880BB16DE6146469D41E54 /* BBListMyProgInteractor.h */,
 				8D1780934CB0BB3D398399E6 /* BBListMyProgInteractor.m */,
+				F65A95F664E5C813357A360F /* BBListMyProgInteractorInput.h */,
+				78AF44667C969A5F279D3DFA /* BBListMyProgInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -3145,10 +3145,10 @@
 		F8027C1CD57D28196D43FFCE /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				22BE93CF08E5C96CBD1AF7C3 /* BBReplacementInteractorInput.h */,
-				B6C7169AFB8F231B42F39EEA /* BBReplacementInteractorOutput.h */,
 				3304FD8D99596FEEFD9612AB /* BBReplacementInteractor.h */,
 				2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */,
+				22BE93CF08E5C96CBD1AF7C3 /* BBReplacementInteractorInput.h */,
+				B6C7169AFB8F231B42F39EEA /* BBReplacementInteractorOutput.h */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
