@@ -38,13 +38,14 @@ static NSString *const BBAnaliticsJFYIdentifier = @"UA-86430240-1";
 
 - (void)sendControllerWithName:(NSString *)name {
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:BBAnaliticsJFYIdentifier];
+    tracker.allowIDFACollection = YES;
     [tracker send:[[[GAIDictionaryBuilder createScreenView] set:name forKey:kGAIScreenName] build]];
 }
 
 - (void)sendUIActionWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label {
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:BBAnaliticsJFYIdentifier];
+    tracker.allowIDFACollection = YES;
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category action:action label:label value:nil] build]];
 }
-
 
 @end
