@@ -6,6 +6,6 @@
 
 @interface BBStockViewController : UIViewController <BBStockViewInput>
 
-@property (weak, nonatomic) id<BBStockViewOutput> output;
+@property (weak, nonatomic) id <BBStockViewOutput> output;
 
 @end

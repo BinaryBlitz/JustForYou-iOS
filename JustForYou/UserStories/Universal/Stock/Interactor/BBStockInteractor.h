@@ -4,6 +4,6 @@
 
 @interface BBStockInteractor : NSObject <BBStockInteractorInput>
 
-@property (weak, nonatomic) id<BBStockInteractorOutput> output;
+@property (weak, nonatomic) id <BBStockInteractorOutput> output;
 
 @end

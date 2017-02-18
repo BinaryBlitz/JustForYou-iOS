@@ -4,6 +4,6 @@
 
 @interface BBTabbarInteractor : NSObject <BBTabbarInteractorInput>
 
-@property (weak, nonatomic) id<BBTabbarInteractorOutput> output;
+@property (weak, nonatomic) id <BBTabbarInteractorOutput> output;
 
 @end

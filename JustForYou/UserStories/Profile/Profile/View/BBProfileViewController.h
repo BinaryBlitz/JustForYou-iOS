@@ -6,6 +6,6 @@
 
 @interface BBProfileViewController : BBParentViewController <BBProfileViewInput>
 
-@property (weak, nonatomic) id<BBProfileViewOutput> output;
+@property (weak, nonatomic) id <BBProfileViewOutput> output;
 
 @end

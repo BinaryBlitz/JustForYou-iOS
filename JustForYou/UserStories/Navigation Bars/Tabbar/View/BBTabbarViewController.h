@@ -6,7 +6,7 @@
 
 @interface BBTabbarViewController : UITabBarController <BBTabbarViewInput>
 
-@property (weak, nonatomic) id<BBTabbarViewOutput> output;
+@property (weak, nonatomic) id <BBTabbarViewOutput> output;
 
 @property (strong, nonatomic) UILabel *indicatorLabel;
 

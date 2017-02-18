@@ -6,6 +6,7 @@
 @protocol BBBasketCellDelegate;
 
 @interface BBBasketTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -16,8 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
-@property (strong, nonatomic) id<BBBasketCellDelegate> delegate;
-
+@property (strong, nonatomic) id <BBBasketCellDelegate> delegate;
 
 @property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (strong, nonatomic) BBProgram *program;
@@ -25,7 +25,6 @@
 - (NSInteger)totalForCountDays;
 
 @end
-
 
 @protocol BBBasketCellDelegate <NSObject>
 

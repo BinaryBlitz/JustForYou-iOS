@@ -6,6 +6,6 @@
 
 @interface BBMyHistoryViewController : BBParentViewController <BBMyHistoryViewInput>
 
-@property (weak, nonatomic) id<BBMyHistoryViewOutput> output;
+@property (weak, nonatomic) id <BBMyHistoryViewOutput> output;
 
 @end

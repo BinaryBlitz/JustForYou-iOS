@@ -6,6 +6,6 @@
 
 @interface BBUniversalViewController : BBParentViewController <BBUniversalViewInput>
 
-@property (weak, nonatomic) id<BBUniversalViewOutput> output;
+@property (weak, nonatomic) id <BBUniversalViewOutput> output;
 
 @end

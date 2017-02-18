@@ -2,10 +2,10 @@
 
 #import "BBUnderlineButton.h"
 
-typedef enum : NSUInteger{
-    kBigInfoRegistCellStyle,
-    kFinishRegistCellStyle
-}BBKeyStyleInfoRegistCell;
+typedef enum : NSUInteger {
+  kBigInfoRegistCellStyle,
+  kFinishRegistCellStyle
+} BBKeyStyleInfoRegistCell;
 
 @protocol BBInfoRegistrateCellDelegate;
 
@@ -16,10 +16,9 @@ typedef enum : NSUInteger{
 @property (weak, nonatomic) IBOutlet UILabel *firstInfoLabel;
 
 @property (nonatomic) BBKeyStyleInfoRegistCell keyStyleCell;
-@property (weak, nonatomic) id<BBInfoRegistrateCellDelegate> delegate;
+@property (weak, nonatomic) id <BBInfoRegistrateCellDelegate> delegate;
 
 @end
-
 
 @protocol BBInfoRegistrateCellDelegate <NSObject>
 

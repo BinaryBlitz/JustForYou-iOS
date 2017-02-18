@@ -9,10 +9,10 @@
 #import "BBUniversalAssembly.h"
 #import "BBUniversalModuleInput.h"
 
-@interface BBSettingsPresenter()
+@interface BBSettingsPresenter ()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-@property (strong, nonatomic) id<BBUniversalModuleInput> universalModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id <BBUniversalModuleInput> universalModule;
 
 @end
 
@@ -23,67 +23,66 @@ static NSString *kErrorNumberPhoneMessage = @"Вы неверно ввели н�
 #pragma mark - Методы BBSettingsModuleInput
 
 - (void)configureModule {
-    
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule {
-    self.navigationModule = navigationModule;
-    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+  self.navigationModule = navigationModule;
+  [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBSettingsViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+  [self.view setupInitialState];
 }
 
 - (void)viewWillAppear {
-    [self.view updateInfoUserWithUser:[self.interactor currentUser]];
+  [self.view updateInfoUserWithUser:[self.interactor currentUser]];
 }
 
 - (void)viewWillDisappear {
-    [self.interactor saveUser:[self.view currentInfoUser]];
+  [self.interactor saveUser:[self.view currentInfoUser]];
 }
 
 - (void)logoutButtonDidTap {
-    [self.view showLoaderView];
-    [self.router popSelfViewControllerWithNavigationController:[self.navigationModule currentView]];
-    [self.interactor logoutUser];
+  [self.view showLoaderView];
+  [self.router popSelfViewControllerWithNavigationController:[self.navigationModule currentView]];
+  [self.interactor logoutUser];
 }
 
 - (void)didSelectRowForKeyModule:(BBKeyModuleForUniversalModule)key {
-    [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
+  [self.universalModule pushModuleWithNavigationModule:self.navigationModule keyModule:key];
 }
 
 #pragma mark - Методы BBSettingsInteractorOutput
 
 - (void)updateUserSuccessfully {
-    [self.view hideLoaderView];
+  [self.view hideLoaderView];
 //    [self.view updateTableViewWithKeyTableView:kSendCodeStyleTableView];
 }
 
 - (void)userLogoutSuccessfully {
-    [self.view hideLoaderView];
-    [self.navigationModule userLogout];
+  [self.view hideLoaderView];
+  [self.navigationModule userLogout];
 }
 
 - (void)noConnectionNetwork {
-    [self.view hideLoaderView];
+  [self.view hideLoaderView];
 //    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
 }
 
 - (void)errorServer {
-    [self.view hideLoaderView];
+  [self.view hideLoaderView];
 //    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
 #pragma mark - Lazy Load
 
-- (id<BBUniversalModuleInput>) universalModule {
-    if (!_universalModule) {
-        _universalModule = [BBUniversalAssembly createModule];
-    }
-    return _universalModule;
+- (id <BBUniversalModuleInput>)universalModule {
+  if (!_universalModule) {
+    _universalModule = [BBUniversalAssembly createModule];
+  }
+  return _universalModule;
 }
 
 

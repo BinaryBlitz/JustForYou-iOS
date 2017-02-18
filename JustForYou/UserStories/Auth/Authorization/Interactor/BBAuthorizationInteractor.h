@@ -4,6 +4,6 @@
 
 @interface BBAuthorizationInteractor : NSObject <BBAuthorizationInteractorInput>
 
-@property (weak, nonatomic) id<BBAuthorizationInteractorOutput> output;
+@property (weak, nonatomic) id <BBAuthorizationInteractorOutput> output;
 
 @end

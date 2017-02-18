@@ -6,6 +6,6 @@
 
 @interface BBMapViewController : BBParentViewController <BBMapViewInput>
 
-@property (weak, nonatomic) id<BBMapViewOutput> output;
+@property (weak, nonatomic) id <BBMapViewOutput> output;
 
 @end

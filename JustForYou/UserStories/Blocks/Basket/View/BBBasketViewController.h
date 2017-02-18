@@ -6,6 +6,6 @@
 
 @interface BBBasketViewController : BBParentViewController <BBBasketViewInput>
 
-@property (weak, nonatomic) id<BBBasketViewOutput> output;
+@property (weak, nonatomic) id <BBBasketViewOutput> output;
 
 @end

@@ -4,6 +4,6 @@
 
 @interface BBSupportInteractor : NSObject <BBSupportInteractorInput>
 
-@property (weak, nonatomic) id<BBSupportInteractorOutput> output;
+@property (weak, nonatomic) id <BBSupportInteractorOutput> output;
 
 @end

@@ -11,11 +11,12 @@
 @property (weak, nonatomic) IBOutlet BBImageWithLoader *imageProgram;
 @property (weak, nonatomic) IBOutlet BBSegmentedControl *segmentedControl;
 
-@property (strong, nonatomic) id<BBHeaderTableViewCellDelegate> delegate;
+@property (strong, nonatomic) id <BBHeaderTableViewCellDelegate> delegate;
 
 @end
 
 @protocol BBHeaderTableViewCellDelegate <NSObject>
+
 @optional
 
 - (void)segmentedControlValueChange:(BBCardProgramSegmentedIndex)segmentedIndex;

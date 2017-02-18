@@ -4,6 +4,6 @@
 
 @interface BBNewOrderInteractor : NSObject <BBNewOrderInteractorInput>
 
-@property (weak, nonatomic) id<BBNewOrderInteractorOutput> output;
+@property (weak, nonatomic) id <BBNewOrderInteractorOutput> output;
 
 @end

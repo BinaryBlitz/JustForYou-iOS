@@ -7,32 +7,31 @@
 
 @implementation BBMyProgramsAssembly
 
-
 + (id <BBMyProgramsModuleInput>)createModule {
 
-    BBMyProgramsViewController *view = [self viewController];
+  BBMyProgramsViewController *view = [self viewController];
 
-    BBMyProgramsInteractor *interactor = [BBMyProgramsInteractor new];
-    BBMyProgramsPresenter *presenter = [BBMyProgramsPresenter new];
-    BBMyProgramsRouter *router = [BBMyProgramsRouter new];
-    
-	router.presenter = presenter;
-	
-    view.output = presenter;
-    interactor.output = presenter;
-    
-    presenter.view = view;
-    presenter.interactor = interactor;
-    presenter.router = router;
-    [presenter configureModule];
-    
-    return presenter;
+  BBMyProgramsInteractor *interactor = [BBMyProgramsInteractor new];
+  BBMyProgramsPresenter *presenter = [BBMyProgramsPresenter new];
+  BBMyProgramsRouter *router = [BBMyProgramsRouter new];
+
+  router.presenter = presenter;
+
+  view.output = presenter;
+  interactor.output = presenter;
+
+  presenter.view = view;
+  presenter.interactor = interactor;
+  presenter.router = router;
+  [presenter configureModule];
+
+  return presenter;
 }
 
 + (BBMyProgramsViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Orders" bundle:nil];
-    BBMyProgramsViewController * vc = (BBMyProgramsViewController *)[sb instantiateViewControllerWithIdentifier:@"BBMyProgramsViewController"];
-    return vc;
+  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Orders" bundle:nil];
+  BBMyProgramsViewController *vc = (BBMyProgramsViewController *) [sb instantiateViewControllerWithIdentifier:@"BBMyProgramsViewController"];
+  return vc;
 }
 
 @end

@@ -6,6 +6,6 @@
 
 @interface BBPaymentViewController : BBParentViewController <BBPaymentViewInput>
 
-@property (weak, nonatomic) id<BBPaymentViewOutput> output;
+@property (weak, nonatomic) id <BBPaymentViewOutput> output;
 
 @end

@@ -4,6 +4,6 @@
 
 @interface BBProfileInteractor : NSObject <BBProfileInteractorInput>
 
-@property (weak, nonatomic) id<BBProfileInteractorOutput> output;
+@property (weak, nonatomic) id <BBProfileInteractorOutput> output;
 
 @end

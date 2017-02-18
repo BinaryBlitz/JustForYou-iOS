@@ -6,6 +6,6 @@
 
 @interface BBReplaceProgramViewController : BBParentViewController <BBReplaceProgramViewInput>
 
-@property (weak, nonatomic) id<BBReplaceProgramViewOutput> output;
+@property (weak, nonatomic) id <BBReplaceProgramViewOutput> output;
 
 @end

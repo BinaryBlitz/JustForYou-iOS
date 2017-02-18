@@ -6,6 +6,6 @@
 
 @interface BBSettingsViewController : BBParentViewController <BBSettingsViewInput>
 
-@property (weak, nonatomic) id<BBSettingsViewOutput> output;
+@property (weak, nonatomic) id <BBSettingsViewOutput> output;
 
 @end

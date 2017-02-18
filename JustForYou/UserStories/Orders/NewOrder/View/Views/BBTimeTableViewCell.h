@@ -9,7 +9,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *minusButton;
 @property (weak, nonatomic) IBOutlet UIButton *plusButton;
 
-@property (strong, nonatomic) id<BBTimeCellDelegate> delegate;
+@property (strong, nonatomic) id <BBTimeCellDelegate> delegate;
 
 - (void)startHourAndMinute;
 

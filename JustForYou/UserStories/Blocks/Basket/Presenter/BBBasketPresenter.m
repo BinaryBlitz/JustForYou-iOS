@@ -9,10 +9,10 @@
 #import "BBPaymentAssembly.h"
 #import "BBPaymentModuleInput.h"
 
-@interface BBBasketPresenter()
+@interface BBBasketPresenter ()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-@property (strong, nonatomic) id<BBPaymentModuleInput> paymentModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id <BBPaymentModuleInput> paymentModule;
 
 @property (assign, nonatomic) BOOL switchBonuses;
 @property (assign, nonatomic) BOOL switchTap;
@@ -28,131 +28,129 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
 #pragma mark - Методы BBBasketModuleInput
 
 - (void)configureModule {
-    
 }
 
 - (id)currentViewWithModule:(id)module {
-    self.navigationModule = module;
-    return self.view;
+  self.navigationModule = module;
+  return self.view;
 }
 
 - (void)paySucces {
-    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
-    [self.interactor deleteAllOrderProgramsOnUser];
-    [self.router updateCountPurchasesUser];
-    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
+  [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+  [self.interactor deleteAllOrderProgramsOnUser];
+  [self.router updateCountPurchasesUser];
+  [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
-
 
 #pragma mark - Методы BBBasketViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+  [self.view setupInitialState];
 }
 
 - (void)viewWillAppear {
-    [self.view presentNoteAlertWithTitle:kNoteTitle message:basketAlertDelivery];
-    [self.interactor currentOrdersInBasket];
+  [self.view presentNoteAlertWithTitle:kNoteTitle message:basketAlertDelivery];
+  [self.interactor currentOrdersInBasket];
 }
 
 - (void)closeButtonDidTap {
-    [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
+  [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
 }
 
 - (void)changeStateWithState:(BOOL)state {
-    if (state) {
-        [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-        self.switchTap = YES;
-        [self.interactor updateUserAndShowCurrentBonuses];
-    } else {
-        [self.view updateTotalTableViewCell];
-    }
+  if (state) {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    self.switchTap = YES;
+    [self.interactor updateUserAndShowCurrentBonuses];
+  } else {
+    [self.view updateTotalTableViewCell];
+  }
 }
 
 - (void)payButtonDidTapWithCount:(NSInteger)count {
-    if (count > 0) {
-        [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
-    } else {
-        [self.view presentAlertWithTitle:kNoteTitle message:basketIsEmpty];
-    }
+  if (count > 0) {
+    [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
+  } else {
+    [self.view presentAlertWithTitle:kNoteTitle message:basketIsEmpty];
+  }
 }
 
 - (void)payNewCardButtonDidTap {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor createOrderOnServerWithTypePayment:kTypeNewPayment payCard:nil useBonuses:self.switchBonuses];
+  [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+  [self.interactor createOrderOnServerWithTypePayment:kTypeNewPayment payCard:nil useBonuses:self.switchBonuses];
 }
 
 - (void)payCardWithCard:(BBPayCard *)card {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card useBonuses:self.switchBonuses];
+  [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+  [self.interactor createOrderOnServerWithTypePayment:kTypeCardPayment payCard:card useBonuses:self.switchBonuses];
 }
 
 - (void)cancelButtonDidTap {
-    [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view hideBackgroundLoaderViewWithAlpha];
 }
 
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order {
-    NSArray *objects = [self.interactor deleteOrderProgramOnUserArray:order];
-    [self.view updateTableViewWithDelete:objects];
+  NSArray *objects = [self.interactor deleteOrderProgramOnUserArray:order];
+  [self.view updateTableViewWithDelete:objects];
 }
 
 - (void)okCancelButtonDidTap {
-    [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
+  [self.router dissmissViewControllerWithNavigation:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBBasketInteractorOutput
 
 - (void)currentOrders:(NSArray *)orders {
-    [self.view updateTableViewWithOrders:orders];
+  [self.view updateTableViewWithOrders:orders];
 }
 
 - (void)bonusesUpdate {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view updateTotalTableViewCell];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view updateTotalTableViewCell];
 }
 
 - (void)paymentDidStartWithPayment:(BBPayment *)payment {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.paymentModule pushModuleWithNavigationModule:self.navigationModule basketModule:self payment:payment];
 }
 
 - (void)paymentSuccessfull {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.interactor deleteAllOrderProgramsOnUser];
-    [self.router updateCountPurchasesUser];
-    [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.interactor deleteAllOrderProgramsOnUser];
+  [self.router updateCountPurchasesUser];
+  [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
 
 - (void)paymentError {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertWithTitle:kErrorTitle message:paymentError];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view presentAlertWithTitle:kErrorTitle message:paymentError];
 }
 
 - (void)errorNetwork {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self _changeSwitch];
-    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self _changeSwitch];
+  [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
 }
 
 - (void)errorServer {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self _changeSwitch];
-    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self _changeSwitch];
+  [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
 - (void)_changeSwitch {
-    if (self.switchTap) {
-        self.switchTap = NO;
-    }
+  if (self.switchTap) {
+    self.switchTap = NO;
+  }
 }
 
 #pragma mark - Lazy Load
 
-- (id<BBPaymentModuleInput>)paymentModule {
-    if (!_paymentModule) {
-        _paymentModule = [BBPaymentAssembly createModule];
-    }
-    return _paymentModule;
+- (id <BBPaymentModuleInput>)paymentModule {
+  if (!_paymentModule) {
+    _paymentModule = [BBPaymentAssembly createModule];
+  }
+  return _paymentModule;
 }
 
 @end

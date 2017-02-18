@@ -7,11 +7,10 @@
 #import "BBNavigationModuleInput.h"
 #import "BBProfileModuleInput.h"
 
+@interface BBMyHistoryPresenter ()
 
-@interface BBMyHistoryPresenter()
-
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-@property (strong, nonatomic) id<BBProfileModuleInput> parentModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id <BBProfileModuleInput> parentModule;
 
 @end
 
@@ -20,41 +19,40 @@
 #pragma mark - Методы BBMyHistoryModuleInput
 
 - (void)configureModule {
-    
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule parentModule:(id)parentModule {
-    self.navigationModule = navigationModule;
-    self.parentModule = parentModule;
-    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+  self.navigationModule = navigationModule;
+  self.parentModule = parentModule;
+  [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBMyHistoryViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+  [self.view setupInitialState];
 }
 
 - (void)viewWillAppear {
-    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-    [self.interactor listMyHistoryOrder];
+  [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+  [self.interactor listMyHistoryOrder];
 }
 
 #pragma mark - Методы BBMyHistoryInteractorOutput
 
 - (void)ordersWithArray:(NSArray *)orders {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view updateTableViewWithArrayObjects:orders];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view updateTableViewWithArrayObjects:orders];
 }
 
 - (void)errorNetwork {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view presentAlertWithTitle:kNoteTitle message:kErrorConnectNetwork];
 }
 
 - (void)errorServer {
-    [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
 }
 
 

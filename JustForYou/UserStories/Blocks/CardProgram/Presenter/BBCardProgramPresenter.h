@@ -8,9 +8,9 @@
 
 @interface BBCardProgramPresenter : NSObject <BBCardProgramModuleInput, BBCardProgramViewOutput, BBCardProgramInteractorOutput>
 
-@property (strong, nonatomic) id<BBCardProgramViewInput> view;
-@property (strong, nonatomic) id<BBCardProgramInteractorInput> interactor;
-@property (strong, nonatomic) id<BBCardProgramRouterInput> router;
+@property (strong, nonatomic) id <BBCardProgramViewInput> view;
+@property (strong, nonatomic) id <BBCardProgramInteractorInput> interactor;
+@property (strong, nonatomic) id <BBCardProgramRouterInput> router;
 
 - (void)errorCallManager;
 

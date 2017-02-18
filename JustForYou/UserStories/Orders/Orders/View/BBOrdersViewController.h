@@ -8,8 +8,8 @@
 
 @interface BBOrdersViewController : BBParentViewController <BBOrdersViewInput>
 
-@property (weak, nonatomic) id<BBOrdersViewOutput> output;
+@property (weak, nonatomic) id <BBOrdersViewOutput> output;
 
-@property (strong, nonatomic) id<BBOrderViewControllerDelegate> delegate;
+@property (strong, nonatomic) id <BBOrderViewControllerDelegate> delegate;
 
 @end

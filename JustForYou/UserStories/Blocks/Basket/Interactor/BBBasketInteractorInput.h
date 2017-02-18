@@ -3,9 +3,9 @@
 #import "BBPayCard.h"
 
 typedef enum : NSUInteger {
-    kTypeNewPayment,
-    kTypeCardPayment
-}BBTypePayment;
+  kTypeNewPayment,
+  kTypeCardPayment
+} BBTypePayment;
 
 @protocol BBBasketInteractorInput <NSObject>
 

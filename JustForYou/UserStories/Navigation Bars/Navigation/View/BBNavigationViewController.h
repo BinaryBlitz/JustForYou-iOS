@@ -6,6 +6,6 @@
 
 @interface BBNavigationViewController : UINavigationController <BBNavigationViewInput>
 
-@property (weak, nonatomic) id<BBNavigationViewOutput> output;
+@property (weak, nonatomic) id <BBNavigationViewOutput> output;
 
 @end

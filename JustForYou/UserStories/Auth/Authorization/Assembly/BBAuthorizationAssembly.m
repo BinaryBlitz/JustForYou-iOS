@@ -7,32 +7,31 @@
 
 @implementation BBAuthorizationAssembly
 
-
 + (id <BBAuthorizationModuleInput>)createModule {
 
-    BBAuthorizationViewController *view = [self viewController];
+  BBAuthorizationViewController *view = [self viewController];
 
-    BBAuthorizationInteractor *interactor = [BBAuthorizationInteractor new];
-    BBAuthorizationPresenter *presenter = [BBAuthorizationPresenter new];
-    BBAuthorizationRouter *router = [BBAuthorizationRouter new];
-    
-	router.presenter = presenter;
-	
-    view.output = presenter;
-    interactor.output = presenter;
-    
-    presenter.view = view;
-    presenter.interactor = interactor;
-    presenter.router = router;
-    [presenter configureModule];
-    
-    return presenter;
+  BBAuthorizationInteractor *interactor = [BBAuthorizationInteractor new];
+  BBAuthorizationPresenter *presenter = [BBAuthorizationPresenter new];
+  BBAuthorizationRouter *router = [BBAuthorizationRouter new];
+
+  router.presenter = presenter;
+
+  view.output = presenter;
+  interactor.output = presenter;
+
+  presenter.view = view;
+  presenter.interactor = interactor;
+  presenter.router = router;
+  [presenter configureModule];
+
+  return presenter;
 }
 
 + (BBAuthorizationViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authorizate" bundle:nil];
-    BBAuthorizationViewController * vc = (BBAuthorizationViewController *)[sb instantiateViewControllerWithIdentifier:@"BBAuthorizationViewController"];
-    return vc;
+  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authorizate" bundle:nil];
+  BBAuthorizationViewController *vc = (BBAuthorizationViewController *) [sb instantiateViewControllerWithIdentifier:@"BBAuthorizationViewController"];
+  return vc;
 }
 
 @end

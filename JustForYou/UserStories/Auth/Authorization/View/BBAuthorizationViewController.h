@@ -6,6 +6,6 @@
 
 @interface BBAuthorizationViewController : BBParentViewController <BBAuthorizationViewInput>
 
-@property (nonatomic, weak) id<BBAuthorizationViewOutput> output;
+@property (nonatomic, weak) id <BBAuthorizationViewOutput> output;
 
 @end

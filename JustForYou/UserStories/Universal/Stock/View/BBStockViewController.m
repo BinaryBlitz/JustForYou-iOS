@@ -3,7 +3,7 @@
 #import "BBStockViewOutput.h"
 #import "BBCalendarService.h"
 
-@interface BBStockViewController()
+@interface BBStockViewController ()
 
 @property (strong, nonatomic) BBStock *stock;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -16,20 +16,20 @@
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+  [super viewDidLoad];
 
-	[self.output didTriggerViewReadyEvent];
+  [self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[BBAppAnalitics sharedService] sendControllerWithName:self.stock.name];
+  [super viewWillAppear:animated];
+  [[BBAppAnalitics sharedService] sendControllerWithName:self.stock.name];
 }
 
 - (void)viewWillLayoutSubviews {
-    self.navigationItem.title = self.stock.name;
-    self.textView.text = self.stock.descript;
-    self.dateLabel.text = [[BBCalendarService sharedService] dateForUIWithDate:self.stock.date];
+  self.navigationItem.title = self.stock.name;
+  self.textView.text = self.stock.descript;
+  self.dateLabel.text = [[BBCalendarService sharedService] dateForUIWithDate:self.stock.date];
 }
 
 #pragma mark - Методы BBStockViewInput
@@ -38,7 +38,7 @@
 }
 
 - (void)stockForUI:(BBStock *)stock {
-    self.stock = stock;
+  self.stock = stock;
 }
 
 @end

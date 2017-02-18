@@ -2,7 +2,7 @@
 
 #import "BBNavigationViewOutput.h"
 
-@interface BBNavigationViewController() <UINavigationControllerDelegate>
+@interface BBNavigationViewController () <UINavigationControllerDelegate>
 
 @end
 
@@ -11,19 +11,19 @@
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
-    
-	[self.output didTriggerViewReadyEvent];
+  [super viewDidLoad];
+
+  [self.output didTriggerViewReadyEvent];
 }
 
 #pragma mark - Методы BBNavigationViewInput
 
 - (void)setupInitialState {
-	self.delegate = self;
+  self.delegate = self;
 }
 
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+  viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 

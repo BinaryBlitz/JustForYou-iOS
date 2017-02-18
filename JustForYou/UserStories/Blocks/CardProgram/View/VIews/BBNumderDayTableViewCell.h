@@ -17,7 +17,7 @@
 
 - (void)setDaysAndUpdateUI:(RLMResults *)days;
 
-@property (strong, nonatomic) id<BBNumberDayTableViewCell> delegate;
+@property (strong, nonatomic) id <BBNumberDayTableViewCell> delegate;
 
 - (void)updateDayLabelWithNumber:(NSInteger)number;
 

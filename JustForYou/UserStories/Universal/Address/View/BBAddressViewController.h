@@ -6,6 +6,6 @@
 
 @interface BBAddressViewController : BBParentViewController <BBAddressViewInput>
 
-@property (weak, nonatomic) id<BBAddressViewOutput> output;
+@property (weak, nonatomic) id <BBAddressViewOutput> output;
 
 @end

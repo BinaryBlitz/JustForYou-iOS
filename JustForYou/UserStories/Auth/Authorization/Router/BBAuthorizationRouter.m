@@ -5,10 +5,10 @@
 #pragma mark - BBAuthorizationRouterInput
 
 - (void)presentFromWindow:(UIWindow *)window {
-    HQDispatchToMainQueue(^{
-        [window setRootViewController:(UIViewController *)self.presenter.view];
-        [window makeKeyAndVisible];
-    });
+  HQDispatchToMainQueue(^{
+    [window setRootViewController:(UIViewController *) self.presenter.view];
+    [window makeKeyAndVisible];
+  });
 }
 
 @end
