@@ -20,4 +20,6 @@
 @property (strong, nonatomic) id<BBProgramsInteractorInput> interactor;
 @property (strong, nonatomic) id<BBProgramsRouterInput> router;
 
+- (void)errorCallManager;
+
 @end

@@ -77,9 +77,27 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorOpenProgram];
 }
 
+- (void)errorCallManager {
+  [self.view presentAlertWithTitle:kErrorTitle message:kErrorCallManager];
+}
+
+- (void)addToBasketButtonDidTapWithProgram:(BBProgram *)program {
+  if (program.individualPrice) {
+    [self.router callManagerOnPhone:kNumberPhoneManager];
+  } else {
+    [self.view showAddToBasketPopover:program];
+  }
+}
+
 - (void)basketButtonDidTap {
     [self.router presentBasketViewControllerWithController:[self.basketNavigationModule currentViewWithLoadModule:BBLoadBasketModule]
                                   withNavigationController:[self.navigModule currentView]];
+}
+
+- (void)okButtonDidTapWithCountDays:(NSInteger)count program:(BBProgram *)program {
+  [self.interactor addInOrdersUserOrderWithProgramId:program.programId countDay:count];
+  [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
+  [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
 }
 
 #pragma mark - Методы BBProgramsInteractorOutput

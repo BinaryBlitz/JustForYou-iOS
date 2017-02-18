@@ -85,7 +85,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
 #pragma mark - Actions
 
 - (IBAction)addInBasketButtonAction:(id)sender {
-    [self.output addInBasketButtonDidTapWithProgram:self.myProgram];
+    [self.output addToBasketButtonDidTapWithProgram:self.myProgram];
     [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart_click" action:self.myProgram.name label:@""];
 }
 
@@ -98,7 +98,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
     [self addSwipeForBigImage];
 }
 
-- (void)updateAddBusketButton {
+- (void)updateAddBasketButton {
     if (self.myProgram.individualPrice) {
         [self.addInBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
     } else {
@@ -110,7 +110,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
     self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
     if (![self.myProgram isInvalidated]) {
         self.navigationItem.title = self.myProgram.block.name;
-        [self updateAddBusketButton];
+        [self updateAddBasketButton];
         [[BBAppAnalitics sharedService] sendControllerWithName:self.myProgram.block.name];
     } else {
         self.navigationItem.title = kNameTitleNoneModule;
