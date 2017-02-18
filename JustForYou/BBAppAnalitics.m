@@ -12,7 +12,7 @@
 
 static NSString * const BBErrorInitAssert = @"Use 'instance' instead.";
 
-static NSString *const BBAnaliticsJFYIdentifier = @"UA-86430240-1";
+static NSString *const BBAnaliticsJFYIdentifier = @"UA-92233966-1";
 
 @implementation BBAppAnalitics
 

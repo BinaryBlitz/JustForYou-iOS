@@ -16,6 +16,7 @@
 		2C075A98E6DF0274FD92AA96 /* libPods-JustForYou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 880460F615869981324FC20C /* libPods-JustForYou.a */; };
 		2F3AD3CD103D4BE8FB2B0829 /* BBStockInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2082299A34244C2B487E14 /* BBStockInteractor.m */; };
 		338E89EB233C0E4B0FF5E0E7 /* BBStockRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F5DA6454C776A631140C55 /* BBStockRouter.m */; };
+		3757E9EF1E58B3B500C26458 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3757E9EE1E58B3B500C26458 /* GoogleService-Info.plist */; };
 		3A050EFF1D086737000AC0B8 /* BBDataBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A050EFE1D086737000AC0B8 /* BBDataBaseService.m */; };
 		3A128BA61D107596001D2D1C /* BBOrderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A128BA51D107596001D2D1C /* BBOrderProgram.m */; };
 		3A13201A1CFDF6240046CFBD /* BBLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1320191CFDF6240046CFBD /* BBLoaderView.xib */; };
@@ -291,6 +292,7 @@
 		2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementInteractor.m; sourceTree = "<group>"; };
 		3304FD8D99596FEEFD9612AB /* BBReplacementInteractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBReplacementInteractor.h; sourceTree = "<group>"; };
 		33F5DA6454C776A631140C55 /* BBStockRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBStockRouter.m; sourceTree = "<group>"; };
+		3757E9EE1E58B3B500C26458 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37932034B94B932735789C3C /* BBReplacementViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplacementViewController.m; sourceTree = "<group>"; };
 		37DA8F851E4A26FA009D0B52 /* JustForYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustForYou.entitlements; sourceTree = "<group>"; };
 		3A050EFD1D086737000AC0B8 /* BBDataBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataBaseService.h; sourceTree = "<group>"; };
@@ -1079,6 +1081,7 @@
 		3A1AB2721C9D8F6B0070E065 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3757E9EE1E58B3B500C26458 /* GoogleService-Info.plist */,
 				3A1AB2731C9D8F6B0070E065 /* Info.plist */,
 				3A1AB2741C9D8F6B0070E065 /* main.m */,
 			);
@@ -1113,8 +1116,8 @@
 		3A2A2E651C9D8CE900CA19E1 = {
 			isa = PBXGroup;
 			children = (
-				1F94A1FB1291D9AAD2535E32 /* Frameworks */,
 				3A1AB26B1C9D8F6B0070E065 /* JustForYou */,
+				1F94A1FB1291D9AAD2535E32 /* Frameworks */,
 				9A97758BB14ED787FF652F5D /* Pods */,
 				3A2A2E6F1C9D8CE900CA19E1 /* Products */,
 			);
@@ -3266,6 +3269,7 @@
 				3AA5A20E1D857F5800A44EDB /* BBLabelTableViewCell.xib in Resources */,
 				3A2D57171CF3321500A8EFF5 /* BBAddBasketViewPopover.xib in Resources */,
 				3A1AB2781C9D8F6B0070E065 /* LaunchScreen.storyboard in Resources */,
+				3757E9EF1E58B3B500C26458 /* GoogleService-Info.plist in Resources */,
 				3A8F67961D2574D400AF6FEF /* BBTotalTableViewCell.xib in Resources */,
 				3A2D56661CF075D200A8EFF5 /* BBNumberPhoneTableViewCell.xib in Resources */,
 			);
@@ -3651,7 +3655,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JustForYou/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = JustForYou/PrefixHeader.pch;
 				INFOPLIST_FILE = "JustForYou/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3674,7 +3678,7 @@
 				CURRENT_PROJECT_VERSION = 149;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JustForYou/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = JustForYou/PrefixHeader.pch;
 				INFOPLIST_FILE = "JustForYou/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
