@@ -2,8 +2,6 @@
 
 #import "BBAuthorizationViewOutput.h"
 
-#import "BBUnderlineButton.h"
-
 @interface BBAuthorizationViewController () <UITableViewDelegate, UITableViewDataSource, BBInfoRegistrateCellDelegate, BBNumberCellDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *youView;

@@ -2,8 +2,6 @@
 
 #import "BBRegistrationViewOutput.h"
 
-#import "BBUnderlineButton.h"
-
 typedef enum : NSUInteger {
   kNameTextFiledCell,
   kSubnameTextFiledCell,

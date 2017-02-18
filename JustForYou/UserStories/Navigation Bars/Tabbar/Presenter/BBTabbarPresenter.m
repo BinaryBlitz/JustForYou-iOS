@@ -1,14 +1,10 @@
 #import "BBTabbarPresenter.h"
 
 #import "BBTabbarViewInput.h"
-#import "BBTabbarInteractorInput.h"
 #import "BBTabbarRouterInput.h"
 
 #import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
-
-#import "BBBlocksAssembly.h"
-#import "BBBlocksModuleInput.h"
 
 @interface BBTabbarPresenter ()
 

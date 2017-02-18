@@ -4,8 +4,6 @@
 
 #import "BBAddBasketViewPopover.h"
 
-#import "BBDay.h"
-
 #import "BBItemService.h"
 
 @interface BBCardProgramViewController () <UITabBarDelegate, UITableViewDataSource, BBHeaderTableViewCellDelegate, BBNumberDayTableViewCell, BBAddBasketViewDelegate>

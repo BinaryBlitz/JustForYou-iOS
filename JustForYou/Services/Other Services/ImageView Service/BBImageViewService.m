@@ -1,4 +1,4 @@
-#import "BBImageViewService.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString *kNameFormat = @"cache";

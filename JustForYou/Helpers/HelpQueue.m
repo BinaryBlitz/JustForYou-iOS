@@ -1,4 +1,4 @@
-#import "HelpQueue.h"
+
 
 void HQDispatchToMainQueue(CodeBlock block) {
   if ([NSThread isMainThread]) {

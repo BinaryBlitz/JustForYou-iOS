@@ -2,7 +2,6 @@
 
 #import "BBServerService.h"
 #import "BBUserService.h"
-#import "BBTabbarViewController.h"
 
 @implementation BBReplaceProgramRouter
 

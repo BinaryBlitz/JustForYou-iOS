@@ -2,9 +2,6 @@
 
 #import "BBTabbarViewOutput.h"
 
-#import "BBTabBar.h"
-
-#import "BBItemService.h"
 #import "BBUserService.h"
 
 @interface BBTabbarViewController ()

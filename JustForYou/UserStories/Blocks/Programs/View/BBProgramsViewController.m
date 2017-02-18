@@ -6,8 +6,6 @@
 
 #import "BBItemService.h"
 
-#import "BBImageWithLoader.h"
-
 #import "BBAddBasketViewPopover.h"
 
 @interface BBProgramsViewController () <UIScrollViewDelegate, BBProgramViewDelegate, BBAddBasketViewDelegate>

@@ -1,6 +1,4 @@
-#import "BBProfileTableViewCell.h"
 
-#import "BBUserService.h"
 
 @implementation BBProfileTableViewCell
 

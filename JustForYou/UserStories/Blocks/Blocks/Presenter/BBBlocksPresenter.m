@@ -10,9 +10,6 @@
 #import "BBProgramsAssembly.h"
 #import "BBProgramsModuleInput.h"
 
-#import "BBBasketAssembly.h"
-#import "BBBasketModuleInput.h"
-
 @interface BBBlocksPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigModule;

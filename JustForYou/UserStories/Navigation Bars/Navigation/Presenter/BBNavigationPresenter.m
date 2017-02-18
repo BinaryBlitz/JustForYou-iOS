@@ -1,7 +1,6 @@
 #import "BBNavigationPresenter.h"
 
 #import "BBNavigationViewInput.h"
-#import "BBNavigationInteractorInput.h"
 #import "BBNavigationRouterInput.h"
 
 #import "BBTabbarModuleOutput.h"
@@ -23,8 +22,6 @@
 
 #import "BBBasketAssembly.h"
 #import "BBBasketModuleInput.h"
-
-#import "BBUserService.h"
 
 @interface BBNavigationPresenter ()
 

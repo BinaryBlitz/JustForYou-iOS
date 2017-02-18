@@ -5,7 +5,6 @@
 #import "BBTextField.h"
 
 #import "BBSearchTableViewController.h"
-#import "BBUnderlineButton.h"
 
 @interface BBMapViewController () <GMSMapViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, BBSearchTableControllerDelegate>
 

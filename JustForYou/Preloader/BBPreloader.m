@@ -6,8 +6,6 @@
 #import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
 
-#import <Realm/Realm.h>
-
 #import "BBUserService.h"
 #import "BBServerService.h"
 #import "BBDataBaseService.h"

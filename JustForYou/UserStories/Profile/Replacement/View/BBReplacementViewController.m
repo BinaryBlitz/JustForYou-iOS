@@ -2,8 +2,6 @@
 
 #import "BBReplacementViewOutput.h"
 
-#import "BBReplacementCategory.h"
-
 @interface BBReplacementViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

@@ -1,4 +1,4 @@
-#import "BBInfoRegistTableViewCell.h"
+
 
 @interface BBInfoRegistTableViewCell ()
 

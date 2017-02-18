@@ -1,12 +1,9 @@
 #import "BBStockPresenter.h"
 
 #import "BBStockViewInput.h"
-#import "BBStockInteractorInput.h"
 #import "BBStockRouterInput.h"
 
 #import "BBNavigationModuleInput.h"
-
-#import "BBStock.h"
 
 @interface BBStockPresenter ()
 

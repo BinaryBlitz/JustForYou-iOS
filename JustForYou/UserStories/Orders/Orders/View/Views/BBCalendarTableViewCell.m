@@ -1,8 +1,5 @@
-#import "BBCalendarTableViewCell.h"
 
-#import <JTCalendar/JTCalendar.h>
 
-#import "BBOrder.h"
 #import "BBCalendarService.h"
 
 @interface BBCalendarTableViewCell () <JTCalendarDelegate>
