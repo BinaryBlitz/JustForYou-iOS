@@ -1,11 +1,3 @@
-//
-//  BBProgramView.m
-//  JustForYou
-//
-//  Created by Антон on 08.04.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBProgramView.h"
 
 @implementation BBProgramView

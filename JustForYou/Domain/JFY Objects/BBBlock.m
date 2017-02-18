@@ -1,11 +1,3 @@
-//
-//  BBBlock.m
-//  JustForYou
-//
-//  Created by Антон on 09.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBBlock.h"
 
 #import "BBProgram.h"

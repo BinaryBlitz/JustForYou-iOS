@@ -1,11 +1,3 @@
-//
-//  BBDottedBorderButton.m
-//  JustForYou
-//
-//  Created by Антон on 22.04.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBDottedBorderButton.h"
 
 static CGFloat wightLine = 1.0f;

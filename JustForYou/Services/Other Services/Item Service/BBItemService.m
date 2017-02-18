@@ -1,11 +1,3 @@
-//
-//  BBItemService.m
-//  JustForYou
-//
-//  Created by Антон on 12.09.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBItemService.h"
 
 #import "BBUserService.h"

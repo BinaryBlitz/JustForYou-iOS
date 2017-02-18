@@ -1,11 +1,3 @@
-//
-//  PrefixHeader.pch
-//  JustForYou
-//
-//  Created by Антон on 19.03.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "HelpQueue.h"

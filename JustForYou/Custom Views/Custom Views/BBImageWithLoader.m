@@ -1,11 +1,3 @@
-//
-//  BBImageWithLoader.m
-//  JustForYou
-//
-//  Created by Антон on 20.09.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBImageWithLoader.h"
 
 @implementation BBImageWithLoader

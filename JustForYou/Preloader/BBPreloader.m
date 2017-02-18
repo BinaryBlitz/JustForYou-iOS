@@ -1,11 +1,3 @@
-//
-//  BBPreloader.m
-//  JustForYou
-//
-//  Created by Антон on 19.03.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBPreloader.h"
 
 #import "BBTabbarAssembly.h"

@@ -1,11 +1,3 @@
-//
-//  BBServerResponse.m
-//  JustForYou
-//
-//  Created by Антон on 04.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBServerResponse.h"
 
 @interface BBServerResponse ()

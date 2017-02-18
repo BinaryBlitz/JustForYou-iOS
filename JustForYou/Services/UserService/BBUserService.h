@@ -1,11 +1,3 @@
-//
-//  BBUserService.h
-//  JustForYou
-//
-//  Created by Антон on 26.03.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import "BBUser.h"
 #import "BBAddress.h"

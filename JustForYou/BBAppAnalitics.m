@@ -1,11 +1,3 @@
-//
-//  BBAppAnalitics.m
-//  JustForYou
-//
-//  Created by Антон on 07.11.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBAppAnalitics.h"
 
 #import <Google/Analytics.h>

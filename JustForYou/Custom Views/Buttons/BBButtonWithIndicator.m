@@ -1,11 +1,3 @@
-//
-//  BBButtonWithIndicator.m
-//  JustForYou
-//
-//  Created by Антон on 11.09.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBButtonWithIndicator.h"
 
 static CGFloat sizeLabel = 10.0f;

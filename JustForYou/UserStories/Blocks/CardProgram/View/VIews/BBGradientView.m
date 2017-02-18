@@ -1,11 +1,3 @@
-//
-//  BBGradientView.m
-//  JustForYou
-//
-//  Created by Антон on 16.04.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBGradientView.h"
 
 static CGFloat lineWight = 1.f;

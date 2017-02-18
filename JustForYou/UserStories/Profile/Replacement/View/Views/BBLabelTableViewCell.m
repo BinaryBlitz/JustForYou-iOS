@@ -1,11 +1,3 @@
-//
-//  BBLabelTableViewCell.m
-//  JustForYou
-//
-//  Created by Антон on 11.09.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBLabelTableViewCell.h"
 
 @implementation BBLabelTableViewCell

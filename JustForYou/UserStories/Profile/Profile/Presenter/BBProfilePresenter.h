@@ -1,11 +1,3 @@
-//
-//  BBProfilePresenter.h
-//  JustForYou
-//
-//  Created by tercteberc on 29/03/2016.
-//  Copyright 2016 Binary Blitz. All rights reserved.
-//
-
 #import "BBProfileViewOutput.h"
 #import "BBProfileInteractorOutput.h"
 #import "BBProfileModuleInput.h"

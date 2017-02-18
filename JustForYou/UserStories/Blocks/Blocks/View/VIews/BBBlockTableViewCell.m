@@ -1,11 +1,3 @@
-//
-//  BBBlockTableViewCell.m
-//  JustForYou
-//
-//  Created by Антон on 06.04.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBBlockTableViewCell.h"
 
 static CGFloat sideOffset = 35.0f;

@@ -1,12 +1,4 @@
- //
-//  BBImageViewService.m
-//  JustForYou
-//
-//  Created by Антон on 12.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
-#import "BBImageViewService.h"
+ #import "BBImageViewService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString *kNameFormat = @"cache";

@@ -1,11 +1,3 @@
-//
-//  BBCalendarMenuView.m
-//  JustForYou
-//
-//  Created by Антон on 20.04.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBCalendarMenuView.h"
 
 @implementation BBCalendarMenuView

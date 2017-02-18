@@ -1,11 +1,3 @@
-//
-//  BBPaymentViewController.m
-//  JustForYou
-//
-//  Created by tercteberc on 21/05/2016.
-//  Copyright 2016 Binary Blitz. All rights reserved.
-//
-
 #import "BBPaymentViewController.h"
 
 #import "BBPaymentViewOutput.h"

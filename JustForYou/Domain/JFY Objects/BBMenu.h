@@ -1,11 +1,3 @@
-//
-//  BBMenu.h
-//  JustForYou
-//
-//  Created by Антон on 12.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import <Realm/Realm.h>
 
 #import "BBDay.h"

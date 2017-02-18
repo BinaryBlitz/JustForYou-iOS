@@ -1,11 +1,3 @@
-//
-//  BBAddBasketViewPopover.m
-//  JustForYou
-//
-//  Created by Антон on 23.05.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBAddBasketViewPopover.h"
 
 static CGFloat cornerRadius = 10.0f;

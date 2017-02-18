@@ -1,11 +1,3 @@
-//
-//  BBDay.m
-//  JustForYou
-//
-//  Created by Антон on 12.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBDay.h"
 
 #import "BBMenu.h"

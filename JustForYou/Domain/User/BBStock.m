@@ -1,11 +1,3 @@
-//
-//  BBStock.m
-//  JustForYou
-//
-//  Created by Антон on 19.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBStock.h"
 
 #import "BBCalendarService.h"

@@ -1,11 +1,3 @@
-//
-//  BBCalendarMenuView.h
-//  JustForYou
-//
-//  Created by Антон on 20.04.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 @protocol BBCalendarMenuViewDelegate;

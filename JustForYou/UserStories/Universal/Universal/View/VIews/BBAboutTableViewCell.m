@@ -1,11 +1,3 @@
-//
-//  BBAboutTableViewCell.m
-//  JustForYou
-//
-//  Created by Антон on 19.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBAboutTableViewCell.h"
 
 static NSString *firstParagraph = @"JUST FOR YOU – это проект, который специально создан для занятых жителей мегаполиса и объединяет медицинский подход к здоровому питанию со стандартами высокой кухни.\n\n";

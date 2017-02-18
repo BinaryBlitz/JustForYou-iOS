@@ -1,11 +1,3 @@
-//
-//  BBClearOrderTableViewCell.m
-//  JustForYou
-//
-//  Created by Антон on 22.07.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import "BBClearOrderTableViewCell.h"
 
 @implementation BBClearOrderTableViewCell

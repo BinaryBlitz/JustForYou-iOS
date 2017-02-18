@@ -1,11 +1,3 @@
-//
-//  BBBlock.h
-//  JustForYou
-//
-//  Created by Антон on 09.06.16.
-//  Copyright © 2016 BinaryBlitz. All rights reserved.
-//
-
 #import <Realm/Realm.h>
 
 @interface BBBlock : RLMObject
