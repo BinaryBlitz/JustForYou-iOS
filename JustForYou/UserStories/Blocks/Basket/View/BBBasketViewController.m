@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalLebel;
-@property (weak, nonatomic) IBOutlet UILabel *totalWithBonusesLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *bonusesSwitch;
 
 @property (strong, nonatomic) BBSwitchTableViewCell *switchCell;
 
@@ -59,13 +57,12 @@ static CGFloat heightFooter = 13.0f;
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self _layoutPayButton];
-    [self _layoutBonusesSwitch];
 }
 
 #pragma mark - Actions Methods
 
 - (IBAction)payButtonAction:(id)sender {
-    [self.output payButtonDidTapWithBonusesEnable:[self.bonusesSwitch isOn] countPayments:[self.programOrders count]];
+    [self.output payButtonDidTapWithCount:[self.programOrders count]];
     [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"oplatit" action:@"click" label:@""];
 }
 
@@ -92,13 +89,11 @@ static CGFloat heightFooter = 13.0f;
     self.navigationItem.title = kNameTitleBasketModule;
     self.programOrders = [NSArray array];
     [self _settingsTableViewAndRegisterNib];
-    [self.bonusesSwitch addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)updateTableViewWithOrders:(NSArray *)orders {
     self.programOrders = orders;
     self.totalPrice = 0;
-    self.bonusesSwitch.on = NO;
     HQDispatchToMainQueue(^{
         [self.tableView reloadData];
     });
@@ -189,11 +184,6 @@ static CGFloat heightFooter = 13.0f;
 
 - (void)updateTotalTableViewCell {
     NSInteger totalBonuses = 0;
-    if ([self.bonusesSwitch isOn]) {
-        if ([self.programOrders count] > 0) {
-            totalBonuses = [[BBUserService sharedService] userBonuses];
-        }
-    }
     NSInteger result = self.totalPrice - totalBonuses;
     if (result < 0) {
         result = 0;
@@ -203,14 +193,6 @@ static CGFloat heightFooter = 13.0f;
     }
     HQDispatchToMainQueue(^{
         self.totalLebel.text = [NSString stringWithFormat:@"%ld P", (long)self.totalPrice];
-        self.totalWithBonusesLabel.text = [NSString stringWithFormat:@"%ld P", (long)result];
-    });
-}
-
-- (void)updateSwichInCellForState:(BOOL)state {
-    HQDispatchToMainQueue(^{
-        self.bonusesSwitch.on = state;
-        [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"bonus" label:@""];
     });
 }
 
@@ -247,11 +229,6 @@ static CGFloat heightFooter = 13.0f;
 - (void)_layoutPayButton {
     self.payButton.layer.masksToBounds = YES;
     self.payButton.layer.cornerRadius = CGRectGetHeight(self.payButton.frame)/2;
-}
-
-- (void)_layoutBonusesSwitch {
-    self.bonusesSwitch.layer.masksToBounds = YES;
-    self.bonusesSwitch.layer.cornerRadius = CGRectGetHeight(self.bonusesSwitch.frame)/2;
 }
 
 @end

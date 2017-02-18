@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,19 +18,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="189.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPh-0K-C52">
-                        <rect key="frame" x="130" y="121" width="114" height="21"/>
+                        <rect key="frame" x="130" y="121" width="115" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Бонусы: 500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksf-UX-zmW">
-                        <rect key="frame" x="8" y="157" width="359" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="you" translatesAutoresizingMaskIntoConstraints="NO" id="k9f-nl-Ll4">
@@ -35,24 +34,19 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Ksf-UX-zmW" secondAttribute="trailing" constant="8" id="722-Li-tK6"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZPh-0K-C52" secondAttribute="bottom" constant="39" id="8rg-To-FwM"/>
                     <constraint firstItem="k9f-nl-Ll4" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="77:375" id="CaT-Ab-UUY"/>
                     <constraint firstItem="k9f-nl-Ll4" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="YBx-tB-SGz"/>
-                    <constraint firstItem="Ksf-UX-zmW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Zxd-tQ-fDL"/>
                     <constraint firstItem="ZPh-0K-C52" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="eRO-fn-HuG"/>
-                    <constraint firstAttribute="bottom" secondItem="Ksf-UX-zmW" secondAttribute="bottom" constant="18" id="ew3-To-gTa"/>
                     <constraint firstItem="k9f-nl-Ll4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="qV0-hQ-6NH"/>
-                    <constraint firstItem="Ksf-UX-zmW" firstAttribute="top" secondItem="ZPh-0K-C52" secondAttribute="bottom" constant="15" id="ro6-BP-XVa"/>
-                    <constraint firstItem="Ksf-UX-zmW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="spO-Z1-6vA"/>
                     <constraint firstItem="ZPh-0K-C52" firstAttribute="top" secondItem="k9f-nl-Ll4" secondAttribute="bottom" constant="19" id="v3q-KN-q8y"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="avatarImageView" destination="k9f-nl-Ll4" id="Nu5-aT-RPz"/>
-                <outlet property="bonusesLabel" destination="Ksf-UX-zmW" id="luI-hY-Gbj"/>
                 <outlet property="nameLabel" destination="ZPh-0K-C52" id="chw-WK-WOQ"/>
             </connections>
             <point key="canvasLocation" x="272.5" y="237"/>

@@ -138,7 +138,6 @@ static NSInteger numberOfRowsInSecondSection = 5;
     if ([cell isKindOfClass:[BBProfileTableViewCell class]]) {
         BBProfileTableViewCell *profileCell = (BBProfileTableViewCell *)cell;
         profileCell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.currentUser.name, self.currentUser.surname];
-        profileCell.bonusesLabel.text = [NSString stringWithFormat:@"Бонусы: %ld", (long)self.currentUser.balance];
     }
 }
 

@@ -73,14 +73,12 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
         self.switchTap = YES;
         [self.interactor updateUserAndShowCurrentBonuses];
     } else {
-        [self.view updateSwichInCellForState:state];
         [self.view updateTotalTableViewCell];
     }
 }
 
-- (void)payButtonDidTapWithBonusesEnable:(BOOL)enable countPayments:(NSInteger)count {
+- (void)payButtonDidTapWithCount:(NSInteger)count {
     if (count > 0) {
-        self.switchBonuses = enable;
         [self.view createAndPresentTableAlertWithMessage:messagePayAlert];
     } else {
         [self.view presentAlertWithTitle:kNoteTitle message:basketIsEmpty];
@@ -118,7 +116,6 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
 
 - (void)bonusesUpdate {
     [self.view hideBackgroundLoaderViewWithAlpha];
-    [self.view updateSwichInCellForState:YES];
     [self.view updateTotalTableViewCell];
 }
 
@@ -154,7 +151,6 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
 - (void)_changeSwitch {
     if (self.switchTap) {
         self.switchTap = NO;
-        [self.view updateSwichInCellForState:NO];
     }
 }
 
