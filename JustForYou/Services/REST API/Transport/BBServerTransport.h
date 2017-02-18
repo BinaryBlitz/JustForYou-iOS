@@ -4,7 +4,7 @@
 #import "BBPayCard.h"
 #import "BBExchange.h"
 
-typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* error);
+typedef void (^CompletionBlock)(NSData *data, NSURLResponse *response, NSError *error);
 
 @interface BBServerTransport : NSObject
 
@@ -56,7 +56,6 @@ typedef void (^CompletionBlock)(NSData *data, NSURLResponse* response, NSError* 
 #pragma mark - Stock Methods
 
 - (void)listStocksWithApiToken:(NSString *)apiToken completion:(CompletionBlock)completion;
-
 
 #pragma  mark - PayCard Methods
 

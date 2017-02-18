@@ -3,14 +3,14 @@
 #import <JTCalendar/JTCalendar.h>
 
 typedef enum : NSUInteger {
-    BBStatusPassedTime,
-    BBstatusTodayTime,
-    BBStatusFutureTime
-}BBStatusOrderTime;
+  BBStatusPassedTime,
+  BBstatusTodayTime,
+  BBStatusFutureTime
+} BBStatusOrderTime;
 
 @interface BBCalendarService : NSObject
 
-+ (instancetype) sharedService;
++ (instancetype)sharedService;
 
 - (NSDate *)dateForString:(NSString *)dateString;
 

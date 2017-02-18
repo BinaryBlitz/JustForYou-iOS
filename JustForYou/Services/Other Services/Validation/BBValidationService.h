@@ -2,7 +2,7 @@
 
 @interface BBValidationService : NSObject
 
-+ (NSString *)validateNumberPhoneWithNumber:(NSString *) simpleNumber deleteLastChar:(BOOL)deleteLastChar;
++ (NSString *)validateNumberPhoneWithNumber:(NSString *)simpleNumber deleteLastChar:(BOOL)deleteLastChar;
 
 + (NSString *)numberPhoneWithPrimaryString:(NSString *)primaryString;
 

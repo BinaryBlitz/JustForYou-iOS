@@ -11,11 +11,10 @@
 #import "BBExchange.h"
 
 typedef enum : NSUInteger {
-    kTypeBlockInData,
-    kTypeProgramInData,
-    kTypeDayInData
-}BBTypeObjectInData;
-
+  kTypeBlockInData,
+  kTypeProgramInData,
+  kTypeDayInData
+} BBTypeObjectInData;
 
 @interface NSData (BBParserAPI)
 

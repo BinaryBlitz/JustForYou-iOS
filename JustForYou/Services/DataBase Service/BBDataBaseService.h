@@ -12,7 +12,7 @@ typedef void (^CallBack)(void);
 
 @interface BBDataBaseService : NSObject
 
-+ (instancetype) sharedService;
++ (instancetype)sharedService;
 
 #pragma mark - Blocks
 
