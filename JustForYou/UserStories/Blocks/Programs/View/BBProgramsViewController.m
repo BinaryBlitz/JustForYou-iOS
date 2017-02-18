@@ -103,7 +103,7 @@ static NSString * const kAddToBasketTitle = @"КУПИТЬ";
 
 #pragma mark - Методы BBProgramsViewInput
 
-- (void)updateAddBusketButton {
+- (void)updateAddBasketButton {
     BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
     if (program.individualPrice) {
         self.addToBasketWidthConstraint.constant = 200;
@@ -265,7 +265,7 @@ static NSString * const kAddToBasketTitle = @"КУПИТЬ";
 
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self updateAddBusketButton];
+    [self updateAddBasketButton];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -283,7 +283,7 @@ static NSString * const kAddToBasketTitle = @"КУПИТЬ";
         if ([self.urlsArray count] > 0) {
             [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[self.pageControl.currentPage]];
         }
-        [self updateAddBusketButton];
+        [self updateAddBasketButton];
     }
 }
 
@@ -347,6 +347,15 @@ static NSString * const kAddToBasketTitle = @"КУПИТЬ";
             BBProgramView *view = self.arrayViews[i];
             view.frame = CGRectMake(x, 0, self.wightProgramView, CGRectGetHeight(self.scrollView.frame));
         }
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInView:self.addBasketPopover.popoverView];
+    if (![self.addBasketPopover.popoverView pointInside:touchLocation withEvent:event]) {
+        [self.addBasketPopover removeFromSuperview];
+        self.addBasketPopover = nil;
     }
 }
 

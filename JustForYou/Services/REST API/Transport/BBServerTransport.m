@@ -160,7 +160,7 @@ NSString * const kServerURL = @"https://justforyou-staging.herokuapp.com";
         [array addObject:par];
     }
     NSDictionary* parameters = @{@"phone_number"          : phone,
-                                 @"use_balance"           : [NSNumber numberWithBool:use],
+                                 @"use_balance"           : [NSNumber numberWithBool:false],
                                  @"line_items_attributes" : array};
     NSDictionary *param = @{@"api_token" : token,
                             @"order" : parameters};

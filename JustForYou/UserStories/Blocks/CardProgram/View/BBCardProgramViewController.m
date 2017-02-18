@@ -98,7 +98,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
     [self addSwipeForBigImage];
 }
 
-- (void)updateAddBusketButton {
+- (void)updateAddBasketButton {
     if (self.myProgram.individualPrice) {
         [self.addInBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
     } else {
@@ -110,7 +110,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
     self.myProgram = [BBProgram objectsWhere:@"programId=%d", programId].firstObject;
     if (![self.myProgram isInvalidated]) {
         self.navigationItem.title = self.myProgram.block.name;
-        [self updateAddBusketButton];
+        [self updateAddBasketButton];
         [[BBAppAnalitics sharedService] sendControllerWithName:self.myProgram.block.name];
     } else {
         self.navigationItem.title = kNameTitleNoneModule;
