@@ -25,6 +25,7 @@ platform :ios do
     scan
   end
 
+  desc 'Submit a new beta build to Crashlytics'
   lane :beta do
     # Ensure that there that your git status is not dirty
     ensure_git_status_clean
@@ -38,28 +39,28 @@ platform :ios do
     crashlytics
   end
 
-  desc 'Deploy a new version to the App Store'
-  lane :appstore do
-    # match(type: 'appstore')
-    # snapshot
-    gym # Build your app - more options available
-    deliver(force: true)
-    # frameit
+  desc 'Submit a new build to iTunes Connect'
+  lane :release do
+    # Ensure that there that your git status is not dirty
+    ensure_git_status_clean
+    # Increment the build number (not the version number)
+    increment_build_number
+    # Manage code signing
+    match(type: 'appstore')
+    # Build your app - more options available
+    gym(scheme: 'JustForYou', include_bitcode: true)
+    # Upload to Testflight
+    pilot(skip_waiting_for_build_processing: true)
   end
 
-  # You can define as many lanes as you want
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
 
- # after_all do |lane|
-  #  build_number = Actions.lane_context[Actions::SharedValues::BUILD_NUMBER]
-   # sh 'git add -A'
-   # sh "git commit -m \"Bulid \##{build_number}\""
- # end
+    # slack(message: 'Successfully deployed new App Update.')
+  end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+    # slack(message: exception.message, success: false)
   end
 end
 
