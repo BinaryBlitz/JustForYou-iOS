@@ -4,7 +4,7 @@
 
 @interface BBParentPresenter ()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
 
 @end
 
