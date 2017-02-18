@@ -6,107 +6,102 @@
 
 // Для старта с нужного контроллера
 typedef enum : NSUInteger {
-    BBRegistrationModule,
-    BBLoadBlockModule,
-    BBLoadOrdersModule,
-    BBLoadSupportModule,
-    BBLoadProfileModule,
-    BBLoadBasketModule
-}BBLoadModule;
+  BBRegistrationModule,
+  BBLoadBlockModule,
+  BBLoadOrdersModule,
+  BBLoadSupportModule,
+  BBLoadProfileModule,
+  BBLoadBasketModule
+} BBLoadModule;
 
 // Кнопочки в таббаре
 typedef enum : NSUInteger {
-    BBTabbarItemPrograms,
-    BBTabbarItemOrders,
-    BBTabbarItemProfile,
-    BBTabbarItemSupport
+  BBTabbarItemPrograms,
+  BBTabbarItemOrders,
+  BBTabbarItemProfile,
+  BBTabbarItemSupport
 } BBTabbarItem;
 
 // тип контролера для экрана замены
 typedef enum : NSUInteger {
-    kViewReplacementType,
-    kAddReplacementType
-}BBTypeReplacementController;
+  kViewReplacementType,
+  kAddReplacementType
+} BBTypeReplacementController;
 
 // стиль ячейки: карточкой или обычный
 typedef enum : NSUInteger {
-    kStandartContentCell,
-    kCardContentCell
-}BBKeyStyleContentCell;
+  kStandartContentCell,
+  kCardContentCell
+} BBKeyStyleContentCell;
 
 // какие углы закруглять у ячейки таблицы
 typedef enum : NSUInteger {
-    kNoneCornerRadius,
-    kTopCornerRadius,
-    kBottomCornerRadius,
-    kAllCornerRadius
-}BBKeyCornerRadius;
-
+  kNoneCornerRadius,
+  kTopCornerRadius,
+  kBottomCornerRadius,
+  kAllCornerRadius
+} BBKeyCornerRadius;
 
 typedef enum : NSUInteger {
-    BBLeftOrientationBarButtonItem,
-    BBRightOrientationBarButtonItem
-}BBOrientetionBarButtonItem;
+  BBLeftOrientationBarButtonItem,
+  BBRightOrientationBarButtonItem
+} BBOrientetionBarButtonItem;
 
 // Индекс SegmentedControl-а в карточке программы
 typedef enum : NSUInteger {
-    BBForWhomSegmentedIndex,
-    BBDescriptionSegmentedIndex,
-    BBMenuSegmentedIndex
-}BBCardProgramSegmentedIndex;
+  BBForWhomSegmentedIndex,
+  BBDescriptionSegmentedIndex,
+  BBMenuSegmentedIndex
+} BBCardProgramSegmentedIndex;
 
 // модель телефона
 typedef enum : NSUInteger {
-    kModelIPhone4,
-    kModelIPhone5,
-    kModelIPhone6,
-    kModelIPhone6plus
-}kModelIPhone;
-
+  kModelIPhone4,
+  kModelIPhone5,
+  kModelIPhone6,
+  kModelIPhone6plus
+} kModelIPhone;
 
 // тип экрана в блоке профиль
 typedef enum : NSUInteger {
-    kNoneModule,
-    kMyPayCardModule,
-    kMyProgramModule,
-    kMyAddressModule,
-    kMyAddressForOrderModule,
-    kMyHystoryPaymentModule,
-    kReplacementModule,
-    kSharesModule,
-    kAboutModule
-}BBKeyModuleForUniversalModule;
-
+  kNoneModule,
+  kMyPayCardModule,
+  kMyProgramModule,
+  kMyAddressModule,
+  kMyAddressForOrderModule,
+  kMyHystoryPaymentModule,
+  kReplacementModule,
+  kSharesModule,
+  kAboutModule
+} BBKeyModuleForUniversalModule;
 
 // Время дня
 typedef enum : NSUInteger {
-    kMorningPartOfDay,
-    kDayPartOfDay,
-    kEveningPartOfDay
-}BBPartOfDay;
-
+  kMorningPartOfDay,
+  kDayPartOfDay,
+  kEveningPartOfDay
+} BBPartOfDay;
 
 // Статус создания доставки
 typedef enum : NSUInteger {
-    kStatusNone,
-    kStatusCreate,
-    kStatusError
-}BBStatusCreateDelivery;
-
+  kStatusNone,
+  kStatusCreate,
+  kStatusError
+} BBStatusCreateDelivery;
 
 //тип action у alert в контроллере
 typedef enum : NSUInteger {
-    kPopController,
-    kContinueButton,
-    kPayOkButton,
-    kPayCancelButton
-}BBKeyForOkButtonAlert;
+  kPopController,
+  kContinueButton,
+  kPayOkButton,
+  kPayCancelButton
+} BBKeyForOkButtonAlert;
 
 // Сделать запрос и обновить данные или сделать запрос и положить их в базу
 typedef enum : NSUInteger {
-    kStateUpdateData,
-    kStateCreateData
-}BBKeyStateData;
+  kStateUpdateData,
+  kStateCreateData
+} BBKeyStateData;
 
 #pragma mark - interface class
 
@@ -186,7 +181,6 @@ static NSString *kNameTitleBasketModule = @"Корзина";
 static NSString *kNameTitleMyProgramModule = @"Мои программы";
 static NSString *kNameTitleReplaceProgramModule = @"Замена";
 static NSString *kNameTitlePaymentModule = @"Оплата";
-
 
 static NSString *kNameTitleOrdersModule = @"Заказы";
 static NSString *kNameTitleNewOrderModule = @"Новый заказ";
