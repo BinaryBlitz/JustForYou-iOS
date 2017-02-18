@@ -33,7 +33,7 @@ NSString* const kCountPurchases = @"kCountPurchases";
         self.countPurchases = 0;
         self.addressArray = [NSArray array];
         self.ordersProgramArray = [NSArray array];
-        self.enableBonuses = YES;
+        self.enableBonuses = NO;
     }
     return self;
 }

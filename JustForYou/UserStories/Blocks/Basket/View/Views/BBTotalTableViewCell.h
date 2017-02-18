@@ -11,6 +11,5 @@
 @interface BBTotalTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalBonusesLabel;
 
 @end

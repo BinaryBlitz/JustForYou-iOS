@@ -19,7 +19,7 @@
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order;
 
 - (void)closeButtonDidTap;
-- (void)payButtonDidTapWithBonusesEnable:(BOOL)enable countPayments:(NSInteger)count;
+- (void)payButtonDidTapWithCount:(NSInteger)count;
 
 - (void)changeStateWithState:(BOOL)state;
 
