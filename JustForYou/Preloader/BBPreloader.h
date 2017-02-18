@@ -2,6 +2,6 @@
 
 @interface BBPreloader : NSObject
 
--(instancetype)initWithWindow:(UIWindow *)window;
+- (instancetype)initWithWindow:(UIWindow *)window;
 
 @end
