@@ -2,7 +2,7 @@
 
 @interface BBContainerView : UIView
 
-@property (weak, nonatomic) UIViewController* parentVC;
+@property (weak, nonatomic) UIViewController *parentVC;
 
 - (void)displayView:(id)view;
 

@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
-    kBonusesSwitch,
-    kPushNotificationSwitch
-}BBKeyForSwitch;
+  kBonusesSwitch,
+  kPushNotificationSwitch
+} BBKeyForSwitch;
 
 @protocol BBSwitchCellDelegate;
 
@@ -12,8 +12,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UISwitch *bonusSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *customTextLabel;
 
-
-@property (strong, nonatomic) id<BBSwitchCellDelegate> delegate;
+@property (strong, nonatomic) id <BBSwitchCellDelegate> delegate;
 
 @property (nonatomic) BOOL setRadius;
 @property (nonatomic) BBKeyCornerRadius kSideCornerRadius;

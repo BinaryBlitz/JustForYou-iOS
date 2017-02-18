@@ -1,10 +1,9 @@
 #import <UIKit/UIKit.h>
 
-typedef enum tagBorderType
-{
-    BorderTypeDashed,
-    BorderTypeSolid
-}BorderType;
+typedef enum tagBorderType {
+  BorderTypeDashed,
+  BorderTypeSolid
+} BorderType;
 
 @interface BBDottedBorderButton : UIButton
 

@@ -3,9 +3,9 @@
 #import "BBPurchases.h"
 
 typedef enum : NSUInteger {
-    kProgramCellModeCornerRadius,
-    kProgramCellModeDefault
-}BBKeyProgramCellMode;
+  kProgramCellModeCornerRadius,
+  kProgramCellModeDefault
+} BBKeyProgramCellMode;
 
 @interface BBMyProgramTableViewCell : UITableViewCell
 

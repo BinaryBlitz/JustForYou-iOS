@@ -6,7 +6,7 @@
 
 @interface BBTableAlertController : UIAlertController
 
-@property (strong, nonatomic) id<BBTableAlertControllerDelegate> delegate;
+@property (strong, nonatomic) id <BBTableAlertControllerDelegate> delegate;
 
 @end
 
