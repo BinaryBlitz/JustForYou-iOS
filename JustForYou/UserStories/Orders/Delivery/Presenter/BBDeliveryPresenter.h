@@ -8,8 +8,8 @@
 
 @interface BBDeliveryPresenter : NSObject <BBDeliveryModuleInput, BBDeliveryViewOutput, BBDeliveryInteractorOutput>
 
-@property (strong, nonatomic) id<BBDeliveryViewInput> view;
-@property (strong, nonatomic) id<BBDeliveryInteractorInput> interactor;
-@property (strong, nonatomic) id<BBDeliveryRouterInput> router;
+@property (strong, nonatomic) id <BBDeliveryViewInput> view;
+@property (strong, nonatomic) id <BBDeliveryInteractorInput> interactor;
+@property (strong, nonatomic) id <BBDeliveryRouterInput> router;
 
 @end

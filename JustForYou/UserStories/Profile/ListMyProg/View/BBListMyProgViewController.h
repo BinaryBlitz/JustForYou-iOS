@@ -6,6 +6,6 @@
 
 @interface BBListMyProgViewController : BBParentViewController <BBListMyProgViewInput>
 
-@property (weak, nonatomic) id<BBListMyProgViewOutput> output;
+@property (weak, nonatomic) id <BBListMyProgViewOutput> output;
 
 @end

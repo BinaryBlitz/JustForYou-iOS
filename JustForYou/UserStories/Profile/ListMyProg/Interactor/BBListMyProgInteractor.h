@@ -4,6 +4,6 @@
 
 @interface BBListMyProgInteractor : NSObject <BBListMyProgInteractorInput>
 
-@property (weak, nonatomic) id<BBListMyProgInteractorOutput> output;
+@property (weak, nonatomic) id <BBListMyProgInteractorOutput> output;
 
 @end

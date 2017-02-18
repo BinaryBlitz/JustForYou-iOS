@@ -4,6 +4,6 @@
 
 @interface BBPaymentInteractor : NSObject <BBPaymentInteractorInput>
 
-@property (weak, nonatomic) id<BBPaymentInteractorOutput> output;
+@property (weak, nonatomic) id <BBPaymentInteractorOutput> output;
 
 @end

@@ -4,6 +4,6 @@
 
 @interface BBGreetingInteractor : NSObject <BBGreetingInteractorInput>
 
-@property (weak, nonatomic) id<BBGreetingInteractorOutput> output;
+@property (weak, nonatomic) id <BBGreetingInteractorOutput> output;
 
 @end

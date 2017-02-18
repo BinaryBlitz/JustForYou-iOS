@@ -4,6 +4,6 @@
 
 @interface BBMyHistoryInteractor : NSObject <BBMyHistoryInteractorInput>
 
-@property (weak, nonatomic) id<BBMyHistoryInteractorOutput> output;
+@property (weak, nonatomic) id <BBMyHistoryInteractorOutput> output;
 
 @end

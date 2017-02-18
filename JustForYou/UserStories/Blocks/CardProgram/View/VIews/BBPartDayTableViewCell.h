@@ -4,6 +4,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *partOfDayLabel;
 
-- (void)setPartOfDayWithKey:(BBPartOfDay) key;
+- (void)setPartOfDayWithKey:(BBPartOfDay)key;
 
 @end

@@ -12,6 +12,6 @@
 
 - (void)presentInWindow:(UIWindow *)window;
 
-@property (strong, nonatomic) id<BBTabbarModuleOutput> output;
+@property (strong, nonatomic) id <BBTabbarModuleOutput> output;
 
 @end

@@ -8,8 +8,8 @@
 
 @interface BBBasketPresenter : NSObject <BBBasketModuleInput, BBBasketViewOutput, BBBasketInteractorOutput>
 
-@property (strong, nonatomic) id<BBBasketViewInput> view;
-@property (strong, nonatomic) id<BBBasketInteractorInput> interactor;
-@property (strong, nonatomic) id<BBBasketRouterInput> router;
+@property (strong, nonatomic) id <BBBasketViewInput> view;
+@property (strong, nonatomic) id <BBBasketInteractorInput> interactor;
+@property (strong, nonatomic) id <BBBasketRouterInput> router;
 
 @end

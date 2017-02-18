@@ -13,11 +13,11 @@
 #import "BBBasketAssembly.h"
 #import "BBBasketModuleInput.h"
 
-@interface BBBlocksPresenter()
+@interface BBBlocksPresenter ()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigModule;
-@property (strong, nonatomic) id<BBProgramsModuleInput> programsModule;
-@property (strong, nonatomic) id<BBNavigationModuleInput> basketNavigationModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigModule;
+@property (strong, nonatomic) id <BBProgramsModuleInput> programsModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> basketNavigationModule;
 
 @property (nonatomic) BOOL isEmptyRealm;
 
@@ -31,85 +31,85 @@ static NSString *kImageNameBasket = @"basket";
 #pragma mark - Методы BBBlocksModuleInput
 
 - (void)configureModule {
-
 }
+
 - (id)currentViewWithModule:(id)module {
-    self.navigModule = module;
-    return self.view;
+  self.navigModule = module;
+  return self.view;
 }
 
 #pragma mark - Методы BBBlocksViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
-    if (self.isEmptyRealm) {
-        [self.view showLoaderView];
-        [self.interactor listBlocksWithKey:kStateCreateData];
-    } else {
-        [self.interactor blocksInDataBase];
-        [self.interactor listBlocksWithKey:kStateUpdateData];
-    }
+  [self.view setupInitialState];
+  if (self.isEmptyRealm) {
+    [self.view showLoaderView];
+    [self.interactor listBlocksWithKey:kStateCreateData];
+  } else {
+    [self.interactor blocksInDataBase];
+    [self.interactor listBlocksWithKey:kStateUpdateData];
+  }
 }
 
 - (void)viewWillAppear {
-    [self.interactor checkBasket];
-    [self.interactor blocksInDataBase];
+  [self.interactor checkBasket];
+  [self.interactor blocksInDataBase];
 }
 
 - (void)didSelectRowWithBlockId:(NSInteger)blockId {
-    [self.programsModule pushModuleWithNavigationModule:self.navigModule parentId:blockId];
+  [self.programsModule pushModuleWithNavigationModule:self.navigModule parentId:blockId];
 }
 
 - (void)basketButtonDidTap {
-    [self.router presentBasketViewControllerWithController:[self.basketNavigationModule currentViewWithLoadModule:BBLoadBasketModule]
-                                  withNavigationController:[self.navigModule currentView]];
+  [self.router presentBasketViewControllerWithController:[self.basketNavigationModule currentViewWithLoadModule:BBLoadBasketModule]
+                                withNavigationController:[self.navigModule currentView]];
 }
 
 #pragma mark - Методы BBBlocksInteractorOutput
 
 - (void)blocksSaveInDataBase {
-    [self.view hideLoaderView];
-    [self.interactor blocksInDataBase];
+  [self.view hideLoaderView];
+  [self.interactor blocksInDataBase];
 }
 
 - (void)currentBlocksInDataBase:(NSArray *)blocks {
-    [self.view blocksForTableView:blocks];
+  [self.view blocksForTableView:blocks];
 }
 
 - (void)errorClient {
-    if (self.isEmptyRealm) {
-        [self.view presentAlertWithTitle:kNoteTitle message:kErrorClient];
-    }
+  if (self.isEmptyRealm) {
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorClient];
+  }
 }
 
 - (void)errorServer {
-    if (self.isEmptyRealm) {
-        [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
-    }
+  if (self.isEmptyRealm) {
+    [self.view presentAlertWithTitle:kNoteTitle message:kErrorServer];
+  }
 }
 
 - (void)currentProgramsInBasket:(NSArray *)programs {
-    if ([programs count] > 0) {
-        [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
-    } else {
-        [self.view updateBasketButtonImageWithImageName:kImageNameBasket];
-    }
+  if ([programs count] > 0) {
+    [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
+  } else {
+    [self.view updateBasketButtonImageWithImageName:kImageNameBasket];
+  }
 }
 
 #pragma mark - Lazy Load
 
-- (id<BBProgramsModuleInput>) programsModule {
-    if (!_programsModule) {
-        _programsModule = [BBProgramsAssembly createModule];
-    }
-    return _programsModule;
+- (id <BBProgramsModuleInput>)programsModule {
+  if (!_programsModule) {
+    _programsModule = [BBProgramsAssembly createModule];
+  }
+  return _programsModule;
 }
 
-- (id<BBNavigationModuleInput>)basketNavigationModule {
-    if (!_basketNavigationModule) {
-        _basketNavigationModule = [BBNavigationAssembly createModule];
-    }
-    return _basketNavigationModule;
+- (id <BBNavigationModuleInput>)basketNavigationModule {
+  if (!_basketNavigationModule) {
+    _basketNavigationModule = [BBNavigationAssembly createModule];
+  }
+  return _basketNavigationModule;
 }
 
 @end

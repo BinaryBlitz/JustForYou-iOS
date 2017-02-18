@@ -4,6 +4,6 @@
 
 @interface BBProgramsInteractor : NSObject <BBProgramsInteractorInput>
 
-@property (weak, nonatomic) id<BBProgramsInteractorOutput> output;
+@property (weak, nonatomic) id <BBProgramsInteractorOutput> output;
 
 @end

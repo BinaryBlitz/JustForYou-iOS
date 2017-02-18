@@ -4,7 +4,7 @@
 
 #import "BBAddBasketViewPopover.h"
 
-@interface BBListMyProgViewController() <UITableViewDelegate, UITableViewDataSource, BBAddBasketViewDelegate, BBMyOldProgramCellDelegate>
+@interface BBListMyProgViewController () <UITableViewDelegate, UITableViewDataSource, BBAddBasketViewDelegate, BBMyOldProgramCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -25,103 +25,101 @@ static CGFloat contentInset = 20.0f;
 #pragma mark - Методы жизненного цикла
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+  [super viewDidLoad];
 
-	[self.output didTriggerViewReadyEvent];
+  [self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.output viewWillAppear];
-    [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleMyProgramModule];
+  [super viewWillAppear:animated];
+  [self.output viewWillAppear];
+  [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleMyProgramModule];
 }
 
 #pragma mark - Методы BBListMyProgViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = kNameTitleMyProgramModule;
-    [self _settingTableView];
+  self.navigationItem.title = kNameTitleMyProgramModule;
+  [self _settingTableView];
 }
-
 
 - (void)updateTableViewWithArrayObjects:(NSArray *)objects {
-    self.objects = objects;
-    HQDispatchToMainQueue(^{
-        [self.tableView reloadData];
-    });
+  self.objects = objects;
+  HQDispatchToMainQueue(^{
+    [self.tableView reloadData];
+  });
 }
 
-
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
-    [self presentAlertControllerWithTitle:title message:message];
+  [self presentAlertControllerWithTitle:title message:message];
 }
 
 - (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
-    [self.addBasketPopover removeFromSuperview];
-    self.addBasketPopover = nil;
-    [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
+  [self.addBasketPopover removeFromSuperview];
+  self.addBasketPopover = nil;
+  [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
 }
 
 #pragma mark - TableView Methods
 
 - (void)_settingTableView {
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = estimatedRowHeight;
-    self.tableView.contentInset = UIEdgeInsetsMake(contentInset, 0, contentInset, 0);
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyOldProgramCell bundle:nil] forCellReuseIdentifier:kMyOldProgramCellIdentifire];
+  self.tableView.rowHeight = UITableViewAutomaticDimension;
+  self.tableView.estimatedRowHeight = estimatedRowHeight;
+  self.tableView.contentInset = UIEdgeInsetsMake(contentInset, 0, contentInset, 0);
+  self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+  [self.tableView registerNib:[UINib nibWithNibName:kNibNameMyOldProgramCell bundle:nil] forCellReuseIdentifier:kMyOldProgramCellIdentifire];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.objects count];
+  return [self.objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BBMyOldProgramTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:kNibNameMyOldProgramCell owner:self options:nil].lastObject;
-    cell.purchase = [self.objects objectAtIndex:indexPath.row];
-    cell.delegate = self;
-    return cell;
+  BBMyOldProgramTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:kNibNameMyOldProgramCell owner:self options:nil].lastObject;
+  cell.purchase = [self.objects objectAtIndex:indexPath.row];
+  cell.delegate = self;
+  return cell;
 }
 
 #pragma mark - Delegate Methods
 
 - (void)extendButtonDidTapWithPurchase:(BBPurchases *)purchase {
-    self.selectPurchase = purchase;
-    [self _showAddInBasketPopover];
+  self.selectPurchase = purchase;
+  [self _showAddInBasketPopover];
 }
 
 - (void)replaceButtonDidTapWithPurchase:(BBPurchases *)purchase {
-    [self.output replaceButtonDidTapWithPurchase:purchase];
+  [self.output replaceButtonDidTapWithPurchase:purchase];
 }
 
 - (void)_showAddInBasketPopover {
-    [self.addBasketPopover setPrimaryPrice:self.selectPurchase.primaryPrice
-                                 secondary:self.selectPurchase.secondaryPrice
-                                 threshold:self.selectPurchase.threshold];
-    [self.view addSubview:self.addBasketPopover];
+  [self.addBasketPopover setPrimaryPrice:self.selectPurchase.primaryPrice
+                               secondary:self.selectPurchase.secondaryPrice
+                               threshold:self.selectPurchase.threshold];
+  [self.view addSubview:self.addBasketPopover];
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
-    [self.output okButtonDidTapWithCountDays:count programId:self.selectPurchase.programId];
+  [self.output okButtonDidTapWithCountDays:count programId:self.selectPurchase.programId];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint touchLocation = [touch locationInView:self.addBasketPopover.popoverView];
-    if (![self.addBasketPopover.popoverView pointInside:touchLocation withEvent:event]) {
-        [self.addBasketPopover removeFromSuperview];
-        self.addBasketPopover = nil;
-    }
+  UITouch *touch = [touches anyObject];
+  CGPoint touchLocation = [touch locationInView:self.addBasketPopover.popoverView];
+  if (![self.addBasketPopover.popoverView pointInside:touchLocation withEvent:event]) {
+    [self.addBasketPopover removeFromSuperview];
+    self.addBasketPopover = nil;
+  }
 }
 
 #pragma mark - Lazy Load
 
 - (BBAddBasketViewPopover *)addBasketPopover {
-    if (!_addBasketPopover) {
-        _addBasketPopover = [[BBAddBasketViewPopover alloc] initWithFrame:self.view.bounds];
-        _addBasketPopover.delegate = self;
-    }
-    return _addBasketPopover;
+  if (!_addBasketPopover) {
+    _addBasketPopover = [[BBAddBasketViewPopover alloc] initWithFrame:self.view.bounds];
+    _addBasketPopover.delegate = self;
+  }
+  return _addBasketPopover;
 }
 
 @end

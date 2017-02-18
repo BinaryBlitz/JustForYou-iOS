@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BBForWhomTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptLabel;
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;

@@ -6,6 +6,6 @@
 
 @interface BBGreetingViewController : BBParentViewController <BBGreetingViewInput>
 
-@property (weak, nonatomic) id<BBGreetingViewOutput> output;
+@property (weak, nonatomic) id <BBGreetingViewOutput> output;
 
 @end

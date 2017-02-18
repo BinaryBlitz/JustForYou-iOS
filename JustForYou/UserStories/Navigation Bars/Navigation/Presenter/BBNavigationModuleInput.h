@@ -4,7 +4,7 @@
 
 @protocol BBNavigationModuleInput <NSObject>
 
-- (id)currentViewWithLoadModule:(BBLoadModule) loadModule;
+- (id)currentViewWithLoadModule:(BBLoadModule)loadModule;
 
 - (id)currentView;
 
@@ -20,6 +20,6 @@
 
 - (void)setToMeTabbarModule:(id)tabbarModule;
 
-@property (strong, nonatomic) id<BBNavigationModuleOutput> output;
+@property (strong, nonatomic) id <BBNavigationModuleOutput> output;
 
 @end

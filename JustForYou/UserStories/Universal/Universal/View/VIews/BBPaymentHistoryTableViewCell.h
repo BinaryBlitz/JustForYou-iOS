@@ -3,6 +3,7 @@
 #import "BBProgramHistory.h"
 
 @interface BBPaymentHistoryTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *subnameLabel;

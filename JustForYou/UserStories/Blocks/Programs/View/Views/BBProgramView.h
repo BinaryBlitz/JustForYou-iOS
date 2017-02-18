@@ -13,7 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet BBUnderlineButton *moreButton;
 
-@property (strong, nonatomic) id<BBProgramViewDelegate> delegate;
+@property (strong, nonatomic) id <BBProgramViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
@@ -23,8 +23,8 @@
 
 @end
 
-
 @protocol BBProgramViewDelegate <NSObject>
+
 - (void)moreButtonDidTap;
 
 @end

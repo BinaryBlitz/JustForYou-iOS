@@ -8,8 +8,8 @@
 
 @interface BBAuthorizationPresenter : NSObject <BBAuthorizationModuleInput, BBAuthorizationViewOutput, BBAuthorizationInteractorOutput>
 
-@property (strong, nonatomic) id<BBAuthorizationViewInput> view;
-@property (strong, nonatomic) id<BBAuthorizationInteractorInput> interactor;
-@property (strong, nonatomic) id<BBAuthorizationRouterInput> router;
+@property (strong, nonatomic) id <BBAuthorizationViewInput> view;
+@property (strong, nonatomic) id <BBAuthorizationInteractorInput> interactor;
+@property (strong, nonatomic) id <BBAuthorizationRouterInput> router;
 
 @end

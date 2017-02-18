@@ -7,32 +7,31 @@
 
 @implementation BBRegistrationAssembly
 
-
 + (id <BBRegistrationModuleInput>)createModule {
 
-    BBRegistrationViewController *view = [self viewController];
+  BBRegistrationViewController *view = [self viewController];
 
-    BBRegistrationInteractor *interactor = [BBRegistrationInteractor new];
-    BBRegistrationPresenter *presenter = [BBRegistrationPresenter new];
-    BBRegistrationRouter *router = [BBRegistrationRouter new];
-    
-	router.presenter = presenter;
-	
-    view.output = presenter;
-    interactor.output = presenter;
-    
-    presenter.view = view;
-    presenter.interactor = interactor;
-    presenter.router = router;
-    [presenter configureModule];
-    
-    return presenter;
+  BBRegistrationInteractor *interactor = [BBRegistrationInteractor new];
+  BBRegistrationPresenter *presenter = [BBRegistrationPresenter new];
+  BBRegistrationRouter *router = [BBRegistrationRouter new];
+
+  router.presenter = presenter;
+
+  view.output = presenter;
+  interactor.output = presenter;
+
+  presenter.view = view;
+  presenter.interactor = interactor;
+  presenter.router = router;
+  [presenter configureModule];
+
+  return presenter;
 }
 
 + (BBRegistrationViewController *)viewController {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authorizate" bundle:nil];
-    BBRegistrationViewController * vc = (BBRegistrationViewController *)[sb instantiateViewControllerWithIdentifier:@"BBRegistrationViewController"];
-    return vc;
+  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Authorizate" bundle:nil];
+  BBRegistrationViewController *vc = (BBRegistrationViewController *) [sb instantiateViewControllerWithIdentifier:@"BBRegistrationViewController"];
+  return vc;
 }
 
 @end

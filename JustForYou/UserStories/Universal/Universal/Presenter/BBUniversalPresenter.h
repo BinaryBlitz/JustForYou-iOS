@@ -8,8 +8,8 @@
 
 @interface BBUniversalPresenter : NSObject <BBUniversalModuleInput, BBUniversalViewOutput, BBUniversalInteractorOutput>
 
-@property (strong, nonatomic) id<BBUniversalViewInput> view;
-@property (strong, nonatomic) id<BBUniversalInteractorInput> interactor;
-@property (strong, nonatomic) id<BBUniversalRouterInput> router;
+@property (strong, nonatomic) id <BBUniversalViewInput> view;
+@property (strong, nonatomic) id <BBUniversalInteractorInput> interactor;
+@property (strong, nonatomic) id <BBUniversalRouterInput> router;
 
 @end

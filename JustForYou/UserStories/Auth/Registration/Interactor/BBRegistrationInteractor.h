@@ -4,6 +4,6 @@
 
 @interface BBRegistrationInteractor : NSObject <BBRegistrationInteractorInput>
 
-@property (weak, nonatomic) id<BBRegistrationInteractorOutput> output;
+@property (weak, nonatomic) id <BBRegistrationInteractorOutput> output;
 
 @end

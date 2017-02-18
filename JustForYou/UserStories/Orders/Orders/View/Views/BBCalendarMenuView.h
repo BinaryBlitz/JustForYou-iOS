@@ -8,11 +8,12 @@
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
-@property (strong, nonatomic) id<BBCalendarMenuViewDelegate> delegate;
+@property (strong, nonatomic) id <BBCalendarMenuViewDelegate> delegate;
 
 @end
 
 @protocol BBCalendarMenuViewDelegate
+
 @optional
 
 - (void)leftButtonDidTap;

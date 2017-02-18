@@ -3,6 +3,7 @@
 #import "BBStock.h"
 
 @interface BBStockTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *accessoryImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameStockLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionStockLabel;

@@ -8,8 +8,8 @@
 
 @interface BBOrdersPresenter : NSObject <BBOrdersModuleInput, BBOrdersViewOutput, BBOrdersInteractorOutput>
 
-@property (strong, nonatomic) id<BBOrdersViewInput> view;
-@property (strong, nonatomic) id<BBOrdersInteractorInput> interactor;
-@property (strong, nonatomic) id<BBOrdersRouterInput> router;
+@property (strong, nonatomic) id <BBOrdersViewInput> view;
+@property (strong, nonatomic) id <BBOrdersInteractorInput> interactor;
+@property (strong, nonatomic) id <BBOrdersRouterInput> router;
 
 @end

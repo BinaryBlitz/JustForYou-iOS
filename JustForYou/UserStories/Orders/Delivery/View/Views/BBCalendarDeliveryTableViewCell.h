@@ -10,7 +10,7 @@
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarView;
 @property (weak, nonatomic) IBOutlet UILabel *informationLabel;
 
-@property (strong, nonatomic) id<BBCalendarDeliveryCellDelegate> delegate;
+@property (strong, nonatomic) id <BBCalendarDeliveryCellDelegate> delegate;
 
 @property (assign, nonatomic) NSInteger countDayInOrder;
 @property (strong, nonatomic) UIColor *purchaseColor;

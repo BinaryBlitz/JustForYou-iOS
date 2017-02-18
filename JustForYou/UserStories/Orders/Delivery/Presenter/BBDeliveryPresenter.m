@@ -10,10 +10,10 @@
 
 #import "BBPurchases.h"
 
-@interface BBDeliveryPresenter()
+@interface BBDeliveryPresenter ()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
-@property (strong, nonatomic) id<BBNewOrderModuleInput> parentModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id <BBNewOrderModuleInput> parentModule;
 
 @property (assign, nonatomic) BBPurchases *purchase;
 @property (strong, nonatomic) NSArray *selectionDays;
@@ -25,39 +25,38 @@
 #pragma mark - Методы BBDeliveryModuleInput
 
 - (void)configureModule {
-    
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule parent:(id)parent purchase:(BBPurchases *)purchase daysArray:(NSArray *)days {
-    self.navigationModule = navigationModule;
-    self.parentModule = parent;
-    self.purchase = purchase;
-    self.selectionDays = days;
-    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+  self.navigationModule = navigationModule;
+  self.parentModule = parent;
+  self.purchase = purchase;
+  self.selectionDays = days;
+  [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 #pragma mark - Методы BBDeliveryViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+  [self.view setupInitialState];
 }
 
 - (void)viewWillAppear {
-    [self.view purchaseForCalendar:self.purchase selectionDates:self.selectionDays];
+  [self.view purchaseForCalendar:self.purchase selectionDates:self.selectionDays];
 }
 
 - (void)viewWillDisappear {
-    [self saveDates];
+  [self saveDates];
 }
 
 - (void)readyButtonDidTap {
 //    [self saveDates];
-    [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
+  [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
 
 - (void)saveDates {
-    NSArray *dates = [self.view currentSelectionDates];
-    [self.parentModule selectionDates:dates];
+  NSArray *dates = [self.view currentSelectionDates];
+  [self.parentModule selectionDates:dates];
 }
 
 #pragma mark - Методы BBDeliveryInteractorOutput

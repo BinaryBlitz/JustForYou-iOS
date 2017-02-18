@@ -4,6 +4,6 @@
 
 @interface BBBasketInteractor : NSObject <BBBasketInteractorInput>
 
-@property (weak, nonatomic) id<BBBasketInteractorOutput> output;
+@property (weak, nonatomic) id <BBBasketInteractorOutput> output;
 
 @end

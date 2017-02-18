@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *deleteButton;
 
-@property (strong, nonatomic) id<BBPreviewOrderCellDelegate> delegate;
+@property (strong, nonatomic) id <BBPreviewOrderCellDelegate> delegate;
 
 @property (strong, nonatomic) BBOrder *order;
 

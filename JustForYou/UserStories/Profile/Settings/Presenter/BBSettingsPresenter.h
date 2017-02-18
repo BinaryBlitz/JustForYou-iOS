@@ -8,8 +8,8 @@
 
 @interface BBSettingsPresenter : NSObject <BBSettingsModuleInput, BBSettingsViewOutput, BBSettingsInteractorOutput>
 
-@property (strong, nonatomic) id<BBSettingsViewInput> view;
-@property (strong, nonatomic) id<BBSettingsInteractorInput> interactor;
-@property (strong, nonatomic) id<BBSettingsRouterInput> router;
+@property (strong, nonatomic) id <BBSettingsViewInput> view;
+@property (strong, nonatomic) id <BBSettingsInteractorInput> interactor;
+@property (strong, nonatomic) id <BBSettingsRouterInput> router;
 
 @end

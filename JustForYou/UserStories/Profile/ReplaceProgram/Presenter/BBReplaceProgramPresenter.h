@@ -8,8 +8,8 @@
 
 @interface BBReplaceProgramPresenter : NSObject <BBReplaceProgramModuleInput, BBReplaceProgramViewOutput, BBReplaceProgramInteractorOutput>
 
-@property (strong, nonatomic) id<BBReplaceProgramViewInput> view;
-@property (strong, nonatomic) id<BBReplaceProgramInteractorInput> interactor;
-@property (strong, nonatomic) id<BBReplaceProgramRouterInput> router;
+@property (strong, nonatomic) id <BBReplaceProgramViewInput> view;
+@property (strong, nonatomic) id <BBReplaceProgramInteractorInput> interactor;
+@property (strong, nonatomic) id <BBReplaceProgramRouterInput> router;
 
 @end

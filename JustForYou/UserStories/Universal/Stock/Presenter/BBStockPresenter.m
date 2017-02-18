@@ -8,9 +8,9 @@
 
 #import "BBStock.h"
 
-@interface BBStockPresenter()
+@interface BBStockPresenter ()
 
-@property (strong, nonatomic) id<BBNavigationModuleInput> navigationModule;
+@property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
 
 @end
 
@@ -19,20 +19,18 @@
 #pragma mark - Методы BBStockModuleInput
 
 - (void)configureModule {
-    
 }
 
 - (void)pushModuleWithNavigationModule:(id)navigationModule stock:(BBStock *)stock {
-    self.navigationModule = navigationModule;
-    [self.view stockForUI:stock];
-    [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+  self.navigationModule = navigationModule;
+  [self.view stockForUI:stock];
+  [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
 }
-
 
 #pragma mark - Методы BBStockViewOutput
 
 - (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+  [self.view setupInitialState];
 }
 
 #pragma mark - Методы BBStockInteractorOutput

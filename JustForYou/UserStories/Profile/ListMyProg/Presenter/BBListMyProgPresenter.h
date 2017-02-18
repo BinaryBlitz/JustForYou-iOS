@@ -8,8 +8,8 @@
 
 @interface BBListMyProgPresenter : NSObject <BBListMyProgModuleInput, BBListMyProgViewOutput, BBListMyProgInteractorOutput>
 
-@property (strong, nonatomic) id<BBListMyProgViewInput> view;
-@property (strong, nonatomic) id<BBListMyProgInteractorInput> interactor;
-@property (strong, nonatomic) id<BBListMyProgRouterInput> router;
+@property (strong, nonatomic) id <BBListMyProgViewInput> view;
+@property (strong, nonatomic) id <BBListMyProgInteractorInput> interactor;
+@property (strong, nonatomic) id <BBListMyProgRouterInput> router;
 
 @end

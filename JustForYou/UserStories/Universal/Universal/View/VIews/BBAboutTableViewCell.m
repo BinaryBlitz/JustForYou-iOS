@@ -9,19 +9,19 @@ static NSString *thirdParagraph = @"JUST FOR YOU – это Ваш личныи�
 @implementation BBAboutTableViewCell
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
-    self.infoTextLabel.text = [NSString stringWithFormat:@"%@%@%@", firstParagraph, secondParagraph, thirdParagraph];
-    // Initialization code
+  [super awakeFromNib];
+  self.infoTextLabel.text = [NSString stringWithFormat:@"%@%@%@", firstParagraph, secondParagraph, thirdParagraph];
+  // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+  [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+  // Configure the view for the selected state
 }
 
 - (IBAction)goToWebsiteButtonAction:(id)sender {
-     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://justforyou.ru"]];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://justforyou.ru"]];
 }
 
 @end

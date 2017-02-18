@@ -4,6 +4,6 @@
 
 @interface BBCardProgramInteractor : NSObject <BBCardProgramInteractorInput>
 
-@property (weak, nonatomic) id<BBCardProgramInteractorOutput> output;
+@property (weak, nonatomic) id <BBCardProgramInteractorOutput> output;
 
 @end

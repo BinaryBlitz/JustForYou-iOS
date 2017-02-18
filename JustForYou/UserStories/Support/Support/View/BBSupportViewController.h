@@ -6,6 +6,6 @@
 
 @interface BBSupportViewController : BBParentViewController <BBSupportViewInput>
 
-@property (weak, nonatomic) id<BBSupportViewOutput> output;
+@property (weak, nonatomic) id <BBSupportViewOutput> output;
 
 @end

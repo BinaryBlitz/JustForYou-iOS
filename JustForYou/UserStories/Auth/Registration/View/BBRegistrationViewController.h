@@ -6,6 +6,6 @@
 
 @interface BBRegistrationViewController : BBParentViewController <BBRegistrationViewInput>
 
-@property (weak, nonatomic) id<BBRegistrationViewOutput> output;
+@property (weak, nonatomic) id <BBRegistrationViewOutput> output;
 
 @end

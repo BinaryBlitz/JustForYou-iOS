@@ -8,8 +8,8 @@
 
 @interface BBGreetingPresenter : NSObject <BBGreetingModuleInput, BBGreetingViewOutput, BBGreetingInteractorOutput>
 
-@property (strong, nonatomic) id<BBGreetingViewInput> view;
-@property (strong, nonatomic) id<BBGreetingInteractorInput> interactor;
-@property (strong, nonatomic) id<BBGreetingRouterInput> router;
+@property (strong, nonatomic) id <BBGreetingViewInput> view;
+@property (strong, nonatomic) id <BBGreetingInteractorInput> interactor;
+@property (strong, nonatomic) id <BBGreetingRouterInput> router;
 
 @end

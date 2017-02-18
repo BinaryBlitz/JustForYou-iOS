@@ -8,8 +8,8 @@
 
 @interface BBMyHistoryPresenter : NSObject <BBMyHistoryModuleInput, BBMyHistoryViewOutput, BBMyHistoryInteractorOutput>
 
-@property (strong, nonatomic) id<BBMyHistoryViewInput> view;
-@property (strong, nonatomic) id<BBMyHistoryInteractorInput> interactor;
-@property (strong, nonatomic) id<BBMyHistoryRouterInput> router;
+@property (strong, nonatomic) id <BBMyHistoryViewInput> view;
+@property (strong, nonatomic) id <BBMyHistoryInteractorInput> interactor;
+@property (strong, nonatomic) id <BBMyHistoryRouterInput> router;
 
 @end

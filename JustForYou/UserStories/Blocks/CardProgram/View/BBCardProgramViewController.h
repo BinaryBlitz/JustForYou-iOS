@@ -6,6 +6,6 @@
 
 @interface BBCardProgramViewController : BBParentViewController <BBCardProgramViewInput>
 
-@property (weak, nonatomic) id<BBCardProgramViewOutput> output;
+@property (weak, nonatomic) id <BBCardProgramViewOutput> output;
 
 @end

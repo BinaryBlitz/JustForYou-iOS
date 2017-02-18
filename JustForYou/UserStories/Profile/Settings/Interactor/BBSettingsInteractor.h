@@ -4,6 +4,6 @@
 
 @interface BBSettingsInteractor : NSObject <BBSettingsInteractorInput>
 
-@property (weak, nonatomic) id<BBSettingsInteractorOutput> output;
+@property (weak, nonatomic) id <BBSettingsInteractorOutput> output;
 
 @end

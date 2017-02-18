@@ -6,6 +6,6 @@
 
 @interface BBMyProgramsViewController : BBParentViewController <BBMyProgramsViewInput>
 
-@property (weak, nonatomic) id<BBMyProgramsViewOutput> output;
+@property (weak, nonatomic) id <BBMyProgramsViewOutput> output;
 
 @end

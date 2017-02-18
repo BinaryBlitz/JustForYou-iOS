@@ -6,6 +6,6 @@
 
 @interface BBNewOrderViewController : BBParentViewController <BBNewOrderViewInput>
 
-@property (weak, nonatomic) id<BBNewOrderViewOutput> output;
+@property (weak, nonatomic) id <BBNewOrderViewOutput> output;
 
 @end

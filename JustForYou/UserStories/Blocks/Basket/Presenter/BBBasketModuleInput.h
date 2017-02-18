@@ -6,7 +6,6 @@
 
 - (void)paySucces;
 
-
 - (void)configureModule;
 
 @end

@@ -5,7 +5,7 @@
 @interface BBSearchTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *filterArray;
-@property (strong, nonatomic) id<BBSearchTableControllerDelegate> delegate;
+@property (strong, nonatomic) id <BBSearchTableControllerDelegate> delegate;
 
 @end
 

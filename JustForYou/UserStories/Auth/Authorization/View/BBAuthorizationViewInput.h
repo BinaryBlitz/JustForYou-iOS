@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
-    kNumberPhoneStyleTableView,
-    kSendCodeStyleTableView
-}BBKeyStyleTableViewRegist;
+  kNumberPhoneStyleTableView,
+  kSendCodeStyleTableView
+} BBKeyStyleTableViewRegist;
 
 @protocol BBAuthorizationViewInput <NSObject>
 

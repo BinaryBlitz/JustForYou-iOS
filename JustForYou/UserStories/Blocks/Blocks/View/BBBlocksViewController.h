@@ -6,6 +6,6 @@
 
 @interface BBBlocksViewController : BBParentViewController <BBBlocksViewInput>
 
-@property (weak, nonatomic) id<BBBlocksViewOutput> output;
+@property (weak, nonatomic) id <BBBlocksViewOutput> output;
 
 @end

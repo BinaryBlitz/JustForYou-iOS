@@ -3,6 +3,7 @@
 @protocol BBMyOldProgramCellDelegate;
 
 @interface BBMyOldProgramTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *subnameLabel;
@@ -10,7 +11,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *replaceButton;
 @property (weak, nonatomic) IBOutlet UIButton *extendButton;
 
-@property (strong, nonatomic) id<BBMyOldProgramCellDelegate> delegate;
+@property (strong, nonatomic) id <BBMyOldProgramCellDelegate> delegate;
 
 @property (strong, nonatomic) BBPurchases *purchase;
 

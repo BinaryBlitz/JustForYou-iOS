@@ -10,10 +10,9 @@
 
 @interface BBSupportPresenter : NSObject <BBSupportModuleInput, BBSupportViewOutput, BBSupportInteractorOutput>
 
-@property (strong, nonatomic) id<BBSupportViewInput> view;
-@property (strong, nonatomic) id<BBSupportInteractorInput> interactor;
-@property (strong, nonatomic) id<BBSupportRouterInput> router;
-
+@property (strong, nonatomic) id <BBSupportViewInput> view;
+@property (strong, nonatomic) id <BBSupportInteractorInput> interactor;
+@property (strong, nonatomic) id <BBSupportRouterInput> router;
 
 - (void)errorOpenEmailController;
 - (void)mailControllerDissmassWithResult:(MFMailComposeResult)result;
