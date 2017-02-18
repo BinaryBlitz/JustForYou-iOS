@@ -18,7 +18,9 @@
 
 - (void)showBackgroundLoaderView;
 - (void)hideBackgroundLoaderView;
+- (void)showAddToBasketPopover:(BBProgram *)program;
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message;
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle;
 
 - (void)updateBasketButtonImageWithImageName:(NSString *)name;
 

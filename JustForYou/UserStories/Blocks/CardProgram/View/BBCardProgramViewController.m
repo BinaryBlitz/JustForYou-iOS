@@ -85,7 +85,7 @@ static NSString * const kAddToBasketTitle = @"ДОБАВИТЬ В КОРЗИНУ
 #pragma mark - Actions
 
 - (IBAction)addInBasketButtonAction:(id)sender {
-    [self.output addInBasketButtonDidTapWithProgram:self.myProgram];
+    [self.output addToBasketButtonDidTapWithProgram:self.myProgram];
     [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart_click" action:self.myProgram.name label:@""];
 }
 

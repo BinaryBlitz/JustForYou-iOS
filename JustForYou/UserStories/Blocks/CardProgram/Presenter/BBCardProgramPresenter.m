@@ -70,7 +70,7 @@ static NSString *kImageNameBasket = @"basket";
                                   withNavigationController:[self.navigModule currentView]];
 }
 
-- (void)addInBasketButtonDidTapWithProgram:(BBProgram *)program {
+- (void)addToBasketButtonDidTapWithProgram:(BBProgram *)program {
     if (program.individualPrice) {
         [self.router callManagerOnPhone:kNumberPhoneManager];
     } else {

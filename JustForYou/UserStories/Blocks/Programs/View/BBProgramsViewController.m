@@ -16,13 +16,18 @@
 
 #import "BBImageWithLoader.h"
 
-@interface BBProgramsViewController() <UIScrollViewDelegate, BBProgramViewDelegate>
+#import "BBAddBasketViewPopover.h"
+
+@interface BBProgramsViewController() <UIScrollViewDelegate, BBProgramViewDelegate,BBAddBasketViewDelegate>
 
 @property (weak, nonatomic) IBOutlet BBImageWithLoader *firstImageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *addToBasketButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *addToBasketWidthConstraint;
 
+@property (strong, nonatomic) BBAddBasketViewPopover *addBasketPopover;
 @property (strong, nonatomic) UIImageView *bigImageView;
 
 @property (strong, nonatomic) NSArray *programsArray;
@@ -43,10 +48,14 @@
 
 @implementation BBProgramsViewController
 
+static NSString * const kCallManagerTitle = @"СВЯЗАТЬСЯ С МЕНЕДЖЕРОМ";
+static NSString * const kAddToBasketTitle = @"КУПИТЬ";
+
 #pragma mark - Методы жизненного цикла
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    [self _layoutBasketButton];
     [self _resizeViewOnScrollView];
     CGRect frame = [UIScreen mainScreen].bounds;
     frame.size.height = frame.size.height - sizeNavigationBar;
@@ -55,7 +64,6 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    
 	[self.output didTriggerViewReadyEvent];
 }
 
@@ -66,16 +74,25 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [self.addBasketPopover removeFromSuperview];
+    self.addBasketPopover = nil;
     [super viewDidDisappear:animated];
     [self didTapBigImage];
 }
 
 #pragma mark - Actions
 
+- (IBAction)addToBasketButtonDidTap:(UIButton *)sender {
+    BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
+    [self.output addToBasketButtonDidTapWithProgram:program];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart_click" action:program.name label:@""];
+}
+
 - (void)moreButtonDidTap {
     @try {
         [self.output programDidTapWithProgram:[[self.idArray objectAtIndex:self.pageControl.currentPage] integerValue]];
-        BBProgram *program = [BBProgram objectsWhere:@"programId=%d", [self.idArray objectAtIndex:self.pageControl.currentPage]].firstObject;
+        BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
+
         [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"go_to_programm" action:program.name label:@""];
     } @catch (NSException *exception) {
         [self.output errorOpenProgram];
@@ -85,6 +102,17 @@
 }
 
 #pragma mark - Методы BBProgramsViewInput
+
+- (void)updateAddBusketButton {
+    BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
+    if (program.individualPrice) {
+        self.addToBasketWidthConstraint.constant = 200;
+        [self.addToBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
+    } else {
+        [self.addToBasketButton setTitle:kAddToBasketTitle forState:UIControlStateNormal];
+        self.addToBasketWidthConstraint.constant = 120;
+    }
+}
 
 - (void)setupInitialState {
     self.scrollView.delegate = self;
@@ -211,7 +239,34 @@
     [[BBItemService sharedService] updateImageInBarButtonItem:self.navigationItem.rightBarButtonItem forImage:name];
 }
 
+- (void)showAddToBasketPopover:(BBProgram *)program {
+    [self.addBasketPopover setPrimaryPrice:program.primaryPrice
+                                 secondary:program.secondaryPrice
+                                 threshold:program.threshold];
+    [self.view addSubview:self.addBasketPopover];
+}
+
+- (void)okButtonDidTapWithCountDays:(NSInteger)count {
+    BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
+    [self.output okButtonDidTapWithCountDays:count program: program];
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"add_to_cart" action:program.name label:[NSString stringWithFormat:@"%ld", (long)count]];
+}
+
+- (void)changeImageAndPresentAlertControllerWithMessage:(NSString *)message cancelTitle:(NSString *)cancelTitle {
+    //    self.addInBasketButton.enabled = NO;
+    [self.addBasketPopover removeFromSuperview];
+    self.addBasketPopover = nil;
+    [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"click" action:@"prodolzhit" label:@""];
+    [self presentAlertControllerWithTitle:@"" message:message titleCancel:cancelTitle];
+}
+
+
 #pragma mark - ScrollViewDelegate
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self updateAddBusketButton];
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([self.arrayViews count] > 1) {
@@ -228,7 +283,7 @@
         if ([self.urlsArray count] > 0) {
             [[BBImageViewService sharedService] setImageForImageView:self.firstImageView placeholder:[UIImage imageNamed:@"testBack"] stringURL:self.urlsArray[self.pageControl.currentPage]];
         }
-        
+        [self updateAddBusketButton];
     }
 }
 
@@ -247,6 +302,7 @@
         targetIndex = kMaxIndex;
     }
     targetContentOffset->x = targetIndex * (self.wightProgramView + self.insetfForView);
+    
 }
 
 
@@ -277,6 +333,11 @@
 
 #pragma mark - Layout Views
 
+- (void)_layoutBasketButton {
+  [self.addToBasketButton.layer setMasksToBounds:YES];
+  [self.addToBasketButton.layer setCornerRadius:CGRectGetHeight(self.addToBasketButton.frame)/2];
+}
+
 - (void)_resizeViewOnScrollView {
     if ([self.scrollView.subviews count] > 0) {
         self.scrollView.contentSize = CGSizeMake(self.wightProgramView*self.countPage + (self.insetfForView*(self.countPage+3)), self.scrollView.frame.size.height);
@@ -290,6 +351,14 @@
 }
 
 #pragma mark - Lazy Load
+
+- (BBAddBasketViewPopover *)addBasketPopover {
+    if (!_addBasketPopover) {
+        _addBasketPopover = [[BBAddBasketViewPopover alloc] initWithFrame:self.view.bounds];
+        _addBasketPopover.delegate = self;
+    }
+    return _addBasketPopover;
+}
 
 - (NSMutableArray *)arrayViews {
     if (!_arrayViews) {

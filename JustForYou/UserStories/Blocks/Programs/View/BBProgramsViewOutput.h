@@ -15,6 +15,10 @@
 
 - (void)programDidTapWithProgram:(NSInteger)programId;
 
+- (void)addToBasketButtonDidTapWithProgram:(BBProgram *)program;
+
+- (void)okButtonDidTapWithCountDays:(NSInteger)count program:(BBProgram *)program;
+
 - (void)errorOpenProgram;
 
 - (void)basketButtonDidTap;
