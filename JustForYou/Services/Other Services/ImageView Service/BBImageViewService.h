@@ -6,8 +6,8 @@
 
 @interface BBImageViewService : NSObject
 
-+ (instancetype) sharedService;
++ (instancetype)sharedService;
 
-- (void) setImageForImageView:(BBImageWithLoader *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url;
+- (void)setImageForImageView:(BBImageWithLoader *)imageView placeholder:(UIImage *)placeholder stringURL:(NSString *)url;
 
 @end

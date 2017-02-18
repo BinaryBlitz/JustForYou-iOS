@@ -20,11 +20,11 @@ typedef void (^ExchangeCompletion)(BBServerResponse *response, BBExchange *excha
 typedef void (^AddressCompletion)(BBServerResponse *response, BBAddress *address, NSError *error);
 typedef void (^PaymentBoolCompletion)(BBServerResponse *response, BOOL paid, NSError *error);
 typedef void (^Completion)(BBServerResponse *response, NSError *error);
-typedef void (^ReceiveData)(BBServerResponse *response, NSData* data, NSError *error);
+typedef void (^ReceiveData)(BBServerResponse *response, NSData *data, NSError *error);
 
 @interface BBServerService : NSObject
 
-+ (instancetype) sharedService;
++ (instancetype)sharedService;
 
 - (NSString *)HOSTServer;
 

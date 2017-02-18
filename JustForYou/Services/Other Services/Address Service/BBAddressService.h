@@ -3,12 +3,11 @@
 #import <LMAddress.h>
 #import "BBAddress.h"
 
-
 typedef void (^CompletionArray)(NSArray *array);
 
 @interface BBAddressService : NSObject
 
-+ (instancetype) sharedService;
++ (instancetype)sharedService;
 
 - (NSString *)currentApiKeyMap;
 
