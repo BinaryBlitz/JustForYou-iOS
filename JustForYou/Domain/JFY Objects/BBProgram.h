@@ -2,8 +2,8 @@
 
 #import "BBBlock.h"
 
-static NSString * const BBProgramUnitDay = @"day";
-static NSString * const BBProgramUnitPiece = @"piece";
+static NSString *const BBProgramUnitDay = @"day";
+static NSString *const BBProgramUnitPiece = @"piece";
 
 @interface BBProgram : RLMObject
 

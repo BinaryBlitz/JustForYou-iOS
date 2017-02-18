@@ -14,9 +14,9 @@
 @property (nonatomic) NSInteger floor;
 @property (nonatomic) NSInteger entrance;
 
--(instancetype)initWithJSON:(id)JSONObj;
+- (instancetype)initWithJSON:(id)JSONObj;
 
-- (instancetype)initWithCoordinate:(CLLocationCoordinate2D )coordinate country:(NSString *)country city:(NSString *)city street:(NSString *)street house:(NSString *)house;
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate country:(NSString *)country city:(NSString *)city street:(NSString *)street house:(NSString *)house;
 
 - (NSString *)formatedDescription;
 

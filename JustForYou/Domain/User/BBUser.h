@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 
-
 @interface BBUser : NSObject
 
 @property (assign, nonatomic) NSInteger userId;
