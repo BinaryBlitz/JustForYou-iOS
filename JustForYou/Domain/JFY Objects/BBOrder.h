@@ -12,7 +12,6 @@
 @property NSString *nameBlock;
 @property NSString *address;
 
-
 - (instancetype)initWithJSON:(id)JSONObj;
 
 @end

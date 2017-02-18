@@ -5,6 +5,6 @@
 @property (assign, nonatomic) NSInteger paymentId;
 @property (strong, nonatomic) NSString *paymentURL;
 
--(instancetype)initWithJSON:(id)JSONObj;
+- (instancetype)initWithJSON:(id)JSONObj;
 
 @end
