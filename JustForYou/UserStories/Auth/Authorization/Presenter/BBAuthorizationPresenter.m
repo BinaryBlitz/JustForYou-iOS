@@ -2,7 +2,6 @@
 
 #import "BBAuthorizationViewInput.h"
 #import "BBAuthorizationInteractorInput.h"
-#import "BBAuthorizationRouterInput.h"
 
 #import "BBRegistrationAssembly.h"
 #import "BBRegistrationModuleInput.h"

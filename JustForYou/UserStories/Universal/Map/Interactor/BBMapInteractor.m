@@ -6,8 +6,6 @@
 #import <INTULocationManager.h>
 
 #import "BBAddressService.h"
-#import "BBUserService.h"
-#import "BBServerService.h"
 
 @interface BBMapInteractor ()
 

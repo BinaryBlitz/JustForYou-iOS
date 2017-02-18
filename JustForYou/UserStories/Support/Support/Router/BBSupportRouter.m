@@ -1,7 +1,5 @@
 #import "BBSupportRouter.h"
 
-#import <MessageUI/MessageUI.h>
-
 @interface BBSupportRouter () <MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) MFMailComposeViewController *mailController;

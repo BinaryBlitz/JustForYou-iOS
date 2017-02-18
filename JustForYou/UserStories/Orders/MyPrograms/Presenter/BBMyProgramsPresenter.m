@@ -1,7 +1,6 @@
 #import "BBMyProgramsPresenter.h"
 
 #import "BBMyProgramsViewInput.h"
-#import "BBMyProgramsInteractorInput.h"
 #import "BBMyProgramsRouterInput.h"
 
 #import "BBNavigationModuleInput.h"

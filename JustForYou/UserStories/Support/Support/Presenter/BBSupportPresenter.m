@@ -1,7 +1,6 @@
 #import "BBSupportPresenter.h"
 
 #import "BBSupportViewInput.h"
-#import "BBSupportInteractorInput.h"
 #import "BBSupportRouterInput.h"
 
 #import "BBNavigationModuleInput.h"

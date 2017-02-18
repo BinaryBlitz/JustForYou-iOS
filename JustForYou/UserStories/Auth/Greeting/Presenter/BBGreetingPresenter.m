@@ -1,7 +1,6 @@
 #import "BBGreetingPresenter.h"
 
 #import "BBGreetingViewInput.h"
-#import "BBGreetingInteractorInput.h"
 #import "BBGreetingRouterInput.h"
 
 #import "BBNavigationModuleInput.h"

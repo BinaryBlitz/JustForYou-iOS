@@ -2,8 +2,6 @@
 
 #import "BBSupportViewOutput.h"
 
-#import "BBDottedBorderButton.h"
-
 @interface BBSupportViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *callManagerButton;

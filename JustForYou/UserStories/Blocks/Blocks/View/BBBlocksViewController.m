@@ -2,8 +2,6 @@
 
 #import "BBBlocksViewOutput.h"
 
-#import "BBBlock.h"
-
 #import "BBItemService.h"
 
 @interface BBBlocksViewController () <UITableViewDelegate, UITableViewDataSource>

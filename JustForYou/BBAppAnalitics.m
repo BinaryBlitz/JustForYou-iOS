@@ -1,4 +1,4 @@
-#import "BBAppAnalitics.h"
+
 
 #import <Google/Analytics.h>
 

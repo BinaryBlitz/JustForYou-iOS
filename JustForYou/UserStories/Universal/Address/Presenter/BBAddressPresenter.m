@@ -11,8 +11,6 @@
 
 #import "BBUniversalModuleInput.h"
 
-#import "BBAddressService.h"
-
 @interface BBAddressPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;

@@ -1,7 +1,6 @@
 #import "BBPaymentPresenter.h"
 
 #import "BBPaymentViewInput.h"
-#import "BBPaymentInteractorInput.h"
 #import "BBPaymentRouterInput.h"
 
 #import "BBNavigationModuleInput.h"

@@ -7,9 +7,6 @@
 #import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
 
-#import "BBBasketAssembly.h"
-#import "BBBasketModuleInput.h"
-
 @interface BBCardProgramPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigModule;
