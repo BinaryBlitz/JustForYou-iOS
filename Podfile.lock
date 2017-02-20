@@ -33,9 +33,9 @@ PODS:
   - INTULocationManager (4.2.0)
   - JTCalendar (2.1.5)
   - LMGeocoder (1.0.8)
-  - Realm (2.0.4):
-    - Realm/Headers (= 2.0.4)
-  - Realm/Headers (2.0.4)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -48,7 +48,7 @@ DEPENDENCIES:
   - INTULocationManager (~> 4.2)
   - JTCalendar (from `https://github.com/tercteberc/JTCalendar.git`)
   - LMGeocoder (~> 1.0)
-  - Realm (~> 2.0.4)
+  - Realm (~> 2.4)
   - SDWebImage (~> 3.8)
 
 EXTERNAL SOURCES:
@@ -75,9 +75,9 @@ SPEC CHECKSUMS:
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   JTCalendar: 57a4420f12d10c93c3b28da96803e7043d1c9281
   LMGeocoder: 7682148ce0bc55e483ceaa0eefdae4494d7102be
-  Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: 747b5a197fa10819c85695b42ce9f8a0f5c616bb
+PODFILE CHECKSUM: 821cea6f4d5fd8b94e8d33135027d4d53696cc61
 
 COCOAPODS: 1.2.0

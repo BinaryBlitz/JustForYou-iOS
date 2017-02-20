@@ -1,0 +1,26 @@
+#import <UIKit/UIKit.h>
+
+#import "BBOrder.h"
+
+@protocol BBPreviewOrderCellDelegate;
+
+@interface BBPreviewOrderTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *nameProgramLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptLabel;
+@property (weak, nonatomic) IBOutlet UIView *indicatorView;
+@property (weak, nonatomic) IBOutlet UILabel *adresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *deleteButton;
+
+@property (strong, nonatomic) id <BBPreviewOrderCellDelegate> delegate;
+
+@property (strong, nonatomic) BBOrder *order;
+
+@end
+
+@protocol BBPreviewOrderCellDelegate <NSObject>
+
+- (void)deleteButtonDidTapWithOrder:(BBOrder *)order;
+
+@end

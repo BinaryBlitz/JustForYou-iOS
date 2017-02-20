@@ -38,12 +38,12 @@ Runs all the tests
 ```
 fastlane ios beta
 ```
-
-### ios appstore
+Submit a new beta build to Crashlytics
+### ios release
 ```
-fastlane ios appstore
+fastlane ios release
 ```
-Deploy a new version to the App Store
+Submit a new build to iTunes Connect
 
 ----
 
