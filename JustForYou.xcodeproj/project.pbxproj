@@ -3651,7 +3651,7 @@
 				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
-				CURRENT_PROJECT_VERSION = 152;
+				CURRENT_PROJECT_VERSION = 153;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3661,7 +3661,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e8692713-2f5e-4c05-9fff-ee84036a6fd0";
+				PROVISIONING_PROFILE = "2532a767-9c16-473e-af7c-d9754edbf673";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development ru.binaryblitz.JustForYou";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -3675,7 +3675,7 @@
 				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
-				CURRENT_PROJECT_VERSION = 152;
+				CURRENT_PROJECT_VERSION = 153;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JustForYou/PrefixHeader.pch;
