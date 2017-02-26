@@ -516,7 +516,7 @@
 		3A2D55881CF075D200A8EFF5 /* BBDeliveryViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryViewInput.h; sourceTree = "<group>"; };
 		3A2D55891CF075D200A8EFF5 /* BBDeliveryViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeliveryViewOutput.h; sourceTree = "<group>"; };
 		3A2D558B1CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCalendarDeliveryTableViewCell.h; sourceTree = "<group>"; };
-		3A2D558C1CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarDeliveryTableViewCell.m; sourceTree = "<group>"; };
+		3A2D558C1CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BBCalendarDeliveryTableViewCell.m; sourceTree = "<group>"; tabWidth = 4; };
 		3A2D558D1CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCalendarDeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		3A2D55901CF075D200A8EFF5 /* BBMyProgramsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyProgramsAssembly.h; sourceTree = "<group>"; };
 		3A2D55911CF075D200A8EFF5 /* BBMyProgramsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyProgramsAssembly.m; sourceTree = "<group>"; };

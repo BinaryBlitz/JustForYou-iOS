@@ -20,6 +20,8 @@
 
 @end
 
+NSInteger maximumOrderHour = 11;
+
 @implementation BBCalendarDeliveryTableViewCell
 
 - (void)awakeFromNib {
@@ -206,11 +208,15 @@
                       [self.calendarManager reload];
                       dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
                     } completion:^(BOOL finished) {
-          dayView.circleView.transform = CGAffineTransformIdentity;
-        }];
+                      dayView.circleView.transform = CGAffineTransformIdentity;
+                    }];
   } else {
     if ([[BBCalendarService sharedService] compareTwoDatesWithDay:dayView.date]) {
-      if ([self.datesSelected count] < self.countDayInOrder) {
+      NSInteger selectedDay = [[BBCalendarService sharedService] getCalendarDay:dayView.date];
+      NSDateComponents *currentDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitHour fromDate:[NSDate date]];
+      if ([currentDateComponents hour] >= maximumOrderHour && selectedDay - [currentDateComponents day] <= 1) {
+        [self.delegate showAlertViewWithMessage:@"Заказать доставку на следующий день можно только до 11:00"];
+      } else if ([self.datesSelected count] < self.countDayInOrder) {
         [self _addDayInArray:dayView.date];
         dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
         [UIView transitionWithView:dayView

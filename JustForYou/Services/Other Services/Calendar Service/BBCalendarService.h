@@ -23,6 +23,7 @@ typedef enum : NSUInteger {
 - (NSDateFormatter *)dateFormatter;
 
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date;
+- (NSInteger)getCalendarDay:(NSDate *)date;
 
 - (BBStatusOrderTime)timeForDate:(NSDate *)date;
 

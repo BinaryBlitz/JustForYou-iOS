@@ -107,6 +107,12 @@
   return [NSString stringWithFormat:@"%@.%@.%ld", dayS, monthS, (long) year];
 }
 
+
+- (NSInteger)getCalendarDay:(NSDate *)date {
+  NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:date];
+  return [components day];
+}
+
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date {
   return ([date timeIntervalSinceNow] > 0);
 }
