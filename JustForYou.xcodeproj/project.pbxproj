@@ -458,7 +458,7 @@
 		3A2D55371CF075D200A8EFF5 /* BBProgramsRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsRouter.m; sourceTree = "<group>"; };
 		3A2D55381CF075D200A8EFF5 /* BBProgramsRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsRouterInput.h; sourceTree = "<group>"; };
 		3A2D553A1CF075D200A8EFF5 /* BBProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewController.h; sourceTree = "<group>"; };
-		3A2D553B1CF075D200A8EFF5 /* BBProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsViewController.m; sourceTree = "<group>"; tabWidth = 4; };
+		3A2D553B1CF075D200A8EFF5 /* BBProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = BBProgramsViewController.m; sourceTree = "<group>"; tabWidth = 2; };
 		3A2D553C1CF075D200A8EFF5 /* BBProgramsViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewInput.h; sourceTree = "<group>"; };
 		3A2D553D1CF075D200A8EFF5 /* BBProgramsViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewOutput.h; sourceTree = "<group>"; };
 		3A2D553F1CF075D200A8EFF5 /* BBProgramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramView.h; sourceTree = "<group>"; };

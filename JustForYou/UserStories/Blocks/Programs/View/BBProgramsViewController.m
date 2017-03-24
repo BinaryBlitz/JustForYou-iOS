@@ -93,13 +93,15 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 #pragma mark - Методы BBProgramsViewInput
 
 - (void)updateAddBasketButton {
-  BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
-  if (program.individualPrice) {
-    self.addToBasketWidthConstraint.constant = 200;
-    [self.addToBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
-  } else {
-    [self.addToBasketButton setTitle:kAddToBasketTitle forState:UIControlStateNormal];
-    self.addToBasketWidthConstraint.constant = 120;
+  if ([self.pageControl currentPage] < [self.programsArray count]) {
+    BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
+    if (program.individualPrice) {
+      self.addToBasketWidthConstraint.constant = 200;
+      [self.addToBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
+    } else {
+      [self.addToBasketButton setTitle:kAddToBasketTitle forState:UIControlStateNormal];
+      self.addToBasketWidthConstraint.constant = 120;
+    }
   }
 }
 
