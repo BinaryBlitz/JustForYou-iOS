@@ -12,7 +12,10 @@
 
 - (void)codeUser:(NSString *)code;
 
+- (void)authorizedDidFinishAnimation;
+
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber;
+
 - (void)sengAgainButtonDidTap;
 
 @end

@@ -77,4 +77,8 @@
   }];
 }
 
+-(void)setTabBarViewController {
+  [self.output setTabBarViewController];
+}
+
 @end

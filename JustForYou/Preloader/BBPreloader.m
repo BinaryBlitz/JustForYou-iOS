@@ -50,7 +50,8 @@ static NSInteger shemaVersionRealm = 29;
   BBUser *user = [[BBUserService sharedService] currentUser];
   if (user) {
     [self _addPushNotification];
-    [self.tabbarModule presentInWindow:self.window];
+    [self.navigationModule presentInWindow:self.window];
+    //[self.tabbarModule presentInWindow:self.window];
     [self _updateUserOnDataBase];
   } else {
     [self.navigationModule presentInWindow:self.window];

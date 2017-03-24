@@ -74,6 +74,10 @@ static NSString *kErrorData = @"Ошибка данных. Проверьте п
   [self.interactor sendCodeUserWithCode:code numberPhone:self.numberPhone authTiken:self.authToken];
 }
 
+- (void)authorizedDidFinishAnimation {
+  [self.interactor setTabBarViewController];
+}
+
 - (void)sendCodeButtonDidTapWithValidField:(BOOL)valid andNumberPhone:(NSString *)primaryNumber {
   if (valid) {
     [self.view showLoaderView];
@@ -123,6 +127,11 @@ static NSString *kErrorData = @"Ошибка данных. Проверьте п
   [self.view hideLoaderView];
   self.validCodeInServer = YES;
   [self.view presentAlertWithTitle:kNoteTitle message:kErrorData];
+}
+
+- (void)setTabBarViewController {
+  [self.view hideLoaderView];
+  [self.navigationModule userRegistrationFulfilled];
 }
 
 #pragma mark - Lazy Load
