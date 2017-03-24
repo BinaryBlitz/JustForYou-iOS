@@ -1,6 +1,7 @@
 #import "BBAuthorizationViewController.h"
 
 #import "BBAuthorizationViewOutput.h"
+#import "BBUserService.h"
 
 @interface BBAuthorizationViewController () <UITableViewDelegate, UITableViewDataSource, BBInfoRegistrateCellDelegate, BBNumberCellDelegate, UITextFieldDelegate>
 
@@ -63,7 +64,12 @@ BOOL didLayoutAnimated = NO;
     self.topYouViewConstraint.constant = topViewConstraintConstant;
     [self.view layoutIfNeeded];
   }                completion:^(BOOL finished) {
-    [self showTableView];
+    BBUser *user = [[BBUserService sharedService] currentUser];
+    if (user) {
+      [self.output authorizedDidFinishAnimation];
+    } else {
+      [self showTableView];
+    }
   }];
 }
 

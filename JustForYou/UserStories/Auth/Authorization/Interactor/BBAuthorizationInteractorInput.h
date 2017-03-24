@@ -8,4 +8,6 @@
 
 - (void)getUserOnServerAndSaveWithToken:(NSString *)token;
 
+- (void)setTabBarViewController;
+
 @end

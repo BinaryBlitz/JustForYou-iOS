@@ -13,4 +13,6 @@
 
 - (void)errorServer;
 
+- (void)setTabBarViewController;
+
 @end
