@@ -186,6 +186,7 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 }
 
 - (void)_reloadViewsInScrollView {
+  self.pageControl.currentPage = 0;
   if ([self.scrollView.subviews count] > 0) {
     for (UIView *view in self.scrollView.subviews) {
       [view removeFromSuperview];

@@ -18,6 +18,7 @@
 
 @property (nonatomic) NSInteger parentId;
 @property (nonatomic) BOOL clearData;
+@property (nonatomic) BOOL dataLoaded;
 
 @end
 
@@ -28,6 +29,22 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
 
 @implementation BBProgramsPresenter
 
+- (void)updateData {
+  if (!self.dataLoaded) {
+    return;
+  }
+  NSArray *res = [self.interactor checkProgramsInDataBaseWith:self.parentId];
+  if (res && [res count] > 0) {
+    self.clearData = NO;
+    [self.view programsForTableView:res];
+    [self.interactor listProgramsWithParentId:self.parentId];
+  } else {
+    self.clearData = YES;
+    [self.view showBackgroundLoaderView];
+    [self.interactor listProgramsWithParentId:self.parentId];
+  }
+}
+
 #pragma mark - Методы BBProgramsModuleInput
 
 - (void)configureModule {
@@ -37,6 +54,7 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
 - (void)pushModuleWithNavigationModule:(id)navigationModule parentId:(NSInteger)parentId {
   self.navigModule = navigationModule;
   self.parentId = parentId;
+  self.dataLoaded = NO;
   [self.router pushViewControllerWithNavigationController:[self.navigModule currentView]];
 }
 
@@ -48,15 +66,9 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
 
 - (void)viewWillAppear {
   [self.interactor checkBasket];
-  NSArray *res = [self.interactor checkProgramsInDataBaseWith:self.parentId];
-  if (res && [res count] > 0) {
-    self.clearData = NO;
-    [self.view programsForTableView:res];
-    [self.interactor listProgramsWithParentId:self.parentId];
-  } else {
-    self.clearData = YES;
-    [self.view showBackgroundLoaderView];
-    [self.interactor listProgramsWithParentId:self.parentId];
+  if (!self.dataLoaded) {
+    self.dataLoaded = YES;
+    [self updateData];
   }
 }
 
