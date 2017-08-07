@@ -84,6 +84,9 @@ static CGFloat heightFooter = 13.0f;
   HQDispatchToMainQueue(^{
     [self.tableView reloadData];
   });
+  if (orders.count == 0) {
+    [self updateTotalTableViewCell];
+  }
 }
 
 - (void)updateTableViewWithDelete:(NSArray *)objects {
@@ -95,6 +98,9 @@ static CGFloat heightFooter = 13.0f;
     [self.tableView endUpdates];
     [self.tableView reloadData];
   });
+  if (objects.count == 0) {
+    [self updateTotalTableViewCell];
+  }
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
