@@ -25,7 +25,6 @@ static NSString *kNameCrossImage = @"crossIcon";
 - (void)setProgram:(BBProgram *)program {
   _program = program;
   self.subnameLabel.text = program.block.name;
-  self.indicatorView.backgroundColor = [BBConstantAndColor colorForR:program.block.red G:program.block.green B:program.block.blue alpha:1.0f];
   self.nameLabel.text = program.name;
 }
 
@@ -60,8 +59,6 @@ static NSString *kNameCrossImage = @"crossIcon";
 
 - (void)layoutSubviews {
   [super layoutSubviews];
-  self.indicatorView.layer.masksToBounds = YES;
-  self.indicatorView.layer.cornerRadius = CGRectGetHeight(self.indicatorView.frame) / 2;
 
   CGRect contentViewFrame = self.contentView.frame;
   contentViewFrame.origin.x = sideOffsetCell;
