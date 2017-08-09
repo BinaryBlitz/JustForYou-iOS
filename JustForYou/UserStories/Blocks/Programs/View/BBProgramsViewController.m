@@ -185,6 +185,10 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
   }
 }
 
+- (void) popToRootViewController {
+  [self.navigationController popToRootViewControllerAnimated:true];
+}
+
 - (void)_reloadViewsInScrollView {
   self.pageControl.currentPage = 0;
   if ([self.scrollView.subviews count] > 0) {

@@ -222,11 +222,11 @@
                         <viewControllerLayoutGuide type="bottom" id="79p-1Y-FeQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SQH-7R-2TD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="13" translatesAutoresizingMaskIntoConstraints="NO" id="iVN-pb-uvv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="449"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="389.5"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="09e-sg-J8y" id="7e5-ow-SRX"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SB4-k0-Ofl">
-                                <rect key="frame" x="40" y="506" width="239" height="39.5"/>
+                                <rect key="frame" x="40" y="446.5" width="239" height="35.5"/>
                                 <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="ОФОРМИТЬ ЗАКАЗ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -244,7 +244,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-Tl-bdg">
-                                <rect key="frame" x="0.0" y="449" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="389.5" width="320" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИТОГО:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UZ-l7-XVo">
                                         <rect key="frame" x="16" y="7" width="62" height="21"/>
@@ -300,6 +300,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="payButton" destination="SB4-k0-Ofl" id="gdK-Iy-PKp"/>
                         <outlet property="tableView" destination="iVN-pb-uvv" id="piM-pF-Pc5"/>

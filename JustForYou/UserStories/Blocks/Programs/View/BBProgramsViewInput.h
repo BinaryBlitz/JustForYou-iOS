@@ -16,4 +16,6 @@
 
 - (void)updateBasketButtonImageWithImageName:(NSString *)name;
 
+- (void)popToRootViewController;
+
 @end

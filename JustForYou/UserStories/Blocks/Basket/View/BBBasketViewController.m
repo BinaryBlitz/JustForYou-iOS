@@ -4,6 +4,8 @@
 
 #import "BBTableAlertController.h"
 
+#import "BBEmptyTableBackgroundView.h"
+
 @interface BBBasketViewController () <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate, BBTableAlertControllerDelegate, BBSwitchCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -32,12 +34,35 @@ static CGFloat heightFooter = 13.0f;
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  UINib *nib = [UINib nibWithNibName:kNibNameBBEmptyTableBackgroundView bundle:nil];
+
+  BBEmptyTableBackgroundView *backgroundView = [nib instantiateWithOwner:nil options:nil].firstObject;
+
+  __weak typeof(self) wself = self;
+
+  backgroundView.buttonHandler = ^{
+    typeof(wself) self = wself;
+    if (self == nil) {
+      return;
+    }
+    [self dismissViewControllerAnimated:YES completion: ^{
+      [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationResetBlocks object:nil];
+    }];
+  };
+
+  self.tableView.backgroundView = backgroundView;
+
   [self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
+  if (self.programOrders.count == 0) {
+    self.tableView.backgroundView.hidden = NO;
+  } else {
+    self.tableView.backgroundView.hidden = YES;
+  }
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleBasketModule];
 }
 
@@ -86,6 +111,9 @@ static CGFloat heightFooter = 13.0f;
   });
   if (orders.count == 0) {
     [self updateTotalTableViewCell];
+    self.tableView.backgroundView.hidden = NO;
+  } else {
+    self.tableView.backgroundView.hidden = YES;
   }
 }
 
@@ -100,6 +128,9 @@ static CGFloat heightFooter = 13.0f;
   });
   if (objects.count == 0) {
     [self updateTotalTableViewCell];
+    self.tableView.backgroundView.hidden = NO;
+  } else {
+    self.tableView.backgroundView.hidden = YES;
   }
 }
 

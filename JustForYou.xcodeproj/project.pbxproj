@@ -248,6 +248,8 @@
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
 		70217D8635D95BD16CF6B88E /* BBMapAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0527BAFE541F4B7C91EB2E /* BBMapAssembly.m */; };
 		81EA9BEE7B2837DE4743A269 /* BBListMyProgAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C759A8C9107FD0D1FA0440 /* BBListMyProgAssembly.m */; };
+		884629131F3AE50E004D514A /* BBEmptyTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884629121F3AE50E004D514A /* BBEmptyTableBackgroundView.xib */; };
+		884629161F3AE697004D514A /* BBEmptyTableBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 884629151F3AE697004D514A /* BBEmptyTableBackgroundView.m */; };
 		9728B3883C200BC2D89B88EE /* BBReplaceProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CEC927911CF0C7EF42FE24 /* BBReplaceProgramViewController.m */; };
 		A4FADD3BA19F4599D053248A /* BBMyHistoryRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F966C1E85ED13AFCDD7C2 /* BBMyHistoryRouter.m */; };
 		A6BE55BDBFA9613129242A12 /* BBReplacementPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06232E1700358C21DF4E5AA6 /* BBReplacementPresenter.m */; };
@@ -848,6 +850,9 @@
 		873428C385E649C815352982 /* BBReplaceProgramRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplaceProgramRouter.m; sourceTree = "<group>"; };
 		877C3B7A1A37F6D469831CFE /* BBListMyProgModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBListMyProgModuleInput.h; sourceTree = "<group>"; };
 		880460F615869981324FC20C /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		884629121F3AE50E004D514A /* BBEmptyTableBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBEmptyTableBackgroundView.xib; sourceTree = "<group>"; };
+		884629141F3AE697004D514A /* BBEmptyTableBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEmptyTableBackgroundView.h; sourceTree = "<group>"; };
+		884629151F3AE697004D514A /* BBEmptyTableBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEmptyTableBackgroundView.m; sourceTree = "<group>"; };
 		893BF8386E047E0F189618DA /* BBMyHistoryAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BBMyHistoryAssembly.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		89D8531F0673C97E2486C942 /* BBMapInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapInteractorInput.h; sourceTree = "<group>"; };
 		8D1780934CB0BB3D398399E6 /* BBListMyProgInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBListMyProgInteractor.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -2570,6 +2575,9 @@
 				3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */,
 				3A311FFD1CF74EA700D179D1 /* BBTextField.h */,
 				3A311FFE1CF74EA800D179D1 /* BBTextField.m */,
+				884629121F3AE50E004D514A /* BBEmptyTableBackgroundView.xib */,
+				884629141F3AE697004D514A /* BBEmptyTableBackgroundView.h */,
+				884629151F3AE697004D514A /* BBEmptyTableBackgroundView.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -3233,6 +3241,7 @@
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
 				3A311FEF1CF6DE9A00D179D1 /* Orders.storyboard in Resources */,
 				3A2D56A71CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.xib in Resources */,
+				884629131F3AE50E004D514A /* BBEmptyTableBackgroundView.xib in Resources */,
 				3A2D56881CF075D200A8EFF5 /* BBHeaderTableViewCell.xib in Resources */,
 				3A2D57121CF331C300A8EFF5 /* BBTextTableViewCell.xib in Resources */,
 				3A311FF11CF6DEAE00D179D1 /* Support.storyboard in Resources */,
@@ -3393,6 +3402,7 @@
 				3AC92B091D10D53C00036E70 /* BBPayment.m in Sources */,
 				3A2D56B41CF075D200A8EFF5 /* BBOrdersPresenter.m in Sources */,
 				3A2D570B1CF331C300A8EFF5 /* BBCommentTableViewCell.m in Sources */,
+				884629161F3AE697004D514A /* BBEmptyTableBackgroundView.m in Sources */,
 				3A2D56CB1CF075D200A8EFF5 /* BBSupportAssembly.m in Sources */,
 				3A4FAC261D91B205007A1A14 /* BBImageWithLoader.m in Sources */,
 				3A2D56961CF075D200A8EFF5 /* BBNavigationAssembly.m in Sources */,

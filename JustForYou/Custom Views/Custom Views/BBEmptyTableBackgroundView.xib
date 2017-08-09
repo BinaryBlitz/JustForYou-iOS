@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBEmptyTableBackgroundView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-jy-6Lf">
+                    <rect key="frame" x="56.333333333333343" y="327.66666666666669" width="301.33333333333337" height="81"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отсутствуют оплаченные программы" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHU-a4-nhr">
+                            <rect key="frame" x="0.0" y="0.0" width="301.33333333333337" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-xd-R88">
+                            <rect key="frame" x="-4" y="41" width="310" height="40"/>
+                            <color key="backgroundColor" red="0.99856501817703247" green="0.34124094247817993" blue="0.13542866706848145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Chx-PJ-jjG"/>
+                                <constraint firstAttribute="width" constant="310" id="EKx-8x-4Ep"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="Перейти к программам питания JUST FOR YOU">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="FbI-Sk-kww"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="yHU-a4-nhr" secondAttribute="trailing" id="BOD-kp-HCs"/>
+                        <constraint firstItem="b5m-xd-R88" firstAttribute="top" secondItem="yHU-a4-nhr" secondAttribute="bottom" constant="20" id="fhj-Hs-E1U"/>
+                        <constraint firstItem="b5m-xd-R88" firstAttribute="centerX" secondItem="VZb-jy-6Lf" secondAttribute="centerX" id="hZd-7t-MVN"/>
+                        <constraint firstItem="yHU-a4-nhr" firstAttribute="top" secondItem="VZb-jy-6Lf" secondAttribute="top" id="knN-hS-DeZ"/>
+                        <constraint firstAttribute="bottom" secondItem="b5m-xd-R88" secondAttribute="bottom" id="tFd-N9-L3N"/>
+                        <constraint firstItem="yHU-a4-nhr" firstAttribute="leading" secondItem="VZb-jy-6Lf" secondAttribute="leading" id="zgF-WT-raU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VZb-jy-6Lf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D39-8H-UUE"/>
+                <constraint firstItem="VZb-jy-6Lf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ojv-sU-l0T"/>
+            </constraints>
+            <connections>
+                <outlet property="button" destination="b5m-xd-R88" id="fOr-3z-elp"/>
+                <outlet property="buttonWidthConstraint" destination="EKx-8x-4Ep" id="ug6-dU-zVf"/>
+                <outlet property="titleLabel" destination="yHU-a4-nhr" id="xCw-dx-pkb"/>
+            </connections>
+        </view>
+    </objects>
+</document>

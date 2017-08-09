@@ -151,6 +151,7 @@ static CGFloat animateTime = 0.25f;
 static CGFloat sizeNavButton = 25.0f;
 
 static NSString *kNotificationLogOutUser = @"kNotificationLogOutUser";
+static NSString *kNotificationResetBlocks = @"kNotificationResetBlocks";
 
 #pragma mark - Title And Message Alert
 

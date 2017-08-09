@@ -1,5 +1,5 @@
 #import "BBProgramsRouter.h"
-
+#import "BBProgramsPresenter.h"
 @implementation BBProgramsRouter
 
 #pragma mark - BBProgramsRouterInput
@@ -14,8 +14,15 @@
 - (void)presentBasketViewControllerWithController:(UINavigationController *)basketNC
                          withNavigationController:(UINavigationController *)nc {
   HQDispatchToMainQueue(^{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popToRootViewController) name:kNotificationResetBlocks object:nil];
     [nc presentViewController:basketNC animated:YES completion:nil];
   });
+}
+
+- (void)popToRootViewController {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+  UIViewController *vc = (UIViewController *) self.presenter.view;
+  [vc.navigationController popToRootViewControllerAnimated:true];
 }
 
 - (void)callManagerOnPhone:(NSString *)phoneManager {
