@@ -69,6 +69,7 @@ static CGFloat heightHeaderSection = 10.0f;
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
+
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
   tap.cancelsTouchesInView = NO;
   [self.tableView addGestureRecognizer:tap];

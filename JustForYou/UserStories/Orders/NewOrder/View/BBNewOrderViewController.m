@@ -21,6 +21,8 @@ static CGFloat estimatedHeightCell = 44.0f;
 static CGFloat heightForHeaderSection = 45.0f;
 static CGFloat topInsetForTableView = -35.0f;
 
+BOOL isEditing = NO;
+
 @implementation BBNewOrderViewController
 
 #pragma mark - Методы жизненного цикла
@@ -89,6 +91,10 @@ static CGFloat topInsetForTableView = -35.0f;
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardDidHide:)
+                                               name:UIKeyboardDidHideNotification
                                              object:nil];
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
   tap.cancelsTouchesInView = NO;
@@ -202,10 +208,13 @@ static CGFloat topInsetForTableView = -35.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  if (isEditing) {
+    return;
+  }
   if (indexPath.section == 1) {
     if (indexPath.row == 0) {
       [self.output countDayCellDidTap];
-    } else {
+    } else if (indexPath.row == 1) {
       [self.output adresCellDidTap];
     }
   }
@@ -214,6 +223,7 @@ static CGFloat topInsetForTableView = -35.0f;
 #pragma mark - Notification Methods
 
 - (void)keyboardWillShow:(NSNotification *)notification {
+  isEditing = YES;
   NSDictionary *info = [notification userInfo];
   CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
@@ -228,6 +238,10 @@ static CGFloat topInsetForTableView = -35.0f;
 - (void)keyboardWillHide:(NSNotification *)notification {
   self.tableView.contentInset = UIEdgeInsetsMake(topInsetForTableView, 0, 0, 0);
   [self.tableView setContentOffset:CGPointMake(0, -topInsetForTableView) animated:YES];
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification {
+  isEditing = NO;
 }
 
 - (void)presentAlertForMessage:(NSString *)message {
