@@ -60,6 +60,7 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
+  [self updateAddBasketButton];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleProgramModule];
 }
 
@@ -176,6 +177,7 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
       self.navigationItem.title = kNameTitleNoneModule;
     }
   });
+  [self updateAddBasketButton];
 }
 
 - (void)getIdInPrograms {
