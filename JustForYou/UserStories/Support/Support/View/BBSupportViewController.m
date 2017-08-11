@@ -1,4 +1,4 @@
-#import "BBSupportViewController.h"
+  #import "BBSupportViewController.h"
 
 #import "BBSupportViewOutput.h"
 
@@ -80,7 +80,7 @@ static CGFloat heightIPhone4 = 480.0f;
 }
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
-  [self presentAlertControllerWithTitle:title message:message];
+  [super presentAlertControllerWithTitle:title message:message];
 }
 
 #pragma mark - Settings Methods
