@@ -12,8 +12,6 @@
 
 - (void)listProgramsWithParentId:(NSInteger)parentId;
 
-- (void)addInOrdersUserOrderWithProgramId:(NSInteger)programId countDay:(NSInteger)countDay;
-
 - (void)checkBasket;
 
 @end

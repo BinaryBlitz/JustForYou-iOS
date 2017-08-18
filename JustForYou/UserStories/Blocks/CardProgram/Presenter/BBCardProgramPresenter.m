@@ -7,6 +7,10 @@
 #import "BBNavigationAssembly.h"
 #import "BBNavigationModuleInput.h"
 
+#import "BBDeliveryAssembly.h"
+#import "BBNewOrderAssembly.h"
+#import "BBNewOrderModuleInput.h"
+
 @interface BBCardProgramPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigModule;
@@ -14,6 +18,8 @@
 
 @property (nonatomic) NSInteger programId;
 @property (nonatomic) BOOL clearData;
+@property (strong, nonatomic) id <BBDeliveryModuleInput> deliveryModule;
+@property (strong, nonatomic) id <BBNewOrderModuleInput> neworderModule;
 
 @end
 
@@ -63,12 +69,14 @@ static NSString *kImageNameBasket = @"basket";
   if (program.individualPrice) {
     [self.router callManagerOnPhone:kNumberPhoneManager];
   } else {
-    [self.view showAddInBasketPopover];
+    
+    [self.neworderModule pushModuleWithNavigationModule:self.navigModule program:program parentModule:self];
+
+    //[self.view showAddInBasketPopover];
   }
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count {
-  [self.interactor addInOrdersUserOrderWithProgramId:self.programId countDay:count];
   [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
   [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
 }
@@ -121,6 +129,13 @@ static NSString *kImageNameBasket = @"basket";
     _basketNavigationModule = [BBNavigationAssembly createModule];
   }
   return _basketNavigationModule;
+}
+
+- (id <BBNewOrderModuleInput>)neworderModule {
+  if (!_neworderModule) {
+    _neworderModule = [BBNewOrderAssembly createModule];
+  }
+  return _neworderModule;
 }
 
 @end

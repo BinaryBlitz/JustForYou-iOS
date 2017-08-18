@@ -10,6 +10,8 @@
 
 - (void)removeButtonDidTapWithOrderProgram:(BBOrderProgram *)order;
 
+- (void)didSelectRowWithOrderProgram:(BBOrderProgram*)orderProgram;
+
 - (void)closeButtonDidTap;
 - (void)payButtonDidTapWithCount:(NSInteger)count;
 

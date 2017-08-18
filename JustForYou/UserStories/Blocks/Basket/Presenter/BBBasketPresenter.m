@@ -9,10 +9,14 @@
 #import "BBPaymentAssembly.h"
 #import "BBPaymentModuleInput.h"
 
+#import "BBNewOrderAssembly.h"
+#import "BBNewOrderModuleInput.h";
+
 @interface BBBasketPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
 @property (strong, nonatomic) id <BBPaymentModuleInput> paymentModule;
+@property (strong, nonatomic) id <BBNewOrderModuleInput> neworderModule;
 
 @property (assign, nonatomic) BOOL switchBonuses;
 @property (assign, nonatomic) BOOL switchTap;
@@ -38,14 +42,22 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
 - (void)paySucces {
   [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
   [self.interactor deleteAllOrderProgramsOnUser];
+
   [self.router updateCountPurchasesUser];
+  []
   [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
 }
+
 
 #pragma mark - Методы BBBasketViewOutput
 
 - (void)didTriggerViewReadyEvent {
   [self.view setupInitialState];
+}
+
+- (void)didSelectRowWithOrderProgram:(BBOrderProgram*)orderProgram {
+  BBProgram *program = [BBProgram objectsWhere:@"programId=%d", orderProgram.programId].firstObject;
+  [self.neworderModule pushModuleWithNavigationModule:self.navigationModule orderProgram:orderProgram program:program parentModule:self];
 }
 
 - (void)viewWillAppear {
@@ -151,6 +163,13 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
     _paymentModule = [BBPaymentAssembly createModule];
   }
   return _paymentModule;
+}
+
+- (id <BBNewOrderModuleInput>)neworderModule {
+  if (!_neworderModule) {
+    _neworderModule = [BBNewOrderAssembly createModule];
+  }
+  return _neworderModule;
 }
 
 @end

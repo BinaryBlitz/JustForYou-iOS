@@ -11,7 +11,8 @@
 
 @property (strong, nonatomic) BBCalendarDeliveryTableViewCell *calendarCell;
 
-@property (strong, nonatomic) BBPurchases *purchase;
+@property (weak, nonatomic) BBPurchases *purchase;
+@property (weak, nonatomic) BBProgram *program;
 @property (strong, nonatomic) NSArray *selectionDates;
 
 @end
@@ -56,7 +57,8 @@ static CGFloat heightForCalendarMenuView = 32.0f;
   self.navigationItem.titleView = self.calendarMenu;
 }
 
-- (void)purchaseForCalendar:(BBPurchases *)purchase selectionDates:(NSArray *)days {
+- (void)purchaseForCalendar:(BBPurchases *)purchase program:(BBProgram *) program selectionDates:(NSArray *)days {
+  self.program = program;
   self.purchase = purchase;
   self.selectionDates = days;
   HQDispatchToMainQueue(^{
@@ -115,7 +117,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
     BBCalendarDeliveryTableViewCell *calendarCell = [[NSBundle mainBundle] loadNibNamed:kNibNameCalendarDeliveryCell
                                                                                   owner:self options:nil].lastObject;
     calendarCell.countDayInOrder = self.purchase.countDays;
-    calendarCell.purchaseColor = self.purchase.elementBlock.colorBlock;
+    calendarCell.isNewOrder = !self.purchase;
     self.calendarCell = calendarCell;
     [self _setDelegates];
     [calendarCell setSelectionDays:self.selectionDates];
