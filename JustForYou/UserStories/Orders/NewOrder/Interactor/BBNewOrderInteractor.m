@@ -41,5 +41,10 @@
       }];
 }
 
+-(void) addToBasketWithProgram:(BBProgram *)program address:(BBAddress *)address days:(NSArray *)days coment:(NSString *)coment hour:(NSInteger)hour minute:(NSInteger)minute {
+  [[BBUserService sharedService] addOrderProgramToUserWithProgramId:program.programId days:days address:address comment:coment hour:hour minute:minute];
+  [self.output deliveriesCreateSuccessfull];
+}
+
 
 @end

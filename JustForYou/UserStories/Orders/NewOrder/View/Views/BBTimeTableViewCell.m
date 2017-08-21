@@ -23,6 +23,12 @@ static NSString *errorTimeMessage = @"Время доставки может б�
   self.timeLabel.text = [NSString stringWithFormat:@"5:00 - 6:00"];
 }
 
+- (void)setStartHour:(NSInteger)startHour minute:(NSInteger)minute {
+  self.startHour = startHour;
+  self.startMinute = minute;
+  [self updateTimeLabel];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
 }

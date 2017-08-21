@@ -312,13 +312,13 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 - (void)_initWightProgramView {
   kModelIPhone model = [BBConstantAndColor modelDevice];
   if (model == kModelIPhone4 || model == kModelIPhone5) {
-    self.wightProgramView = 256.0f;
+    self.wightProgramView = 300.0f;
     self.insetfForView = 16.0f;
   } else if (model == kModelIPhone6) {
-    self.wightProgramView = 300.0f;
+    self.wightProgramView = 310.0f;
     self.insetfForView = 18.75f;
   } else {
-    self.wightProgramView = 332.0f;
+    self.wightProgramView = 340.0f;
     self.insetfForView = 20.5f;
   }
 }

@@ -14,6 +14,8 @@
 
 #import "BBMyProgramsModuleInput.h"
 
+#import "BBProgram.h"
+
 @interface BBNewOrderPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigationModule;
@@ -22,12 +24,15 @@
 
 @property (strong, nonatomic) id <BBMyProgramsModuleInput> programsModule;
 
-@property (strong, nonatomic) BBPurchases *purchase;
+@property (weak, nonatomic) BBPurchases *purchase;
+@property (weak, nonatomic) BBProgram *program;
+@property (weak, nonatomic) BBOrderProgram *orderProgram;
 @property (strong, nonatomic) NSArray *selectionDates;
 @property (strong, nonatomic) BBAddress *address;
 @property (assign, nonatomic) BBStatusCreateDelivery statusServer;
 
 @property (assign, nonatomic) BOOL deleteDays;
+@property (assign, nonatomic) BOOL isConfigured;
 
 @end
 
@@ -35,6 +40,7 @@ static NSString *kErrorEmptyDays = @"Вы должны выбрать хотя �
 static NSString *kErrorAddress = @"Выбран некорректный адрес";
 
 static NSString *kErrorServerDelivery = @"Произошла ошибка при создании заказа. Попробуйте повторить позже или обратитесь в службу поддержки";
+static NSString *kAddBasketMessage = @"Товар добавлен в корзину";
 static NSString *kDeliveryCreateMessage = @"Заказ успешно создан";
 
 @implementation BBNewOrderPresenter
@@ -43,10 +49,33 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
 
 - (void)configureModule {
   self.selectionDates = [NSArray array];
+  self.isConfigured = NO;
   self.deleteDays = YES;
 }
 
+- (void)pushModuleWithNavigationModule:(id)navigationModule program:(BBProgram *)program parentModule:(id)parent {
+  self.isConfigured = NO;
+  self.statusServer = kStatusNone;
+  self.navigationModule = navigationModule;
+  self.program = program;
+  [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
+- (void)pushModuleWithNavigationModule:(id)navigationModule orderProgram:(BBOrderProgram *)orderProgram program:(BBProgram *)program parentModule:(id)parent {
+  self.statusServer = kStatusNone;
+  self.isConfigured = NO;
+  self.navigationModule = navigationModule;
+  self.orderProgram = orderProgram;
+  self.program = program;
+  self.address = orderProgram.address;
+  [self selectionDates:orderProgram.days];
+
+  [self.router pushViewControllerWithNavigationController:[self.navigationModule currentView]];
+}
+
+
 - (void)pushModuleWithNavigationModule:(id)navigationModule purchase:(BBPurchases *)purchase parentModule:(id)parent {
+  self.isConfigured = NO;
   self.statusServer = kStatusNone;
   self.navigationModule = navigationModule;
   self.purchase = purchase;
@@ -81,11 +110,19 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
     self.deleteDays = YES;
   }
   [self.view countsDaysInCalendar:[self.selectionDates count]];
-  [self.view purchaseWithPurchase:self.purchase];
+  if (self.purchase) {
+    [self.view purchaseWithPurchase:self.purchase];
+  } else if (self.orderProgram && !self.isConfigured) {
+    self.program = [BBProgram objectsWhere:@"programId=%d", self.orderProgram.programId].firstObject;
+    self.isConfigured = YES;
+    [self.view orderProgramWithProgram:self.orderProgram program:self.program];
+  } else {
+    [self.view programWithProgram:self.program];
+  }
 }
 
 - (void)countDayCellDidTap {
-  [self.deliveryModule pushModuleWithNavigationModule:self.navigationModule parent:self purchase:self.purchase daysArray:self.selectionDates];
+  [self.deliveryModule pushModuleWithNavigationModule:self.navigationModule parent:self purchase:self.purchase program:self.program   daysArray:self.selectionDates];
   self.selectionDates = [NSArray array];
 }
 
@@ -103,13 +140,21 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
     [self.view presentAlertWithTitle:kNoteTitle message:kErrorAddress];
     return;
   }
-  [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-  [self.interactor createDeliveryOnServerWithDays:self.selectionDates address:self.address purchase:self.purchase coment:comment hour:hour minute:minute];
+  if (self.purchase) {
+    [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
+    [self.interactor createDeliveryOnServerWithDays:self.selectionDates address:self.address purchase:self.purchase coment:comment hour:hour minute:minute];
+  } else if (self.program) {
+    [self.interactor addToBasketWithProgram:self.program address:self.address days:self.selectionDates coment:comment hour:hour minute:minute];
+  }
 }
 
 - (void)alertOkDidTap {
   [self _resetParametrs];
-  [self.programsModule popViewControllerWithStatus:self.statusServer];
+  if (self.purchase) {
+    [self.programsModule popViewControllerWithStatus:self.statusServer];
+  } else {
+    [self.view popViewController];
+  }
 }
 
 #pragma mark - Методы BBNewOrderInteractorOutput
@@ -123,6 +168,11 @@ static NSString *kDeliveryCreateMessage = @"Заказ успешно созда
   [self.view hideBackgroundLoaderViewWithAlpha];
   self.statusServer = kStatusError;
   [self.view presentFinishAlertWithTitle:kNoteTitle message:kErrorServerDelivery];
+}
+
+- (void)addBasketSuccessfull {
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  [self.view presentFinishAlertWithTitle:kNoteTitle message:kAddBasketMessage];
 }
 
 - (void)deliveriesCreateSuccessfull {

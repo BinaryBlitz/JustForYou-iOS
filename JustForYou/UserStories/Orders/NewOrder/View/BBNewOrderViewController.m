@@ -12,8 +12,11 @@
 @property (strong, nonatomic) BBTimeTableViewCell *timeCell;
 
 @property (strong, nonatomic) BBPurchases *purchase;
+@property (strong, nonatomic) BBProgram *program;
+@property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (assign, nonatomic) NSInteger selectionDaysCount;
 @property (strong, nonatomic) NSString *address;
+@property (assign, nonatomic) BOOL isConfigured;
 
 @end
 
@@ -39,6 +42,7 @@ BOOL isEditing = NO;
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  [self.tableView reloadData];
   [self.output viewWillAppear];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleNewOrderModule];
 }
@@ -65,6 +69,7 @@ BOOL isEditing = NO;
   self.address = @"";
   self.navigationItem.title = kNameTitleNewOrderModule;
   [self _registerNotificationKeyboard];
+  self.isConfigured = NO;
 }
 
 - (void)deleteAddress {
@@ -80,6 +85,30 @@ BOOL isEditing = NO;
   HQDispatchToMainQueue(^{
     [self.tableView reloadData];
   });
+}
+
+- (void)popViewController {
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)programWithProgram:(BBProgram *)program {
+  self.program = program;
+  HQDispatchToMainQueue(^{
+    [self.tableView reloadData];
+  });
+}
+
+- (void)orderProgramWithProgram:(BBOrderProgram *)orderProgram program:(BBProgram *)program {
+  if (self.orderProgram != orderProgram) {
+    self.isConfigured = NO;
+  }
+  self.program = program;
+  self.orderProgram = orderProgram;
+  self.selectionDaysCount = orderProgram.days.count;
+  self.address = orderProgram.address.street;
+  [self.tableView reloadData];
+  [self.tableView layoutIfNeeded];
+  self.isConfigured = YES;
 }
 
 - (void)_registerNotificationKeyboard {
@@ -164,7 +193,12 @@ BOOL isEditing = NO;
   UITableViewCell *cell;
   if (indexPath.section == 0) {
     BBMyProgramTableViewCell *myProgramCell = [self.tableView dequeueReusableCellWithIdentifier:kMyProgramCellIdentifire];
-    myProgramCell.purchases = self.purchase;
+    if (self.purchase) {
+      myProgramCell.purchases = self.purchase;
+    } else {
+      myProgramCell.program = self.program;
+      [myProgramCell setDaysCount:self.selectionDaysCount];
+    }
     cell = myProgramCell;
   } else if (indexPath.section == 1) {
     if (indexPath.row == 0) {
@@ -189,11 +223,18 @@ BOOL isEditing = NO;
     } else {
       BBTimeTableViewCell *timeCell = [self.tableView dequeueReusableCellWithIdentifier:kTimeCellIdentifire];
       timeCell.delegate = self;
+      if (!self.isConfigured && self.orderProgram) {
+        [timeCell setStartHour:self.orderProgram.hour minute:self.orderProgram.minute];
+      }
       self.timeCell = timeCell;
       cell = timeCell;
     }
   } else {
     BBCommentTableViewCell *commentCell = [[NSBundle mainBundle] loadNibNamed:kNibNameCommentCell owner:self options:nil].lastObject;
+    self.commentCell = commentCell;
+    if (!self.isConfigured && self.orderProgram) {
+      [commentCell setComment:self.orderProgram.commentOrder];
+    }
     commentCell.delegate = self;
     cell = commentCell;
   }
@@ -202,7 +243,7 @@ BOOL isEditing = NO;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 2) {
-    self.commentCell = (BBCommentTableViewCell *) cell;
+    //self.commentCell = (BBCommentTableViewCell *) cell;
   }
 }
 

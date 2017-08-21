@@ -72,7 +72,7 @@ static NSString *kUserReplacement = @"kUserReplacement";
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays {
+- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId days:(NSArray*)days address:(BBAddress*)address comment:(NSString*)comment hour:(NSInteger)hour minute:(NSInteger)minute {
   BBUser *user = [self currentUser];
 
   NSMutableArray *array = [NSMutableArray arrayWithArray:user.ordersProgramArray];
@@ -82,11 +82,20 @@ static NSString *kUserReplacement = @"kUserReplacement";
   if ([filteredArray count] < 1) {
     BBOrderProgram *orderPro = [[BBOrderProgram alloc] init];
     orderPro.programId = programId;
-    orderPro.countDays = countDays;
+    orderPro.address = address;
+    orderPro.days = days;
+    orderPro.commentOrder = comment;
+    orderPro.hour = hour;
+    orderPro.minute = minute;
     [array addObject:orderPro];
   } else {
     for (BBOrderProgram *ordProg in filteredArray) {
-      ordProg.countDays = ordProg.countDays + countDays;
+      ordProg.days = days;
+      ordProg.address = address;
+      ordProg.commentOrder = comment;
+      ordProg.hour = hour;
+      ordProg.minute = minute;
+
       [array removeObject:ordProg];
       [array addObject:ordProg];
     }
@@ -116,7 +125,11 @@ static NSString *kUserReplacement = @"kUserReplacement";
   for (int i = 0; i < [array count]; i++) {
     BBOrderProgram *ord = [array objectAtIndex:i];
     if (ord.programId == orderProgram.programId) {
-      ord.countDays = orderProgram.countDays;
+      ord.days = orderProgram.days;
+      ord.commentOrder = orderProgram.commentOrder;
+      ord.address = orderProgram.address;
+      ord.hour = orderProgram.hour;
+      ord.minute = orderProgram.minute;
       [array replaceObjectAtIndex:i withObject:ord];
     }
   }

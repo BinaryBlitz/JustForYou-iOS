@@ -6,6 +6,10 @@
 
 #import "BBEmptyTableBackgroundView.h"
 
+#import "BBNewOrderAssembly.h"
+
+#import "BBNewOrderModuleInput.h"
+
 @interface BBBasketViewController () <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate, BBTableAlertControllerDelegate, BBSwitchCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,6 +23,7 @@
 @property (strong, nonatomic) BBOrderProgram *removeOrder;
 
 @property (assign, nonatomic) NSInteger totalPrice;
+
 
 @end
 
@@ -192,6 +197,11 @@ static CGFloat heightFooter = 13.0f;
   self.totalPrice += [basketCell totalForCountDays];
   [self updateTotalTableViewCell];
   return basketCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
+  [self.output didSelectRowWithOrderProgram:orderP];
 }
 
 - (void)closeButtonDidTapWithBasketCell:(BBBasketTableViewCell *)cell {

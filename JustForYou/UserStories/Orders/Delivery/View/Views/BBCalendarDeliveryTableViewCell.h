@@ -14,6 +14,7 @@
 
 @property (assign, nonatomic) NSInteger countDayInOrder;
 @property (strong, nonatomic) UIColor *purchaseColor;
+@property (assign, nonatomic) BOOL isNewOrder;
 
 - (void)setSelectionDays:(NSArray *)days;
 

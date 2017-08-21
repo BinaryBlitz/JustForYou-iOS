@@ -12,6 +12,7 @@
 @property (strong, nonatomic) id <BBTimeCellDelegate> delegate;
 
 - (void)startHourAndMinute;
+- (void)setStartHour:(NSInteger)startHour minute:(NSInteger)minute;
 
 @end
 

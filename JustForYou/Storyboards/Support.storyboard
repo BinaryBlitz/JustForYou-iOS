@@ -108,9 +108,9 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xII-bW-WJo" customClass="BBDottedBorderButton">
-                                                <rect key="frame" x="47" y="328" width="226" height="45"/>
+                                                <rect key="frame" x="47" y="328" width="226" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="MtX-gm-QGr"/>
+                                                    <constraint firstAttribute="height" constant="35" id="MtX-gm-QGr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                 <state key="normal" title="ОСТАВИТЬ ОТЗЫВ">
@@ -121,7 +121,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наши группы в социальных сетях" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb9-F3-lhG">
-                                                <rect key="frame" x="31" y="399" width="258" height="21"/>
+                                                <rect key="frame" x="31" y="389" width="258" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="6l1-ZJ-e5S"/>
                                                     <constraint firstAttribute="width" constant="258" id="ODa-0l-KVv"/>
@@ -131,7 +131,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrO-Di-U74">
-                                                <rect key="frame" x="0.0" y="424" width="320" height="88"/>
+                                                <rect key="frame" x="0.0" y="414" width="320" height="88"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig9-WU-Q94">
                                                         <rect key="frame" x="189.5" y="19" width="50" height="50"/>

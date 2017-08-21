@@ -43,8 +43,4 @@
   [self.output currentProgramsInBasket:user.ordersProgramArray];
 }
 
-- (void)addInOrdersUserOrderWithProgramId:(NSInteger)programId countDay:(NSInteger)countDay {
-  [[BBUserService sharedService] addOrderProgramToUserWithProgramId:programId countDays:countDay];
-}
-
 @end

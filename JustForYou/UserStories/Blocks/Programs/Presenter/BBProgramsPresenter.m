@@ -10,11 +10,15 @@
 #import "BBCardProgramAssembly.h"
 #import "BBCardProgramModuleInput.h"
 
+#import "BBNewOrderAssembly.h"
+#import "BBNewOrderModuleInput.h"
+
 @interface BBProgramsPresenter ()
 
 @property (strong, nonatomic) id <BBNavigationModuleInput> navigModule;
 @property (strong, nonatomic) id <BBCardProgramModuleInput> cardProgramModule;
 @property (strong, nonatomic) id <BBNavigationModuleInput> basketNavigationModule;
+@property (strong, nonatomic) id <BBNewOrderModuleInput> neworderModule;
 
 @property (nonatomic) NSInteger parentId;
 @property (nonatomic) BOOL clearData;
@@ -88,7 +92,7 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
   if (program.individualPrice) {
     [self.router callManagerOnPhone:kNumberPhoneManager];
   } else {
-    [self.view showAddToBasketPopover:program];
+    [self.neworderModule pushModuleWithNavigationModule:self.navigModule program:program parentModule:self];
   }
 }
 
@@ -98,7 +102,6 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count program:(BBProgram *)program {
-  [self.interactor addInOrdersUserOrderWithProgramId:program.programId countDay:count];
   [self.view updateBasketButtonImageWithImageName:kImageNameBasketFull];
   [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину" cancelTitle:@"Продолжить"];
 }
@@ -155,5 +158,13 @@ static NSString *kErrorOpenProgram = @"Произошла ошибка при о
   }
   return _basketNavigationModule;
 }
+
+- (id <BBNewOrderModuleInput>)neworderModule {
+  if (!_neworderModule) {
+    _neworderModule = [BBNewOrderAssembly createModule];
+  }
+  return _neworderModule;
+}
+
 
 @end

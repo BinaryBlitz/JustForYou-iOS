@@ -8,4 +8,6 @@
 
 - (void)configureModule;
 
+- (void)didSelectRowWithOrderProgram:(BBOrderProgram*)orderProgram;
+
 @end

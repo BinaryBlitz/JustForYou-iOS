@@ -48,7 +48,13 @@ BOOL didLayoutAnimated = NO;
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
   [self layoutAnimatedIfNeeded];
+  [self.navigationController setNavigationBarHidden:YES];
+  [self setNeedsStatusBarAppearanceUpdate];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleAuthorizateModule];
+}
+
+- (BOOL)prefersStatusBarHidden {
+  return YES;
 }
 
 - (void)layoutAnimatedIfNeeded {

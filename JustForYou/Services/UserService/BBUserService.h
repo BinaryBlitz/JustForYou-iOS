@@ -19,7 +19,7 @@
 - (void)setEnableBonuses:(BOOL)state;
 - (void)logOutUser;
 
-- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays;
+- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId days:(NSArray*)days address:(BBAddress*)address comment:(NSString*)comment hour:(NSInteger)hour minute:(NSInteger)minute;
 - (void)updateOrderProgramWithOrderProgram:(BBOrderProgram *)orderProgram;
 - (void)deleteInOrdersUserOrderProgram:(BBOrderProgram *)order;
 - (void)deleteAllOrderProgramInUser;

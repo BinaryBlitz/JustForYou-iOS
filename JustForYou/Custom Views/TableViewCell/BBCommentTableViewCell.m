@@ -43,6 +43,15 @@
   return borderLayer;
 }
 
+- (void) setComment:(NSString *)comment {
+  [self.textView setText:comment];
+  if ([comment isEqualToString:@""]) {
+    self.placeholderLabel.hidden = NO;
+  } else {
+    self.placeholderLabel.hidden = YES;
+  }
+}
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
 
   if ([text isEqualToString:@"\n"]) {
