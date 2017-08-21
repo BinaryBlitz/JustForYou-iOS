@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G1R-N7-2h0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6MD-d2-3LA" id="EFK-9a-eIF"/>
@@ -68,8 +68,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-OC-rEq">
-                                <rect key="frame" x="47.5" y="597" width="280" height="47"/>
-                                <color key="backgroundColor" red="0.92941176469999998" green="0.32156862749999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="47.5" y="609" width="280" height="35"/>
+                                <color key="backgroundColor" red="0.99856501819999999" green="0.34124094249999998" blue="0.13542866710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="hdW-9w-ZOd"/>
+                                </constraints>
                                 <state key="normal" title="ВЫЙТИ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -81,7 +84,6 @@
                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CAg-OC-rEq" firstAttribute="top" secondItem="G1R-N7-2h0" secondAttribute="bottom" id="QDm-41-YJf"/>
-                            <constraint firstItem="CAg-OC-rEq" firstAttribute="height" secondItem="kc3-bd-w3F" secondAttribute="height" multiplier="47:667" id="VMr-Om-Ccq"/>
                             <constraint firstItem="G1R-N7-2h0" firstAttribute="top" secondItem="kc3-bd-w3F" secondAttribute="top" id="XnP-Iq-Exo"/>
                             <constraint firstItem="G1R-N7-2h0" firstAttribute="leading" secondItem="kc3-bd-w3F" secondAttribute="leading" id="YMf-iS-fwJ"/>
                             <constraint firstItem="CAg-OC-rEq" firstAttribute="width" secondItem="kc3-bd-w3F" secondAttribute="width" multiplier="280:375" id="YYG-bc-MyH"/>
