@@ -4,6 +4,7 @@
 
 @property (assign, nonatomic) NSInteger programId;
 
+@property (assign, nonatomic) BOOL isPurchased;
 @property (strong, nonatomic) NSArray *days;
 @property (assign, nonatomic) NSString *commentOrder;
 @property (assign, nonatomic) NSString *nameProgram;

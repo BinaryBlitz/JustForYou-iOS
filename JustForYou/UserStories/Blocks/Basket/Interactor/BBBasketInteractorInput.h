@@ -16,6 +16,8 @@ typedef enum : NSUInteger {
 
 - (void)deleteAllOrderProgramsOnUser;
 
+- (void)createDeliveriesFromOrders:(NSArray *)orders;
+
 - (void)createOrderOnServerWithTypePayment:(BBTypePayment)type payCard:(BBPayCard *)card useBonuses:(BOOL)use;
 
 - (NSArray *)currentUserPayCards;
