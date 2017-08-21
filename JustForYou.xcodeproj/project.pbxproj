@@ -3667,7 +3667,7 @@
 				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 158;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3691,7 +3691,7 @@
 				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
-				CURRENT_PROJECT_VERSION = 157;
+				CURRENT_PROJECT_VERSION = 158;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JustForYou/PrefixHeader.pch;
