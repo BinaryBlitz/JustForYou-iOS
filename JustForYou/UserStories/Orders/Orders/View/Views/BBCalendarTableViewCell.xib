@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="35" id="TfA-W6-xB9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                <state key="normal" title="ОФОРМИТЬ ДОСТАВКУ">
+                                <state key="normal" title="ИЗМЕНИТЬ ДАТЫ ДОСТАВКИ">
                                     <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
