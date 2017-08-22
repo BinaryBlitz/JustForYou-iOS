@@ -12,7 +12,7 @@
 #pragma mark - Методы BBBasketInteractorInput
 
 typedef void (^ArrayCompletion)(NSArray *purchases);
-typedef void (^DeliveryCompletion)();
+typedef void (^DeliveryCompletion)(BOOL success);
 
 - (void)updateUserAndShowCurrentBonuses {
   [[BBServerService sharedService] showUserWithUserToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
@@ -59,7 +59,7 @@ typedef void (^DeliveryCompletion)();
                                                     } else {
                                                       [[BBServerService sharedService] createPaymentsWithPayCard:cardId orderId:orderId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BOOL paid, NSError *error) {
                                                         if (paid) {
-                                                          [self createDeliveriesFromOrders:orders];
+                                                          [self createDeliveries];
                                                         } else {
                                                           [self.output paymentError];
                                                         }
@@ -74,8 +74,10 @@ typedef void (^DeliveryCompletion)();
                                               }];
 }
 
-- (void)createDeliveriesFromOrders:(NSArray *)ordersProgramArray {
+- (void)createDeliveries {
   [self listPurchasesUserWithCompletion:^(NSArray *purchases) {
+    BBUser *user = [[BBUserService sharedService] currentUser];
+    NSArray* ordersProgramArray = user.ordersProgramArray;
 
     NSArray * filteredPurchases = [purchases filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
       BBPurchases* purchase = evaluatedObject;
@@ -87,19 +89,18 @@ typedef void (^DeliveryCompletion)();
       return false;
     }]];
 
-    __block NSInteger ordersFinished = 0;
+    [self deleteAllOrderProgramsOnUser];
+    [self currentOrdersInBasket];
+
     [filteredPurchases enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
       BBPurchases* purchase = obj;
       BBOrderProgram* orderProgram = [ordersProgramArray objectAtIndex:idx];
-      [self createDeliveryOnServerWithProgram:orderProgram purchase:purchase completion:^{
-        ordersFinished += 1;
-        if (ordersFinished == ordersProgramArray.count) {
-          NSArray* orders = BBUserService.sharedService.currentUser.ordersProgramArray;
-          if (orders.count == 0) {
-            [self.output paymentSuccessfull];
-          } else {
-            [self.output paymentError];
-          }
+      [self createDeliveryOnServerWithProgram:orderProgram purchase:purchase completion:^(BOOL success) {
+        if (!success) {
+          [self.output deliveryErrorWithOrder:orderProgram];
+        }
+        if (idx == filteredPurchases.count - 1) {
+          [self.output paymentSuccessfull];
         }
       }];
     }];
@@ -137,16 +138,15 @@ typedef void (^DeliveryCompletion)();
                                                     if (response.serverError == kServerErrorSuccessfull) {
                                                       HQDispatchToMainQueue(^{
                                                         [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects callback:^{
-                                                          [self deleteOrderProgramOnUserArray:orderProgram];
-                                                          completion();
+                                                          completion(YES);
                                                         }];
                                                       });
                                                     } else {
-                                                      completion();
+                                                      completion(NO);
                                                       [self.output errorServer];
                                                     }
                                                   } else {
-                                                    completion();
+                                                    completion(NO);
                                                     [self.output errorNetwork];
                                                   }
                                                 }];

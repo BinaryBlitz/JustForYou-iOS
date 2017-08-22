@@ -107,7 +107,7 @@
     }
     BBUser *user = [[BBUserService sharedService] currentUser];
     user.countPurchases = count;
-    [[BBUserService sharedService] saveCurrentUser:user];
+    [[BBUserService sharedService] updateUserWithUser:user];
   }
   return result;
 }

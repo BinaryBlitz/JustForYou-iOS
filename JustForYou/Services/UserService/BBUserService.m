@@ -1,7 +1,8 @@
 #import "BBUserService.h"
+#import "BBServerService.h"
 
 static NSString *kApiTokenUser = @"kApiTokenUser";
-static NSString *kCurrentUser = @"kCurrentUser";
+static NSString *kCurrentUser = @"jCurrentUser";
 
 static NSString *kUserReplacement = @"kUserReplacement";
 
@@ -28,6 +29,26 @@ static NSString *kUserReplacement = @"kUserReplacement";
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(void) getCurrentUserWithCompletion:(void (^)(BBUser *))completion {
+  BBUser* currentUser = self.currentUser;
+  if (currentUser) {
+    completion(currentUser);
+  } else {
+    NSString* tokenUser = self.tokenUser;
+    if (!tokenUser) {
+      completion(nil);
+      return;
+    }
+    [BBServerService.sharedService showUserWithUserToken:self.tokenUser completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
+      if (user) {
+        [self saveCurrentUser:user];
+        completion(user);
+      } else {
+        completion(nil);
+      }
+    }];
+  }
+}
 - (BBUser *)currentUser {
   NSData *userData = [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentUser];
   if (userData) {
@@ -44,8 +65,10 @@ static NSString *kUserReplacement = @"kUserReplacement";
 
 - (void)updateUserWithUser:(BBUser *)user {
   BBUser *oldUser = [self currentUser];
-  user.ordersProgramArray = oldUser.ordersProgramArray;
-  user.addressArray = oldUser.addressArray;
+  if (oldUser) {
+    user.ordersProgramArray = oldUser.ordersProgramArray;
+    user.addressArray = oldUser.addressArray;
+  }
   [self saveCurrentUser:user];
 }
 
@@ -72,16 +95,16 @@ static NSString *kUserReplacement = @"kUserReplacement";
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId days:(NSArray*)days address:(BBAddress*)address comment:(NSString*)comment hour:(NSInteger)hour minute:(NSInteger)minute {
+- (void)addOrderProgramToUserWithProgram:(BBProgram *)program days:(NSArray*)days address:(BBAddress*)address comment:(NSString*)comment hour:(NSInteger)hour minute:(NSInteger)minute {
   BBUser *user = [self currentUser];
 
   NSMutableArray *array = [NSMutableArray arrayWithArray:user.ordersProgramArray];
 
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"programId==%d", programId];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"programId==%d", program.programId];
   NSArray *filteredArray = [array filteredArrayUsingPredicate:predicate];
   if ([filteredArray count] < 1) {
     BBOrderProgram *orderPro = [[BBOrderProgram alloc] init];
-    orderPro.programId = programId;
+    orderPro.programId = program.programId;
     orderPro.address = address;
     orderPro.days = days;
     orderPro.commentOrder = comment;

@@ -100,7 +100,7 @@ static CGFloat heightForCalendarMenuView = 32.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 2;
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

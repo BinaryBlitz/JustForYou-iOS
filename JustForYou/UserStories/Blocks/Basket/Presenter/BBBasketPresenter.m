@@ -21,6 +21,7 @@
 @property (strong, nonatomic) id <BBNewOrderModuleInput> neworderModule;
 
 @property (assign, nonatomic) BOOL switchBonuses;
+@property (assign, nonatomic) BOOL needShowAlert;
 @property (assign, nonatomic) BOOL switchTap;
 
 @end
@@ -44,9 +45,7 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
 - (void)paySucces {
   [self.router popViewControllerWithNavigationController:[self.navigationModule currentView]];
   [self.view showBackgroundLoaderViewWithAlpha:alphaBackgroundLoader];
-  BBUser *user = [[BBUserService sharedService] currentUser];
-  NSArray* orders = user.ordersProgramArray;
-  [self.interactor createDeliveriesFromOrders:orders];
+  [self.interactor createDeliveries];
 }
 
 
@@ -62,7 +61,10 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
 }
 
 - (void)viewWillAppear {
-  [self.view presentNoteAlertWithTitle:kNoteTitle message:basketAlertDelivery];
+  if (self.needShowAlert) {
+    [self.view presentNoteAlertWithTitle:kNoteTitle message:basketAlertDelivery];
+    self.needShowAlert = NO;
+  }
   [self.interactor currentOrdersInBasket];
 }
 
@@ -132,6 +134,12 @@ static NSString *basketAlertDelivery = @"Доставка осуществляе
   [self.interactor deleteAllOrderProgramsOnUser];
   [self.router updateCountPurchasesUser];
   [self.view presentAlertControllerWithTitle:nil message:paymentSuccessfull titleAction:kNextButton];
+}
+
+- (void)deliveryErrorWithOrder:(BBOrderProgram *)orderProgram {
+  [self.view hideBackgroundLoaderViewWithAlpha];
+  BBProgram *program = [BBProgram objectsWhere:@"programId=%d", orderProgram.programId].firstObject;
+  [self.view presentAlertControllerWithTitle:nil message:[NSString stringWithFormat:deliveryError, program.name] titleAction:kNextButton];
 }
 
 - (void)paymentError {

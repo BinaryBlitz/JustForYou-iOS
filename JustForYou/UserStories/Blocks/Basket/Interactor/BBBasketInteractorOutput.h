@@ -13,6 +13,8 @@
 - (void)paymentSuccessfull;
 - (void)paymentError;
 
+- (void)deliveryErrorWithOrder:(BBOrderProgram *)orderProgram;
+
 - (void)errorServer;
 - (void)errorNetwork;
 

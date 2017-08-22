@@ -70,12 +70,13 @@ BOOL didLayoutAnimated = NO;
     self.topYouViewConstraint.constant = topViewConstraintConstant;
     [self.view layoutIfNeeded];
   }                completion:^(BOOL finished) {
-    BBUser *user = [[BBUserService sharedService] currentUser];
-    if (user) {
-      [self.output authorizedDidFinishAnimation];
-    } else {
-      [self showTableView];
-    }
+     [[BBUserService sharedService] getCurrentUserWithCompletion:^(BBUser * user) {
+       if (user) {
+         [self.output authorizedDidFinishAnimation];
+       } else {
+         [self showTableView];
+       }
+     }];
   }];
 }
 

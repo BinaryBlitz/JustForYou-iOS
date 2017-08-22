@@ -6,5 +6,6 @@
 - (void)errorServer;
 
 - (void)deliveriesCreateSuccessfull;
+- (void)addBasketSuccessfull;
 
 @end

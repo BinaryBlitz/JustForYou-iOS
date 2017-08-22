@@ -1,15 +1,14 @@
 
 
-NSString *const kProgramId = @"kProgramId";
-NSString *const kHour = @"kHour";
-NSString *const kMinute = @"kMinute";
-NSString *const kDaysArray = @"kDaysArray";
-NSString *const kScheduledDay = @"kScheduledDay";
-NSString *const kCommentOrder = @"kCommentOrder";
-NSString *const kNameProgram = @"kNameProgram";
-NSString *const kNameBlock = @"kNameBlock";
-NSString *const kAddress = @"kAddress";
-NSString *const kComment = @"kComment";
+NSString *const kProgramId = @"jProgramId";
+NSString *const kHour = @"jHour";
+NSString *const kMinute = @"jMinute";
+NSString *const kDaysArray = @"jDaysArray";
+NSString *const kScheduledDay = @"jScheduledDay";
+NSString *const kCommentOrder = @"jCommentOrder";
+NSString *const kNameBlock = @"jNameBlock";
+NSString *const kAddress = @"jAddress";
+NSString *const kComment = @"jComment";
 
 @implementation BBOrderProgram
 
@@ -33,6 +32,7 @@ NSString *const kComment = @"kComment";
   [aCoder encodeObject:self.days forKey:kDaysArray];
   [aCoder encodeObject:self.address forKey:kAddress];
   [aCoder encodeObject:self.commentOrder forKey:kComment];
+
 }
 
 @end
