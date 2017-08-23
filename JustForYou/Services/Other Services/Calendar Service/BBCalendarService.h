@@ -24,6 +24,8 @@ typedef enum : NSUInteger {
 
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date;
 - (NSInteger)getCalendarDay:(NSDate *)date;
+- (NSInteger)getCalendarMonth:(NSDate *)date;
+- (NSInteger)getCalendarYear:(NSDate *)date;
 
 - (BBStatusOrderTime)timeForDate:(NSDate *)date;
 

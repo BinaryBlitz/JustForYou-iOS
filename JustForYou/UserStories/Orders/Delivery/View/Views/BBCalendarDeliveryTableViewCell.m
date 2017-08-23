@@ -214,8 +214,10 @@ NSInteger maximumOrderHour = 11;
   } else {
     if ([[BBCalendarService sharedService] compareTwoDatesWithDay:dayView.date]) {
       NSInteger selectedDay = [[BBCalendarService sharedService] getCalendarDay:dayView.date];
-      NSDateComponents *currentDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitHour fromDate:[NSDate date]];
-      if ([currentDateComponents hour] >= maximumOrderHour && selectedDay - [currentDateComponents day] <= 1) {
+        NSInteger selectedMonth = [[BBCalendarService sharedService] getCalendarMonth:dayView.date];
+        NSInteger selectedYear= [[BBCalendarService sharedService] getCalendarYear:dayView.date];
+      NSDateComponents *currentDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitYear | NSCalendarUnitMonth fromDate:[NSDate date]];
+      if ([currentDateComponents hour] >= maximumOrderHour && selectedDay - [currentDateComponents day] <= 1 && selectedMonth == [currentDateComponents month] && selectedYear == [currentDateComponents year]) {
         [self.delegate showAlertViewWithMessage:@"Заказать доставку на следующий день можно только до 11:00"];
       } else if ([self.datesSelected count] < self.countDayInOrder || self.isNewOrder) {
         [self _addDayInArray:dayView.date];
