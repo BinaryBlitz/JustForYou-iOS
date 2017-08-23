@@ -105,6 +105,7 @@
       [result addObject:purchases];
       count++;
     }
+    
     BBUser *user = [[BBUserService sharedService] currentUser];
     user.countPurchases = count;
     [[BBUserService sharedService] updateUserWithUser:user];
