@@ -15,4 +15,6 @@
 
 @protocol BBCommentTableViewCellDelegate <NSObject>
 
+- (void)commentDidChange:(NSString*)comment;
+
 @end

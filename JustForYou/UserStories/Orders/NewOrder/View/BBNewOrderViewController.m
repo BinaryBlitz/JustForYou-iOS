@@ -16,6 +16,7 @@
 @property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (assign, nonatomic) NSInteger selectionDaysCount;
 @property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *currentComment;
 @property (assign, nonatomic) BOOL isConfigured;
 
 @end
@@ -62,11 +63,18 @@ BOOL isEditing = NO;
   [self.commentCell.textView resignFirstResponder];
 }
 
+#pragma mark - BBCommentTableViewCellDelegate
+
+- (void)commentDidChange:(NSString *)comment {
+  self.currentComment = comment;
+}
+
 #pragma mark - Методы BBNewOrderViewInput
 
 - (void)setupInitialState {
   [self _settingsTableViewAndRegisterNib];
   self.address = @"";
+  self.currentComment = @"";
   self.navigationItem.title = kNameTitleNewOrderModule;
   [self _registerNotificationKeyboard];
   self.isConfigured = NO;
@@ -74,6 +82,7 @@ BOOL isEditing = NO;
 
 - (void)deleteAddress {
   self.address = @"";
+  self.currentComment = @"";
 }
 
 - (void)countsDaysInCalendar:(NSInteger)counts {
@@ -106,6 +115,7 @@ BOOL isEditing = NO;
   self.orderProgram = orderProgram;
   self.selectionDaysCount = orderProgram.days.count;
   self.address = orderProgram.address.street;
+  self.currentComment = orderProgram.commentOrder;
   [self.tableView reloadData];
   [self.tableView layoutIfNeeded];
   self.isConfigured = YES;
@@ -232,8 +242,8 @@ BOOL isEditing = NO;
   } else {
     BBCommentTableViewCell *commentCell = [[NSBundle mainBundle] loadNibNamed:kNibNameCommentCell owner:self options:nil].lastObject;
     self.commentCell = commentCell;
-    if (!self.isConfigured && self.orderProgram) {
-      [commentCell setComment:self.orderProgram.commentOrder];
+    if (!self.isConfigured && self.currentComment) {
+      [commentCell setComment:self.currentComment];
     }
     commentCell.delegate = self;
     cell = commentCell;
@@ -290,7 +300,7 @@ BOOL isEditing = NO;
 }
 
 - (void)startHour:(NSInteger)startHour startMinute:(NSInteger)startMinute {
-  [self.output toOrderButtonDidTapWithComment:self.commentCell.textView.text startHour:startHour startMinute:startMinute];
+  [self.output toOrderButtonDidTapWithComment:self.currentComment startHour:startHour startMinute:startMinute];
 }
 
 #pragma mark - Layout Methods
