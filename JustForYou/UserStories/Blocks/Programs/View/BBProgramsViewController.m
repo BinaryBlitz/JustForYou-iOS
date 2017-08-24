@@ -312,16 +312,17 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 - (void)_initWightProgramView {
   kModelIPhone model = [BBConstantAndColor modelDevice];
   if (model == kModelIPhone4 || model == kModelIPhone5) {
-    self.wightProgramView = 300.0f;
-    self.insetfForView = 16.0f;
+    self.wightProgramView = 256.0f + 44.0f;
+    self.insetfForView = 16.0f - 11.0f;
   } else if (model == kModelIPhone6) {
-    self.wightProgramView = 310.0f;
-    self.insetfForView = 18.75f;
+    self.wightProgramView = 300.0f + 32.0f;
+    self.insetfForView = 18.75f - 8.0f;
   } else {
-    self.wightProgramView = 340.0f;
-    self.insetfForView = 20.5f;
+    self.wightProgramView = 332.0f + 40.0f;
+    self.insetfForView = 20.5f - 10.0f;
   }
 }
+
 
 #pragma mark - Layout Views
 
