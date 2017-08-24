@@ -33,6 +33,14 @@ static CGFloat estimatedRowHeight = 100.0f;
   [self.output didTriggerViewReadyEvent];
 }
 
+- (void)setCalendarCell:(BBCalendarTableViewCell *)calendarCell {
+  if(!_calendarCell) {
+    _calendarCell = calendarCell;
+    [self updateDeliveriesWithArray:self.deliveriesArray];
+  }
+  _calendarCell = calendarCell;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
@@ -56,21 +64,26 @@ static CGFloat estimatedRowHeight = 100.0f;
 }
 
 - (void)updateDeliveriesWithArray:(NSArray *)deliveries {
-  self.deliveriesArray = deliveries;
   NSMutableArray *array = [NSMutableArray array];
-  for (BBOrder *order in self.deliveriesArray) {
-    for (NSNumber *number in self.ordersId) {
-      NSInteger orderId = [number integerValue];
-      if (orderId == order.orderId) {
+
+  for (BBOrder *order in deliveries) {
+    if (!self.ordersId && self.calendarCell) {
+      if ([self.calendarCell isInDatesSelected:order.scheduledDay]) {
         [array addObject:order];
+      }
+    } else {
+      for (NSNumber *number in self.ordersId) {
+        NSInteger orderId = [number integerValue];
+        if (orderId == order.orderId) {
+          [array addObject:order];
+        }
       }
     }
   }
+  self.deliveriesArray = deliveries;
   self.ordersArray = array;
-  HQDispatchToMainQueue(^{
-    [self.tableView reloadData];
-    [self.tableView setContentOffset:CGPointZero animated:YES];
-  });
+  [self.tableView reloadData];
+  [self.tableView setContentOffset:CGPointZero animated:YES];
 }
 
 - (void)clearOrdersArrayWithOrder:(BBOrder *)order {
@@ -161,6 +174,13 @@ static CGFloat estimatedRowHeight = 100.0f;
     }
   }
   self.ordersArray = array;
+
+  self.ordersId = [NSMutableArray array];
+  for (BBOrder *order in self.ordersArray) {
+    NSNumber *number = [NSNumber numberWithInteger:order.orderId];
+    [self.ordersId addObject:number];
+  }
+
 //    if ([self.ordersArray count] > 0) {
   NSRange range = NSMakeRange(1, 1);
   [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:range] withRowAnimation:UITableViewRowAnimationNone];
@@ -212,9 +232,7 @@ static CGFloat estimatedRowHeight = 100.0f;
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message
                             titleAction:(NSString *)titleAction cancelTitle:(NSString *)cancel key:(BBKeyForOkButtonAlert)key {
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-  UIAlertAction *ok = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:^(UIAlertAction *_Nonnull action) {
-    [self.output okCancelButtonDidTapWithKey:key];
-  }];
+  UIAlertAction *ok = [UIAlertAction actionWithTitle:titleAction style:UIAlertActionStyleCancel handler:nil];
   if (cancel) {
     UIAlertAction *canc = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
       [self.output okCancelButtonDidTapWithKey:kPayCancelButton];

@@ -9,7 +9,6 @@
 @property (strong, nonatomic) NSString *nameMonth;
 
 @property (strong, nonatomic) NSMutableDictionary *eventsByDate;
-@property (strong, nonatomic) NSDate *dateSelected;
 @property (strong, nonatomic) UIColor *selectedDayViewColor;
 
 // aspect ratio for calendarView if line weak = 5 - 64:55
@@ -23,6 +22,10 @@
   [super awakeFromNib];
   [self _initCalendarManager];
   self.ordersForCalendar = [NSArray array];
+}
+
+- (void)setDelegate:(id<BBCalendarTableViewCellDelegate>)delegate {
+    _delegate = delegate;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -63,7 +66,10 @@
   self.calendarManager.dateHelper.calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ru_RU"];
 
   [self.calendarManager setContentView:self.calendarView];
-  [self.calendarManager setDate:[NSDate date]];
+  NSDate *date = [NSDate date];
+  self.dateSelected = date;
+  [self.calendarManager setDate:date];
+
 }
 
 #pragma mark - Calendar Delegate Methods
