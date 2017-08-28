@@ -40,7 +40,7 @@ static NSString *kNameCrossImage = @"crossIcon";
   }
 }
 
-- (NSInteger)totalForCountDays {
+- (void)totalForCountDays {
   NSString *totalString;
   NSInteger total = 0;
   NSInteger daysCount = self.orderProgram.days.count;
@@ -54,7 +54,6 @@ static NSString *kNameCrossImage = @"crossIcon";
   }
   self.costLabel.text = totalString;
   oldTotal = total;
-  return total;
 }
 
 #pragma mark - UI Methods
@@ -99,41 +98,9 @@ static NSString *kNameCrossImage = @"crossIcon";
 }
 
 - (IBAction)leftButtonAction:(id)sender {
-  /*if (self.orderProgram.countDays > 2) {
-    [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
-  } else {
-    [self _changeBackgroundImageInButtonWithName:kNameCrossImage];
-  }
-  if (self.orderProgram.countDays != 1) {
-    self.orderProgram.countDays--;
-  }
-  [[BBUserService sharedService] updateOrderProgramWithOrderProgram:self.orderProgram];
-  [self _recalculationTotal];
-  NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
-  self.countLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long) self.orderProgram.countDays, days];
-  [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"minus" label:self.program.name];*/
 }
 
 - (IBAction)rightButtonAction:(id)sender {
-  /*
-  if (self.orderProgram.countDays == 1) {
-    [self _changeBackgroundImageInButtonWithName:kNameMinusImage];
-  }
-  self.orderProgram.countDays++;
-  [[BBUserService sharedService] updateOrderProgramWithOrderProgram:self.orderProgram];
-  [self _recalculationTotal];
-  NSString *days = [BBConstantAndColor getNumberEndingWith:self.orderProgram.countDays andEndings:@[@"день", @"дня", @"дней"]];
-  self.countLabel.text = [NSString stringWithFormat:@"%lu %@", (unsigned long) self.orderProgram.countDays, days];
-  [[BBAppAnalitics sharedService] sendUIActionWithCategory:@"cart" action:@"plus" label:self.program.name];
-   */
-}
-
-- (void)_recalculationTotal {
-  NSInteger old = oldTotal;
-  NSInteger new = [self totalForCountDays];
-  if ([self.delegate respondsToSelector:@selector(oldTotal:newTotal:)]) {
-    [self.delegate oldTotal:old newTotal:new];
-  }
 }
 
 - (void)_changeBackgroundImageInButtonWithName:(NSString *)image {

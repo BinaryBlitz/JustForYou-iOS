@@ -21,7 +21,7 @@
 @property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (strong, nonatomic) BBProgram *program;
 
-- (NSInteger)totalForCountDays;
+- (void)totalForCountDays;
 
 @end
 
