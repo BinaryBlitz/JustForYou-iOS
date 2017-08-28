@@ -10,9 +10,9 @@
 #import "BBPaymentModuleInput.h"
 
 #import "BBNewOrderAssembly.h"
-#import "BBNewOrderModuleInput.h";
+#import "BBNewOrderModuleInput.h"
 
-#import "BBUserService.h";
+#import "BBUserService.h"
 
 @interface BBBasketPresenter ()
 
