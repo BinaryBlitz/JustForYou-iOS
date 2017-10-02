@@ -193,7 +193,7 @@ static CGFloat offsetBottom = 10.0f;
 
 - (void)keyboardWillShow:(NSNotification *)notification {
   NSDictionary *info = [notification userInfo];
-  CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+  CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
 
   CGFloat contentOffsetY = -1 * (CGRectGetHeight(self.view.frame) - kbSize.height - CGRectGetMaxY(self.tableView.frame) - offsetBottom);
   [self.scrollView setContentOffset:CGPointMake(0, contentOffsetY) animated:YES];

@@ -276,7 +276,7 @@ BOOL isEditing = NO;
 - (void)keyboardWillShow:(NSNotification *)notification {
   isEditing = YES;
   NSDictionary *info = [notification userInfo];
-  CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+  CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
 
   UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
 
