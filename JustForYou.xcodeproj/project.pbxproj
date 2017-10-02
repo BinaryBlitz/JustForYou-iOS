@@ -3596,7 +3596,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3700,8 +3700,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f83c40de-641d-4a27-8779-f67dbd822c71";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore ru.binaryblitz.JustForYou";
+				PROVISIONING_PROFILE = "24d979f4-e168-4650-ac1a-c6e9083289f6";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc ru.binaryblitz.JustForYou";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
