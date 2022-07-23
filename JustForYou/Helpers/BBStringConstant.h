@@ -20,6 +20,9 @@ static NSString *kNibNameClearOrderCell = @"BBClearOrderTableViewCell";
 // D
 static NSString *kNibNameDescriptionCell = @"BBDescriptionTableViewCell";
 
+// E
+static NSString *kNibNameBBEmptyTableBackgroundView = @"BBEmptyTableBackgroundView";
+
 // F
 static NSString *kNibNameForWhomCell = @"BBForWhomTableViewCell";
 

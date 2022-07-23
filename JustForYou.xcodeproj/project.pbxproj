@@ -248,6 +248,8 @@
 		69703553BD3AE484FF7BD67A /* BBReplacementInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB8CE7E2E343800E2EC690 /* BBReplacementInteractor.m */; };
 		70217D8635D95BD16CF6B88E /* BBMapAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0527BAFE541F4B7C91EB2E /* BBMapAssembly.m */; };
 		81EA9BEE7B2837DE4743A269 /* BBListMyProgAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C759A8C9107FD0D1FA0440 /* BBListMyProgAssembly.m */; };
+		884629131F3AE50E004D514A /* BBEmptyTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884629121F3AE50E004D514A /* BBEmptyTableBackgroundView.xib */; };
+		884629161F3AE697004D514A /* BBEmptyTableBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 884629151F3AE697004D514A /* BBEmptyTableBackgroundView.m */; };
 		9728B3883C200BC2D89B88EE /* BBReplaceProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CEC927911CF0C7EF42FE24 /* BBReplaceProgramViewController.m */; };
 		A4FADD3BA19F4599D053248A /* BBMyHistoryRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F966C1E85ED13AFCDD7C2 /* BBMyHistoryRouter.m */; };
 		A6BE55BDBFA9613129242A12 /* BBReplacementPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06232E1700358C21DF4E5AA6 /* BBReplacementPresenter.m */; };
@@ -458,7 +460,7 @@
 		3A2D55371CF075D200A8EFF5 /* BBProgramsRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsRouter.m; sourceTree = "<group>"; };
 		3A2D55381CF075D200A8EFF5 /* BBProgramsRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsRouterInput.h; sourceTree = "<group>"; };
 		3A2D553A1CF075D200A8EFF5 /* BBProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewController.h; sourceTree = "<group>"; };
-		3A2D553B1CF075D200A8EFF5 /* BBProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BBProgramsViewController.m; sourceTree = "<group>"; tabWidth = 4; };
+		3A2D553B1CF075D200A8EFF5 /* BBProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = BBProgramsViewController.m; sourceTree = "<group>"; tabWidth = 2; };
 		3A2D553C1CF075D200A8EFF5 /* BBProgramsViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewInput.h; sourceTree = "<group>"; };
 		3A2D553D1CF075D200A8EFF5 /* BBProgramsViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramsViewOutput.h; sourceTree = "<group>"; };
 		3A2D553F1CF075D200A8EFF5 /* BBProgramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBProgramView.h; sourceTree = "<group>"; };
@@ -848,6 +850,9 @@
 		873428C385E649C815352982 /* BBReplaceProgramRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BBReplaceProgramRouter.m; sourceTree = "<group>"; };
 		877C3B7A1A37F6D469831CFE /* BBListMyProgModuleInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBListMyProgModuleInput.h; sourceTree = "<group>"; };
 		880460F615869981324FC20C /* libPods-JustForYou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustForYou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		884629121F3AE50E004D514A /* BBEmptyTableBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBEmptyTableBackgroundView.xib; sourceTree = "<group>"; };
+		884629141F3AE697004D514A /* BBEmptyTableBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEmptyTableBackgroundView.h; sourceTree = "<group>"; };
+		884629151F3AE697004D514A /* BBEmptyTableBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEmptyTableBackgroundView.m; sourceTree = "<group>"; };
 		893BF8386E047E0F189618DA /* BBMyHistoryAssembly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BBMyHistoryAssembly.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		89D8531F0673C97E2486C942 /* BBMapInteractorInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BBMapInteractorInput.h; sourceTree = "<group>"; };
 		8D1780934CB0BB3D398399E6 /* BBListMyProgInteractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBListMyProgInteractor.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -2570,6 +2575,9 @@
 				3AE5461E1D17D6C7006A1CDD /* BBTableAlertController.m */,
 				3A311FFD1CF74EA700D179D1 /* BBTextField.h */,
 				3A311FFE1CF74EA800D179D1 /* BBTextField.m */,
+				884629121F3AE50E004D514A /* BBEmptyTableBackgroundView.xib */,
+				884629141F3AE697004D514A /* BBEmptyTableBackgroundView.h */,
+				884629151F3AE697004D514A /* BBEmptyTableBackgroundView.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -3233,6 +3241,7 @@
 				3A1AB2791C9D8F6B0070E065 /* Main.storyboard in Resources */,
 				3A311FEF1CF6DE9A00D179D1 /* Orders.storyboard in Resources */,
 				3A2D56A71CF075D200A8EFF5 /* BBCalendarDeliveryTableViewCell.xib in Resources */,
+				884629131F3AE50E004D514A /* BBEmptyTableBackgroundView.xib in Resources */,
 				3A2D56881CF075D200A8EFF5 /* BBHeaderTableViewCell.xib in Resources */,
 				3A2D57121CF331C300A8EFF5 /* BBTextTableViewCell.xib in Resources */,
 				3A311FF11CF6DEAE00D179D1 /* Support.storyboard in Resources */,
@@ -3312,13 +3321,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JustForYou-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD4038CA48A2B8DA31243358 /* [CP] Copy Pods Resources */ = {
@@ -3327,9 +3339,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JustForYou/Pods-JustForYou-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3387,6 +3402,7 @@
 				3AC92B091D10D53C00036E70 /* BBPayment.m in Sources */,
 				3A2D56B41CF075D200A8EFF5 /* BBOrdersPresenter.m in Sources */,
 				3A2D570B1CF331C300A8EFF5 /* BBCommentTableViewCell.m in Sources */,
+				884629161F3AE697004D514A /* BBEmptyTableBackgroundView.m in Sources */,
 				3A2D56CB1CF075D200A8EFF5 /* BBSupportAssembly.m in Sources */,
 				3A4FAC261D91B205007A1A14 /* BBImageWithLoader.m in Sources */,
 				3A2D56961CF075D200A8EFF5 /* BBNavigationAssembly.m in Sources */,
@@ -3580,7 +3596,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3650,8 +3666,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gapbaev Boris (NP6L3K9A4S)";
-				CURRENT_PROJECT_VERSION = 156;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 164;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3661,7 +3677,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2532a767-9c16-473e-af7c-d9754edbf673";
+				PROVISIONING_PROFILE = "36646994-07ee-4ecf-8243-d329010d8c47";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development ru.binaryblitz.JustForYou";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -3675,7 +3691,7 @@
 				CODE_SIGN_ENTITLEMENTS = JustForYou/JustForYou.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
-				CURRENT_PROJECT_VERSION = 156;
+				CURRENT_PROJECT_VERSION = 164;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JustForYou/PrefixHeader.pch;
@@ -3684,8 +3700,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.JustForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f83c40de-641d-4a27-8779-f67dbd822c71";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore ru.binaryblitz.JustForYou";
+				PROVISIONING_PROFILE = "24d979f4-e168-4650-ac1a-c6e9083289f6";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc ru.binaryblitz.JustForYou";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

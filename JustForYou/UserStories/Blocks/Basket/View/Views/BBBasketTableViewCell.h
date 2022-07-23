@@ -10,7 +10,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UILabel *subnameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
@@ -22,7 +21,7 @@
 @property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (strong, nonatomic) BBProgram *program;
 
-- (NSInteger)totalForCountDays;
+- (void)totalForCountDays;
 
 @end
 

@@ -142,8 +142,11 @@ NSString *const kServerURL = @"https://justforyou-production.herokuapp.com";
 
   NSMutableArray *array = [NSMutableArray array];
   for (BBOrderProgram *ord in orders) {
+    if (ord.isPurchased) {
+      continue;
+    }
     NSNumber *numb1 = [NSNumber numberWithInteger:ord.programId];
-    NSNumber *numb2 = [NSNumber numberWithInteger:ord.countDays];
+    NSNumber *numb2 = [NSNumber numberWithInteger:ord.days.count];
     NSDictionary *par = @{@"program_id": numb1,
         @"number_of_days": numb2};
     [array addObject:par];

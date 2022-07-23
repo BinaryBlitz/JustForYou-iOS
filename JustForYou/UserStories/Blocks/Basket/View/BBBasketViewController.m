@@ -4,6 +4,14 @@
 
 #import "BBTableAlertController.h"
 
+#import "BBEmptyTableBackgroundView.h"
+
+#import "BBNewOrderAssembly.h"
+
+#import "BBNewOrderModuleInput.h"
+
+#import "BBOrderProgram.h"
+
 @interface BBBasketViewController () <UITableViewDelegate, UITableViewDataSource, BBBasketCellDelegate, BBTableAlertControllerDelegate, BBSwitchCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -17,6 +25,7 @@
 @property (strong, nonatomic) BBOrderProgram *removeOrder;
 
 @property (assign, nonatomic) NSInteger totalPrice;
+
 
 @end
 
@@ -32,12 +41,35 @@ static CGFloat heightFooter = 13.0f;
 - (void)viewDidLoad {
   [super viewDidLoad];
 
+  UINib *nib = [UINib nibWithNibName:kNibNameBBEmptyTableBackgroundView bundle:nil];
+
+  BBEmptyTableBackgroundView *backgroundView = [nib instantiateWithOwner:nil options:nil].firstObject;
+
+  __weak typeof(self) wself = self;
+
+  backgroundView.buttonHandler = ^{
+    typeof(wself) self = wself;
+    if (self == nil) {
+      return;
+    }
+    [self dismissViewControllerAnimated:YES completion: ^{
+      [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationResetBlocks object:nil];
+    }];
+  };
+
+  self.tableView.backgroundView = backgroundView;
+
   [self.output didTriggerViewReadyEvent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
+  if (self.programOrders.count == 0) {
+    self.tableView.backgroundView.hidden = NO;
+  } else {
+    self.tableView.backgroundView.hidden = YES;
+  }
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleBasketModule];
 }
 
@@ -83,18 +115,31 @@ static CGFloat heightFooter = 13.0f;
   self.totalPrice = 0;
   HQDispatchToMainQueue(^{
     [self.tableView reloadData];
+    [self calculateTotalPrice];
   });
+  if (orders.count == 0) {
+    [self updateTotalTableViewCell];
+    self.tableView.backgroundView.hidden = NO;
+  } else {
+    self.tableView.backgroundView.hidden = YES;
+  }
 }
 
 - (void)updateTableViewWithDelete:(NSArray *)objects {
   self.programOrders = objects;
-  self.totalPrice = 0;
   HQDispatchToMainQueue(^{
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:@[self.removeIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
     [self.tableView reloadData];
+    [self calculateTotalPrice];
   });
+  if (objects.count == 0) {
+    [self updateTotalTableViewCell];
+    self.tableView.backgroundView.hidden = NO;
+  } else {
+    self.tableView.backgroundView.hidden = YES;
+  }
 }
 
 - (void)presentAlertWithTitle:(NSString *)title message:(NSString *)message {
@@ -152,9 +197,36 @@ static CGFloat heightFooter = 13.0f;
   basketCell.program = program;
   basketCell.orderProgram = orderP;
   basketCell.delegate = self;
-  self.totalPrice += [basketCell totalForCountDays];
+  [basketCell totalForCountDays];
   [self updateTotalTableViewCell];
   return basketCell;
+}
+
+- (void)calculateTotalPrice {
+  NSInteger total = 0;
+  for (BBOrderProgram* orderProgram in self.programOrders) {
+    BBProgram *program = [BBProgram objectsWhere:@"programId=%d", orderProgram.programId].firstObject;
+    total += [self totalForCountDaysForOrderProgram:orderProgram program:program];
+  }
+  self.totalPrice = total;
+  [self updateTotalTableViewCell];
+}
+
+- (NSInteger)totalForCountDaysForOrderProgram:(BBOrderProgram *)orderProgram program:(BBProgram *)program {
+  NSInteger total = 0;
+  NSInteger daysCount = orderProgram.days.count;
+  if (orderProgram.days.count >= program.threshold) {
+    total = program.secondaryPrice * daysCount;
+  } else {
+    total = program.primaryPrice * daysCount;
+  }
+  return total;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  BBOrderProgram *orderP = [self.programOrders objectAtIndex:indexPath.row];
+  [self.output didSelectRowWithOrderProgram:orderP];
 }
 
 - (void)closeButtonDidTapWithBasketCell:(BBBasketTableViewCell *)cell {

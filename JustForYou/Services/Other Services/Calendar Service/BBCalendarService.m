@@ -113,6 +113,16 @@
   return [components day];
 }
 
+- (NSInteger)getCalendarMonth:(NSDate *)date {
+  NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:date];
+  return [components month];
+}
+
+- (NSInteger)getCalendarYear:(NSDate *)date {
+  NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:date];
+  return [components year];
+}
+
 - (BOOL)compareTwoDatesWithDay:(NSDate *)date {
   return ([date timeIntervalSinceNow] > 0);
 }

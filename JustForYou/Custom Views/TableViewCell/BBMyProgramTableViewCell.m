@@ -25,6 +25,23 @@
   self.subNameLabel.text = purchases.elementBlock.nameBlock;
 }
 
+
+- (void)setProgram:(BBProgram *)program {
+  _program = program;
+  self.nameLabel.text = program.name;
+  self.countDayLabel.textColor = [UIColor blackColor];
+  self.countDayLabel.font = [UIFont systemFontOfSize:15.0f];
+  self.subNameLabel.text = program.block.name;
+  [self setDaysCount:0];
+}
+
+- (void)setDaysCount:(NSInteger)daysCount {
+  NSString *days = [BBConstantAndColor getNumberEndingWith:daysCount andEndings:@[@"день", @"дня", @"дней"]];
+  self.countDayLabel.text = [NSString stringWithFormat:@"%ld %@", (long) daysCount, days];
+
+}
+
+
 - (void)layoutSubviews {
   [super layoutSubviews];
   self.indicatorView.layer.masksToBounds = YES;

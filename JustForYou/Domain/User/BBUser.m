@@ -1,15 +1,15 @@
 #import "BBUser.h"
 
-NSString *const kEmail = @"kEmail";
-NSString *const kUserName = @"kUserName";
-NSString *const kUserSurname = @"kUserSurname";
-NSString *const kUserId = @"kUserId";
-NSString *const kNumberPhone = @"kNumberPhone";
-NSString *const kOrdersProgramArray = @"kOrdersProgramArray";
-NSString *const kAddressArray = @"kAddressArray";
-NSString *const kBalance = @"kBalance";
-NSString *const kEnableBonuses = @"kEnableBonuses";
-NSString *const kCountPurchases = @"kCountPurchases";
+NSString *const kEmail = @"jEmail";
+NSString *const kUserName = @"jUserName";
+NSString *const kUserSurname = @"jUserSurname";
+NSString *const kUserId = @"jUserId";
+NSString *const kNumberPhone = @"jNumberPhone";
+NSString *const kOrdersProgramArray = @"jOrdersProgramsArray";
+NSString *const kAddressArray = @"jAddressArray";
+NSString *const kBalance = @"jBalance";
+NSString *const kEnableBonuses = @"jEnableBonuses";
+NSString *const kCountPurchases = @"jCountPurchases";
 
 @implementation BBUser
 

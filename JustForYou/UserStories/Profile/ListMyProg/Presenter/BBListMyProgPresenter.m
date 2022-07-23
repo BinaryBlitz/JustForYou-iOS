@@ -50,7 +50,6 @@
 }
 
 - (void)okButtonDidTapWithCountDays:(NSInteger)count programId:(NSInteger)programId {
-  [self.interactor addInOrdersUserOrderWithProgramId:programId countDay:count];
   [self.view changeImageAndPresentAlertControllerWithMessage:@"Программа успешно добавлена в корзину. Для продления пройдите в корзину для оплаты" cancelTitle:kNextButton];
 }
 

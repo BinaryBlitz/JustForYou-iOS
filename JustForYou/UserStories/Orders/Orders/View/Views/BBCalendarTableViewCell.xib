@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,17 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="459"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="459.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvS-FR-Nzx">
-                        <rect key="frame" x="0.0" y="320" width="320" height="80"/>
+                        <rect key="frame" x="0.0" y="320" width="320" height="79.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHj-DW-36E" customClass="BBDottedBorderButton">
-                                <rect key="frame" x="48" y="26" width="224" height="36"/>
+                                <rect key="frame" x="48" y="25" width="224" height="35"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="TfA-W6-xB9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                <state key="normal" title="ОФОРМИТЬ ДОСТАВКУ">
+                                <state key="normal" title="ИЗМЕНИТЬ ДАТЫ ДОСТАВКИ">
                                     <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -37,10 +40,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="HvS-FR-Nzx" secondAttribute="height" multiplier="125:31" id="BO9-Io-96p"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RHj-DW-36E" secondAttribute="bottom" id="DzK-9N-KHx"/>
                             <constraint firstItem="RHj-DW-36E" firstAttribute="top" secondItem="HvS-FR-Nzx" secondAttribute="top" constant="25" id="du0-q6-TYB"/>
                             <constraint firstItem="RHj-DW-36E" firstAttribute="leading" secondItem="HvS-FR-Nzx" secondAttribute="leading" constant="48" id="erj-TR-7DH"/>
                             <constraint firstAttribute="trailing" secondItem="RHj-DW-36E" secondAttribute="trailing" constant="48" id="lql-c7-a44"/>
-                            <constraint firstAttribute="bottom" secondItem="RHj-DW-36E" secondAttribute="bottom" constant="18" id="qso-Lo-6th"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LL-rU-rqy" customClass="JTHorizontalCalendarView">

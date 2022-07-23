@@ -12,14 +12,20 @@
 @property (strong, nonatomic) BBTimeTableViewCell *timeCell;
 
 @property (strong, nonatomic) BBPurchases *purchase;
+@property (strong, nonatomic) BBProgram *program;
+@property (strong, nonatomic) BBOrderProgram *orderProgram;
 @property (assign, nonatomic) NSInteger selectionDaysCount;
 @property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *currentComment;
+@property (assign, nonatomic) BOOL isConfigured;
 
 @end
 
 static CGFloat estimatedHeightCell = 44.0f;
 static CGFloat heightForHeaderSection = 45.0f;
 static CGFloat topInsetForTableView = -35.0f;
+
+BOOL isEditing = NO;
 
 @implementation BBNewOrderViewController
 
@@ -37,6 +43,7 @@ static CGFloat topInsetForTableView = -35.0f;
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  [self.tableView reloadData];
   [self.output viewWillAppear];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleNewOrderModule];
 }
@@ -56,17 +63,26 @@ static CGFloat topInsetForTableView = -35.0f;
   [self.commentCell.textView resignFirstResponder];
 }
 
+#pragma mark - BBCommentTableViewCellDelegate
+
+- (void)commentDidChange:(NSString *)comment {
+  self.currentComment = comment;
+}
+
 #pragma mark - Методы BBNewOrderViewInput
 
 - (void)setupInitialState {
   [self _settingsTableViewAndRegisterNib];
   self.address = @"";
+  self.currentComment = @"";
   self.navigationItem.title = kNameTitleNewOrderModule;
   [self _registerNotificationKeyboard];
+  self.isConfigured = NO;
 }
 
 - (void)deleteAddress {
   self.address = @"";
+  self.currentComment = @"";
 }
 
 - (void)countsDaysInCalendar:(NSInteger)counts {
@@ -80,6 +96,31 @@ static CGFloat topInsetForTableView = -35.0f;
   });
 }
 
+- (void)popViewController {
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)programWithProgram:(BBProgram *)program {
+  self.program = program;
+  HQDispatchToMainQueue(^{
+    [self.tableView reloadData];
+  });
+}
+
+- (void)orderProgramWithProgram:(BBOrderProgram *)orderProgram program:(BBProgram *)program {
+  if (self.orderProgram != orderProgram) {
+    self.isConfigured = NO;
+  }
+  self.program = program;
+  self.orderProgram = orderProgram;
+  self.selectionDaysCount = orderProgram.days.count;
+  self.address = orderProgram.address.street;
+  self.currentComment = orderProgram.commentOrder;
+  [self.tableView reloadData];
+  [self.tableView layoutIfNeeded];
+  self.isConfigured = YES;
+}
+
 - (void)_registerNotificationKeyboard {
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWillShow:)
@@ -89,6 +130,10 @@ static CGFloat topInsetForTableView = -35.0f;
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardDidHide:)
+                                               name:UIKeyboardDidHideNotification
                                              object:nil];
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
   tap.cancelsTouchesInView = NO;
@@ -158,7 +203,12 @@ static CGFloat topInsetForTableView = -35.0f;
   UITableViewCell *cell;
   if (indexPath.section == 0) {
     BBMyProgramTableViewCell *myProgramCell = [self.tableView dequeueReusableCellWithIdentifier:kMyProgramCellIdentifire];
-    myProgramCell.purchases = self.purchase;
+    if (self.purchase) {
+      myProgramCell.purchases = self.purchase;
+    } else {
+      myProgramCell.program = self.program;
+      [myProgramCell setDaysCount:self.selectionDaysCount];
+    }
     cell = myProgramCell;
   } else if (indexPath.section == 1) {
     if (indexPath.row == 0) {
@@ -183,11 +233,18 @@ static CGFloat topInsetForTableView = -35.0f;
     } else {
       BBTimeTableViewCell *timeCell = [self.tableView dequeueReusableCellWithIdentifier:kTimeCellIdentifire];
       timeCell.delegate = self;
+      if (!self.isConfigured && self.orderProgram) {
+        [timeCell setStartHour:self.orderProgram.hour minute:self.orderProgram.minute];
+      }
       self.timeCell = timeCell;
       cell = timeCell;
     }
   } else {
     BBCommentTableViewCell *commentCell = [[NSBundle mainBundle] loadNibNamed:kNibNameCommentCell owner:self options:nil].lastObject;
+    self.commentCell = commentCell;
+    if (!self.isConfigured && self.currentComment) {
+      [commentCell setComment:self.currentComment];
+    }
     commentCell.delegate = self;
     cell = commentCell;
   }
@@ -196,16 +253,19 @@ static CGFloat topInsetForTableView = -35.0f;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (indexPath.section == 2) {
-    self.commentCell = (BBCommentTableViewCell *) cell;
+    //self.commentCell = (BBCommentTableViewCell *) cell;
   }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  if (isEditing) {
+    return;
+  }
   if (indexPath.section == 1) {
     if (indexPath.row == 0) {
       [self.output countDayCellDidTap];
-    } else {
+    } else if (indexPath.row == 1) {
       [self.output adresCellDidTap];
     }
   }
@@ -214,8 +274,9 @@ static CGFloat topInsetForTableView = -35.0f;
 #pragma mark - Notification Methods
 
 - (void)keyboardWillShow:(NSNotification *)notification {
+  isEditing = YES;
   NSDictionary *info = [notification userInfo];
-  CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+  CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
 
   UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
 
@@ -230,12 +291,16 @@ static CGFloat topInsetForTableView = -35.0f;
   [self.tableView setContentOffset:CGPointMake(0, -topInsetForTableView) animated:YES];
 }
 
+- (void)keyboardDidHide:(NSNotification *)notification {
+  isEditing = NO;
+}
+
 - (void)presentAlertForMessage:(NSString *)message {
   [self presentAlertWithTitle:kNoteTitle message:message];
 }
 
 - (void)startHour:(NSInteger)startHour startMinute:(NSInteger)startMinute {
-  [self.output toOrderButtonDidTapWithComment:self.commentCell.textView.text startHour:startHour startMinute:startMinute];
+  [self.output toOrderButtonDidTapWithComment:self.currentComment startHour:startHour startMinute:startMinute];
 }
 
 #pragma mark - Layout Methods

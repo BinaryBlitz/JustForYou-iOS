@@ -28,7 +28,13 @@ static CGFloat sideOffset = 35.0f;
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
+  [self.navigationController setNavigationBarHidden:NO];
+  [self setNeedsStatusBarAppearanceUpdate];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleProgramModule];
+}
+
+- (BOOL)prefersStatusBarHidden {
+  return NO;
 }
 
 //#pragma mark - Actions

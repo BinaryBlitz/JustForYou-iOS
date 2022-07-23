@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,7 +36,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена за 1 день: 5800 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-7Q-WYp">
-                            <rect key="frame" x="20" y="62" width="144" height="15"/>
+                            <rect key="frame" x="20" y="69" width="144" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="VJr-tx-StF"/>
                             </constraints>
@@ -45,7 +45,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При заказе от 1 дней: 5500 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGC-ee-Yfw">
-                            <rect key="frame" x="20" y="80" width="182" height="15"/>
+                            <rect key="frame" x="20" y="87" width="182" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="oQg-Vo-dF5"/>
                             </constraints>
@@ -54,16 +54,16 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Самый комфортный путь к стройности для тех, кто хочет похудеть " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdl-8T-XDl">
-                            <rect key="frame" x="20" y="98" width="260" height="51"/>
+                            <rect key="frame" x="20" y="112" width="260" height="50.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="gdl-8T-XDl" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="9v1-Py-72e"/>
-                        <constraint firstItem="Iyv-7Q-WYp" firstAttribute="top" secondItem="ehH-pO-iVz" secondAttribute="bottom" constant="3" id="HAl-Ig-Akx"/>
+                        <constraint firstItem="Iyv-7Q-WYp" firstAttribute="top" secondItem="ehH-pO-iVz" secondAttribute="bottom" constant="10" id="HAl-Ig-Akx"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gdl-8T-XDl" secondAttribute="bottom" constant="1" id="HCl-Bb-dzA"/>
                         <constraint firstItem="ehH-pO-iVz" firstAttribute="top" secondItem="us7-RV-Lt1" secondAttribute="top" constant="16" id="HD8-9b-lij"/>
                         <constraint firstAttribute="trailing" secondItem="ehH-pO-iVz" secondAttribute="trailing" constant="20" id="JCr-gB-aQc"/>
@@ -72,7 +72,7 @@
                         <constraint firstItem="EGC-ee-Yfw" firstAttribute="leading" secondItem="ehH-pO-iVz" secondAttribute="leading" id="abo-hd-IHO"/>
                         <constraint firstItem="EGC-ee-Yfw" firstAttribute="top" secondItem="Iyv-7Q-WYp" secondAttribute="bottom" constant="3" id="gyQ-YC-SCC"/>
                         <constraint firstItem="gdl-8T-XDl" firstAttribute="trailing" secondItem="ehH-pO-iVz" secondAttribute="trailing" id="qNZ-dN-79e"/>
-                        <constraint firstItem="gdl-8T-XDl" firstAttribute="top" secondItem="EGC-ee-Yfw" secondAttribute="bottom" constant="3" id="y1I-7K-1QD"/>
+                        <constraint firstItem="gdl-8T-XDl" firstAttribute="top" secondItem="EGC-ee-Yfw" secondAttribute="bottom" constant="10" id="y1I-7K-1QD"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5R-sL-Fap" customClass="BBUnderlineButton">
@@ -90,7 +90,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="us7-RV-Lt1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6hs-B9-oKP"/>
                 <constraint firstItem="q5R-sL-Fap" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="POD-gv-x7s"/>

@@ -4,7 +4,7 @@
 
 - (void)setupInitialState;
 
-- (void)purchaseForCalendar:(BBPurchases *)purchase selectionDates:(NSArray *)days;
+- (void)purchaseForCalendar:(BBPurchases *)purchase program:(BBProgram *)program selectionDates:(NSArray *)days;
 
 - (NSArray *)currentSelectionDates;
 

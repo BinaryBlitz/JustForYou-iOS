@@ -5,10 +5,14 @@
 #import "BBUserService.h"
 #import "BBServerService.h"
 #import "BBDataBaseService.h"
+#import "BBCalendarService.h"
 
 @implementation BBBasketInteractor
 
 #pragma mark - Методы BBBasketInteractorInput
+
+typedef void (^ArrayCompletion)(NSArray *purchases);
+typedef void (^DeliveryCompletion)(BOOL success);
 
 - (void)updateUserAndShowCurrentBonuses {
   [[BBServerService sharedService] showUserWithUserToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BBUser *user, NSError *error) {
@@ -38,7 +42,8 @@
   HQDispatchToMainQueue(^{
     cardId = card.payCardId;
   });
-  [[BBServerService sharedService] createOrderWithOrders:user.ordersProgramArray
+  NSArray* orders = user.ordersProgramArray;
+  [[BBServerService sharedService] createOrderWithOrders:orders
                                                 apiToken:[[BBUserService sharedService] tokenUser]
                                              numberPhone:user.numberPhone
                                               useBonuses:use
@@ -54,7 +59,7 @@
                                                     } else {
                                                       [[BBServerService sharedService] createPaymentsWithPayCard:cardId orderId:orderId apiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, BOOL paid, NSError *error) {
                                                         if (paid) {
-                                                          [self.output paymentSuccessfull];
+                                                          [self createDeliveries];
                                                         } else {
                                                           [self.output paymentError];
                                                         }
@@ -68,6 +73,85 @@
                                                 }
                                               }];
 }
+
+- (void)createDeliveries {
+  [self listPurchasesUserWithCompletion:^(NSArray *purchases) {
+    BBUser *user = [[BBUserService sharedService] currentUser];
+    NSArray* ordersProgramArray = user.ordersProgramArray;
+
+    NSArray * filteredPurchases = [purchases filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+      BBPurchases* purchase = evaluatedObject;
+      for (BBOrderProgram * program in ordersProgramArray) {
+        if (program.programId == purchase.programId) {
+          return true;
+        }
+      }
+      return false;
+    }]];
+
+    [self deleteAllOrderProgramsOnUser];
+    [self currentOrdersInBasket];
+
+    [filteredPurchases enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+      BBPurchases* purchase = obj;
+      BBOrderProgram* orderProgram = [ordersProgramArray objectAtIndex:idx];
+      [self createDeliveryOnServerWithProgram:orderProgram purchase:purchase completion:^(BOOL success) {
+        if (!success) {
+          [self.output deliveryErrorWithOrder:orderProgram];
+        }
+        if (idx == filteredPurchases.count - 1) {
+          [self.output paymentSuccessfull];
+        }
+      }];
+    }];
+  }];
+}
+
+- (void)listPurchasesUserWithCompletion:(ArrayCompletion)completion {
+  [[BBServerService sharedService] listPurchasesWithApiToken:[[BBUserService sharedService] tokenUser] completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+    if (response.kConnectionServer == kSuccessfullyConnection) {
+      if (response.serverError == kServerErrorSuccessfull) {
+        completion(objects);
+      } else {
+        [self.output errorServer];
+      }
+    } else {
+      [self.output errorNetwork];
+    }
+  }];
+}
+
+- (void)createDeliveryOnServerWithProgram: (BBOrderProgram *)orderProgram purchase:(BBPurchases *)purchase completion:(DeliveryCompletion)completion {
+  NSMutableArray *arrayForTransport = [NSMutableArray array];
+  for (NSDate __strong *date in orderProgram.days) {
+    date = [[BBCalendarService sharedService] addTimeForDate:date hour:orderProgram.hour minute:orderProgram.minute];
+    NSString *dat = [[BBCalendarService sharedService] stringForDate:date];
+    NSDictionary *params = @{@"scheduled_for": dat,
+                             @"address_id": [NSNumber numberWithInteger:orderProgram.address.addressId],
+                             @"comment": orderProgram.commentOrder};
+    [arrayForTransport addObject:params];
+  }
+  [[BBServerService sharedService] createDeliveriesWithApiToken:[[BBUserService sharedService] tokenUser]
+                                                        purchId:[NSString stringWithFormat:@"%ld", (long) purchase.purchasesId]
+                                                arrayDeliveries:arrayForTransport completion:^(BBServerResponse *response, NSArray *objects, NSError *error) {
+                                                  if (response.kConnectionServer == kSuccessfullyConnection) {
+                                                    if (response.serverError == kServerErrorSuccessfull) {
+                                                      HQDispatchToMainQueue(^{
+                                                        [[BBDataBaseService sharedService] addOrUpdateOrdersFromArray:objects callback:^{
+                                                          completion(YES);
+                                                        }];
+                                                      });
+                                                    } else {
+                                                      completion(NO);
+                                                      [self.output errorServer];
+                                                    }
+                                                  } else {
+                                                    completion(NO);
+                                                    [self.output errorNetwork];
+                                                  }
+                                                }];
+}
+
 
 - (NSArray *)deleteOrderProgramOnUserArray:(BBOrderProgram *)orderProgram {
   [[BBUserService sharedService] deleteInOrdersUserOrderProgram:orderProgram];

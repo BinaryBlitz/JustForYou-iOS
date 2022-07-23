@@ -11,6 +11,7 @@
 - (NSString *)tokenUser;
 - (void)saveUserApiToken:(NSString *)apiToken;
 
+- (void)getCurrentUserWithCompletion:(void(^)(BBUser* ))completion;
 - (BBUser *)currentUser;
 - (void)saveCurrentUser:(BBUser *)user;
 - (void)updateUserWithUser:(BBUser *)user;
@@ -19,7 +20,7 @@
 - (void)setEnableBonuses:(BOOL)state;
 - (void)logOutUser;
 
-- (void)addOrderProgramToUserWithProgramId:(NSInteger)programId countDays:(NSInteger)countDays;
+- (void)addOrderProgramToUserWithProgram:(BBProgram *)program days:(NSArray*)days address:(BBAddress*)address comment:(NSString*)comment hour:(NSInteger)hour minute:(NSInteger)minute;
 - (void)updateOrderProgramWithOrderProgram:(BBOrderProgram *)orderProgram;
 - (void)deleteInOrdersUserOrderProgram:(BBOrderProgram *)order;
 - (void)deleteAllOrderProgramInUser;

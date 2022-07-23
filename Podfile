@@ -7,10 +7,6 @@ target 'JustForYou' do
   # Database
   pod 'Realm', '~> 2.4'
 
-  # Fabric
-  pod 'Fabric', '~> 1.6'
-  pod 'Crashlytics', '~> 3.8'
-
   # UI
   pod 'JTCalendar', git: 'https://github.com/tercteberc/JTCalendar.git'
   pod 'SDWebImage', '~> 3.8'
@@ -22,4 +18,8 @@ target 'JustForYou' do
 
   # Google Analytics
   pod 'Google/Analytics', '~> 3.0'
+
+  # Fabric
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

@@ -60,6 +60,7 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
+  [self updateAddBasketButton];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleProgramModule];
 }
 
@@ -93,13 +94,15 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 #pragma mark - Методы BBProgramsViewInput
 
 - (void)updateAddBasketButton {
-  BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
-  if (program.individualPrice) {
-    self.addToBasketWidthConstraint.constant = 200;
-    [self.addToBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
-  } else {
-    [self.addToBasketButton setTitle:kAddToBasketTitle forState:UIControlStateNormal];
-    self.addToBasketWidthConstraint.constant = 120;
+  if ([self.pageControl currentPage] < [self.programsArray count]) {
+    BBProgram *program = [self.programsArray objectAtIndex:self.pageControl.currentPage];
+    if (program.individualPrice) {
+      self.addToBasketWidthConstraint.constant = 200;
+      [self.addToBasketButton setTitle:kCallManagerTitle forState:UIControlStateNormal];
+    } else {
+      [self.addToBasketButton setTitle:kAddToBasketTitle forState:UIControlStateNormal];
+      self.addToBasketWidthConstraint.constant = 120;
+    }
   }
 }
 
@@ -174,6 +177,7 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
       self.navigationItem.title = kNameTitleNoneModule;
     }
   });
+  [self updateAddBasketButton];
 }
 
 - (void)getIdInPrograms {
@@ -183,7 +187,12 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
   }
 }
 
+- (void) popToRootViewController {
+  [self.navigationController popToRootViewControllerAnimated:true];
+}
+
 - (void)_reloadViewsInScrollView {
+  self.pageControl.currentPage = 0;
   if ([self.scrollView.subviews count] > 0) {
     for (UIView *view in self.scrollView.subviews) {
       [view removeFromSuperview];
@@ -303,16 +312,17 @@ static NSString *const kAddToBasketTitle = @"КУПИТЬ";
 - (void)_initWightProgramView {
   kModelIPhone model = [BBConstantAndColor modelDevice];
   if (model == kModelIPhone4 || model == kModelIPhone5) {
-    self.wightProgramView = 256.0f;
-    self.insetfForView = 16.0f;
+    self.wightProgramView = 256.0f + 44.0f;
+    self.insetfForView = 16.0f - 11.0f;
   } else if (model == kModelIPhone6) {
-    self.wightProgramView = 300.0f;
-    self.insetfForView = 18.75f;
+    self.wightProgramView = 300.0f + 32.0f;
+    self.insetfForView = 18.75f - 8.0f;
   } else {
-    self.wightProgramView = 332.0f;
-    self.insetfForView = 20.5f;
+    self.wightProgramView = 332.0f + 40.0f;
+    self.insetfForView = 20.5f - 10.0f;
   }
 }
+
 
 #pragma mark - Layout Views
 

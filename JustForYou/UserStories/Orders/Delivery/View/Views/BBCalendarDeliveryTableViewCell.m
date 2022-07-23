@@ -27,10 +27,11 @@ NSInteger maximumOrderHour = 11;
 - (void)awakeFromNib {
   [super awakeFromNib];
   [self _initCalendarManager];
-  self.purchaseColor = [BBConstantAndColor applicationGreenColor];
+  self.purchaseColor = [BBConstantAndColor applicationOrangeColor];
   self.selectDays = NO;
   self.selectWeekend = NO;
   self.loadNextPage = YES;
+  self.isNewOrder = NO;
   self.countDayInOrder = 0;
 }
 
@@ -67,7 +68,7 @@ NSInteger maximumOrderHour = 11;
 - (void)successivelySelectedDay {
   self.loadNextPage = YES;
   if ([self.datesSelected count] > 0) {
-    if ([self.datesSelected count] < self.countDayInOrder) {
+    if ([self.datesSelected count] < self.countDayInOrder || self.isNewOrder) {
       self.datesSelected = [self.calendarManager.dateHelper daysFromCurrentDatesArray:self.datesSelected forInterval:self.countDayInOrder - [self.datesSelected count]];
       [self _setTextInLabel];
       [self.calendarManager reload];
@@ -82,7 +83,7 @@ NSInteger maximumOrderHour = 11;
 - (void)successivelySelectedDayWithoutWeekend {
   self.loadNextPage = YES;
   if ([self.datesSelected count] > 0) {
-    if ([self.datesSelected count] < self.countDayInOrder) {
+    if ([self.datesSelected count] < self.countDayInOrder || self.isNewOrder) {
       self.datesSelected = [self.calendarManager.dateHelper daysWithoutWeekendFromCurrentDatesArray:self.datesSelected
                                                                                         forInterval:self.countDayInOrder - [self.datesSelected count]];
       [self _setTextInLabel];
@@ -213,10 +214,12 @@ NSInteger maximumOrderHour = 11;
   } else {
     if ([[BBCalendarService sharedService] compareTwoDatesWithDay:dayView.date]) {
       NSInteger selectedDay = [[BBCalendarService sharedService] getCalendarDay:dayView.date];
-      NSDateComponents *currentDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitHour fromDate:[NSDate date]];
-      if ([currentDateComponents hour] >= maximumOrderHour && selectedDay - [currentDateComponents day] <= 1) {
+        NSInteger selectedMonth = [[BBCalendarService sharedService] getCalendarMonth:dayView.date];
+        NSInteger selectedYear= [[BBCalendarService sharedService] getCalendarYear:dayView.date];
+      NSDateComponents *currentDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitYear | NSCalendarUnitMonth fromDate:[NSDate date]];
+      if ([currentDateComponents hour] >= maximumOrderHour && selectedDay - [currentDateComponents day] <= 1 && selectedMonth == [currentDateComponents month] && selectedYear == [currentDateComponents year]) {
         [self.delegate showAlertViewWithMessage:@"Заказать доставку на следующий день можно только до 11:00"];
-      } else if ([self.datesSelected count] < self.countDayInOrder) {
+      } else if ([self.datesSelected count] < self.countDayInOrder || self.isNewOrder) {
         [self _addDayInArray:dayView.date];
         dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
         [UIView transitionWithView:dayView
@@ -287,7 +290,13 @@ NSInteger maximumOrderHour = 11;
 }
 
 - (void)_setTextInLabel {
-  self.informationLabel.text = [NSString stringWithFormat:@"Выбрано %lu дней из %ld", (unsigned long) [self.datesSelected count], (long) self.countDayInOrder];
+    NSString *text;
+    if (self.isNewOrder) {
+        text = [NSString stringWithFormat:@"Выбрано %lu дней", (unsigned long) [self.datesSelected count]];
+    } else {
+        [NSString stringWithFormat:@"Выбрано %lu дней из %ld", (unsigned long) [self.datesSelected count], (long) self.countDayInOrder];
+    }
+    self.informationLabel.text = text;
 }
 
 #pragma mark - Lazy Load

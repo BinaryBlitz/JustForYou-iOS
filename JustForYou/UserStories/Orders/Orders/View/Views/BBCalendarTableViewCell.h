@@ -13,9 +13,14 @@
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarView;
 @property (weak, nonatomic) IBOutlet BBDottedBorderButton *addNewOrderButton;
 
+@property (strong, nonatomic) NSDate *dateSelected;
 @property (strong, nonatomic) id <BBCalendarTableViewCellDelegate> delegate;
 
 @property (strong, nonatomic) NSArray *ordersForCalendar;
+
+- (NSArray *)programsInDay:(NSDate *)date;
+
+- (BOOL)isInDatesSelected:(NSDate *)date;
 
 @end
 

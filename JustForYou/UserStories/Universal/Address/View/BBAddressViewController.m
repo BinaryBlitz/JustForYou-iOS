@@ -69,6 +69,7 @@ static CGFloat heightHeaderSection = 10.0f;
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
+
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_resignFirstResponderWithTap)];
   tap.cancelsTouchesInView = NO;
   [self.tableView addGestureRecognizer:tap];
@@ -219,7 +220,7 @@ static CGFloat heightHeaderSection = 10.0f;
 
 - (void)keyboardWillShow:(NSNotification *)notification {
   NSDictionary *info = [notification userInfo];
-  CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+  CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
   UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
   self.tableView.contentInset = contentInsets;
 }

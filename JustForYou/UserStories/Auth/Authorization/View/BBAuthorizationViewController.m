@@ -48,7 +48,13 @@ BOOL didLayoutAnimated = NO;
   [super viewWillAppear:animated];
   [self.output viewWillAppear];
   [self layoutAnimatedIfNeeded];
+  [self.navigationController setNavigationBarHidden:YES];
+  [self setNeedsStatusBarAppearanceUpdate];
   [[BBAppAnalitics sharedService] sendControllerWithName:kNameTitleAuthorizateModule];
+}
+
+- (BOOL)prefersStatusBarHidden {
+  return YES;
 }
 
 - (void)layoutAnimatedIfNeeded {
@@ -64,12 +70,13 @@ BOOL didLayoutAnimated = NO;
     self.topYouViewConstraint.constant = topViewConstraintConstant;
     [self.view layoutIfNeeded];
   }                completion:^(BOOL finished) {
-    BBUser *user = [[BBUserService sharedService] currentUser];
-    if (user) {
-      [self.output authorizedDidFinishAnimation];
-    } else {
-      [self showTableView];
-    }
+     [[BBUserService sharedService] getCurrentUserWithCompletion:^(BBUser * user) {
+       if (user) {
+         [self.output authorizedDidFinishAnimation];
+       } else {
+         [self showTableView];
+       }
+     }];
   }];
 }
 
@@ -248,7 +255,7 @@ BOOL didLayoutAnimated = NO;
 
 - (void)keyboardWillShow:(NSNotification *)notification {
   NSDictionary *info = [notification userInfo];
-  CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+  CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
 
   CGFloat contentOffsetY = -1 * (CGRectGetHeight(self.view.frame) - kbSize.height - CGRectGetMaxY(self.tableView.frame) - offsetBottom);
   [self.scrollView setContentOffset:CGPointMake(0, contentOffsetY) animated:YES];
